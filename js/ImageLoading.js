@@ -34,7 +34,7 @@ function loadImages() {
         { imgName: starSheet, theFile: "Stars.png" },
 
         // player related
-        { imgName: player1Sheet, theFile: "GTypePlayer1.png" },
+        { imgName: player1Sheet, theFile: "G-TypePlayer1.png" },
         { imgName: playerShots, theFile: "PlayerShots.png" },
 
         // power ups
