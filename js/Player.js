@@ -62,10 +62,10 @@ function Player(position = {x:0, y:0}) {
 					newShot = shots.splice(0, 1)[0];
 				} else {
 					newShot = new PlayerShot();
-					scene.addEntity(newShot, true);
 				}
 				
 				newShot.reset();
+				scene.addEntity(newShot, true);
 				newShot.setPosition({x:position.x + 50, y:position.y + 7});
 							
 				shots.push(newShot);

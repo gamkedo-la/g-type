@@ -1,9 +1,11 @@
 //Game Scene
 function GameScene(levelIndex) {
 	const data = LevelData[levelIndex];
+	this.worldPos = 0;
 	this.gameIsOver = false;
 	const starfield = new Starfield();
-	const player = new Player({x:canvas.width / 2, y:canvas.height / 2});
+	const player = new Player(data.getPlayerSpawn());
+//	const player = new Player({x:canvas.width / 2, y:canvas.height / 2});
 	const collisionManager = new CollisionManager(player);
 	const gameEntities = new Set();
 	
@@ -19,14 +21,19 @@ function GameScene(levelIndex) {
 	collisionManager.addEntity(testBullet, false);
 	
 	this.update = function(deltaTime) {
+		this.worldPos++;
 		starfield.update(deltaTime);
 		player.update(deltaTime);
 		
 		for(let entity of gameEntities) {
-			entity.update(deltaTime);
+			entity.update(deltaTime, this.worldPos);
 		}
 		
 		const collisions = collisionManager.doCollisionChecks();
+	}
+	
+	this.setWorldPos = function(newWorldPos) {
+		this.worldPos = newWorldPos;
 	}
 	
 	this.draw = function() {

@@ -1,7 +1,8 @@
 //FlyingEnemy1
-function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = MovementPattern.None) {
+function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.None, timeOffset = 0, spawnPos = 0) {
 	this.type = EntityType.FlyingEnemy1;
 	this.group = null;
+	this.worldPos = 0;
 	
 	const SPRITE_SCALE = 2; //TODO: would like to increase the size of the sprite and change this back to 1.
 	this.position = position;
@@ -20,19 +21,27 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = MovementPatt
 									  );
 	let didCollide = false;
 	
-	this.update = function(deltaTime) {
+	this.path = new EnemyPath(PathType.Sine, this.position, speed, [], timeOffset);
+	
+	this.update = function(deltaTime, worldPos) {
+		this.worldPos = worldPos;
 		if(!this.isVisible) {return;}
+		if(worldPos < spawnPos) {return;}//don't update if the world hasn't scrolled far enough to spawn
 		
 		let availableTime = unusedTime + deltaTime;
 		while(availableTime > SIM_STEP) {
 			availableTime -= SIM_STEP;
-			this.position.x += (vel.x * SIM_STEP / 1000);
-			if(pattern == MovementPattern.None) {
+			const nextPos = this.path.nextPoint(SIM_STEP);
+			if(pattern == PathType.None) {
+				this.position.x += (vel.x * SIM_STEP / 1000);
 				this.position.y += (vel.y * SIM_STEP / 1000);
-			} else if(pattern == MovementPattern.Sine){
-				this.position.y += (0.005 * canvas.height * Math.sin(Math.PI * timer.timeSinceUpdateForEvent("flyingEnemy1Spawn") / 1000));
+			} else {
+				if(nextPos != undefined) {
+					this.position.x += nextPos.x;
+					this.position.y += nextPos.y;
+				}
 			}
-			
+						
 			if(this.position.x < 0) {
 				this.isVisible = false;
 				return;
@@ -47,6 +56,7 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = MovementPatt
 	
 	this.draw = function() {
 		if(!this.isVisible) {return;}
+		if(this.worldPos < spawnPos) {return;}
 		
 		sprite.drawAt(this.position, size);
 		this.collisionBody.draw();

@@ -32,3 +32,25 @@ function EnemyGroup() {
 		}
 	}	
 }
+
+const PathType = {
+	None:"none",
+	Sine:"sine",
+	Points:"points"
+}
+
+function EnemyPath(type = PathType.None, start = {x:0, y:0}, speed = 0, points = [], timeOffset = 0) {
+	let elapsedTime = 0;
+	this.nextPoint = function(deltaTime) {
+		elapsedTime += deltaTime;
+		if(elapsedTime >= timeOffset) {
+			if(type == PathType.None) {
+				return {};
+			} else if(type == PathType.Sine) {
+				return {x:speed * deltaTime / 1000, y:0.0025 * canvas.height * Math.sin((elapsedTime - timeOffset) / 500)};
+			} else if(type == PathType.Points) {
+				
+			}
+		}
+	}
+}
