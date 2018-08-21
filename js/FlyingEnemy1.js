@@ -71,7 +71,7 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	
 	this.didCollideWith = function(otherCollider) {
 		if((this.group != null) && (this.group != undefined)) {
-			this.group.remove(this);
+			this.group.remove(this, this.worldPos);
 		}
 		scene.removeEntity(this, false);
 	}

@@ -10,9 +10,9 @@ function Player(position = {x:0, y:0}) {
 	const size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	let hasShield = false;
 	
-	const BASE_SPEED = 50;
-	const MAX_SHOTS_ON_SCREEN = 3;
-	let currentShotDelay = 512;
+	const BASE_SPEED = 75;
+	const MAX_SHOTS_ON_SCREEN = 10;
+	let currentShotDelay = 256;
 
 	const velocity = {x:0, y:0};
 	const shots = [];

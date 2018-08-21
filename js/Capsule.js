@@ -1,5 +1,6 @@
 //Power Up
-function PowerUp(position = {x:0, y:0}) {
+function PowerUp(position = {x:0, y:0}, initialWorldPos) {
+	this.worldPos = initialWorldPos;
 	this.type = EntityType.PowerUp;
 	
 	this.position = position;
@@ -15,7 +16,12 @@ function PowerUp(position = {x:0, y:0}) {
 	this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:this.position.x, y:this.position.y}});
 	let didCollide = false;
 
-	this.update = function(deltaTime) {
+	this.update = function(deltaTime, worldPos) {
+		this.position.x -= (worldPos - this.worldPos);
+		this.worldPos = worldPos;
+		
+		this.collisionBody.setPosition(this.position);
+		
 		sprite.update(deltaTime);
 	}
 	

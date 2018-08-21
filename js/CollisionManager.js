@@ -49,6 +49,7 @@ function CollisionManager(player) {
 			if((entity.position.x > canvas.width) || (entity.position.x < 0)) {continue;}//entity is not on screen => bail out early
 			
 			for(let i = 0; i < this.playerBullets.length; i++) {
+				if(entity.type == EntityType.PowerUp) {continue;}//can't shoot the power ups
 				if(!this.playerBullets[i].isActive) {continue;}//don't check collisions on inactive bullets
 				
 				const aBulletBody = this.playerBullets[i].collisionBody;

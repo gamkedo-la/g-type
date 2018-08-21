@@ -12,7 +12,7 @@ function EnemyGroup() {
 	this.enemies = [];
 	this.hasPowerUp = true;
 	
-	this.add = function(newEnemy) {
+	this.add = function(newEnemy, worldPos) {
 		this.enemies.push(newEnemy);
 		
 		newEnemy.group = this;
@@ -20,14 +20,14 @@ function EnemyGroup() {
 		return newEnemy;
 	}
 	
-	this.remove = function(enemyToRemove) {
+	this.remove = function(enemyToRemove, worldPos) {
 		const indexToRemove = this.enemies.indexOf(enemyToRemove);
 		this.enemies.splice(indexToRemove, 1);
 		
 		if((this.enemies.length == 0) && (this.hasPowerUp)) {
 			this.hasPowerUp = false;
 			
-			const newPowerUp = new PowerUp({x:enemyToRemove.position.x, y:enemyToRemove.position.y});
+			const newPowerUp = new PowerUp({x:enemyToRemove.position.x, y:enemyToRemove.position.y}, worldPos);
 			scene.addEntity(newPowerUp, false);
 		}
 	}	
