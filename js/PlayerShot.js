@@ -51,30 +51,41 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	
 	this.update = function(deltaTime) {
 		if(!this.isVisible) {return;}
-				
-		let availableTime = unusedTime + deltaTime;
-		while(availableTime > SIM_STEP) {
-			if(!this.wasReleased) {
-				this.wasReleased = true;
-				sprite.setFrame(0);//hard coded to the first 'traveling' frame for now
-				vel.x = MOVE_VELOCITY;
+		
+		if(didCollide) {
+			if(sprite.currentFrame < sprite.frameRange.max - 1) {
+				sprite.setFrame(sprite.frameRange.max - 1);
+			} else if(sprite.currentFrame < sprite.frameRange.max) {
+				sprite.setFrame(sprite.frameRange.max);
 			} else {
-				pos.x += vel.x * SIM_STEP / 1000;
-				pos.y += vel.y * SIM_STEP / 1000;
-				this.collisionBody.setPosition({x:pos.x, y:pos.y});
-			}
-
-			availableTime -= SIM_STEP;
-			
-			if(pos.x > canvas.width) {
 				this.isVisible = false;
 				this.isActive = false;
-//				this.reset();
-				return;//bullet ran off screen, bail out
+				scene.removeEntity(this, true);
 			}
+		} else {
+			let availableTime = unusedTime + deltaTime;
+			while(availableTime > SIM_STEP) {
+				if(!this.wasReleased) {
+					this.wasReleased = true;
+					sprite.setFrame(0);//hard coded to the first 'traveling' frame for now
+					vel.x = MOVE_VELOCITY;
+				} else {
+					pos.x += vel.x * SIM_STEP / 1000;
+					pos.y += vel.y * SIM_STEP / 1000;
+					this.collisionBody.setPosition({x:pos.x, y:pos.y});
+				}
+	
+				availableTime -= SIM_STEP;
+				
+				if(pos.x > canvas.width) {
+					this.isVisible = false;
+					this.isActive = false;
+					return;//bullet ran off screen, bail out
+				}
+			}
+			
+			unusedTime = availableTime;
 		}
-		
-		unusedTime = availableTime;
 		
 		sprite.update(deltaTime);
 	}
@@ -99,10 +110,11 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	this.didCollideWith = function(otherEntity) {
 		if((this.collisionBody == null) || (otherEntity.collisionBody == null)) {return false;}
 		
-		this.isVisible = false;
-		this.isActive = false;
+		didCollide = true;
+//		this.isVisible = false;
+//		this.isActive = false;
 		
-		scene.removeEntity(this, true);
+//		scene.removeEntity(this, true);
 	}
 	
 	return this;

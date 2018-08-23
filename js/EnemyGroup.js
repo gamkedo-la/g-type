@@ -10,7 +10,7 @@ const MovementPattern = {
 //Enemy Grouping
 function EnemyGroup() {
 	this.enemies = [];
-	this.hasPowerUp = true;
+	this.hasCapsule = true;
 	
 	this.add = function(newEnemy, worldPos) {
 		this.enemies.push(newEnemy);
@@ -24,11 +24,11 @@ function EnemyGroup() {
 		const indexToRemove = this.enemies.indexOf(enemyToRemove);
 		this.enemies.splice(indexToRemove, 1);
 		
-		if((this.enemies.length == 0) && (this.hasPowerUp)) {
-			this.hasPowerUp = false;
+		if((this.enemies.length == 0) && (this.hasCapsule)) {
+			this.hasCapsule = false;
 			
-			const newPowerUp = new PowerUp({x:enemyToRemove.position.x, y:enemyToRemove.position.y}, worldPos);
-			scene.addEntity(newPowerUp, false);
+			const newCapsule = new Capsule({x:enemyToRemove.position.x, y:enemyToRemove.position.y}, worldPos);
+			scene.addEntity(newCapsule, false);
 		}
 	}	
 }

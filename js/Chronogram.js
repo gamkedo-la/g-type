@@ -10,7 +10,7 @@ function Chronogram() {
 	this.update = function() {
 		const previousLastUpdate = lastUpdate;
 		lastUpdate = Date.now();
-		return lastUpdate - previousLastUpdate;
+		return (worldSpeed * (lastUpdate - previousLastUpdate));
 	}
 	
 	this.timeSinceUpdate = function() {
@@ -34,6 +34,6 @@ function Chronogram() {
 	this.timeSinceUpdateForEvent = function(eventName) {
 		if(events[eventName] == undefined) {return null;}
 		
-		return (Date.now() - events[eventName].lastUpdate);
+		return (worldSpeed * (Date.now() - events[eventName].lastUpdate));
 	}
 }

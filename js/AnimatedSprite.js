@@ -11,6 +11,7 @@ function AnimatedSprite(sheet,
 	this.width = frameWidth;
 	this.height = frameHeight;
 	this.frameRate = timePerFrame;
+	this.frameRange = frameRange;
 	
 	this.unusedTime = 0;
 	this.currentFrame = frameRange.min;

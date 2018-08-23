@@ -26,8 +26,8 @@ function EnemyBullet(position = {x:0, y:0}, velocity = {x:0, y:0}) {
 			this.position.x += (vel.x * SIM_STEP / 1000);
 			this.position.y += (vel.y * SIM_STEP / 1000);
 			
-			if((this.position.x > canvas.width) || (this.position.x < 0) || (this.position.y < 0) || (this.position.y > canvas.height)) {
-				this.isVisible = false;
+			if((this.position.x > canvas.width) || (this.position.x < -sprite.width) || (this.position.y < -sprite.height) || (this.position.y > canvas.height)) {
+				scene.removeEntity(this, false);
 				return;
 			}
 		}

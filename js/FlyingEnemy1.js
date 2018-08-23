@@ -1,5 +1,5 @@
 //FlyingEnemy1
-function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.None, timeOffset = 0, spawnPos = 0) {
+function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.None, timeOffset = 0, spawnPos = 0, difficulty = 0) {
 	this.type = EntityType.FlyingEnemy1;
 	this.group = null;
 	this.worldPos = 0;
@@ -9,7 +9,6 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	let vel = {x:speed, y:speed};
 	let unusedTime = 0;
 	this.isVisible = true;
-	timer.registerEvent("flyingEnemy1Spawn");
 	
 	const sprite = new AnimatedSprite(flyingEnemySheet, 5, 30, 21, 128, {min:0, max:4}, true);
 	let size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
@@ -42,8 +41,8 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 				}
 			}
 						
-			if(this.position.x < 0) {
-				this.isVisible = false;
+			if(this.position.x < -sprite.width) {
+				scene.removeEntity(this, false);
 				return;
 			}
 		}
@@ -52,6 +51,18 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		
 		this.collisionBody.setPosition({x:(SPRITE_SCALE * 3) + this.position.x + size.height / 2, y:this.position.y + size.height / 2});
 		sprite.update(deltaTime);
+		
+		const firingChance = Math.floor(1000 * Math.random());
+		if(firingChance < difficulty) {
+			let yVel;
+			if(this.position.y < canvas.height / 2) {
+				yVel = 50;
+			} else {
+				yVel = -50;
+			}
+			const newBullet = new EnemyBullet({x: this.position.x - 10, y: this.collisionBody.center.y}, {x: vel.x - 10, y:yVel});
+			scene.addEntity(newBullet, false);
+		}
 	}
 	
 	this.draw = function() {

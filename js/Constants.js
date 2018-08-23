@@ -3,9 +3,11 @@ let canvasContext;
 let scene;
 let timer;
 let currentLevelIndex = 0;
+let worldSpeed = 1;
+let remainingLives = 3;
 	
-const DEBUG = false;
-const DRAW_COLLIDERS = false;
+const DEBUG = true;
+const DRAW_COLLIDERS = true;
 const COLLIDER_COLOR = 'yellow';
 const CANVAS_WIDTH = 800;
 const CANVAS_HEIGHT = 600;

@@ -27,7 +27,7 @@ function Starfield() {
 	    const reverses = ((xPos % 2) == 0);//using xPos because it is convenient and already random
 	    
 	    const aStar = new AnimatedSprite(starSheet, 3, 5, 5, frameTime, {min:minFrame, max:minFrame + 2}, reverses);
-	    middleStars.push(new StarEntity(aStar, {x:xPos, y:yPos}, {x:-4, y:0}, {width:7, height:7}));
+	    middleStars.push(new StarEntity(aStar, {x:xPos, y:yPos}, {x:-8, y:0}, {width:7, height:7}));
     }
     
     for(let i = 0; i < nearestCount; i++) {
@@ -38,7 +38,7 @@ function Starfield() {
 	    const reverses = ((xPos % 2) == 0);//using xPos because it is convenient and already random
 	    
 	    const aStar = new AnimatedSprite(starSheet, 3, 5, 5, frameTime, {min:minFrame, max:minFrame + 2}, reverses);
-	    nearestStars.push(new StarEntity(aStar, {x:xPos, y:yPos}, {x:-8, y:0}, {width:9, height:9}));
+	    nearestStars.push(new StarEntity(aStar, {x:xPos, y:yPos}, {x:-16, y:0}, {width:9, height:9}));
     }
     
     this.update = function(deltaTime) {

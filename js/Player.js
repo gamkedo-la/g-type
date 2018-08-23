@@ -12,7 +12,10 @@ function Player(position = {x:0, y:0}) {
 	
 	const BASE_SPEED = 75;
 	const MAX_SHOTS_ON_SCREEN = 10;
-	let currentShotDelay = 256;
+	const INVINCIBLE_TIME = 500;//in milliseconds
+	
+	let currentShotDelay = 256;//TODO: Implement a power up which makes player shoot faster (maybe part of laser?)
+	let isInvincible = false;
 
 	const velocity = {x:0, y:0};
 	const shots = [];
@@ -100,11 +103,26 @@ function Player(position = {x:0, y:0}) {
 		this.collisionBody.setPosition({x:pos.x, y:pos.y});
 		
 		unusedTime = availableTime;
+		
+		if(isInvincible) {
+			if(timer.timeSinceUpdateForEvent("invinciblePlayer") >= INVINCIBLE_TIME) {
+				this.setInvincible(false);
+			} 
+		}
 	}
 	
 	this.draw = function() {
+		if(isInvincible) {
+			canvasContext.save();
+			canvasContext.globalAlpha = 0.8;
+		}
+		
 		sprite.drawAt(pos, size);
 		this.collisionBody.draw();
+		
+		if(isInvincible) {
+			canvasContext.restore();
+		}
 		
 		for(let i = 0; i < shots.length; i++) {
 			shots[i].draw();
@@ -112,21 +130,40 @@ function Player(position = {x:0, y:0}) {
 		
 		if(didCollide) {
 			didCollide = false;
-//			drawRect(pos.x, pos.y, size.width, size.height, "green");
 		}
 	}
 	
 	this.didCollideWith = function(otherEntity) {
 		didCollide = true;
 		
-		if(otherEntity.type == EntityType.PowerUp) {
-			console.log("Powering UP!");
+		if(otherEntity.type == EntityType.Capsule1) {
+			//TODO: Update UI to indicate what power up the player can get now
 		} else {
 			if(hasShield) {
 				shield.hit();
-			} else {
+			} else if(isInvincible) {
+				//TODO: does anything need to be done here?
+			} else {	
 				scene.removePlayer();
 			}
+		}
+	}
+	
+	this.reset = function() {
+		this.clearPowerUps();
+		pos.x = 0;
+		pos.y = canvas.height / 2;
+		this.setInvincible(true);
+	}
+	
+	this.clearPowerUps = function() {
+		//TODO: implement this
+	}
+	
+	this.setInvincible = function(newValue) {
+		isInvincible = newValue;
+		if(newValue == true) {
+			timer.registerEvent("invinciblePlayer");
 		}
 	}
 	

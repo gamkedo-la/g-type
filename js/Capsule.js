@@ -1,11 +1,11 @@
 //Power Up
-function PowerUp(position = {x:0, y:0}, initialWorldPos) {
+function Capsule(position = {x:0, y:0}, initialWorldPos) {
 	this.worldPos = initialWorldPos;
-	this.type = EntityType.PowerUp;
+	this.type = EntityType.Capsule1;
 	
 	this.position = position;
 	
-	const sprite = new AnimatedSprite(powerUpSheet, 3, 33, 27, 128, {min:0, max:3}, true);
+	const sprite = new AnimatedSprite(capsule1Sheet, 3, 33, 27, 128, {min:0, max:3}, true);
 	const SPRITE_SCALE = 1; //TODO: would like to increase the size of the sprite and change this back to 1.
 	const size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	

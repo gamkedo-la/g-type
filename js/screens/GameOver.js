@@ -1,4 +1,5 @@
-function MenuScreen() {
+//GameOver - Continue Screen
+function GameOverScreen() {
 	const MENU_BG_COLOR = "#010119";
 
     this.selectorPositionsIndex = 0;
@@ -7,12 +8,13 @@ function MenuScreen() {
     let starfield;
     this.selections = [
 	    { screen: GAME_SCREEN, title: textStrings.Play },
+	    { screen: MENU_SCREEN, title: textStrings.Main },
 //        { screen: LEVEL_SELECT_SCREEN, title: textStrings.Play },
-        { screen: HELP_SCREEN, title: textStrings.Help },
-        { screen: OPTIONS_SCREEN, title: textStrings.Options },
-        { screen: CREDITS_SCREEN, title: textStrings.Credits },
+//        { screen: HELP_SCREEN, title: textStrings.Help },
+//        { screen: OPTIONS_SCREEN, title: textStrings.Options },
+//        { screen: CREDITS_SCREEN, title: textStrings.Credits },
     ];
-    this.transitionIn = function menuScreenTransitionIn() {
+    this.transitionIn = function(){
         this.selectorPositionsIndex = 0;
         if (scene !== null) {
             scene = null;
@@ -21,27 +23,24 @@ function MenuScreen() {
         starfield = new Starfield();
         selectorSprite = new AnimatedSprite(player1Sheet, 3, 30, 19, 128, {min:0, max:2});
         
-/*        currentBackgroundMusic.setCurrentTrack(0);
-        if(currentBackgroundMusic.getTime() > 0){
+ /*       if(currentBackgroundMusic.getTime() > 0){
             currentBackgroundMusic.resume();    
         }
         else {
             currentBackgroundMusic.play();
         }*/
     };
-    this.transitionOut = function menuScreenTransitionOut() {
+    this.transitionOut = function(){
 //        uiSelect.play();
 //        currentBackgroundMusic.pause();
     };
-
-    this.run = function menuScreenRun(deltaTime) {
+    this.run = function gamePlayFinishedScreenRun(deltaTime) {
 	    update(deltaTime);
 	    
 	    draw(this.selections, this.selectorPositionsIndex);
     };
-
-    this.control = function menuScreenControl(keyCode, pressed) {
-        if (pressed) {//only act on key released events => prevent multiple changes on single press
+    this.control = function gamePlayFinishedScreenControl(keyCode, pressed){
+       if (pressed) {//only act on key released events => prevent multiple changes on single press
             return false;
         }
         
@@ -90,16 +89,14 @@ function MenuScreen() {
 			    selectorPosition.y = mainMenuY + selectorYOffset * i - 15;
 		    }
 	    }
-	    
-	    starPosition = {x:canvas.width / 2, y:canvas.height / 2};
 	}
-	
+    
 	const update = function(deltaTime) {
 		selectorSprite.update(deltaTime);
 		
 		starfield.update(deltaTime);
 	}
-	
+
 	const draw = function(selections, selectorPositionIndex) {
 		// render the menu background
         drawBG();
@@ -127,6 +124,4 @@ function MenuScreen() {
 	    colorText(gameTitle.Main, canvas.width / 2, canvas.height / 3, Color.White, Fonts.MainTitle, textAlignment.Center);
 	    colorText(gameTitle.Subtitle, canvas.width / 2, canvas.height / 3 + 40, Color.White, Fonts.Subtitle, textAlignment.Center);
     }
-        
-    return this;
 }

@@ -30,7 +30,7 @@ const ScreenStates = {
 //		[HELP_SCREEN]: new HelpScreen(),
 		[GAME_SCREEN]: new GamePlayScreen(),
 //		[PAUSE_SCREEN]: new PauseScreen(),
-//		[GAME_OVER_SCREEN]: new GamePlayFinishScreen(),
+		[GAME_OVER_SCREEN]: new GameOverScreen(),
 //		[ENDING_SCREEN]: new EndingScreen()*/
 	},
 	setState: function(newState, properties) {

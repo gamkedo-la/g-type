@@ -2,12 +2,15 @@
 //Backgrounds
 const starSheet = document.createElement("img");
 
+//Terrain & World
+const largeRhombusBoulder = document.createElement("img");
+
 //Player Associated
 const player1Sheet = document.createElement("img");
 const playerShots = document.createElement("img");
 
 //power ups
-const powerUpSheet = document.createElement("img");
+const capsule1Sheet = document.createElement("img");
 
 //Enemy Associated
 const flyingEnemySheet = document.createElement("img");
@@ -32,13 +35,16 @@ function loadImages() {
 
         // backgrounds
         { imgName: starSheet, theFile: "Stars.png" },
+        
+        //Terrain & World
+        { imgName: largeRhombusBoulder, theFile: "Boulder.png" },
 
         // player related
         { imgName: player1Sheet, theFile: "G-TypePlayer1.png" },
         { imgName: playerShots, theFile: "PlayerShots.png" },
 
         // power ups
-        { imgName: powerUpSheet, theFile: "PowerUp.png" },
+        { imgName: capsule1Sheet, theFile: "PowerUp.png" },
 
         // enemies
         { imgName: flyingEnemySheet, theFile: "FlyingEnemy1.png" },
