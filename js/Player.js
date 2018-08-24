@@ -7,7 +7,7 @@ function Player(position = {x:0, y:0}) {
 	
 	const sprite = new AnimatedSprite(player1Sheet, 3, 30, 19, 128, {min:0, max:2});
 	const SPRITE_SCALE = 2; //TODO: would like to increase the size of the sprite and change this back to 1.
-	const size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	let hasShield = false;
 	
 	const BASE_SPEED = 75;
@@ -90,14 +90,14 @@ function Player(position = {x:0, y:0}) {
 		
 		if(pos.x < 0) {
 			pos.x = 0;
-		} else if(pos.x > (canvas.width - size.width)) {
-			pos.x = canvas.width - size.width;
+		} else if(pos.x > (canvas.width - this.size.width)) {
+			pos.x = canvas.width - this.size.width;
 		}
 		
 		if(pos.y < 0) {
 			pos.y = 0;
-		} else if(pos.y > (canvas.height - size.height)) {
-			pos.y = canvas.height - size.height;
+		} else if(pos.y > (canvas.height - this.size.height)) {
+			pos.y = canvas.height - this.size.height;
 		}
 		
 		this.collisionBody.setPosition({x:pos.x, y:pos.y});
@@ -114,10 +114,10 @@ function Player(position = {x:0, y:0}) {
 	this.draw = function() {
 		if(isInvincible) {
 			canvasContext.save();
-			canvasContext.globalAlpha = 0.8;
+			canvasContext.globalAlpha = 0.50;
 		}
 		
-		sprite.drawAt(pos, size);
+		sprite.drawAt(pos, this.size);
 		this.collisionBody.draw();
 		
 		if(isInvincible) {

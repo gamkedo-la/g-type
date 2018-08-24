@@ -19,6 +19,7 @@ function GameEntity(sprite, position = {x:0, y:0}, velocity = {x:0, y:0}, size =
 	let pos = position;
 	let vel = velocity;
 	let unusedTime = 0;
+	this.size = size
 	
 	this.update = function(deltaTime) {
 		sprite.update(deltaTime);//update the image
@@ -46,6 +47,7 @@ function GameEntity(sprite, position = {x:0, y:0}, velocity = {x:0, y:0}, size =
 }
 
 function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
+	this.type = type;
 	this.position = position;
 	this.worldPos = null;
 	let unusedTime = 0;
@@ -58,7 +60,7 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 	}
 	
 	const sprite = spriteForType(type);
-	const size = {width:scale * sprite.width, height:scale * sprite.height};
+	this.size = {width:scale * sprite.width, height:scale * sprite.height};
 	
 	const colliderForTypeAndPosition = function(type, pos) {
 		let colliderPath = [];
@@ -77,7 +79,7 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 	this.collisionBody = colliderForTypeAndPosition(type, this.position);
 	
 	this.update = function(deltaTime, worldPos) {
-		if((worldPos >= spawnPos) && (this.position.x > -(sprite.width * scale))) {
+		if((worldPos >= spawnPos) && (this.position.x > -this.size.width)) {
 			if(this.worldPos == null) {
 				this.worldPos = worldPos;
 			}
@@ -94,12 +96,14 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 			
 			unusedTime = availableTime;
 			this.collisionBody.setPosition({x: this.position.x, y: this.position.y});
+		} else if(this.position.x < -this.size.width) {
+			scene.removeEntity(this, false);
 		}
 	}
 	
 	this.draw = function() {
-		if((this.worldPos >= spawnPos) && (this.position.x > -(sprite.width * scale))) {
-			sprite.drawAt(this.position, size);
+		if((this.worldPos >= spawnPos) && (this.position.x > -this.size.width)) {
+			sprite.drawAt(this.position, this.size);
 			this.collisionBody.draw();
 		}
 	}

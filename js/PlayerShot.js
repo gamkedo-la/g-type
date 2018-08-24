@@ -38,7 +38,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 						  {x: pos.x, y: pos.y + (3 * SPRITE_SCALE)}];
 	this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:pos.x, y:pos.y}});
 
-	let size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	
 	this.setPosition = function(newPos) {
 		pos = newPos;
@@ -93,7 +93,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	this.draw = function() {
 		if(!this.isVisible) {return;}
 		
-		sprite.drawAt(pos, size);
+		sprite.drawAt(pos, this.size);
 		this.collisionBody.draw();
 	}
 	

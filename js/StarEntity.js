@@ -3,6 +3,7 @@ function StarEntity(sprite, position = {x:0, y:0}, velocity = {x:0, y:0}, size =
 	let pos = position;
 	let vel = velocity;
 	let unusedTime = 0;
+	this.size = size;
 	
 	sprite.setRandomFrame();
 	
@@ -25,7 +26,7 @@ function StarEntity(sprite, position = {x:0, y:0}, velocity = {x:0, y:0}, size =
 	}
 	
 	this.draw = function() {
-		sprite.drawAt(pos, size);
+		sprite.drawAt(pos, this.size);
 	}
 	
 	this.didCollideWith = function(otherEntity) {

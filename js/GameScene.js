@@ -63,8 +63,6 @@ function GameScene(levelIndex) {
 			this.gameIsOver = true;
 		} else {
 			remainingLives--;
-			const checkpoint = checkpointForWorldPos(this.worldPos);
-			this.setWorldPos(checkpoint);
 			player.reset();
 		}
 	}
@@ -104,5 +102,5 @@ function GameScene(levelIndex) {
 		}
 		
 		return 0;
-	}
+	}	
 }

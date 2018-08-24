@@ -1,6 +1,8 @@
 //Collision Manager
 function CollisionManager(player) {
 	let entities = new Set();
+	let enemyBullets = new Set();
+	let terrain = new Set();
 	this.player = player;
 	this.playerBullets = [];
 	
@@ -26,15 +28,62 @@ function CollisionManager(player) {
 	}
 		
 	this.addEntity = function(newEntity) {
+		if(newEntity.type == EntityType.EnemyBullet) {
+			addEnemyBullet(newEntity);
+		} else if(newEntity.type == EntityType.RhombusBoulder) {//Need to check for all other terrain types here
+			addTerrain(newEntity);
+		}
+		
 		const beforeLength = entities.size;
 		entities.add(newEntity);
 		
 		return (!(beforeLength == entities.size));
 	}
 	
+	const addEnemyBullet = function(newEnemyBullet) {
+		const beforeLength = enemyBullets.size;
+		enemyBullets.add(newEnemyBullet);
+		
+		return (!(beforeLength == enemyBullets.size));
+	}
+	
+	const addTerrain = function(newTerrain) {
+		const beforeLength = terrain.size;
+		terrain.add(newTerrain);
+		
+		return (!(beforeLength == terrain.size));
+	}
+	
 	this.removeEntity = function(entityToRemove) {
+		if(entityToRemove.type == EntityType.EnemyBullet) {
+			removeEnemyBullet(entityToRemove);
+		} else if(entityToRemove.type == EntityType.RhombusBoulder) {//Need to check for all other terrain types here
+			removeTerrain(entityToRemove);
+		}
+		
 		if(entities.has(entityToRemove)) {
 			entities.delete(entityToRemove);
+			
+			return true;
+		}
+		
+		return false;
+	}
+	
+	const removeEnemyBullet = function(enemyBulletToRemove) {
+		if(enemyBullets.has(enemyBulletToRemove)) {
+			enemyBullets.delete(enemyBulletToRemove);
+			
+			return true;
+		}
+		
+		return false;
+	}
+	
+	const removeTerrain = function(terrainToRemove) {
+		console.log("Removing Terrain");
+		if(terrain.has(terrainToRemove)) {
+			terrain.delete(terrainToRemove);
 			
 			return true;
 		}
@@ -46,8 +95,9 @@ function CollisionManager(player) {
 		const collisions = [];
 		
 		for(let entity of entities) {
-			if((entity.position.x > canvas.width) || (entity.position.x < 0)) {continue;}//entity is not on screen => bail out early
+			if((entity.position.x > canvas.width) || (entity.position.x < -entity.size.width)) {continue;}//entity is not on screen => bail out early
 			
+			//Do collision between player bullets and all other entites (except the player)
 			for(let i = 0; i < this.playerBullets.length; i++) {
 				if(entity.type == EntityType.Capsule1) {continue;}//can't shoot the power ups
 				if(!this.playerBullets[i].isActive) {continue;}//don't check collisions on inactive bullets
@@ -71,6 +121,7 @@ function CollisionManager(player) {
 				}
 			}
 
+			//Do collision between player and all other entities (except player bullets)
 			if(withinSquareRadii(entity.collisionBody, this.player.collisionBody)) {
 				//if both objects are circles, the above check is a valid collision
 				if((entity.collisionBody.type == ColliderType.Circle) && 
@@ -86,7 +137,31 @@ function CollisionManager(player) {
 					this.player.didCollideWith(entity);
 					collisions.push({blue:this.player, red:entity});
 				}
-			}			
+			}
+		}
+		
+		//Do collision between player and terrain
+		
+		//Do collision between player and enemy bullets
+		
+		//Do collision between enemy bullets and terrain
+		for(let terr of terrain) {
+			for(let bullet of enemyBullets) {
+				if(withinSquareRadii(terr.collisionBody, bullet.collisionBody)) {
+					if((terr.collisionBody.type == ColliderType.Circle) &&
+					   (bullet.collisionBody.type == ColliderType.Circle)) {
+					   //if both objects are circles, the above check is a valid collision
+					   terr.didCollideWith(bullet);
+					   bullet.didCollideWith(terr);
+					   continue;
+					}
+					
+					if(checkCollisionBetween(terr.collisionBody, bullet.collisionBody)) {
+						terr.didCollideWith(bullet);
+						bullet.didCollideWith(terr);
+					}
+				}
+			}
 		}
 		
 		return collisions;

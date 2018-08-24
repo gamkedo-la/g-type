@@ -11,12 +11,12 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	this.isVisible = true;
 	
 	const sprite = new AnimatedSprite(flyingEnemySheet, 5, 30, 21, 128, {min:0, max:4}, true);
-	let size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 
 	this.collisionBody = new Collider(ColliderType.Circle, {points:   [], 
-															position: {x:(SPRITE_SCALE * 3) + this.position.x + size.height / 2, y:this.position.y + size.height / 2}, 
-															radius:   size.height / 2, 
-															center:   {x:(SPRITE_SCALE * 3) + this.position.x + size.height / 2, y:this.position.y + size.height / 2}}
+															position: {x:(SPRITE_SCALE * 3) + this.position.x + this.size.height / 2, y:this.position.y + this.size.height / 2}, 
+															radius:   this.size.height / 2, 
+															center:   {x:(SPRITE_SCALE * 3) + this.position.x + this.size.height / 2, y:this.position.y + this.size.height / 2}}
 									  );
 	let didCollide = false;
 	
@@ -49,7 +49,7 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		
 		unusedTime = availableTime;
 		
-		this.collisionBody.setPosition({x:(SPRITE_SCALE * 3) + this.position.x + size.height / 2, y:this.position.y + size.height / 2});
+		this.collisionBody.setPosition({x:(SPRITE_SCALE * 3) + this.position.x + this.size.height / 2, y:this.position.y + this.size.height / 2});
 		sprite.update(deltaTime);
 		
 		const firingChance = Math.floor(1000 * Math.random());
@@ -69,7 +69,7 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		if(!this.isVisible) {return;}
 		if(this.worldPos < spawnPos) {return;}
 		
-		sprite.drawAt(this.position, size);
+		sprite.drawAt(this.position, this.size);
 		this.collisionBody.draw();
 		
 		if(didCollide) {

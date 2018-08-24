@@ -7,7 +7,7 @@ function Capsule(position = {x:0, y:0}, initialWorldPos) {
 	
 	const sprite = new AnimatedSprite(capsule1Sheet, 3, 33, 27, 128, {min:0, max:3}, true);
 	const SPRITE_SCALE = 1; //TODO: would like to increase the size of the sprite and change this back to 1.
-	const size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	
 	const colliderPath = [{x: this.position.x, y: this.position.y},
 						  {x: this.position.x + SPRITE_SCALE * sprite.width, y: this.position.y}, 
@@ -26,7 +26,7 @@ function Capsule(position = {x:0, y:0}, initialWorldPos) {
 	}
 	
 	this.draw = function() {
-		sprite.drawAt(this.position, size);
+		sprite.drawAt(this.position, this.size);
 		this.collisionBody.draw();
 	}
 	
