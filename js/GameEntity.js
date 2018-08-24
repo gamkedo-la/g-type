@@ -67,10 +67,10 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 		let collisionBody;
 		switch(type) {
 			case EntityType.RhombusBoulder:
-				colliderPath.push({x: pos.x, 							y: pos.y + scale * sprite.height / 2});
-				colliderPath.push({x: pos.x + scale * sprite.width / 2, y: pos.y});
-				colliderPath.push({x: pos.x + scale * sprite.width, 	y: pos.y + scale * sprite.height / 2});
-				colliderPath.push({x: pos.x + scale * sprite.width / 2, y: pos.y + scale * sprite.height});
+				colliderPath.push({x: pos.x, 							y: pos.y + scale * ((sprite.height / 2) - 2)});
+				colliderPath.push({x: pos.x + scale * ((sprite.width / 2) + 2), y: pos.y});
+				colliderPath.push({x: pos.x + scale * sprite.width, 	y: pos.y + scale * ((sprite.height / 2) + 2)});
+				colliderPath.push({x: pos.x + scale * ((sprite.width / 2) - 2), y: pos.y + scale * sprite.height});
 				
 				return (new Collider(ColliderType.Polygon, {points:colliderPath, position:{x:pos.x, y:pos.y}}));
 		}

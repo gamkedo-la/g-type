@@ -12,7 +12,7 @@ function Player(position = {x:0, y:0}) {
 	
 	const BASE_SPEED = 75;
 	const MAX_SHOTS_ON_SCREEN = 10;
-	const INVINCIBLE_TIME = 500;//in milliseconds
+	const INVINCIBLE_TIME = 1500;//in milliseconds
 	
 	let currentShotDelay = 256;//TODO: Implement a power up which makes player shoot faster (maybe part of laser?)
 	let isInvincible = false;
@@ -22,12 +22,12 @@ function Player(position = {x:0, y:0}) {
 
 	let currentSpeed = BASE_SPEED;
 	
-	let pos = position;
+	this.position = position;
 	
-	const colliderPath = [{x: pos.x + SPRITE_SCALE * 6, y: pos.y + SPRITE_SCALE * 1}, 
-						  {x: pos.x + SPRITE_SCALE * (sprite.width - 2), y: pos.y + SPRITE_SCALE * sprite.height / 2}, 
-						  {x: pos.x + SPRITE_SCALE * 6, y: pos.y + SPRITE_SCALE * (sprite.height - 1)}];
-	this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:pos.x, y:pos.y}});
+	const colliderPath = [{x: this.position.x + SPRITE_SCALE * 6, y: this.position.y + SPRITE_SCALE * 1}, 
+						  {x: this.position.x + SPRITE_SCALE * (sprite.width - 2), y: this.position.y + SPRITE_SCALE * sprite.height / 2}, 
+						  {x: this.position.x + SPRITE_SCALE * 6, y: this.position.y + SPRITE_SCALE * (sprite.height - 1)}];
+	this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:this.position.x, y:this.position.y}});
 	let didCollide = false;
 	
 	let unusedTime = 0;
@@ -84,23 +84,23 @@ function Player(position = {x:0, y:0}) {
 		while(availableTime > SIM_STEP) {
 			availableTime -= SIM_STEP;
 			
-			pos.x += velocity.x * SIM_STEP / 1000;
-			pos.y += velocity.y * SIM_STEP / 1000;
+			this.position.x += velocity.x * SIM_STEP / 1000;
+			this.position.y += velocity.y * SIM_STEP / 1000;
 		}
 		
-		if(pos.x < 0) {
-			pos.x = 0;
-		} else if(pos.x > (canvas.width - this.size.width)) {
-			pos.x = canvas.width - this.size.width;
+		if(this.position.x < 0) {
+			this.position.x = 0;
+		} else if(this.position.x > (canvas.width - this.size.width)) {
+			this.position.x = canvas.width - this.size.width;
 		}
 		
-		if(pos.y < 0) {
-			pos.y = 0;
-		} else if(pos.y > (canvas.height - this.size.height)) {
-			pos.y = canvas.height - this.size.height;
+		if(this.position.y < 0) {
+			this.position.y = 0;
+		} else if(this.position.y > (canvas.height - this.size.height)) {
+			this.position.y = canvas.height - this.size.height;
 		}
 		
-		this.collisionBody.setPosition({x:pos.x, y:pos.y});
+		this.collisionBody.setPosition({x:this.position.x, y:this.position.y});
 		
 		unusedTime = availableTime;
 		
@@ -117,7 +117,7 @@ function Player(position = {x:0, y:0}) {
 			canvasContext.globalAlpha = 0.50;
 		}
 		
-		sprite.drawAt(pos, this.size);
+		sprite.drawAt(this.position, this.size);
 		this.collisionBody.draw();
 		
 		if(isInvincible) {
@@ -151,8 +151,8 @@ function Player(position = {x:0, y:0}) {
 	
 	this.reset = function() {
 		this.clearPowerUps();
-		pos.x = 0;
-		pos.y = canvas.height / 2;
+		this.position.x = 0;
+		this.position.y = canvas.height / 2;
 		this.setInvincible(true);
 	}
 	

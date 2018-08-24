@@ -32,7 +32,7 @@ function GameScene(levelIndex) {
 	    }
 		
 		for(let entity of gameEntities) {
-			entity.update(deltaTime, this.worldPos);
+			entity.update(deltaTime, this.worldPos, {x:player.position.x, y:player.position.y});
 		}
 		
 		const collisions = collisionManager.doCollisionChecks();

@@ -22,7 +22,7 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	
 	this.path = new EnemyPath(PathType.Sine, this.position, speed, [], timeOffset);
 	
-	this.update = function(deltaTime, worldPos) {
+	this.update = function(deltaTime, worldPos, playerPos) {
 		this.worldPos = worldPos;
 		if(!this.isVisible) {return;}
 		if(worldPos < spawnPos) {return;}//don't update if the world hasn't scrolled far enough to spawn
@@ -55,12 +55,22 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		const firingChance = Math.floor(1000 * Math.random());
 		if(firingChance < difficulty) {
 			let yVel;
-			if(this.position.y < canvas.height / 2) {
+			if(this.position.y < playerPos.y) {
 				yVel = 50;
 			} else {
 				yVel = -50;
 			}
-			const newBullet = new EnemyBullet({x: this.position.x - 10, y: this.collisionBody.center.y}, {x: vel.x - 10, y:yVel});
+			
+			let xVel = vel.x;
+			if(this.position.x > (playerPos.x + 50)) {
+				xVel -= 10;
+			} else if(this.position.x < (playerPos.x - 50)) {
+				xVel = -xVel;
+			} else {
+				xVel = 0;
+			}
+			
+			const newBullet = new EnemyBullet({x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
 			scene.addEntity(newBullet, false);
 		}
 	}
