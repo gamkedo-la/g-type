@@ -1,6 +1,6 @@
 //PlayerShot
 function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody = null) {
-	this.type = EntityType.PlayerBullet;
+	this.type = EntityType.PlayerShot;
 	
 	let pos = position;
 	const MOVE_VELOCITY = 200;
@@ -12,25 +12,9 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	let didCollide = false;
 	this.isVisible = true;
 	
-	const sprite = new AnimatedSprite(playerShots, 5, 5, 5, 128, {min:0, max:4}, false);
-	sprite.update = function(deltaTime) {
-		let availableTime = this.unusedTime + deltaTime;
-		
-		while(availableTime >= this.frameRate) {
-			availableTime -= this.frameRate;
-			
-			if(this.currentFrame == 1) {
-				this.currentFrame = 2;//hard coded for now
-			} else {
-				this.currentFrame = 1;//hard coded for now
-			}
-		}
-		
-		this.unusedTime = availableTime;
-		
-		this.currentFramePos.x = this.width * (this.currentFrame % this.FRAMES_PER_ROW);
-		this.currentFramePos.y = this.height * (Math.floor(this.currentFrame / this.FRAMES_PER_ROW));
-	}
+	this.worldPos = null;
+	
+	const sprite = new AnimatedSprite(playerShots, 5, 5, 5, false, false, {min:0, max:0}, 32, {min:1, max:2}, 128, {min:3, max:4}, 32);
 	
 	const colliderPath = [{x: pos.x, y: pos.y + (2 * SPRITE_SCALE)}, 
 					  	  {x: pos.x + SPRITE_SCALE * sprite.width, y: pos.y + (2 * SPRITE_SCALE)}, 
@@ -49,25 +33,27 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 		vel = newVel;
 	}
 	
-	this.update = function(deltaTime) {
+	this.update = function(deltaTime, worldPos) {
+		if(this.worldPos == null) {
+				this.worldPos = worldPos;
+		}
+
+		if(sprite.getDidDie()) {
+			this.isVisible = false;
+			this.isActive = false;
+		}
+
 		if(!this.isVisible) {return;}
 		
 		if(didCollide) {
-			if(sprite.currentFrame < sprite.frameRange.max - 1) {
-				sprite.setFrame(sprite.frameRange.max - 1);
-			} else if(sprite.currentFrame < sprite.frameRange.max) {
-				sprite.setFrame(sprite.frameRange.max);
-			} else {
-				this.isVisible = false;
-				this.isActive = false;
-				scene.removeEntity(this, true);
-			}
+			scene.removeEntity(this, true);
+			didCollide = false;//prevent multiple calls to remove this entity;
 		} else {
 			let availableTime = unusedTime + deltaTime;
 			while(availableTime > SIM_STEP) {
 				if(!this.wasReleased) {
 					this.wasReleased = true;
-					sprite.setFrame(0);//hard coded to the first 'traveling' frame for now
+					sprite.wasBorn = true;
 					vel.x = MOVE_VELOCITY;
 				} else {
 					pos.x += vel.x * SIM_STEP / 1000;
@@ -103,6 +89,8 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 		this.isVisible = true;
 		this.isActive = true;
 		this.wasReleased = false;
+		sprite.wasBorn = false;
+		sprite.isDying = false;
 		sprite.setFrame(0);
 		this.setVelocity({x:0, y:0});
 	}
@@ -111,10 +99,8 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 		if((this.collisionBody == null) || (otherEntity.collisionBody == null)) {return false;}
 		
 		didCollide = true;
-//		this.isVisible = false;
-//		this.isActive = false;
-		
-//		scene.removeEntity(this, true);
+		sprite.isDying = true;
+		vel = {x:0, y:0};
 	}
 	
 	return this;

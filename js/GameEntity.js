@@ -1,10 +1,11 @@
 const EntityType = {
 	//Terrain & World
 	RhombusBoulder:"rhombusBoulder",
+	Bubble:"bubble",
 	
 	//Player
 	Player:"player",
-	PlayerBullet:"playerBullet",
+	PlayerShot:"playerShot",
 	
 	//capsules
 	Capsule1:"capsule1",
@@ -12,6 +13,15 @@ const EntityType = {
 	//Enemies
 	FlyingEnemy1:"flyingEnemy1",
 	EnemyBullet:"enemyBullet"
+}
+
+const spriteForType = function(type) {
+	switch(type) {
+		case EntityType.RhombusBoulder:
+			return (new AnimatedSprite(largeRhombusBoulder, 2, 90, 90, false, true, {min:0, max:0}, 0, {min:0, max:1}, 512, {min:1, max:1}, 0));
+		case EntityType.Bubble:
+			return (new AnimatedSprite(bubble, 9, 30, 30, true, true, {min:0, max:0}, 0, {min:0, max:4}, 128, {min:5, max:8}, 32));
+	}
 }
 
 //Game Entity
@@ -51,13 +61,6 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 	this.position = position;
 	this.worldPos = null;
 	let unusedTime = 0;
-
-	const spriteForType = function(type) {
-		switch(type) {
-			case EntityType.RhombusBoulder:
-				return (new AnimatedSprite(largeRhombusBoulder, 2, 90, 90, 512, {min:0, max:1}, false));
-		}
-	}
 	
 	const sprite = spriteForType(type);
 	this.size = {width:scale * sprite.width, height:scale * sprite.height};
@@ -110,6 +113,74 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 	
 	this.didCollideWith = function(otherEntity) {
 		if((this.collisionBody == null) || (otherEntity.collisionBody == null)) {return false;}
+	}
+	
+	return this;
+}
+
+function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
+	this.type = type;
+	this.position = position;
+	this.worldPos = null;
+	let unusedTime = 0;
+	let didCollide = false;
+	
+	const sprite = spriteForType(type);
+	sprite.wasBorn = true;
+
+	this.size = {width:scale * sprite.width, height:scale * sprite.height};
+	
+	this.collisionBody = new Collider(ColliderType.Circle,  {points:   [], 
+										position: {x:this.position.x, y:this.position.y}, 
+										radius:   this.size.height / 2, 
+										center:   {x:this.position.x + this.size.height / 2, y:this.position.y + this.size.height / 2}});
+	
+	this.update = function(deltaTime, worldPos) {
+		if(sprite.getDidDie()) {
+			scene.removeEntity(this, false);
+			return;
+		}
+		
+		if((worldPos >= spawnPos) && (this.position.x > -this.size.width)) {
+			if(this.worldPos == null) {
+				this.worldPos = worldPos;
+			}
+			
+			sprite.update(deltaTime);//update the image
+			
+			let availableTime = unusedTime + deltaTime;
+			while(availableTime > SIM_STEP) {
+				availableTime -= SIM_STEP;
+				
+				this.position.x -= (worldPos - this.worldPos);
+				this.worldPos = worldPos;
+			}
+			
+			unusedTime = availableTime;
+			this.collisionBody.setPosition({x: this.position.x, y: this.position.y});
+		} else if(this.position.x < -this.size.width) {
+			scene.removeEntity(this, false);
+		}
+	}
+	
+	this.draw = function() {
+		if((this.worldPos >= spawnPos) && (this.position.x > -this.size.width)) {
+			sprite.drawAt(this.position, this.size);
+			this.collisionBody.draw();
+		}
+	}
+	
+	this.setInitialFrame = function(initialFrame) {
+		sprite.setFrame(initialFrame);
+	}
+	
+	this.didCollideWith = function(otherEntity) {
+		if((this.collisionBody == null) || (otherEntity.collisionBody == null)) {return false;}
+		
+		if(otherEntity.type == EntityType.PlayerShot) {
+			didCollide = true;
+			sprite.isDying = true;
+		}
 	}
 	
 	return this;

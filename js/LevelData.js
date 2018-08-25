@@ -42,9 +42,19 @@ const LevelData = [
 		},
 		initializeTerrain: function() {
 			const world = [];
-			world.push(new TerrainEntity(EntityType.RhombusBoulder, {x: canvas.width + 50, y: canvas.height / 2 - 90}, 50, 2));
-			world.push(new TerrainEntity(EntityType.RhombusBoulder, {x: canvas.width + 50, y: canvas.height / 2 - 90}, 600, 2));
-			
+			world.push(new TerrainEntity(EntityType.RhombusBoulder, {x: canvas.width + 50, y: canvas.height / 2 - 60}, 50, 2));
+			world.push(new TerrainEntity(EntityType.RhombusBoulder, {x: canvas.width + 50, y: canvas.height / 2 - 120}, 600, 2));
+
+			const delta = 45;
+			for(let i = 0; i < 50; i++) {
+				let xPos = delta * Math.floor(i % 10);
+				let yPos = delta * Math.floor(i / 10);
+				
+				const thisBubble = new BubbleEntity(EntityType.Bubble, {x: canvas.width + (50 + xPos), y: canvas.height / 2 + (yPos - 112)}, 850, 1);
+				thisBubble.setInitialFrame(i % 5);
+				world.push(thisBubble);
+			}
+
 			return world;
 		},
 		checkpointPositions:[0, 600, 1200]

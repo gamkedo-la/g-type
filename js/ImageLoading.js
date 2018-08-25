@@ -4,6 +4,7 @@ const starSheet = document.createElement("img");
 
 //Terrain & World
 const largeRhombusBoulder = document.createElement("img");
+const bubble = document.createElement("img");
 
 //Player Associated
 const player1Sheet = document.createElement("img");
@@ -38,6 +39,7 @@ function loadImages() {
         
         //Terrain & World
         { imgName: largeRhombusBoulder, theFile: "Boulder.png" },
+        { imgName: bubble, theFile: "Bubble.png" },
 
         // player related
         { imgName: player1Sheet, theFile: "G-TypePlayer1.png" },

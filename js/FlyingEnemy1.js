@@ -10,7 +10,7 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	let unusedTime = 0;
 	this.isVisible = true;
 	
-	const sprite = new AnimatedSprite(flyingEnemySheet, 5, 30, 21, 128, {min:0, max:4}, true);
+	const sprite = new AnimatedSprite(flyingEnemySheet, 5, 30, 21, true, true, {min:0, max:0}, 0, {min:0, max:4}, 128, {min:4, max:4}, 0);
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 
 	this.collisionBody = new Collider(ColliderType.Circle, {points:   [], 

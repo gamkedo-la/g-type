@@ -15,7 +15,7 @@ function Starfield() {
 	    const frameTime = 512;
 	    const reverses = ((xPos % 2) == 0);//using xPos because it is convenient and already random
 	    
-	    const aStar = new AnimatedSprite(starSheet, 3, 5, 5, frameTime, {min:minFrame, max:minFrame + 2}, reverses);
+	    const aStar = new AnimatedSprite(starSheet, 3, 5, 5, reverses, true, {min:minFrame, max:minFrame}, 0, {min:minFrame, max:minFrame + 2}, frameTime, {min:minFrame + 2, max:minFrame + 2}, 0);
 	    farthestStars.push(new StarEntity(aStar, {x:xPos, y:yPos}, {x:0, y:0}, {width:5, height:5}));
     }
     
@@ -26,7 +26,7 @@ function Starfield() {
 	    const frameTime = 512;
 	    const reverses = ((xPos % 2) == 0);//using xPos because it is convenient and already random
 	    
-	    const aStar = new AnimatedSprite(starSheet, 3, 5, 5, frameTime, {min:minFrame, max:minFrame + 2}, reverses);
+	    const aStar = new AnimatedSprite(starSheet, 3, 5, 5, reverses, true, {min:minFrame, max:minFrame}, 0, {min:minFrame, max:minFrame + 2}, frameTime, {min:minFrame + 2, max:minFrame + 2}, 0);
 	    middleStars.push(new StarEntity(aStar, {x:xPos, y:yPos}, {x:-8, y:0}, {width:7, height:7}));
     }
     
@@ -37,7 +37,7 @@ function Starfield() {
 	    const frameTime = 512;
 	    const reverses = ((xPos % 2) == 0);//using xPos because it is convenient and already random
 	    
-	    const aStar = new AnimatedSprite(starSheet, 3, 5, 5, frameTime, {min:minFrame, max:minFrame + 2}, reverses);
+	    const aStar = new AnimatedSprite(starSheet, 3, 5, 5, reverses, true, {min:minFrame, max:minFrame}, 0, {min:minFrame, max:minFrame + 2}, frameTime, {min:minFrame + 2, max:minFrame + 2}, 0);
 	    nearestStars.push(new StarEntity(aStar, {x:xPos, y:yPos}, {x:-16, y:0}, {width:9, height:9}));
     }
     

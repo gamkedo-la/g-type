@@ -24,8 +24,8 @@ function GameScene(levelIndex) {
 	
 	this.update = function(deltaTime) {
 		this.worldPos += worldSpeed;
-		starfield.update(deltaTime);
-		player.update(deltaTime);
+		starfield.update(deltaTime, this.worldPos);
+		player.update(deltaTime, this.worldPos);
 		
 	    for(let bullet of enemyBullets) {
 		    bullet.update(deltaTime, this.worldPos);
