@@ -7,7 +7,7 @@ function EnemyBullet(position = {x:0, y:0}, velocity = {x:0, y:0}) {
 	let unusedTime = 0;
 	this.isVisible = true;
 	
-	const sprite = new AnimatedSprite(enemyBulletSheet, 2, 14, 14, false, true, {min:0, max:0}, 0, {min:0, max:1}, 128, {min:1, max:1}, 0);
+	const sprite = new AnimatedSprite(enemyBulletSheet, 2, 21, 21, false, true, {min:0, max:0}, 0, {min:0, max:1}, 128, {min:1, max:1}, 0);
 	this.size = {width:sprite.width, height:sprite.height};
 	
 	this.collisionBody = new Collider(ColliderType.Circle, {points:   [], 

@@ -58,6 +58,10 @@ function GameScene(levelIndex) {
 	    player.draw();
 	}
 	
+	this.collectedCapsule = function() {
+		console.log("Update UI to show that the player collected another capsule");
+	}
+	
 	this.removePlayer = function() {
 		if(remainingLives < 1) {
 			this.gameIsOver = true;

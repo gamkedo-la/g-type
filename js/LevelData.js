@@ -50,9 +50,15 @@ const LevelData = [
 				let xPos = delta * Math.floor(i % 10);
 				let yPos = delta * Math.floor(i / 10);
 				
-				const thisBubble = new BubbleEntity(EntityType.Bubble, {x: canvas.width + (50 + xPos), y: canvas.height / 2 + (yPos - 112)}, 850, 1);
-				thisBubble.setInitialFrame(i % 5);
-				world.push(thisBubble);
+				let thisEntity;
+				if(i == 18) {
+					thisEntity = new Capsule({x: canvas.width + (50 + xPos), y: canvas.height / 2 + (yPos - 112)}, 850);
+				} else {
+					thisEntity = new BubbleEntity(EntityType.Bubble, {x: canvas.width + (50 + xPos), y: canvas.height / 2 + (yPos - 112)}, 850, 1);
+					thisEntity.setInitialFrame(i % 5);
+				}
+								
+				world.push(thisEntity);
 			}
 
 			return world;

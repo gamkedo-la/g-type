@@ -138,6 +138,7 @@ function Player(position = {x:0, y:0}) {
 		
 		if(otherEntity.type == EntityType.Capsule1) {
 			//TODO: Update UI to indicate what power up the player can get now
+			scene.collectedCapsule();
 		} else {
 			if(hasShield) {
 				shield.hit();
