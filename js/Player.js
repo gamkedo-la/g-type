@@ -5,8 +5,8 @@ function Player(position = {x:0, y:0}) {
 		max:0
 	};
 	
-	const sprite = new AnimatedSprite(player1Sheet, 3, 30, 19, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
-	const SPRITE_SCALE = 2; //TODO: would like to increase the size of the sprite and change this back to 1.
+	const sprite = new AnimatedSprite(player1Sheet, 3, 60, 38, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
+	const SPRITE_SCALE = 1; //TODO: would like to increase the size of the sprite and change this back to 1.
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	let hasShield = false;
 	

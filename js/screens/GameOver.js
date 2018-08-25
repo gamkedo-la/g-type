@@ -21,7 +21,7 @@ function GameOverScreen() {
         }
         
         starfield = new Starfield();
-        selectorSprite = new AnimatedSprite(player1Sheet, 3, 30, 19, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
+        selectorSprite = new AnimatedSprite(player1Sheet, 3, 60, 38, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
         
  /*       if(currentBackgroundMusic.getTime() > 0){
             currentBackgroundMusic.resume();    
