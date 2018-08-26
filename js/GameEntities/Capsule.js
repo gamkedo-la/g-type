@@ -19,7 +19,7 @@ function Capsule(position = {x:0, y:0}, initialWorldPos) {
 	this.update = function(deltaTime, worldPos) {
 		this.position.x -= (worldPos - this.worldPos);
 		
-		if(this.position.x < -this.size.width) {scene.removeEntity(this.false);}
+		if(this.position.x < -this.size.width) {scene.removeEntity(this, false);}
 		
 		this.worldPos = worldPos;
 		

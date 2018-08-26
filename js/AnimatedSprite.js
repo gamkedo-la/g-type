@@ -25,7 +25,7 @@ function AnimatedSprite(sheet,
 	this.isDying = false;
 	let deadCount = 0;
 	this.getDidDie = function() {
-		if((this.isDying) && (this.currentFrame == this.deathRange.max) && (deadCount > 2)) {
+		if((this.isDying) && (this.currentFrame == this.deathRange.max) && (deadCount > 1)) {
 			deadCount = 0;
 			return true;
 		} else {
