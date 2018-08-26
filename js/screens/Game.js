@@ -20,6 +20,7 @@ function GamePlayScreen () {
     
     this.transitionOut = function gamePlayScreenTransitionOut() {
 	    clearKeyboardInput();
+	    canvasContext.setTransform(1, 0, 0, 1, 0, 0);
 /*        currentBackgroundMusic.pause();
         allSFX.stop();*/
     };
