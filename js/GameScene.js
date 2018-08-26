@@ -2,6 +2,11 @@
 function GameScene(levelIndex) {
 	const data = LevelData[levelIndex];
 	this.worldPos = 0;
+	this.shaking = false;
+	const MAX_SHAKES = 10;
+	const MAX_SHAKE_MAGNITUDE = 10;
+	this.remainingShakes = 0;
+	this.shakeMagnitude = 0;
 	this.gameIsOver = false;
 	const starfield = new Starfield();
 	const player = new Player(data.getPlayerSpawn());
@@ -36,6 +41,8 @@ function GameScene(levelIndex) {
 		}
 		
 		const collisions = collisionManager.doCollisionChecks();
+		
+		if(this.shaking) {this.screenShake();}
 	}
 	
 	this.setWorldPos = function(newWorldPos) {
@@ -68,6 +75,7 @@ function GameScene(levelIndex) {
 		} else {
 			remainingLives--;
 			player.reset();
+			this.shouldShake(MAX_SHAKE_MAGNITUDE);
 		}
 	}
 	
@@ -106,5 +114,27 @@ function GameScene(levelIndex) {
 		}
 		
 		return 0;
-	}	
+	}
+	
+	this.shouldShake = function(magnitude) {
+		this.shaking = true;
+		this.remainingShakes = MAX_SHAKES;
+		this.shakeMagnitude = magnitude;
+	}
+	
+	this.screenShake = function() {
+		this.remainingShakes--;
+		if(this.remainingShakes == 0) {
+			this.shaking = false;
+			this.shakeMagnitude = 0;
+			canvasContext.setTransform(1, 0, 0, 1, 0, 0);
+		}
+		
+		const horizontal = Math.floor((this.shakeMagnitude) * Math.random() - this.shakeMagnitude / 2);
+		const vertical = Math.floor((this.shakeMagnitude) * Math.random() - this.shakeMagnitude / 2);
+		
+		canvasContext.setTransform(1, 0, 0, 1, horizontal, vertical);
+		
+		this.shakeMagnitude *= 0.9;
+	}
 }

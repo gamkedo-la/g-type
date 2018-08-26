@@ -45,7 +45,7 @@ const Color = {
 	Fuchaia:"fuchaia"
 };
 
-const CLEAR_COLOR = Color.Red;
+const CLEAR_COLOR = Color.Red;//TODO: Change to Color.Black before release
 
 const LOADING_SCREEN = 'loading';
 const MENU_SCREEN = 'menu';
