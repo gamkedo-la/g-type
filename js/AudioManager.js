@@ -13,10 +13,12 @@ const pauseSound = new sfxClipSingle("PauseSound");
 const resumeSound = new sfxClipSingle("ResumeSound");
 const playerFireRegular = new sfxClipSingle("PlayerFireRegular");
 playerFireRegular.setVolume(0.4);
+const enemySmallExplosion = new sfxClipSingle("EnemySmallExplosion");
+enemySmallExplosion.setVolume(0.6);
 //const uiSelect = new sfxClipSingle("uiSelect");
 
 const allSFX = {
-	sfxList : [pauseSound, resumeSound, playerFireRegular],
+	sfxList : [pauseSound, resumeSound, playerFireRegular, enemySmallExplosion],
 	stop: function(){
 		for(var i=0; i < this.sfxList.length; i++){
 			this.sfxList[i].stop();

@@ -95,5 +95,6 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 			this.group.remove(this, this.worldPos);
 		}
 		scene.removeEntity(this, false);
+		enemySmallExplosion.play();
 	}
 }
