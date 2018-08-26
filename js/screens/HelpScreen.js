@@ -28,40 +28,6 @@ function HelpScreen() {
 	    update(deltaTime);
 	    
 	    draw(this.selections, this.selectorPositionsIndex);
-
-/*        this.drawBG(); // background anim        
-
-        opacity = 1;
-
-        var x = 32;
-        var y = 100;
-        var h = 50;
-        var lineNow=2;
-        printWord('How To Play', x + 224, y, opacity);
-        //printWord('===========', x + 224, y + h * 1, opacity);
-        printWord('[W] or [UP] to accelerate', x, y + h * (lineNow++), opacity);
-        printWord('[A,D] or [LEFT,RIGHT] to turn', x, y + h * (lineNow++), opacity);
-        printWord('[X] or [DOWN] to brake', x, y + h * (lineNow++), opacity);
-        printWord('[Space] change gears', x, y + h * (lineNow++), opacity);
-        printWord('[N] to use Nitro', x, y + h * (lineNow++), opacity);
-        printWord('[<,>] to change radio', x, y + h * (lineNow++), opacity);
-        printWord('[M] to toggle mute', x, y + h * (lineNow++), opacity);
-        printWord('[P] to pause and resume game', x, y + h * (lineNow++), opacity);
-        printWord('[Backspace] to Return', x, y + h * (lineNow++), opacity);
-        printWord('[Enter] to Start game', x, y + h * (lineNow++), opacity);*/
-
-        // old version - done with fonts
-        /*
-        colorTextWithShadow('How To Play', canvas.width / 2, 100, textColor.White, fonts.Subtitle, textAlignment.Center, opacity);
-        colorTextWithShadow(bulletPointIcon + '  [W] or [' + upArrowIcon + '] to accellerate', 200, 150, textColor.White, fonts.ButtonTitle, textAlignment.Left, opacity);
-        colorTextWithShadow(bulletPointIcon + '  [A]/[D] or [' + leftArrowIcon + ']/[' + rightArrowIcon + '] to turn left or right', 200, 180, textColor.White, fonts.ButtonTitle, textAlignment.Left, opacity);
-        colorTextWithShadow(bulletPointIcon + '  [X] or [' + downArrowIcon + '] to brake', 200, 210, textColor.White, fonts.ButtonTitle, textAlignment.Left, opacity);
-        colorTextWithShadow(bulletPointIcon + '  [Spacebar] to change gears', 200, 240, textColor.White, fonts.ButtonTitle, textAlignment.Left, opacity);
-        colorTextWithShadow(bulletPointIcon + '  [N] to use Nitro', 200, 270, textColor.White, fonts.ButtonTitle, textAlignment.Left, opacity);
-        colorTextWithShadow(bulletPointIcon + '  [P] to pause and resume game', 200, 300, textColor.White, fonts.ButtonTitle, textAlignment.Left, opacity);
-        colorTextWithShadow('Press [Backspace] to Return to the Main Menu at anytime', canvas.width / 2, 460, textColor.White, fonts.Subtitle, textAlignment.Center, opacity);
-        colorTextWithShadow('Press [Enter] to Start game', canvas.width / 2, 500, textColor.White, fonts.Subtitle, textAlignment.Center, opacity);
-        */
     };
     
 	const update = function(deltaTime) {
