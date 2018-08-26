@@ -1,0 +1,164 @@
+//Help Screen
+function HelpScreen() {
+	const MENU_BG_COLOR = "#010119";
+
+    this.selectorPositionsIndex = 0;
+    let selectorPosition = {x:0, y:0};
+    let selectorSprite;
+    let starfield;
+	this.selections = [
+	    {screen: GAME_SCREEN, title: textStrings.Play},
+	    {screen: MENU_SCREEN, title: textStrings.Main},
+	   ];
+    this.transitionIn = function () {
+        this.selectorPositionsIndex = 0;
+        if (scene !== null) {
+            scene = null;
+        }
+        
+        starfield = new Starfield();
+        selectorSprite = new AnimatedSprite(player1Sheet, 3, 60, 38, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
+    };
+    
+    this.transitionOut = function () {
+//        uiSelect.play();
+    };
+
+    this.run = function helpScreenRun(deltaTime) {
+	    update(deltaTime);
+	    
+	    draw(this.selections, this.selectorPositionsIndex);
+
+/*        this.drawBG(); // background anim        
+
+        opacity = 1;
+
+        var x = 32;
+        var y = 100;
+        var h = 50;
+        var lineNow=2;
+        printWord('How To Play', x + 224, y, opacity);
+        //printWord('===========', x + 224, y + h * 1, opacity);
+        printWord('[W] or [UP] to accelerate', x, y + h * (lineNow++), opacity);
+        printWord('[A,D] or [LEFT,RIGHT] to turn', x, y + h * (lineNow++), opacity);
+        printWord('[X] or [DOWN] to brake', x, y + h * (lineNow++), opacity);
+        printWord('[Space] change gears', x, y + h * (lineNow++), opacity);
+        printWord('[N] to use Nitro', x, y + h * (lineNow++), opacity);
+        printWord('[<,>] to change radio', x, y + h * (lineNow++), opacity);
+        printWord('[M] to toggle mute', x, y + h * (lineNow++), opacity);
+        printWord('[P] to pause and resume game', x, y + h * (lineNow++), opacity);
+        printWord('[Backspace] to Return', x, y + h * (lineNow++), opacity);
+        printWord('[Enter] to Start game', x, y + h * (lineNow++), opacity);*/
+
+        // old version - done with fonts
+        /*
+        colorTextWithShadow('How To Play', canvas.width / 2, 100, textColor.White, fonts.Subtitle, textAlignment.Center, opacity);
+        colorTextWithShadow(bulletPointIcon + '  [W] or [' + upArrowIcon + '] to accellerate', 200, 150, textColor.White, fonts.ButtonTitle, textAlignment.Left, opacity);
+        colorTextWithShadow(bulletPointIcon + '  [A]/[D] or [' + leftArrowIcon + ']/[' + rightArrowIcon + '] to turn left or right', 200, 180, textColor.White, fonts.ButtonTitle, textAlignment.Left, opacity);
+        colorTextWithShadow(bulletPointIcon + '  [X] or [' + downArrowIcon + '] to brake', 200, 210, textColor.White, fonts.ButtonTitle, textAlignment.Left, opacity);
+        colorTextWithShadow(bulletPointIcon + '  [Spacebar] to change gears', 200, 240, textColor.White, fonts.ButtonTitle, textAlignment.Left, opacity);
+        colorTextWithShadow(bulletPointIcon + '  [N] to use Nitro', 200, 270, textColor.White, fonts.ButtonTitle, textAlignment.Left, opacity);
+        colorTextWithShadow(bulletPointIcon + '  [P] to pause and resume game', 200, 300, textColor.White, fonts.ButtonTitle, textAlignment.Left, opacity);
+        colorTextWithShadow('Press [Backspace] to Return to the Main Menu at anytime', canvas.width / 2, 460, textColor.White, fonts.Subtitle, textAlignment.Center, opacity);
+        colorTextWithShadow('Press [Enter] to Start game', canvas.width / 2, 500, textColor.White, fonts.Subtitle, textAlignment.Center, opacity);
+        */
+    };
+    
+	const update = function(deltaTime) {
+		selectorSprite.update(deltaTime);
+		
+		starfield.update(deltaTime);
+	}
+    
+    this.control = function gamePlayFinishedScreenControl(keyCode, pressed){
+       if (pressed) {//only act on key released events => prevent multiple changes on single press
+            return false;
+        }
+        
+        switch (keyCode) {
+            case KEY_UP:
+                this.selectorPositionsIndex--;
+                if (this.selectorPositionsIndex < 0) {
+                    this.selectorPositionsIndex += this.selections.length;
+                }
+                return true;
+            case KEY_DOWN:
+                this.selectorPositionsIndex = (this.selectorPositionsIndex + 1) % this.selections.length;
+                if (this.selectorPositionsIndex > this.selections.length - 1) {
+                    this.selectorPositionsIndex = 0;
+                }
+                return true;
+            case KEY_ENTER:
+                ScreenStates.setState(this.selections[this.selectorPositionsIndex].screen);
+                return true;
+            case KEY_H:
+                ScreenStates.setState(HELP_SCREEN);
+                return true;
+            case KEY_C:
+                ScreenStates.setState(CREDITS_SCREEN);
+                return true;
+            case KEY_E:
+                ScreenStates.setState(EDITOR_SCREEN);
+                return true;
+        }
+        return false;
+    };
+    
+	const printMenu = function(menuItems, selected, yOffset = null) {
+	    let mainMenuX = canvas.width / 2 - 45;
+	    let mainMenuY = (yOffset == null ? 4 * canvas.height / 5 : yOffset);
+
+	    let selectorXOffset = 60;
+	    let selectorYOffset = 30;
+
+	    let buttonsXOffset = mainMenuX + 70;
+
+	    for (let i = 0; i < menuItems.length; i++){
+		    colorText(menuItems[i].title, mainMenuX, mainMenuY + selectorYOffset * i, Color.White, Fonts.ButtonTitle, textAlignment.Left);
+		    if(i == selected) {
+			    selectorPosition.x = mainMenuX - 35;
+			    selectorPosition.y = mainMenuY + selectorYOffset * i - 15;
+		    }
+	    }
+	    
+	    starPosition = {x:canvas.width / 2, y:canvas.height / 2};
+	}
+
+	const draw = function(selections, selectorPositionIndex) {
+		// render the menu background
+        drawBG();
+        
+        starfield.draw();
+        
+        // render the logo overlay
+//        drawLogo();
+
+		//draw the game title at the top of the screen
+		drawTitle();
+		
+		//draw the actual help info
+		drawHelp();
+
+        // render menu
+        printMenu(selections, selectorPositionIndex);
+        
+        //draw selector sprite
+        selectorSprite.drawAt(selectorPosition, {width:30, height:19});
+	}
+	
+	const drawBG = function menuScreenDrawBG() {
+        // fill the background since there is no image for now
+        drawRect(0, 0, canvas.width, canvas.height, MENU_BG_COLOR);
+    }
+    
+    const drawTitle = function() {
+	    colorText(gameTitle.Main, canvas.width / 2, canvas.height / 10, Color.White, Fonts.MainTitle, textAlignment.Center);
+	    colorText(gameTitle.Subtitle, canvas.width / 2, canvas.height / 10 + 40, Color.White, Fonts.Subtitle, textAlignment.Center);
+    }
+    
+    const drawHelp = function() {
+	    colorText("Help!!!", canvas.width / 2, canvas.height / 2, Color.White, Fonts.Subtitle, textAlignment.Center);
+    }
+        
+    return this;
+}
