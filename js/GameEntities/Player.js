@@ -79,6 +79,7 @@ function Player(position = {x:0, y:0}) {
 								
 					shots.push(newShot);
 					timer.updateEvent("lastShot");
+					playerFireRegular.play();
 				}
 			}
 			
