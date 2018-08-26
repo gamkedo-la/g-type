@@ -5,7 +5,7 @@ function Player(position = {x:0, y:0}) {
 		max:0
 	};
 	
-	const sprite = new AnimatedSprite(player1Sheet, 3, 60, 38, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
+	const sprite = new AnimatedSprite(player1Sheet, 6, 60, 38, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:3, max:5}, 128);
 	const SPRITE_SCALE = 1; //TODO: would like to increase the size of the sprite and change this back to 1.
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	let hasShield = false;
@@ -35,79 +35,86 @@ function Player(position = {x:0, y:0}) {
 	this.update = function(deltaTime, worldPos) {
 		sprite.update(deltaTime);//update the image
 		
-		if(holdLeft) {
-			velocity.x = -currentSpeed;
-			sprite.setFrame(thrustFrame.min);
-		} else if(holdRight) {
-			velocity.x = currentSpeed;
-			sprite.setFrame(thrustFrame.max);
-		} else {
-			velocity.x = 0;
-		}
-		
-		if(holdUp) {
-			velocity.y = -currentSpeed;
-		} else if(holdDown) {
-			velocity.y = currentSpeed;
-		} else {
-			velocity.y = 0;
-		}
-				
-		if(holdSpace) {
-			let timeSinceLastShot = timer.timeSinceUpdateForEvent("lastShot");
-			if((timeSinceLastShot == null) || (timeSinceLastShot == undefined)) {
-				timeSinceLastShot = timer.registerEvent("lastShot");
+		if(sprite.getDidDie()) {
+			scene.removePlayer();
+			sprite.isDying = false;
+			scene.endShake();
+			return;	
+		} else if(!sprite.isDying) {
+			if(holdLeft) {
+				velocity.x = -currentSpeed;
+				sprite.setFrame(thrustFrame.min);
+			} else if(holdRight) {
+				velocity.x = currentSpeed;
+				sprite.setFrame(thrustFrame.max);
+			} else {
+				velocity.x = 0;
 			}
 			
-			if(timeSinceLastShot > currentShotDelay) {
-				let newShot;
-				if(shots.length == MAX_SHOTS_ON_SCREEN) {
-					newShot = shots.splice(0, 1)[0];
-				} else {
-					newShot = new PlayerShot();
+			if(holdUp) {
+				velocity.y = -currentSpeed;
+			} else if(holdDown) {
+				velocity.y = currentSpeed;
+			} else {
+				velocity.y = 0;
+			}
+					
+			if(holdSpace) {
+				let timeSinceLastShot = timer.timeSinceUpdateForEvent("lastShot");
+				if((timeSinceLastShot == null) || (timeSinceLastShot == undefined)) {
+					timeSinceLastShot = timer.registerEvent("lastShot");
 				}
 				
-				newShot.reset();
-				scene.addEntity(newShot, true);
-				newShot.setPosition({x:position.x + 50, y:position.y + 7});
-							
-				shots.push(newShot);
-				timer.updateEvent("lastShot");
+				if(timeSinceLastShot > currentShotDelay) {
+					let newShot;
+					if(shots.length == MAX_SHOTS_ON_SCREEN) {
+						newShot = shots.splice(0, 1)[0];
+					} else {
+						newShot = new PlayerShot();
+					}
+					
+					newShot.reset();
+					scene.addEntity(newShot, true);
+					newShot.setPosition({x:position.x + 50, y:position.y + 7});
+								
+					shots.push(newShot);
+					timer.updateEvent("lastShot");
+				}
 			}
-		}
-		
-		for(let i = 0; i < shots.length; i++) {
-			shots[i].update(deltaTime, worldPos);
-		}
-		
-		let availableTime = unusedTime + deltaTime;
-		while(availableTime > SIM_STEP) {
-			availableTime -= SIM_STEP;
 			
-			this.position.x += velocity.x * SIM_STEP / 1000;
-			this.position.y += velocity.y * SIM_STEP / 1000;
-		}
-		
-		if(this.position.x < 0) {
-			this.position.x = 0;
-		} else if(this.position.x > (canvas.width - this.size.width)) {
-			this.position.x = canvas.width - this.size.width;
-		}
-		
-		if(this.position.y < 0) {
-			this.position.y = 0;
-		} else if(this.position.y > (canvas.height - this.size.height)) {
-			this.position.y = canvas.height - this.size.height;
-		}
-		
-		this.collisionBody.setPosition({x:this.position.x, y:this.position.y});
-		
-		unusedTime = availableTime;
-		
-		if(isInvincible) {
-			if(timer.timeSinceUpdateForEvent("invinciblePlayer") >= INVINCIBLE_TIME) {
-				this.setInvincible(false);
-			} 
+			for(let i = 0; i < shots.length; i++) {
+				shots[i].update(deltaTime, worldPos);
+			}
+			
+			let availableTime = unusedTime + deltaTime;
+			while(availableTime > SIM_STEP) {
+				availableTime -= SIM_STEP;
+				
+				this.position.x += velocity.x * SIM_STEP / 1000;
+				this.position.y += velocity.y * SIM_STEP / 1000;
+			}
+			
+			if(this.position.x < 0) {
+				this.position.x = 0;
+			} else if(this.position.x > (canvas.width - this.size.width)) {
+				this.position.x = canvas.width - this.size.width;
+			}
+			
+			if(this.position.y < 0) {
+				this.position.y = 0;
+			} else if(this.position.y > (canvas.height - this.size.height)) {
+				this.position.y = canvas.height - this.size.height;
+			}
+			
+			this.collisionBody.setPosition({x:this.position.x, y:this.position.y});
+			
+			unusedTime = availableTime;
+			
+			if(isInvincible) {
+				if(timer.timeSinceUpdateForEvent("invinciblePlayer") >= INVINCIBLE_TIME) {
+					this.setInvincible(false);
+				} 
+			}
 		}
 	}
 	
@@ -141,11 +148,13 @@ function Player(position = {x:0, y:0}) {
 			scene.collectedCapsule();
 		} else {
 			if(hasShield) {
+				scene.shouldShake(MAX_SHAKE_MAGNITUDE / 2);
 				shield.hit();
 			} else if(isInvincible) {
 				//TODO: does anything need to be done here?
-			} else {	
-				scene.removePlayer();
+			} else {
+				scene.shouldShake(MAX_SHAKE_MAGNITUDE);
+				sprite.isDying = true;
 			}
 		}
 	}

@@ -13,6 +13,7 @@ const CANVAS_WIDTH = 800;
 const CANVAS_HEIGHT = 600;
 const FRAMES_PER_SECOND = 30;
 const SIM_STEP = 16;//milliseconds in each simulation step ~1/2 frame
+const MAX_SHAKE_MAGNITUDE = 10;
 
 const gameTitle = {
 	Main:"G-Type",

@@ -23,8 +23,10 @@ function AnimatedSprite(sheet,
 	this.deathRange = deathRange;
 	this.deathRate = deathRate;
 	this.isDying = false;
+	let deadCount = 0;
 	this.getDidDie = function() {
-		if((this.isDying) && (this.currentFrame == this.deathRange.max)) {
+		if((this.isDying) && (this.currentFrame == this.deathRange.max) && (deadCount > 2)) {
+			deadCount = 0;
 			return true;
 		} else {
 			return false;
@@ -92,6 +94,7 @@ function AnimatedSprite(sheet,
 					this.currentFrame++;
 				} else {
 					this.currentFrame = deathRange.max;
+					deadCount++;
 				}
 			} else if(this.isReversing) {
 				this.currentFrame--;

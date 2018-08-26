@@ -4,7 +4,6 @@ function GameScene(levelIndex) {
 	this.worldPos = 0;
 	this.shaking = false;
 	const MAX_SHAKES = 10;
-	const MAX_SHAKE_MAGNITUDE = 10;
 	this.remainingShakes = 0;
 	this.shakeMagnitude = 0;
 	this.gameIsOver = false;
@@ -72,10 +71,10 @@ function GameScene(levelIndex) {
 	this.removePlayer = function() {
 		if(remainingLives < 1) {
 			this.gameIsOver = true;
+			canvasContext.setTransform(1, 0, 0, 1, 0, 0);
 		} else {
 			remainingLives--;
 			player.reset();
-			this.shouldShake(MAX_SHAKE_MAGNITUDE);
 		}
 	}
 	
@@ -124,7 +123,8 @@ function GameScene(levelIndex) {
 	
 	this.screenShake = function() {
 		this.remainingShakes--;
-		if(this.remainingShakes == 0) {
+		if(this.remainingShakes <= 0) {
+			this.remainingShakes = 0;
 			this.shaking = false;
 			this.shakeMagnitude = 0;
 			canvasContext.setTransform(1, 0, 0, 1, 0, 0);
@@ -136,5 +136,10 @@ function GameScene(levelIndex) {
 		canvasContext.setTransform(1, 0, 0, 1, horizontal, vertical);
 		
 		this.shakeMagnitude *= 0.9;
+	}
+	
+	this.endShake = function() {
+		this.remainingShakes = 0;
+		this.screenShake();
 	}
 }
