@@ -78,6 +78,7 @@ function CreditsScreen() {
         colorText("Up Arrow To Scroll Faster", 550, 500, Color.Aqua, Fonts.CreditsText, textAlignment.Left);
         colorText("Down Arrow To Scroll Slower", 550, 530, Color.Aqua, Fonts.CreditsText, textAlignment.Left);
         colorText("Space To Pause", 550, 560, Color.Aqua, Fonts.CreditsText, textAlignment.Left);
+        colorText("Backspace to Main Menu", 550, 590, Color.Aqua, Fonts.CreditsText, textAlignment.Left)
     };
     this.control = function creditsScreenControl(keyCode, pressed) {
         if (pressed) {
