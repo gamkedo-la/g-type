@@ -26,7 +26,7 @@ const ScreenStates = {
 		[MENU_SCREEN]: new MenuScreen(),
         [OPTIONS_SCREEN]: new OptionsScreen(),
 //		[LEVEL_SELECT_SCREEN]: new LevelSelectScreen(),
-//		[CREDITS_SCREEN]: new CreditsScreen(),
+		[CREDITS_SCREEN]: new CreditsScreen(),
 		[HELP_SCREEN]: new HelpScreen(),
 		[GAME_SCREEN]: new GamePlayScreen(),
 //		[PAUSE_SCREEN]: new PauseScreen(),
