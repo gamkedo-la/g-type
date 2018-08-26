@@ -70,6 +70,9 @@ function MenuScreen() {
             case KEY_E:
                 ScreenStates.setState(EDITOR_SCREEN);
                 return true;
+            case KEY_M:
+            	toggleMute();
+            	return true;
         }
         return false;
     };

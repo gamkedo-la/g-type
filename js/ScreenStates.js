@@ -10,10 +10,12 @@ function clear() {
 
 function setPaused(shouldPause) {
 	if(shouldPause) {
-//		mainStates.isPaused = true;
+		ScreenStates.isPaused = true;
+		pauseSound.play();
 //		pauseMusic(backgroundMusic);
 	} else {
-//		mainStates.isPaused = false;
+		ScreenStates.isPaused = false;
+		resumeSound.play();
 //		playAndLoopMusic(backgroundMusic);
 	}
 }
@@ -21,6 +23,7 @@ function setPaused(shouldPause) {
 const ScreenStates = {
 	stateLog : [],
 	state: LOADING_SCREEN,
+	isPaused:false,
 	screens: {
 		[LOADING_SCREEN]: new LoadingScreen(),
 		[MENU_SCREEN]: new MenuScreen(),
@@ -48,9 +51,11 @@ const ScreenStates = {
 		return this.stateLog[this.stateLog.length-1];
 	},
 	run: function(deltaTime) {
-        clear();
-		this.screens[this.state].run(deltaTime);
-	},
+		if(!this.isPaused) {
+	       clear();
+		   this.screens[this.state].run(deltaTime);
+		}
+ 	},
 	control: function(keyCode, pressed){
 		let currentState = this.screens[this.state];
         let handled = currentState.control(keyCode, pressed);

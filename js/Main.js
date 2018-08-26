@@ -41,7 +41,6 @@ function windowOnBlur() {
 
 function windowOnFocus() {
 //	playAndLoopMusic(backgroundMusic);
-
 	setPaused(false);
 }
 

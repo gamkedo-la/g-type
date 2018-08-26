@@ -35,7 +35,6 @@ function GamePlayScreen () {
 	    holdA = false;
 	    holdRight = false;
 	    holdD = false;
-	    holdM = false;
     }
     
     this.run = function gamePlayScreenRun(deltaTime) {
@@ -84,7 +83,9 @@ function GamePlayScreen () {
                 holdD = pressed;//move right
                 return true;
             case KEY_M:
-            	holdM = pressed;//toggle mute
+            	if(!pressed) {
+	            	toggleMute();	            	
+            	}
                 return true;
             case KEY_PLUS:
                 if(!pressed) {
@@ -98,12 +99,14 @@ function GamePlayScreen () {
                 return true;
             case KEY_P:
                 if(!pressed) {
-                    ScreenStates.setState(PAUSE_SCREEN);
+	                setPaused(!ScreenStates.isPaused);
+//                    ScreenStates.setState(PAUSE_SCREEN);//TODO: restore once the pause screen has been implemented
                 }
                 return true;
             case KEY_BACKSPACE:
                 if(!pressed) {
-                    ScreenStates.setState(PAUSE_SCREEN);
+	                setPaused(!ScreenStates.isPaused);
+//                    ScreenStates.setState(PAUSE_SCREEN);//TODO: restore once the pause screen has been implemented
                 }
                 return true;
             case DIGIT_0:

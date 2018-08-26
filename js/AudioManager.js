@@ -10,7 +10,9 @@ const DEFAULT_SFX_VOLUME = 0.6;
 //const currentBackgroundMusic = new musicContainer([menuMusic, retroDream, dreamPunk, nightMusic, forestRock, drjuno, gameOver]);
 
 const pauseSound = new sfxClipSingle("PauseSound");
+pauseSound.setVolume(0.4);
 const resumeSound = new sfxClipSingle("ResumeSound");
+resumeSound.setVolume(0.4);
 const playerFireRegular = new sfxClipSingle("PlayerFireRegular");
 playerFireRegular.setVolume(0.4);
 const enemySmallExplosion = new sfxClipSingle("EnemySmallExplosion");

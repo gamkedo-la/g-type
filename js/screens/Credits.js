@@ -103,7 +103,11 @@ function CreditsScreen() {
             case KEY_BACKSPACE:
                 ScreenStates.setState(MENU_SCREEN);
                 return true;
+            case KEY_M:
+            	toggleMute();	            	
+                return true;
         }
+        
         return true;
     }
 }
