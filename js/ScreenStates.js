@@ -24,7 +24,7 @@ const ScreenStates = {
 	screens: {
 		[LOADING_SCREEN]: new LoadingScreen(),
 		[MENU_SCREEN]: new MenuScreen(),
-//        [OPTIONS_SCREEN]: new OptionsScreen(),
+        [OPTIONS_SCREEN]: new OptionsScreen(),
 //		[LEVEL_SELECT_SCREEN]: new LevelSelectScreen(),
 //		[CREDITS_SCREEN]: new CreditsScreen(),
 		[HELP_SCREEN]: new HelpScreen(),
