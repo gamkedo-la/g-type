@@ -2,6 +2,7 @@ const EntityType = {
 	//Terrain & World
 	RhombusBoulder:"rhombusBoulder",
 	Bubble:"bubble",
+	Text:"text",
 	
 	//Player
 	Player:"player",

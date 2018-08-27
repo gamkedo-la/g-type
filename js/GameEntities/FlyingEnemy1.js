@@ -3,6 +3,7 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	this.type = EntityType.FlyingEnemy1;
 	this.group = null;
 	this.worldPos = 0;
+	this.score = 100;
 	
 	const SPRITE_SCALE = 2; //TODO: would like to increase the size of the sprite and change this back to 1.
 	this.position = position;
@@ -94,7 +95,9 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		if((this.group != null) && (this.group != undefined)) {
 			this.group.remove(this, this.worldPos);
 		}
+		
 		scene.removeEntity(this, false);
+		scene.displayScore(this);
 		enemySmallExplosion.play();
 	}
 }

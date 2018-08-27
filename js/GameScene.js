@@ -82,7 +82,9 @@ function GameScene(levelIndex) {
 		if(isPlayerBullet) {
 			collisionManager.removePlayerBullet(entityToRemove);
 		} else {
-			collisionManager.removeEntity(entityToRemove);
+			if(entityToRemove.collisionBody != null) {
+				collisionManager.removeEntity(entityToRemove);
+			}
 			if(entityToRemove.type == EntityType.EnemyBullet) {
 				enemyBullets.delete(entityToRemove);
 			} else {
@@ -95,13 +97,22 @@ function GameScene(levelIndex) {
 		if(isPlayerBullet) {
 			collisionManager.addPlayerBullet(entityToAdd);
 		} else {
-			collisionManager.addEntity(entityToAdd);
+			if(entityToAdd.collisionBody != null) {
+				collisionManager.addEntity(entityToAdd);
+			}
+			
 			if(entityToAdd.type == EntityType.EnemyBullet) {
 				enemyBullets.add(entityToAdd);
 			} else {
 				gameEntities.add(entityToAdd);
 			}
 		}		
+	}
+	
+	this.displayScore = function(entity) {
+//		const value = entity.score.toString();
+		const newScore = new TextEntity(entity.score.toString(), Fonts.CreditsText, Color.White, {x:entity.position.x, y:entity.position.y}, 512);
+		this.addEntity(newScore, false);
 	}
 	
 	const checkpointForWorldPos = function(worldPos) {
