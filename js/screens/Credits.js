@@ -21,11 +21,7 @@ function CreditsScreen() {
         this.skipBump = 0;
         this.currentY = canvas.height - 300;
         
-        this.selectorPositionsIndex = 0;
-        if (scene !== null) {
-            scene = null;
-        }
-        
+        this.selectorPositionsIndex = 0;        
         starfield = new Starfield();
         selectorSprite = new AnimatedSprite(player1Sheet, 3, 60, 38, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
     };

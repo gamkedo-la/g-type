@@ -6,8 +6,10 @@ function GamePlayScreen () {
 //        if(this.properties === "restart") {
 //            scene = null;
 //        }
-        if(scene === null || scene === undefined){
+        if(scene === null || scene === undefined) {
             scene = new GameScene(currentLevelIndex);
+        } else {
+	        scene.reset();
         }
 /*        if(currentBackgroundMusic.getTime() > 0) {
             currentBackgroundMusic.resume();    

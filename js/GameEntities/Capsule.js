@@ -34,6 +34,13 @@ function Capsule(position = {x:0, y:0}, initialWorldPos) {
 		this.collisionBody.draw();
 	}
 	
+	this.respawn = function(worldPos) {
+		if(worldPos > initialWorldPos) {
+			this.worldPos = worldPos;
+			this.position.x -= (worldPos - initialWorldPos);
+		}		
+	}
+	
 	this.didCollideWith = function(otherEntity) {
 		didCollide = true;
 		scene.removeEntity(this, false);

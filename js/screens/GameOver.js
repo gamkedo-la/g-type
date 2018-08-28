@@ -7,6 +7,7 @@ function GameOverScreen() {
     let selectorSprite;
     let starfield;
     this.selections = [
+	    { screen: GAME_SCREEN, title: textStrings.Continue },
 	    { screen: GAME_SCREEN, title: textStrings.Play },
 	    { screen: MENU_SCREEN, title: textStrings.Main },
 //        { screen: LEVEL_SELECT_SCREEN, title: textStrings.Play },
@@ -15,11 +16,7 @@ function GameOverScreen() {
 //        { screen: CREDITS_SCREEN, title: textStrings.Credits },
     ];
     this.transitionIn = function(){
-        this.selectorPositionsIndex = 0;
-        if (scene !== null) {
-            scene = null;
-        }
-        
+        this.selectorPositionsIndex = 0;        
         starfield = new Starfield();
         selectorSprite = new AnimatedSprite(player1Sheet, 3, 60, 38, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
         
@@ -30,7 +27,10 @@ function GameOverScreen() {
             currentBackgroundMusic.play();
         }*/
     };
-    this.transitionOut = function(){
+    this.transitionOut = function() {
+	    if(this.selectorPositionsIndex != 0) {
+		    scene = null;
+	    }
 //        uiSelect.play();
 //        currentBackgroundMusic.pause();
     };
@@ -65,9 +65,6 @@ function GameOverScreen() {
                 return true;
             case KEY_C:
                 ScreenStates.setState(CREDITS_SCREEN);
-                return true;
-            case KEY_E:
-                ScreenStates.setState(EDITOR_SCREEN);
                 return true;
             case KEY_M:
             	toggleMute();	            	

@@ -112,6 +112,13 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 		}
 	}
 	
+	this.respawn = function(worldPos) {
+		if(worldPos > spawnPos) {
+			this.worldPos = worldPos;
+			this.position.x -= (worldPos - spawnPos);
+		}		
+	}
+	
 	this.didCollideWith = function(otherEntity) {
 		if((this.collisionBody == null) || (otherEntity.collisionBody == null)) {return false;}
 	}
@@ -173,6 +180,13 @@ function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 	
 	this.setInitialFrame = function(initialFrame) {
 		sprite.setFrame(initialFrame);
+	}
+	
+	this.respawn = function(worldPos) {
+		if(worldPos > spawnPos) {
+			this.worldPos = worldPos;
+			this.position.x -= (worldPos - spawnPos);
+		}		
 	}
 	
 	this.didCollideWith = function(otherEntity) {

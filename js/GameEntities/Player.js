@@ -162,13 +162,23 @@ function Player(position = {x:0, y:0}) {
 	
 	this.reset = function() {
 		this.clearPowerUps();
+		this.clearBullets();
 		this.position.x = 0;
 		this.position.y = canvas.height / 2;
+		sprite.clearDeath();
+		
 		this.setInvincible(true);
 	}
 	
 	this.clearPowerUps = function() {
 		//TODO: implement this
+	}
+	
+	this.clearBullets = function() {
+		for(let i = 0; i < shots.length; i++) {
+			shots[i].isVisible = false;
+			shots[i].isActive = false;
+		}
 	}
 	
 	this.setInvincible = function(newValue) {

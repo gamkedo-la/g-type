@@ -91,6 +91,12 @@ function CollisionManager(player) {
 		return false;
 	}
 	
+	this.clearWorldAndBullets = function() {
+		entities.clear();
+		enemyBullets.clear();
+		terrain.clear();
+	}
+	
 	this.doCollisionChecks = function() {
 		const collisions = [];
 		

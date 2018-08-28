@@ -14,18 +14,31 @@ function GameScene(levelIndex) {
 	const enemyBullets = new Set();
 	let score = 0;
 	
-	const enemies = data.initializeEnemies();
-	
-	for(let i = 0; i < enemies.length; i++) {
-		gameEntities.add(enemies[i]);
-		collisionManager.addEntity(enemies[i], false);
-	}
+	const populateWorld = function(worldPos) {
+		const enemies = data.initializeEnemies();
 		
-	const terrain = data.initializeTerrain();
-	for(let i = 0; i < terrain.length; i++) {
-		gameEntities.add(terrain[i]);
-		collisionManager.addEntity(terrain[i], false);
+		for(let i = 0; i < enemies.length; i++) {
+			const thisEnemy = enemies[i];
+			
+			thisEnemy.respawn(worldPos);
+			
+			gameEntities.add(thisEnemy);
+			collisionManager.addEntity(thisEnemy, false);
+		}
+		
+		const terrain = data.initializeTerrain();
+		
+		for(let i = 0; i < terrain.length; i++) {
+			const thisTerrain = terrain[i];
+			
+			thisTerrain.respawn(worldPos);
+			
+			gameEntities.add(thisTerrain);
+			collisionManager.addEntity(thisTerrain, false);
+		}
 	}
+	
+	populateWorld(0);//0 = start at the beginning
 	
 	this.update = function(deltaTime) {
 		this.worldPos += worldSpeed;
@@ -43,6 +56,27 @@ function GameScene(levelIndex) {
 		const collisions = collisionManager.doCollisionChecks();
 		
 		if(this.shaking) {this.screenShake();}
+	}
+	
+	this.reset = function() {
+		let newWorldPos = 0;
+		let i = 0;
+		while(this.worldPos > data.checkpointPositions[i]) {
+			newWorldPos = data.checkpointPositions[i];
+			i++;
+			if(i == data.checkpointPositions.length) {break;}
+		}
+		
+		this.gameIsOver = false;
+        this.score = 0;
+        this.worldPos = newWorldPos;
+        player.reset();
+        
+        gameEntities.clear();
+        enemyBullets.clear();
+        collisionManager.clearWorldAndBullets();
+        
+        populateWorld(newWorldPos);
 	}
 	
 	this.setWorldPos = function(newWorldPos) {

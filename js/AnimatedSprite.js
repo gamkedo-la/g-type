@@ -32,7 +32,7 @@ function AnimatedSprite(sheet,
 			return false;
 		}
 	}
-	
+		
 	this.unusedTime = 0;
 	this.currentFrame = this.birthRange.min;
 	this.isReversing = false;
@@ -66,6 +66,12 @@ function AnimatedSprite(sheet,
 	
 	this.setRandomFrame = function() {
 		this.currentFrame = this.lifeRange.min + (this.lifeRange.max - this.lifeRange.min) * Math.floor(Math.random());
+	}
+	
+	this.clearDeath = function() {
+		this.isDying = false;
+		deadCount = 0;
+		this.currentFrame = 0;
 	}
 	
 	this.update = function(deltaTime) {

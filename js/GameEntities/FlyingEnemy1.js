@@ -91,6 +91,16 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		}
 	}
 	
+	this.respawn = function(worldPos) {
+		if(worldPos > spawnPos) {
+			this.worldPos = worldPos;
+			const totalTime = (worldPos *  SIM_STEP);
+			const nextPos = this.path.nextPoint(totalTime - timeOffset);
+			this.position.x = nextPos.x;
+			this.position.y = nextPos.y;
+		}
+	}
+	
 	this.didCollideWith = function(otherCollider) {
 		if((this.group != null) && (this.group != undefined)) {
 			this.group.remove(this, this.worldPos);
