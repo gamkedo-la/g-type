@@ -12,6 +12,7 @@ function GameScene(levelIndex) {
 	const collisionManager = new CollisionManager(player);
 	const gameEntities = new Set();
 	const enemyBullets = new Set();
+	let score = 0;
 	
 	const enemies = data.initializeEnemies();
 	
@@ -62,6 +63,8 @@ function GameScene(levelIndex) {
 		}
 	    
 	    player.draw();
+	    
+//	    score.draw();//TODO: implement this
 	}
 	
 	this.collectedCapsule = function() {
@@ -110,7 +113,7 @@ function GameScene(levelIndex) {
 	}
 	
 	this.displayScore = function(entity) {
-//		const value = entity.score.toString();
+		score += entity.score;
 		const newScore = new TextEntity(entity.score.toString(), Fonts.CreditsText, Color.White, {x:entity.position.x, y:entity.position.y}, 512);
 		this.addEntity(newScore, false);
 	}
