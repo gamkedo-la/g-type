@@ -10,6 +10,7 @@ function GameScene(levelIndex) {
 	const starfield = new Starfield();
 	const player = new Player(data.getPlayerSpawn());
 	const collisionManager = new CollisionManager(player);
+	let collisionBodiesToRemove = [];
 	const gameEntities = new Set();
 	const enemyBullets = new Set();
 	let score = 0;
@@ -54,6 +55,12 @@ function GameScene(levelIndex) {
 		}
 		
 		const collisions = collisionManager.doCollisionChecks();
+		
+		for(let i = 0; i < collisionBodiesToRemove.length; i++) {
+			collisionManager.removeEntity(collisionBodiesToRemove[i]);
+		}
+		
+		collisionBodiesToRemove = [];
 		
 		if(this.shaking) {this.screenShake();}
 	}
@@ -128,6 +135,10 @@ function GameScene(levelIndex) {
 				gameEntities.delete(entityToRemove);
 			}
 		}
+	}
+	
+	this.removeCollisions = function(entityToRemove) {
+		collisionBodiesToRemove.push(entityToRemove);
 	}
 	
 	this.addEntity = function(entityToAdd, isPlayerBullet) {

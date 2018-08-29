@@ -11,7 +11,7 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	let unusedTime = 0;
 	this.isVisible = true;
 	
-	const sprite = new AnimatedSprite(flyingEnemySheet, 5, 30, 21, true, true, {min:0, max:0}, 0, {min:0, max:4}, 128, {min:4, max:4}, 0);
+	let sprite = new AnimatedSprite(flyingEnemySheet, 5, 30, 21, true, true, {min:0, max:0}, 0, {min:0, max:4}, 128, {min:4, max:4}, 0);
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 
 	this.collisionBody = new Collider(ColliderType.Circle, {points:   [], 
@@ -24,6 +24,15 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	this.path = new EnemyPath(PathType.Sine, this.position, speed, [], timeOffset);
 	
 	this.update = function(deltaTime, worldPos, playerPos) {
+		if(sprite.getDidDie()) {
+			scene.removeEntity(this, false);
+			sprite.isDying = false;
+			if((this.group != null) && (this.group != undefined)) {
+				this.group.remove(this, this.worldPos);
+			}
+			return;
+		}
+		
 		this.worldPos = worldPos;
 		if(!this.isVisible) {return;}
 		if(worldPos < spawnPos) {return;}//don't update if the world hasn't scrolled far enough to spawn
@@ -31,14 +40,16 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		let availableTime = unusedTime + deltaTime;
 		while(availableTime > SIM_STEP) {
 			availableTime -= SIM_STEP;
-			const nextPos = this.path.nextPoint(SIM_STEP);
-			if(pattern == PathType.None) {
-				this.position.x += (vel.x * SIM_STEP / 1000);
-				this.position.y += (vel.y * SIM_STEP / 1000);
-			} else {
-				if(nextPos != undefined) {
-					this.position.x += nextPos.x;
-					this.position.y += nextPos.y;
+			if(!sprite.isDying) {
+				const nextPos = this.path.nextPoint(SIM_STEP);
+				if(pattern == PathType.None) {
+					this.position.x += (vel.x * SIM_STEP / 1000);
+					this.position.y += (vel.y * SIM_STEP / 1000);
+				} else {
+					if(nextPos != undefined) {
+						this.position.x += nextPos.x;
+						this.position.y += nextPos.y;
+					}
 				}
 			}
 						
@@ -50,7 +61,11 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		
 		unusedTime = availableTime;
 		
-		this.collisionBody.setPosition({x:(SPRITE_SCALE * 3) + this.position.x + this.size.height / 2, y:this.position.y + this.size.height / 2});
+		if(!sprite.isDying) {
+			this.collisionBody.setPosition({x:(SPRITE_SCALE * 3) + this.position.x + this.size.height / 2, 
+											y:this.position.y + this.size.height / 2});
+		}
+		
 		sprite.update(deltaTime);
 		
 		const firingChance = Math.floor(1000 * Math.random());
@@ -81,7 +96,9 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		if(this.worldPos < spawnPos) {return;}
 		
 		sprite.drawAt(this.position, this.size);
-		this.collisionBody.draw();
+		if(!sprite.isDying) {
+			this.collisionBody.draw();
+		}
 		
 		if(didCollide) {
 			didCollide = false;
@@ -102,11 +119,15 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	}
 	
 	this.didCollideWith = function(otherCollider) {
-		if((this.group != null) && (this.group != undefined)) {
-			this.group.remove(this, this.worldPos);
-		}
+//		if((this.group != null) && (this.group != undefined)) {
+			sprite = new AnimatedSprite(enemyExplosionSheet1, 34, 48, 48, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:10, max:33}, 64);
+			sprite.isDying = true;
+			sprite.wasBorn = true;
+			scene.removeCollisions(this);
+//			this.group.remove(this, this.worldPos);
+//		}
 		
-		scene.removeEntity(this, false);
+//		scene.removeEntity(this, false);
 		scene.displayScore(this);
 		enemySmallExplosion.play();
 	}
