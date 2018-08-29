@@ -12,11 +12,11 @@ function setPaused(shouldPause) {
 	if(shouldPause) {
 		ScreenStates.isPaused = true;
 		pauseSound.play();
-//		pauseMusic(backgroundMusic);
+		currentBackgroundMusic.pause();
 	} else {
 		ScreenStates.isPaused = false;
 		resumeSound.play();
-//		playAndLoopMusic(backgroundMusic);
+		currentBackgroundMusic.resume();
 	}
 }
 
