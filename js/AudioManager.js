@@ -14,7 +14,7 @@ pauseSound.setVolume(0.4);
 const resumeSound = new sfxClipSingle("ResumeSound");
 resumeSound.setVolume(0.4);
 const playerFireRegular = new sfxClipSingle("PlayerFireRegular");
-playerFireRegular.setVolume(0.4);
+playerFireRegular.setVolume(0.6);
 const enemySmallExplosion = new sfxClipSingle("EnemySmallExplosion");
 enemySmallExplosion.setVolume(0.6);
 //const uiSelect = new sfxClipSingle("uiSelect");
