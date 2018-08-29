@@ -32,6 +32,18 @@ const assetPath = {
     Image: "images/"
 }
 
+const AudioTracks = {
+	MainMenu:0,
+	Level1:0, 		//TODO: change these to
+	Level2:0, 		//the correct indices from
+	Level3:0, 		//the "currentBackgroundMusic" 
+	GameOver:0,		//array (AudioManager.js ~line 11) once
+	GameEnding:0,	//there is more than 1 element in that array
+	Help:0,
+	Options:0,
+	Credits:0
+}
+
 const loadingText = "LOADING...";
 
 const Color = {

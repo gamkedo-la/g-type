@@ -3,28 +3,37 @@ function GamePlayScreen () {
 
     this.transitionIn = function gamePlayScreenTransitionIn() {
 	    remainingLives = 2;
-//        if(this.properties === "restart") {
-//            scene = null;
-//        }
+
         if(scene === null || scene === undefined) {
             scene = new GameScene(currentLevelIndex);
         } else {
 	        scene.reset();
         }
-/*        if(currentBackgroundMusic.getTime() > 0) {
+        
+        let backgroundMusicIndex;
+        if(currentLevelIndex == 0) {
+	        backgroundMusicIndex = AudioTracks.Level1;
+        } else if(currentLevelIndex == 1) {
+	        backgroundMusicIndex = AudioTracks.Level2;
+        } else if(currentLevelIndex == 2) {
+	        backgroundMusicIndex = AudioTracks.Level3;
+        }
+        
+        currentBackgroundMusic.setCurrentTrack(backgroundMusicIndex);
+        if(currentBackgroundMusic.getTime() > 0) {
             currentBackgroundMusic.resume();    
         }
         else {
             currentBackgroundMusic.play();
-        }*/
+        }
 
     };
     
     this.transitionOut = function gamePlayScreenTransitionOut() {
 	    clearKeyboardInput();
 	    canvasContext.setTransform(1, 0, 0, 1, 0, 0);
-/*        currentBackgroundMusic.pause();
-        allSFX.stop();*/
+        currentBackgroundMusic.pause();
+        allSFX.stop();
     };
     
     const clearKeyboardInput = function() {

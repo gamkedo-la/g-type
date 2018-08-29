@@ -19,20 +19,20 @@ function GameOverScreen() {
         this.selectorPositionsIndex = 0;        
         starfield = new Starfield();
         selectorSprite = new AnimatedSprite(player1Sheet, 3, 60, 38, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
-        
- /*       if(currentBackgroundMusic.getTime() > 0){
+        currentBackgroundMusic.setCurrentTrack(AudioTracks.GameOver);
+        if(currentBackgroundMusic.getTime() > 0){
             currentBackgroundMusic.resume();    
         }
         else {
             currentBackgroundMusic.play();
-        }*/
+        }
     };
     this.transitionOut = function() {
 	    if(this.selectorPositionsIndex != 0) {
 		    scene = null;
 	    }
 //        uiSelect.play();
-//        currentBackgroundMusic.pause();
+        currentBackgroundMusic.pause();
     };
     this.run = function gamePlayFinishedScreenRun(deltaTime) {
 	    update(deltaTime);

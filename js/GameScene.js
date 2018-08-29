@@ -77,6 +77,8 @@ function GameScene(levelIndex) {
 		this.gameIsOver = false;
         this.score = 0;
         this.worldPos = newWorldPos;
+        this.endShake();
+        
         player.reset();
         
         gameEntities.clear();

@@ -5,9 +5,10 @@ const DEFAULT_MUSIC_VOLUME = 0.7;
 const DEFAULT_SFX_VOLUME = 0.6;
 //set sound clips and music tracks here
 
-//const nightMusic = new musicTrackLoop("dreamracerNight", 208.976, {author: "Vignesh", album: "DreamRacer OST", year: "2018", title: "dreamracerNight"});  //By Vignesh
+//need to change file name to match
+const menuMusic = new musicTrackLoop("PrepareToStrike-v1", 208.976, {author: "JoeCS", album: "G-Type OST", year: "2018", title: "Prepare To Strike (Main Menu Theme)"});  //By Joe Spedale
 
-//const currentBackgroundMusic = new musicContainer([menuMusic, retroDream, dreamPunk, nightMusic, forestRock, drjuno, gameOver]);
+const currentBackgroundMusic = new musicContainer([menuMusic/*, retroDream, dreamPunk, nightMusic, forestRock, drjuno, gameOver*/]);
 
 const pauseSound = new sfxClipSingle("PauseSound");
 pauseSound.setVolume(0.4);
