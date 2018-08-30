@@ -150,8 +150,14 @@ var defaultConfig = {
     "duration":5,
     "immortal":false,
     "particleLife":2,
-    "color":"#ffec00",
-    "endColor":"#ff0000",
+    "color":[255,
+    236,
+    0,
+    1],
+    "endColor":[255,
+    0,
+    0,
+    1],
     "useTexture":false,
     "textureAdditive":false,
     "fadeAlpha":true,
@@ -164,8 +170,14 @@ var defaultConfig = {
     "sizeVar":2,
     "angleVar":360,
     "particleLifeVar":0,
-    "startColorVar":"#ff99ff",
-    "endColorVar":"#ff99ff",
+    "startColorVar":[255,
+    153,
+    255,
+    0],
+    "endColorVar":[255,
+    153,
+    255,
+    0],
     "endColorToggle":true,
     "colorVar":"#ff99ff",
     "colorVarToggle":false
@@ -198,7 +210,7 @@ function applyAllConfig (config) {
 // Helper function for applying default
 function applyDefaultConfig () {
 
-    currentConfig = JSON.parse(JSON.stringify(defaultConfig)); //make a copy of the default config
+    currentConfig = JSON.parse(JSON.stringify(convertColorsArrayToHex(defaultConfig))); //make a copy of the default config
 
     applyAllConfig(currentConfig);
 
@@ -216,7 +228,7 @@ function loadConfig () {
 
     
     try {
-        loadedConfig = JSON.parse(configString);
+        loadedConfig = convertColorsArrayToHex(JSON.parse(configString));
         applyAllConfig(loadedConfig);
     } catch (error) {
         console.log("Error: entered configuration is not valid");
@@ -229,7 +241,10 @@ function loadConfig () {
 // As the classic pastable not-JSON ;)
 function exportConfig () {
 
-    let string = JSON.stringify(currentConfig).split(",").join(",\n");
+    let convertedConfig = convertColorsHexToArray(currentConfig);
+    console.log(convertedConfig)
+
+    let string = JSON.stringify(convertedConfig).split(",").join(",\n");
 
     string = string.replace("{", "{\n");
     string = string.replace("}", "\n}");
@@ -319,7 +334,7 @@ function updateParticleViewer () {
     ParticleEmitterManager.killAllEmittersSoft(); //kill the current viewer
 
     //convert hex values to rgba array
-    let convertedConfig = convertConfigColors(currentConfig);
+    let convertedConfig = convertColorsHexToArray(currentConfig);
 
     // set end color as start color if not currently toggled, same thing for variation
     if (!document.getElementsByName("endColorToggle")[0].checked) {
@@ -348,8 +363,25 @@ function hexInputToArray (hexInput, alphaVal) {
     return array;
 }
 
+// Array input in format [r, g, b, alphaVal]
+// Returns hex format #RRGGBB
+function arrayInputToHex (arrayInput) {
+
+    //let hexString = arrayInput.match(/[A-Za-z0-9]{2}/g).map(function(v) { return parseInt(v, 16) });
+    let RR = arrayInput[0].toString(16);
+    let GG = arrayInput[1].toString(16);
+    let BB = arrayInput[2].toString(16);
+    if (RR.length === 1) { RR = "0" + RR;}
+    if (GG.length === 1) { GG = "0" + GG;}
+    if (BB.length === 1) { BB = "0" + BB;}
+
+    let hexString = "#" + RR + GG + BB;
+    
+    return hexString;
+}
+
 // Converts all the colors to the proper [r,g,b,a] array format, and return a NEW config object
-function convertConfigColors (config) {
+function convertColorsHexToArray (config) {
 
     let converted = JSON.parse(JSON.stringify(config));
 
@@ -357,6 +389,20 @@ function convertConfigColors (config) {
     converted.endColor = hexInputToArray(config.endColor, 1);
     converted.startColorVar = hexInputToArray(config.startColorVar, 0);
     converted.endColorVar = hexInputToArray(config.endColorVar, 0);
+
+    return converted;
+
+}
+
+// Converts all the colors to the proper [r,g,b,a] array format, and return a NEW config object
+function convertColorsArrayToHex (config) {
+
+    let converted = JSON.parse(JSON.stringify(config));
+
+    converted.color = arrayInputToHex(config.color);
+    converted.endColor = arrayInputToHex(config.endColor);
+    converted.startColorVar = arrayInputToHex(config.startColorVar);
+    converted.endColorVar = arrayInputToHex(config.endColorVar);
 
     return converted;
 

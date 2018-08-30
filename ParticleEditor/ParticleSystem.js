@@ -133,7 +133,7 @@ function ParticleEmitter () {
         //Update all alive particles (moves, applies forces, but NO RENDERING here)
         for (var i = 0, l = this.poolPointer; i < l; i++) {
 
-            this.updateParticle(this.pool[i], i);
+            this.updateParticle(this.pool[i], i, dt);
         }
         
         // Return all that died to pool
@@ -144,7 +144,7 @@ function ParticleEmitter () {
 
     }
 
-    ParticleEmitter.prototype.updateParticle = function (particle, particleIndex) {
+    ParticleEmitter.prototype.updateParticle = function (particle, particleIndex, dt) {
 
         particle.lifeLeft -= dt; // again, times are in seconds!
 
@@ -288,8 +288,10 @@ ParticleEmitterManager = {
         let emitter = this.getEmitterFromPool();
 
         emitter.init(x,y, config);
+
     },
 
+    //Give dt in seconds
     updateAllEmitters : function(dt) {
 
         this.toSwap = []; //swap these indexes after we're done updating
@@ -368,9 +370,10 @@ ParticleRenderer = {
         // Iterate over every alive particle of every active emitter, and draw
         for (var i = 0, l = ParticleEmitterManager.poolPointer; i < l; i++) {
             for (var j = 0, k = ParticleEmitterManager.pool[i].poolPointer; j < k; j++) {
-                
+
                 particle = ParticleEmitterManager.pool[i].pool[j];
                 this.renderParticle(particle, context);
+
             }
         }
     },

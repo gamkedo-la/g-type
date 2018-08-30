@@ -52,7 +52,13 @@ function loadingDoneSoStartGame() {
 };
 
 function update() {
-	ScreenStates.run(timer.update());
+
+	let dt = timer.update();
+
+	ScreenStates.run(dt);
+	
+	ParticleEmitterManager.updateAllEmitters(dt/1000);
+	ParticleRenderer.renderAll(canvasContext);
 };
 
 // This is example usage of localStorageHelper for storing high scores. This is only a test - code can be removed when high scores are implemented for real.

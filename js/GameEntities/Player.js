@@ -60,6 +60,7 @@ function Player(position = {x:0, y:0}) {
 			}
 					
 			if(holdSpace) {
+
 				let timeSinceLastShot = timer.timeSinceUpdateForEvent("lastShot");
 				if((timeSinceLastShot == null) || (timeSinceLastShot == undefined)) {
 					timeSinceLastShot = timer.registerEvent("lastShot");
@@ -156,6 +157,8 @@ function Player(position = {x:0, y:0}) {
 			} else {
 				scene.shouldShake(MAX_SHAKE_MAGNITUDE);
 				sprite.isDying = true;
+				// Colliding with a large enemy makes this event happen multiple times... but it looks kinda cool!!!
+				createParticleEmitter(this.position.x,this.position.y, exampleExplosion);
 			}
 		}
 	}
