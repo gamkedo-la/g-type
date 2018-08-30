@@ -9,6 +9,7 @@ const bubble = document.createElement("img");
 //Player Associated
 const player1Sheet = document.createElement("img");
 const playerShots = document.createElement("img");
+const playerShotFlash = document.createElement("img");
 
 //power ups
 const capsule1Sheet = document.createElement("img");
@@ -46,6 +47,7 @@ function loadImages() {
         // player related
         { imgName: player1Sheet, theFile: "G-TypePlayer1.png" },
         { imgName: playerShots, theFile: "PlayerShots.png" },
+		{ imgName: playerShotFlash, theFile: "player_shot_vfx_sheet.png"},
 
         // power ups
         { imgName: capsule1Sheet, theFile: "PowerUp.png" },
