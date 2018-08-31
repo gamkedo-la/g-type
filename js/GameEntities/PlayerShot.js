@@ -4,7 +4,8 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	
 	let pos = position;
 	const MOVE_VELOCITY = 200;
-	const SPRITE_SCALE = 5;
+	const SPRITE_SCALE = 1.5;
+	const FLASH_SCALE = 4;
 	let vel = velocity;
 	let unusedTime = 0;
 	
@@ -14,8 +15,8 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	
 	this.worldPos = null;
 	
-	const sprite = new AnimatedSprite(playerShots, 5, 5, 5, false, false, {min:0, max:0}, 32, {min:1, max:2}, 128, {min:3, max:4}, 32);
-	const flashSprite = new AnimatedSprite(playerShotFlash, 5, 4, 4, false, false, {min: 0, max: 0}, 32, {min:1, max: 3}, 32, {min: 4, max: 5}, 32);
+	const sprite = new AnimatedSprite(playerShots, 5, 25, 25, false, false, {min:0, max:0}, 32, {min:1, max:2}, 128, {min:3, max:4}, 32);
+	const flashSprite = new AnimatedSprite(playerShotFlash, 5, 4, 4, false, true, {min: 0, max: 0}, 0, {min:0, max: 4}, 32, {min: 4, max: 4}, 0);
 	
 	const colliderPath = [{x: pos.x, y: pos.y + (2 * SPRITE_SCALE)}, 
 					  	  {x: pos.x + SPRITE_SCALE * sprite.width, y: pos.y + (2 * SPRITE_SCALE)}, 
@@ -54,8 +55,6 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 			while(availableTime > SIM_STEP) {
 				if(!this.wasReleased) {
 					this.wasReleased = true;
-					//flashSprite.wasBorn = false;
-					//flashSprite.isDying = false;
 					sprite.wasBorn = true;
 					vel.x = MOVE_VELOCITY;
 				} else {
@@ -75,14 +74,20 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 			
 			unusedTime = availableTime;
 		}
-		//flashSprite.update(deltaTime);
+		
+		flashSprite.update(deltaTime);
 		sprite.update(deltaTime);
 	}
 	
 	this.draw = function() {
 		if(!this.isVisible) {return;}
 		
-		//flashSprite.drawAt((pos - 10), this.size);
+		if(this.wasReleased) {
+			const xPos = pos.x - (flashSprite.width * FLASH_SCALE);
+			const yPos = pos.y + (this.size.height / 2) - (FLASH_SCALE * flashSprite.height / 2);
+			flashSprite.drawAt({x:xPos, y:yPos}, {width:FLASH_SCALE * flashSprite.width, height:FLASH_SCALE * flashSprite.height});
+		}
+		
 		sprite.drawAt(pos, this.size);
 		this.collisionBody.draw();
 	}
@@ -93,10 +98,6 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 		this.isVisible = true;
 		this.isActive = true;
 		this.wasReleased = false;
-		
-		//flashSprite.wasBorn = false;
-		//flashSprite.isDying = false;
-		//flashSprite.setFrame(0);
 		
 		sprite.wasBorn = false;
 		sprite.isDying = false;

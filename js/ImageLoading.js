@@ -15,7 +15,6 @@ const playerShotFlash = document.createElement("img");
 const capsule1Sheet = document.createElement("img");
 
 //Enemy Associated
-const enemyExplosionSheet1 = document.createElement("img");
 const enemyExplosionSheet2 = document.createElement("img");
 const flyingEnemySheet = document.createElement("img");
 const enemyBulletSheet = document.createElement("img");
@@ -53,7 +52,6 @@ function loadImages() {
         { imgName: capsule1Sheet, theFile: "PowerUp.png" },
 
         // enemies
-        { imgName: enemyExplosionSheet1, theFile: "enemy_explosion_vfx_sheet.png" },
         { imgName: enemyExplosionSheet2, theFile: "enemy_explosion_sheet_2.png" },
         { imgName: flyingEnemySheet, theFile: "FlyingEnemy1.png" },
         { imgName: enemyBulletSheet, theFile: "EnemyBullet.png" },
