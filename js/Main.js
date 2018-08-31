@@ -52,8 +52,7 @@ function loadingDoneSoStartGame() {
 };
 
 function update() {
-
-	let dt = timer.update();
+	const dt = timer.update();
 
 	ScreenStates.run(dt);
 	

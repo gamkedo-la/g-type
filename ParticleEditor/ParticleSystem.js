@@ -409,7 +409,14 @@ ParticleRenderer = {
         //default to drawing a filled circle
         else {
             //copied from GraphicsCommon.js to remove dependency
-            context.fillStyle = "rgba(" + particle.color[0] + "," + particle.color[1] + "," + particle.color[2] + "," + particle.color[3] + ")";
+			const colorString = "rgba(" + parseInt(particle.color[0]) + "," 
+										+ parseInt(particle.color[1]) + "," 
+										+ parseInt(particle.color[2]) + "," 
+										+ particle.color[3] + ")";
+
+			context.fillStyle = colorString;
+			console.log(context.fillStyle);
+			
             context.beginPath();
             context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2, true); //Début, fin, horaire ou anti horaire
             context.fill();

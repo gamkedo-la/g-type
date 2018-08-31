@@ -1,10 +1,9 @@
 //Graphics Common
 function drawRect(x,y,w,h,color) {
-	if(color == 'green') {
-		console.log("Trying to draw a red rectangle");
-	}
+	canvasContext.save();
 	canvasContext.fillStyle = color;
 	canvasContext.fillRect(x,y,w,h);
+	canvasContext.restore();
 }
 
 function colorText(showWords, textX, textY, fillColor, fontface, textAlign = 'left', opacity = 1) {
