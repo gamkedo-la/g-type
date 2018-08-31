@@ -8,11 +8,11 @@ const LevelData = [
 
 			const firstGroup = new EnemyGroup();
 			
-			enemies.push(firstGroup.add(new FlyingEnemy1({x: canvas.width + 50, y: 50}, -100, PathType.Sine, 0, 0, 1)));
-			enemies.push(firstGroup.add(new FlyingEnemy1({x: canvas.width + 50, y: 50}, -100, PathType.Sine, 550, 0, 1)));
-			enemies.push(firstGroup.add(new FlyingEnemy1({x: canvas.width + 50, y: 50}, -100, PathType.Sine, 1100, 0, 1)));
-			enemies.push(firstGroup.add(new FlyingEnemy1({x: canvas.width + 50, y: 50}, -100, PathType.Sine, 1650, 0, 1)));
-			enemies.push(firstGroup.add(new FlyingEnemy1({x: canvas.width + 50, y: 50}, -100, PathType.Sine, 2200, 0, 1)));
+			enemies.push(firstGroup.add(new FlyingEnemy2({x: canvas.width + 50, y: 50}, -100, PathType.Points, 0, 0, 1)));
+			enemies.push(firstGroup.add(new FlyingEnemy2({x: canvas.width + 50, y: 50}, -100, PathType.Points, 600, 0, 1)));
+			enemies.push(firstGroup.add(new FlyingEnemy2({x: canvas.width + 50, y: 50}, -100, PathType.Points, 1200, 0, 1)));
+			enemies.push(firstGroup.add(new FlyingEnemy2({x: canvas.width + 50, y: 50}, -100, PathType.Points, 1800, 0, 1)));
+			enemies.push(firstGroup.add(new FlyingEnemy2({x: canvas.width + 50, y: 50}, -100, PathType.Points, 2400, 0, 1)));
 			
 			const secondGroup = new EnemyGroup();
 

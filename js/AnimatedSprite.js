@@ -144,8 +144,12 @@ function AnimatedSprite(sheet,
 		return answer;
 	}
 	
-	this.drawAt = function(position, size = {width:this.width, height:this.height}) {
-		canvasContext.drawImage(sheet, this.currentFramePos.x, this.currentFramePos.y, this.width, this.height, position.x, position.y, size.width, size.height);
+	this.drawAt = function(position, size = {width:this.width, height:this.height}, rotation = 0) {
+		canvasContext.save();
+		canvasContext.translate(position.x + size.width / 2, position.y + size.height / 2);
+		canvasContext.rotate(rotation);
+		canvasContext.drawImage(sheet, this.currentFramePos.x, this.currentFramePos.y, this.width, this.height, -size.width / 2, -size.height / 2, size.width, size.height);
+		canvasContext.restore();
 	}
 	
 	return this;

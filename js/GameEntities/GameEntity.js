@@ -13,6 +13,7 @@ const EntityType = {
 	
 	//Enemies
 	FlyingEnemy1:"flyingEnemy1",
+	FlyingEnemy2:"flyingEnemy2",
 	EnemyBullet:"enemyBullet"
 }
 

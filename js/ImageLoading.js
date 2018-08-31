@@ -17,6 +17,7 @@ const capsule1Sheet = document.createElement("img");
 //Enemy Associated
 const enemyExplosionSheet2 = document.createElement("img");
 const flyingEnemySheet = document.createElement("img");
+const flyingEnemy2Sheet = document.createElement("img");
 const enemyBulletSheet = document.createElement("img");
 
 let picsToLoad = 0;
@@ -54,6 +55,7 @@ function loadImages() {
         // enemies
         { imgName: enemyExplosionSheet2, theFile: "enemy_explosion_sheet_2.png" },
         { imgName: flyingEnemySheet, theFile: "FlyingEnemy1.png" },
+        { imgName: flyingEnemy2Sheet, theFile: "FlyingEnemy2.png" },
         { imgName: enemyBulletSheet, theFile: "EnemyBullet.png" },
 
         // UI
