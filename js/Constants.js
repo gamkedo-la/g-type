@@ -90,6 +90,7 @@ const textStrings = {
     Continue: "Continue",
     Help: "Help",
     Restart: "Restart",
+    Quit: "Quit",
     Options: "Options",
     Music: "Music",
     SoundFX: "SFX",

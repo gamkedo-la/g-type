@@ -8,8 +8,8 @@ function GameOverScreen() {
     let starfield;
     this.selections = [
 	    { screen: GAME_SCREEN, title: textStrings.Continue },
-	    { screen: GAME_SCREEN, title: textStrings.Play },
-	    { screen: MENU_SCREEN, title: textStrings.Main },
+	    { screen: GAME_SCREEN, title: textStrings.Restart },
+	    { screen: MENU_SCREEN, title: textStrings.Quit },
 //        { screen: LEVEL_SELECT_SCREEN, title: textStrings.Play },
 //        { screen: HELP_SCREEN, title: textStrings.Help },
 //        { screen: OPTIONS_SCREEN, title: textStrings.Options },
