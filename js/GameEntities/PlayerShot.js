@@ -15,13 +15,16 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	
 	this.worldPos = null;
 	
+	const TOP_BOTTOM_PADDING = 10;//number of transparent pixels at the top and bottom of the image
+	const RIGHT_PADDING = 5;//number of transparent pixels to the right of the image
+	
 	const sprite = new AnimatedSprite(playerShots, 5, 25, 25, false, true, {min:0, max:0}, 128, {min:1, max:2}, 128, {min:3, max:4}, 32);
 	const flashSprite = new AnimatedSprite(playerShotFlash, 5, 4, 4, false, true, {min: 0, max: 0}, 0, {min:0, max: 4}, 32, {min: 4, max: 4}, 0);
 	
-	const colliderPath = [{x: pos.x, y: pos.y + (2 * SPRITE_SCALE)}, 
-					  	  {x: pos.x + SPRITE_SCALE * sprite.width, y: pos.y + (2 * SPRITE_SCALE)}, 
-						  {x: pos.x + SPRITE_SCALE * sprite.width, y: pos.y + (3 * SPRITE_SCALE)}, 
-						  {x: pos.x, y: pos.y + (3 * SPRITE_SCALE)}];
+	const colliderPath = [{x: pos.x, y: pos.y + (TOP_BOTTOM_PADDING * SPRITE_SCALE)}, 
+					  	  {x: pos.x + SPRITE_SCALE * (sprite.width - RIGHT_PADDING), y: pos.y + (TOP_BOTTOM_PADDING * SPRITE_SCALE)}, 
+						  {x: pos.x + SPRITE_SCALE * (sprite.width - RIGHT_PADDING), y: pos.y + ((sprite.height - TOP_BOTTOM_PADDING) * SPRITE_SCALE)}, 
+						  {x: pos.x, y: pos.y + ((sprite.height - TOP_BOTTOM_PADDING) * SPRITE_SCALE)}];
 	this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:pos.x, y:pos.y}});
 
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};

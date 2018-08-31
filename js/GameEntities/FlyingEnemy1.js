@@ -22,6 +22,16 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	let didCollide = false;
 	
 	this.path = new EnemyPath(PathType.Sine, this.position, speed, [], timeOffset);
+
+//the following is an example of how to use the PathType.Points and should be deleted once we have an enemy which uses it which we can reference as an example because this doesn't belong here
+/*	const pathPoints = [
+		{x: canvas.width, y: 100},
+		{x: canvas.width / 3, y: 100},
+		{x: 2 * canvas.width / 3, y: 500},
+		{x: canvas.width + 50, y: 500},
+	];
+	
+	this.path = new EnemyPath(PathType.Points, this.position, speed, pathPoints, timeOffset);*/
 	
 	this.update = function(deltaTime, worldPos, playerPos) {
 		if(sprite.getDidDie()) {
@@ -42,13 +52,16 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 			availableTime -= SIM_STEP;
 			if(!sprite.isDying) {
 				const nextPos = this.path.nextPoint(SIM_STEP);
-				if(pattern == PathType.None) {
-					this.position.x += (vel.x * SIM_STEP / 1000);
-					this.position.y += (vel.y * SIM_STEP / 1000);
-				} else {
-					if(nextPos != undefined) {
+				if(nextPos != undefined) {
+					if(pattern == PathType.None) {
+						this.position.x += (vel.x * SIM_STEP / 1000);
+						this.position.y += (vel.y * SIM_STEP / 1000);
+					} else if(pattern == PathType.Sine) {
 						this.position.x += nextPos.x;
 						this.position.y += nextPos.y;
+					} else if(pattern == PathType.Points) {
+						this.position.x = nextPos.x;
+						this.position.y = nextPos.y;
 					}
 				}
 			}
