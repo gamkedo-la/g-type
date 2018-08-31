@@ -151,7 +151,7 @@ function Player(position = {x:0, y:0}) {
 			//initialize the newShot (whether it is new or pulled from the pool)
 			newShot.reset();
 			scene.addEntity(newShot, true);
-			newShot.setPosition({x:position.x + 50, y:position.y + 7});
+			newShot.setPosition({x:position.x + 70, y:position.y + 0});
 						
 			shots.push(newShot);
 			timer.updateEvent(PlayerEvent.LastShot);

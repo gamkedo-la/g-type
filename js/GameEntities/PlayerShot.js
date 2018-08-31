@@ -15,7 +15,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	
 	this.worldPos = null;
 	
-	const sprite = new AnimatedSprite(playerShots, 5, 25, 25, false, false, {min:0, max:0}, 32, {min:1, max:2}, 128, {min:3, max:4}, 32);
+	const sprite = new AnimatedSprite(playerShots, 5, 25, 25, false, true, {min:0, max:0}, 128, {min:1, max:2}, 128, {min:3, max:4}, 32);
 	const flashSprite = new AnimatedSprite(playerShotFlash, 5, 4, 4, false, true, {min: 0, max: 0}, 0, {min:0, max: 4}, 32, {min: 4, max: 4}, 0);
 	
 	const colliderPath = [{x: pos.x, y: pos.y + (2 * SPRITE_SCALE)}, 
@@ -53,16 +53,15 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 		} else {
 			let availableTime = unusedTime + deltaTime;
 			while(availableTime > SIM_STEP) {
-				if(!this.wasReleased) {
-					this.wasReleased = true;
-					sprite.wasBorn = true;
-					vel.x = MOVE_VELOCITY;
-				} else {
+				if(this.wasReleased) {
 					pos.x += vel.x * SIM_STEP / 1000;
 					pos.y += vel.y * SIM_STEP / 1000;
 					this.collisionBody.setPosition({x:pos.x, y:pos.y});
+				} else if(sprite.wasBorn) {
+					this.wasReleased = true;
+					vel.x = MOVE_VELOCITY;
 				}
-	
+					
 				availableTime -= SIM_STEP;
 				
 				if(pos.x > canvas.width) {
@@ -88,7 +87,11 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 			flashSprite.drawAt({x:xPos, y:yPos}, {width:FLASH_SCALE * flashSprite.width, height:FLASH_SCALE * flashSprite.height});
 		}
 		
-		sprite.drawAt(pos, this.size);
+		let drawPos = {x:pos.x, y:pos.y};
+		if(!sprite.wasBorn) {
+			drawPos = {x:pos.x - 30, y:pos.y};
+		}
+		sprite.drawAt(drawPos, this.size);
 		this.collisionBody.draw();
 	}
 	

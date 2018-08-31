@@ -55,20 +55,57 @@ function EnemyPath(type = PathType.None, start = {x:0, y:0}, speed = 0, points =
 				return {x:speed * deltaTime / 1000, 
 					    y:0.0025 * canvas.height * Math.sin((elapsedTime - timeOffset) / 500)};
 			} else if(type == PathType.Points) {
-				if(points.length == 0) {return lastPosition;}
+				if(points.length <= 1) {return lastPosition;}//paths must have at least two points
 				
 				if(lastPointIndex < 0) {//between start and points[0]
 					const distThisCall = speed * deltaTime;
 					const deltaX = points[0].x - lastPosition.x;
 					const deltaY = points[0].y - lastPosition.y;
 					const distToFirstPoint = Math.sqrt((deltaX * deltaX) + (deltaY * deltaY));
-					if(distThisCall < distToFirstPoint) {
-						//atan2 to find the angle and then add that to lastPosition to get the new lastPosition
-					} else {
-						//set lastPosition to points[0], set lastPointIndex = 0, return recursive call to this.nextPoint
-					}
-				} else {
 					
+					if(distThisCall < distToFirstPoint) {//not going to make it to points[0]
+						const percentToFirstPoint = distThisCall / distToFirstPoint;
+						const newX = lastPosition.x + percentToFirstPoint * deltaX;
+						const newY = lastPosition.y + percentToFirstPoint * deltaY;
+						lastPosition = {x:newX, y:newY};
+						return lastPosition;
+					} else {//made it to points[0] and may have some leftover time to travel beyond it
+						const remainingDistance = distThisCall - distToFirstPoint;
+						const remainingTime = remainingDistance / speed;
+						lastPosition = {x:points[0].x, y:points[0].y};
+						lastPointIndex = 0;
+						if(remainingDistance < 1) {return lastPosition;}//no excess time (i.e. landed right on points[0])
+						return this.nextPoint(remainingTime);
+					}
+				} else if((lastPointIndex + 1) < points.length) {//in the middle of the path
+					const distThisCall = speed * deltaTime;
+					const deltaX = points[lastPointIndex + 1].x - lastPosition.x;
+					const deltaY = points[lastPointIndex + 1].y - lastPosition.y;
+					const distToNextPoint = Math.sqrt((deltaX * deltaX) + (deltaY * deltaY));
+					
+					if(distThisCall < distToNextPoint) {//not going to make it to the next leg of the path
+						const percentToNextPoint = distThisCall / distToNextPoint;
+						const newX = lastPosition.x + percentToNextPoint * deltaX;
+						const newY = lastPosition.y + percentToNextPoint * deltaY;
+						lastPosition = {x: newX, y: newY};
+						return lastPosition;
+					} else {//made it to the next point and may have some leftover time to travel beyond it
+						const remainingDistance = distThisCall - distToFirstPoint;
+						const remainingTime = remainingDistance / speed;
+						lastPointIndex++;
+						lastPosition = {x:points[lastPointIndex].x, y:points[lastPointIndex].y};
+						if(remainingDistance < 1) {return lastPosition;}//no excess time (i.e. landed right on points[0])
+						return this.nextPoint(remainingTime);
+					}
+				} else {//already past the final leg of the path
+					const distThisCall = speed * deltaTime;
+					const finalDeltaX = points[points.length - 1].x - points[points.length - 2].x;
+					const finalDeltaY = points[points.length - 1].y - points[points.length - 2].y;
+					const finalDirection = Math.atan2(finalDeltaX, finalDeltaY);
+					const newX = lastPosition.x + distThisCall * Math.cos(finalDirection);
+					const newY = lastPosition.y + distThisCall * Math.sin(finalDirection);
+					lastPosition = {x:newX, y:newY};
+					return lastPosition;
 				}
 			}
 		}
