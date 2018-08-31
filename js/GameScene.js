@@ -164,7 +164,7 @@ function GameScene(levelIndex) {
 	
 	this.displayScore = function(entity) {
 		score += entity.score;
-		const newScore = new TextEntity(entity.score.toString(), Fonts.CreditsText, Color.White, {x:entity.position.x, y:entity.position.y}, 512);
+		const newScore = new TextEntity(entity.score.toString(), Fonts.CreditsText, Color.White, {x:entity.position.x, y:entity.position.y}, 512, false);
 		this.addEntity(newScore, false);
 	}
 	

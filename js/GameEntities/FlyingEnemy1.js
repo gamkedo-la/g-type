@@ -132,16 +132,19 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	}
 	
 	this.didCollideWith = function(otherCollider) {
-		sprite = new AnimatedSprite(enemyExplosionSheet2, 18, 144, 144, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
-		this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
-		this.position.x -= this.size.width / (2 * SPRITE_SCALE);
-		this.position.y -= this.size.height / (2 * SPRITE_SCALE);
+		scene.displayScore(this);
 		
+		sprite = new AnimatedSprite(enemyExplosionSheet2, 18, 144, 144, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
+		
+		this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+		
+		this.position.x = this.collisionBody.center.x - this.size.width / 2;
+		this.position.y = this.collisionBody.center.y - this.size.height / 2;
+
 		sprite.isDying = true;
 		sprite.wasBorn = true;
 		scene.removeCollisions(this);
 
-		scene.displayScore(this);
 		enemySmallExplosion.play();
 	}
 }

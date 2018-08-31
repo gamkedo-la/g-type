@@ -1,5 +1,11 @@
 //In Game Text Entity
-function TextEntity(text = "100", font = Fonts.CreditsText, color = Color.White, position = {x:0, y:0}, lifeSpan = 128) {
+function TextEntity(text = "100", 
+					font = Fonts.CreditsText, 
+					color = Color.White, 
+					position = {x:0, y:0}, 
+					lifeSpan = 128, 
+					shouldDrift = true) {
+						
 	this.type = EntityType.Text;
 	this.position = position;
 	this.worldPos = null;
@@ -31,7 +37,10 @@ function TextEntity(text = "100", font = Fonts.CreditsText, color = Color.White,
 			availableTime -= SIM_STEP;
 			this.lifeSpan -= SIM_STEP;
 			
-			this.position.x -= (worldPos - this.worldPos);
+			if(shouldDrift) {
+				this.position.x -= (worldPos - this.worldPos);
+			}
+			
 			this.worldPos = worldPos;
 			
 			this.position.y += (SIM_STEP * yVel / 1000);
