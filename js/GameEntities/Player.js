@@ -157,6 +157,7 @@ function Player(position = {x:0, y:0}) {
 			} else {
 				scene.shouldShake(MAX_SHAKE_MAGNITUDE);
 				sprite.isDying = true;
+				scene.removeCollisions(this);
 				// Colliding with a large enemy makes this event happen multiple times... but it looks kinda cool!!!
 				createParticleEmitter(this.position.x,this.position.y, exampleExplosion);
 			}

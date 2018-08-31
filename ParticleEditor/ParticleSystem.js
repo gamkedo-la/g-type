@@ -415,7 +415,6 @@ ParticleRenderer = {
 										+ particle.color[3] + ")";
 
 			context.fillStyle = colorString;
-			console.log(context.fillStyle);
 			
             context.beginPath();
             context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2, true); //Début, fin, horaire ou anti horaire
