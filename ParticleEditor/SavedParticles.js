@@ -6,7 +6,7 @@ var exampleExplosion = {
     "emissionRate":250,
     "duration":0.1,
     "immortal":false,
-    "particleLife":1.5,
+    "particleLife":0.5,
     "color":[38,
     208,
     46,

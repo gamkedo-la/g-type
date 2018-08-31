@@ -5,6 +5,8 @@ function Player(position = {x:0, y:0}) {
 		max:0
 	};
 	
+	this.type = EntityType.Player;
+	
 	const sprite = new AnimatedSprite(player1Sheet, 6, 60, 38, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:3, max:5}, 128);
 	const SPRITE_SCALE = 1; //TODO: would like to increase the size of the sprite and change this back to 1.
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
@@ -29,6 +31,9 @@ function Player(position = {x:0, y:0}) {
 						  {x: this.position.x + SPRITE_SCALE * 6, y: this.position.y + SPRITE_SCALE * (sprite.height - 1)}];
 	this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:this.position.x, y:this.position.y}});
 	let didCollide = false;
+	this.getIsDying = function() {
+		return sprite.isDying;
+	}
 	
 	let unusedTime = 0;
 	
@@ -157,9 +162,7 @@ function Player(position = {x:0, y:0}) {
 			} else {
 				scene.shouldShake(MAX_SHAKE_MAGNITUDE);
 				sprite.isDying = true;
-				scene.removeCollisions(this);
-				// Colliding with a large enemy makes this event happen multiple times... but it looks kinda cool!!!
-				createParticleEmitter(this.position.x,this.position.y, exampleExplosion);
+				createParticleEmitter(this.position.x + this.size.width / 2,this.position.y + this.size.height / 2, exampleExplosion);
 			}
 		}
 	}

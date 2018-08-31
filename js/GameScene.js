@@ -54,8 +54,11 @@ function GameScene(levelIndex) {
 			entity.update(deltaTime, this.worldPos, {x:player.position.x, y:player.position.y});
 		}
 		
-		const collisions = collisionManager.doCollisionChecks();
-		
+		let collisions;
+		if(!player.getIsDying()) {
+			collisions = collisionManager.doCollisionChecks();
+		}
+		 
 		for(let i = 0; i < collisionBodiesToRemove.length; i++) {
 			collisionManager.removeEntity(collisionBodiesToRemove[i]);
 		}
