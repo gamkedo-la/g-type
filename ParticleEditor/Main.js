@@ -3,8 +3,7 @@
  * Remy's particle editor (name still TBD)
  * 
  * Required files: Editor.html, Main.js, ParticleSystem.js, Input.js, GraphicsCommon.js
- * Current version: v.1.0.0 (29th of August 2018)
- * Author: Remy Lapointe
+ * Current version: v.1.1.3 (29th of August 2018)
  * 
  * Homemade JavaScript particle editor for Gamkedo Club games and more.
  * Export your configurations and use 'createParticleEmitter(x,y, config)' in your code for sparks to fly!
@@ -150,14 +149,9 @@ var defaultConfig = {
     "duration":5,
     "immortal":false,
     "particleLife":2,
-    "color":[255,
-    236,
-    0,
-    1],
-    "endColor":[255,
-    0,
-    0,
-    1],
+    "color": [255,236,0,1],
+    "endColor": [255,0,0,1],
+    "useGradient":true,
     "useTexture":false,
     "textureAdditive":false,
     "fadeAlpha":true,
@@ -170,16 +164,9 @@ var defaultConfig = {
     "sizeVar":2,
     "angleVar":360,
     "particleLifeVar":0,
-    "startColorVar":[255,
-    153,
-    255,
-    0],
-    "endColorVar":[255,
-    153,
-    255,
-    0],
+    "startColorVar": [0,0,0,0],
+    "endColorVar": [0,0,0,0],
     "endColorToggle":true,
-    "colorVar":"#ff99ff",
     "colorVarToggle":false
     }
 
@@ -221,20 +208,22 @@ function applyDefaultConfig () {
 function loadConfig () {
 
     let configString = prompt("Please paste the emitter configuration you wish to edit.");
+    
+    if (!configString || configString==="") { return; } //handle Cancel click
 
+    //Cut out the "var = " if the user pasted it
     if (configString.indexOf("= ") !== -1) {
         configString = configString.slice(configString.indexOf("= ") + 2);
     }
 
-    
+
     try {
-        loadedConfig = convertColorsArrayToHex(JSON.parse(configString));
-        applyAllConfig(loadedConfig);
+        currentConfig = convertColorsArrayToHex(JSON.parse(configString));
+        applyAllConfig(currentConfig);
+        //currentConfig = loadConfig;
     } catch (error) {
         console.log("Error: entered configuration is not valid");
     }
-
-
 
 }
 
@@ -242,7 +231,6 @@ function loadConfig () {
 function exportConfig () {
 
     let convertedConfig = convertColorsHexToArray(currentConfig);
-    console.log(convertedConfig)
 
     let string = JSON.stringify(convertedConfig).split(",").join(",\n");
 
@@ -331,7 +319,7 @@ function startParticleEditor() {
 
 function updateParticleViewer () {
 
-    ParticleEmitterManager.killAllEmittersSoft(); //kill the current viewer
+    ParticleEmitterManager.killAllEmittersHard(); //kill the current viewer
 
     //convert hex values to rgba array
     let convertedConfig = convertColorsHexToArray(currentConfig);
@@ -350,7 +338,7 @@ function updateParticleViewer () {
 
 }
 
-
+////////////        Color conversion from Hex to Array and vice versa       ////////////
 
 
 // Hex input in format "#RRBBGG", alphaVal between 0 and 1 numeric
@@ -407,6 +395,7 @@ function convertColorsArrayToHex (config) {
     return converted;
 
 }
+
 
 // Draws over everything and resets the canvas. This is the first draw function that must be called
 function clearScreen(canvas) {

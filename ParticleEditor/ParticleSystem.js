@@ -1,5 +1,5 @@
 
-//Current version: v1.1.0
+//Current version: v1.1.2
 
 // Particle system for club JS games. Made by your Gamkedo friend Remy, with original code from Christer
 // and much inspiration from this tutorial: http://buildnewgames.com/particle-systems/ .
@@ -25,10 +25,9 @@
 // <3 Remy
 
 
-
 // Use this to create emitters in your game!
 function createParticleEmitter(x,y, config) {
-    ParticleEmitterManager.createParticleEmitter(x,y, config);
+    return ParticleEmitterManager.createParticleEmitter(x,y, config);
 }
 
 
@@ -73,6 +72,8 @@ function ParticleEmitter () {
 
         this.startColor = config.color || [247,46,0, 1]; //default is rgb for a nice orange (with alpha = 1)
         this.endColor = config.endColor || this.startColor;
+
+        this.useGradient = config.useGradient || false; // if true, outer edge fades out (glows), if false use filled opaque circles (confetti)
 
         this.useTexture = config.useTexture || false; //this can be turned off to improve performance
         this.texture = config.texture; // add a default texture?
@@ -232,8 +233,7 @@ function ParticleEmitter () {
     	(endColor[3] - startColor[3]) / p.lifeLeft
         ];
 
-
-
+        p.useGradient = this.useGradient;
         p.useTexture = this.useTexture;
         p.textureAdditive = this.textureAdditive;
         p.texture = this.texture;
@@ -275,6 +275,12 @@ function ParticleEmitter () {
 
     }
 
+    // Simple stuff, but sounds really brutal...
+    ParticleEmitter.prototype.killAllParticles = function () {
+
+        this.poolPointer = 0;
+    }
+
 };
 
 ParticleEmitterManager = {
@@ -288,6 +294,7 @@ ParticleEmitterManager = {
         let emitter = this.getEmitterFromPool();
 
         emitter.init(x,y, config);
+        return emitter;
 
     },
 
@@ -346,6 +353,7 @@ ParticleEmitterManager = {
 
     },
 
+    //Soft because the currently alive particles get to see their lifetime to completion
     killAllEmittersSoft : function () {
 
         for (var i = 0, l = this.poolPointer; i < l; i++) {
@@ -353,10 +361,20 @@ ParticleEmitterManager = {
             this.pool[i].isActive = false;
 
         }
+    },
+
+    //Also kills all the particles. Not optimal, remember to test this when we have multiple emitters in a game
+    killAllEmittersHard : function () {
+
+        for (var i = 0, l = this.poolPointer; i < l; i++) {
+
+            this.pool[i].isActive = false;
+            this.pool[i].killAllParticles();
+        }
+        this.poolPointer = 0;
     }
 
-}
-
+};
 
 
 
@@ -380,7 +398,9 @@ ParticleRenderer = {
 
     renderParticle : function (particle, context) {
 
-        if (particle.useTexture){
+        if (!particle.texture) particle.texture = document.getElementById('default_texture');  // ONLY USED BY PARTICLE EDITOR
+        
+        if (particle.useTexture && particle.texture){
 
             context.globalAlpha = particle.color[3];
 
@@ -389,15 +409,17 @@ ParticleRenderer = {
             }
             if (particle.tint) {
 
-                this.tintAndDraw(particle,context);
+                this.tintAndDraw(particle,context); // TODO: this version does not scale the particle size
 
             } else {
                 
                 //copied from GraphicsCommon.js to remove dependency
                 context.save();
-                context.translate(particle.x - particle.texture.width, particle.y - particle.texture.height);
+                //context.translate(particle.x - particle.texture.width, particle.y - particle.texture.height); // unscaled version
+                context.translate(particle.x, particle.y);
                 context.rotate(-particle.angle);
-                context.drawImage(particle.texture, -particle.texture.width / 2, -particle.texture.height / 2);
+                //context.drawImage(particle.texture, -particle.texture.width / 2, -particle.texture.height / 2); // unscaled version
+                context.drawImage(particle.texture, -particle.size / 2, -particle.size / 2, particle.size, particle.size);
                 context.restore();
              
             }
@@ -408,17 +430,21 @@ ParticleRenderer = {
 
         //default to drawing a filled circle
         else {
-            //copied from GraphicsCommon.js to remove dependency
-			const colorString = "rgba(" + parseInt(particle.color[0]) + "," 
-										+ parseInt(particle.color[1]) + "," 
-										+ parseInt(particle.color[2]) + "," 
-										+ particle.color[3] + ")";
 
-			context.fillStyle = colorString;
-			
             context.beginPath();
             context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2, true); //Début, fin, horaire ou anti horaire
+
+            if (particle.useGradient) { // transparent edges, like a glow or spark
+                var gradient = context.createRadialGradient(particle.x, particle.y, 0, particle.x, particle.y, particle.size);
+                gradient.addColorStop(0, arrayToRGBA(particle.color));
+                gradient.addColorStop(1, "rgba(" + particle.color[0] + "," + particle.color[1] + "," + particle.color[2] + ",0)");
+                context.fillStyle = gradient; 
+            } else { // opaque fill - like confetti
+                context.fillStyle = arrayToRGBA(particle.color);
+            }
+
             context.fill();
+
         }
     },
 
@@ -433,7 +459,9 @@ ParticleRenderer = {
 
         tintCanvas.width = particle.size;
         tintCanvas.height = particle.size;
-        tintContext.fillStyle = context.fillStyle = "rgba(" + particle.color[0] + ","+ particle.color[1] + "," + particle.color[2] + "," + particle.color[3] + ")";
+
+        //parseInt is required for Safari; if more browser specifics arise we could develop different versions
+        tintContext.fillStyle = context.fillStyle = arrayToRGBA(particle.color);
 
         tintContext.drawImage(particle.texture, 0, 0, tintCanvas.width, tintCanvas.height);
         tintContext.globalCompositeOperation = "source-atop";
@@ -457,7 +485,11 @@ function randomMin1To1() {
 }
 
 
+function arrayToRGBA (rgbaArray) {
 
+    //parseInt because Safari needs int values, implies alpha fading not supported
+    return "rgba(" + parseInt(rgbaArray[0]) + ","+ parseInt(rgbaArray[1]) + "," + parseInt(rgbaArray[2]) + "," + parseInt(rgbaArray[3]) + ")";
+};
 
 
 

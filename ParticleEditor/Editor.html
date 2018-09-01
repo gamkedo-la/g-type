@@ -7,39 +7,20 @@
     <meta content="utf-8" http-equiv="encoding">
     <title>Remy's particle editor</title>
 
-    <style>
-
-        canvas {
-            text-align: center;
-            display: block;
-            top: 15px;
-            background: #4d1300;
-            margin: auto;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        .numInput {
-            width: 50px
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
 
 
 
-
-
     <h1>Remy's particle editor</h1>
-    <h3>Current version: v.1.0.0</h3>
+    <h3>Current version: v.1.1.3</h3>
     <canvas id="canvas"></canvas>
 
     <form action="" method="GET">
 
-        <h2 style="text-align:center">(Press Spacebar to play/update)</h2>
+        <h2>(Press Spacebar to play/update)</h2>
         
         <input id="emitterName" type="text" value="" placeholder="Enter emitter name" />
         <input type="button" id="load" value="Load" onclick="loadConfig()"/>
@@ -48,31 +29,38 @@
 
 
         <h2>Basic properties</h2>
-        Start color: <input class="color" type="color" name="color" value="#9bf0fd"/>
-        End color: <input class="color" type="color" name="endColor" value="#9bf0fd"/> Toggle end color: <input class="check" type="checkbox" name="endColorToggle" />
-        <br />
-        Speed: <input class="slider" type="range" name="speed" value="300" step="0.1" min="0" max="2000"/> <input class="numInput" type="number" id="speed" />
-        Angle: <input class="slider" type="range" name="angle" value="0" min="0" max="360"/> <input class="numInput" type="number" id="angle" />
-        Size: <input class="slider" type="range" name="size" step="0.1" value="1" min="1" max="20"/> <input class="numInput" type="number" id="size" />
-        <br />
-        Emission rate (per sec): <input class="slider" type="range" name="emissionRate" value="10" min="1" max="2500" step="0.1"/> <input class="numInput" type="number" id="emissionRate" step="0.1"/>
-        Duration: <input class="slider" type="range" name="duration" value="10" min="0.1" max="10" step="0.1"/> <input class="numInput" type="number" id="duration"/>
-        Particle life: <input class="slider" type="range" name="particleLife" value="1" min="0.1" max="15" step="0.1"/> <input class="numInput" type="number" id="particleLife" />
-        Immortal: <input class="check" type="checkbox" name="immortal" value="false" />
-        <br />
-        
-        Fade speed: <input class="check" type="checkbox" name="fadeSpeed" value="false" />
-        Fade size: <input class="check" type="checkbox" name="fadeSize" value="false" />
-        Fade alpha: <input class="check" type="checkbox" name="fadeAlpha" value="false" />
-        Gravity (does nothing): <input class="slider" type="range" name="gravity" value="0" min="0" max="5" step="0.1"/> <input class="numInput" type="number" id="gravity"/>
-        <br/>
-        <h2>Texture</h2>
-        <p>(File input not yet functional, please add manually to output data)</p>
-        Texture: <input class="file" type="file" name="emissionRate" value="10" />
-        Texture additive: <input class="check" type="checkbox" name="textureAdditive" value="false" />
-        Use texture: <input class="check" type="checkbox" name="useTexture" value="false" />
-        Tint: <input class="check" type="checkbox" name="tint" value="false" />
+        <div class="inputSection">
+            Start color: <input class="color" type="color" name="color" value="#9bf0fd"/>
+            End color: <input class="color" type="color" name="endColor" value="#9bf0fd"/> Toggle end color: <input class="check" type="checkbox" name="endColorToggle" />
+            Use gradient: <input class="check" type="checkbox" name="useGradient" value="false" />
+            <br />
+            Speed: <input class="slider" type="range" name="speed" value="300" step="0.1" min="0" max="2000"/> <input class="numInput" type="number" id="speed" />
+            Angle: <input class="slider" type="range" name="angle" value="0" min="0" max="360"/> <input class="numInput" type="number" id="angle" />
+            Size: <input class="slider" type="range" name="size" step="0.1" value="1" min="1" max="20"/> <input class="numInput" type="number" id="size" />
+            <br />
+            Emission rate (per sec): <input class="slider" type="range" name="emissionRate" value="10" min="1" max="2500" step="0.1"/> <input class="numInput" type="number" id="emissionRate" step="0.1"/>
+            Duration: <input class="slider" type="range" name="duration" value="10" min="0.1" max="10" step="0.1"/> <input class="numInput" type="number" id="duration"/>
+            Particle life: <input class="slider" type="range" name="particleLife" value="1" min="0.1" max="15" step="0.1"/> <input class="numInput" type="number" id="particleLife" />
+            Immortal: <input class="check" type="checkbox" name="immortal" value="false" />
+            <br />
+            
+            Fade speed: <input class="check" type="checkbox" name="fadeSpeed" value="false" />
+            Fade size: <input class="check" type="checkbox" name="fadeSize" value="false" />
+            Fade alpha: <input class="check" type="checkbox" name="fadeAlpha" value="false" />
+            Gravity (does nothing): <input class="slider" type="range" name="gravity" value="0" min="0" max="5" step="0.1"/> <input class="numInput" type="number" id="gravity"/>
+            <br/>
+        </div>
 
+        <h2>Texture</h2>Use texture: <input class="check" type="checkbox" name="useTexture" value="false" />
+        <div class="inputSection">
+            
+            <img id='default_texture' src='default_texture.png'>
+            
+            <p>(File input not yet functional, please add manually to output data)</p>
+            Texture: <input class="file" type="file" name="emissionRate" value="10" />
+            Texture additive: <input class="check" type="checkbox" name="textureAdditive" value="false" />
+            Tint: <input class="check" type="checkbox" name="tint" value="false" />
+        </div>
         <h2>Variation ranges</h2>
         Speed var: <input class="slider" type="range" name="speedVar" value="0" min="0" max="100" step="0.1"/> <input class="numInput" type="number" id="speedVar" />
         Angle var: <input class="slider" type="range" name="angleVar" value="0" min="0" max="360" /> <input class="numInput" type="number" id="angleVar" />
@@ -91,7 +79,6 @@
     <!-- Scripts -->
     <script type="text/javascript" src="Input.js"></script>
     <script type="text/javascript" src="GraphicsCommon.js"></script>
-    <!--<script type="text/javascript" src="FunctionsCommon.js"></script>-->
     <script type="text/javascript" src="ParticleSystem.js"></script>
 
     <script type="text/javascript" src="Main.js"></script>

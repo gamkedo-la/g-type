@@ -1,0 +1,34 @@
+
+
+
+body { background:silver; }
+
+canvas {
+    text-align: center;
+    display: block;
+    top: 15px;
+    background: #4d1300;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.numInput {
+    width: 50px
+}
+
+#default_texture {
+    border:2px solid black;
+    margin:0; padding:0;
+}
+
+.inputSection {
+    line-height: 300%;
+}
