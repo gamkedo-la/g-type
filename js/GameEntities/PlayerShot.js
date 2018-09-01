@@ -5,7 +5,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	let pos = position;
 	const MOVE_VELOCITY = 200;
 	const SPRITE_SCALE = 1;
-	const FLASH_SCALE = 2;
+	const FLASH_SCALE = 1;
 	let vel = velocity;
 	let unusedTime = 0;
 	
@@ -19,7 +19,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	const RIGHT_PADDING = 5;//number of transparent pixels to the right of the image
 	
 	//const sprite = new AnimatedSprite(playerShots, 5, 25, 25, false, true, {min:0, max:0}, 128, {min:1, max:2}, 128, {min:3, max:4}, 32);
-	const sprite = new AnimatedSprite(playerLaserShot, 13, 14, 6, false, true, {min:0, max:0}, 0, {min:0, max:10}, 128, {min:11, max:12}, 64);
+	const sprite = new AnimatedSprite(playerLaserShot, 13, 28, 6, false, true, {min:0, max:0}, 0, {min:0, max:12}, 128, {min:13, max:18}, 64);
 	const flashSprite = new AnimatedSprite(playerShotFlash, 5, 4, 4, false, true, {min: 0, max: 0}, 0, {min:0, max: 4}, 32, {min: 4, max: 4}, 0);
 	
 	const colliderPath = [{x: pos.x, y: pos.y + (TOP_BOTTOM_PADDING * SPRITE_SCALE)}, 
