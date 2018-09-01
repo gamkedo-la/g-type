@@ -18,7 +18,7 @@ function GameOverScreen() {
     this.transitionIn = function(){
         this.selectorPositionsIndex = 0;        
         starfield = new Starfield();
-        selectorSprite = new AnimatedSprite(player1Sheet, 3, 60, 38, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
+        selectorSprite = new AnimatedSprite(player1Sheet, 6, 60, 38, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
         currentBackgroundMusic.setCurrentTrack(AudioTracks.GameOver);
         if(currentBackgroundMusic.getTime() > 0){
             currentBackgroundMusic.resume();    

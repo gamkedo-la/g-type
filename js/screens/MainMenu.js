@@ -15,7 +15,7 @@ function MenuScreen() {
     this.transitionIn = function menuScreenTransitionIn() {
         this.selectorPositionsIndex = 0;
         starfield = new Starfield();
-        selectorSprite = new AnimatedSprite(player1Sheet, 3, 60, 38, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
+        selectorSprite = new AnimatedSprite(player1Sheet, 6, 60, 38, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
         
         currentBackgroundMusic.setCurrentTrack(AudioTracks.MainMenu);
         if(currentBackgroundMusic.getTime() > 0){
@@ -55,7 +55,11 @@ function MenuScreen() {
                 }
                 return true;
             case KEY_ENTER:
-                ScreenStates.setState(this.selections[this.selectorPositionsIndex].screen);
+            	if(this.selectorPositionsIndex == 0) {
+	            	ScreenStates.setState(CUT_SCENE_SCREEN, 1);
+            	} else {
+	            	ScreenStates.setState(this.selections[this.selectorPositionsIndex].screen);
+            	}
                 return true;
             case KEY_H:
                 ScreenStates.setState(HELP_SCREEN);

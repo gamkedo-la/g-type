@@ -66,6 +66,7 @@ const OPTIONS_SCREEN = 'options';
 const LEVEL_SELECT_SCREEN = 'level';
 const CREDITS_SCREEN = 'credits';
 const HELP_SCREEN = 'help';
+const CUT_SCENE_SCREEN = 'cut_scene';
 const GAME_SCREEN = 'game';
 const PAUSE_SCREEN = 'pause';
 const GAME_OVER_SCREEN = 'game_over';
@@ -98,6 +99,8 @@ const textStrings = {
     Main: "Main Menu",
     LevelSelect: 'Select Level',
     GameOver: "Game Over",
+    CutScene1_1:"Operation SAVE THE UNIVERSE",
+    CutScene1_2:"Phase 1 - Defeat Planetary Defenses to enable follow on forces to approach safely",
     Contributors: [
         {name:"H Trayford",   works: ['Game Lead', 'Core Gameplay', 'Level Editor', 'AI Drivers', 'Background Parallax', 'Nitro Boost', 'Time Limit', 'Street Light Art', 'Animated Radio Tower', 'Collision Detection', 'Art Integration', 'Billboards (Over 10 Designs)'] },
 /*        {name:"Terrence McDonnell", works: ['Signs (Over 28 Designs)', 'Checkpoint Code', 'Crashing Animation Code', 'Menu Improvements', 'Finish Line Animation', 'Stage Ground Colors', 'Track Design (Skyline, Mountain, Forest)','Main Menu Animation']},

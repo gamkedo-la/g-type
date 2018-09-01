@@ -1,6 +1,7 @@
 //Image Loading
 //Backgrounds
 const starSheet = document.createElement("img");
+const planetSheet = document.createElement("img");
 
 //Terrain & World
 const largeRhombusBoulder = document.createElement("img");
@@ -41,6 +42,7 @@ function loadImages() {
 
         // backgrounds
         { imgName: starSheet, theFile: "Stars.png" },
+        { imgName: planetSheet, theFile: "Planet.png" },
         
         //Terrain & World
         { imgName: largeRhombusBoulder, theFile: "Boulder.png" },
