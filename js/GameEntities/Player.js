@@ -183,6 +183,8 @@ function Player(position = {x:0, y:0}) {
 	this.didCollideWith = function(otherEntity) {
 		didCollide = true;
 		
+		//let explosionSprite = new AnimatedSprite(playerBoom2Sheet, 13, 80 , 80, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max: 13}, 64);
+		
 		if(otherEntity.type == EntityType.Capsule1) {
 			//TODO: Update UI to indicate what power up the player can get now
 			scene.collectedCapsule();
@@ -195,6 +197,8 @@ function Player(position = {x:0, y:0}) {
 			} else {
 				scene.shouldShake(MAX_SHAKE_MAGNITUDE);
 				sprite.isDying = true;
+				/*explosionSprite.isDying = true;
+				explosionSprite.drawAt({x:this.position.x + this.size.width * 0.5, y:this.position.y + this.size.width * 0.5}, {width: explosionSprite.width, height: explosionSprite.height});*/
 				createParticleEmitter(this.position.x + this.size.width / 2,this.position.y + this.size.height / 2, exampleExplosion);
 			}
 		}

@@ -5,7 +5,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	let pos = position;
 	const MOVE_VELOCITY = 200;
 	const SPRITE_SCALE = 1.5;
-	const FLASH_SCALE = 4;
+	const FLASH_SCALE = 3;
 	let vel = velocity;
 	let unusedTime = 0;
 	
