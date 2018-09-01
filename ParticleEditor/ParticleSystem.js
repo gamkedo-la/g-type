@@ -488,7 +488,7 @@ function randomMin1To1() {
 function arrayToRGBA (rgbaArray) {
 
     //parseInt because Safari needs int values, implies alpha fading not supported
-    return "rgba(" + parseInt(rgbaArray[0]) + ","+ parseInt(rgbaArray[1]) + "," + parseInt(rgbaArray[2]) + "," + parseInt(rgbaArray[3]) + ")";
+    return "rgba(" + parseInt(rgbaArray[0]) + ","+ parseInt(rgbaArray[1]) + "," + parseInt(rgbaArray[2]) + "," + 1 + ")";
 };
 
 
