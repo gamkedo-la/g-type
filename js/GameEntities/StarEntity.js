@@ -16,9 +16,11 @@ function StarEntity(sprite, position = {x:0, y:0}, velocity = {x:0, y:0}, size =
 			
 			pos.x += vel.x * SIM_STEP / 1000;
 			pos.y += vel.y * SIM_STEP / 1000;
-			
+
+			// Wrap around the screen at a different position
 			if(pos.x < -sprite.width) {
 				pos.x = canvas.width + sprite.width;
+				pos.y = Math.floor(Math.random() * canvas.height);
 			}
 		}
 		
