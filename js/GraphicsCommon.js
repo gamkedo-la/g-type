@@ -37,3 +37,12 @@ function getTextWidth(txt, font) {
   
   return width;
 }
+
+function clamp(n, min, max) {
+  return Math.min(Math.max(n, min), max);
+}
+
+function wrapNumber(x, m) {
+	const r = x % m;
+	return (r < 0) ? r + m : r;
+}

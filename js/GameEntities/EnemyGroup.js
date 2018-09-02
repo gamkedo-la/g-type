@@ -1,11 +1,11 @@
 const EnemyType = {
 	Flying1:"flying1",
-}
+};
 
 const MovementPattern = {
 	None:"none",
 	Sine:"sine",
-}
+};
 
 //Enemy Grouping
 function EnemyGroup() {
@@ -18,7 +18,7 @@ function EnemyGroup() {
 		newEnemy.group = this;
 		
 		return newEnemy;
-	}
+	};
 	
 	this.remove = function(enemyToRemove, worldPos) {
 		const indexToRemove = this.enemies.indexOf(enemyToRemove);
@@ -32,7 +32,7 @@ function EnemyGroup() {
 			newCapsule.position.y += ((enemyToRemove.size.height / 2) - (newCapsule.size.height / 2));
 			scene.addEntity(newCapsule, false);
 		}
-	}	
+	}	;
 }
 
 const PathType = {

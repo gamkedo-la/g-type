@@ -12,6 +12,7 @@ function GameScene(levelIndex) {
 	const collisionManager = new CollisionManager(player);
 	let collisionBodiesToRemove = [];
 	const gameEntities = new Set();
+	const foregroundEntities = new Set();
 	const enemyBullets = new Set();
 	let score = 0;
 	
@@ -37,6 +38,17 @@ function GameScene(levelIndex) {
 			gameEntities.add(thisTerrain);
 			collisionManager.addEntity(thisTerrain, false);
 		}
+
+		// foregroundEntities
+		const debris = data.initializeDebris();
+
+		for(let i = 0; i < debris.length; i++) {
+			const thisDebris = debris[i];
+
+			thisDebris.respawn(worldPos);
+
+			foregroundEntities.add(thisDebris);
+		}
 	};
 	
 	populateWorld(0);//0 = start at the beginning
@@ -51,6 +63,10 @@ function GameScene(levelIndex) {
 	    }
 		
 		for(let entity of gameEntities) {
+			entity.update(deltaTime, this.worldPos, {x:player.position.x, y:player.position.y});
+		}
+
+		for(let entity of foregroundEntities) {
 			entity.update(deltaTime, this.worldPos, {x:player.position.x, y:player.position.y});
 		}
 		
@@ -102,19 +118,23 @@ function GameScene(levelIndex) {
 		// background images, tiled, ready for parallax effects
 		canvasContext.drawImage(backgroundParallaxLayer1,-1*(this.worldPos*0.3%backgroundParallaxLayer1.width),0);
 		canvasContext.drawImage(backgroundParallaxLayer1,-1*(this.worldPos*0.3%backgroundParallaxLayer1.width)+backgroundParallaxLayer1.width,0);
-	    
-	    starfield.draw();
-	    
-	    for(let bullet of enemyBullets) {
-		    bullet.draw();
-	    }
-	    
+
+		starfield.draw();
+
+		for(let bullet of enemyBullets) {
+			bullet.draw();
+		}
+
 		for(let entity of gameEntities) {
 			entity.draw();
 		}
-	    
-	    player.draw();
-	    
+
+		player.draw();
+
+		for(let entity of foregroundEntities) {
+			entity.draw();
+		}
+
 //	    score.draw();//TODO: implement this
 	};
 	
@@ -139,17 +159,17 @@ function GameScene(levelIndex) {
 			if(entityToRemove.collisionBody != null) {
 				collisionManager.removeEntity(entityToRemove);
 			}
-			if(entityToRemove.type == EntityType.EnemyBullet) {
+			if(entityToRemove.type === EntityType.EnemyBullet) {
 				enemyBullets.delete(entityToRemove);
 			} else {
 				gameEntities.delete(entityToRemove);
 			}
 		}
-	}
+	};
 	
 	this.removeCollisions = function(entityToRemove) {
 		collisionBodiesToRemove.push(entityToRemove);
-	}
+	};
 	
 	this.addEntity = function(entityToAdd, isPlayerBullet) {
 		if(isPlayerBullet) {
@@ -159,19 +179,19 @@ function GameScene(levelIndex) {
 				collisionManager.addEntity(entityToAdd);
 			}
 			
-			if(entityToAdd.type == EntityType.EnemyBullet) {
+			if(entityToAdd.type === EntityType.EnemyBullet) {
 				enemyBullets.add(entityToAdd);
 			} else {
 				gameEntities.add(entityToAdd);
 			}
 		}		
-	}
+	};
 	
 	this.displayScore = function(entity) {
 		score += entity.score;
 		const newScore = new TextEntity(entity.score.toString(), Fonts.CreditsText, Color.White, {x:entity.position.x, y:entity.position.y}, 512, false);
 		this.addEntity(newScore, false);
-	}
+	};
 	
 	const checkpointForWorldPos = function(worldPos) {
 		const checkpoints = data.checkpointPositions;
@@ -182,13 +202,13 @@ function GameScene(levelIndex) {
 		}
 		
 		return 0;
-	}
+	};
 	
 	this.shouldShake = function(magnitude) {
 		this.shaking = true;
 		this.remainingShakes = MAX_SHAKES;
 		this.shakeMagnitude = magnitude;
-	}
+	};
 	
 	this.screenShake = function() {
 		this.remainingShakes--;
@@ -205,10 +225,10 @@ function GameScene(levelIndex) {
 		canvasContext.setTransform(1, 0, 0, 1, horizontal, vertical);
 		
 		this.shakeMagnitude *= 0.9;
-	}
+	};
 	
 	this.endShake = function() {
 		this.remainingShakes = 0;
 		this.screenShake();
-	}
+	};
 }
