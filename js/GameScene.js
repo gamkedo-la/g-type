@@ -96,7 +96,12 @@ function GameScene(levelIndex) {
 	}
 	
 	this.draw = function() {
-	    drawRect(0,0, canvas.width, canvas.height, data.clearColor);//Need to wipe the canvas clean each frame - eventually use a background image/video
+		
+		//drawRect(0,0, canvas.width, canvas.height, data.clearColor);//Need to wipe the canvas clean each frame - eventually use a background image/video
+		
+		// background images, tiled, ready for parallax effects
+		canvasContext.drawImage(backgroundParallaxLayer1,-1*(this.worldPos*0.3%backgroundParallaxLayer1.width),0);
+		canvasContext.drawImage(backgroundParallaxLayer1,-1*(this.worldPos*0.3%backgroundParallaxLayer1.width)+backgroundParallaxLayer1.width,0);
 	    
 	    starfield.draw();
 	    

@@ -2,6 +2,7 @@
 //Backgrounds
 const starSheet = document.createElement("img");
 const planetSheet = document.createElement("img");
+const backgroundParallaxLayer1 = document.createElement("img");
 
 //Terrain & World
 const largeRhombusBoulder = document.createElement("img");
@@ -43,6 +44,8 @@ function loadImages() {
         // backgrounds
         { imgName: starSheet, theFile: "Stars.png" },
         { imgName: planetSheet, theFile: "Planet.png" },
+        { imgName: backgroundParallaxLayer1, theFile: "stars1024x1024.png" },
+        
         
         //Terrain & World
         { imgName: largeRhombusBoulder, theFile: "Boulder.png" },
