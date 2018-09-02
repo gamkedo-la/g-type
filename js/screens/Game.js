@@ -63,9 +63,10 @@ function GamePlayScreen () {
     this.control = function gamePlayScreenControl(keyCode, pressed){
         switch(keyCode) {
             case KEY_ESCAPE:
-                if(!pressed){
-                    ScreenStates.setState(PAUSE_SCREEN);
+                if(!pressed) {
+	                setPaused(!ScreenStates.isPaused);
                 }
+                return true;
                 break;
             case KEY_SPACE:
                 holdSpace = pressed;//shoot
@@ -112,13 +113,11 @@ function GamePlayScreen () {
             case KEY_P:
                 if(!pressed) {
 	                setPaused(!ScreenStates.isPaused);
-//                    ScreenStates.setState(PAUSE_SCREEN);//TODO: restore once the pause screen has been implemented
                 }
                 return true;
             case KEY_BACKSPACE:
                 if(!pressed) {
 	                setPaused(!ScreenStates.isPaused);
-//                    ScreenStates.setState(PAUSE_SCREEN);//TODO: restore once the pause screen has been implemented
                 }
                 return true;
             case DIGIT_0:

@@ -54,7 +54,7 @@ function GameScene(levelIndex) {
 	populateWorld(0);//0 = start at the beginning
 	
 	this.update = function(deltaTime) {
-		this.worldPos += worldSpeed;
+		this.worldPos += 2 * worldSpeed;
 		starfield.update(deltaTime, this.worldPos);
 		player.update(deltaTime, this.worldPos);
 		
