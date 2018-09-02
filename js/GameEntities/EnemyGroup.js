@@ -24,7 +24,7 @@ function EnemyGroup() {
 		const indexToRemove = this.enemies.indexOf(enemyToRemove);
 		this.enemies.splice(indexToRemove, 1);
 		
-		if((this.enemies.length == 0) && (this.hasCapsule)) {
+		if((this.enemies.length === 0) && (this.hasCapsule)) {
 			this.hasCapsule = false;
 			
 			const newCapsule = new Capsule({x:enemyToRemove.position.x, y:enemyToRemove.position.y}, worldPos);
@@ -39,26 +39,26 @@ const PathType = {
 	None:"none",
 	Sine:"sine",
 	Points:"points"
-}
+};
 
 function EnemyPath(type = PathType.None, start = {x:0, y:0}, speed = 0, points = [], timeOffset = 0) {
 	let elapsedTime = 0;
 	let lastPointIndex = -1;
 	let lastPosition = {x:start.x, y:start.y};
 	let currentSpeed = speed / 1000;
-	if(type == PathType.Points) {
+	if(type === PathType.Points) {
 		currentSpeed = Math.abs(speed / 1000);
 	}
 	
 	this.nextPoint = function(deltaTime) {
 		elapsedTime += deltaTime;
 		if(elapsedTime >= timeOffset) {
-			if(type == PathType.None) {
+			if(type === PathType.None) {
 				return {};
-			} else if(type == PathType.Sine) {
+			} else if(type === PathType.Sine) {
 				return {x:currentSpeed * deltaTime, 
 					    y:0.0025 * canvas.height * Math.sin((elapsedTime - timeOffset) / 500)};
-			} else if(type == PathType.Points) {
+			} else if(type === PathType.Points) {
 				if(points.length <= 1) {return lastPosition;}//paths must have at least two points
 				
 				if(lastPointIndex < 0) {//between start and points[0]
@@ -113,13 +113,13 @@ function EnemyPath(type = PathType.None, start = {x:0, y:0}, speed = 0, points =
 				}
 			}
 		} else {
-			if(type == PathType.Points) {
+			if(type === PathType.Points) {
 				return lastPosition;//time delay hasn't expired yet, so don't move
 			} else {
 				return {x:0, y:0};
 			}
 		}
-	}
+	};
 	
 	return this;
 }

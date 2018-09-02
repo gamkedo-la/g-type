@@ -37,7 +37,7 @@ function GameScene(levelIndex) {
 			gameEntities.add(thisTerrain);
 			collisionManager.addEntity(thisTerrain, false);
 		}
-	}
+	};
 	
 	populateWorld(0);//0 = start at the beginning
 	
@@ -66,7 +66,7 @@ function GameScene(levelIndex) {
 		collisionBodiesToRemove = [];
 		
 		if(this.shaking) {this.screenShake();}
-	}
+	};
 	
 	this.reset = function() {
 		let newWorldPos = 0;
@@ -74,7 +74,7 @@ function GameScene(levelIndex) {
 		while(this.worldPos > data.checkpointPositions[i]) {
 			newWorldPos = data.checkpointPositions[i];
 			i++;
-			if(i == data.checkpointPositions.length) {break;}
+			if(i === data.checkpointPositions.length) {break;}
 		}
 		
 		this.gameIsOver = false;
@@ -89,11 +89,11 @@ function GameScene(levelIndex) {
         collisionManager.clearWorldAndBullets();
         
         populateWorld(newWorldPos);
-	}
+	};
 	
 	this.setWorldPos = function(newWorldPos) {
 		this.worldPos = newWorldPos;
-	}
+	};
 	
 	this.draw = function() {
 		
@@ -116,11 +116,11 @@ function GameScene(levelIndex) {
 	    player.draw();
 	    
 //	    score.draw();//TODO: implement this
-	}
+	};
 	
 	this.collectedCapsule = function() {
 		console.log("Update UI to show that the player collected another capsule");
-	}
+	};
 	
 	this.removePlayer = function() {
 		if(remainingLives < 1) {
@@ -130,7 +130,7 @@ function GameScene(levelIndex) {
 			remainingLives--;
 			player.reset();
 		}
-	}
+	};
 	
 	this.removeEntity = function(entityToRemove, isPlayerBullet) {
 		if(isPlayerBullet) {

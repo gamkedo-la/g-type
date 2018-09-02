@@ -11,11 +11,11 @@ function GamePlayScreen () {
         }
         
         let backgroundMusicIndex;
-        if(currentLevelIndex == 0) {
+        if(currentLevelIndex === 0) {
 	        backgroundMusicIndex = AudioTracks.Level1;
-        } else if(currentLevelIndex == 1) {
+        } else if(currentLevelIndex === 1) {
 	        backgroundMusicIndex = AudioTracks.Level2;
-        } else if(currentLevelIndex == 2) {
+        } else if(currentLevelIndex === 2) {
 	        backgroundMusicIndex = AudioTracks.Level3;
         }
         
@@ -46,7 +46,7 @@ function GamePlayScreen () {
 	    holdA = false;
 	    holdRight = false;
 	    holdD = false;
-    }
+    };
     
     this.run = function gamePlayScreenRun(deltaTime) {
         scene.update(deltaTime);

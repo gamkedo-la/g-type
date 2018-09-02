@@ -8,7 +8,7 @@ function Player(position = {x:0, y:0}) {
 	const PlayerEvent = {
 		Incincible:"invinciblePlayer",
 		LastShot:"lastShot"
-	}
+	};
 	
 	this.type = EntityType.Player;
 	this.currentShotType = EntityType.PlayerShot;
@@ -43,7 +43,7 @@ function Player(position = {x:0, y:0}) {
 	let didCollide = false;
 	this.getIsDying = function() {
 		return sprite.isDying;
-	}
+	};
 	
 	let unusedTime = 0;//time left over from last call to this.update, helps smooth movement with variable frame rate
 	
@@ -95,7 +95,7 @@ function Player(position = {x:0, y:0}) {
 				} 
 			}
 		}
-	}
+	};
 	
 	this.draw = function() {
 		//If the player is invincible, draw just the player sprite at 50% opacity
@@ -124,7 +124,7 @@ function Player(position = {x:0, y:0}) {
 		if(didCollide) {
 			didCollide = false;
 		}
-	}
+	};
 	
 	this.clampPositionToScreen = function() {
 		//clamp player position to the screen
@@ -139,11 +139,11 @@ function Player(position = {x:0, y:0}) {
 		} else if(this.position.y > (canvas.height - this.size.height)) {
 			this.position.y = canvas.height - this.size.height;
 		}
-	}
+	};
 	
 	this.doShooting = function() {
 		let timeSinceLastShot = timer.timeSinceUpdateForEvent(PlayerEvent.LastShot);
-		if((timeSinceLastShot == null) || (timeSinceLastShot == undefined)) {
+		if((timeSinceLastShot == null) || (timeSinceLastShot === undefined)) {
 			//this is the first time the player has shot, so need to register the event with the timer object
 			timeSinceLastShot = timer.registerEvent(PlayerEvent.LastShot);
 		}
@@ -151,7 +151,7 @@ function Player(position = {x:0, y:0}) {
 		if(timeSinceLastShot > currentShotDelay) {
 			//enough time has passed so we can shoot again
 			let newShot;
-			if(shots.length == MAX_SHOTS_ON_SCREEN) {
+			if(shots.length === MAX_SHOTS_ON_SCREEN) {
 				//basically a pool of shots, grab the oldest one
 				newShot = shots.splice(0, 1)[0];
 			} else {
@@ -162,13 +162,13 @@ function Player(position = {x:0, y:0}) {
 			//initialize the newShot (whether it is new or pulled from the pool)
 			newShot.resetWithType(this.currentShotType);
 			scene.addEntity(newShot, true);
-			newShot.setPosition({x:position.x + 70, y:position.y + 0});
+			newShot.setPosition({x:position.x + 70, y:position.y});
 						
 			shots.push(newShot);
 			timer.updateEvent(PlayerEvent.LastShot);
 			playerFireRegular.play();//play the audio
 		}
-	}
+	};
 	
 	this.adjustVelocityAndSpriteForPlayerInput = function() {
 		//indicates the sprite is NOT "playing" the death animation => can still fly around the screen and shoot
@@ -189,19 +189,19 @@ function Player(position = {x:0, y:0}) {
 		} else {
 			velocity.y = 0;
 		}	
-	}
+	};
 	
 	this.didCollideWith = function(otherEntity) {
 		didCollide = true;
 		
 		//let explosionSprite = new AnimatedSprite(playerBoom2Sheet, 13, 80 , 80, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max: 13}, 64);
 		
-		if(otherEntity.type == EntityType.Capsule1) {
+		if(otherEntity.type === EntityType.Capsule1) {
 			//TODO: Update UI to indicate what power up the player can get now
 			scene.collectedCapsule();
 			
 			//TODO: Remove this temporary action once power ups are correctly implemented
-			if(this.currentShotType == EntityType.PlayerShot) {
+			if(this.currentShotType === EntityType.PlayerShot) {
 				this.currentShotType = EntityType.PlayerLaser;
 			}
 		} else {
@@ -218,7 +218,7 @@ function Player(position = {x:0, y:0}) {
 				createParticleEmitter(this.position.x + this.size.width / 2,this.position.y + this.size.height / 2, exampleExplosion);
 			}
 		}
-	}
+	};
 	
 	//helper function to restore the player to initial state (restart/continue/new life/etc)
 	this.reset = function() {
@@ -232,26 +232,26 @@ function Player(position = {x:0, y:0}) {
 		explosionSprite.isDying = true;
 		
 		this.setInvincible(true);
-	}
+	};
 	
 	this.clearPowerUps = function() {
 		//TODO: implement this
 		this.currentShotType = EntityType.PlayerShot;
-	}
+	};
 	
 	this.clearBullets = function() {
 		for(let i = 0; i < shots.length; i++) {
 			shots[i].isVisible = false;
 			shots[i].isActive = false;
 		}
-	}
+	};
 	
 	this.setInvincible = function(newValue) {
 		isInvincible = newValue;
-		if(newValue == true) {
+		if(newValue) {
 			timer.registerEvent(PlayerEvent.Incincible);
 		}
-	}
+	};
 	
 	return this;
 }

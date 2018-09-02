@@ -62,7 +62,7 @@ function CutSceneScreen() {
 		playerSprite.update(deltaTime);
 		planetSprite.update(deltaTime);
 		planetScale = 0.5 + delayTime / DISPLAY_TIME;
-	}
+	};
 
 	const draw = function() {
 		// render the menu background
@@ -76,7 +76,7 @@ function CutSceneScreen() {
         
         playerSprite.drawAt({x:canvas.width / 3, y:canvas.height / 2}, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
         planetSprite.drawAt({x:4 * canvas.width / 5, y:canvas.height / 5}, {width:planetScale * planetSprite.width, height:planetScale * planetSprite.height});
-	}
+	};
 	
 	const drawBG = function menuScreenDrawBG() {
         // fill the background since there is no image for now

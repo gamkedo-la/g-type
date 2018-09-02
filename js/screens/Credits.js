@@ -2,10 +2,10 @@
 function CreditsScreen() {
 	const MENU_BG_COLOR = "#010119";
 
-    this.selectorPositionsIndex = 0;
-    let selectorPosition = {x:0, y:0};
-    let selectorSprite;
-    let starfield;
+	this.selectorPositionsIndex = 0;
+	let selectorPosition = {x:0, y:0};
+	let selectorSprite;
+	let starfield;
 	this.selections = [
 	    {screen: GAME_SCREEN, title: textStrings.Play},
 	    {screen: MENU_SCREEN, title: textStrings.Main},
@@ -86,7 +86,7 @@ function CreditsScreen() {
     };
     this.control = function creditsScreenControl(keyCode, pressed) {
         if (pressed) {
-	        if(keyCode == KEY_SPACE) {
+	        if(keyCode === KEY_SPACE) {
 		        this.scrollSpeed = 0;
 	        }
             return true;

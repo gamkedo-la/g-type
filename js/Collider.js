@@ -2,7 +2,7 @@
 const ColliderType = {
 	Polygon:"polygon",
 	Circle:"circle"
-}
+};
 
 function Collider(type, data) {
 	this.type = type;
@@ -37,12 +37,12 @@ function Collider(type, data) {
 		
 		//Divide by 0.707 (cos(45)) to account for worst case distance from center to a corner => polygon radii are ~30% too big (which is fine)
 		this.radius = Math.max(Math.abs(halfDeltaX / 0.707), Math.abs(halfDeltaY / 0.707));		
-	}
+	};
 		
-	if(this.type == ColliderType.Polygon) {
+	if(this.type === ColliderType.Polygon) {
 		this.points = data.points;
 		this.findCenterAndRadiusOfPoints(this.points);
-	} else if(this.type == ColliderType.Circle) {
+	} else if(this.type === ColliderType.Circle) {
 		this.center = data.center;
 		this.radius = data.radius;
 		this.points = null;
@@ -52,7 +52,7 @@ function Collider(type, data) {
 		const deltaX = newPosition.x - this.position.x;
 		const deltaY = newPosition.y - this.position.y;
 
-		if(this.type == ColliderType.Polygon) {
+		if(this.type === ColliderType.Polygon) {
 			for(let i = 0; i < this.points.length; i++) {
 				this.points[i].x += deltaX;
 				this.points[i].y += deltaY;
@@ -64,7 +64,7 @@ function Collider(type, data) {
 		
 		this.position.x = newPosition.x;
 		this.position.y = newPosition.y;
-	}
+	};
 	
 	this.draw = function() {
 		if(DRAW_COLLIDERS) {

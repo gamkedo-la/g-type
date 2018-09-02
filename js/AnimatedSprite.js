@@ -25,13 +25,13 @@ function AnimatedSprite(sheet,
 	this.isDying = false;
 	let deadCount = 0;
 	this.getDidDie = function() {
-		if((this.isDying) && (this.currentFrame == this.deathRange.max) && (deadCount > 1)) {
+		if((this.isDying) && (this.currentFrame === this.deathRange.max) && (deadCount > 1)) {
 			deadCount = 0;
 			return true;
 		} else {
 			return false;
 		}
-	}
+	};
 		
 	this.unusedTime = 0;
 	this.currentFrame = this.birthRange.min;
@@ -40,39 +40,39 @@ function AnimatedSprite(sheet,
 	this.currentFramePos = {x:0, y:0};
 	
 	this.setFrameRate = function(newFrameRate, which) {
-		if(which == "birth") {
+		if(which === "birth") {
 			this.birthRate = newFrameRate;
-		} else if(which == "death") {
+		} else if(which === "death") {
 			this.deathRate = newFrameRate;
 		} else {
 			this.lifeRate = newFrameRate;
 		}
-	}
+	};
 	
 	this.setFrame = function(newFrame) {
 		if(newFrame > this.birthRange.max) {
-			wasBorn = true;
+			this.wasBorn = true;
 		} else if(newFrame > this.lifeRange.max) {
-			wasBorn = true;
-			isDying = true;
+      this.wasBorn = true;
+      this.isDying = true;
 		}
 		
 		this.currentFrame = newFrame;
-	}
+	};
 	
 	this.getCurrentFrame = function() {
 		return this.currentFrame;
-	}
+	};
 	
 	this.setRandomFrame = function() {
 		this.currentFrame = this.lifeRange.min + (this.lifeRange.max - this.lifeRange.min) * Math.floor(Math.random());
-	}
+	};
 	
 	this.clearDeath = function() {
 		this.isDying = false;
 		deadCount = 0;
 		this.currentFrame = 0;
-	}
+	};
 	
 	this.update = function(deltaTime) {
 		let availableTime = this.unusedTime + deltaTime;
@@ -131,7 +131,7 @@ function AnimatedSprite(sheet,
 		
 		this.currentFramePos.x = this.width * (this.currentFrame % this.FRAMES_PER_ROW);
 		this.currentFramePos.y = this.height * (Math.floor(this.currentFrame / this.FRAMES_PER_ROW));
-	}
+	};
 	
 	this.getCurrentRate = function() {
 		let answer = this.lifeRate;
@@ -142,7 +142,7 @@ function AnimatedSprite(sheet,
 		}
 		
 		return answer;
-	}
+	};
 	
 	this.drawAt = function(position, size = {width:this.width, height:this.height}, rotation = 0) {
 		canvasContext.save();
@@ -150,7 +150,7 @@ function AnimatedSprite(sheet,
 		canvasContext.rotate(rotation);
 		canvasContext.drawImage(sheet, this.currentFramePos.x, this.currentFramePos.y, this.width, this.height, -size.width / 2, -size.height / 2, size.width, size.height);
 		canvasContext.restore();
-	}
+	};
 	
 	return this;
 }

@@ -16,7 +16,7 @@ const EntityType = {
 	FlyingEnemy1:"flyingEnemy1",
 	FlyingEnemy2:"flyingEnemy2",
 	EnemyBullet:"enemyBullet"
-}
+};
 
 const spriteForType = function(type) {
 	switch(type) {
@@ -25,14 +25,14 @@ const spriteForType = function(type) {
 		case EntityType.Bubble:
 			return (new AnimatedSprite(bubble, 9, 30, 30, true, true, {min:0, max:0}, 0, {min:0, max:4}, 128, {min:5, max:8}, 32));
 	}
-}
+};
 
 //Game Entity
 function GameEntity(sprite, position = {x:0, y:0}, velocity = {x:0, y:0}, size = {width:sprite.width, height:sprite.height}, collisionBody = null) {
 	let pos = position;
 	let vel = velocity;
 	let unusedTime = 0;
-	this.size = size
+	this.size = size;
 	
 	this.update = function(deltaTime) {
 		sprite.update(deltaTime);//update the image
@@ -46,15 +46,15 @@ function GameEntity(sprite, position = {x:0, y:0}, velocity = {x:0, y:0}, size =
 		}
 		
 		unusedTime = availableTime;
-	}
+	};
 	
 	this.draw = function() {
 		sprite.drawAt(pos, size);
-	}
+	};
 	
 	this.didCollideWith = function(otherEntity) {
 		if((this.collisionBody == null) || (otherEntity.collisionBody == null)) {return false;}
-	}
+	};
 	
 	return this;
 }
@@ -80,7 +80,7 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 				
 				return (new Collider(ColliderType.Polygon, {points:colliderPath, position:{x:pos.x, y:pos.y}}));
 		}
-	}
+	};
 	
 	this.collisionBody = colliderForTypeAndPosition(type, this.position);
 	
@@ -105,25 +105,25 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 		} else if(this.position.x < -this.size.width) {
 			scene.removeEntity(this, false);
 		}
-	}
+	};
 	
 	this.draw = function() {
 		if((this.worldPos >= spawnPos) && (this.position.x > -this.size.width)) {
 			sprite.drawAt(this.position, this.size);
 			this.collisionBody.draw();
 		}
-	}
+	};
 	
 	this.respawn = function(worldPos) {
 		if(worldPos > spawnPos) {
 			this.worldPos = worldPos;
 			this.position.x -= (worldPos - spawnPos);
 		}		
-	}
+	};
 	
 	this.didCollideWith = function(otherEntity) {
 		if((this.collisionBody == null) || (otherEntity.collisionBody == null)) {return false;}
-	}
+	};
 	
 	return this;
 }
@@ -171,34 +171,34 @@ function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 		} else if(this.position.x < -this.size.width) {
 			scene.removeEntity(this, false);
 		}
-	}
+	};
 	
 	this.draw = function() {
 		if((this.worldPos >= spawnPos) && (this.position.x > -this.size.width)) {
 			sprite.drawAt(this.position, this.size);
 			this.collisionBody.draw();
 		}
-	}
+	};
 	
 	this.setInitialFrame = function(initialFrame) {
 		sprite.setFrame(initialFrame);
-	}
+	};
 	
 	this.respawn = function(worldPos) {
 		if(worldPos > spawnPos) {
 			this.worldPos = worldPos;
 			this.position.x -= (worldPos - spawnPos);
 		}		
-	}
+	};
 	
 	this.didCollideWith = function(otherEntity) {
 		if((this.collisionBody == null) || (otherEntity.collisionBody == null)) {return false;}
 		
-		if((otherEntity.type == EntityType.PlayerShot) || (otherEntity.type == EntityType.PlayerLaser)) {
+		if((otherEntity.type === EntityType.PlayerShot) || (otherEntity.type === EntityType.PlayerLaser)) {
 			didCollide = true;
 			sprite.isDying = true;
 		}
-	}
+	};
 	
 	return this;
 }

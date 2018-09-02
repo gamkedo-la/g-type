@@ -36,7 +36,7 @@ function EnemyBullet(position = {x:0, y:0}, velocity = {x:0, y:0}) {
 		
 		this.collisionBody.setPosition({x:this.position.x + sprite.width / 2, y:this.position.y + sprite.height / 2});
 		sprite.update(deltaTime);
-	}
+	};
 	
 	this.draw = function() {
 		if(!this.isVisible) {return;}
@@ -50,9 +50,9 @@ function EnemyBullet(position = {x:0, y:0}, velocity = {x:0, y:0}) {
 			canvasContext.arc(this.position.x + sprite.width / 2, this.position.y + sprite.height / 2, 7, 0, 2 * Math.PI);
 			canvasContext.fill();
 		}
-	}
+	};
 	
 	this.didCollideWith = function(otherEntity) {
 		scene.removeEntity(this, false);
-	}
+	};
 }

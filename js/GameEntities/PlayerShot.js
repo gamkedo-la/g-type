@@ -35,11 +35,11 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	this.setPosition = function(newPos) {
 		pos = newPos;
 		this.collisionBody.setPosition({x:pos.x, y:pos.y});
-	}
+	};
 	
 	this.setVelocity = function(newVel) {
 		vel = newVel;
-	}
+	};
 	
 	this.update = function(deltaTime, worldPos) {
 		if(this.worldPos == null) {
@@ -60,10 +60,10 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 			let availableTime = unusedTime + deltaTime;
 			while(availableTime > SIM_STEP) {
 				if(this.wasReleased) {
-					if(this.type == EntityType.PlayerShot) {
+					if(this.type === EntityType.PlayerShot) {
 						pos.x += vel.x * SIM_STEP / 1000;
 						pos.y += vel.y * SIM_STEP / 1000;
-					} else if(this.type == EntityType.PlayerLaser) {
+					} else if(this.type === EntityType.PlayerLaser) {
 						pos.x += vel.x * SIM_STEP / 350;
 						pos.y += vel.y * SIM_STEP / 350;
 					}
@@ -87,7 +87,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 		
 		flashSprite.update(deltaTime);
 		sprite.update(deltaTime);
-	}
+	};
 	
 	this.draw = function() {
 		if(!this.isVisible) {return;}
@@ -105,14 +105,14 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 		
 		sprite.drawAt(drawPos, this.size);
 		this.collisionBody.draw();
-	}
+	};
 	
 	this.resetWithType = function(newType) {
 		this.type = newType;
-		if(newType == EntityType.PlayerShot) {
+		if(newType === EntityType.PlayerShot) {
 			sprite = normalSprite;
 			this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
-		} else if(newType == EntityType.PlayerLaser) {
+		} else if(newType === EntityType.PlayerLaser) {
 			sprite = laserSprite;
 			this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 		}
@@ -127,19 +127,19 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 		sprite.isDying = false;
 		sprite.setFrame(0);
 		this.setVelocity({x:0, y:0});
-	}
+	};
 	
 	this.didCollideWith = function(otherEntity) {
 		if((this.collisionBody == null) || (otherEntity.collisionBody == null)) {return false;}
 		
-		if(this.type == EntityType.PlayerLaser) {
+		if(this.type === EntityType.PlayerLaser) {
 			this.resetWithType(EntityType.PlayerShot);
 		} else {
 			didCollide = true;
 			sprite.isDying = true;
 			vel = {x:0, y:0};
 		}
-	}
+	};
 	
 	return this;
 }

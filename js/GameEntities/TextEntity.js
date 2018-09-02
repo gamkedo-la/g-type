@@ -49,11 +49,11 @@ function TextEntity(text = "100",
 				currentAlpha -= 0.05;
 			}
 		}
-	}
+	};
 	
 	this.draw = function() {
 		colorText(text, this.position.x, this.position.y, color, font, textAlignment.Left, currentAlpha);
-	}
+	};
 	
 	return this;
 }

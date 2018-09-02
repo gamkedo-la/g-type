@@ -26,23 +26,23 @@ function Capsule(position = {x:0, y:0}, initialWorldPos) {
 		this.collisionBody.setPosition(this.position);
 		
 		sprite.update(deltaTime);
-	}
+	};
 	
 	this.draw = function() {
 		if((this.position.x > canvas.width) || (this.position.x < -this.size.width)) {return;}
 		sprite.drawAt(this.position, this.size);
 		this.collisionBody.draw();
-	}
+	};
 	
 	this.respawn = function(worldPos) {
 		if(worldPos > initialWorldPos) {
 			this.worldPos = worldPos;
 			this.position.x -= (worldPos - initialWorldPos);
 		}		
-	}
+	};
 	
 	this.didCollideWith = function(otherEntity) {
 		didCollide = true;
 		scene.removeEntity(this, false);
-	}
+	};
 }

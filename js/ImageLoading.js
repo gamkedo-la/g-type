@@ -28,7 +28,7 @@ let picsToLoad = 0;
 
 function countLoadedImageAndLaunchIfReady() {
     picsToLoad--;
-    if (picsToLoad == 0) { // last image loaded?
+    if (picsToLoad === 0) { // last image loaded?
         loadingDoneSoStartGame();
     }
 }

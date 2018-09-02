@@ -11,17 +11,16 @@ function LocalStorageHelper() {
    * A safe wrapper around the localStorage.getItem() function. According to the MDN documentation:
    * `The getItem() method of the Storage interface, when passed a key name, will return that key's value or null if the key does not exist.`
    * @param {string} keyName A DOMString containing the name of the key you want to retrieve the value of.
-   * @return A DOMString containing the value of the key. If the key does not exist, null is returned.
+   * @return {string} A DOMString containing the value of the key. If the key does not exist, null is returned.
    */
   this.getItem = function(keyName) {
     try {
-      var storedValue = window.localStorage.getItem(keyName);
-      return storedValue;
+      return window.localStorage.getItem(keyName);
     }
     catch(e) {
       return null;
     }
-  }
+  };
 
   /**
    * A safe wrapper around the Storage.setItem() function. According to the MDN documentation:
@@ -42,11 +41,12 @@ function LocalStorageHelper() {
   /**
    * Retrieves a Boolean value from localStorage.
    * @param {string} keyName A DOMString containing the name of the key you want to retrieve the value of.
+   * @return {boolean}
    */
   this.getBoolean = function(keyName) {
     var storedValue = this.getItem(keyName);
     return storedValue === 'true';
-  }
+  };
 
   this.setBoolean = this.setItem;
 
@@ -55,11 +55,12 @@ function LocalStorageHelper() {
   /**
    * Retrieves an integer value from localStorage.
    * @param {string} keyName A DOMString containing the name of the key you want to retrieve the value of.
+   * @return {int}
    */
   this.getInt = function(keyName) {
     var storedValue = this.getItem(keyName);
     return parseInt(storedValue);
-  }
+  };
 
   this.setInt = this.setItem;
 
@@ -68,11 +69,12 @@ function LocalStorageHelper() {
   /**
    * Retrieves a floating point number from localStorage.
    * @param {string} keyName A DOMString containing the name of the key you want to retrieve the value of.
+   * @return {number}
    */
   this.getFloat = function(keyName) {
     var storedValue = this.getItem(keyName);
     return parseFloat(storedValue);
-  }
+  };
 
   this.setFloat = this.setItem;
 
@@ -81,6 +83,7 @@ function LocalStorageHelper() {
   /**
    * Retrieves a JavaScript object from localStorage.
    * @param {string} keyName A DOMString containing the name of the key you want to retrieve the value of.
+   * @return {Object}
    */
   this.getObject = function(keyName) {
     var storedValue = this.getItem(keyName);
@@ -88,7 +91,7 @@ function LocalStorageHelper() {
       return null;
     }
     return JSON.parse(storedValue);
-  }
+  };
 
   /**
    * Retrieves a Boolean value from localStorage.
@@ -97,6 +100,6 @@ function LocalStorageHelper() {
    */
   this.setObject = function(keyName, keyValue) {
     var valueToStore = JSON.stringify(keyValue);
-    return this.setItem(keyName, valueToStore);
-  }
+    this.setItem(keyName, valueToStore);
+  };
 }

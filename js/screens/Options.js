@@ -39,7 +39,7 @@ function OptionsScreen() {
 		selectorSprite.update(deltaTime);
 		
 		starfield.update(deltaTime);
-	}
+	};
     
     this.control = function gamePlayFinishedScreenControl(keyCode, pressed){
        if (pressed) {//only act on key released events => prevent multiple changes on single press
@@ -90,14 +90,14 @@ function OptionsScreen() {
 
 	    for (let i = 0; i < menuItems.length; i++){
 		    colorText(menuItems[i].title, mainMenuX, mainMenuY + selectorYOffset * i, Color.White, Fonts.ButtonTitle, textAlignment.Left);
-		    if(i == selected) {
+		    if(i === selected) {
 			    selectorPosition.x = mainMenuX - 35;
 			    selectorPosition.y = mainMenuY + selectorYOffset * i - 15;
 		    }
 	    }
 	    
 	    starPosition = {x:canvas.width / 2, y:canvas.height / 2};
-	}
+	};
 
 	const draw = function(selections, selectorPositionIndex) {
 		// render the menu background
@@ -119,21 +119,21 @@ function OptionsScreen() {
         
         //draw selector sprite
         selectorSprite.drawAt(selectorPosition, {width:30, height:19});
-	}
+	};
 	
 	const drawBG = function menuScreenDrawBG() {
         // fill the background since there is no image for now
         drawRect(0, 0, canvas.width, canvas.height, MENU_BG_COLOR);
-    }
+    };
     
     const drawTitle = function() {
 	    colorText(gameTitle.Main, canvas.width / 2, canvas.height / 10, Color.White, Fonts.MainTitle, textAlignment.Center);
 	    colorText(gameTitle.Subtitle, canvas.width / 2, canvas.height / 10 + 40, Color.White, Fonts.Subtitle, textAlignment.Center);
-    }
+    };
     
     const drawHelp = function() {
 	    colorText("Hmmm...Not a lot of choices here...", canvas.width / 2, canvas.height / 2, Color.White, Fonts.Subtitle, textAlignment.Center);
-    }
+    };
         
     return this;
 }

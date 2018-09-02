@@ -27,7 +27,7 @@ const allSFX = {
 			this.sfxList[i].stop();
 		}
 	}
-}
+};
 
 function setFormat() {
 	var audio = new Audio();
@@ -44,7 +44,7 @@ function setAudioPath(path = "") {
 
 function audioFormat(alt = false) {
 	var format = audioFormatType;
-	if (alt != false) {
+	if (alt !== false) {
 		format = ".mp3";
 	}
 	return format;
@@ -81,20 +81,20 @@ function audioEventManager() {
 
 	this.returnEventList = function() {
 		return eventList;
-	}
+	};
 
 	this.updateEvents = function() {
 		now = Date.now();
 		runList();
 		cleanupList();
-	}
+	};
 
 	this.addFadeEvent = function(track, duration, endVol) {
 		var check = checkListFor(FADE, track);
 		var endTime = duration * 1000 + now;
 		var startVolume = track.getVolume();
 
-		if (check == "none") {
+		if (check === "none") {
 			eventList.push([FADE, track, now, endTime, startVolume, endVol, false]);
 		} else {
 			eventList[check] = [FADE, track, now, endTime, startVolume, endVol, false];
@@ -106,65 +106,65 @@ function audioEventManager() {
 		var endTime = duration * 1000 + now;
 		var startVolume = track.getVolume();
 
-		if (check == "none") {
+		if (check === "none") {
 			eventList.push([FADE, track, now, endTime, startVolume, endVol, true]);
 		} else {
 			eventList[check] = [FADE, track, now, endTime, startVolume, endVol, true];
 		}
-	}
+	};
 
 	this.addTimerEvent = function(track, duration, callSign = "none") {
 		var thisTrack = track;
 		var check = checkListFor(TIMER, thisTrack, callSign);
 		var endTime = (duration * 1000) + now;
 
-		if (check == "none") {
+		if (check === "none") {
 			eventList.push([TIMER, track, endTime, callSign]);
 		} else {
 			eventList[check] = [TIMER, track, endTime, callSign];
 		}
-	}
+	};
 
 	this.addStopEvent = function(track, duration) {
 		var thisTrack = track;
 		var check = checkListFor(STOP, thisTrack);
 		var endTime = (duration * 1000) + now;
 
-		if (check == "none") {
+		if (check === "none") {
 			eventList.push([STOP, track, endTime]);
 		} else {
 			eventList[check] = [STOP, track, endTime];
 		}
-	}
+	};
 
 	this.removeTimerEvent = function(track, callSign = "none") {
 		var thisTrack = track;
 		var check = checkListFor(TIMER, thisTrack, callSign);
 
-		if (check == "none") {
+		if (check === "none") {
 			return;
 		} else {
 			eventList[check] = [REMOVE];
 		}
-	}
+	};
 
 	this.removeStopEvent = function(track) {
 		var thisTrack = track;
 		var check = checkListFor(STOP, thisTrack);
 
-		if (check == "none") {
+		if (check === "none") {
 			return;
 		} else {
 			eventList[check] = [REMOVE];
 		}
-	}
+	};
 
 	function runList(){
 		for (var i = 0; i < eventList.length; i++) {
-			if (eventList[i][0] == FADE) {
+			if (eventList[i][0] === FADE) {
 				// Arrayformat [FADE, track, startTime, endTime, startVolume, endVolume, crossfade]
 				thisTrack = eventList[i][1];
-				if (thisTrack.getPaused() == false) {
+				if (thisTrack.getPaused() === false) {
 						if(eventList[i][6]) {
 							if(eventList[i][4] < eventList[i][5]){
 								thisTrack.setVolume(scaleRange(0, 1, eventList[i][4], eventList[i][5], 
@@ -181,7 +181,7 @@ function audioEventManager() {
 					}
 				}
 			}
-			if (eventList[i][0] == TIMER) {
+			if (eventList[i][0] === TIMER) {
 				thisTrack = eventList[i][1];
 				if (thisTrack.getPaused() == false) {
 					if (eventList[i][2] <= now) {
@@ -192,9 +192,9 @@ function audioEventManager() {
 					eventList[i] = [REMOVE];
 				}
 			}
-			if (eventList[i][0] == STOP) {
+			if (eventList[i][0] === STOP) {
 				thisTrack = eventList[i][1];
-				if (thisTrack.getPaused() == false) {
+				if (thisTrack.getPaused() === false) {
 					if (eventList[i][2] <= now) {
 						eventList[i] = [REMOVE];
 						thisTrack.stop();
@@ -207,7 +207,7 @@ function audioEventManager() {
 
 	function cleanupList() {
 		eventList.sort(function(a, b){return b-a});
-		while (eventList[eventList.length - 1] == REMOVE) {
+		while (eventList[eventList.length - 1] === REMOVE) {
 			eventList.pop();
 		}
 	}
@@ -215,12 +215,12 @@ function audioEventManager() {
 	function checkListFor(eventType, track, callSign = "none"){
 		var foundItem = false;
 		for (var i = 0; i < eventList.length; i++) {
-			if (eventList[i][0] == eventType) {
-				if (eventList[i][1] == track) {
-					if(eventType == TIMER && eventList[i][3] == callSign) {
+			if (eventList[i][0] === eventType) {
+				if (eventList[i][1] === track) {
+					if(eventType === TIMER && eventList[i][3] === callSign) {
 						foundItem = true;
 						return i;
-					} else if (eventType != TIMER) {
+					} else if (eventType !== TIMER) {
 						foundItem = true;
 						return i;
 					}
@@ -230,7 +230,7 @@ function audioEventManager() {
 		if (!foundItem) {
 			return "none";
 		}
-	}
+	};
 }
 
 function interpolateFade(startTime, endTime, startVolume, endVolume, currentTime) {
@@ -245,10 +245,10 @@ function interpolateFade(startTime, endTime, startVolume, endVolume, currentTime
 	y = y1 + (x - x1)((y2 - y1)/(x2 - x1))
     currentVolume = startVolume + (now - startTime) * ((endVolume - startVolume) / (endTime - startTime))
 	*/
-	if (currentTime > endTime) {currentTime = endTime;}
-	var currentVolume = startVolume + (currentTime - startTime) * ((endVolume - startVolume) / (endTime - startTime));
-
-	return currentVolume;
+	if (currentTime > endTime) {
+		currentTime = endTime;
+	}
+	return startVolume + (currentTime - startTime) * ((endVolume - startVolume) / (endTime - startTime));
 }
 
 function scaleRange(inputStart, inputEnd, outputStart, outputEnd, value) {
@@ -271,9 +271,10 @@ function turnVolumeDown() {
 
 function pauseAudio() {
 	currentBackgroundMusic.pause();
-	engine_master.pause();
-	brake_master.pause();
-	countDown.pause();
+	// These objects do not exist?
+//	engine_master.pause();
+//	brake_master.pause();
+//	countDown.pause();
 }
 
 function resumeAudio() {

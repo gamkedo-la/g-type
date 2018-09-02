@@ -51,7 +51,7 @@ const LevelData = [
 				let yPos = delta * Math.floor(i / 10);
 				
 				let thisEntity;
-				if(i == 18) {
+				if(i === 18) {
 					thisEntity = new Capsule({x: canvas.width + (50 + xPos), y: canvas.height / 2 + (yPos - 112)}, 850);
 				} else {
 					thisEntity = new BubbleEntity(EntityType.Bubble, {x: canvas.width + (50 + xPos), y: canvas.height / 2 + (yPos - 112)}, 850, 1);

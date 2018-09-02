@@ -25,12 +25,12 @@ const localStorageKey = {
     SFXVolume: "effectsVolume",
     IsLocalStorageInitialized: "isLocalStorageInitialized",
     ShowedHelp: "showedHelp",
-}
+};
 
 const assetPath = {
     Audio: "./audio/",
     Image: "images/"
-}
+};
 
 const AudioTracks = {
 	MainMenu:0,
@@ -42,7 +42,7 @@ const AudioTracks = {
 	Help:0,
 	Options:0,
 	Credits:0
-}
+};
 
 const loadingText = "LOADING...";
 

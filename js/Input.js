@@ -63,13 +63,11 @@ function keyPress(evt) {
 	evt.preventDefault();
 	if(ScreenStates.control(evt.keyCode, true)) {
         evt.preventDefault();
-	};
-	return;
+	}
 }
 
 function keyRelease(evt) {
     if (ScreenStates.control(evt.keyCode, false)) {
         evt.preventDefault();
 	}
-    return;
 }

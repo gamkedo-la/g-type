@@ -38,7 +38,7 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		if(sprite.getDidDie()) {
 			scene.removeEntity(this, false);
 			sprite.isDying = false;
-			if((this.group != null) && (this.group != undefined)) {
+			if((this.group != null) && (this.group !== undefined)) {
 				this.group.remove(this, this.worldPos);
 			}
 			return;
@@ -53,14 +53,14 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 			availableTime -= SIM_STEP;
 			if(!sprite.isDying) {
 				const nextPos = this.path.nextPoint(SIM_STEP);
-				if(nextPos != undefined) {
-					if(pattern == PathType.None) {
+				if(nextPos !== undefined) {
+					if(pattern === PathType.None) {
 						this.position.x += (vel.x * SIM_STEP / 1000);
 						this.position.y += (vel.y * SIM_STEP / 1000);
-					} else if(pattern == PathType.Sine) {
+					} else if(pattern === PathType.Sine) {
 						this.position.x += nextPos.x;
 						this.position.y += nextPos.y;
-					} else if(pattern == PathType.Points) {
+					} else if(pattern === PathType.Points) {
 						this.position.x = nextPos.x;
 						this.position.y = nextPos.y;
 					}
@@ -103,7 +103,7 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 			const newBullet = new EnemyBullet({x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
 			scene.addEntity(newBullet, false);
 		}
-	}
+	};
 	
 	this.draw = function() {
 		if(!this.isVisible) {return;}
@@ -120,7 +120,7 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 			canvasContext.arc(this.position.x + sprite.width / 2, this.position.y + sprite.height / 2, 7, 0, 2 * Math.PI);
 			canvasContext.fill();
 		}
-	}
+	};
 	
 	this.respawn = function(worldPos) {
 		if(worldPos > spawnPos) {
@@ -130,7 +130,7 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 			this.position.x = nextPos.x;
 			this.position.y = nextPos.y;
 		}
-	}
+	};
 	
 	this.didCollideWith = function(otherCollider) {
 		scene.displayScore(this);
@@ -147,5 +147,5 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		scene.removeCollisions(this);
 
 		enemySmallExplosion.play();
-	}
+	};
 }

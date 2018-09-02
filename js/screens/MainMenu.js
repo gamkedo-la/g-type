@@ -55,7 +55,7 @@ function MenuScreen() {
                 }
                 return true;
             case KEY_ENTER:
-            	if(this.selectorPositionsIndex == 0) {
+            	if(this.selectorPositionsIndex === 0) {
 	            	ScreenStates.setState(CUT_SCENE_SCREEN, 1);
             	} else {
 	            	ScreenStates.setState(this.selections[this.selectorPositionsIndex].screen);
@@ -88,20 +88,20 @@ function MenuScreen() {
 
 	    for (let i = 0; i < menuItems.length; i++){
 		    colorText(menuItems[i].title, mainMenuX, mainMenuY + selectorYOffset * i, Color.White, Fonts.ButtonTitle, textAlignment.Left);
-		    if(i == selected) {
+		    if(i === selected) {
 			    selectorPosition.x = mainMenuX - 35;
 			    selectorPosition.y = mainMenuY + selectorYOffset * i - 15;
 		    }
 	    }
 	    
 	    starPosition = {x:canvas.width / 2, y:canvas.height / 2};
-	}
+	};
 	
 	const update = function(deltaTime) {
 		selectorSprite.update(deltaTime);
 		
 		starfield.update(deltaTime);
-	}
+	};
 	
 	const draw = function(selections, selectorPositionIndex) {
 		// render the menu background
@@ -119,17 +119,17 @@ function MenuScreen() {
         
         //draw selector sprite
         selectorSprite.drawAt(selectorPosition, {width:30, height:19});
-	}
+	};
 	
 	const drawBG = function menuScreenDrawBG() {
         // fill the background since there is no image for now
         drawRect(0, 0, canvas.width, canvas.height, MENU_BG_COLOR);
-    }
+    };
     
     const drawTitle = function() {
 	    colorText(gameTitle.Main, canvas.width / 2, canvas.height / 3, Color.White, Fonts.MainTitle, textAlignment.Center);
 	    colorText(gameTitle.Subtitle, canvas.width / 2, canvas.height / 3 + 40, Color.White, Fonts.Subtitle, textAlignment.Center);
-    }
+    };
         
     return this;
 }

@@ -23,15 +23,15 @@ function StarEntity(sprite, position = {x:0, y:0}, velocity = {x:0, y:0}, size =
 		}
 		
 		unusedTime = availableTime;
-	}
+	};
 	
 	this.draw = function() {
 		sprite.drawAt(pos, this.size);
-	}
+	};
 	
 	this.didCollideWith = function(otherEntity) {
 		if((this.collisionBody == null) || (otherEntity.collisionBody == null)) {return false;}
-	}
+	};
 	
 	return this;
 }

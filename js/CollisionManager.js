@@ -9,55 +9,51 @@ function CollisionManager(player) {
 	this.setPlayer = function(newPlayer) {
 		this.player = newPlayer;
 		return true;
-	}
+	};
 	
 	this.addPlayerBullet = function(newBullet) {
 		this.playerBullets.push(newBullet);
 		return true;
-	}
+	};
 	
 	this.removePlayerBullet = function(bulletToRemove) {
 		const indexToRemove = this.playerBullets.indexOf(bulletToRemove);
 		const value = this.playerBullets.splice(indexToRemove, 1);
 		
-		if((value == null) || (value == undefined)) {
-			return false;
-		} else {
-			return true;
-		}
-	}
+		return ((value !== null) && (value !== undefined));
+	};
 		
 	this.addEntity = function(newEntity) {
-		if(newEntity.type == EntityType.EnemyBullet) {
+		if(newEntity.type === EntityType.EnemyBullet) {
 			addEnemyBullet(newEntity);
-		} else if(newEntity.type == EntityType.RhombusBoulder) {//Need to check for all other terrain types here
+		} else if(newEntity.type === EntityType.RhombusBoulder) {//Need to check for all other terrain types here
 			addTerrain(newEntity);
 		}
 		
 		const beforeLength = entities.size;
 		entities.add(newEntity);
 		
-		return (!(beforeLength == entities.size));
-	}
+		return (!(beforeLength === entities.size));
+	};
 	
 	const addEnemyBullet = function(newEnemyBullet) {
 		const beforeLength = enemyBullets.size;
 		enemyBullets.add(newEnemyBullet);
 		
-		return (!(beforeLength == enemyBullets.size));
-	}
+		return (!(beforeLength === enemyBullets.size));
+	};
 	
 	const addTerrain = function(newTerrain) {
 		const beforeLength = terrain.size;
 		terrain.add(newTerrain);
 		
-		return (!(beforeLength == terrain.size));
-	}
+		return (!(beforeLength === terrain.size));
+	};
 	
 	this.removeEntity = function(entityToRemove) {
-		if(entityToRemove.type == EntityType.EnemyBullet) {
+		if(entityToRemove.type === EntityType.EnemyBullet) {
 			removeEnemyBullet(entityToRemove);
-		} else if(entityToRemove.type == EntityType.RhombusBoulder) {//Need to check for all other terrain types here
+		} else if(entityToRemove.type === EntityType.RhombusBoulder) {//Need to check for all other terrain types here
 			removeTerrain(entityToRemove);
 		}
 		
@@ -68,7 +64,7 @@ function CollisionManager(player) {
 		}
 		
 		return false;
-	}
+	};
 	
 	const removeEnemyBullet = function(enemyBulletToRemove) {
 		if(enemyBullets.has(enemyBulletToRemove)) {
@@ -78,7 +74,7 @@ function CollisionManager(player) {
 		}
 		
 		return false;
-	}
+	};
 	
 	const removeTerrain = function(terrainToRemove) {
 		console.log("Removing Terrain");
@@ -89,13 +85,13 @@ function CollisionManager(player) {
 		}
 		
 		return false;
-	}
+	};
 	
 	this.clearWorldAndBullets = function() {
 		entities.clear();
 		enemyBullets.clear();
 		terrain.clear();
-	}
+	};
 	
 	this.doCollisionChecks = function() {
 		const collisions = [];
@@ -105,14 +101,14 @@ function CollisionManager(player) {
 			
 			//Do collision between player bullets and all other entites (except the player)
 			for(let i = 0; i < this.playerBullets.length; i++) {
-				if(entity.type == EntityType.Capsule1) {continue;}//can't shoot the power ups
+				if(entity.type === EntityType.Capsule1) {continue;}//can't shoot the power ups
 				if(!this.playerBullets[i].isActive) {continue;}//don't check collisions on inactive bullets
 				
 				const aBulletBody = this.playerBullets[i].collisionBody;
 				if(withinSquareRadii(entity.collisionBody, aBulletBody)) {
 					//if both objects are circles, the above check is a valid collision
-					if((entity.collisionBody.type == ColliderType.Circle) && 
-					   (this.playerBullets[i].collisionBody.type == ColliderType.Circle)) {
+					if((entity.collisionBody.type === ColliderType.Circle) &&
+					   (this.playerBullets[i].collisionBody.type === ColliderType.Circle)) {
 						entity.didCollideWith(this.playerBullets[i]);
 						this.playerBullets[i].didCollideWith(entity);
 						collisions.push({blue:this.playerBullets[i], red:entity});
@@ -130,8 +126,8 @@ function CollisionManager(player) {
 			//Do collision between player and all other entities (except player bullets)
 			if(withinSquareRadii(entity.collisionBody, this.player.collisionBody)) {
 				//if both objects are circles, the above check is a valid collision
-				if((entity.collisionBody.type == ColliderType.Circle) && 
-				   (this.player.collisionBody.type == ColliderType.Circle)) {
+				if((entity.collisionBody.type === ColliderType.Circle) &&
+				   (this.player.collisionBody.type === ColliderType.Circle)) {
 					entity.didCollideWith(this.player);
 					this.player.didCollideWith(entity);
 					collisions.push({blue:this.player, red:entity});
@@ -154,8 +150,8 @@ function CollisionManager(player) {
 		for(let terr of terrain) {
 			for(let bullet of enemyBullets) {
 				if(withinSquareRadii(terr.collisionBody, bullet.collisionBody)) {
-					if((terr.collisionBody.type == ColliderType.Circle) &&
-					   (bullet.collisionBody.type == ColliderType.Circle)) {
+					if((terr.collisionBody.type === ColliderType.Circle) &&
+					   (bullet.collisionBody.type === ColliderType.Circle)) {
 					   //if both objects are circles, the above check is a valid collision
 					   terr.didCollideWith(bullet);
 					   bullet.didCollideWith(terr);
@@ -171,7 +167,7 @@ function CollisionManager(player) {
 		}
 		
 		return collisions;
-	}
+	};
 	
 	const withinSquareRadii = function(body1, body2) {
 		const squareDist = (body1.center.x - body2.center.x) * (body1.center.x - body2.center.x) +
@@ -179,23 +175,23 @@ function CollisionManager(player) {
 		const squareRadius = (body1.radius + body2.radius) * (body1.radius + body2.radius);
 		
 		return (squareDist <= squareRadius);
-	}
+	};
 	
 	const checkCollisionBetween = function(body1, body2) {
-		if(body1.type == ColliderType.Polygon) {
-			if(body2.type == ColliderType.Polygon) {
+		if(body1.type === ColliderType.Polygon) {
+			if(body2.type === ColliderType.Polygon) {
 				return polygonVPolygon(body1, body2);
-			} else if(body2.type == ColliderType.Circle) {
+			} else if(body2.type === ColliderType.Circle) {
 				return polygonVCircle(body1, body2);
 			}
-		} else if(body1.type == ColliderType.Circle) {
-			if(body2.type == ColliderType.Polygon) {
+		} else if(body1.type === ColliderType.Circle) {
+			if(body2.type === ColliderType.Polygon) {
 				return polygonVCircle(body2, body1);//reverse the order so polygon passed as first parameter
 			}/* else if(body2.type == ColliderType.Circle) {
 				return circleVCircle(body1, body2);
 			}*/ //circle vs circle is handled by 'withinSquareRadii()'
 		}
-	}
+	};
 
 	const polygonVPolygon = function(body1, body2) {
 		const body2Points = body2.points;
@@ -217,7 +213,7 @@ function CollisionManager(player) {
 		}
 		
 		return false;
-	}
+	};
 	
 	const pointInPolygon = function(target, polygon) {
 		let temp1;
@@ -260,12 +256,12 @@ function CollisionManager(player) {
 			}
 		}
 	
-		if (crossings % 2 == 1) {
+		if (crossings % 2 === 1) {
 			return true;
 		} else {
 			return false;
 		}
-	}
+	};
 
 	const polygonVCircle = function(polygon, circle) {
 		for(let i = 0; i < polygon.points.length; i++) {//loop through each side of the polygon to check for a circle-line collision on each
@@ -305,11 +301,9 @@ function CollisionManager(player) {
 }
 
 function magnitudeOfVec(vector) {
-	const magnitude = Math.sqrt(((vector.x * vector.x) + (vector.y * vector.y)));
-	return magnitude;
+	return Math.sqrt(((vector.x * vector.x) + (vector.y * vector.y)));
 }
 
 function dotProduct(vec1, vec2) {
-	const dot = (vec1.x * vec2.x) + (vec1.y * vec2.y);
-	return dot;
+	return (vec1.x * vec2.x) + (vec1.y * vec2.y);
 }
