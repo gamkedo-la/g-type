@@ -6,9 +6,11 @@ function CutSceneScreen() {
     let playerSprite;
     const PLAYER_SCALE = 2;
     let planetSprite;
+    let playerSpriteDeltaX = 0;
+    let playerSpriteDeltaY = 0;
     let planetScale = 0.5;
     
-    const DISPLAY_TIME = 10000;//10000 = 10 second display time
+    const DISPLAY_TIME = 6000;//6000 = 6 second display time
     let delayTime = 0;
 
     this.transitionIn = function() {
@@ -59,6 +61,11 @@ function CutSceneScreen() {
 	const update = function(deltaTime) {
 		starfield.update(deltaTime);
 		
+		if(delayTime > 0.25 * DISPLAY_TIME) {
+			playerSpriteDeltaX += (16 * delayTime / DISPLAY_TIME);
+			playerSpriteDeltaY -= (4 * delayTime / DISPLAY_TIME);
+		}
+		
 		playerSprite.update(deltaTime);
 		planetSprite.update(deltaTime);
 		planetScale = 0.5 + delayTime / DISPLAY_TIME;
@@ -74,7 +81,7 @@ function CutSceneScreen() {
         colorText(textStrings.CutScene1_2, canvas.width / 2, canvas.height - 70, Color.White, Fonts.ButtonTitle, textAlignment.Center, 1);
         colorText("Enter to skip", canvas.width - 50, canvas.height - 30, Color.Aqua, Fonts.CreditsText, textAlignment.Right, 1);
         
-        playerSprite.drawAt({x:canvas.width / 3, y:canvas.height / 2}, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
+        playerSprite.drawAt({x:canvas.width / 8 + playerSpriteDeltaX, y: 2 * canvas.height / 3 + playerSpriteDeltaY}, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
         planetSprite.drawAt({x:4 * canvas.width / 5, y:canvas.height / 5}, {width:planetScale * planetSprite.width, height:planetScale * planetSprite.height});
 	};
 	
