@@ -23,10 +23,12 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	let didCollide = false;
 	
 	const pathPoints = [
-		{x: canvas.width, y: 100},
-		{x: canvas.width / 3, y: 100},
-		{x: 2 * canvas.width / 3, y: 500},
-		{x: canvas.width + 50, y: 500},
+		{x: canvas.width, y: 60},
+		{x: canvas.width / 5, y: 60},
+		{x: canvas.width / 4, y: 450},
+		{x: canvas.width / 3, y: 450},
+		{x: canvas.width / 2, y: 60},
+		{x: canvas.width + 50, y: 60},
 	];
 	
 	this.path = new EnemyPath(PathType.Points, this.position, speed, pathPoints, timeOffset);

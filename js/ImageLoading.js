@@ -8,6 +8,10 @@ const backgroundParallaxLayer1 = document.createElement("img");
 const largeRhombusBoulder = document.createElement("img");
 const bubble = document.createElement("img");
 const debrisSheet = document.createElement("img");
+const rock1 = document.createElement("img");
+const rock2 = document.createElement("img");
+const rock3 = document.createElement("img");
+const rock4 = document.createElement("img");
 
 //Player Associated
 const player1Sheet = document.createElement("img");
@@ -53,6 +57,10 @@ function loadImages() {
         { imgName: largeRhombusBoulder, theFile: "Boulder.png" },
         { imgName: bubble, theFile: "Bubble.png" },
         { imgName: debrisSheet, theFile: "DebrisSheet.png" },
+        { imgName: rock1, theFile: "Rock01.png" },
+        { imgName: rock2, theFile: "Rock02.png" },
+        { imgName: rock3, theFile: "Rock03.png" },
+        { imgName: rock4, theFile: "Rock04.png" },
 
         // player related
         { imgName: player1Sheet, theFile: "G-TypePlayer1.png" },
