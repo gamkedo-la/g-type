@@ -13,6 +13,9 @@ function Player(position = {x:0, y:0}) {
 	this.type = EntityType.Player;
 	
 	const sprite = new AnimatedSprite(player1Sheet, 6, 60, 38, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:3, max:5}, 128);
+	const explosionSprite = new AnimatedSprite(playerBoom2Sheet, 13, 80, 80, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max: 12}, 64);
+	explosionSprite.wasBorn = true;
+	explosionSprite.isDying = true;
 	const SPRITE_SCALE = 1; //TODO: would like to increase the size of the sprite and change this back to 1.
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	let hasShield = false;//TODO: doesn't ever change because "shield" power up hasn't been implemented yet
@@ -45,6 +48,10 @@ function Player(position = {x:0, y:0}) {
 	
 	this.update = function(deltaTime, worldPos) {
 		sprite.update(deltaTime);//update the image
+		
+		if(sprite.isDying) {
+			explosionSprite.update(deltaTime);
+		} 
 		
 		if(sprite.getDidDie()) {
 			//indicates that the sprite has reached the final frame of the "death sequence"
@@ -98,6 +105,9 @@ function Player(position = {x:0, y:0}) {
 		
 		//draw the player
 		sprite.drawAt(this.position, this.size);
+		if((sprite.isDying) && (!explosionSprite.getDidDie())) {
+			explosionSprite.drawAt(this.position, this.size);
+		}
 		//collision bodies know not to draw themselves if DRAW_COLLIDERS = false
 		this.collisionBody.draw();
 		
@@ -211,6 +221,9 @@ function Player(position = {x:0, y:0}) {
 		this.position.x = 0;
 		this.position.y = canvas.height / 2;
 		sprite.clearDeath();
+		explosionSprite.clearDeath();
+		explosionSprite.wasBorn = true;
+		explosionSprite.isDying = true;
 		
 		this.setInvincible(true);
 	}
