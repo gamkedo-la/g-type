@@ -8,6 +8,7 @@ const EntityType = {
 	Player:"player",
 	PlayerShot:"playerShot",
 	PlayerLaser:"playerLaser",
+	PlayerForceUnit:"playerForceUnit",
 	
 	//capsules
 	Capsule1:"capsule1",

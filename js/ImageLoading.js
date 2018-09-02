@@ -14,6 +14,7 @@ const playerBoom2Sheet = document.createElement("img");
 const playerShots = document.createElement("img");
 const playerLaserShot = document.createElement("img");
 const playerShotFlash = document.createElement("img");
+const forceUnitSheet = document.createElement("img");
 
 //power ups
 const capsule1Sheet = document.createElement("img");
@@ -57,6 +58,7 @@ function loadImages() {
 		{ imgName: playerShotFlash, theFile: "player_shot_vfx_sheet.png"},
 		{ imgName: playerBoom2Sheet, theFile: "player_explosion_v2_sheet.png"},
 		{ imgName: playerLaserShot, theFile: "player_laser_shot_v5.png"},
+		{ imgName: forceUnitSheet, theFile: "shape_hexagon_48x48.png"},
 
         // power ups
         { imgName: capsule1Sheet, theFile: "PowerUp.png" },

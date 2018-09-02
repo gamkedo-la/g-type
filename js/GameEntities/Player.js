@@ -31,9 +31,13 @@ function Player(position = {x:0, y:0}) {
 	const velocity = {x:0, y:0};
 	const shots = [];
 
+	this.forceUnit = new PlayerForceUnit({x:0, y:0});
+	this.forceUnit.parentShip = this;	// Give the force unit a reference to "this", so we can update its position based on the ship's position
+	this.forceUnitActive = true;	// TODO control force unit being active/inactive using powerups and such
+
 	let currentSpeed = BASE_SPEED;//TODO: Adjust this when the player chooses the "speed up" power up, need to reset it to base when the player dies
 	
-	this.position = position;
+	this.position = {x: position.x, y: position.y};
 	
 	//this path lays out the corners of the polygon collider for the player (a triangle in this case)
 	const colliderPath = [{x: this.position.x + SPRITE_SCALE * 6, y: this.position.y + SPRITE_SCALE * 1}, 
@@ -88,6 +92,10 @@ function Player(position = {x:0, y:0}) {
 			
 			//keep the collisionBody position in synch with the visual position
 			this.collisionBody.setPosition({x:this.position.x, y:this.position.y});
+
+			if (this.forceUnitActive) {
+				this.forceUnit.update(deltaTime, worldPos);
+			}
 			
 			if(isInvincible) {
 				if(timer.timeSinceUpdateForEvent(PlayerEvent.Incincible) >= INVINCIBLE_TIME) {
@@ -114,6 +122,10 @@ function Player(position = {x:0, y:0}) {
 		
 		if(isInvincible) {
 			canvasContext.restore();
+		}
+
+		if (this.forceUnitActive) {
+			this.forceUnit.draw();
 		}
 		
 		//draw player shots
@@ -162,7 +174,7 @@ function Player(position = {x:0, y:0}) {
 			//initialize the newShot (whether it is new or pulled from the pool)
 			newShot.resetWithType(this.currentShotType);
 			scene.addEntity(newShot, true);
-			newShot.setPosition({x:position.x + 70, y:position.y});
+			newShot.setPosition({x:this.position.x + 70, y:this.position.y});
 						
 			shots.push(newShot);
 			timer.updateEvent(PlayerEvent.LastShot);
