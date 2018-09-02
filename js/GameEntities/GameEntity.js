@@ -7,6 +7,7 @@ const EntityType = {
 	//Player
 	Player:"player",
 	PlayerShot:"playerShot",
+	PlayerLaser:"playerLaser",
 	
 	//capsules
 	Capsule1:"capsule1",
@@ -193,7 +194,7 @@ function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 	this.didCollideWith = function(otherEntity) {
 		if((this.collisionBody == null) || (otherEntity.collisionBody == null)) {return false;}
 		
-		if(otherEntity.type == EntityType.PlayerShot) {
+		if((otherEntity.type == EntityType.PlayerShot) || (otherEntity.type == EntityType.PlayerLaser)) {
 			didCollide = true;
 			sprite.isDying = true;
 		}

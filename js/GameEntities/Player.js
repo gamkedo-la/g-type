@@ -11,6 +11,7 @@ function Player(position = {x:0, y:0}) {
 	}
 	
 	this.type = EntityType.Player;
+	this.currentShotType = EntityType.PlayerShot;
 	
 	const sprite = new AnimatedSprite(player1Sheet, 6, 60, 38, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:3, max:5}, 128);
 	const explosionSprite = new AnimatedSprite(playerBoom2Sheet, 13, 80, 80, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max: 12}, 64);
@@ -159,7 +160,7 @@ function Player(position = {x:0, y:0}) {
 			}
 			
 			//initialize the newShot (whether it is new or pulled from the pool)
-			newShot.reset();
+			newShot.resetWithType(this.currentShotType);
 			scene.addEntity(newShot, true);
 			newShot.setPosition({x:position.x + 70, y:position.y + 0});
 						
@@ -198,6 +199,11 @@ function Player(position = {x:0, y:0}) {
 		if(otherEntity.type == EntityType.Capsule1) {
 			//TODO: Update UI to indicate what power up the player can get now
 			scene.collectedCapsule();
+			
+			//TODO: Remove this temporary action once power ups are correctly implemented
+			if(this.currentShotType == EntityType.PlayerShot) {
+				this.currentShotType = EntityType.PlayerLaser;
+			}
 		} else {
 			if(hasShield) {//shields not implemented => hasShield always = false
 				scene.shouldShake(MAX_SHAKE_MAGNITUDE / 2);
@@ -230,6 +236,7 @@ function Player(position = {x:0, y:0}) {
 	
 	this.clearPowerUps = function() {
 		//TODO: implement this
+		this.currentShotType = EntityType.PlayerShot;
 	}
 	
 	this.clearBullets = function() {
