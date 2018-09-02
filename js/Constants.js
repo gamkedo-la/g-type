@@ -7,7 +7,7 @@ let worldSpeed = 1;
 let remainingLives = 3;
 	
 const DEBUG = true;
-const DRAW_COLLIDERS = true;
+const DRAW_COLLIDERS = false;
 const COLLIDER_COLOR = 'yellow';
 const CANVAS_WIDTH = 800;
 const CANVAS_HEIGHT = 600;
@@ -91,6 +91,7 @@ const textStrings = {
     Continue: "Continue",
     Help: "Help",
     Restart: "Restart",
+    Resume:"Resume",
     Quit: "Quit",
     Options: "Options",
     Music: "Music",
@@ -101,6 +102,7 @@ const textStrings = {
     GameOver: "Game Over",
     CutScene1_1:"Operation SAVE THE UNIVERSE",
     CutScene1_2:"Phase 1 - Defeat Planetary Defenses to enable follow on forces to approach safely",
+    SkipCutScene:"Enter to skip",
     Contributors: [
         {name:"H Trayford",   works: ['Game Lead', 'Core Gameplay', 'Level Editor', 'AI Drivers', 'Background Parallax', 'Nitro Boost', 'Time Limit', 'Street Light Art', 'Animated Radio Tower', 'Collision Detection', 'Art Integration', 'Billboards (Over 10 Designs)'] },
 /*        {name:"Terrence McDonnell", works: ['Signs (Over 28 Designs)', 'Checkpoint Code', 'Crashing Animation Code', 'Menu Improvements', 'Finish Line Animation', 'Stage Ground Colors', 'Track Design (Skyline, Mountain, Forest)','Main Menu Animation']},

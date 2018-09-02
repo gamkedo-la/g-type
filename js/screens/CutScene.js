@@ -79,7 +79,7 @@ function CutSceneScreen() {
         
         colorText(textStrings.CutScene1_1, canvas.width / 2, canvas.height - 100, Color.White, Fonts.ButtonTitle, textAlignment.Center, 1);
         colorText(textStrings.CutScene1_2, canvas.width / 2, canvas.height - 70, Color.White, Fonts.ButtonTitle, textAlignment.Center, 1);
-        colorText("Enter to skip", canvas.width - 50, canvas.height - 30, Color.Aqua, Fonts.CreditsText, textAlignment.Right, 1);
+        colorText(textStrings.SkipCutScene, canvas.width - 50, canvas.height - 30, Color.Aqua, Fonts.CreditsText, textAlignment.Right, 1);
         
         playerSprite.drawAt({x:canvas.width / 8 + playerSpriteDeltaX, y: 2 * canvas.height / 3 + playerSpriteDeltaY}, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
         planetSprite.drawAt({x:4 * canvas.width / 5, y:canvas.height / 5}, {width:planetScale * planetSprite.width, height:planetScale * planetSprite.height});
