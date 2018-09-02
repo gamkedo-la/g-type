@@ -52,6 +52,9 @@ function loadingDoneSoStartGame() {
 };
 
 function update() {
+	
+	if (!timer) return; // bugfix: timer can sometimes be undefined here (while images are still loading)
+	
 	const dt = timer.update();
 
 	ScreenStates.run(dt);
