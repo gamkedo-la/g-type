@@ -20,6 +20,17 @@ const gameTitle = {
 	Subtitle:"Advanced Strike Team"
 };
 
+const buttonTitle = {
+	Help:"[H] for Help",
+	Credits:"[C] for Credits",
+	Enter:"[Enter] to Play"
+};
+
+const sliderTitle = {
+	MusicVolume:"Music Volume",
+	SFXVolume:"SFX Volume"
+};
+
 const localStorageKey = {
     MusicVolume: "musicVolume",
     SFXVolume: "effectsVolume",

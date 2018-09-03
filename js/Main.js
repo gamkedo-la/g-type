@@ -1,17 +1,4 @@
 //Main for G-Type
-const pausedText = "- P A U S E D -";
-
-const buttonTitle = {
-	Help:"[H] for Help",
-	Credits:"[C] for Credits",
-	Enter:"[Enter] to Play"
-};
-
-const sliderTitle = {
-	MusicVolume:"Music Volume",
-	SFXVolume:"SFX Volume"
-};
-
 window.onload = function() {
     window.addEventListener("focus", windowOnFocus);
     window.addEventListener("blur", windowOnBlur);
