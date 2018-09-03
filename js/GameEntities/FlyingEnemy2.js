@@ -48,7 +48,7 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		
 		this.worldPos = worldPos;
 		
-		rotation -= (deltaTime / 500);
+		rotation += (deltaTime / 250);
 		
 		let availableTime = unusedTime + deltaTime;
 		while(availableTime > SIM_STEP) {
