@@ -135,6 +135,8 @@ function GameScene(levelIndex) {
 			entity.draw();
 		}
 
+		//drawPowerUpBar();
+
 //	    score.draw();//TODO: implement this
 	};
 	
@@ -232,13 +234,45 @@ function GameScene(levelIndex) {
 		this.screenShake();
 	};
 
-	this.spawnPowerUp = function(type, data) {
-		// Should take in a type of powerup to spawn
-		
+	this.spawnSpecialCapsule = function(type, data) {
+		// Should take in a type of capsule to spawn
 
-		// Choose random location at which to spawn it
+	};
 
-		// Signal UI to update
+	// TODO: Draw power ups. 
+	// Then, upon collection of X number of capsules, should update UI to make appropriate button enabled
 
+	const drawPowerUpBar = function() {
+
+		const PowerUps = [
+			{
+				title: 'Speed Up'
+			}
+		];
+
+		const canvas = document.getElementById('gameCanvas');
+		const powerUpBar = drawRect(0, canvas.height - 50, canvas.width, 50, '#0000FF'); 
+
+		printPowerUps(PowerUps);
+
+	};
+
+	const printPowerUps = function(powerUpItems, yOffset = null) {
+		const DISABLED_COLOR = '#A8A8A8';
+		const ENABLED_COLOR = '#ffffff';
+	    let powerUpButtonMenuX = 20;
+	    let powerUpMenuY = canvas.height - 15;
+
+	    let powerUpMenuX = 50;
+
+	    let selectorXOffset = 20;
+
+	    let buttonsXOffset = powerUpMenuX + 70;
+
+	    for (let i = 0; i < powerUpItems.length; i++){
+	    	drawRect(powerUpButtonMenuX + (selectorXOffset * i), canvas.height - 35, 150, 25, DISABLED_COLOR); 
+	    	console.log(powerUpButtonMenuX + (selectorXOffset * i));
+		    colorText(powerUpItems[i].title, powerUpMenuX + selectorXOffset * i, powerUpMenuY, Color.Black, Fonts.ButtonTitle, textAlignment.Left);
+	    }
 	};
 }
