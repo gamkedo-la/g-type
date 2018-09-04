@@ -145,8 +145,6 @@ function GameScene(levelIndex) {
 			(Math.floor(this.bgTime * BG_COLOR_CHANGE_SPEED) % backgroundColorLookup.width), 0, 1, 100, // source x,y,w,d (scroll source x over time)
 			0, 0, canvas.width, canvas.height); // dest x,y,w,d (scale one pixel worth of the gradient to fill entire screen)
 
-		console.log("bg:" + this.bgTime);
-
 		// galaxy / starfield images, tiled, with parallax
 		canvasContext.drawImage(backgroundParallaxLayer1,this.parallaxOffset1,0);
 		canvasContext.drawImage(backgroundParallaxLayer1,this.parallaxOffset1+backgroundParallaxLayer1.width,0);
