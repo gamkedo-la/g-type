@@ -203,19 +203,17 @@ function Player(position = {x:0, y:0}) {
 		}	
 	};
 	
+	this.setShotTo = function(newShotType) {
+		this.currentShotType = newShotType;
+	};
+	
 	this.didCollideWith = function(otherEntity) {
 		didCollide = true;
-		
-		//let explosionSprite = new AnimatedSprite(playerBoom2Sheet, 13, 80 , 80, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max: 13}, 64);
-		
+				
 		if(otherEntity.type === EntityType.Capsule1) {
-			//TODO: Update UI to indicate what power up the player can get now
 			scene.collectedCapsule();
 			
-			//TODO: Remove this temporary action once power ups are correctly implemented
-			if(this.currentShotType === EntityType.PlayerShot) {
-				this.currentShotType = EntityType.PlayerLaser;
-			}
+
 		} else {
 			if(hasShield) {//shields not implemented => hasShield always = false
 				scene.shouldShake(MAX_SHAKE_MAGNITUDE / 2);
@@ -231,6 +229,12 @@ function Player(position = {x:0, y:0}) {
 			}
 		}
 	};
+	
+	this.incrementSpeed = function() {
+		let multiplier = currentSpeed / BASE_SPEED;
+		multiplier += 1.0;
+		currentSpeed = multiplier * BASE_SPEED;
+	}
 	
 	//helper function to restore the player to initial state (restart/continue/new life/etc)
 	this.reset = function() {
@@ -249,6 +253,7 @@ function Player(position = {x:0, y:0}) {
 	this.clearPowerUps = function() {
 		//TODO: implement this
 		this.currentShotType = EntityType.PlayerShot;
+		currentSpeed = BASE_SPEED;
 	};
 	
 	this.clearBullets = function() {

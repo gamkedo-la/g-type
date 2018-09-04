@@ -38,6 +38,9 @@ const LevelData = [
 			enemies.push(fourthGroup.add(new FlyingEnemy1({x: canvas.width + 50, y: 50}, -100, PathType.Sine, 1650, 1100, 1)));
 			enemies.push(fourthGroup.add(new FlyingEnemy1({x: canvas.width + 50, y: 50}, -100, PathType.Sine, 2200, 1100, 1)));
 			
+			enemies.push(new GroundEnemy1({x: canvas.width + 164, y: canvas.height / 2 - 52}, Math.PI/4, 0, PathType.None, 0, 100, 50));
+			enemies.push(new GroundEnemy1({x: canvas.width + 164, y: canvas.height / 2 + 48}, 3*Math.PI/4, 0, PathType.None, 0, 100, 50));
+			
 			return enemies;
 		},
 		initializeTerrain: function() {
