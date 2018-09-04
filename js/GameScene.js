@@ -67,8 +67,11 @@ function GameScene(levelIndex) {
 	populateWorld(0);//0 = start at the beginning
 	
 	this.update = function(deltaTime) {
+		
 		this.worldPos += 2 * worldSpeed;
-		starfield.update(deltaTime, this.worldPos);
+		
+		this.updateBackground(deltaTime);
+		
 		player.update(deltaTime, this.worldPos);
 		
 	    for(let bullet of enemyBullets) {
@@ -124,12 +127,29 @@ function GameScene(levelIndex) {
 		this.worldPos = newWorldPos;
 	};
 	
-	this.draw = function() {
-		// background images, tiled, ready for parallax effects
-		canvasContext.drawImage(backgroundParallaxLayer1,-1*(this.worldPos*0.3%backgroundParallaxLayer1.width),0);
-		canvasContext.drawImage(backgroundParallaxLayer1,-1*(this.worldPos*0.3%backgroundParallaxLayer1.width)+backgroundParallaxLayer1.width,0);
+	this.updateBackground = function(deltaTime) {
+
+		this.parallaxOffset1 = -1*(this.worldPos*0.3%backgroundParallaxLayer1.width)
+		
+		starfield.update(deltaTime, this.worldPos);
+
+	}
+
+	this.drawBackground = function() {
+
+		// gradually tweened background fill color
+
+		
+		// galaxy / starfield images, tiled, with parallax
+		canvasContext.drawImage(backgroundParallaxLayer1,this.parallaxOffset1,0);
+		canvasContext.drawImage(backgroundParallaxLayer1,this.parallaxOffset1+backgroundParallaxLayer1.width,0);
 
 		starfield.draw();
+	}
+	
+	this.draw = function() {
+
+		this.drawBackground();
 
 		for(let bullet of enemyBullets) {
 			bullet.draw();
