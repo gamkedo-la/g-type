@@ -3,6 +3,7 @@
 const starSheet = document.createElement("img");
 const planetSheet = document.createElement("img");
 const backgroundParallaxLayer1 = document.createElement("img");
+const backgroundColorLookup = document.createElement("img");
 
 //Terrain & World
 const largeRhombusBoulder = document.createElement("img");
@@ -52,7 +53,8 @@ function loadImages() {
         { imgName: starSheet, theFile: "Stars.png" },
         { imgName: planetSheet, theFile: "Planet.png" },
         { imgName: backgroundParallaxLayer1, theFile: "stars1024x1024.png" },
-        
+        { imgName: backgroundColorLookup, theFile: "backgroundColorLookup.png" },
+                
         
         //Terrain & World
         { imgName: largeRhombusBoulder, theFile: "Boulder.png" },

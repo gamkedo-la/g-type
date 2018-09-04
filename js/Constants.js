@@ -15,6 +15,10 @@ const FRAMES_PER_SECOND = 30;
 const SIM_STEP = 16;//milliseconds in each simulation step ~1/2 frame
 const MAX_SHAKE_MAGNITUDE = 10;
 
+const BG_PARALLAX_RATIO_1 = 0.3;
+const BG_PARALLAX_RATIO_2 = 0.2;
+const BG_COLOR_CHANGE_SPEED = 0.0075; // pixels per second for the bacgroundColorLookup table
+
 const gameTitle = {
 	Main:"G-Type",
 	Subtitle:"Advanced Strike Team"
