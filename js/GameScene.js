@@ -231,4 +231,14 @@ function GameScene(levelIndex) {
 		this.remainingShakes = 0;
 		this.screenShake();
 	};
+
+	this.spawnPowerUp = function(type, data) {
+		// Should take in a type of powerup to spawn
+		
+
+		// Choose random location at which to spawn it
+
+		// Signal UI to update
+
+	};
 }
