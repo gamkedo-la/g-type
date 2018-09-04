@@ -105,7 +105,7 @@ function EnemyPath(type = PathType.None, start = {x:0, y:0}, speed = 0, points =
 					const distThisCall = currentSpeed * deltaTime;
 					const finalDeltaX = points[points.length - 1].x - points[points.length - 2].x;
 					const finalDeltaY = points[points.length - 1].y - points[points.length - 2].y;
-					const finalDirection = Math.atan2(finalDeltaX, finalDeltaY);
+					const finalDirection = Math.atan2(finalDeltaY, finalDeltaX);
 					const newX = lastPosition.x + distThisCall * Math.cos(finalDirection);
 					const newY = lastPosition.y + distThisCall * Math.sin(finalDirection);
 					lastPosition = {x:newX, y:newY};

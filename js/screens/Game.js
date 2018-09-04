@@ -62,12 +62,16 @@ function GamePlayScreen () {
     
     this.control = function gamePlayScreenControl(keyCode, pressed){
         switch(keyCode) {
+	        case KEY_ENTER:
+	        	if(!pressed) {
+		        	scene.activatePowerUp();
+	        	}
+	        	return true;
             case KEY_ESCAPE:
                 if(!pressed) {
 	                setPaused(!ScreenStates.isPaused);
                 }
                 return true;
-                break;
             case KEY_SPACE:
                 holdSpace = pressed;//shoot
                 return true;

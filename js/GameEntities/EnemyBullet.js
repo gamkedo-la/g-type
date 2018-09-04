@@ -6,6 +6,7 @@ function EnemyBullet(position = {x:0, y:0}, velocity = {x:0, y:0}) {
 	let vel = velocity;
 	let unusedTime = 0;
 	this.isVisible = true;
+	this.worldPos = null;
 	
 	const sprite = new AnimatedSprite(enemyBulletSheet, 2, 21, 21, false, true, {min:0, max:0}, 0, {min:0, max:1}, 128, {min:1, max:1}, 0);
 	this.size = {width:sprite.width, height:sprite.height};
@@ -17,8 +18,12 @@ function EnemyBullet(position = {x:0, y:0}, velocity = {x:0, y:0}) {
 									  );
 	let didCollide = false;
 	
-	this.update = function(deltaTime) {
+	this.update = function(deltaTime, worldPos) {
 		if(!this.isVisible) {return;}
+		
+		if(this.worldPos == null) {
+			this.worldPos = worldPos;
+		}
 		
 		let availableTime = unusedTime + deltaTime;
 		while(availableTime > SIM_STEP) {
@@ -31,6 +36,9 @@ function EnemyBullet(position = {x:0, y:0}, velocity = {x:0, y:0}) {
 				return;
 			}
 		}
+		
+		this.position.x -= (worldPos - this.worldPos);
+		this.worldPos = worldPos;
 		
 		unusedTime = availableTime;
 		

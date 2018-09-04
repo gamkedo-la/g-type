@@ -1,3 +1,15 @@
+//PowerUp Types
+const PowerUpType = {
+	None:"none",
+	Speed:"speed",
+	Double:"double",
+	Laser:"laser",
+	Triple:"triple",
+	Ghost:"ghost",
+	Shield:"shield",
+	Force:"force"
+}
+
 //Game Scene
 function GameScene(levelIndex) {
 	const data = LevelData[levelIndex];
@@ -15,19 +27,9 @@ function GameScene(levelIndex) {
 	const foregroundEntities = new Set();
 	const enemyBullets = new Set();
 	let score = 0;
+	let powerUpToActivate = PowerUpType.None;
 	
 	const populateWorld = function(worldPos) {
-		const enemies = data.initializeEnemies();
-		
-		for(let i = 0; i < enemies.length; i++) {
-			const thisEnemy = enemies[i];
-			
-			thisEnemy.respawn(worldPos);
-			
-			gameEntities.add(thisEnemy);
-			collisionManager.addEntity(thisEnemy, false);
-		}
-		
 		const terrain = data.initializeTerrain();
 		
 		for(let i = 0; i < terrain.length; i++) {
@@ -39,6 +41,17 @@ function GameScene(levelIndex) {
 			collisionManager.addEntity(thisTerrain, false);
 		}
 
+		const enemies = data.initializeEnemies();
+		
+		for(let i = 0; i < enemies.length; i++) {
+			const thisEnemy = enemies[i];
+			
+			thisEnemy.respawn(worldPos);
+			
+			gameEntities.add(thisEnemy);
+			collisionManager.addEntity(thisEnemy, false);
+		}
+		
 		// foregroundEntities
 		const debris = data.initializeDebris();
 
@@ -112,9 +125,6 @@ function GameScene(levelIndex) {
 	};
 	
 	this.draw = function() {
-		
-		//drawRect(0,0, canvas.width, canvas.height, data.clearColor);//Need to wipe the canvas clean each frame - eventually use a background image/video
-		
 		// background images, tiled, ready for parallax effects
 		canvasContext.drawImage(backgroundParallaxLayer1,-1*(this.worldPos*0.3%backgroundParallaxLayer1.width),0);
 		canvasContext.drawImage(backgroundParallaxLayer1,-1*(this.worldPos*0.3%backgroundParallaxLayer1.width)+backgroundParallaxLayer1.width,0);
@@ -139,6 +149,7 @@ function GameScene(levelIndex) {
 	};
 	
 	this.collectedCapsule = function() {
+		incrementPowerUpToActivate();
 		console.log("Update UI to show that the player collected another capsule");
 	};
 	
@@ -149,6 +160,7 @@ function GameScene(levelIndex) {
 		} else {
 			remainingLives--;
 			player.reset();
+			powerUpToActivate = PowerUpType.None;
 		}
 	};
 	
@@ -187,6 +199,80 @@ function GameScene(levelIndex) {
 		}		
 	};
 	
+	const incrementPowerUpToActivate = function() {
+		switch(powerUpToActivate) {
+			case PowerUpType.None:
+				powerUpToActivate = PowerUpType.Speed;
+				break;
+			case PowerUpType.Speed:
+				powerUpToActivate = PowerUpType.Double;
+				break;
+			case PowerUpType.Double:
+				powerUpToActivate = PowerUpType.Laser;
+				break;
+			case PowerUpType.Laser:
+				powerUpToActivate = PowerUpType.Triple;
+				break;
+			case PowerUpType.Triple:
+				powerUpToActivate = PowerUpType.Ghost;
+				break;
+			case PowerUpType.Ghost:
+				powerUpToActivate = PowerUpType.Shield;
+				return;
+			case PowerUpType.Shield:
+				powerUpToActivate = PowerUpType.Force;
+				break;
+			case PowerUpType.Force:
+				powerUpToActivate = PowerUpType.Speed;
+				break;
+		}
+		
+		console.log("PowerUp To Activate: " + powerUpToActivate);
+	}
+	
+	this.activatePowerUp = function() {
+		switch(powerUpToActivate) {
+			case PowerUpType.None:
+				return;//No power up so exit now and don't play the activation sound
+			case PowerUpType.Speed:
+				player.incrementSpeed();
+				powerUpToActivate = PowerUpType.None;
+				return;
+			case PowerUpType.Double:
+//				player.setShotTo(EntityType.PlayerDouble);//TODO: restore this once Double is implemented
+				console.log("Tried to set player shot to Double");
+				powerUpToActivate = PowerUpType.None;
+				break;
+			case PowerUpType.Laser:
+				player.setShotTo(EntityType.PlayerLaser);
+				powerUpToActivate = PowerUpType.None;
+				break;
+			case PowerUpType.Triple:
+//				player.setShotTo(EntityType.PlayerTriple);//TODO: restore this once Triple is implemented
+				console.log("Tried to set player shot to Triple");
+				powerUpToActivate = PowerUpType.None;
+				break;
+			case PowerUpType.Ghost:
+				//TODO: Need to do something here...
+				console.log("Tried to activate a Ghost Ship");
+				powerUpToActivate = PowerUpType.None;
+				return;
+			case PowerUpType.Shield:
+				//TODO: Need to do something here...
+				console.log("Tried to activate shields");
+				powerUpToActivate = PowerUpType.None;
+				break;
+			case PowerUpType.Force:
+				//TODO: Need to do something here...
+				console.log("Tried to 'Use The Force!'");
+				powerUpToActivate = PowerUpType.None;
+				break;
+			default:
+				break;
+		}
+		//powerUpActivated.play();//TODO: need this SFX track in the game, goes at the end so it isn't played if "None" is the power up
+	};
+	
 	this.displayScore = function(entity) {
 		score += entity.score;
 		const newScore = new TextEntity(entity.score.toString(), Fonts.CreditsText, Color.White, {x:entity.position.x, y:entity.position.y}, 512, false);
@@ -202,6 +288,16 @@ function GameScene(levelIndex) {
 		}
 		
 		return 0;
+	};
+	
+	this.spawnPowerUp = function(type, data) {
+		// Should take in a type of powerup to spawn
+		
+
+		// Choose random location at which to spawn it
+
+		// Signal UI to update
+
 	};
 	
 	this.shouldShake = function(magnitude) {
@@ -230,15 +326,5 @@ function GameScene(levelIndex) {
 	this.endShake = function() {
 		this.remainingShakes = 0;
 		this.screenShake();
-	};
-
-	this.spawnPowerUp = function(type, data) {
-		// Should take in a type of powerup to spawn
-		
-
-		// Choose random location at which to spawn it
-
-		// Signal UI to update
-
 	};
 }
