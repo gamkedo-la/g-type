@@ -10,6 +10,8 @@ const PowerUpType = {
 	Force:"force"
 }
 
+let selectedPowerUp = "none";
+
 //Game Scene
 function GameScene(levelIndex) {
 	const data = LevelData[levelIndex];
@@ -253,44 +255,9 @@ function GameScene(levelIndex) {
 				powerUpToActivate = PowerUpType.Speed;
 				break;
 		}
-		choosePowerUp(powerUpToActivate);
+		printPowerUps(PowerUpType, selectedPowerUp);
 		console.log("PowerUp To Activate: " + powerUpToActivate);
 	}
-
-	const choosePowerUp = function(powerUp) {
-		// Choose which power up to highlight
-		// Player can click to activatePowerUp()
-
-		switch(powerUpToActivate) {
-			case PowerUpType.None:
-				return;//No power up so exit now and don't play the activation sound
-			case PowerUpType.Speed:
-				
-				return;
-			case PowerUpType.Double:
-//				
-				break;
-			case PowerUpType.Laser:
-				
-				break;
-			case PowerUpType.Triple:
-//				
-				break;
-			case PowerUpType.Ghost:
-				
-				return;
-			case PowerUpType.Shield:
-				
-				break;
-			case PowerUpType.Force:
-				
-				break;
-			default:
-				break;
-		}
-
-
-	};
 	
 	this.activatePowerUp = function() {
 		switch(powerUpToActivate) {
@@ -388,7 +355,7 @@ function GameScene(levelIndex) {
 	// TODO: Draw power ups. 
 	// Then, upon collection of X number of capsules, should update UI to make appropriate button enabled
 
-	const drawPowerUpBar = function(PowerUps) {
+	const drawPowerUpBar = function(PowerUps = PowerUpType) {
 		const canvas = document.getElementById('gameCanvas');
 		const powerUpBar = drawRect(0, canvas.height - 50, canvas.width, 50, '#0000FF'); 
 
@@ -396,10 +363,10 @@ function GameScene(levelIndex) {
 
 	};
 
-	const printPowerUps = function(powerUpItems, color = '#A8A8A8') {
+	const printPowerUps = function(powerUpItems, selected) {
 		const powerUpNames = Object.keys(powerUpItems);
 		const DISABLED_COLOR = '#A8A8A8';
-		const ENABLED_COLOR = '#ffffff';
+		const ENABLED_COLOR = '#FFFF00';
 		const BUTTON_WIDTH = 90;
 	    const powerUpButtonMenuX = 20;
 	    const powerUpMenuY = canvas.height - 15;
@@ -407,9 +374,19 @@ function GameScene(levelIndex) {
 	    const selectorXOffset = 20;
 
 	    for (let i = 1; i < powerUpNames.length; i++){
+	    	console.log(powerUpNames[i] === selected);
+	    	if (powerUpNames[i] === selected) {
+	    		color = ENABLED_COLOR;
+	    		console.log('enabled color');
+	    	} else {
+	    		color = DISABLED_COLOR;
+	    	}
+
 	    	// x,y,w,h,color
 	    	drawRect(powerUpButtonMenuX + ((BUTTON_WIDTH + selectorXOffset) * (i - 1)), canvas.height - 35, BUTTON_WIDTH, 25, color); 
-		    colorText(powerUpNames[i], BUTTON_WIDTH/2 + ((BUTTON_WIDTH + selectorXOffset) * (i - 1)), powerUpMenuY, Color.Black, Fonts.ButtonTitle, textAlignment.Left);
+	    	// showWords, textX, textY, fillColor, fontface, textAlign = 'left', opacity = 1
+	    	// TODO: Should center labels on buttons
+		    colorText(powerUpNames[i], powerUpMenuX + ((BUTTON_WIDTH + selectorXOffset) * (i - 1)), powerUpMenuY, Color.Black, Fonts.ButtonTitle, textAlignment.Left);
 	    }
 	};
 }
