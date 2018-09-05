@@ -9,13 +9,18 @@ function PlayerForceUnit(position = {x:0, y:0}) {
 	this.position = {x: position.x, y: position.y};
     this.parentShip = null;
 
-	// TODO update collider to be a hexagon
-	////this path lays out the corners of the polygon collider for the player (a triangle in this case)
-	//const colliderPath = [{x: this.position.x + SPRITE_SCALE * 6, y: this.position.y + SPRITE_SCALE * 1}, 
-	//					  {x: this.position.x + SPRITE_SCALE * (sprite.width - 2), y: this.position.y + SPRITE_SCALE * sprite.height / 2}, 
-	//					  {x: this.position.x + SPRITE_SCALE * 6, y: this.position.y + SPRITE_SCALE * (sprite.height - 1)}];
-	//this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:this.position.x, y:this.position.y}});
-	//let didCollide = false;
+	// colliderPath given in clockwise winding, relative to Canvas coordinates (+x left-to-right of screen, +y top-to-bottom of screen)
+	// TODO: modify the colliderPath computation once we have settled on the image/model for the force unit
+	var centerX = sprite.width / 2;
+	var centerY = sprite.height/ 2;
+	const colliderPath = [ {x: this.position.x + centerX + 0 * SPRITE_SCALE,  y: this.position.y + centerY - 18 * SPRITE_SCALE},
+						   {x: this.position.x + centerX + 18 * SPRITE_SCALE, y: this.position.y + centerY - 10 * SPRITE_SCALE},
+						   {x: this.position.x + centerX + 18 * SPRITE_SCALE, y: this.position.y + centerY + 10 * SPRITE_SCALE},
+						   {x: this.position.x + centerX + 0 * SPRITE_SCALE,  y: this.position.y + centerY + 18 * SPRITE_SCALE},
+						   {x: this.position.x + centerX - 18 * SPRITE_SCALE, y: this.position.y + centerY + 10 * SPRITE_SCALE},
+						   {x: this.position.x + centerX - 18 * SPRITE_SCALE, y: this.position.y + centerY - 10 * SPRITE_SCALE} ];
+	this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:this.position.x, y:this.position.y}});
+	let didCollide = false;
 	this.getIsDying = function() {
 		return sprite.isDying;
 	};
@@ -23,18 +28,21 @@ function PlayerForceUnit(position = {x:0, y:0}) {
 	let unusedTime = 0;//time left over from last call to this.update, helps smooth movement with variable frame rate
 
 
-
-
 	this.update = function(deltaTime, worldPos) {
 		this.position.x = this.parentShip.position.x - 70;	// TODO don't hardcode position - force unit should be able to attach to the front or back of ship; and also float in front of, or behind, ship.. At some distance..
 		this.position.y = this.parentShip.position.y;
 		sprite.update(deltaTime);   //update the image
+
+		//keep the collisionBody position in synch with the visual position
+		this.collisionBody.setPosition({x:this.position.x, y:this.position.y});
+
+		//this.clampPositionToScreen();	// TODO delete this? We probably only want to clamp the ship position to the screen
 	};
 
 	this.draw = function() {
 		sprite.drawAt(this.position, this.size);
 		//collision bodies know not to draw themselves if DRAW_COLLIDERS = false
-		//this.collisionBody.draw();	//TODO re-enable once the collider is defined
+		this.collisionBody.draw();
 	};
 
 	this.clampPositionToScreen = function() {

@@ -133,6 +133,7 @@ function Player(position = {x:0, y:0}) {
 			shots[i].draw();
 		}
 		
+		// TODO why are we resetting didCollide in the draw function? Should be in update() or somewhere else? - LH
 		if(didCollide) {
 			didCollide = false;
 		}
