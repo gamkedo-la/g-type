@@ -170,7 +170,7 @@ function GameScene(levelIndex) {
 			entity.draw();
 		}
 
-		//drawPowerUpBar();
+		drawPowerUpBar(PowerUpType);
 
 //	    score.draw();//TODO: implement this
 	};
@@ -253,9 +253,44 @@ function GameScene(levelIndex) {
 				powerUpToActivate = PowerUpType.Speed;
 				break;
 		}
-		
+		choosePowerUp(powerUpToActivate);
 		console.log("PowerUp To Activate: " + powerUpToActivate);
 	}
+
+	const choosePowerUp = function(powerUp) {
+		// Choose which power up to highlight
+		// Player can click to activatePowerUp()
+
+		switch(powerUpToActivate) {
+			case PowerUpType.None:
+				return;//No power up so exit now and don't play the activation sound
+			case PowerUpType.Speed:
+				
+				return;
+			case PowerUpType.Double:
+//				
+				break;
+			case PowerUpType.Laser:
+				
+				break;
+			case PowerUpType.Triple:
+//				
+				break;
+			case PowerUpType.Ghost:
+				
+				return;
+			case PowerUpType.Shield:
+				
+				break;
+			case PowerUpType.Force:
+				
+				break;
+			default:
+				break;
+		}
+
+
+	};
 	
 	this.activatePowerUp = function() {
 		switch(powerUpToActivate) {
@@ -317,16 +352,6 @@ function GameScene(levelIndex) {
 		return 0;
 	};
 	
-	this.spawnPowerUp = function(type, data) {
-		// Should take in a type of powerup to spawn
-		
-
-		// Choose random location at which to spawn it
-
-		// Signal UI to update
-
-	};
-	
 	this.shouldShake = function(magnitude) {
 		this.shaking = true;
 		this.remainingShakes = MAX_SHAKES;
@@ -363,14 +388,7 @@ function GameScene(levelIndex) {
 	// TODO: Draw power ups. 
 	// Then, upon collection of X number of capsules, should update UI to make appropriate button enabled
 
-	const drawPowerUpBar = function() {
-
-		const PowerUps = [
-			{
-				title: 'Speed Up'
-			}
-		];
-
+	const drawPowerUpBar = function(PowerUps) {
 		const canvas = document.getElementById('gameCanvas');
 		const powerUpBar = drawRect(0, canvas.height - 50, canvas.width, 50, '#0000FF'); 
 
@@ -378,22 +396,20 @@ function GameScene(levelIndex) {
 
 	};
 
-	const printPowerUps = function(powerUpItems, yOffset = null) {
+	const printPowerUps = function(powerUpItems, color = '#A8A8A8') {
+		const powerUpNames = Object.keys(powerUpItems);
 		const DISABLED_COLOR = '#A8A8A8';
 		const ENABLED_COLOR = '#ffffff';
-	    let powerUpButtonMenuX = 20;
-	    let powerUpMenuY = canvas.height - 15;
+		const BUTTON_WIDTH = 90;
+	    const powerUpButtonMenuX = 20;
+	    const powerUpMenuY = canvas.height - 15;
+	    const powerUpMenuX = 40;
+	    const selectorXOffset = 20;
 
-	    let powerUpMenuX = 50;
-
-	    let selectorXOffset = 20;
-
-	    let buttonsXOffset = powerUpMenuX + 70;
-
-	    for (let i = 0; i < powerUpItems.length; i++){
-	    	drawRect(powerUpButtonMenuX + (selectorXOffset * i), canvas.height - 35, 150, 25, DISABLED_COLOR); 
-	    	console.log(powerUpButtonMenuX + (selectorXOffset * i));
-		    colorText(powerUpItems[i].title, powerUpMenuX + selectorXOffset * i, powerUpMenuY, Color.Black, Fonts.ButtonTitle, textAlignment.Left);
+	    for (let i = 1; i < powerUpNames.length; i++){
+	    	// x,y,w,h,color
+	    	drawRect(powerUpButtonMenuX + ((BUTTON_WIDTH + selectorXOffset) * (i - 1)), canvas.height - 35, BUTTON_WIDTH, 25, color); 
+		    colorText(powerUpNames[i], BUTTON_WIDTH/2 + ((BUTTON_WIDTH + selectorXOffset) * (i - 1)), powerUpMenuY, Color.Black, Fonts.ButtonTitle, textAlignment.Left);
 	    }
 	};
 }
