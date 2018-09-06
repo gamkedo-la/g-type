@@ -108,14 +108,17 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 		this.collisionBody.draw();
 	};
 	
-	this.resetWithType = function(newType) {
-		this.type = newType;
-		if(newType === EntityType.PlayerShot) {
-			sprite = normalSprite;
-			this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
-		} else if(newType === EntityType.PlayerLaser) {
-			sprite = laserSprite;
-			this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+	this.resetWithType = function(newType) {	
+		switch(newType)
+		{
+			case EntityType.PlayerShot:
+				sprite = normalSprite;
+				this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+				break;
+			case EntityType.PlayerLaser:
+				sprite = laserSprite;
+				this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+				break;
 		}
 		
 		unusedTime = 0;
