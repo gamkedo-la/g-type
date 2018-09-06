@@ -32,8 +32,8 @@ function Player(position = {x:0, y:0}) {
 	const shots = [];
 
 	this.forceUnit = new PlayerForceUnit({x:0, y:0});
-	this.forceUnit.parentShip = this;	// Give the force unit a reference to "this", so we can update its position based on the ship's position
-	this.forceUnitActive = true;	// TODO control force unit being active/inactive using powerups and such
+	this.forceUnit.parentObj = this;	// Give the force unit a reference to "this", so we can update its position based on the ship's position
+	this.forceUnitActive = false;		// TODO control force unit being active/inactive using powerups and such
 
 	let currentSpeed = BASE_SPEED;//TODO: Adjust this when the player chooses the "speed up" power up, need to reset it to base when the player dies
 	
@@ -52,12 +52,17 @@ function Player(position = {x:0, y:0}) {
 	let unusedTime = 0;//time left over from last call to this.update, helps smooth movement with variable frame rate
 	
 	this.update = function(deltaTime, worldPos) {
+		// TODO remove the hardcoding of forceUnitActive, and the adding of the force unit Collider to the collision manager -- the code is here for testing purposes
+		if (this.forceUnitActive === false) {	// TODO control force unit being active/inactive using powerups and such
+			this.forceUnitActive = true;	// Note: activating the force unit in update() out of "necessity" (couldn't do it in Player's constructor, because Player is instantiated in scene's constructor. i.e., scene is not a complete/ready object at the point the Player ctor is called)
+			scene.addEntity(this.forceUnit);	// TODO move this function call into a function, e.g., when the player picks up a force unit powerup. Also, add the necessary call to remove the entity if the player gets blown up
+		}
 		sprite.update(deltaTime);//update the image
-		
+
 		if(sprite.isDying) {
 			explosionSprite.update(deltaTime);
 		} 
-		
+
 		if(sprite.getDidDie()) {
 			//indicates that the sprite has reached the final frame of the "death sequence"
 			scene.removePlayer();

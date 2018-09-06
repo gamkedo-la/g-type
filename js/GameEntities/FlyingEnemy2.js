@@ -5,6 +5,8 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	this.worldPos = 0;
 	this.score = 100;
 	
+    this.hitPoints = 4;     // Every enemy type should have a hitPoints property
+
 	const SPRITE_SCALE = 1;
 	this.position = position;
 	let vel = {x:speed, y:speed};
@@ -16,9 +18,9 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 
 	this.collisionBody = new Collider(ColliderType.Circle, {points:   [], 
-															position: {x:(SPRITE_SCALE * 0) + this.position.x + this.size.height / 2, y:this.position.y + this.size.height / 2}, 
+															position: {x:(SPRITE_SCALE * 0) + this.position.x + this.size.width / 2, y:this.position.y + this.size.height / 2}, 
 															radius:   this.size.height / 2, 
-															center:   {x:(SPRITE_SCALE * 0) + this.position.x + this.size.height / 2, y:this.position.y + this.size.height / 2}}
+															center:   {x:(SPRITE_SCALE * 0) + this.position.x + this.size.width / 2, y:this.position.y + this.size.height / 2}}
 									  );
 	let didCollide = false;
 	
@@ -135,19 +137,34 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	};
 	
 	this.didCollideWith = function(otherCollider) {
-		scene.displayScore(this);
+		// Note: as of 2018-09-05, otherCollider is not a Collider; it is an entity that contains a Collider (e.g., a PlayerShot or a PlayerForceUnit)
+		if (otherCollider.collisionBody.parentObj) {
+			let entityType = otherCollider.collisionBody.parentObj.type;
+			if (entityType === EntityType.PlayerForceUnit ||
+				entityType === EntityType.PlayerShot) {
+				this.hitPoints -= otherCollider.damagePoints;
+			}
+		} 
+		else {
+		    this.hitPoints = 0; // TODO remove this catch-all; we want all collisions with player weapons to inflict damage based on their damagePoints
+		}
 		
-		sprite = new AnimatedSprite(enemyExplosionSheet2, 18, 144, 144, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
-		
-		this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
-		
-		this.position.x = this.collisionBody.center.x - this.size.width / 2;
-		this.position.y = this.collisionBody.center.y - this.size.height / 2;
+		if (this.hitPoints <= 0) {
+			scene.displayScore(this);
 
-		sprite.isDying = true;
-		sprite.wasBorn = true;
-		scene.removeCollisions(this);
+			sprite = new AnimatedSprite(enemyExplosionSheet2, 18, 144, 144, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
+			
+			this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+			
+			this.position.x = this.collisionBody.center.x - this.size.width / 2;
+			this.position.y = this.collisionBody.center.y - this.size.height / 2;
 
-		enemySmallExplosion.play();
+			sprite.isDying = true;
+			sprite.wasBorn = true;
+			scene.removeCollisions(this);
+
+			enemySmallExplosion.play();
+		}
+		// TODO else -- add SFX to show a non-lethal hit
 	};
 }
