@@ -356,8 +356,8 @@ function GameScene(levelIndex) {
 
 	// Draw power ups. 
 	const drawPowerUpBar = function(PowerUps = PowerUpType) {
-		const canvas = document.getElementById('gameCanvas');
-		const powerUpBar = drawRect(0, canvas.height - 50, canvas.width, 50, '#0000FF'); 
+		// const canvas = document.getElementById('gameCanvas');
+		// const powerUpBar = drawRect(0, canvas.height - 50, canvas.width, 50, '#0000FF'); 
 
 		printPowerUps(PowerUps);
 
@@ -383,7 +383,6 @@ function GameScene(levelIndex) {
 	    	// x,y,w,h,color
 	    	drawRect(powerUpButtonMenuStartX + ((BUTTON_WIDTH + buttonXOffset) * (i - 1)), canvas.height - 35, BUTTON_WIDTH, 25, color); 
 	    	// showWords, textX, textY, fillColor, fontface, textAlign = 'left', opacity = 1
-	    	// TODO: Should center labels on buttons
 		    colorText(powerUpNames[i], powerUpMenuTextStartX + ((BUTTON_WIDTH + buttonXOffset) * (i - 1)), powerUpMenuY, Color.Black, Fonts.ButtonTitle, textAlignment.Center);
 	    }
 	};
