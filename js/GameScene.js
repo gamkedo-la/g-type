@@ -178,7 +178,8 @@ function GameScene(levelIndex) {
 	};
 	
 	this.collectedCapsule = function() {
-		incrementPowerUpToActivate();
+		//incrementPowerUpToActivate();
+		this.activatePowerUp();
 		console.log("Update UI to show that the player collected another capsule");
 	};
 	
@@ -228,36 +229,36 @@ function GameScene(levelIndex) {
 		}		
 	};
 	
-	const incrementPowerUpToActivate = function() {
+	/*const incrementPowerUpToActivate = function() {
 		switch(powerUpToActivate) {
 			case PowerUpType.None:
-				powerUpToActivate = PowerUpType.Speed;
+				powerUpToActivate = PowerUpType.None;
 				break;
 			case PowerUpType.Speed:
-				powerUpToActivate = PowerUpType.Double;
+				powerUpToActivate = PowerUpType.Speed;
 				break;
 			case PowerUpType.Double:
-				powerUpToActivate = PowerUpType.Laser;
+				powerUpToActivate = PowerUpType.Double;
 				break;
 			case PowerUpType.Laser:
-				powerUpToActivate = PowerUpType.Triple;
+				powerUpToActivate = PowerUpType.Laseraser;
 				break;
 			case PowerUpType.Triple:
-				powerUpToActivate = PowerUpType.Ghost;
+				powerUpToActivate = PowerUpType.Triple;
 				break;
 			case PowerUpType.Ghost:
-				powerUpToActivate = PowerUpType.Shield;
+				powerUpToActivate = PowerUpType.Ghost;
 				return;
 			case PowerUpType.Shield:
-				powerUpToActivate = PowerUpType.Force;
+				powerUpToActivate = PowerUpType.Shield;
 				break;
 			case PowerUpType.Force:
-				powerUpToActivate = PowerUpType.Speed;
+				powerUpToActivate = PowerUpType.Force;
 				break;
 		}
 		printPowerUps(PowerUpType, powerUpToActivate);
 		console.log("PowerUp To Activate: " + powerUpToActivate);
-	}
+	}*/
 	
 	this.activatePowerUp = function() {
 		console.log('activating power up');

@@ -10,6 +10,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	let unusedTime = 0;
 	
 	this.wasReleased = false;
+	this.shotPowerLVL = 0;
 	let didCollide = false;
 	this.isVisible = true;
 	
