@@ -243,7 +243,7 @@ function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 	this.didCollideWith = function(otherEntity) {
 		if((this.collisionBody == null) || (otherEntity.collisionBody == null)) {return false;}
 		
-		if((otherEntity.type === EntityType.PlayerShot) || (otherEntity.type === EntityType.PlayerLaser)) {
+		if(otherEntity.type === EntityType.PlayerShot || otherEntity.type === EntityType.PlayerLaser || otherEntity.type === EntityType.PlayerForceUnit) {
 			didCollide = true;
 			sprite.isDying = true;
 		}

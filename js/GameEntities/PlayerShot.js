@@ -15,6 +15,8 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	this.isVisible = true;
 	
 	this.worldPos = null;
+
+    this.damagePoints = 4;   // Damage points = how many hit points to remove on contact with an enemy (every weapon that can inflict damage on an enemy must have this property
 	
 	const TOP_BOTTOM_PADDING = 10;//number of transparent pixels at the top and bottom of the image
 	const RIGHT_PADDING = 5;//number of transparent pixels to the right of the image
@@ -29,7 +31,10 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 					  	  {x: pos.x + SPRITE_SCALE * (sprite.width - RIGHT_PADDING), y: pos.y + (TOP_BOTTOM_PADDING * SPRITE_SCALE)}, 
 						  {x: pos.x + SPRITE_SCALE * (sprite.width - RIGHT_PADDING), y: pos.y + ((sprite.height - TOP_BOTTOM_PADDING) * SPRITE_SCALE)}, 
 						  {x: pos.x, y: pos.y + ((sprite.height - TOP_BOTTOM_PADDING) * SPRITE_SCALE)}];
-	this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:pos.x, y:pos.y}});
+
+    let collBodyObj = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:pos.x, y:pos.y}});
+    collBodyObj.parentObj = this;   // TODO make a function to do this? maybe set the parentObj in the Collider constructor?
+	this.collisionBody = collBodyObj;
 
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	
