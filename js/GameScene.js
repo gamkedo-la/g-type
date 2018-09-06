@@ -252,7 +252,7 @@ function GameScene(levelIndex) {
 				powerUpToActivate = PowerUpType.Force;
 				break;
 			case PowerUpType.Force:
-				powerUpToActivate = PowerUpType.Force;
+				powerUpToActivate = PowerUpType.None;
 				break;
 		}
 		printPowerUps(PowerUpType, powerUpToActivate);
