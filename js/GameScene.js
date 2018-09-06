@@ -172,7 +172,7 @@ function GameScene(levelIndex) {
 			entity.draw();
 		}
 
-		drawPowerUpBar(PowerUpType);
+		drawPowerUpBar(PowerUpType, powerUpToActivate);
 
 //	    score.draw();//TODO: implement this
 	};
@@ -255,11 +255,12 @@ function GameScene(levelIndex) {
 				powerUpToActivate = PowerUpType.Speed;
 				break;
 		}
-		printPowerUps(PowerUpType, selectedPowerUp);
+		printPowerUps(PowerUpType, powerUpToActivate);
 		console.log("PowerUp To Activate: " + powerUpToActivate);
 	}
 	
 	this.activatePowerUp = function() {
+		console.log('activating power up');
 		switch(powerUpToActivate) {
 			case PowerUpType.None:
 				return;//No power up so exit now and don't play the activation sound
@@ -352,9 +353,7 @@ function GameScene(levelIndex) {
 
 	};
 
-	// TODO: Draw power ups. 
-	// Then, upon collection of X number of capsules, should update UI to make appropriate button enabled
-
+	// Draw power ups. 
 	const drawPowerUpBar = function(PowerUps = PowerUpType) {
 		const canvas = document.getElementById('gameCanvas');
 		const powerUpBar = drawRect(0, canvas.height - 50, canvas.width, 50, '#0000FF'); 
@@ -363,30 +362,28 @@ function GameScene(levelIndex) {
 
 	};
 
-	const printPowerUps = function(powerUpItems, selected) {
-		const powerUpNames = Object.keys(powerUpItems);
+	const printPowerUps = function(powerUpItems, selected = powerUpToActivate) {
+		const powerUpNames = Object.values(powerUpItems);
 		const DISABLED_COLOR = '#A8A8A8';
 		const ENABLED_COLOR = '#FFFF00';
 		const BUTTON_WIDTH = 90;
-	    const powerUpButtonMenuX = 20;
+	    const powerUpButtonMenuStartX = 20;
 	    const powerUpMenuY = canvas.height - 15;
-	    const powerUpMenuX = 40;
-	    const selectorXOffset = 20;
+	    const powerUpMenuTextStartX = 65;
+	    const buttonXOffset = 20;
 
 	    for (let i = 1; i < powerUpNames.length; i++){
-	    	console.log(powerUpNames[i] === selected);
 	    	if (powerUpNames[i] === selected) {
 	    		color = ENABLED_COLOR;
-	    		console.log('enabled color');
 	    	} else {
 	    		color = DISABLED_COLOR;
 	    	}
 
 	    	// x,y,w,h,color
-	    	drawRect(powerUpButtonMenuX + ((BUTTON_WIDTH + selectorXOffset) * (i - 1)), canvas.height - 35, BUTTON_WIDTH, 25, color); 
+	    	drawRect(powerUpButtonMenuStartX + ((BUTTON_WIDTH + buttonXOffset) * (i - 1)), canvas.height - 35, BUTTON_WIDTH, 25, color); 
 	    	// showWords, textX, textY, fillColor, fontface, textAlign = 'left', opacity = 1
 	    	// TODO: Should center labels on buttons
-		    colorText(powerUpNames[i], powerUpMenuX + ((BUTTON_WIDTH + selectorXOffset) * (i - 1)), powerUpMenuY, Color.Black, Fonts.ButtonTitle, textAlignment.Left);
+		    colorText(powerUpNames[i], powerUpMenuTextStartX + ((BUTTON_WIDTH + buttonXOffset) * (i - 1)), powerUpMenuY, Color.Black, Fonts.ButtonTitle, textAlignment.Center);
 	    }
 	};
 }
