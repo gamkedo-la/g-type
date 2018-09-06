@@ -10,7 +10,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	let unusedTime = 0;
 	
 	this.wasReleased = false;
-	this.shotPowerLVL = 0;
+	this.shotLife = 0;
 	let didCollide = false;
 	this.isVisible = true;
 	
@@ -114,10 +114,14 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 			case EntityType.PlayerShot:
 				sprite = normalSprite;
 				this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+				//this.setVelocity({x:0, y:0});
+				this.shotLife = 1;
 				break;
 			case EntityType.PlayerLaser:
 				sprite = laserSprite;
 				this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+				//this.setVelocity({x:10, y:0});
+				this.shotLife = 2;
 				break;
 		}
 		

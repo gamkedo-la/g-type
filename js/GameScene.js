@@ -232,6 +232,7 @@ function GameScene(levelIndex) {
 		switch(powerUpToActivate) {
 			case PowerUpType.None:
 				powerUpToActivate = PowerUpType.Speed;
+				//powerUpToActivate = PowerUpType.Laser;
 				break;
 			case PowerUpType.Speed:
 				powerUpToActivate = PowerUpType.Double;

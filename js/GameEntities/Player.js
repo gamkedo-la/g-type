@@ -175,7 +175,15 @@ function Player(position = {x:0, y:0}) {
 			//initialize the newShot (whether it is new or pulled from the pool)
 			newShot.resetWithType(this.currentShotType);
 			scene.addEntity(newShot, true);
-			newShot.setPosition({x:this.position.x + 75, y:this.position.y + 6});
+			switch(this.currentShotType)
+			{
+				case EntityType.PlayerLaser:
+					newShot.setPosition({x:this.position.x + 65, y:this.position.y + 15});
+					break;
+				default:
+					newShot.setPosition({x:this.position.x + 75, y:this.position.y + 6});
+					break;
+			}
 						
 			shots.push(newShot);
 			timer.updateEvent(PlayerEvent.LastShot);
