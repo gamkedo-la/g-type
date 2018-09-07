@@ -51,7 +51,7 @@ function Player(position = {x:0, y:0}) {
 	let unusedTime = 0;//time left over from last call to this.update, helps smooth movement with variable frame rate
 	
 	this.update = function(deltaTime, worldPos) {
-		// TODO remove the hardcoding of forceUnitActive, and the adding of the force unit Collider to the collision manager -- the code is here for testing purposes
+		// TODO remove the hardcoding of forceUnitActive,
 		//and the adding of the force unit Collider to the
 		//collision manager -- the code is here for testing purposes
 		if (this.forceUnitActive === false) {	// TODO control force unit being active/inactive using powerups and such
