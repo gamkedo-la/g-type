@@ -72,7 +72,8 @@ const LevelData = [
 		initializeDebris: function() {
 			const debris = [];
 			let sprite = new AnimatedSprite(debrisSheet, 1, 68, 77, false, true, {min:0, max:0}, 0, {min:0, max:0}, 128, {min:0, max:0}, 0);
-			debris.push(new DebrisEntity(sprite, {x: canvas.width + 50, y: canvas.height / 4}, 50, 2, 1, -2));
+			debris.push(new DebrisEntity(sprite, {x: canvas.width + 50, y: canvas.height / 4}, 50, 2.2, .8, -2));
+			debris.push(new DebrisEntity(sprite, {x: canvas.width + 55, y: canvas.height / 4 - 75}, 55, 2, 1.5, 2.2));
 			debris.push(new DebrisEntity(sprite, {x: canvas.width + 250, y: canvas.height / 4 * 3}, 250, 3, 1, 1.3));
 
 			return debris;
