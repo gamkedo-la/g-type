@@ -33,9 +33,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 						  {x: pos.x + SPRITE_SCALE * (sprite.width - RIGHT_PADDING), y: pos.y + ((sprite.height - TOP_BOTTOM_PADDING) * SPRITE_SCALE)}, 
 						  {x: pos.x, y: pos.y + ((sprite.height - TOP_BOTTOM_PADDING) * SPRITE_SCALE)}];
 
-    let collBodyObj = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:pos.x, y:pos.y}});
-    collBodyObj.parentObj = this;   // TODO make a function to do this? maybe set the parentObj in the Collider constructor?
-	this.collisionBody = collBodyObj;
+    this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:pos.x, y:pos.y}});
 
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	
@@ -67,7 +65,6 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 			let availableTime = unusedTime + deltaTime;
 			while(availableTime > SIM_STEP) {
 				if(this.wasReleased) {
-						console.log("ShotType: " + this.type);
 					if(this.type === EntityType.PlayerShot) {
 						pos.x += vel.x * SIM_STEP / 1000;
 						pos.y += vel.y * SIM_STEP / 1000;

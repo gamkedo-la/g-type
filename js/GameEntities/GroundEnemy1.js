@@ -4,9 +4,8 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 	this.group = null;
 	this.worldPos = 0;
 	this.score = 100;
+	this.hitPoints = 4;     // Every enemy type should have a hitPoints property
 	
-    this.hitPoints = 4;     // Every enemy type should have a hitPoints property
-
 	const SPRITE_SCALE = 1;
 	this.position = position;
 	let vel = {x:speed, y:speed};
@@ -28,10 +27,10 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 										{points: [], 
 										position: {x:this.position.x, y:this.position.y}, 
 										radius: this.size.height / 2, 
-										center: {x:this.position.x + this.size.width / 2, y:this.position.y + this.size.height / 2}}
+										center: {x:this.position.x + this.size.height / 2, y:this.position.y + this.size.height / 2}}
 									  );
 	let didCollide = false;
-	
+		
 	this.path = new EnemyPath(PathType.None, this.position, speed, [], timeOffset);
 	
 	this.update = function(deltaTime, worldPos, playerPos) {
@@ -56,6 +55,12 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 			scene.removeEntity(this, false);
 		}
 		
+		if(!sprite.isDying) {
+			this.doShooting(playerPos);
+		}
+	};
+	
+	this.doShooting = function(playerPos) {
 		const firingChance = Math.floor(1000 * Math.random());
 		if(firingChance < difficulty) {
 			let facing = rotation + Math.PI / 2;
@@ -71,13 +76,16 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 			if((deltaAngle > -Math.PI / 4) && (deltaAngle < Math.PI / 4)) {
 				const xVel = 50 * Math.cos(angleToPlayer);
 				const yVel = -50 * Math.sin(angleToPlayer);
-				console.log("(" + xVel + ", " + yVel + ")");
+
+				const bulletXPos = this.collisionBody.center.x + this.collisionBody.radius * Math.cos(facing);
+				const bulletYPos = this.collisionBody.center.y - this.collisionBody.radius * Math.sin(facing);
 				
-				const newBullet = new EnemyBullet({x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
+				const newBullet = new EnemyBullet({x: bulletXPos, y: bulletYPos}, {x: xVel, y:yVel});
+				newBullet.setPosition({x:newBullet.position.x - newBullet.size.width / 2, 
+									   y:newBullet.position.y - newBullet.size.height / 2});
+
 				scene.addEntity(newBullet, false);
 			}
-			
-//			console.log("deltaAngle: " + (180 * deltaAngle / Math.PI));
 		}
 	};
 	
@@ -101,13 +109,12 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 		}
 	};
 	
-	this.didCollideWith = function(otherCollider) {
-		// Note: as of 2018-09-05, otherCollider is not a Collider; it is an entity that contains a Collider (e.g., a PlayerShot or a PlayerForceUnit)
-		if (otherCollider.collisionBody.parentObj) {
-			let entityType = otherCollider.collisionBody.parentObj.type;
+	this.didCollideWith = function(otherEntity) {
+		if (otherEntity) {
+			let entityType = otherEntity.type;
 			if (entityType === EntityType.PlayerForceUnit ||
 				entityType === EntityType.PlayerShot) {
-				this.hitPoints -= otherCollider.damagePoints;
+				this.hitPoints -= otherEntity.damagePoints;
 			}
 		} 
 		else {
@@ -124,12 +131,20 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 			this.position.x = this.collisionBody.center.x - this.size.width / 2;
 			this.position.y = this.collisionBody.center.y - this.size.height / 2;
 
+			scene.displayScore(this);
+			
+			sprite = new AnimatedSprite(enemyExplosionSheet2, 18, 144, 144, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
+			
+			this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+			
+			this.position.x = this.collisionBody.center.x - this.size.width / 2;
+			this.position.y = this.collisionBody.center.y - this.size.height / 2;
+	
 			sprite.isDying = true;
 			sprite.wasBorn = true;
 			scene.removeCollisions(this);
-
+	
 			enemySmallExplosion.play();
 		}
-		// TODO else -- add SFX to show a non-lethal hit
 	};
 }

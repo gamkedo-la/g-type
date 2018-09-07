@@ -9,8 +9,7 @@ function Collider(type, data) {
 	this.center = {x:0, y:0};
 	this.radius = 1;
 	this.points = [];
-    this.parentObj = null;  // TODO probably add a function somewhere in the code to make sure that any active Collider has a valid parentObj reference
-	for(let i = 0; i < data.points.length; i++) {
+ 	for(let i = 0; i < data.points.length; i++) {
 		this.points[i] = {x:data.points[i].x, y:data.points[i].y};
 	}
 

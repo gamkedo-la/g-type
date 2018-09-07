@@ -133,13 +133,12 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		}
 	};
 	
-	this.didCollideWith = function(otherCollider) {
-		// Note: as of 2018-09-05, otherCollider is not a Collider; it is an entity that contains a Collider (e.g., a PlayerShot or a PlayerForceUnit)
-		if (otherCollider.collisionBody.parentObj) {
-			let entityType = otherCollider.collisionBody.parentObj.type;
+	this.didCollideWith = function(otherEntity) {
+		if (otherEntity) {
+			let entityType = otherEntity.type;
 			if (entityType === EntityType.PlayerForceUnit ||
 				entityType === EntityType.PlayerShot) {
-				this.hitPoints -= otherCollider.damagePoints;
+				this.hitPoints -= otherEntity.damagePoints;
 			}
 		} 
 		else {

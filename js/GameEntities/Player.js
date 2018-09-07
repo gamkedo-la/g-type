@@ -44,7 +44,6 @@ function Player(position = {x:0, y:0}) {
 						  {x: this.position.x + SPRITE_SCALE * (sprite.width - 2), y: this.position.y + SPRITE_SCALE * sprite.height / 2}, 
 						  {x: this.position.x + SPRITE_SCALE * 6, y: this.position.y + SPRITE_SCALE * (sprite.height - 1)}];
 	this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:this.position.x, y:this.position.y}});
-	let didCollide = false;
 	this.getIsDying = function() {
 		return sprite.isDying;
 	};
@@ -53,16 +52,19 @@ function Player(position = {x:0, y:0}) {
 	
 	this.update = function(deltaTime, worldPos) {
 		// TODO remove the hardcoding of forceUnitActive, and the adding of the force unit Collider to the collision manager -- the code is here for testing purposes
+		//and the adding of the force unit Collider to the
+		//collision manager -- the code is here for testing purposes
 		if (this.forceUnitActive === false) {	// TODO control force unit being active/inactive using powerups and such
 			this.forceUnitActive = true;	// Note: activating the force unit in update() out of "necessity" (couldn't do it in Player's constructor, because Player is instantiated in scene's constructor. i.e., scene is not a complete/ready object at the point the Player ctor is called)
 			scene.addEntity(this.forceUnit);	// TODO move this function call into a function, e.g., when the player picks up a force unit powerup. Also, add the necessary call to remove the entity if the player gets blown up
 		}
+		
 		sprite.update(deltaTime);//update the image
-
+		
 		if(sprite.isDying) {
 			explosionSprite.update(deltaTime);
 		} 
-
+		
 		if(sprite.getDidDie()) {
 			//indicates that the sprite has reached the final frame of the "death sequence"
 			scene.removePlayer();
@@ -137,11 +139,6 @@ function Player(position = {x:0, y:0}) {
 		for(let i = 0; i < shots.length; i++) {
 			shots[i].draw();
 		}
-		
-		// TODO why are we resetting didCollide in the draw function? Should be in update() or somewhere else? - LH
-		if(didCollide) {
-			didCollide = false;
-		}
 	};
 	
 	this.clampPositionToScreen = function() {
@@ -192,7 +189,7 @@ function Player(position = {x:0, y:0}) {
 					newShot.setPosition({x:this.position.x + 75, y:this.position.y + 6});
 					break;
 			}
-
+						
 			shots.push(newShot);
 			timer.updateEvent(PlayerEvent.LastShot);
 			playerFireRegular.play();//play the audio
@@ -225,8 +222,6 @@ function Player(position = {x:0, y:0}) {
 	};
 	
 	this.didCollideWith = function(otherEntity) {
-		didCollide = true;
-				
 		if(otherEntity.type === EntityType.Capsule1) {
 			scene.collectedCapsule();
 			

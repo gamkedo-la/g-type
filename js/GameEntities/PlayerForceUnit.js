@@ -21,17 +21,13 @@ function PlayerForceUnit(position = {x:0, y:0}) {
 	//					   {x: this.position.x + centerX + 0 * SPRITE_SCALE,  y: this.position.y + centerY + 18 * SPRITE_SCALE},
 	//					   {x: this.position.x + centerX - 18 * SPRITE_SCALE, y: this.position.y + centerY + 10 * SPRITE_SCALE},
 	//					   {x: this.position.x + centerX - 18 * SPRITE_SCALE, y: this.position.y + centerY - 10 * SPRITE_SCALE} ];
-	//let collBodyObj = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:this.position.x, y:this.position.y}});
-	//collBodyObj.parentObj = this;
-	//this.collisionBody = collBodyObj;
+	//this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:this.position.x, y:this.position.y}});
 
-	let collBodyObj = new Collider(ColliderType.Circle,	{points:   [], 
+	this.collisionBody = new Collider(ColliderType.Circle,	{points:   [], 
 														//position: {x:centerX, y:centerY}, 
 														position: {x:this.position.x, y:this.position.y}, 
 														radius:   18, 
 														center:   {x:centerX, y:centerY}});
-	collBodyObj.parentObj = this;
-	this.collisionBody = collBodyObj;
 
 	let didCollide = false;
 	this.getIsDying = function() {
@@ -48,8 +44,6 @@ function PlayerForceUnit(position = {x:0, y:0}) {
 
 		//keep the collisionBody position in synch with the visual position
 		this.collisionBody.setPosition({x:this.position.x, y:this.position.y});
-
-		//this.clampPositionToScreen();	// TODO delete this? We probably only want to clamp the ship position to the screen
 	};
 
 
