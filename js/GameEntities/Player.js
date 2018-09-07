@@ -182,6 +182,9 @@ function Player(position = {x:0, y:0}) {
 			scene.addEntity(newShot, true);
 			switch(this.currentShotType)
 			{
+				case EntityType.PlayerShot:
+					newShot.setPosition({x:this.position.x + 75, y:this.position.y + 6});
+					break;
 				case EntityType.PlayerLaser:
 					newShot.setPosition({x:this.position.x + 65, y:this.position.y + 15});
 					break;
@@ -189,7 +192,7 @@ function Player(position = {x:0, y:0}) {
 					newShot.setPosition({x:this.position.x + 75, y:this.position.y + 6});
 					break;
 			}
-						
+
 			shots.push(newShot);
 			timer.updateEvent(PlayerEvent.LastShot);
 			playerFireRegular.play();//play the audio

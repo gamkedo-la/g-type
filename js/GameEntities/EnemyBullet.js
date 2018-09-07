@@ -18,6 +18,15 @@ function EnemyBullet(position = {x:0, y:0}, velocity = {x:0, y:0}) {
 									  );
 	let didCollide = false;
 	
+	this.setPosition = function(newPos) {
+		this.position.x = newPos.x;
+		this.position.y = newPos.y;
+		this.collisionBody.position.x = this.position.x + sprite.width / 2;
+		this.collisionBody.position.y = this.position.y + sprite.height / 2;
+		this.collisionBody.center.x = this.position.x + sprite.width / 2;
+		this.collisionBody.center.y = this.position.y + sprite.height / 2;
+	}
+	
 	this.update = function(deltaTime, worldPos) {
 		if(!this.isVisible) {return;}
 		

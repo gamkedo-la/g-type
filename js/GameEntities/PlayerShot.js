@@ -13,6 +13,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	this.shotLife = 0;
 	let didCollide = false;
 	this.isVisible = true;
+	let collisionBodyOffset = {x:0, y:0};
 	
 	this.worldPos = null;
 
@@ -40,7 +41,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	
 	this.setPosition = function(newPos) {
 		pos = newPos;
-		this.collisionBody.setPosition({x:pos.x, y:pos.y});
+		this.collisionBody.setPosition({x:pos.x, y:pos.y + collisionBodyOffset.y});
 	};
 	
 	this.setVelocity = function(newVel) {
@@ -66,6 +67,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 			let availableTime = unusedTime + deltaTime;
 			while(availableTime > SIM_STEP) {
 				if(this.wasReleased) {
+						console.log("ShotType: " + this.type);
 					if(this.type === EntityType.PlayerShot) {
 						pos.x += vel.x * SIM_STEP / 1000;
 						pos.y += vel.y * SIM_STEP / 1000;
@@ -73,7 +75,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 						pos.x += vel.x * SIM_STEP / 350;
 						pos.y += vel.y * SIM_STEP / 350;
 					}
-					this.collisionBody.setPosition({x:pos.x, y:pos.y});
+					this.collisionBody.setPosition({x:pos.x + collisionBodyOffset.x, y:pos.y + collisionBodyOffset.y});
 				} else if(sprite.wasBorn) {
 					this.wasReleased = true;
 					vel.x = MOVE_VELOCITY;
@@ -113,19 +115,20 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 		this.collisionBody.draw();
 	};
 	
-	this.resetWithType = function(newType) {	
+	this.resetWithType = function(newType) {
+		this.type = newType;
 		switch(newType)
 		{
 			case EntityType.PlayerShot:
 				sprite = normalSprite;
 				this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
-				//this.setVelocity({x:0, y:0});
+				collisionBodyOffset = {x:0, y:0};
 				this.shotLife = 1;
 				break;
 			case EntityType.PlayerLaser:
 				sprite = laserSprite;
 				this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
-				//this.setVelocity({x:10, y:0});
+				collisionBodyOffset = {x:7, y:-9};
 				this.shotLife = 2;
 				break;
 		}
