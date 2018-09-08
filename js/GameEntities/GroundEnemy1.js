@@ -76,7 +76,7 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 				const bulletXPos = this.collisionBody.center.x + this.collisionBody.radius * Math.cos(facing);
 				const bulletYPos = this.collisionBody.center.y - this.collisionBody.radius * Math.sin(facing);
 				
-				const newBullet = new EnemyBullet({x: bulletXPos, y: bulletYPos}, {x: xVel, y:yVel});
+				const newBullet = new EnemyBullet(EntityType.EnemyBullet1, {x: bulletXPos, y: bulletYPos}, {x: xVel, y:yVel});
 				newBullet.setPosition({x:newBullet.position.x - newBullet.size.width / 2, 
 									   y:newBullet.position.y - newBullet.size.height / 2});
 

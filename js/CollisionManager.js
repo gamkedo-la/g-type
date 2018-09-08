@@ -31,7 +31,7 @@ function CollisionManager(player) {
 
 
 	this.addEntity = function(newEntity) {
-		if(newEntity.type === EntityType.EnemyBullet) {
+		if((newEntity.type === EntityType.EnemyBullet1) || (newEntity.type === EntityType.EnemyBullet2)) {
 			addEnemyBullet(newEntity);
 		} else if(newEntity.type === EntityType.RhombusBoulder) {//Need to check for all other terrain types here
 			addTerrain(newEntity);
@@ -60,7 +60,7 @@ function CollisionManager(player) {
 	};
 
 	this.removeEntity = function(entityToRemove) {
-		if(entityToRemove.type === EntityType.EnemyBullet) {
+		if((entityToRemove.type === EntityType.EnemyBullet1) || (entityToRemove.type === EntityType.EnemyBullet2)) {
 			removeEnemyBullet(entityToRemove);
 		} else if(entityToRemove.type === EntityType.RhombusBoulder) {//Need to check for all other terrain types here
 			removeTerrain(entityToRemove);
