@@ -39,7 +39,7 @@ const spriteForType = function(type) {
 		case EntityType.RhombusBoulder:
 			return (new AnimatedSprite(largeRhombusBoulder, 2, 90, 90, false, true, {min:0, max:0}, 0, {min:0, max:1}, 512, {min:1, max:1}, 0));
 		case EntityType.Bubble:
-			return (new AnimatedSprite(bubble, 9, 30, 30, true, true, {min:0, max:0}, 0, {min:0, max:4}, 128, {min:5, max:8}, 32));
+			return (new AnimatedSprite(bubble, 10, 30, 30, true, true, {min:0, max:0}, 0, {min:0, max:4}, 128, {min:5, max:9}, 32));
 	}
 };
 
@@ -177,12 +177,13 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 	return this;
 }
 
-function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
+function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, returnTime = -1) {
 	this.type = type;
 	this.position = position;
 	this.worldPos = null;
 	let unusedTime = 0;
 	let didCollide = false;
+	this.returnTime = returnTime;
 	
 	const sprite = spriteForType(type);
 	sprite.wasBorn = true;
@@ -196,8 +197,18 @@ function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 	
 	this.update = function(deltaTime, worldPos) {
 		if(sprite.getDidDie()) {
-			scene.removeEntity(this, false);
-			return;
+			if(this.returnTime < 0) {//this bubble doesn't return
+				scene.removeEntity(this, false);
+				return;
+			} else {
+				this.returnTime -= deltaTime;
+				if(this.returnTime < 0) {
+					this.returnTime = returnTime;
+					sprite.clearDeath();
+					scene.addCollisions(this, false);
+				}
+			}
+			
 		}
 		
 		if((worldPos >= spawnPos) && (this.position.x > -this.size.width)) {
@@ -246,6 +257,7 @@ function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 		if(otherEntity.type === EntityType.PlayerShot || otherEntity.type === EntityType.PlayerLaser || otherEntity.type === EntityType.PlayerForceUnit) {
 			didCollide = true;
 			sprite.isDying = true;
+			scene.removeCollisions(this);
 		}
 	};
 	

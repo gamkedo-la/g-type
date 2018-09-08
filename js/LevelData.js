@@ -63,7 +63,7 @@ const LevelData = [
 				if(i === 18) {
 					thisEntity = new Capsule({x: canvas.width + (50 + xPos), y: canvas.height / 2 + (yPos - 112)}, 850);
 				} else {
-					thisEntity = new BubbleEntity(EntityType.Bubble, {x: canvas.width + (50 + xPos), y: canvas.height / 2 + (yPos - 112)}, 850, 1);
+					thisEntity = new BubbleEntity(EntityType.Bubble, {x: canvas.width + (50 + xPos), y: canvas.height / 2 + (yPos - 112)}, 850, 1, 1024);
 					thisEntity.setInitialFrame(i % 5);
 				}
 								

@@ -215,6 +215,16 @@ function GameScene(levelIndex) {
 		collisionBodiesToRemove.push(entityToRemove);
 	};
 	
+	this.addCollisions = function(entityToAdd, isPlayerBullet) {
+		if(isPlayerBullet) {
+			collisionManager.addPlayerBullet(entityToAdd);
+		} else {
+			if(entityToAdd.collisionBody != null) {
+				collisionManager.addEntity(entityToAdd);
+			}
+		}
+	}
+	
 	this.addEntity = function(entityToAdd, isPlayerBullet) {
 		if(isPlayerBullet) {
 			collisionManager.addPlayerBullet(entityToAdd);
