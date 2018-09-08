@@ -141,16 +141,19 @@ function GameScene(levelIndex) {
 
 	this.drawBackground = function() {
 
+		const BG_SAMPLE_PIXELS = 16; // pixels of source img for entire screen - default 1
+
 		// gradually tweened background fill color
 		// scrolls through a super zoomed in lookup table (gradient texture)
 		canvasContext.drawImage(backgroundColorLookup,
-			(Math.floor(this.bgTime * BG_COLOR_CHANGE_SPEED) % backgroundColorLookup.width), 0, 1, 100, // source x,y,w,d (scroll source x over time)
+			(Math.floor(this.bgTime * BG_COLOR_CHANGE_SPEED) % backgroundColorLookup.width), 0, BG_SAMPLE_PIXELS, 100, // source x,y,w,d (scroll source x over time)
 			0, 0, canvas.width, canvas.height); // dest x,y,w,d (scale one pixel worth of the gradient to fill entire screen)
 
 		// galaxy / starfield images, tiled, with parallax
 		canvasContext.drawImage(backgroundParallaxLayer1,this.parallaxOffset1,0);
 		canvasContext.drawImage(backgroundParallaxLayer1,this.parallaxOffset1+backgroundParallaxLayer1.width,0);
 
+		// twinkling stars
 		starfield.draw();
 	}
 	

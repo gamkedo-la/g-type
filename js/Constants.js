@@ -17,7 +17,7 @@ const MAX_SHAKE_MAGNITUDE = 10;
 
 const BG_PARALLAX_RATIO_1 = 0.3;
 const BG_PARALLAX_RATIO_2 = 0.2;
-const BG_COLOR_CHANGE_SPEED = 0.0075; // pixels per second for the bacgroundColorLookup table
+const BG_COLOR_CHANGE_SPEED = 0.005; // pixels per second for the bacgroundColorLookup table
 
 const gameTitle = {
 	Main:"G-Type",
