@@ -13,15 +13,11 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 	this.isVisible = true;
 	this.rotation = rotation;
 	
-	let sprite = new AnimatedSprite(groundEnemySheet, 7, 30, 30, true, true, {min:0, max:0}, 0, {min:0, max:4}, 256, {min:5, max:6}, 34);
+	const normalSprite = new AnimatedSprite(groundEnemySheet, 7, 30, 30, true, true, {min:0, max:0}, 0, {min:0, max:4}, 256, {min:5, max:6}, 128);
+	const explosionSprite = new AnimatedSprite(enemyExplosionSheet2, 18, 144, 144, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
+	let sprite = normalSprite;
+	
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
-
-/*	const colliderPath = [
-		{x: this.position.x, 							  y: this.position.y + SPRITE_SCALE * 17},
-		{x: this.position.x + SPRITE_SCALE * (sprite.width / 2), y: this.position.y},
-		{x: this.position.x + SPRITE_SCALE * sprite.width, 	  y: this.position.y + SPRITE_SCALE * 17},
-		{x: this.position.x + SPRITE_SCALE * (sprite.width / 2), y: this.position.y + SPRITE_SCALE * sprite.height}
-	];*/
 
 	this.collisionBody = new Collider(ColliderType.Circle,
 										{points: [], 
@@ -55,14 +51,14 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 			scene.removeEntity(this, false);
 		}
 		
-		if(!sprite.isDying) {
+		if(sprite !== explosionSprite) {
 			this.doShooting(playerPos);
 		}
 	};
 	
 	this.doShooting = function(playerPos) {
-		const firingChance = Math.floor(1000 * Math.random());
-		if(firingChance < difficulty) {
+		if(sprite.getDidDie()) {
+			
 			let facing = rotation + Math.PI / 2;
 			if(facing > Math.PI) {
 				facing -= (2 * Math.PI);
@@ -86,6 +82,14 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 
 				scene.addEntity(newBullet, false);
 			}
+					
+			sprite.clearDeath();
+			return;
+		}
+		
+		const firingChance = Math.floor(1000 * Math.random());
+		if(firingChance < difficulty) {
+			sprite.isDying = true;
 		}
 	};
 	
@@ -133,8 +137,9 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 
 			scene.displayScore(this);
 			
-			sprite = new AnimatedSprite(enemyExplosionSheet2, 18, 144, 144, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
+//			sprite = new AnimatedSprite(enemyExplosionSheet2, 18, 144, 144, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
 			
+			sprite = explosionSprite;
 			this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 			
 			this.position.x = this.collisionBody.center.x - this.size.width / 2;

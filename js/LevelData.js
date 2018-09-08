@@ -45,6 +45,9 @@ const LevelData = [
 		},
 		initializeTerrain: function() {
 			const world = [];
+			world.push(new Capsule({x: canvas.width + 50, y: canvas.height / 5}, 0));
+			world.push(new Capsule({x: canvas.width + 50, y: 4 * canvas.height / 5}, 300));
+			
 			world.push(new TerrainEntity(EntityType.Rock01, {x: canvas.width + 50, y: canvas.height / 2 - 60}, 100, 2));
 			world.push(new TerrainEntity(EntityType.RhombusBoulder, {x: canvas.width + 50, y: canvas.height / 2 - 120}, 600, 2));
 			world.push(new TerrainEntity(EntityType.Rock02, {x: canvas.width + 50, y: canvas.height / 5}, 1350, 2));
