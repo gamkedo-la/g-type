@@ -7,6 +7,7 @@ const DEFAULT_SFX_VOLUME = 0.6;
 
 //need to change file name to match
 const menuMusic = new musicTrackLoop("PrepareToStrike-v1", 208.976, {author: "JoeCS", album: "G-Type OST", year: "2018", title: "Prepare To Strike (Main Menu Theme)"});  //By Joe Spedale
+//menuMusic.setVolume(0.2);
 
 const currentBackgroundMusic = new musicContainer([menuMusic/*, retroDream, dreamPunk, nightMusic, forestRock, drjuno, gameOver*/]);
 
@@ -24,7 +25,7 @@ playerExplosion.setVolume(0.6);
 //const uiSelect = new sfxClipSingle("uiSelect");
 
 const allSFX = {
-	sfxList : [pauseSound, resumeSound, playerFireRegular, enemySmallExplosion,playerExplosion],
+	sfxList : [pauseSound, resumeSound, playerFireRegular, enemySmallExplosion, playerExplosion],
 	stop: function(){
 		for(var i=0; i < this.sfxList.length; i++){
 			this.sfxList[i].stop();

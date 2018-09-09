@@ -70,6 +70,9 @@ function Player(position = {x:0, y:0}) {
 			scene.removePlayer();
 			sprite.isDying = false;
 			scene.endShake();
+			if(playerExplosion.getTime() <= 0) {
+				playerExplosion.play();
+			}
 			return;	
 		} else if(!sprite.isDying) {
 			this.adjustVelocityAndSpriteForPlayerInput();
