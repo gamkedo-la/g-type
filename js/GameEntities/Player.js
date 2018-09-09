@@ -235,6 +235,7 @@ function Player(position = {x:0, y:0}) {
 			} else {
 				scene.shouldShake(MAX_SHAKE_MAGNITUDE);
 				sprite.isDying = true;
+                playerExplosion.play();
 				/*explosionSprite.isDying = true;
 				explosionSprite.drawAt({x:this.position.x + this.size.width * 0.5, y:this.position.y + this.size.width * 0.5}, {width: explosionSprite.width, height: explosionSprite.height});*/
 				createParticleEmitter(this.position.x + this.size.width / 2,this.position.y + this.size.height / 2, exampleExplosion);
