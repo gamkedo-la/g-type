@@ -133,7 +133,11 @@ function GameScene(levelIndex) {
 
 		this.parallaxOffset1 = -1*(this.worldPos*BG_PARALLAX_RATIO_1%backgroundParallaxLayer1.width);
 
-		if (!this.bgTime) this.bgTime = deltaTime; else this.bgTime += deltaTime;
+		if (!this.bgTime) {
+			this.bgTime = deltaTime; 
+		} else {
+			this.bgTime += deltaTime;
+		}
 		
 		starfield.update(deltaTime, this.worldPos);
 
@@ -145,9 +149,31 @@ function GameScene(levelIndex) {
 
 		// gradually tweened background fill color
 		// scrolls through a super zoomed in lookup table (gradient texture)
-		canvasContext.drawImage(backgroundColorLookup,
-			(Math.floor(this.bgTime * BG_COLOR_CHANGE_SPEED) % backgroundColorLookup.width), 0, BG_SAMPLE_PIXELS, 100, // source x,y,w,d (scroll source x over time)
-			GameField.x, GameField.y, GameField.width, GameField.height); // dest x,y,w,d (scale one pixel worth of the gradient to fill entire screen)
+		const sampleXPos = Math.floor(this.bgTime * BG_COLOR_CHANGE_SPEED) % backgroundColorLookup.width;
+		//Need to account for sample potentially running off the end of the sample image
+		if(sampleXPos > backgroundColorLookup.width - BG_SAMPLE_PIXELS) {
+			const firstSampleWidth = backgroundColorLookup.width - sampleXPos;
+			const secondSampleWidth = BG_SAMPLE_PIXELS - firstSampleWidth;
+			const fillRatio = GameField.width / BG_SAMPLE_PIXELS;
+			
+			canvasContext.drawImage(backgroundColorLookup,
+			// source x,y,w,d (scroll source x over time)
+			sampleXPos, 0, firstSampleWidth, 100,
+			// dest x,y,w,d (scale one pixel worth of the gradient to fill entire screen)
+			GameField.x, GameField.y, Math.floor(fillRatio * firstSampleWidth), GameField.height); 
+			
+			canvasContext.drawImage(backgroundColorLookup,
+			// source x,y,w,d (scroll source x over time)
+			0, 0, secondSampleWidth, 100,
+			// dest x,y,w,d (scale one pixel worth of the gradient to fill entire screen)
+			GameField.x + Math.floor(fillRatio * firstSampleWidth), GameField.y, Math.floor(fillRatio * secondSampleWidth), GameField.height); 
+		} else {
+			canvasContext.drawImage(backgroundColorLookup,
+			// source x,y,w,d (scroll source x over time)
+			sampleXPos, 0, BG_SAMPLE_PIXELS, 100, 
+			// dest x,y,w,d (scale one pixel worth of the gradient to fill entire screen)
+			GameField.x, GameField.y, GameField.width, GameField.height); 
+		}
 
 		// galaxy / starfield images, tiled, with parallax
 		canvasContext.drawImage(backgroundParallaxLayer1,this.parallaxOffset1,0);
