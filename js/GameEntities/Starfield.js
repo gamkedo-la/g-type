@@ -7,8 +7,8 @@ function Starfield() {
     const nearestCount = 8;
     
     for(let i = 0; i < farthestCount; i++) {
-	    const xPos = Math.floor(Math.random() * canvas.width);
-	    const yPos = Math.floor(Math.random() * canvas.height);
+	    const xPos = GameField.x + Math.floor(Math.random() * GameField.width);
+	    const yPos = GameField.y + Math.floor(Math.random() * GameField.height);
 	    const minFrame = 3 * Math.floor(Math.random() * 4);
 	    const frameTime = 512;
 	    const reverses = ((xPos % 2) === 0);//using xPos because it is convenient and already random
@@ -18,8 +18,8 @@ function Starfield() {
     }
     
     for(let i = 0; i < middleCount; i++) {
-	    const xPos = Math.floor(Math.random() * canvas.width);
-	    const yPos = Math.floor(Math.random() * canvas.height);
+	    const xPos = GameField.x + Math.floor(Math.random() * GameField.width);
+	    const yPos = GameField.y + Math.floor(Math.random() * GameField.height);
 	    const minFrame = 3 * Math.floor(Math.random() * 4);
 	    const frameTime = 512;
 	    const reverses = ((xPos % 2) === 0);//using xPos because it is convenient and already random
@@ -29,8 +29,8 @@ function Starfield() {
     }
     
     for(let i = 0; i < nearestCount; i++) {
-	    const xPos = Math.floor(Math.random() * canvas.width);
-	    const yPos = Math.floor(Math.random() * canvas.height);
+	    const xPos = GameField.x + Math.floor(Math.random() * GameField.width);
+	    const yPos = GameField.y + Math.floor(Math.random() * GameField.height);
 	    const minFrame = 3 * Math.floor(Math.random() * 4);
 	    const frameTime = 512;
 	    const reverses = ((xPos % 2) === 0);//using xPos because it is convenient and already random

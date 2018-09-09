@@ -25,12 +25,12 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	let didCollide = false;
 	
 	const pathPoints = [
-		{x: canvas.width, y: 60},
-		{x: canvas.width / 5, y: 60},
-		{x: canvas.width / 4, y: 450},
-		{x: canvas.width / 3, y: 450},
-		{x: canvas.width / 2, y: 60},
-		{x: canvas.width + 50, y: 60},
+		{x: GameField.right, y: GameField.y + 60},
+		{x: GameField.x + GameField.width / 5, y: GameField.y + 60},
+		{x: GameField.x + GameField.width / 4, y: GameField.y + 450},
+		{x: GameField.x + GameField.width / 3, y: GameField.y + 450},
+		{x: GameField.x + GameField.width / 2, y: GameField.y + 60},
+		{x: GameField.x + GameField.width + 50, y: GameField.y + 60},
 	];
 	
 	this.path = new EnemyPath(PathType.Points, this.position, speed, pathPoints, timeOffset);
@@ -116,13 +116,6 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		sprite.drawAt(this.position, this.size, rotation);
 		if(!sprite.isDying) {
 			this.collisionBody.draw();
-		}
-		
-		if(didCollide) {
-			didCollide = false;
-			canvasContext.fillStyle = 'green';
-			canvasContext.arc(this.position.x + sprite.width / 2, this.position.y + sprite.height / 2, 7, 0, 2 * Math.PI);
-			canvasContext.fill();
 		}
 	};
 	

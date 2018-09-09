@@ -25,16 +25,6 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	
 	this.path = new EnemyPath(PathType.Sine, this.position, speed, [], timeOffset);
 
-//the following is an example of how to use the PathType.Points and should be deleted once we have an enemy which uses it which we can reference as an example because this doesn't belong here
-/*	const pathPoints = [
-		{x: canvas.width, y: 100},
-		{x: canvas.width / 3, y: 100},
-		{x: 2 * canvas.width / 3, y: 500},
-		{x: canvas.width + 50, y: 500},
-	];
-	
-	this.path = new EnemyPath(PathType.Points, this.position, speed, pathPoints, timeOffset);*/
-	
 	this.update = function(deltaTime, worldPos, playerPos) {
 		if(sprite.getDidDie()) {
 			scene.removeEntity(this, false);
@@ -109,17 +99,16 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	this.draw = function() {
 		if(!this.isVisible) {return;}
 		if(this.worldPos < spawnPos) {return;}
+		if((this.position.x < GameField.x - this.size.width) || 
+		   (this.position.x > GameField.right) ||
+		   (this.position.y < GameField.y - this.size.height) ||
+		   (this.position.y > GameField.bottom)) {
+			   return;
+		}
 		
 		sprite.drawAt(this.position, this.size);
 		if(!sprite.isDying) {
 			this.collisionBody.draw();
-		}
-		
-		if(didCollide) {
-			didCollide = false;
-			canvasContext.fillStyle = 'green';
-			canvasContext.arc(this.position.x + sprite.width / 2, this.position.y + sprite.height / 2, 7, 0, 2 * Math.PI);
-			canvasContext.fill();
 		}
 	};
 	

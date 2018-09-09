@@ -9,8 +9,18 @@ let remainingLives = 3;
 const DEBUG = true;
 const DRAW_COLLIDERS = false;
 const COLLIDER_COLOR = 'yellow';
-const CANVAS_WIDTH = 800;
-const CANVAS_HEIGHT = 600;
+const CANVAS_WIDTH = 900;
+const CANVAS_HEIGHT = 750;
+const GameField = {
+	x:50,
+	y:100,
+	width:800,
+	height:600,
+	right:850,
+	bottom:700,
+	midX:450,
+	midY:400
+}
 const FRAMES_PER_SECOND = 30;
 const SIM_STEP = 16;//milliseconds in each simulation step ~1/2 frame
 const MAX_SHAKE_MAGNITUDE = 10;

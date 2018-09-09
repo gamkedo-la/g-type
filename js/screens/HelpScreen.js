@@ -79,8 +79,8 @@ function HelpScreen() {
     };
     
 	const printMenu = function(menuItems, selected, yOffset = null) {
-	    let mainMenuX = canvas.width / 2 - 45;
-	    let mainMenuY = (yOffset == null ? 4 * canvas.height / 5 : yOffset);
+	    let mainMenuX = GameField.midX - 45;
+	    let mainMenuY = (yOffset == null ? GameField.bottom - 120 : yOffset);
 
 	    let selectorXOffset = 60;
 	    let selectorYOffset = 30;
@@ -95,7 +95,7 @@ function HelpScreen() {
 		    }
 	    }
 	    
-	    starPosition = {x:canvas.width / 2, y:canvas.height / 2};
+	    starPosition = {x:GameField.midX, y:GameField.midY};
 	};
 
 	const draw = function(selections, selectorPositionIndex) {
@@ -122,16 +122,16 @@ function HelpScreen() {
 	
 	const drawBG = function menuScreenDrawBG() {
         // fill the background since there is no image for now
-        drawRect(0, 0, canvas.width, canvas.height, MENU_BG_COLOR);
+        drawRect(GameField.x, GameField.y, GameField.width, GameField.height, MENU_BG_COLOR);
     };
     
     const drawTitle = function() {
-	    colorText(gameTitle.Main, canvas.width / 2, canvas.height / 10, Color.White, Fonts.MainTitle, textAlignment.Center);
-	    colorText(gameTitle.Subtitle, canvas.width / 2, canvas.height / 10 + 40, Color.White, Fonts.Subtitle, textAlignment.Center);
+	    colorText(gameTitle.Main, GameField.midX, GameField.y + GameField.height / 10, Color.White, Fonts.MainTitle, textAlignment.Center);
+	    colorText(gameTitle.Subtitle, GameField.midX, GameField.y + GameField.height / 10 + 40, Color.White, Fonts.Subtitle, textAlignment.Center);
     };
     
     const drawHelp = function() {
-	    colorText("Help!!!", canvas.width / 2, canvas.height / 2, Color.White, Fonts.Subtitle, textAlignment.Center);
+	    colorText("Help!!!", GameField.midX, GameField.midY, Color.White, Fonts.Subtitle, textAlignment.Center);
     };
         
     return this;

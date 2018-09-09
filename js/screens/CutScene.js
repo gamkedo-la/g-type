@@ -77,16 +77,16 @@ function CutSceneScreen() {
         
         starfield.draw();
         
-        colorText(textStrings.CutScene1_1, canvas.width / 2, canvas.height - 100, Color.White, Fonts.ButtonTitle, textAlignment.Center, 1);
-        colorText(textStrings.CutScene1_2, canvas.width / 2, canvas.height - 70, Color.White, Fonts.ButtonTitle, textAlignment.Center, 1);
-        colorText(textStrings.SkipCutScene, canvas.width - 50, canvas.height - 30, Color.Aqua, Fonts.CreditsText, textAlignment.Right, 1);
+        colorText(textStrings.CutScene1_1, GameField.midX, GameField.bottom - 100, Color.White, Fonts.ButtonTitle, textAlignment.Center, 1);
+        colorText(textStrings.CutScene1_2, GameField.midX, GameField.bottom - 70, Color.White, Fonts.ButtonTitle, textAlignment.Center, 1);
+        colorText(textStrings.SkipCutScene, GameField.right - 50, GameField.bottom - 30, Color.Aqua, Fonts.CreditsText, textAlignment.Right, 1);
         
-        playerSprite.drawAt({x:canvas.width / 8 + playerSpriteDeltaX, y: 2 * canvas.height / 3 + playerSpriteDeltaY}, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
-        planetSprite.drawAt({x:4 * canvas.width / 5, y:canvas.height / 5}, {width:planetScale * planetSprite.width, height:planetScale * planetSprite.height});
+        playerSprite.drawAt({x:GameField.x + GameField.width / 8 + playerSpriteDeltaX, y: GameField.y + 2 * GameField.height / 3 + playerSpriteDeltaY}, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
+        planetSprite.drawAt({x:GameField.x + 4 * GameField.width / 5, y:GameField.y + GameField.height / 5}, {width:planetScale * planetSprite.width, height:planetScale * planetSprite.height});
 	};
 	
 	const drawBG = function menuScreenDrawBG() {
         // fill the background since there is no image for now
-        drawRect(0, 0, canvas.width, canvas.height, MENU_BG_COLOR);
+        drawRect(GameField.x, GameField.y, GameField.width, GameField.height, MENU_BG_COLOR);
     }
 }

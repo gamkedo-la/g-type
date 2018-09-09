@@ -15,7 +15,7 @@ function DebrisEntity(sprite, position = {x:0, y:0}, spawnPos = 0, speed = 4, sc
 
 	this.update = function(deltaTime, worldPos) {
 		if(worldPos < spawnPos) {return;}//don't update if the world hasn't scrolled far enough to spawn
-		if(this.position.x < -this.size.width) {
+		if(this.position.x < GameField.x - this.size.width) {
 			scene.removeEntity(this, false);
 			return;
 		}
@@ -41,7 +41,11 @@ function DebrisEntity(sprite, position = {x:0, y:0}, spawnPos = 0, speed = 4, sc
 
 	this.draw = function() {
 		if(this.worldPos < spawnPos) {return;}
-		sprite.drawAt(this.position, this.size, this.angle);
+		if((this.worldPos >= spawnPos) && 
+		   (this.position.x > GameField.x - this.size.width) &&
+		   (this.position.x <= GameField.right)) {
+			sprite.drawAt(this.position, this.size, this.angle);
+		}		
 	};
 
 	this.respawn = function(worldPos) {

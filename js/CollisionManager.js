@@ -106,7 +106,8 @@ function CollisionManager(player) {
 		const collisions = [];
 
 		for(let entity of entities) {
-			if((entity.position.x > canvas.width) || (entity.position.x < -entity.size.width)) {continue;}//entity is not on screen => bail out early
+			if((entity.position.x > GameField.right) || 
+			   (entity.position.x < GameField.x - entity.size.width)) {continue;}//entity is not on screen => bail out early
 
 			//Do collision between player bullets and all other entites (except the player)
 			for(let i = 0; i < this.playerBullets.length; i++) {

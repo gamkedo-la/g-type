@@ -1,10 +1,11 @@
 function clear() {
+	//This is the basic wipe of the whole canvas, do not limit to just the gamefield
     drawRect(0,0, canvas.width, canvas.height, CLEAR_COLOR);
 }
 
 /*function drawLogo(){
-    let titleImageX = canvas.width/2 - 150;
-    let titleImageY = canvas.height/2 - 380;
+    let titleImageX = GameField.midX - 150;
+    let titleImageY = GameField.midY - 380;
     mainMenuLogoSprite.draw(titleImageX,titleImageY);
 }*/
 

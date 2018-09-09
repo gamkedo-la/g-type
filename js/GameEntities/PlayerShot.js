@@ -80,7 +80,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 					
 				availableTime -= SIM_STEP;
 				
-				if(pos.x > canvas.width) {
+				if(pos.x > GameField.right) {
 					this.isVisible = false;
 					this.isActive = false;
 					return;//bullet ran off screen, bail out

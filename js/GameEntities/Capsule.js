@@ -29,7 +29,13 @@ function Capsule(position = {x:0, y:0}, initialWorldPos) {
 	};
 	
 	this.draw = function() {
-		if((this.position.x > canvas.width) || (this.position.x < -this.size.width)) {return;}
+		if(this.position.x > GameField.right) {
+			return;
+		} else if(this.position.x < GameField.x - this.size.width) {
+			scene.removeEntity(this, false);
+			return;
+		}
+		
 		sprite.drawAt(this.position, this.size);
 		this.collisionBody.draw();
 	};

@@ -147,7 +147,7 @@ function GameScene(levelIndex) {
 		// scrolls through a super zoomed in lookup table (gradient texture)
 		canvasContext.drawImage(backgroundColorLookup,
 			(Math.floor(this.bgTime * BG_COLOR_CHANGE_SPEED) % backgroundColorLookup.width), 0, BG_SAMPLE_PIXELS, 100, // source x,y,w,d (scroll source x over time)
-			0, 0, canvas.width, canvas.height); // dest x,y,w,d (scale one pixel worth of the gradient to fill entire screen)
+			GameField.x, GameField.y, GameField.width, GameField.height); // dest x,y,w,d (scale one pixel worth of the gradient to fill entire screen)
 
 		// galaxy / starfield images, tiled, with parallax
 		canvasContext.drawImage(backgroundParallaxLayer1,this.parallaxOffset1,0);
@@ -369,9 +369,6 @@ function GameScene(levelIndex) {
 
 	// Draw power ups. 
 	const drawPowerUpBar = function(PowerUps = PowerUpType) {
-		// const canvas = document.getElementById('gameCanvas');
-		// const powerUpBar = drawRect(0, canvas.height - 50, canvas.width, 50, '#0000FF'); 
-
 		printPowerUps(PowerUps);
 
 	};
@@ -381,9 +378,9 @@ function GameScene(levelIndex) {
 		const DISABLED_COLOR = '#A8A8A8';
 		const ENABLED_COLOR = '#FFFF00';
 		const BUTTON_WIDTH = 90;
-	    const powerUpButtonMenuStartX = 20;
-	    const powerUpMenuY = canvas.height - 15;
-	    const powerUpMenuTextStartX = 65;
+	    const powerUpButtonMenuStartX = GameField.x + 20;
+	    const powerUpMenuY = GameField.bottom + 35;
+	    const powerUpMenuTextStartX = GameField.x + 65;
 	    const buttonXOffset = 20;
 
 	    for (let i = 1; i < powerUpNames.length; i++){
@@ -394,7 +391,7 @@ function GameScene(levelIndex) {
 	    	}
 
 	    	// x,y,w,h,color
-	    	drawRect(powerUpButtonMenuStartX + ((BUTTON_WIDTH + buttonXOffset) * (i - 1)), canvas.height - 35, BUTTON_WIDTH, 25, color); 
+	    	drawRect(powerUpButtonMenuStartX + ((BUTTON_WIDTH + buttonXOffset) * (i - 1)), GameField.bottom + 15, BUTTON_WIDTH, 25, color); 
 	    	// showWords, textX, textY, fillColor, fontface, textAlign = 'left', opacity = 1
 		    colorText(powerUpNames[i], powerUpMenuTextStartX + ((BUTTON_WIDTH + buttonXOffset) * (i - 1)), powerUpMenuY, Color.Black, Fonts.ButtonTitle, textAlignment.Center);
 	    }

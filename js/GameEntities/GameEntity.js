@@ -153,13 +153,15 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 			
 			unusedTime = availableTime;
 			this.collisionBody.setPosition({x: this.position.x, y: this.position.y});
-		} else if(this.position.x < -this.size.width) {
+		} else if(this.position.x < GameField.x - this.size.width) {
 			scene.removeEntity(this, false);
 		}
 	};
 	
 	this.draw = function() {
-		if((this.worldPos >= spawnPos) && (this.position.x > -this.size.width)) {
+		if((this.worldPos >= spawnPos) && 
+		   (this.position.x > GameField.x - this.size.width) &&
+		   (this.position.x <= GameField.right)) {
 			sprite.drawAt(this.position, this.size);
 			this.collisionBody.draw();
 		}
@@ -230,13 +232,15 @@ function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, retu
 			
 			unusedTime = availableTime;
 			this.collisionBody.setPosition({x: this.position.x, y: this.position.y});
-		} else if(this.position.x < -this.size.width) {
+		} else if(this.position.x < GameField.x - this.size.width) {
 			scene.removeEntity(this, false);
 		}
 	};
 	
 	this.draw = function() {
-		if((this.worldPos >= spawnPos) && (this.position.x > -this.size.width)) {
+		if((this.worldPos >= spawnPos) && 
+		   (this.position.x > GameField.x - this.size.width) &&
+		   (this.position.x <= GameField.right)) {
 			sprite.drawAt(this.position, this.size);
 			this.collisionBody.draw();
 		}

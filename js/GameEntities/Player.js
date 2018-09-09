@@ -143,16 +143,16 @@ function Player(position = {x:0, y:0}) {
 	
 	this.clampPositionToScreen = function() {
 		//clamp player position to the screen
-		if(this.position.x < 0) {
-			this.position.x = 0;
-		} else if(this.position.x > (canvas.width - this.size.width)) {
-			this.position.x = canvas.width - this.size.width;
+		if(this.position.x < GameField.x) {
+			this.position.x = GameField.x;
+		} else if(this.position.x > (GameField.right - this.size.width)) {
+			this.position.x = GameField.right - this.size.width;
 		}
 		
-		if(this.position.y < 0) {
-			this.position.y = 0;
-		} else if(this.position.y > (canvas.height - this.size.height)) {
-			this.position.y = canvas.height - this.size.height;
+		if(this.position.y < GameField.y) {
+			this.position.y = GameField.y;
+		} else if(this.position.y > (GameField.bottom - this.size.height)) {
+			this.position.y = GameField.bottom - this.size.height;
 		}
 	};
 	
@@ -252,8 +252,8 @@ function Player(position = {x:0, y:0}) {
 	this.reset = function() {
 		this.clearPowerUps();
 		this.clearBullets();
-		this.position.x = 0;
-		this.position.y = canvas.height / 2;
+		this.position.x = GameField.x;
+		this.position.y = GameField.midY;
 		sprite.clearDeath();
 		explosionSprite.clearDeath();
 		explosionSprite.wasBorn = true;
