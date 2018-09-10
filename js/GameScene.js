@@ -160,19 +160,19 @@ function GameScene(levelIndex) {
 			// source x,y,w,d (scroll source x over time)
 			sampleXPos, 0, firstSampleWidth, 100,
 			// dest x,y,w,d (scale one pixel worth of the gradient to fill entire screen)
-			GameField.x, GameField.y, Math.floor(fillRatio * firstSampleWidth), GameField.height); 
+			GameField.x, GameField.y - GameField.bgOffset, Math.floor(fillRatio * firstSampleWidth), GameField.height + GameField.bgOffset); 
 			
 			canvasContext.drawImage(backgroundColorLookup,
 			// source x,y,w,d (scroll source x over time)
 			0, 0, secondSampleWidth, 100,
 			// dest x,y,w,d (scale one pixel worth of the gradient to fill entire screen)
-			GameField.x + Math.floor(fillRatio * firstSampleWidth), GameField.y, Math.floor(fillRatio * secondSampleWidth), GameField.height); 
+			GameField.x + Math.floor(fillRatio * firstSampleWidth), GameField.y - GameField.bgOffset, Math.floor(fillRatio * secondSampleWidth), GameField.height + GameField.bgOffset); 
 		} else {
 			canvasContext.drawImage(backgroundColorLookup,
 			// source x,y,w,d (scroll source x over time)
 			sampleXPos, 0, BG_SAMPLE_PIXELS, 100, 
 			// dest x,y,w,d (scale one pixel worth of the gradient to fill entire screen)
-			GameField.x, GameField.y, GameField.width, GameField.height); 
+			GameField.x, GameField.y - GameField.bgOffset, GameField.width, GameField.height + GameField.bgOffset); 
 		}
 
 		// galaxy / starfield images, tiled, with parallax
@@ -203,6 +203,7 @@ function GameScene(levelIndex) {
 
 		drawPowerUpBar(PowerUpType, powerUpToActivate);
 
+		drawGameFrame();
 //	    score.draw();//TODO: implement this
 	};
 	
@@ -398,6 +399,10 @@ function GameScene(levelIndex) {
 		printPowerUps(PowerUps);
 
 	};
+	
+	const drawGameFrame = function() {
+		canvasContext.drawImage(gameFrame, 0, 0, gameFrame.width, gameFrame.height, 0, 0, canvas.width, canvas.height);
+	}
 
 	const printPowerUps = function(powerUpItems, selected = powerUpToActivate) {
 		const powerUpNames = Object.values(powerUpItems);

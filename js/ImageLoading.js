@@ -1,4 +1,7 @@
 //Image Loading
+//UI
+const gameFrame = document.createElement("img");
+
 //Backgrounds
 const starSheet = document.createElement("img");
 const planetSheet = document.createElement("img");
@@ -49,6 +52,8 @@ function beginLoadingImage(imgVar, fileName) {
 
 function loadImages() {
     const imageList = [
+	    //UI
+        { imgName: gameFrame, theFile: "TempGameUI.png" },	    
 
         // backgrounds
         { imgName: starSheet, theFile: "Stars.png" },

@@ -119,11 +119,13 @@ function MenuScreen() {
         
         //draw selector sprite
         selectorSprite.drawAt(selectorPosition, {width:30, height:19});
+        
+        canvasContext.drawImage(gameFrame, 0, 0, gameFrame.width, gameFrame.height, 0, 0, canvas.width, canvas.height);
 	};
 	
 	const drawBG = function menuScreenDrawBG() {
         // fill the background since there is no image for now
-        drawRect(GameField.x, GameField.y, GameField.width, GameField.height, MENU_BG_COLOR);
+        drawRect(GameField.x, GameField.y - GameField.bgOffset, GameField.width, GameField.height + GameField.bgOffset, MENU_BG_COLOR);
     };
     
     const drawTitle = function() {

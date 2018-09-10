@@ -67,7 +67,7 @@ function CreditsScreen() {
             ScreenStates.setState(MENU_SCREEN);
         }
         
-        drawRect(GameField.x, GameField.y, GameField.width, GameField.height, MENU_BG_COLOR);
+        drawRect(GameField.x, GameField.y - GameField.bgOffset, GameField.width, GameField.height + GameField.bgOffset, MENU_BG_COLOR);
         
         starfield.draw();
         
@@ -77,12 +77,14 @@ function CreditsScreen() {
 		
 		starfield.update(deltaTime);
 		
-        colorText(textStrings.Credits, GameField.midX - 72, GameField.y + 60, Color.White, Fonts.Subtitle, textAlignment.Left);
+        colorText(textStrings.Credits, GameField.midX - 72, GameField.y + 110, Color.White, Fonts.Subtitle, textAlignment.Left);
 
         colorText("Up Arrow To Scroll Faster", GameField.right - 210, GameField.bottom - 100, Color.Aqua, Fonts.CreditsText, textAlignment.Left);
         colorText("Down Arrow To Scroll Slower", GameField.right - 210, GameField.bottom - 70, Color.Aqua, Fonts.CreditsText, textAlignment.Left);
         colorText("Space To Pause", GameField.right - 210, GameField.bottom - 40, Color.Aqua, Fonts.CreditsText, textAlignment.Left);
         colorText("Backspace to Main Menu", GameField.right - 210, GameField.bottom - 10, Color.Aqua, Fonts.CreditsText, textAlignment.Left)
+        
+		canvasContext.drawImage(gameFrame, 0, 0, gameFrame.width, gameFrame.height, 0, 0, canvas.width, canvas.height);
     };
     this.control = function creditsScreenControl(keyCode, pressed) {
         if (pressed) {

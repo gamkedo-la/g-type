@@ -82,11 +82,14 @@ function CutSceneScreen() {
         colorText(textStrings.SkipCutScene, GameField.right - 50, GameField.bottom - 30, Color.Aqua, Fonts.CreditsText, textAlignment.Right, 1);
         
         playerSprite.drawAt({x:GameField.x + GameField.width / 8 + playerSpriteDeltaX, y: GameField.y + 2 * GameField.height / 3 + playerSpriteDeltaY}, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
+        
+		canvasContext.drawImage(gameFrame, 0, 0, gameFrame.width, gameFrame.height, 0, 0, canvas.width, canvas.height);
+        
         planetSprite.drawAt({x:GameField.x + 4 * GameField.width / 5, y:GameField.y + GameField.height / 5}, {width:planetScale * planetSprite.width, height:planetScale * planetSprite.height});
 	};
 	
 	const drawBG = function menuScreenDrawBG() {
         // fill the background since there is no image for now
-        drawRect(GameField.x, GameField.y, GameField.width, GameField.height, MENU_BG_COLOR);
+        drawRect(GameField.x, GameField.y - GameField.bgOffset, GameField.width, GameField.height + GameField.bgOffset, MENU_BG_COLOR);
     }
 }
