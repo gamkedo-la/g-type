@@ -1,6 +1,10 @@
 //Image Loading
 //UI
 const gameFrame = document.createElement("img");
+const lightedPowerUpUI = document.createElement("img");
+const darkPowerUpUI = document.createElement("img");
+const lightedSpacerUI = document.createElement("img");
+const darkSpacerUI = document.createElement("img");
 
 //Backgrounds
 const starSheet = document.createElement("img");
@@ -52,8 +56,12 @@ function beginLoadingImage(imgVar, fileName) {
 
 function loadImages() {
     const imageList = [
-	    //UI
+	    //UI 
         { imgName: gameFrame, theFile: "TempGameUI.png" },	    
+        { imgName: lightedPowerUpUI, theFile: "LightedPowerUpUI.png" },	    
+        { imgName: darkPowerUpUI, theFile: "DarkPowerUpUI.png" },	    
+        { imgName: lightedSpacerUI, theFile: "LightedSpacerUI.png" },	    
+        { imgName: darkSpacerUI, theFile: "DarkSpacerUI.png" },	    
 
         // backgrounds
         { imgName: starSheet, theFile: "Stars.png" },

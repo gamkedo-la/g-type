@@ -2,6 +2,7 @@
 const PowerUpType = {
 	None:"none",
 	Speed:"speed",
+	Missile:"missile",
 	Double:"double",
 	Laser:"laser",
 	Triple:"triple",
@@ -30,6 +31,7 @@ function GameScene(levelIndex) {
 	const enemyBullets = new Set();
 	let score = 0;
 	let powerUpToActivate = PowerUpType.None;
+	let uiManager = new UIManager();
 	
 	const populateWorld = function(worldPos) {
 		const terrain = data.initializeTerrain();
@@ -100,6 +102,8 @@ function GameScene(levelIndex) {
 		collisionBodiesToRemove = [];
 		
 		if(this.shaking) {this.screenShake();}
+		
+		uiManager.update(deltaTime);
 	};
 	
 	this.reset = function() {
@@ -203,13 +207,12 @@ function GameScene(levelIndex) {
 
 		drawPowerUpBar(PowerUpType, powerUpToActivate);
 
-		drawGameFrame();
+		uiManager.draw();
 //	    score.draw();//TODO: implement this
 	};
 	
 	this.collectedCapsule = function() {
 		incrementPowerUpToActivate();
-		console.log("Update UI to show that the player collected another capsule");
 	};
 	
 	this.removePlayer = function() {
@@ -220,6 +223,7 @@ function GameScene(levelIndex) {
 			remainingLives--;
 			player.reset();
 			powerUpToActivate = PowerUpType.None;
+			uiManager.reset();
 		}
 	};
 	
@@ -272,9 +276,11 @@ function GameScene(levelIndex) {
 		switch(powerUpToActivate) {
 			case PowerUpType.None:
 				powerUpToActivate = PowerUpType.Speed;
-				//powerUpToActivate = PowerUpType.Laser;
 				break;
 			case PowerUpType.Speed:
+				powerUpToActivate = PowerUpType.Missile;
+				break;
+			case PowerUpType.Missile:
 				powerUpToActivate = PowerUpType.Double;
 				break;
 			case PowerUpType.Double:
@@ -293,22 +299,32 @@ function GameScene(levelIndex) {
 				powerUpToActivate = PowerUpType.Force;
 				break;
 			case PowerUpType.Force:
-				powerUpToActivate = PowerUpType.None;
+				powerUpToActivate = PowerUpType.Speed;
 				break;
 		}
+
+		uiManager.incrementActivePowerUp();
 		printPowerUps(PowerUpType, powerUpToActivate);
-		console.log("PowerUp To Activate: " + powerUpToActivate);
 	}
 	
 	this.activatePowerUp = function() {
-		console.log('activating power up');
+		if(!uiManager.getCanActivatePowerUp()) {
+			//play buzzer => can't activate a power up right now
+			return;
+		}
+		
 		switch(powerUpToActivate) {
 			case PowerUpType.None:
 				return;//No power up so exit now and don't play the activation sound
 			case PowerUpType.Speed:
 				player.incrementSpeed();
 				powerUpToActivate = PowerUpType.None;
-				return;
+				break;
+			case PowerUpType.Missile:
+//				player.[Give The Player Missiles];//TODO: implement this
+				console.log("Tried to give the player Missiles");
+				powerUpToActivate = PowerUpType.None;
+				break;
 			case PowerUpType.Double:
 //				player.setShotTo(EntityType.PlayerDouble);//TODO: restore this once Double is implemented
 				console.log("Tried to set player shot to Double");
@@ -341,6 +357,8 @@ function GameScene(levelIndex) {
 			default:
 				break;
 		}
+		
+		uiManager.reset();
 		//powerUpActivated.play();//TODO: need this SFX track in the game, goes at the end so it isn't played if "None" is the power up
 	};
 	
@@ -400,10 +418,6 @@ function GameScene(levelIndex) {
 
 	};
 	
-	const drawGameFrame = function() {
-		canvasContext.drawImage(gameFrame, 0, 0, gameFrame.width, gameFrame.height, 0, 0, canvas.width, canvas.height);
-	}
-
 	const printPowerUps = function(powerUpItems, selected = powerUpToActivate) {
 		const powerUpNames = Object.values(powerUpItems);
 		const DISABLED_COLOR = '#A8A8A8';
