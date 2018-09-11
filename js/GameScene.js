@@ -29,7 +29,6 @@ function GameScene(levelIndex) {
 	const gameEntities = new Set();
 	const foregroundEntities = new Set();
 	const enemyBullets = new Set();
-	let score = 0;
 	let powerUpToActivate = PowerUpType.None;
 	let uiManager = new UIManager();
 	
@@ -116,11 +115,11 @@ function GameScene(levelIndex) {
 		}
 		
 		this.gameIsOver = false;
-        this.score = 0;
         this.worldPos = newWorldPos;
         this.endShake();
         
         player.reset();
+        uiManager.reset(false);
         
         gameEntities.clear();
         enemyBullets.clear();
@@ -208,7 +207,6 @@ function GameScene(levelIndex) {
 		drawPowerUpBar(PowerUpType, powerUpToActivate);
 
 		uiManager.draw();
-//	    score.draw();//TODO: implement this
 	};
 	
 	this.collectedCapsule = function() {
@@ -219,11 +217,12 @@ function GameScene(levelIndex) {
 		if(remainingLives < 1) {
 			this.gameIsOver = true;
 			canvasContext.setTransform(1, 0, 0, 1, 0, 0);
+			uiManager.reset(true);
 		} else {
 			remainingLives--;
 			player.reset();
 			powerUpToActivate = PowerUpType.None;
-			uiManager.reset();
+			uiManager.reset(false);
 		}
 	};
 	
@@ -358,14 +357,18 @@ function GameScene(levelIndex) {
 				break;
 		}
 		
-		uiManager.reset();
+		uiManager.reset(false);
 		//powerUpActivated.play();//TODO: need this SFX track in the game, goes at the end so it isn't played if "None" is the power up
 	};
 	
 	this.displayScore = function(entity) {
-		score += entity.score;
 		const newScore = new TextEntity(entity.score.toString(), Fonts.CreditsText, Color.White, {x:entity.position.x, y:entity.position.y}, 512, false);
 		this.addEntity(newScore, false);
+		
+		uiManager.addToScore(entity.score);
+		if(uiManager.getScore() % 1000 == 0) {//TODO: change this to a reasonable value 30,000?
+			remainingLives++;
+		}
 	};
 	
 	const checkpointForWorldPos = function(worldPos) {

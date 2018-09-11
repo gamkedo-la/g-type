@@ -11,9 +11,10 @@ function UIManager() {
 	elements.push(new SpacerUI({x: 509, y: 59}));
 	elements.push(new PowerUpUI({x: 550, y: 25}));
 	
+	const score = new UIScore({x:GameField.midX, y:GameField.y + 10});
+	
 	const updateContents = function() {
 		const types = Object.values(PowerUpType);
-		console.log("Types: " + types);
 		elements[0].setContents(types[1 + (3 * page)]);
 		elements[2].setContents(types[2 + (3 * page)]);
 		elements[4].setContents(types[3 + (3 * page)]);
@@ -66,14 +67,28 @@ function UIManager() {
 		for(let i = 0; i < elements.length; i++) {
 			elements[i].draw();
 		}
+		
+		score.draw();
 	};
 	
-	this.reset = function() {
+	this.addToScore = function(scoreToAdd) {
+		score.addToScore(scoreToAdd);
+	};
+	
+	this.getScore = function() {
+		return score.getScore();
+	}
+	
+	this.reset = function(shouldResetScore) {
 		page = 0;
 		if(highlightedIndex >= 0) {
 			elements[highlightedIndex].setIsHighlighted(false);
 			highlightedIndex = -1;
 		}
 		updateContents();
+		
+		if(shouldResetScore) {
+			score.reset();
+		}
 	};
 }
