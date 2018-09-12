@@ -140,8 +140,13 @@ function CollisionManager(player) {
 				if(withinSquareRadii(entity.collisionBody, forceUnitBody)) {
 					//if both objects are circles, the above check is a valid collision
 					// TODO clean up this code (e.g., there are redundant checks to make sure the force unit doesn't collide with a powerup or player shot -- perhaps smarten up the conditional test?
-					if(entity.type === EntityType.Capsule1) {continue;}	//can't hit the power ups
-					if(entity.type === EntityType.PlayerShot) {continue;}	//ignore collisions with player shots
+					if((entity.type === EntityType.Capsule1) ||	//can't hit the capsules
+					   (entity.type === EntityType.PlayerShot) ||
+					   (entity.type === EntityType.PlayerDouble) || 
+					   (entity.type === EntityType.PlayerLaser) || 
+					   (entity.yype === EntityType.PlayerTriple)) {
+						   continue;//ignore collisions with player shots
+					}	
 
 					if((entity.collisionBody.type === ColliderType.Circle) &&
 					   (this.playerForceUnit.collisionBody.type === ColliderType.Circle)) {
@@ -152,8 +157,14 @@ function CollisionManager(player) {
 					}
 
 					if(checkCollisionBetween(entity.collisionBody, forceUnitBody)) {
-						if(entity.type === EntityType.Capsule1) {continue;}	//can't hit the power ups
-						if(entity.type === EntityType.PlayerShot) {continue;}	//ignore collisions with player shots
+						if((entity.type === EntityType.Capsule1) ||	//can't hit the capsules
+					   (entity.type === EntityType.PlayerShot) ||
+					   (entity.type === EntityType.PlayerDouble) || 
+					   (entity.type === EntityType.PlayerLaser) || 
+					   (entity.yype === EntityType.PlayerTriple)) {
+						   continue;//ignore collisions with player shots
+					}
+					
 						entity.didCollideWith(this.playerForceUnit);
 						this.playerForceUnit.didCollideWith(entity);
 						collisions.push({blue:this.playerForceUnit, red:entity});

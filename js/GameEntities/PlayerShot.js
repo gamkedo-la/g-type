@@ -14,6 +14,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	let didCollide = false;
 	this.isVisible = true;
 	let collisionBodyOffset = {x:0, y:0};
+	this.rotation = 0;
 	
 	this.worldPos = null;
 
@@ -43,7 +44,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	};
 	
 	this.setVelocity = function(newVel) {
-		vel = newVel;
+		vel = {x:newVel.x, y:newVel.y};
 	};
 	
 	this.update = function(deltaTime, worldPos) {
@@ -65,17 +66,17 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 			let availableTime = unusedTime + deltaTime;
 			while(availableTime > SIM_STEP) {
 				if(this.wasReleased) {
-					if(this.type === EntityType.PlayerShot) {
+//					if(this.type === EntityType.PlayerShot) {
 						pos.x += vel.x * SIM_STEP / 1000;
 						pos.y += vel.y * SIM_STEP / 1000;
-					} else if(this.type === EntityType.PlayerLaser) {
+/*					} else if(this.type === EntityType.PlayerLaser) {
 						pos.x += vel.x * SIM_STEP / 350;
 						pos.y += vel.y * SIM_STEP / 350;
-					}
+					}*/
 					this.collisionBody.setPosition({x:pos.x + collisionBodyOffset.x, y:pos.y + collisionBodyOffset.y});
 				} else if(sprite.wasBorn) {
 					this.wasReleased = true;
-					vel.x = MOVE_VELOCITY;
+//					vel.x = MOVE_VELOCITY;
 				}
 					
 				availableTime -= SIM_STEP;
@@ -98,9 +99,13 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 		if(!this.isVisible) {return;}
 		
 		if(this.wasReleased) {
+//			const halfXPos = (this.size.width / 2) - (FLASH_SCALE * flashSprite.width / 2);
+//			const xPos = (pos.x + (halfXPos)) - (halfXPos * Math.cos(this.rotation));
+//			const halfYPos = (this.size.height / 2) - (FLASH_SCALE * flashSprite.height / 2);
+//			const yPos = (pos.y + halfYPos) - (halfYPos * Math.sin(this.rotation));
 			const xPos = pos.x - (flashSprite.width * FLASH_SCALE);
 			const yPos = pos.y + (this.size.height / 2) - (FLASH_SCALE * flashSprite.height / 2);
-			flashSprite.drawAt({x:xPos, y:yPos}, {width:FLASH_SCALE * flashSprite.width, height:FLASH_SCALE * flashSprite.height});
+			flashSprite.drawAt({x:xPos, y:yPos}, {width:FLASH_SCALE * flashSprite.width, height:FLASH_SCALE * flashSprite.height}, this.rotation);
 		}
 		
 		let drawPos = {x:pos.x, y:pos.y};
@@ -108,7 +113,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 			drawPos = {x:pos.x - 30, y:pos.y};
 		}
 		
-		sprite.drawAt(drawPos, this.size);
+		sprite.drawAt(drawPos, this.size, this.rotation);
 		this.collisionBody.draw();
 	};
 	
@@ -122,11 +127,23 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 				collisionBodyOffset = {x:0, y:0};
 				this.shotLife = 1;
 				break;
+			case EntityType.PlayerDouble:
+				sprite = normalSprite;
+				this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+				collisionBodyOffset = {x:0, y:0};
+				this.shotLife = 1;
+				break;
 			case EntityType.PlayerLaser:
 				sprite = laserSprite;
 				this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 				collisionBodyOffset = {x:7, y:-9};
 				this.shotLife = 2;
+				break;
+			case EntityType.PlayerTriple:
+				sprite = normalSprite;
+				this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+				collisionBodyOffset = {x:0, y:0};
+				this.shotLife = 1;
 				break;
 		}
 		
@@ -140,6 +157,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 		sprite.isDying = false;
 		sprite.setFrame(0);
 		this.setVelocity({x:0, y:0});
+		this.rotation = 0;
 	};
 	
 	this.didCollideWith = function(otherEntity) {

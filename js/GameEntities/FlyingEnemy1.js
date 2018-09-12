@@ -125,8 +125,11 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	this.didCollideWith = function(otherEntity) {
 		if (otherEntity) {
 			let entityType = otherEntity.type;
-			if (entityType === EntityType.PlayerForceUnit ||
-				entityType === EntityType.PlayerShot) {
+			if ((entityType === EntityType.PlayerForceUnit) ||
+				(entityType === EntityType.PlayerShot) || 
+				(entityType === EntityType.PlayerDouble) || 
+				(entityType === EntityType.PlayerLaser) || 
+				(entityType === EntityType.PlayerTriple)) {
 				this.hitPoints -= otherEntity.damagePoints;
 			}
 		} 

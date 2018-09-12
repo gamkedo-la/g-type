@@ -260,7 +260,13 @@ function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, retu
 	this.didCollideWith = function(otherEntity) {
 		if((this.collisionBody == null) || (otherEntity.collisionBody == null)) {return false;}
 		
-		if(otherEntity.type === EntityType.PlayerShot || otherEntity.type === EntityType.PlayerLaser || otherEntity.type === EntityType.PlayerForceUnit) {
+		const entityType = otherEntity.type;
+		if ((entityType === EntityType.PlayerForceUnit) ||
+			(entityType === EntityType.PlayerShot) || 
+			(entityType === EntityType.PlayerDouble) || 
+			(entityType === EntityType.PlayerLaser) || 
+			(entityType === EntityType.PlayerTriple)) {
+
 			didCollide = true;
 			sprite.isDying = true;
 			scene.removeCollisions(this);

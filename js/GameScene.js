@@ -1,18 +1,3 @@
-//PowerUp Types
-const PowerUpType = {
-	None:"none",
-	Speed:"speed",
-	Missile:"missile",
-	Double:"double",
-	Laser:"laser",
-	Triple:"triple",
-	Ghost:"ghost",
-	Shield:"shield",
-	Force:"force"
-}
-
-let selectedPowerUp = "none";
-
 //Game Scene
 function GameScene(levelIndex) {
 	const data = LevelData[levelIndex];
@@ -29,7 +14,7 @@ function GameScene(levelIndex) {
 	const gameEntities = new Set();
 	const foregroundEntities = new Set();
 	const enemyBullets = new Set();
-	let powerUpToActivate = PowerUpType.None;
+//	let powerUpToActivate = PowerUpType.None;
 	let uiManager = new UIManager();
 	
 	const populateWorld = function(worldPos) {
@@ -204,13 +189,13 @@ function GameScene(levelIndex) {
 			entity.draw();
 		}
 
-		drawPowerUpBar(PowerUpType, powerUpToActivate);
+//		drawPowerUpBar(PowerUpType, powerUpToActivate);
 
 		uiManager.draw();
 	};
 	
 	this.collectedCapsule = function() {
-		incrementPowerUpToActivate();
+		uiManager.incrementActivePowerUp();
 	};
 	
 	this.removePlayer = function() {
@@ -271,7 +256,7 @@ function GameScene(levelIndex) {
 		}		
 	};
 	
-	const incrementPowerUpToActivate = function() {
+/*	const incrementPowerUpToActivate = function() {
 		switch(powerUpToActivate) {
 			case PowerUpType.None:
 				powerUpToActivate = PowerUpType.Speed;
@@ -303,8 +288,8 @@ function GameScene(levelIndex) {
 		}
 
 		uiManager.incrementActivePowerUp();
-		printPowerUps(PowerUpType, powerUpToActivate);
-	}
+//		printPowerUps(PowerUpType, powerUpToActivate);
+	};*/
 	
 	this.activatePowerUp = function() {
 		if(!uiManager.getCanActivatePowerUp()) {
@@ -312,46 +297,48 @@ function GameScene(levelIndex) {
 			return;
 		}
 		
+		const powerUpToActivate = uiManager.getPowerUpToActivate();
+		
 		switch(powerUpToActivate) {
 			case PowerUpType.None:
 				return;//No power up so exit now and don't play the activation sound
 			case PowerUpType.Speed:
 				player.incrementSpeed();
-				powerUpToActivate = PowerUpType.None;
+//				powerUpToActivate = PowerUpType.None;
 				break;
 			case PowerUpType.Missile:
-//				player.[Give The Player Missiles];//TODO: implement this
+				//player.[Give The Player Missiles];//TODO: implement this
 				console.log("Tried to give the player Missiles");
 				powerUpToActivate = PowerUpType.None;
 				break;
 			case PowerUpType.Double:
-//				player.setShotTo(EntityType.PlayerDouble);//TODO: restore this once Double is implemented
+				player.setShotTo(EntityType.PlayerDouble);//TODO: restore this once Double is implemented
 				console.log("Tried to set player shot to Double");
-				powerUpToActivate = PowerUpType.None;
+//				powerUpToActivate = PowerUpType.None;
 				break;
 			case PowerUpType.Laser:
 				player.setShotTo(EntityType.PlayerLaser);
-				powerUpToActivate = PowerUpType.None;
+//				powerUpToActivate = PowerUpType.None;
 				break;
 			case PowerUpType.Triple:
-//				player.setShotTo(EntityType.PlayerTriple);//TODO: restore this once Triple is implemented
+				player.setShotTo(EntityType.PlayerTriple);//TODO: restore this once Triple is implemented
 				console.log("Tried to set player shot to Triple");
-				powerUpToActivate = PowerUpType.None;
+//				powerUpToActivate = PowerUpType.None;
 				break;
 			case PowerUpType.Ghost:
 				//TODO: Need to do something here...
 				console.log("Tried to activate a Ghost Ship");
-				powerUpToActivate = PowerUpType.None;
+//				powerUpToActivate = PowerUpType.None;
 				return;
 			case PowerUpType.Shield:
 				//TODO: Need to do something here...
 				console.log("Tried to activate shields");
-				powerUpToActivate = PowerUpType.None;
+//				powerUpToActivate = PowerUpType.None;
 				break;
 			case PowerUpType.Force:
 				//TODO: Need to do something here...
 				console.log("Tried to 'Use The Force!'");
-				powerUpToActivate = PowerUpType.None;
+//				powerUpToActivate = PowerUpType.None;
 				break;
 			default:
 				break;

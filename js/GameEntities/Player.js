@@ -177,23 +177,84 @@ function Player(position = {x:0, y:0}) {
 				newShot = new PlayerShot();
 			}
 			
+			let secondShot;
+			if(shots.length === MAX_SHOTS_ON_SCREEN) {
+				//basically a pool of shots, grab the oldest one
+				secondShot = shots.splice(0, 1)[0];
+			} else {
+				//not enough shots in the pool, so make a new one
+				secondShot = new PlayerShot();
+			}
+			
+			let thirdShot;
+			if(shots.length === MAX_SHOTS_ON_SCREEN) {
+				//basically a pool of shots, grab the oldest one
+				thirdShot = shots.splice(0, 1)[0];
+			} else {
+				//not enough shots in the pool, so make a new one
+				thirdShot = new PlayerShot();
+			}
+			
 			//initialize the newShot (whether it is new or pulled from the pool)
-			newShot.resetWithType(this.currentShotType);
-			scene.addEntity(newShot, true);
+//			newShot.resetWithType(this.currentShotType);
+//			scene.addEntity(newShot, true);
+			
 			switch(this.currentShotType)
 			{
 				case EntityType.PlayerShot:
+					newShot.resetWithType(this.currentShotType);
+					scene.addEntity(newShot, true);
 					newShot.setPosition({x:this.position.x + 75, y:this.position.y + 6});
+					newShot.setVelocity({x: 200, y: 0});
+					shots.push(newShot);
+					break;
+				case EntityType.PlayerDouble:
+					console.log("Player Double");
+					newShot.resetWithType(this.currentShotType);
+					scene.addEntity(newShot, true);
+					newShot.setPosition({x:this.position.x + 75, y:this.position.y + 6});
+					newShot.setVelocity({x: 200, y: 0});
+					shots.push(newShot);
+					secondShot.resetWithType(this.currentShotType);
+					scene.addEntity(secondShot, true);
+					secondShot.setPosition({x:this.position.x + 75, y:this.position.y + 6});
+					secondShot.setVelocity({x: 150, y: -150});
+					shots.push(secondShot);
 					break;
 				case EntityType.PlayerLaser:
+					newShot.resetWithType(this.currentShotType);
+					scene.addEntity(newShot, true);
 					newShot.setPosition({x:this.position.x + 65, y:this.position.y + 15});
+					newShot.setVelocity({x: 600, y: 0});
+					shots.push(newShot);
+					break;
+				case EntityType.PlayerTriple:
+					newShot.resetWithType(this.currentShotType);
+					scene.addEntity(newShot, true);
+					newShot.setPosition({x:this.position.x + 75, y:this.position.y + 6});
+					newShot.setVelocity({x: 200, y: 0});
+					shots.push(newShot);
+					secondShot.resetWithType(this.currentShotType);
+					scene.addEntity(secondShot, true);
+					secondShot.setPosition({x:this.position.x + 75, y:this.position.y + 6});
+					secondShot.setVelocity({x: 150, y: -50});
+					shots.push(secondShot);
+					thirdShot.resetWithType(this.currentShotType);
+					scene.addEntity(thirdShot, true);
+					thirdShot.setPosition({x:this.position.x - thirdShot.size.width, y:this.position.y + 6});
+					thirdShot.setVelocity({x: -200, y: 0});
+					thirdShot.rotation = Math.PI;
+					shots.push(thirdShot);
 					break;
 				default:
+					newShot.resetWithType(this.currentShotType);
+					scene.addEntity(newShot, true);
 					newShot.setPosition({x:this.position.x + 75, y:this.position.y + 6});
+					newShot.setVelocity({x: 200, y: 0});
+					shots.push(newShot);
 					break;
 			}
 						
-			shots.push(newShot);
 			timer.updateEvent(PlayerEvent.LastShot);
 			playerFireRegular.play();//play the audio
 		}

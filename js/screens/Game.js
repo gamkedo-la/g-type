@@ -67,6 +67,11 @@ function GamePlayScreen () {
 		        	scene.activatePowerUp();
 	        	}
 	        	return true;
+            case KEY_C://Adding capsules
+                if(!pressed) {
+		        	scene.collectedCapsule();
+	        	}
+                return true;
             case KEY_ESCAPE:
                 if(!pressed) {
 	                setPaused(!ScreenStates.isPaused);

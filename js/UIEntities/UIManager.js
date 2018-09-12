@@ -1,9 +1,23 @@
+//PowerUp Types
+const PowerUpType = {
+	None:"none",
+	Speed:"speed",
+	Missile:"missile",
+	Double:"double",
+	Laser:"laser",
+	Triple:"triple",
+	Ghost:"ghost",
+	Shield:"shield",
+	Force:"force"
+};
+
 //UI Manager
 function UIManager() {
 	let page = 0;
 	const PAGES = Object.keys(PowerUpType).length;
 	let elements = [];
 	let highlightedIndex = -1;
+	let powerUpToActivate = PowerUpType.None;
 	
 	elements.push(new PowerUpUI({x: 250, y: 25}));
 	elements.push(new SpacerUI({x: 359, y: 59}));
@@ -52,6 +66,10 @@ function UIManager() {
 			if(page == PAGES) {page = 0;}
 		}
 		
+		if((highlightedIndex != 1) && (highlightedIndex != 3)) {
+			incrementPowerUpToActivate();
+		}
+		
 		elements[highlightedIndex].setIsHighlighted(true);
 	};
 	
@@ -77,8 +95,8 @@ function UIManager() {
 	
 	this.getScore = function() {
 		return score.getScore();
-	}
-	
+	};
+		
 	this.reset = function(shouldResetScore) {
 		page = 0;
 		if(highlightedIndex >= 0) {
@@ -87,8 +105,48 @@ function UIManager() {
 		}
 		updateContents();
 		
+		powerUpToActivate = PowerUpType.None;
+		
 		if(shouldResetScore) {
 			score.reset();
 		}
+	};
+	
+	this.getPowerUpToActivate = function() {
+		return powerUpToActivate;
+	}
+	
+	const incrementPowerUpToActivate = function() {
+		switch(powerUpToActivate) {
+			case PowerUpType.None:
+				powerUpToActivate = PowerUpType.Speed;
+				break;
+			case PowerUpType.Speed:
+				powerUpToActivate = PowerUpType.Missile;
+				break;
+			case PowerUpType.Missile:
+				powerUpToActivate = PowerUpType.Double;
+				break;
+			case PowerUpType.Double:
+				powerUpToActivate = PowerUpType.Laser;
+				break;
+			case PowerUpType.Laser:
+				powerUpToActivate = PowerUpType.Triple;
+				break;
+			case PowerUpType.Triple:
+				powerUpToActivate = PowerUpType.Ghost;
+				break;
+			case PowerUpType.Ghost:
+				powerUpToActivate = PowerUpType.Shield;
+				return;
+			case PowerUpType.Shield:
+				powerUpToActivate = PowerUpType.Force;
+				break;
+			case PowerUpType.Force:
+				powerUpToActivate = PowerUpType.Speed;
+				break;
+		}
+
+//		uiManager.incrementActivePowerUp();
 	};
 }
