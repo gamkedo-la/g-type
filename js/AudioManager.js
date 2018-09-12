@@ -10,14 +10,15 @@ const menuMusic = new musicTrackLoop("PrepareToStrike-v1", 208.976, {author: "Jo
 //menuMusic.setVolume(0.2);
 
 const currentBackgroundMusic = new musicContainer([menuMusic/*, retroDream, dreamPunk, nightMusic, forestRock, drjuno, gameOver*/]);
+menuMusic.setVolume(0.6);
 
 const pauseSound = new sfxClipSingle("PauseSound");
 pauseSound.setVolume(0.4);
 const resumeSound = new sfxClipSingle("ResumeSound");
 resumeSound.setVolume(0.4);
-const playerFireRegular = new sfxClipSingle("PlayerFireRegular");
+const playerFireRegular = new sfxClipOverlap("PlayerFireRegular", 3);
 playerFireRegular.setVolume(0.6);
-const enemySmallExplosion = new sfxClipSingle("EnemySmallExplosion");
+const enemySmallExplosion = new sfxClipOverlap("EnemySmallExplosion", 3);
 enemySmallExplosion.setVolume(0.6);
 const playerExplosion = new sfxClipSingle("PlayerExplosion");
 playerExplosion.setVolume(0.6);
