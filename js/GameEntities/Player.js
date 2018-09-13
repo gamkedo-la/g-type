@@ -17,7 +17,9 @@ function Player(position = {x:0, y:0}) {
 	const explosionSprite = new AnimatedSprite(playerBoom2Sheet, 13, 80, 80, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max: 12}, 64);
 	explosionSprite.wasBorn = true;
 	explosionSprite.isDying = true;
-	const SPRITE_SCALE = 1; //TODO: would like to increase the size of the sprite and change this back to 1.
+	let explosionEmitter = 0;
+	
+	const SPRITE_SCALE = 1;
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	let hasShield = false;//TODO: doesn't ever change because "shield" power up hasn't been implemented yet
 	
@@ -25,17 +27,15 @@ function Player(position = {x:0, y:0}) {
 	const MAX_SHOTS_ON_SCREEN = 10;//TODO: maybe this should be adjustable as a power up or part of the "speed up" power up?
 	const INVINCIBLE_TIME = 1500;//in milliseconds
 	
-	let currentShotDelay = 256;//TODO: Implement a power up which makes player shoot faster (maybe part of laser?)
+	const BASE_SHOT_DELAY = 128;
+	const DELAY_MULTIPLIER = 5
+	let currentShotDelay = DELAY_MULTIPLIER * BASE_SHOT_DELAY;
 	let isInvincible = false;
 
 	const velocity = {x:0, y:0};
 	const shots = [];
 
-	this.forceUnit = new PlayerForceUnit({x:0, y:0});
-	this.forceUnit.parentObj = this;	// Give the force unit a reference to "this", so we can update its position based on the ship's position
-	this.forceUnitActive = false;		// TODO control force unit being active/inactive using powerups and such
-
-	let currentSpeed = BASE_SPEED;//TODO: Adjust this when the player chooses the "speed up" power up, need to reset it to base when the player dies
+	let currentSpeed = BASE_SPEED;
 	
 	this.position = {x: position.x, y: position.y};
 	
@@ -51,14 +51,6 @@ function Player(position = {x:0, y:0}) {
 	let unusedTime = 0;//time left over from last call to this.update, helps smooth movement with variable frame rate
 	
 	this.update = function(deltaTime, worldPos) {
-		// TODO remove the hardcoding of forceUnitActive,
-		//and the adding of the force unit Collider to the
-		//collision manager -- the code is here for testing purposes
-		if (this.forceUnitActive === false) {	// TODO control force unit being active/inactive using powerups and such
-			this.forceUnitActive = true;	// Note: activating the force unit in update() out of "necessity" (couldn't do it in Player's constructor, because Player is instantiated in scene's constructor. i.e., scene is not a complete/ready object at the point the Player ctor is called)
-			scene.addEntity(this.forceUnit);	// TODO move this function call into a function, e.g., when the player picks up a force unit powerup. Also, add the necessary call to remove the entity if the player gets blown up
-		}
-		
 		sprite.update(deltaTime);//update the image
 		
 		if(sprite.isDying) {
@@ -70,6 +62,8 @@ function Player(position = {x:0, y:0}) {
 			scene.removePlayer();
 			sprite.isDying = false;
 			scene.endShake();
+			const emitterIndex = ParticleEmitterManager.pool.indexOf(explosionEmitter);
+			ParticleEmitterManager.returnEmitterToPool(emitterIndex);
 			if(playerExplosion.getTime() <= 0) {
 				playerExplosion.play();
 			}
@@ -178,6 +172,7 @@ function Player(position = {x:0, y:0}) {
 			}
 			
 			let secondShot;
+			const secondVel = {x:150, y:-150};
 			if(shots.length === MAX_SHOTS_ON_SCREEN) {
 				//basically a pool of shots, grab the oldest one
 				secondShot = shots.splice(0, 1)[0];
@@ -187,6 +182,7 @@ function Player(position = {x:0, y:0}) {
 			}
 			
 			let thirdShot;
+			const thirdVel = {x:-200, y:0};
 			if(shots.length === MAX_SHOTS_ON_SCREEN) {
 				//basically a pool of shots, grab the oldest one
 				thirdShot = shots.splice(0, 1)[0];
@@ -194,64 +190,26 @@ function Player(position = {x:0, y:0}) {
 				//not enough shots in the pool, so make a new one
 				thirdShot = new PlayerShot();
 			}
-			
-			//initialize the newShot (whether it is new or pulled from the pool)
-//			newShot.resetWithType(this.currentShotType);
-//			scene.addEntity(newShot, true);
-			
+						
 			switch(this.currentShotType)
 			{
 				case EntityType.PlayerShot:
-					newShot.resetWithType(this.currentShotType);
-					scene.addEntity(newShot, true);
-					newShot.setPosition({x:this.position.x + 75, y:this.position.y + 6});
-					newShot.setVelocity({x: 200, y: 0});
-					shots.push(newShot);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 75, y:this.position.y + 6}, {x: 200, y: 0}, false);
 					break;
 				case EntityType.PlayerDouble:
-					console.log("Player Double");
-					newShot.resetWithType(this.currentShotType);
-					scene.addEntity(newShot, true);
-					newShot.setPosition({x:this.position.x + 75, y:this.position.y + 6});
-					newShot.setVelocity({x: 200, y: 0});
-					shots.push(newShot);
-					secondShot.resetWithType(this.currentShotType);
-					scene.addEntity(secondShot, true);
-					secondShot.setPosition({x:this.position.x + 75, y:this.position.y + 6});
-					secondShot.setVelocity({x: 150, y: -150});
-					shots.push(secondShot);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 75, y:this.position.y + 6}, {x: 200, y: 0}, false);
+					initializeShot(secondShot, this.currentShotType, {x:this.position.x + 75, y:this.position.y + 6}, {x: secondVel.x, y: secondVel.y}, true);
 					break;
 				case EntityType.PlayerLaser:
-					newShot.resetWithType(this.currentShotType);
-					scene.addEntity(newShot, true);
-					newShot.setPosition({x:this.position.x + 65, y:this.position.y + 15});
-					newShot.setVelocity({x: 600, y: 0});
-					shots.push(newShot);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 65, y:this.position.y + 15}, {x: 600, y: 0}, false);
 					break;
 				case EntityType.PlayerTriple:
-					newShot.resetWithType(this.currentShotType);
-					scene.addEntity(newShot, true);
-					newShot.setPosition({x:this.position.x + 75, y:this.position.y + 6});
-					newShot.setVelocity({x: 200, y: 0});
-					shots.push(newShot);
-					secondShot.resetWithType(this.currentShotType);
-					scene.addEntity(secondShot, true);
-					secondShot.setPosition({x:this.position.x + 75, y:this.position.y + 6});
-					secondShot.setVelocity({x: 150, y: -50});
-					shots.push(secondShot);
-					thirdShot.resetWithType(this.currentShotType);
-					scene.addEntity(thirdShot, true);
-					thirdShot.setPosition({x:this.position.x - thirdShot.size.width, y:this.position.y + 6});
-					thirdShot.setVelocity({x: -200, y: 0});
-					thirdShot.rotation = Math.PI;
-					shots.push(thirdShot);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 75, y:this.position.y + 6}, {x: 200, y: 0}, false);
+					initializeShot(secondShot, this.currentShotType, {x:this.position.x + 75, y:this.position.y + 6}, {x: secondVel.x, y: secondVel.y}, true);
+					initializeShot(thirdShot, this.currentShotType, {x:this.position.x - thirdShot.size.width, y:this.position.y + 6}, {x: thirdVel.x, y: thirdVel.y}, true);
 					break;
 				default:
-					newShot.resetWithType(this.currentShotType);
-					scene.addEntity(newShot, true);
-					newShot.setPosition({x:this.position.x + 75, y:this.position.y + 6});
-					newShot.setVelocity({x: 200, y: 0});
-					shots.push(newShot);
+					initializeNewShot(newShot, this.currentShotType, {x:this.position.x + 75, y:this.position.y + 6}, {x: 200, y: 0});
 					break;
 			}
 						
@@ -260,6 +218,15 @@ function Player(position = {x:0, y:0}) {
 		}
 	};
 	
+	const initializeShot = function(shot, shotType, shotPos, shotVel, isRotated) {
+		shot.resetWithType(shotType);
+		scene.addEntity(shot, true);
+		shot.setPosition({x:shotPos.x, y:shotPos.y});
+		shot.setVelocity({x: shotVel.x, y: shotVel.y});
+		if(isRotated) {shot.rotation = Math.atan2(-shotVel.y, shotVel.x);}
+		shots.push(shot);
+	}
+		
 	this.adjustVelocityAndSpriteForPlayerInput = function() {
 		//indicates the sprite is NOT "playing" the death animation => can still fly around the screen and shoot
 		if(holdLeft) {
@@ -285,6 +252,17 @@ function Player(position = {x:0, y:0}) {
 		this.currentShotType = newShotType;
 	};
 	
+	this.activateTheForce = function() {
+		if((this.forcUnit === null) || (this.foceUnit === undefined)) {
+			this.forceUnit = new PlayerForceUnit({x:0, y:0});
+			// Give the force unit a reference to "this", so we can update its position based on the ship's position
+			this.forceUnit.parentObj = this;
+		}
+
+		this.forceUnitActive = true;
+		scene.addEntity(this.forceUnit);
+	};
+	
 	this.didCollideWith = function(otherEntity) {
 		if(otherEntity.type === EntityType.Capsule1) {
 			scene.collectedCapsule();
@@ -300,9 +278,7 @@ function Player(position = {x:0, y:0}) {
 				scene.shouldShake(MAX_SHAKE_MAGNITUDE);
 				sprite.isDying = true;
                 playerExplosion.play();
-				/*explosionSprite.isDying = true;
-				explosionSprite.drawAt({x:this.position.x + this.size.width * 0.5, y:this.position.y + this.size.width * 0.5}, {width: explosionSprite.width, height: explosionSprite.height});*/
-				createParticleEmitter(this.position.x + this.size.width / 2,this.position.y + this.size.height / 2, exampleExplosion);
+				explosionEmitter = createParticleEmitter(this.position.x + this.size.width / 2,this.position.y + this.size.height / 2, exampleExplosion);
 			}
 		}
 	};
@@ -311,26 +287,48 @@ function Player(position = {x:0, y:0}) {
 		let multiplier = currentSpeed / BASE_SPEED;
 		multiplier += 1.0;
 		currentSpeed = multiplier * BASE_SPEED;
+		
+		let delayMultiplier = currentShotDelay / BASE_SHOT_DELAY;
+		delayMultiplier -= 0.5;
+		if(delayMultiplier < 2) {
+			delayMultiplier = 2;
+		}
+		currentShotDelay = delayMultiplier * BASE_SHOT_DELAY;
 	}
 	
 	//helper function to restore the player to initial state (restart/continue/new life/etc)
 	this.reset = function() {
+		//clear all power ups and player shots on screen
 		this.clearPowerUps();
 		this.clearBullets();
+		
+		//reset the player's position
 		this.position.x = GameField.x;
 		this.position.y = GameField.midY;
+		
+		//reset the player sprite
 		sprite.clearDeath();
 		explosionSprite.clearDeath();
 		explosionSprite.wasBorn = true;
 		explosionSprite.isDying = true;
 		
+		//give the player a short period of invincibility	
 		this.setInvincible(true);
 	};
 	
 	this.clearPowerUps = function() {
-		//TODO: implement this
+		//reset player shot to the base shot type
 		this.currentShotType = EntityType.PlayerShot;
+		
+		//restore player speed and shooting rate to base values
 		currentSpeed = BASE_SPEED;
+		currentShotDelay = DELAY_MULTIPLIER * BASE_SHOT_DELAY;
+		
+		//remove The Force from the scene and Collision manager & make it Inactive
+		if((this.forceUnit !== null) && (this.forceUnit !== undefined)) {
+			scene.removeEntity(this.forceUnit);
+			this.forceUnitActive = false;
+		}
 	};
 	
 	this.clearBullets = function() {

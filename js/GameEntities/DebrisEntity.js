@@ -50,7 +50,6 @@ function DebrisEntity(sprite, position = {x:0, y:0}, spawnPos = 0, speed = 4, sc
 
 	this.respawn = function(worldPos) {
 		if(worldPos > spawnPos) {
-			console.log('respawn debris', this.position);
 			this.worldPos = worldPos;
 			this.position.x -= (worldPos - spawnPos);
 		}

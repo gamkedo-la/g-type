@@ -14,7 +14,7 @@ const PowerUpType = {
 //UI Manager
 function UIManager() {
 	let page = 0;
-	const PAGES = Object.keys(PowerUpType).length;
+	const PAGES = Math.ceil(Object.keys(PowerUpType).length / 3);
 	let elements = [];
 	let highlightedIndex = -1;
 	let powerUpToActivate = PowerUpType.None;
@@ -29,6 +29,7 @@ function UIManager() {
 	
 	const updateContents = function() {
 		const types = Object.values(PowerUpType);
+		
 		elements[0].setContents(types[1 + (3 * page)]);
 		elements[2].setContents(types[2 + (3 * page)]);
 		elements[4].setContents(types[3 + (3 * page)]);
@@ -62,8 +63,8 @@ function UIManager() {
 		if(highlightedIndex >= elements.length) {
 			highlightedIndex = 0;
 			page++;
-			updateContents();
 			if(page == PAGES) {page = 0;}
+			updateContents();
 		}
 		
 		if((highlightedIndex != 1) && (highlightedIndex != 3)) {

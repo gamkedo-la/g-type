@@ -8,7 +8,6 @@ function SpacerUI(position, highlighted = false) {
 	
 	let sprite = darkSprite;
 	if(isLit) {
-		console.log("Lit");
 		sprite = lightSprite;
 	}
 	

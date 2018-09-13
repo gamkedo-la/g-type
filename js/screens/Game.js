@@ -4,7 +4,6 @@ function GamePlayScreen () {
     this.transitionIn = function gamePlayScreenTransitionIn() {
 	    remainingLives = 2;
 
-	    console.log('ttransin?');
         if(scene === null || scene === undefined) {
             scene = new GameScene(currentLevelIndex);
         } else {

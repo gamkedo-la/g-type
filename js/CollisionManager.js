@@ -64,6 +64,8 @@ function CollisionManager(player) {
 			removeEnemyBullet(entityToRemove);
 		} else if(entityToRemove.type === EntityType.RhombusBoulder) {//Need to check for all other terrain types here
 			removeTerrain(entityToRemove);
+		} else if(entityToRemove.type === EntityType.PlayerForceUnit) {
+			this.playerForceUnit = null;
 		}
 
 		if(entities.has(entityToRemove)) {
@@ -86,7 +88,6 @@ function CollisionManager(player) {
 	};
 
 	const removeTerrain = function(terrainToRemove) {
-		console.log("Removing Terrain");
 		if(terrain.has(terrainToRemove)) {
 			terrain.delete(terrainToRemove);
 
@@ -135,7 +136,7 @@ function CollisionManager(player) {
 			}
 
 			// Do force unit collision check against other entities (but, of course, not the player)
-			if (this.playerForceUnit) {
+			if (this.playerForceUnit !== null) {
 				const forceUnitBody = this.playerForceUnit.collisionBody;
 				if(withinSquareRadii(entity.collisionBody, forceUnitBody)) {
 					//if both objects are circles, the above check is a valid collision

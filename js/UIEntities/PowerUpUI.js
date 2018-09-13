@@ -9,7 +9,6 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None) {
 	
 	let sprite = darkSprite;
 	if(isLit) {
-		console.log("Lit");
 		sprite = lightSprite;
 	}
 	
@@ -35,9 +34,10 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None) {
 			case PowerUpType.Ghost:
 				return null;//TODO: need a spritesheet for this
 			case PowerUpType.Shield:
-				return null;//TODO: need a spritesheet for this
-			case PowerUpType.Force:
 				return null;//TODO: need a spritesheet for this*/
+			case PowerUpType.Force:
+				return (new AnimatedSprite(forceUnitSheet, 1, 48, 48));
+				return null;//TODO: need a spritesheet for this
 			default://TODO: remove this, it is just for testing
 				return (new AnimatedSprite(playerLaserShot, 13, 28, 6, false, true, {min:0, max:0}, 0, {min:0, max:12}, 128, {min:13, max:18}, 64));			
 		}
