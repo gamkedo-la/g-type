@@ -13,17 +13,17 @@ function Player(position = {x:0, y:0}) {
 	this.type = EntityType.Player;
 	this.currentShotType = EntityType.PlayerShot;
 	
-	const sprite = new AnimatedSprite(player1Sheet, 6, 60, 38, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:3, max:5}, 128);
+	const sprite = new AnimatedSprite(player1Sheet, 6, 120, 76, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:3, max:5}, 128);
 	const explosionSprite = new AnimatedSprite(playerBoom2Sheet, 13, 80, 80, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max: 12}, 64);
 	explosionSprite.wasBorn = true;
 	explosionSprite.isDying = true;
 	let explosionEmitter = 0;
 	
-	const SPRITE_SCALE = 1;
+	const SPRITE_SCALE = 0.60;//make sure to change the x and y position of the playershot to match scaling
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	let hasShield = false;//TODO: doesn't ever change because "shield" power up hasn't been implemented yet
 	
-	const BASE_SPEED = 75;//essentially pixels per second
+	const BASE_SPEED = 90;//essentially pixels per second
 	const MAX_SHOTS_ON_SCREEN = 10;//TODO: maybe this should be adjustable as a power up or part of the "speed up" power up?
 	const INVINCIBLE_TIME = 1500;//in milliseconds
 	
@@ -194,22 +194,22 @@ function Player(position = {x:0, y:0}) {
 			switch(this.currentShotType)
 			{
 				case EntityType.PlayerShot:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 75, y:this.position.y + 6}, {x: 200, y: 0}, false);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 13}, {x: 200, y: 0}, false);
 					break;
 				case EntityType.PlayerDouble:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 75, y:this.position.y + 6}, {x: 200, y: 0}, false);
-					initializeShot(secondShot, this.currentShotType, {x:this.position.x + 75, y:this.position.y + 6}, {x: secondVel.x, y: secondVel.y}, true);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 13}, {x: 200, y: 0}, false);
+					initializeShot(secondShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 6}, {x: secondVel.x, y: secondVel.y}, true);
 					break;
 				case EntityType.PlayerLaser:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 65, y:this.position.y + 15}, {x: 600, y: 0}, false);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 76, y:this.position.y + 13}, {x: 600, y: 0}, false);
 					break;
 				case EntityType.PlayerTriple:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 75, y:this.position.y + 6}, {x: 200, y: 0}, false);
-					initializeShot(secondShot, this.currentShotType, {x:this.position.x + 75, y:this.position.y + 6}, {x: secondVel.x, y: secondVel.y}, true);
-					initializeShot(thirdShot, this.currentShotType, {x:this.position.x - thirdShot.size.width, y:this.position.y + 6}, {x: thirdVel.x, y: thirdVel.y}, true);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 13}, {x: 200, y: 0}, false);
+					initializeShot(secondShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 13}, {x: secondVel.x, y: secondVel.y}, true);
+					initializeShot(thirdShot, this.currentShotType, {x:this.position.x - thirdShot.size.width, y:this.position.y + 13}, {x: thirdVel.x, y: thirdVel.y}, true);
 					break;
 				default:
-					initializeNewShot(newShot, this.currentShotType, {x:this.position.x + 75, y:this.position.y + 6}, {x: 200, y: 0});
+					initializeNewShot(newShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 6}, {x: 200, y: 0});
 					break;
 			}
 						
