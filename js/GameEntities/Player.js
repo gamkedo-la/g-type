@@ -201,7 +201,7 @@ function Player(position = {x:0, y:0}) {
 					initializeShot(secondShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 6}, {x: secondVel.x, y: secondVel.y}, true);
 					break;
 				case EntityType.PlayerLaser:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 76, y:this.position.y + 13}, {x: 600, y: 0}, false);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 74, y:this.position.y + 22}, {x: 600, y: 0}, false);
 					break;
 				case EntityType.PlayerTriple:
 					initializeShot(newShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 13}, {x: 200, y: 0}, false);
