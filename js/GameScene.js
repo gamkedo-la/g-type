@@ -267,9 +267,8 @@ function GameScene(levelIndex) {
 				player.incrementSpeed();
 				break;
 			case PowerUpType.Missile:
-				//player.[Give The Player Missiles];//TODO: implement this
+				player.setHasMissiles(true);
 				console.log("Tried to give the player Missiles");
-				powerUpToActivate = PowerUpType.None;
 				break;
 			case PowerUpType.Double:
 				player.setShotTo(EntityType.PlayerDouble);

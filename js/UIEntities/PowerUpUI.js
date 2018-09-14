@@ -22,7 +22,7 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None) {
 				return (new AnimatedSprite(flyingEnemySheet, 5, 30, 21, true, true, {min:0, max:0}, 0, {min:0, max:4}, 128, {min:4, max:4}, 0));
 				return null;//TODO: need a spritesheet for this
 			case PowerUpType.Missile:
-				return (new AnimatedSprite(missileSheet, 3, 50, 28, true, true, {min:0, max:0}, 0, {min:0, max:2}, 512, {min:2, max:2}, 0));
+				return (new AnimatedSprite(missileSheet, 5, 35, 19, true, true, {min:0, max:0}, 0, {min:0, max:2}, 512, {min:2, max:2}, 0));
 				return null;//TODO: need a spritesheet for this
 			case PowerUpType.Double:
 				return (new AnimatedSprite(playerBoom2Sheet, 13, 80, 80, false, true, {min:0, max:0}, 0, {min:0, max:12}, 64, {min:12, max: 12}, 0));

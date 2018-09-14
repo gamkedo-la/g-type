@@ -21,6 +21,7 @@ function Player(position = {x:0, y:0}) {
 	
 	const SPRITE_SCALE = 0.60;//make sure to change the x and y position of the playershot to match scaling
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+	let hasMissiles = false;
 	let hasShield = false;//TODO: doesn't ever change because "shield" power up hasn't been implemented yet
 	
 	const BASE_SPEED = 90;//essentially pixels per second
@@ -34,6 +35,7 @@ function Player(position = {x:0, y:0}) {
 
 	const velocity = {x:0, y:0};
 	const shots = [];
+	const missiles = [];
 
 	let currentSpeed = BASE_SPEED;
 	
@@ -78,6 +80,10 @@ function Player(position = {x:0, y:0}) {
 			//update all player shots
 			for(let i = 0; i < shots.length; i++) {
 				shots[i].update(deltaTime, worldPos);
+			}
+			
+			for(let i = 0; i < missiles.length; i++) {
+				missiles[i].update(deltaTime, worldPos);
 			}
 			
 			//increment player position based on elapsed time calculated velocities
@@ -135,6 +141,10 @@ function Player(position = {x:0, y:0}) {
 		//draw player shots
 		for(let i = 0; i < shots.length; i++) {
 			shots[i].draw();
+		}
+		
+		for(let i = 0; i < missiles.length; i++) {
+			missiles[i].draw();
 		}
 	};
 	
@@ -211,6 +221,21 @@ function Player(position = {x:0, y:0}) {
 				default:
 					initializeNewShot(newShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 6}, {x: 200, y: 0});
 					break;
+			}
+			
+			if(hasMissiles) {
+				let newMissile
+				if(missiles.length === MAX_SHOTS_ON_SCREEN) {
+					newMissile = missiles.splice(0, 1)[0];
+					newMissile.setPosition({x:this.position.x, y:this.position.y});
+					newMissile.setVelocity({x:100, y:150});
+				} else {
+					newMissile = new PlayerMissile({x:this.position.x, y:this.position.y}, {x:100, y:150});
+				}
+				
+				newMissile.reset();
+				missiles.push(newMissile);
+				scene.addEntity(newMissile, true);
 			}
 						
 			timer.updateEvent(PlayerEvent.LastShot);
@@ -296,6 +321,10 @@ function Player(position = {x:0, y:0}) {
 		currentShotDelay = delayMultiplier * BASE_SHOT_DELAY;
 	}
 	
+	this.setHasMissiles = function(hasMiss) {
+		hasMissiles = hasMiss;
+	}
+	
 	//helper function to restore the player to initial state (restart/continue/new life/etc)
 	this.reset = function() {
 		//clear all power ups and player shots on screen
@@ -324,6 +353,10 @@ function Player(position = {x:0, y:0}) {
 		currentSpeed = BASE_SPEED;
 		currentShotDelay = DELAY_MULTIPLIER * BASE_SHOT_DELAY;
 		
+		//clear Missiles and Shields Flags
+		hasMissiles = false;
+		hasShield = false;
+		
 		//remove The Force from the scene and Collision manager & make it Inactive
 		if((this.forceUnit !== null) && (this.forceUnit !== undefined)) {
 			scene.removeEntity(this.forceUnit);
@@ -335,6 +368,11 @@ function Player(position = {x:0, y:0}) {
 		for(let i = 0; i < shots.length; i++) {
 			shots[i].isVisible = false;
 			shots[i].isActive = false;
+		}
+		
+		for(let i = 0; i < missiles.length; i++) {
+			missiles[i].isVisible = false;
+			missiles[i].isActive = false;
 		}
 	};
 	

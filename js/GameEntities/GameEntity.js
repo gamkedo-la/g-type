@@ -11,6 +11,7 @@ const EntityType = {
 	//Player
 	Player:"player",
 	PlayerShot:"playerShot",
+	PlayerMissile:"playerMissile",
 	PlayerDouble:"playerDouble",
 	PlayerLaser:"playerLaser",
 	PlayerTriple:"playerTriple",
@@ -263,6 +264,7 @@ function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, retu
 		const entityType = otherEntity.type;
 		if ((entityType === EntityType.PlayerForceUnit) ||
 			(entityType === EntityType.PlayerShot) || 
+			(entityType === EntityType.PlayerMissile) || 
 			(entityType === EntityType.PlayerDouble) || 
 			(entityType === EntityType.PlayerLaser) || 
 			(entityType === EntityType.PlayerTriple)) {

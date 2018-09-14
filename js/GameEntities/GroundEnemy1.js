@@ -118,6 +118,7 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 			let entityType = otherEntity.type;
 			if ((entityType === EntityType.PlayerForceUnit) ||
 				(entityType === EntityType.PlayerShot) || 
+				(entityType === EntityType.PlayerMissile) || 
 				(entityType === EntityType.PlayerDouble) || 
 				(entityType === EntityType.PlayerLaser) || 
 				(entityType === EntityType.PlayerTriple)) {
