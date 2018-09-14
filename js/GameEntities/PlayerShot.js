@@ -49,7 +49,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	
 	this.update = function(deltaTime, worldPos) {
 		if(this.worldPos == null) {
-				this.worldPos = worldPos;
+			this.worldPos = worldPos;
 		}
 
 		if(sprite.getDidDie()) {
@@ -154,10 +154,8 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	this.didCollideWith = function(otherEntity) {
 		if((this.collisionBody == null) || (otherEntity.collisionBody == null)) {return false;}
 		
-		if(this.type === EntityType.PlayerLaser) {
-			this.resetWithType(EntityType.PlayerShot);
-		} else {
-			didCollide = true;
+		this.shotLife--;
+		if(this.shotLife === 0) {
 			sprite.isDying = true;
 			vel = {x:0, y:0};
 		}
