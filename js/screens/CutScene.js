@@ -4,7 +4,7 @@ function CutSceneScreen() {
 
     let starfield;
     let playerSprite;
-    const PLAYER_SCALE = 2;
+    const PLAYER_SCALE = 1.2;
     let planetSprite;
     let playerSpriteDeltaX = 0;
     let playerSpriteDeltaY = 0;
