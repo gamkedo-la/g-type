@@ -126,6 +126,7 @@ function MenuScreen() {
 	const drawBG = function menuScreenDrawBG() {
         // fill the background since there is no image for now
         drawRect(GameField.x, GameField.y - GameField.bgOffset, GameField.width, GameField.height + GameField.bgOffset, MENU_BG_COLOR);
+        canvasContext.drawImage(backgroundColorLookup,150,0,16,100,0,0,canvas.width,canvas.height);
     };
     
     const drawTitle = function() {
