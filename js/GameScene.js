@@ -251,7 +251,7 @@ function GameScene(levelIndex) {
 			}
 		}		
 	};
-		
+	// Just doing a quick GitHub Desktop app check-in, will delete in a moment	
 	this.activatePowerUp = function() {
 		if(!uiManager.getCanActivatePowerUp()) {
 			//play buzzer => can't activate a power up right now
