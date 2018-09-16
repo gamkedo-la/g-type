@@ -22,6 +22,8 @@ const enemySmallExplosion = new sfxClipOverlap("EnemySmallExplosion", 3);
 enemySmallExplosion.setVolume(0.6);
 const playerExplosion = new sfxClipSingle("PlayerExplosion");
 playerExplosion.setVolume(0.6);
+const bubbleExplosion = new sfxClipSingle("bubble");
+bubbleExplosion.setVolume(0.4);
 
 //const uiSelect = new sfxClipSingle("uiSelect");
 

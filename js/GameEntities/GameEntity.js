@@ -271,6 +271,7 @@ function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, retu
 
 			didCollide = true;
 			sprite.isDying = true;
+			bubbleExplosion.play();
 			scene.removeCollisions(this);
 		}
 	};
