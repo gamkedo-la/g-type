@@ -8,11 +8,11 @@ const LevelData = [
 
 			const firstGroup = new EnemyGroup();
 			
-			enemies.push(firstGroup.add(new FlyingEnemy2({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 0, 0, 1)));
-			enemies.push(firstGroup.add(new FlyingEnemy2({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 600, 0, 1)));
-			enemies.push(firstGroup.add(new FlyingEnemy2({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 1200, 0, 1)));
-			enemies.push(firstGroup.add(new FlyingEnemy2({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 1800, 0, 1)));
-			enemies.push(firstGroup.add(new FlyingEnemy2({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 2400, 0, 1)));
+			enemies.push(firstGroup.add(new FlyingEnemy2({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 0, 0, 10)));
+			enemies.push(firstGroup.add(new FlyingEnemy2({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 600, 0, 10)));
+			enemies.push(firstGroup.add(new FlyingEnemy2({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 1200, 0, 10)));
+			enemies.push(firstGroup.add(new FlyingEnemy2({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 1800, 0, 10)));
+			enemies.push(firstGroup.add(new FlyingEnemy2({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 2400, 0, 10)));
 			
 			const secondGroup = new EnemyGroup();
 
@@ -46,7 +46,11 @@ const LevelData = [
 		initializeTerrain: function() {
 			const world = [];
 			world.push(new Capsule({x: GameField.right + 50, y: GameField.y + GameField.height / 5}, 0));
+			world.push(new Capsule({x: GameField.right + 50, y: GameField.y + 4 * GameField.height / 5}, 100));
+			world.push(new Capsule({x: GameField.right + 50, y: GameField.y + GameField.height / 5}, 200));
 			world.push(new Capsule({x: GameField.right + 50, y: GameField.y + 4 * GameField.height / 5}, 300));
+			world.push(new Capsule({x: GameField.right + 50, y: GameField.y + 4 * GameField.height / 5}, 1000));
+			world.push(new Capsule({x: GameField.right + 50, y: GameField.y + 4 * GameField.height / 5}, 1100));
 			
 			world.push(new TerrainEntity(EntityType.Rock01, {x: GameField.right + 50, y: GameField.midY - 60}, 100, 2));
 			world.push(new TerrainEntity(EntityType.RhombusBoulder, {x: GameField.right + 50, y: GameField.midY - 120}, 600, 2));

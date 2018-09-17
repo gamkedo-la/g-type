@@ -1,6 +1,7 @@
 //Image Loading
 //UI
-const gameFrame = document.createElement("img");
+const gameFrame1 = document.createElement("img");
+const gameFrame2 = document.createElement("img");
 const lightedPowerUpUI = document.createElement("img");
 const darkPowerUpUI = document.createElement("img");
 const lightedSpacerUI = document.createElement("img");
@@ -58,7 +59,8 @@ function beginLoadingImage(imgVar, fileName) {
 function loadImages() {
     const imageList = [
 	    //UI 
-        { imgName: gameFrame, theFile: "TempGameUI.png" },	    
+        { imgName: gameFrame1, theFile: "GameUIFrame1.png" },	    
+        { imgName: gameFrame2, theFile: "GameUIFrame1.png" },	    
         { imgName: lightedPowerUpUI, theFile: "LightedPowerUpUI.png" },	    
         { imgName: darkPowerUpUI, theFile: "DarkPowerUpUI.png" },	    
         { imgName: lightedSpacerUI, theFile: "LightedSpacerUI.png" },	    

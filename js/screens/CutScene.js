@@ -83,7 +83,7 @@ function CutSceneScreen() {
         
         playerSprite.drawAt({x:GameField.x + GameField.width / 8 + playerSpriteDeltaX, y: GameField.y + 2 * GameField.height / 3 + playerSpriteDeltaY}, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
         
-		canvasContext.drawImage(gameFrame, 0, 0, gameFrame.width, gameFrame.height, 0, 0, canvas.width, canvas.height);
+		canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
         
         planetSprite.drawAt({x:GameField.x + 4 * GameField.width / 5, y:GameField.y + GameField.height / 5}, {width:planetScale * planetSprite.width, height:planetScale * planetSprite.height});
 	};

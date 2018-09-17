@@ -120,7 +120,7 @@ function OptionsScreen() {
         //draw selector sprite
         selectorSprite.drawAt(selectorPosition, {width:30, height:19});
 
-		canvasContext.drawImage(gameFrame, 0, 0, gameFrame.width, gameFrame.height, 0, 0, canvas.width, canvas.height);
+		canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
 	};
 	
 	const drawBG = function menuScreenDrawBG() {

@@ -81,7 +81,7 @@ function UIManager() {
 	};
 	
 	this.draw = function() {
-		canvasContext.drawImage(gameFrame, 0, 0, gameFrame.width, gameFrame.height, 0, 0, canvas.width, canvas.height);
+		canvasContext.drawImage(gameFrame2, 0, 0, gameFrame2.width, gameFrame2.height, 0, 0, canvas.width, canvas.height);
 
 		for(let i = 0; i < elements.length; i++) {
 			elements[i].draw();
