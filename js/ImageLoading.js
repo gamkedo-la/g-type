@@ -60,7 +60,7 @@ function loadImages() {
     const imageList = [
 	    //UI 
         { imgName: gameFrame1, theFile: "GameUIFrame1.png" },	    
-        { imgName: gameFrame2, theFile: "GameUIFrame1.png" },	    
+        { imgName: gameFrame2, theFile: "GameUIFrame2.png" },	    
         { imgName: lightedPowerUpUI, theFile: "LightedPowerUpUI.png" },	    
         { imgName: darkPowerUpUI, theFile: "DarkPowerUpUI.png" },	    
         { imgName: lightedSpacerUI, theFile: "LightedSpacerUI.png" },	    
