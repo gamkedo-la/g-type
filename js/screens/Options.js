@@ -130,14 +130,14 @@ function OptionsScreen() {
     };
     
     const drawTitle = function() {
-	    colorText(gameTitle.Main, GameField.midX, GameField.y + GameField.height / 6, Color.White, Fonts.MainTitle, textAlignment.Center);
-	    colorText(gameTitle.Subtitle, GameField.midX, GameField.y + GameField.height / 6 + 40, Color.White, Fonts.Subtitle, textAlignment.Center);
+	    gameFont.printTextAt(gameTitle.Main, {x:GameField.midX, y:(GameField.y + 60)}, 30, textAlignment.Center);
+	    gameFont.printTextAt(gameTitle.Subtitle, {x:GameField.midX, y:(GameField.y + 120)}, 30, textAlignment.Center);
     };
     
     const drawHelp = function() {
-	    colorText("audio volume", GameField.midX, GameField.midY, Color.White, Fonts.Subtitle, textAlignment.Center);
-	    colorText("music", GameField.midX, GameField.midY+30, Color.White, Fonts.Subtitle, textAlignment.Center);
-	    colorText("graphics", GameField.midX, GameField.midY+60, Color.White, Fonts.Subtitle, textAlignment.Center);
+	    gameFont.printTextAt("volume", {x:GameField.midX, y:(GameField.y + 60 + GameField.height / 4)}, 25, textAlignment.Center);
+	    gameFont.printTextAt("music", {x:GameField.midX, y:(GameField.y + 120 + GameField.height / 4)}, 25, textAlignment.Center);
+	    gameFont.printTextAt("SFX", {x:GameField.midX, y:(GameField.y + 180 + GameField.height / 4)}, 25, textAlignment.Center);
     };
         
     return this;
