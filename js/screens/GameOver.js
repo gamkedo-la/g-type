@@ -84,10 +84,11 @@ function GameOverScreen() {
 	    let buttonsXOffset = mainMenuX + 70;
 
 	    for (let i = 0; i < menuItems.length; i++){
-		    colorText(menuItems[i].title, mainMenuX, mainMenuY + selectorYOffset * i, Color.White, Fonts.ButtonTitle, textAlignment.Left);
+    	    gameFont.printTextAt(menuItems[i].title, {x:mainMenuX, y: (mainMenuY + selectorYOffset * i)}, 20,  textAlignment.Left);
+//		    colorText(menuItems[i].title, mainMenuX, mainMenuY + selectorYOffset * i, Color.White, Fonts.ButtonTitle, textAlignment.Left);
 		    if(i === selected) {
 			    selectorPosition.x = mainMenuX - 35;
-			    selectorPosition.y = mainMenuY + selectorYOffset * i - 15;
+			    selectorPosition.y = mainMenuY + selectorYOffset * i;
 		    }
 	    }
 	};
@@ -116,6 +117,8 @@ function GameOverScreen() {
         selectorSprite.drawAt(selectorPosition, {width:30, height:19});
 
 		canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
+		
+		gameFont.printTextAt(textStrings.GameOver, {x:GameField.midX, y:GameField.y - 20}, 35, textAlignment.Center);
 	};
 	
 	const drawBG = function menuScreenDrawBG() {
