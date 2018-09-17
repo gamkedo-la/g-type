@@ -135,7 +135,9 @@ function OptionsScreen() {
     };
     
     const drawHelp = function() {
-	    colorText("Hmmm...Not a lot of choices here...", GameField.midX, GameField.midY, Color.White, Fonts.Subtitle, textAlignment.Center);
+	    colorText("audio volume", GameField.midX, GameField.midY, Color.White, Fonts.Subtitle, textAlignment.Center);
+	    colorText("music", GameField.midX, GameField.midY+30, Color.White, Fonts.Subtitle, textAlignment.Center);
+	    colorText("graphics", GameField.midX, GameField.midY+60, Color.White, Fonts.Subtitle, textAlignment.Center);
     };
         
     return this;
