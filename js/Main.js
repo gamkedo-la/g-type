@@ -34,6 +34,7 @@ function windowOnFocus() {
 function loadingDoneSoStartGame() {
 	window.focus();
 	timer = new Chronogram();
+	gameFont = new GameFont(fontImage, {width:16, height:16}, canvasContext);
     
     ScreenStates.setState(MENU_SCREEN);
 }

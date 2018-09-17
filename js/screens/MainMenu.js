@@ -87,10 +87,10 @@ function MenuScreen() {
 	    let buttonsXOffset = mainMenuX + 70;
 
 	    for (let i = 0; i < menuItems.length; i++){
-		    colorText(menuItems[i].title, mainMenuX, mainMenuY + selectorYOffset * i, Color.White, Fonts.ButtonTitle, textAlignment.Left);
+		    gameFont.printTextAt(menuItems[i].title, {x:mainMenuX, y:(mainMenuY + selectorYOffset * i)}, 20, textAlignment.Left);
 		    if(i === selected) {
 			    selectorPosition.x = mainMenuX - 35;
-			    selectorPosition.y = mainMenuY + selectorYOffset * i - 15;
+			    selectorPosition.y = mainMenuY + selectorYOffset * i;
 		    }
 	    }
 	    
@@ -130,8 +130,8 @@ function MenuScreen() {
     };
     
     const drawTitle = function() {
-	    colorText(gameTitle.Main, GameField.midX, GameField.y + GameField.height / 3, Color.White, Fonts.MainTitle, textAlignment.Center);
-	    colorText(gameTitle.Subtitle, GameField.midX, GameField.y + GameField.height / 3 + 40, Color.White, Fonts.Subtitle, textAlignment.Center);
+	    gameFont.printTextAt(gameTitle.Main, {x:GameField.midX, y:(GameField.y + GameField.height / 4)}, 40, textAlignment.Center);
+		gameFont.printTextAt(gameTitle.Subtitle, {x:GameField.midX, y:(GameField.y + GameField.height / 4 + (1.5 * 40))}, 30, textAlignment.Center);
     };
         
     return this;

@@ -2,6 +2,7 @@ let canvas;
 let canvasContext;
 let scene;
 let timer;
+let gameFont;
 let currentLevelIndex = 0;
 let worldSpeed = 1;
 let remainingLives = 3;
