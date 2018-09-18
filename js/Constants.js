@@ -94,6 +94,7 @@ const LEVEL_SELECT_SCREEN = 'level';
 const CREDITS_SCREEN = 'credits';
 const HELP_SCREEN = 'help';
 const CUT_SCENE_SCREEN = 'cut_scene';
+const DEMO_SCENE_SCREEN = 'demo_scene';
 const GAME_SCREEN = 'game';
 const PAUSE_SCREEN = 'pause';
 const GAME_OVER_SCREEN = 'game_over';

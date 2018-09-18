@@ -1,5 +1,6 @@
 function MenuScreen() {
 	const MENU_BG_COLOR = "#010119";
+	let timeSinceKey = 0;
 
     this.selectorPositionsIndex = 0;
     let selectorPosition = {x:0, y:0};
@@ -37,6 +38,7 @@ function MenuScreen() {
     };
 
     this.control = function menuScreenControl(keyCode, pressed) {
+	    timeSinceKey = 0;
         if (pressed) {//only act on key released events => prevent multiple changes on single press
             return false;
         }
@@ -96,6 +98,13 @@ function MenuScreen() {
 	};
 	
 	const update = function(deltaTime) {
+		timeSinceKey += deltaTime;
+		
+		if(timeSinceKey > 3000) {
+			timeSinceKey = 0;
+			ScreenStates.setState(DEMO_SCENE_SCREEN, 1);
+		}
+		
 		selectorSprite.update(deltaTime);
 		
 		starfield.update(deltaTime);
