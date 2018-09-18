@@ -4,7 +4,7 @@ function UIScore(position = {x:0, y:0}) {
 	let scoreText = "00000000" + currentScore.toString();
 	this.position = {x:position.x, y:position.y};
 	
-	const FONT = "40px Tahoma";
+	const FONT = 35;
 	
 	this.getScore = function() {
 		return currentScore;
@@ -19,7 +19,7 @@ function UIScore(position = {x:0, y:0}) {
 	}
 	
 	this.draw = function() {
-		colorText(scoreText, this.position.x, this.position.y, Color.White, FONT, textAlignment.Center);
+		gameFont.printTextAt(scoreText, this.position, FONT, textAlignment.Center);
 	}
 	
 	this.reset = function() {

@@ -25,7 +25,7 @@ function UIManager() {
 	elements.push(new SpacerUI({x: 509, y: 59}));
 	elements.push(new PowerUpUI({x: 550, y: 25}));
 	
-	const score = new UIScore({x:GameField.midX, y:GameField.y + 10});
+	const score = new UIScore({x:GameField.midX, y:GameField.y - 10});
 	
 	const updateContents = function() {
 		const types = Object.values(PowerUpType);

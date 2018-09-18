@@ -75,19 +75,16 @@ function GameOverScreen() {
     };
     
     const printMenu = function(menuItems, selected, yOffset = null) {
-	    let mainMenuX = GameField.midX - 45;
-	    let mainMenuY = (yOffset == null ? GameField.y + 2 * GameField.height / 3 : yOffset);
+	    let mainMenuX = GameField.midX - 80;
+	    let mainMenuY = (yOffset == null ? GameField.y + 4 * GameField.height / 5 : yOffset);
 
-	    let selectorXOffset = 60;
-	    let selectorYOffset = 30;
-
-	    let buttonsXOffset = mainMenuX + 70;
+	    const selectorXOffset = 35;
+	    const selectorYOffset = 30;
 
 	    for (let i = 0; i < menuItems.length; i++){
     	    gameFont.printTextAt(menuItems[i].title, {x:mainMenuX, y: (mainMenuY + selectorYOffset * i)}, 20,  textAlignment.Left);
-//		    colorText(menuItems[i].title, mainMenuX, mainMenuY + selectorYOffset * i, Color.White, Fonts.ButtonTitle, textAlignment.Left);
 		    if(i === selected) {
-			    selectorPosition.x = mainMenuX - 35;
+			    selectorPosition.x = mainMenuX - selectorXOffset;
 			    selectorPosition.y = mainMenuY + selectorYOffset * i;
 		    }
 	    }
@@ -108,8 +105,6 @@ function GameOverScreen() {
         // render the logo overlay
 //        drawLogo();
 
-		drawTitle();
-
         // render menu
         printMenu(selections, selectorPositionIndex);
         
@@ -125,10 +120,5 @@ function GameOverScreen() {
         // fill the background since there is no image for now
         drawRect(GameField.x, GameField.y - GameField.bgOffset, GameField.width, GameField.height + GameField.bgOffset, MENU_BG_COLOR);
         canvasContext.drawImage(backgroundColorLookup,150,0,16,100,0,0,canvas.width,canvas.height);
-    };
-    
-    const drawTitle = function() {
-	    colorText(gameTitle.Main, GameField.midX, GameField.y + GameField.height / 3, Color.White, Fonts.MainTitle, textAlignment.Center);
-	    colorText(gameTitle.Subtitle, GameField.midX, GameField.y + GameField.height / 3 + 40, Color.White, Fonts.Subtitle, textAlignment.Center);
     };
 }

@@ -106,8 +106,3 @@ function colorText(showWords, textX, textY, fillColor) {
     canvasContext.fillStyle = fillColor;
     canvasContext.fillText(showWords, textX, textY);
 }
-
-function colorText2(showWords, textX, textY, fillColor) {
-    canvasContext.fillStyle = fillColor;
-    canvasContext.fillText(showWords, textX, textY);
-}

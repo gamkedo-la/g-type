@@ -125,11 +125,6 @@ function HelpScreen() {
         canvasContext.drawImage(backgroundColorLookup,150,0,16,100,0,0,canvas.width,canvas.height);
     };
     
-    const drawTitle = function() {
-	    colorText(gameTitle.Main, GameField.midX, GameField.y + GameField.height / 6, Color.White, Fonts.MainTitle, textAlignment.Center);
-	    colorText(gameTitle.Subtitle, GameField.midX, GameField.y + GameField.height / 6 + 40, Color.White, Fonts.Subtitle, textAlignment.Center);
-    };
-    
     const drawHelp = function() {
 	    gameFont.printTextAt("^ | < > to move", {x:GameField.midX - 312, y:GameField.midY - 148}, 24, textAlignment.Left);
 	    gameFont.printTextAt("[Space] to shoot", {x:GameField.midX - 312, y:GameField.midY - 112}, 24, textAlignment.Left);
