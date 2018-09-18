@@ -4,7 +4,7 @@ function CutSceneScreen() {
 
     let starfield;
     let playerSprite;
-    const PLAYER_SCALE = 1.2;
+    let PLAYER_SCALE = 1.2;
     let planetSprite;
     let playerSpriteDeltaX = 0;
     let playerSpriteDeltaY = 0;
@@ -16,7 +16,7 @@ function CutSceneScreen() {
     this.transitionIn = function() {
         starfield = new Starfield();
         playerSprite = new AnimatedSprite(player1Sheet, 6, 120, 76, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
-        planetSprite = new AnimatedSprite(planetSheet, 3, 128, 128, false, true, {min:0, max:0}, 0, {min:0, max:2}, 512, {min:2, max:2}, 0);
+        planetSprite = new AnimatedSprite(planetSheet, 3, 192, 192, false, true, {min:0, max:0}, 0, {min:0, max:2}, 512, {min:2, max:2}, 0);
  
         currentBackgroundMusic.setCurrentTrack(AudioTracks.GameOver);
         if(currentBackgroundMusic.getTime() > 0){
@@ -64,11 +64,12 @@ function CutSceneScreen() {
 		if(delayTime > 0.25 * DISPLAY_TIME) {
 			playerSpriteDeltaX += (16 * delayTime / DISPLAY_TIME);
 			playerSpriteDeltaY -= (4 * delayTime / DISPLAY_TIME);
+			PLAYER_SCALE -= (0.01 * delayTime / DISPLAY_TIME);
 		}
 		
 		playerSprite.update(deltaTime);
 		planetSprite.update(deltaTime);
-		planetScale = 0.5 + delayTime / DISPLAY_TIME;
+		planetScale = 0.25 + delayTime / DISPLAY_TIME;
 	};
 
 	const draw = function() {
@@ -78,18 +79,15 @@ function CutSceneScreen() {
         starfield.draw();
         
         gameFont.printTextAt(textStrings.CutScene1_1, {x:GameField.midX, y:GameField.bottom - 120}, 16, textAlignment.Center);
-//        colorText(textStrings.CutScene1_1, GameField.midX, GameField.bottom - 100, Color.White, Fonts.ButtonTitle, textAlignment.Center, 1);
 		gameFont.printTextAt(textStrings.CutScene1_2, {x:GameField.midX, y: GameField.bottom - 90}, 16, textAlignment.Center);
-//        colorText(textStrings.CutScene1_2, GameField.midX, GameField.bottom - 70, Color.White, Fonts.ButtonTitle, textAlignment.Center, 1);
 		gameFont.printTextAt(textStrings.CutScene1_3, {x:GameField.midX, y: GameField.bottom - 60}, 16, textAlignment.Center);
 		gameFont.printTextAt(textStrings.SkipCutScene, {x:GameField.right - 70, y: GameField.bottom - 30}, 12, textAlignment.Right);
-//        colorText(textStrings.SkipCutScene, GameField.right - 50, GameField.bottom - 30, Color.Aqua, Fonts.CreditsText, textAlignment.Right, 1);
         
         playerSprite.drawAt({x:GameField.x + GameField.width / 8 + playerSpriteDeltaX, y: GameField.y + 2 * GameField.height / 3 + playerSpriteDeltaY}, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
         
 		canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
         
-        planetSprite.drawAt({x:GameField.x + 4 * GameField.width / 5, y:GameField.y + GameField.height / 5}, {width:planetScale * planetSprite.width, height:planetScale * planetSprite.height});
+        planetSprite.drawAt({x:GameField.x + 5 * GameField.width / 6, y:GameField.y + GameField.height / 7}, {width:planetScale * planetSprite.width, height:planetScale * planetSprite.height});
 	};
 	
 	const drawBG = function menuScreenDrawBG() {
