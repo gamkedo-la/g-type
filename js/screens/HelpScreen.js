@@ -85,13 +85,11 @@ function HelpScreen() {
 	    let selectorXOffset = 60;
 	    let selectorYOffset = 30;
 
-	    let buttonsXOffset = mainMenuX + 70;
-
 	    for (let i = 0; i < menuItems.length; i++){
-		    colorText(menuItems[i].title, mainMenuX, mainMenuY + selectorYOffset * i, Color.White, Fonts.ButtonTitle, textAlignment.Left);
+		    gameFont.printTextAt(menuItems[i].title, {x: mainMenuX - 50, y: mainMenuY + selectorYOffset * i}, 20, textAlignment.Left);
 		    if(i === selected) {
-			    selectorPosition.x = mainMenuX - 35;
-			    selectorPosition.y = mainMenuY + selectorYOffset * i - 15;
+			    selectorPosition.x = mainMenuX - 85;
+			    selectorPosition.y = mainMenuY + selectorYOffset * i;
 		    }
 	    }
 	    
@@ -107,9 +105,6 @@ function HelpScreen() {
         // render the logo overlay
 //        drawLogo();
 
-		//draw the game title at the top of the screen
-		drawTitle();
-		
 		//draw the actual help info
 		drawHelp();
 
@@ -120,6 +115,8 @@ function HelpScreen() {
         selectorSprite.drawAt(selectorPosition, {width:30, height:19});
 
 		canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
+		
+		gameFont.printTextAt(textStrings.Help, {x:GameField.midX, y:GameField.y}, 30, textAlignment.Center);
 	};
 	
 	const drawBG = function menuScreenDrawBG() {
@@ -134,7 +131,9 @@ function HelpScreen() {
     };
     
     const drawHelp = function() {
-	    colorText("Help!!!", GameField.midX, GameField.midY, Color.White, Fonts.Subtitle, textAlignment.Center);
+	    gameFont.printTextAt("^ | < > to move", {x:GameField.midX - 312, y:GameField.midY - 148}, 24, textAlignment.Left);
+	    gameFont.printTextAt("[Space] to shoot", {x:GameField.midX - 312, y:GameField.midY - 112}, 24, textAlignment.Left);
+	    gameFont.printTextAt("[Enter] to active Power Up", {x:GameField.midX - 312, y:GameField.midY - 76}, 24, textAlignment.Left);
     };
         
     return this;

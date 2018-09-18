@@ -46,11 +46,9 @@ function CreditsScreen() {
         for (let i = 0; i < this.contributors.length; i++) {
             let contributor = this.contributors[i];
             gameFont.printTextAt(contributor.name, {x: nameX, y: (this.currentY + textY)}, 20, textAlignment.Left);
-//            colorText(contributor.name, nameX, this.currentY + textY, Color.White, Fonts.CreditsText, textAlignment.Left);
             textY += height * 1.4;
             for (let j = 0; j < contributor.works.length; j++) {
 	            gameFont.printTextAt(contributor.works[j], {x:nameX + 20, y: (this.currentY + textY)}, 20, textAlignment.Left);
-//                colorText(contributor.works[j], nameX + 20, this.currentY + textY, Color.White, Fonts.CreditsText, textAlignment.Left);
                 textY += height;
             }
             textY += textSkip;
@@ -83,16 +81,11 @@ function CreditsScreen() {
 		canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
 		
 		gameFont.printTextAt(textStrings.Credits, {x:GameField.midX, y:GameField.y}, 30, textAlignment.Center);
-//        colorText(textStrings.Credits, GameField.midX - 72, GameField.y + 110, Color.White, Fonts.Subtitle, textAlignment.Left);
 
         gameFont.printTextAt("[^] to Scroll Faster", {x:GameField.right - 300, y:GameField.bottom - 80}, 12, textAlignment.Left);
-//        colorText("Up Arrow To Scroll Faster", GameField.right - 210, GameField.bottom - 100, Color.Aqua, Fonts.CreditsText, textAlignment.Left);
 		gameFont.printTextAt("[|] to Scroll Slower", {x:GameField.right - 300, y:GameField.bottom - 60}, 12, textAlignment.Left);
-//        colorText("Down Arrow To Scroll Slower", GameField.right - 210, GameField.bottom - 70, Color.Aqua, Fonts.CreditsText, textAlignment.Left);
 		gameFont.printTextAt("[Space] to Pause", {x:GameField.right - 300, y:GameField.bottom - 40}, 12, textAlignment.Left);
-//        colorText("Space To Pause", GameField.right - 210, GameField.bottom - 40, Color.Aqua, Fonts.CreditsText, textAlignment.Left);
 		gameFont.printTextAt("[Backspace] to Main Menu", {x:GameField.right - 300, y:GameField.bottom - 20}, 12, textAlignment.Left);
-//        colorText("Backspace to Main Menu", GameField.right - 210, GameField.bottom - 10, Color.Aqua, Fonts.CreditsText, textAlignment.Left)
         
     };
     this.control = function creditsScreenControl(keyCode, pressed) {
