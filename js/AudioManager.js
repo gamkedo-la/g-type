@@ -18,6 +18,8 @@ const resumeSound = new sfxClipSingle("ResumeSound");
 resumeSound.setVolume(0.4);
 const playerFireRegular = new sfxClipOverlap("PlayerFireRegular", 3);
 playerFireRegular.setVolume(0.6);
+const playerFireLaser = new sfxClipOverlap("PlayerFireLaser", 3);
+playerFireLaser.setVolume(0.5);
 const enemySmallExplosion = new sfxClipOverlap("EnemySmallExplosion", 3);
 enemySmallExplosion.setVolume(0.6);
 const playerExplosion = new sfxClipSingle("PlayerExplosion");
@@ -28,7 +30,7 @@ bubbleExplosion.setVolume(0.4);
 //const uiSelect = new sfxClipSingle("uiSelect");
 
 const allSFX = {
-	sfxList : [pauseSound, resumeSound, playerFireRegular, enemySmallExplosion, playerExplosion],
+	sfxList : [pauseSound, resumeSound, playerFireRegular, playerFireLaser, enemySmallExplosion, playerExplosion],
 	stop: function(){
 		for(var i=0; i < this.sfxList.length; i++){
 			this.sfxList[i].stop();
