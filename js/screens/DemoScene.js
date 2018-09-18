@@ -41,14 +41,7 @@ function DemoSceneScreen() {
     this.run = function demoPlayScreenRun(deltaTime) {
 	    runtime += deltaTime;
 	    
-	    holdSpace = true;
-	    if(runtime > 300) {
-		    holdRight = true;
-	    }
-	    
-	    if(runtime > 600) {
-		    holdUp = true;
-	    }
+	    updateDemoControls(runtime);
 	    
         scene.update(deltaTime);
         
@@ -60,9 +53,63 @@ function DemoSceneScreen() {
         }
     };
     
-   this.control = function demoPlayScreenControl(keyCode, pressed) {
-       ScreenStates.setState(MENU_SCREEN);
-   };
+	this.control = function demoPlayScreenControl(keyCode, pressed) {
+		ScreenStates.setState(MENU_SCREEN);
+	};
+   
+	const updateDemoControls = function(runtime) {
+		holdSpace = true;
+		
+		if(runtime < 300) {
+			//do nothing
+		} else if(runtime < 600) {// >300
+			holdRight = true;
+		} else if(runtime < 900) {// >600
+			holdUp = true;
+		} else if(runtime < 1500) {// >900
+			holdRight = false;
+		} else if(runtime < 3000) {// >1500
+			holdRight = true;
+		} else if(runtime < 7000) {// >3000
+			holdUp = false;
+			holdRight = false;
+		} else if(runtime < 10000) {// >7000
+			holdRight = true;
+		} else if(runtime < 11000) {// >10000
+			holdRight = false;
+			holdLeft = true;
+		} else if(runtime < 13250) {// >11000
+			holdDown = true;
+		} else if(runtime < 15000) {// >13250
+			holdDown = false;
+			holdLeft = false;
+		} else if(runtime < 16000) {// >15000
+			holdRight = true;
+		} else if(runtime < 20000) {// >16000
+			holdRight = false;
+		} else if(runtime < 22000) {// >20000
+			holdUp = true;
+		} else if(runtime < 27500) {// >22000
+			holdUp = false;
+		} else if(runtime < 29500) {// >27500
+			holdRight = true;
+		} else if(runtime < 30000) {// >29500
+			holdRight = false;
+			holdUp = true;
+		} else if(runtime < 34000) {// >30000
+			holdUp = false;
+		} else {// >34000
+			ScreenStates.setState(MENU_SCREEN);
+		}
+		
+		if(scene.capsuleCount === 1) {
+			scene.activatePowerUp();
+		} else if(scene.capsuleCount === 3) {
+			scene.activatePowerUp();
+		} else if(scene.capsuleCount === 6) {
+			scene.activatePowerUp();
+		}
+	}
     
     return this;
 }
@@ -83,6 +130,7 @@ function DemoScene(levelIndex = 0) {
 	const foregroundEntities = new Set();
 	const enemyBullets = new Set();
 	let uiManager = new UIManager();
+	this.capsuleCount = 0;
 	
 	const populateWorld = function(worldPos) {
 		const terrain = data.initializeTerrain();
@@ -260,10 +308,12 @@ function DemoScene(levelIndex = 0) {
 	
 	this.collectedCapsule = function() {
 		uiManager.incrementActivePowerUp();
+		this.capsuleCount++;
 	};
 	
 	this.removePlayer = function() {
-		if(remainingLives < 1) {
+		ScreenStates.setState(MENU_SCREEN, 1);
+/*		if(remainingLives < 1) {
 			this.gameIsOver = true;
 			canvasContext.setTransform(1, 0, 0, 1, 0, 0);
 			uiManager.reset(true);
@@ -272,7 +322,7 @@ function DemoScene(levelIndex = 0) {
 			player.reset();
 			powerUpToActivate = PowerUpType.None;
 			uiManager.reset(false);
-		}
+		}*/
 	};
 	
 	this.removeEntity = function(entityToRemove, isPlayerBullet) {

@@ -73,26 +73,28 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		
 		sprite.update(deltaTime);
 		
-		const firingChance = Math.floor(1000 * Math.random());
-		if(firingChance < difficulty) {
-			let yVel;
-			if(this.position.y < playerPos.y) {
-				yVel = 50;
-			} else {
-				yVel = -50;
+		if(!sprite.isDying) {//Don't allow enemies to shoot when they are in the process of dying
+			const firingChance = Math.floor(1000 * Math.random());
+			if(firingChance < difficulty) {
+				let yVel;
+				if(this.position.y < playerPos.y) {
+					yVel = 50;
+				} else {
+					yVel = -50;
+				}
+				
+				let xVel = vel.x;
+				if(this.position.x > (playerPos.x + 50)) {
+					xVel -= 10;
+				} else if(this.position.x < (playerPos.x - 50)) {
+					xVel = -xVel;
+				} else {
+					xVel = 0;
+				}
+				
+				const newBullet = new EnemyBullet(EntityType.EnemyBullet2, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
+				scene.addEntity(newBullet, false);
 			}
-			
-			let xVel = vel.x;
-			if(this.position.x > (playerPos.x + 50)) {
-				xVel -= 10;
-			} else if(this.position.x < (playerPos.x - 50)) {
-				xVel = -xVel;
-			} else {
-				xVel = 0;
-			}
-			
-			const newBullet = new EnemyBullet(EntityType.EnemyBullet2, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
-			scene.addEntity(newBullet, false);
 		}
 	};
 	

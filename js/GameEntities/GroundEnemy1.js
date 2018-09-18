@@ -57,6 +57,8 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 	};
 	
 	this.doShooting = function(playerPos) {
+		if(sprite === explosionSprite) {return;}//don't allow enemies to shoot while they are dying
+		
 		if(sprite.getDidDie()) {
 			
 			let facing = rotation + Math.PI / 2;
@@ -89,7 +91,7 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 		
 		const firingChance = Math.floor(1000 * Math.random());
 		if(firingChance < difficulty) {
-			sprite.isDying = true;
+			sprite.isDying = true;//using the "dying" frames as "shooting" frames instead
 		}
 	};
 	
