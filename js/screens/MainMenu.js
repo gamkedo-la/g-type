@@ -78,18 +78,16 @@ function MenuScreen() {
     };
     
     const printMenu = function(menuItems, selected, yOffset = null) {
-	    let mainMenuX = GameField.midX - 45;
-	    let mainMenuY = (yOffset == null ? GameField.y + 2 * GameField.height / 3 : yOffset);
+	    let mainMenuX = GameField.midX - 70;
+	    let mainMenuY = (yOffset == null ? GameField.y + 4 * GameField.height / 5 : yOffset);
 
-	    let selectorXOffset = 60;
-	    let selectorYOffset = 30;
-
-	    let buttonsXOffset = mainMenuX + 70;
+	    const selectorXOffset = 35;
+	    const selectorYOffset = 30;
 
 	    for (let i = 0; i < menuItems.length; i++){
 		    gameFont.printTextAt(menuItems[i].title, {x:mainMenuX, y:(mainMenuY + selectorYOffset * i)}, 20, textAlignment.Left);
 		    if(i === selected) {
-			    selectorPosition.x = mainMenuX - 35;
+			    selectorPosition.x = mainMenuX - selectorXOffset;
 			    selectorPosition.y = mainMenuY + selectorYOffset * i;
 		    }
 	    }
@@ -112,6 +110,8 @@ function MenuScreen() {
         // render the logo overlay
 //        drawLogo();
 
+        canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
+
 		drawTitle();
 
         // render menu
@@ -119,8 +119,6 @@ function MenuScreen() {
         
         //draw selector sprite
         selectorSprite.drawAt(selectorPosition, {width:30, height:19});
-        
-        canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
 	};
 	
 	const drawBG = function menuScreenDrawBG() {
@@ -130,8 +128,8 @@ function MenuScreen() {
     };
     
     const drawTitle = function() {
-	    gameFont.printTextAt(gameTitle.Main, {x:GameField.midX, y:(GameField.y + GameField.height / 4)}, 40, textAlignment.Center);
-		gameFont.printTextAt(gameTitle.Subtitle, {x:GameField.midX, y:(GameField.y + GameField.height / 4 + (1.5 * 40))}, 30, textAlignment.Center);
+	    gameFont.printTextAt(gameTitle.Main, {x:GameField.midX, y:(GameField.y - 10)}, 40, textAlignment.Center);
+		gameFont.printTextAt(gameTitle.Subtitle, {x:GameField.midX, y:(GameField.y + 75)}, 30, textAlignment.Center);
     };
         
     return this;
