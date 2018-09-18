@@ -40,12 +40,17 @@ function DemoSceneScreen() {
     
     this.run = function demoPlayScreenRun(deltaTime) {
 	    runtime += deltaTime;
-	    
+	    	    
 	    updateDemoControls(runtime);
 	    
         scene.update(deltaTime);
         
         scene.draw();
+        
+	    if(runtime % 600 > 300) {
+		    gameFont.printTextAt("Press Any Key", {x:GameField.midX, y:GameField.midY - 52}, 35, textAlignment.Center);
+		    gameFont.printTextAt("to Start", {x:GameField.midX, y:GameField.midY + 17}, 35, textAlignment.Center);
+	    }
 
         if(scene.gameIsOver){
 //	        currentBackgroundMusic.setCurrentTrack(6);
