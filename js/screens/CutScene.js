@@ -77,9 +77,13 @@ function CutSceneScreen() {
         
         starfield.draw();
         
-        colorText(textStrings.CutScene1_1, GameField.midX, GameField.bottom - 100, Color.White, Fonts.ButtonTitle, textAlignment.Center, 1);
-        colorText(textStrings.CutScene1_2, GameField.midX, GameField.bottom - 70, Color.White, Fonts.ButtonTitle, textAlignment.Center, 1);
-        colorText(textStrings.SkipCutScene, GameField.right - 50, GameField.bottom - 30, Color.Aqua, Fonts.CreditsText, textAlignment.Right, 1);
+        gameFont.printTextAt(textStrings.CutScene1_1, {x:GameField.midX, y:GameField.bottom - 120}, 16, textAlignment.Center);
+//        colorText(textStrings.CutScene1_1, GameField.midX, GameField.bottom - 100, Color.White, Fonts.ButtonTitle, textAlignment.Center, 1);
+		gameFont.printTextAt(textStrings.CutScene1_2, {x:GameField.midX, y: GameField.bottom - 90}, 16, textAlignment.Center);
+//        colorText(textStrings.CutScene1_2, GameField.midX, GameField.bottom - 70, Color.White, Fonts.ButtonTitle, textAlignment.Center, 1);
+		gameFont.printTextAt(textStrings.CutScene1_3, {x:GameField.midX, y: GameField.bottom - 60}, 16, textAlignment.Center);
+		gameFont.printTextAt(textStrings.SkipCutScene, {x:GameField.right - 70, y: GameField.bottom - 30}, 12, textAlignment.Right);
+//        colorText(textStrings.SkipCutScene, GameField.right - 50, GameField.bottom - 30, Color.Aqua, Fonts.CreditsText, textAlignment.Right, 1);
         
         playerSprite.drawAt({x:GameField.x + GameField.width / 8 + playerSpriteDeltaX, y: GameField.y + 2 * GameField.height / 3 + playerSpriteDeltaY}, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
         

@@ -128,7 +128,8 @@ const textStrings = {
     LevelSelect: 'Select Level',
     GameOver: "Game Over",
     CutScene1_1:"Operation SAVE THE UNIVERSE",
-    CutScene1_2:"Phase 1 - Defeat Planetary Defenses to enable follow on forces to approach safely",
+    CutScene1_2:"Phase 1 - Defeat Planetary Defenses",
+    CutScene1_3:"to enable follow on forces to approach safely",
     SkipCutScene:"Enter to skip",
     Contributors: [
         {name:"H Trayford",   works: ['Game Lead', 'Core Gameplay', 'Level Editor', 'AI Drivers', 'Background Parallax', 'Nitro Boost', 'Time Limit', 'Street Light Art', 'Animated Radio Tower', 'Collision Detection', 'Art Integration', 'Billboards (Over 10 Designs)'] },
