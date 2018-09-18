@@ -12,20 +12,29 @@ const menuMusic = new musicTrackLoop("PrepareToStrike-v1", 208.976, {author: "Jo
 const currentBackgroundMusic = new musicContainer([menuMusic/*, retroDream, dreamPunk, nightMusic, forestRock, drjuno, gameOver*/]);
 menuMusic.setVolume(0.6);
 
+//menu sfx
 const pauseSound = new sfxClipSingle("PauseSound");
 pauseSound.setVolume(0.4);
 const resumeSound = new sfxClipSingle("ResumeSound");
 resumeSound.setVolume(0.4);
+
+//player sfx
 const playerFireRegular = new sfxClipOverlap("PlayerFireRegular", 3);
 playerFireRegular.setVolume(0.6);
 const playerFireLaser = new sfxClipOverlap("PlayerFireLaser", 3);
 playerFireLaser.setVolume(0.5);
-const enemySmallExplosion = new sfxClipOverlap("EnemySmallExplosion", 3);
-enemySmallExplosion.setVolume(0.6);
+const playerPowerUpActivate = new sfxClipSingle("PlayerPowerupActivate");
+playerPowerUpActivate.setVolume(0.65);
+const playerShieldActivate = new sfxClipSingle("PlayerShieldActivate");
+playerShieldActivate.setVolume(0.7);
 const playerExplosion = new sfxClipSingle("PlayerExplosion");
 playerExplosion.setVolume(0.6);
+
+//enemy and environment sfx
+const enemySmallExplosion = new sfxClipOverlap("EnemySmallExplosion", 3);
+enemySmallExplosion.setVolume(0.6);
 const bubbleExplosion = new sfxClipSingle("bubble");
-bubbleExplosion.setVolume(0.4);
+bubbleExplosion.setVolume(0.35);
 
 //const uiSelect = new sfxClipSingle("uiSelect");
 

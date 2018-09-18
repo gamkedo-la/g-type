@@ -296,6 +296,12 @@ function GameScene(levelIndex) {
 				break;
 		}
 		
+		if(powerUpToActivate == PowerUpType.Shield) {
+			playerShieldActivate.play();
+		} else {
+			playerPowerUpActivate.play();
+		}
+		
 		uiManager.reset(false);
 		//powerUpActivated.play();//TODO: need this SFX track in the game, goes at the end so it isn't played if "None" is the power up
 	};
