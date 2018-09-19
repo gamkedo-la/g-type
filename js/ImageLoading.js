@@ -9,6 +9,7 @@ const darkSpacerUI = document.createElement("img");
 const fontImage = document.createElement("img");
 const doubleShotUI = document.createElement("img");
 const tripleShotUI = document.createElement("img");
+const livesUI = document.createElement("img");
 
 //Backgrounds
 const starSheet = document.createElement("img");
@@ -71,6 +72,7 @@ function loadImages() {
         { imgName: fontImage, theFile: "G-Type-FontSheet_tight.png" },
         { imgName: doubleShotUI, theFile: "DoubleShotUI.png" },
         { imgName: tripleShotUI, theFile: "TripleShotUI.png" },
+        { imgName: livesUI, theFile: "UILivesIconEven.png" },
 
         // backgrounds
         { imgName: starSheet, theFile: "Stars.png" },

@@ -4,7 +4,7 @@ function UIScore(position = {x:0, y:0}) {
 	let scoreText = "00000000" + currentScore.toString();
 	this.position = {x:position.x, y:position.y};
 	
-	const FONT = 35;
+	const FONT = 30;
 	
 	this.getScore = function() {
 		return currentScore;

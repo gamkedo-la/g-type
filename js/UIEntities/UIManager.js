@@ -25,7 +25,8 @@ function UIManager() {
 	elements.push(new SpacerUI({x: 509, y: 59}));
 	elements.push(new PowerUpUI({x: 550, y: 25}));
 	
-	const score = new UIScore({x:GameField.midX, y:GameField.y - 10});
+	const score = new UIScore({x:GameField.midX, y:GameField.y - 20});
+	const lives = new UILives({x:GameField.midX - 150, y:GameField.y + 20});
 	
 	const updateContents = function() {
 		const types = Object.values(PowerUpType);
@@ -78,6 +79,8 @@ function UIManager() {
 		for(let i = 0; i < elements.length; i++) {
 			elements[i].update(deltaTime);
 		}
+		
+		lives.update(deltaTime);
 	};
 	
 	this.draw = function() {
@@ -88,6 +91,8 @@ function UIManager() {
 		}
 		
 		score.draw();
+		
+		lives.draw();
 	};
 	
 	this.addToScore = function(scoreToAdd) {

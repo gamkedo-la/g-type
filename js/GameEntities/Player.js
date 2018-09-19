@@ -156,8 +156,8 @@ function Player(position = {x:0, y:0}) {
 			this.position.x = GameField.right - this.size.width;
 		}
 		
-		if(this.position.y < GameField.y) {
-			this.position.y = GameField.y;
+		if(this.position.y < GameField.y + 50) {//50 is fudge factor to account for UI Frame size
+			this.position.y = GameField.y + 50;
 		} else if(this.position.y > (GameField.bottom - this.size.height)) {
 			this.position.y = GameField.bottom - this.size.height;
 		}

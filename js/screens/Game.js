@@ -71,6 +71,11 @@ function GamePlayScreen () {
 		        	scene.collectedCapsule();
 	        	}
                 return true;
+            case KEY_L://Adding lives
+            	if(!pressed) {
+	            	remainingLives++;
+            	}
+            	return true;
             case KEY_ESCAPE:
                 if(!pressed) {
 	                setPaused(!ScreenStates.isPaused);
