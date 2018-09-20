@@ -8,7 +8,9 @@ window.onload = function() {
     canvasContext = canvas.getContext("2d");
     document.body.appendChild(canvas);
     canvas.width = CANVAS_WIDTH;
-    canvas.height = CANVAS_HEIGHT;
+	canvas.height = CANVAS_HEIGHT;
+
+	cheats.documentDebugKeysIfEnabled();
 
 	initializeInput();
 //	configureGameAudio();

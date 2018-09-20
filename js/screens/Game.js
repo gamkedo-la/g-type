@@ -66,16 +66,6 @@ function GamePlayScreen () {
 		        	scene.activatePowerUp();
 	        	}
 	        	return true;
-            case KEY_C://Adding capsules
-                if(!pressed) {
-		        	scene.collectedCapsule();
-	        	}
-                return true;
-            case KEY_L://Adding lives
-            	if(!pressed) {
-	            	remainingLives++;
-            	}
-            	return true;
             case KEY_ESCAPE:
                 if(!pressed) {
 	                setPaused(!ScreenStates.isPaused);
@@ -133,53 +123,65 @@ function GamePlayScreen () {
 	                setPaused(!ScreenStates.isPaused);
                 }
                 return true;
+
+            // Keys below are used for cheats    
+            case KEY_C: //Adding capsules
+                if (!pressed && cheats.debugKeysEnabled) {
+                    scene.collectedCapsule();
+                }
+            return true;
+            case KEY_L: //Adding lives
+                if (!pressed && cheats.debugKeysEnabled) {
+                    remainingLives++;
+                }
+            return true;
             case DIGIT_0:
-            	if((!pressed) && (DEBUG)) {
+            	if((!pressed) && cheats.debugKeysEnabled) {
 	            	worldSpeed = 0;
             	}
             	return true;
             case DIGIT_1:
-            	if((!pressed) && (DEBUG)) {
+            	if((!pressed) && cheats.debugKeysEnabled) {
 	            	worldSpeed = 1;
             	}
             	return true;
             case DIGIT_2:
-            	if((!pressed) && (DEBUG)) {
+            	if((!pressed) && cheats.debugKeysEnabled) {
 	            	worldSpeed = 2;
             	}
             	return true;
             case DIGIT_3:
-            	if((!pressed) && (DEBUG)) {
+            	if((!pressed) && cheats.debugKeysEnabled) {
 	            	worldSpeed = 3;
             	}
             	return true;
             case DIGIT_4:
-            	if((!pressed) && (DEBUG)) {
+            	if((!pressed) && cheats.debugKeysEnabled) {
 	            	worldSpeed = 4;
             	}
             	return true;
             case DIGIT_5:
-            	if((!pressed) && (DEBUG)) {
+            	if((!pressed) && cheats.debugKeysEnabled) {
 	            	worldSpeed = 5;
             	}
             	return true;
             case DIGIT_6:
-            	if((!pressed) && (DEBUG)) {
+            	if((!pressed) && cheats.debugKeysEnabled) {
 	            	worldSpeed = 6;
             	}
             	return true;
             case DIGIT_7:
-            	if((!pressed) && (DEBUG)) {
+            	if((!pressed) && cheats.debugKeysEnabled) {
 	            	worldSpeed = 7;
             	}
             	return true;
             case DIGIT_8:
-            	if((!pressed) && (DEBUG)) {
+            	if((!pressed) && cheats.debugKeysEnabled) {
 	            	worldSpeed = 8;
             	}
             	return true;
             case DIGIT_9:
-            	if((!pressed) && (DEBUG)) {
+            	if((!pressed) && cheats.debugKeysEnabled) {
 	            	worldSpeed = 9;
             	}
             	return true;
