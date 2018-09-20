@@ -20,6 +20,7 @@ function DemoSceneScreen() {
     };
     
     this.transitionOut = function demoPlayScreenTransitionOut() {
+	    scene = null;
 	    clearKeyboardInput();
 	    canvasContext.setTransform(1, 0, 0, 1, 0, 0);
         currentBackgroundMusic.pause();
