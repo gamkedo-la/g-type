@@ -6,7 +6,7 @@ function Player(position = {x:0, y:0}) {
 	};
 	
 	const PlayerEvent = {
-		Incincible:"invinciblePlayer",
+		Invincible:"invinciblePlayer",
 		LastShot:"lastShot"
 	};
 	
@@ -108,7 +108,7 @@ function Player(position = {x:0, y:0}) {
 			}
 			
 			if(isInvincible) {
-				if(timer.timeSinceUpdateForEvent(PlayerEvent.Incincible) >= INVINCIBLE_TIME) {
+				if(timer.timeSinceUpdateForEvent(PlayerEvent.Invincible) >= INVINCIBLE_TIME) {
 					this.setInvincible(false);
 				} 
 			}
@@ -301,7 +301,10 @@ function Player(position = {x:0, y:0}) {
 			if(hasShield) {//shields not implemented => hasShield always = false
 				scene.shouldShake(MAX_SHAKE_MAGNITUDE / 2);
 				shield.hit();//need to implement the shield object, doesn't crash because hasShield is always false
-			} else if(isInvincible) {
+			} else if (isInvincible || cheats.playerInvincible) {
+				if(cheats.playerInvincible) {
+					console.log("Note: cheats.playerInvincible turned on");
+				}
 				//TODO: does anything need to be done here?
 			} else {
 				scene.shouldShake(MAX_SHAKE_MAGNITUDE);
@@ -383,7 +386,7 @@ function Player(position = {x:0, y:0}) {
 	this.setInvincible = function(newValue) {
 		isInvincible = newValue;
 		if(newValue) {
-			timer.registerEvent(PlayerEvent.Incincible);
+			timer.registerEvent(PlayerEvent.Invincible);
 		}
 	};
 	
