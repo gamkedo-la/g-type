@@ -3,6 +3,7 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None) {
 	this.position = {x: position.x, y: position.y};
 	let isLit = highlighted;
 	let contentsType = contains;
+	let isLocked = false;
 	
 	let darkSprite = new AnimatedSprite(darkPowerUpUI, 5, 100, 100, true, true, {min: 0, max: 0}, 0, {min: 0, max: 4}, 256, {min: 4, max: 4}, 0);
 	let lightSprite = new AnimatedSprite(lightedPowerUpUI, 5, 100, 100, true, true, {min: 0, max: 0}, 0, {min: 0, max: 4}, 256, {min: 4, max: 4}, 0);
@@ -77,9 +78,22 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None) {
 			contents.update(deltaTime);
 		}
 	};
+
+	this.lockMe = function() {
+		isLocked = true;
+	}
+
+	this.hasBeenLocked = function() {
+		return isLocked;
+	}
 	
 	this.draw = function() {
+
 		sprite.drawAt(this.position, this.size);
+
+		if (isLocked) {
+			return;
+		}
 		
 		if(contents != null) {
 			contents.drawAt(contentPosition, {width:contents.width, height:contents.height});//TODO: fix this after the base object is working correctly

@@ -45,6 +45,10 @@ function UIManager() {
 			   return false;
 		}
 		
+		if(elements[highlightedIndex].hasBeenLocked()) {
+			return false;
+		} 
+
 		return true;
 	};
 		
@@ -119,6 +123,7 @@ function UIManager() {
 	};
 	
 	this.getPowerUpToActivate = function() {
+		elements[highlightedIndex].lockMe();
 		return powerUpToActivate;
 	}
 	
