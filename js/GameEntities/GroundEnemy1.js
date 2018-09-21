@@ -7,7 +7,7 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 	this.hitPoints = 4;     // Every enemy type should have a hitPoints property
 	
 	const SPRITE_SCALE = 1;
-	this.position = position;
+	this.position = {x: position.x + spawnPos, y:position.y};
 	let vel = {x:speed, y:speed};
 	let unusedTime = 0;
 	this.isVisible = true;
@@ -71,7 +71,7 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 			const angleToPlayer = Math.atan2(this.position.y - playerPos.y, playerPos.x - this.position.x);
 			
 			const deltaAngle = angleToPlayer - facing;
-			if((deltaAngle > -Math.PI / 4) && (deltaAngle < Math.PI / 4)) {
+			if((deltaAngle > -Math.PI / 2) && (deltaAngle < Math.PI / 2)) {
 				const xVel = 50 * Math.cos(angleToPlayer);
 				const yVel = -50 * Math.sin(angleToPlayer);
 

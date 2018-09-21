@@ -8,11 +8,11 @@ const LevelData = [
 
 			const firstGroup = new EnemyGroup();
 			
-			enemies.push(firstGroup.add(new FlyingEnemy2({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 0, 0, 10)));
-			enemies.push(firstGroup.add(new FlyingEnemy2({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 600, 0, 10)));
-			enemies.push(firstGroup.add(new FlyingEnemy2({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 1200, 0, 10)));
-			enemies.push(firstGroup.add(new FlyingEnemy2({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 1800, 0, 10)));
-			enemies.push(firstGroup.add(new FlyingEnemy2({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 2400, 0, 10)));
+			enemies.push(firstGroup.add(new FlyingEnemy2({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 0, 0, 1)));
+			enemies.push(firstGroup.add(new FlyingEnemy2({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 600, 0, 1)));
+			enemies.push(firstGroup.add(new FlyingEnemy2({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 1200, 0, 1)));
+			enemies.push(firstGroup.add(new FlyingEnemy2({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 1800, 0, 1)));
+			enemies.push(firstGroup.add(new FlyingEnemy2({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 2400, 0, 1)));
 			
 			const secondGroup = new EnemyGroup();
 
@@ -38,8 +38,21 @@ const LevelData = [
 			enemies.push(fourthGroup.add(new FlyingEnemy1({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Sine, 1650, 1100, 1)));
 			enemies.push(fourthGroup.add(new FlyingEnemy1({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Sine, 2200, 1100, 1)));
 			
-			enemies.push(new GroundEnemy1({x: GameField.right + 164, y: GameField.midY - 52}, Math.PI/4, 0, PathType.None, 0, 100, 5));
-			enemies.push(new GroundEnemy1({x: GameField.right + 164, y: GameField.midY + 48}, 3*Math.PI/4, 0, PathType.None, 0, 100, 5));
+			enemies.push(new GroundEnemy1({x: GameField.right + 50, y: GameField.midY - 52}, Math.PI/4, 0, PathType.None, 0, 120, 5));
+			enemies.push(new GroundEnemy1({x: GameField.right + 50, y: GameField.midY + 48}, 3*Math.PI/4, 0, PathType.None, 0, 120, 5));
+
+			enemies.push(new GroundEnemy1({x: GameField.right + 50, y: 556}, Math.PI/4, 0, PathType.None, 0, 1754, 15));
+			enemies.push(new GroundEnemy1({x: GameField.right + 50, y: 556}, -Math.PI/4, 0, PathType.None, 0, 1844, 15));
+
+			enemies.push(new GroundEnemy1({x: GameField.right + 50, y: 250}, 3 * Math.PI/4, 0, PathType.None, 0, 3093, 15));
+			enemies.push(new GroundEnemy1({x: GameField.right + 50, y: 252}, -3 * Math.PI/4, 0, PathType.None, 0, 3190, 15));
+
+			enemies.push(new GroundEnemy1({x: GameField.right + 50, y: 555}, Math.PI/4, 0, PathType.None, 0, 3718, 15));
+			enemies.push(new GroundEnemy1({x: GameField.right + 50, y: 556}, -Math.PI/4, 0, PathType.None, 0, 3809, 15));
+			enemies.push(new GroundEnemy1({x: GameField.right + 50, y: 656}, 3 * Math.PI/4, 0, PathType.None, 0, 3719, 15));
+
+			enemies.push(new GroundEnemy1({x: GameField.right + 50, y: 506}, Math.PI/4, 0, PathType.None, 0, 4116, 15));
+			enemies.push(new GroundEnemy1({x: GameField.right + 50, y: 508}, -Math.PI/4, 0, PathType.None, 0, 4210, 15));
 			
 			return enemies;
 		},
@@ -57,7 +70,57 @@ const LevelData = [
 			world.push(new TerrainEntity(EntityType.Rock02, {x: GameField.right + 50, y: GameField.y + GameField.height / 5}, 1350, 2));
 			world.push(new TerrainEntity(EntityType.Rock03, {x: GameField.right + 50, y: GameField.y + 5 * GameField.height / 6}, 850, 2));
 			world.push(new TerrainEntity(EntityType.Rock04, {x: GameField.right + 50, y: GameField.y + 3 * GameField.height / 5 + 50}, 950, 2));
-
+			
+			world.push(new TerrainEntity(EntityType.Rock03, {x: GameField.right + 50, y: 547}, 1604, 2));
+			world.push(new TerrainEntity(EntityType.Rock01, {x: GameField.right + 50, y: 547}, 1734, 2));
+			world.push(new TerrainEntity(EntityType.Rock03, {x: GameField.right + 50, y: 169}, 1737, 2));
+			world.push(new TerrainEntity(EntityType.Rock03, {x: GameField.right + 50, y: 248}, 1750, 2));
+			world.push(new TerrainEntity(EntityType.Rock03, {x: GameField.right + 50, y: 291}, 1878, 2));
+			world.push(new TerrainEntity(EntityType.Rock03, {x: GameField.right + 50, y: 635}, 1899, 2));
+			world.push(new TerrainEntity(EntityType.Rock03, {x: GameField.right + 50, y: 228}, 2055, 2));
+			world.push(new TerrainEntity(EntityType.Rock04, {x: GameField.right + 50, y: 298}, 2202, 2));
+			world.push(new TerrainEntity(EntityType.Rock03, {x: GameField.right + 50, y: 160}, 2223, 2));
+			world.push(new TerrainEntity(EntityType.Rock03, {x: GameField.right + 50, y: 433}, 2339, 2));
+			world.push(new TerrainEntity(EntityType.Rock04, {x: GameField.right + 50, y: 629}, 2356, 2));
+			world.push(new TerrainEntity(EntityType.Rock04, {x: GameField.right + 50, y: 309}, 2409, 2));
+			world.push(new TerrainEntity(EntityType.Rock03, {x: GameField.right + 50, y: 185}, 2509, 2));
+			world.push(new TerrainEntity(EntityType.Rock03, {x: GameField.right + 50, y: 337}, 2523, 2));
+			world.push(new TerrainEntity(EntityType.Rock04, {x: GameField.right + 50, y: 429}, 2662, 2));
+			world.push(new TerrainEntity(EntityType.Rock03, {x: GameField.right + 50, y: 313}, 2663, 2));
+			world.push(new TerrainEntity(EntityType.Rock02, {x: GameField.right + 50, y: 205}, 2789, 2));
+			world.push(new TerrainEntity(EntityType.Rock02, {x: GameField.right + 50, y: 388}, 2812, 2));
+			world.push(new TerrainEntity(EntityType.Rock04, {x: GameField.right + 50, y: 572}, 2812, 2));
+			world.push(new TerrainEntity(EntityType.Rock02, {x: GameField.right + 50, y: 653}, 2932, 2));
+			world.push(new TerrainEntity(EntityType.Rock04, {x: GameField.right + 50, y: 414}, 2936, 2));
+			world.push(new TerrainEntity(EntityType.Rock02, {x: GameField.right + 50, y: 239}, 2939, 2));
+			world.push(new TerrainEntity(EntityType.Rock02, {x: GameField.right + 50, y: 377}, 3056, 2));
+			world.push(new TerrainEntity(EntityType.Rock01, {x: GameField.right + 50, y: 147}, 3084, 2));			
+			world.push(new TerrainEntity(EntityType.Rock04, {x: GameField.right + 50, y: 756}, 3111, 2));
+			world.push(new TerrainEntity(EntityType.Rock02, {x: GameField.right + 50, y: 631}, 3234, 2));
+			world.push(new TerrainEntity(EntityType.Rock04, {x: GameField.right + 50, y: 576}, 3237, 2));
+			world.push(new TerrainEntity(EntityType.Rock02, {x: GameField.right + 50, y: 491}, 3256, 2));
+			world.push(new TerrainEntity(EntityType.Rock03, {x: GameField.right + 50, y: 281}, 3397, 2));
+			world.push(new TerrainEntity(EntityType.Rock02, {x: GameField.right + 50, y: 597}, 3399, 2));
+			world.push(new TerrainEntity(EntityType.Rock02, {x: GameField.right + 50, y: 405}, 3403, 2));
+			world.push(new TerrainEntity(EntityType.Rock02, {x: GameField.right + 50, y: 485}, 3525, 2));
+			world.push(new TerrainEntity(EntityType.Rock02, {x: GameField.right + 50, y: 554}, 3541, 2));
+			world.push(new TerrainEntity(EntityType.Rock02, {x: GameField.right + 50, y: 395}, 3567, 2));
+			world.push(new TerrainEntity(EntityType.Rock01, {x: GameField.right + 50, y: 547}, 3700, 2));
+			world.push(new TerrainEntity(EntityType.Rock02, {x: GameField.right + 50, y: 296}, 3716, 2));
+			world.push(new TerrainEntity(EntityType.Rock03, {x: GameField.right + 50, y: 234}, 3851, 2));
+			world.push(new TerrainEntity(EntityType.Rock02, {x: GameField.right + 50, y: 394}, 3979, 2));
+			world.push(new TerrainEntity(EntityType.Rock03, {x: GameField.right + 50, y: 458}, 3929, 2));
+			world.push(new TerrainEntity(EntityType.Rock04, {x: GameField.right + 50, y: 237}, 4010, 2));
+			world.push(new TerrainEntity(EntityType.Rock02, {x: GameField.right + 50, y: 543}, 4012, 2));
+			world.push(new TerrainEntity(EntityType.Rock01, {x: GameField.right + 50, y: 497}, 4100, 2));
+			world.push(new TerrainEntity(EntityType.Rock04, {x: GameField.right + 50, y: 682}, 4148, 2));
+			world.push(new TerrainEntity(EntityType.Rock02, {x: GameField.right + 50, y: 533}, 4286, 2));
+			world.push(new TerrainEntity(EntityType.Rock03, {x: GameField.right + 50, y: 120}, 4497, 2));
+			world.push(new TerrainEntity(EntityType.Rock04, {x: GameField.right + 50, y: 422}, 4321, 2));
+			world.push(new TerrainEntity(EntityType.Rock04, {x: GameField.right + 50, y: 306}, 4400, 2));
+			world.push(new TerrainEntity(EntityType.Rock04, {x: GameField.right + 50, y: 534}, 4496, 2));
+			world.push(new TerrainEntity(EntityType.Rock02, {x: GameField.right + 50, y: 623}, 4527, 2));
+						
 			const delta = 45;
 			for(let i = 0; i < 50; i++) {
 				let xPos = delta * Math.floor(i % 10);
@@ -99,3 +162,38 @@ const LevelData = [
 		checkpointPositions:[0, 600, 1200]//placeholder values
 	}
 ];
+
+/*			
+Used to generate starting point of asteroid field, placed here so it doesn't have to be recreated if we want to do another field.
+
+			for(let i = 0; i < 45; i++) {
+				const rockTypeNum = Math.floor(8 * Math.random());
+				let rockType;
+				switch(rockTypeNum) {
+					case 0:
+					case 1:
+					case 2:
+						rockType = EntityType.Rock02;
+						break;
+					case 3:
+					case 4:
+					case 5:
+						rockType = EntityType.Rock03;
+						break;
+					case 6:
+					case 7:
+					case 8:
+						rockType = EntityType.Rock04;
+						break;
+					default:
+						rockType = EntityType.Rock04;
+						break;
+				}
+				
+				const yPos = GameField.y + 50 * Math.floor(12.5 * Math.random()) - 25 + Math.floor(50 * Math.random());
+				const spawnPos = 1600 + 150 * Math.floor(20 * Math.random()) - 25 + Math.floor(50 * Math.random());
+				
+				console.log("world.push(new TerrainEntity(" + rockType + ", {x: GameField.right + 50, y: " + yPos + "}, " + spawnPos + ", 2));");
+				
+				world.push(new TerrainEntity(rockType, {x: GameField.right + 50, y: yPos}, spawnPos, 2));
+			}*/

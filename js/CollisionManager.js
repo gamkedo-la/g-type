@@ -33,7 +33,11 @@ function CollisionManager(player) {
 	this.addEntity = function(newEntity) {
 		if((newEntity.type === EntityType.EnemyBullet1) || (newEntity.type === EntityType.EnemyBullet2)) {
 			addEnemyBullet(newEntity);
-		} else if(newEntity.type === EntityType.RhombusBoulder) {//Need to check for all other terrain types here
+		} else if((newEntity.type === EntityType.RhombusBoulder) ||
+				  (newEntity.type === EntityType.Rock01) ||
+				  (newEntity.type === EntityType.Rock02) ||
+				  (newEntity.type === EntityType.Rock03) ||
+				  (newEntity.type === EntityType.Rock04)) {//Need to check for all other terrain types here
 			addTerrain(newEntity);
 		} else if (newEntity.type === EntityType.PlayerForceUnit) {
 			this.addForceUnit(newEntity);
