@@ -123,7 +123,8 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 				(entityType === EntityType.PlayerMissile) || 
 				(entityType === EntityType.PlayerDouble) || 
 				(entityType === EntityType.PlayerLaser) || 
-				(entityType === EntityType.PlayerTriple)) {
+				(entityType === EntityType.PlayerTriple) ||
+				(entityType === EntityType.PlayerShield)) {
 				this.hitPoints -= otherEntity.damagePoints;
 			}
 		} 

@@ -30,9 +30,10 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None) {
 			case PowerUpType.Triple:
 				return (new AnimatedSprite(tripleShotUI, 4, 65, 41, false, true, {min:0, max:0}, 0, {min:0, max:3}, 192, {min:3, max:3}, 0));
 /*			case PowerUpType.Ghost:
-				return null;//TODO: need a spritesheet for this
-			case PowerUpType.Shield:
 				return null;//TODO: need a spritesheet for this*/
+			case PowerUpType.Shield:
+				return (new AnimatedSprite(shieldSheet, 3, 60, 45, false, true, {min:0, max:0}, 0, {min:0, max:0}, 128, {min:2, max:2}, 0));
+				return null;//TODO: need a spritesheet for this
 			case PowerUpType.Force:
 				return (new AnimatedSprite(forceUnitSheet, 1, 48, 48));
 			default://TODO: remove this, it is just for testing

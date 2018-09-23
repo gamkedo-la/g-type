@@ -16,6 +16,7 @@ const EntityType = {
 	PlayerLaser:"playerLaser",
 	PlayerTriple:"playerTriple",
 	PlayerForceUnit:"playerForceUnit",
+	PlayerShield:"playerShield",
 	
 	//capsules
 	Capsule1:"capsule1",
@@ -267,7 +268,8 @@ function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, retu
 			(entityType === EntityType.PlayerMissile) || 
 			(entityType === EntityType.PlayerDouble) || 
 			(entityType === EntityType.PlayerLaser) || 
-			(entityType === EntityType.PlayerTriple)) {
+			(entityType === EntityType.PlayerTriple) ||
+			(entityType === EntityType.PlayerShield)) {
 
 			didCollide = true;
 			sprite.isDying = true;

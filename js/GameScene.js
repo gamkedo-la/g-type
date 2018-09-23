@@ -268,7 +268,6 @@ function GameScene(levelIndex) {
 				break;
 			case PowerUpType.Missile:
 				player.setHasMissiles(true);
-				console.log("Tried to give the player Missiles");
 				break;
 			case PowerUpType.Double:
 				player.setShotTo(EntityType.PlayerDouble);
@@ -286,6 +285,7 @@ function GameScene(levelIndex) {
 			case PowerUpType.Shield:
 				//TODO: Need to do something here...
 				console.log("Tried to activate shields");
+				player.activateShield();
 				break;
 			case PowerUpType.Force:
 				//TODO: Need to do something here...
@@ -311,7 +311,7 @@ function GameScene(levelIndex) {
 		this.addEntity(newScore, false);
 		
 		uiManager.addToScore(entity.score);
-		if(uiManager.getScore() % 1000 == 0) {//TODO: change this to a reasonable value 30,000?
+		if(uiManager.getScore() % 30000 == 0) {//TODO: Figure out how to do this if score crosses over 30000 or 60000 without hitting it exactly
 			remainingLives++;
 		}
 	};

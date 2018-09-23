@@ -34,6 +34,7 @@ const playerLaserShot = document.createElement("img");
 const playerShotFlash = document.createElement("img");
 const forceUnitSheet = document.createElement("img");
 const missileSheet = document.createElement("img");
+const shieldSheet = document.createElement("img");
 
 //power ups
 const capsule1Sheet = document.createElement("img");
@@ -98,6 +99,7 @@ function loadImages() {
 		{ imgName: playerLaserShot, theFile: "player_laser_shot_v5.png"},
 		{ imgName: forceUnitSheet, theFile: "shape_hexagon_48x48.png"},
 		{ imgName: missileSheet, theFile: "PlayerMissile.png"},
+		{ imgName: shieldSheet, theFile: "TempShield.png"},
 
         // Capsules
         { imgName: capsule1Sheet, theFile: "PowerUp.png" },
