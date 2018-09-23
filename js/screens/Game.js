@@ -147,42 +147,42 @@ function GamePlayScreen () {
             	return true;
             case DIGIT_2:
             	if((!pressed) && cheats.debugKeysEnabled) {
-	            	worldSpeed = 2;
+	            	worldSpeed = 1.25;
             	}
             	return true;
             case DIGIT_3:
             	if((!pressed) && cheats.debugKeysEnabled) {
-	            	worldSpeed = 3;
+	            	worldSpeed = 1.50;
             	}
             	return true;
             case DIGIT_4:
             	if((!pressed) && cheats.debugKeysEnabled) {
-	            	worldSpeed = 4;
+	            	worldSpeed = 1.75;
             	}
             	return true;
             case DIGIT_5:
             	if((!pressed) && cheats.debugKeysEnabled) {
-	            	worldSpeed = 5;
+	            	worldSpeed = 2.0;
             	}
             	return true;
             case DIGIT_6:
             	if((!pressed) && cheats.debugKeysEnabled) {
-	            	worldSpeed = 6;
+	            	worldSpeed = 2.25;
             	}
             	return true;
             case DIGIT_7:
             	if((!pressed) && cheats.debugKeysEnabled) {
-	            	worldSpeed = 7;
+	            	worldSpeed = 2.50;
             	}
             	return true;
             case DIGIT_8:
             	if((!pressed) && cheats.debugKeysEnabled) {
-	            	worldSpeed = 8;
+	            	worldSpeed = 2.75;
             	}
             	return true;
             case DIGIT_9:
             	if((!pressed) && cheats.debugKeysEnabled) {
-	            	worldSpeed = 9;
+	            	worldSpeed = 3.0;
             	}
             	return true;
             default:
