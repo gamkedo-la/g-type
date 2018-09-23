@@ -119,7 +119,9 @@ function Player(position = {x:0, y:0}) {
 		//If the player is invincible, draw just the player sprite at 50% opacity
 		if(isInvincible) {
 			canvasContext.save();
-			canvasContext.globalAlpha = 0.50;
+			let alpha = timer.getCurrentTime() % 20 < 10 ? 1 : 0.50;  //blinky blinky! 
+			
+			canvasContext.globalAlpha = alpha;
 		}
 		
 		//draw the player
