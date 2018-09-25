@@ -29,8 +29,8 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None) {
 				return (new AnimatedSprite(playerLaserShot, 13, 28, 6, false, true, {min:0, max:0}, 0, {min:0, max:12}, 128, {min:13, max:18}, 64));
 			case PowerUpType.Triple:
 				return (new AnimatedSprite(tripleShotUI, 4, 65, 41, false, true, {min:0, max:0}, 0, {min:0, max:3}, 192, {min:3, max:3}, 0));
-/*			case PowerUpType.Ghost:
-				return null;//TODO: need a spritesheet for this*/
+			case PowerUpType.Ghost:
+				return (new  AnimatedSprite(ghostSheet, 9, 64, 64, true, true, {min:0, max:0}, 0, {min:0, max:8}, 128, {min:8, max:8}, 0));
 			case PowerUpType.Shield:
 				return (new AnimatedSprite(shieldSheet, 3, 60, 45, false, true, {min:0, max:0}, 0, {min:0, max:0}, 128, {min:2, max:2}, 0));
 				return null;//TODO: need a spritesheet for this

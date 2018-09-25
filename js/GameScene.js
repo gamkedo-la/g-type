@@ -279,6 +279,7 @@ function GameScene(levelIndex) {
 				player.setShotTo(EntityType.PlayerTriple);
 				break;
 			case PowerUpType.Ghost:
+				player.activateGhostShip();
 				//TODO: Need to do something here...
 				console.log("Tried to activate a Ghost Ship");
 				return;

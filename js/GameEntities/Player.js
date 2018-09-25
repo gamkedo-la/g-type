@@ -22,6 +22,8 @@ function Player(position = {x:0, y:0}) {
 	const SPRITE_SCALE = 0.60;//make sure to change the x and y position of the playershot to match scaling
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	let hasMissiles = false;
+	const ghosts = [];
+	const MAX_GHOSTS = 3;
 	
 	const BASE_SPEED = 90;//essentially pixels per second
 	const MAX_SHOTS_ON_SCREEN = 10;//TODO: maybe this should be adjustable as a power up or part of the "speed up" power up?
@@ -77,6 +79,10 @@ function Player(position = {x:0, y:0}) {
 					
 			if(holdSpace) {//shooting
 				this.doShooting();
+			}
+			
+			for(let i = 0; i < ghosts.length; i++) {
+				ghosts[i].update(deltaTime, {x:this.position.x, y:this.position.y});
 			}
 			
 			//update all player shots
@@ -143,6 +149,10 @@ function Player(position = {x:0, y:0}) {
 		}
 		
 		shield.draw();
+		
+		for(let i = 0; i < ghosts.length; i++) {
+			ghosts[i].draw();
+		}
 		
 		//draw player shots
 		for(let i = 0; i < shots.length; i++) {
@@ -303,6 +313,23 @@ function Player(position = {x:0, y:0}) {
 		scene.addEntity(shield, true);
 	};
 	
+	this.activateGhostShip = function() {
+		let thisGhost;
+		if(ghosts.length < 3) {
+			thisGhost = new GhostShipEntity({x:this.position.x - 50, y:this.position.y});
+			ghosts.push(thisGhost);
+		} else {
+			for(let i = 0; i < ghosts.length; i++) {
+				if(!ghosts[i].isActive) {
+					thisGhost = ghosts[i];
+					thisGhost.setPosition({x:this.position.x - 50, y:this.position.y});
+				}
+			}
+		}
+		
+		thisGhost.isActive = true;
+	}
+	
 	this.didCollideWith = function(otherEntity) {
 		if(otherEntity.type === EntityType.Capsule1) {
 			scene.collectedCapsule();
@@ -377,6 +404,10 @@ function Player(position = {x:0, y:0}) {
 		if((this.forceUnit !== null) && (this.forceUnit !== undefined)) {
 			scene.removeEntity(this.forceUnit);
 			this.forceUnitActive = false;
+		}
+		
+		for(let i = 0; i < ghosts.length; i++) {
+			ghosts[i].isActive = false;
 		}
 	};
 	
