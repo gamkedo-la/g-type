@@ -19,3 +19,5 @@ function Cheats() {
     this.debugKeysEnabled = true;
 }
 let cheats = new Cheats();
+
+// TEST comment for practice Git commit. Will remove. - Kevin Pav
