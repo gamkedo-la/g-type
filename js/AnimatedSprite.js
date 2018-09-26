@@ -1,5 +1,4 @@
 //Animated Sprite
-//test comment, practicing using git, will remove
 function AnimatedSprite(sheet, 
 						frameCount = 1, 
 						frameWidth = (sheet.width / frameCount), 
