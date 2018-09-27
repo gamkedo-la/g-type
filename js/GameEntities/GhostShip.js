@@ -1,11 +1,13 @@
 //GhostShipEntity
-function GhostShipEntity(position = {x:0, y:0}) {
+function GhostShipEntity(position = {x:0, y:0}, speed = 0) {
 	this.position = {x:position.x - 75, y:position.y};
 	this.type = EntityType.GhostShip;
-	const sprite = new AnimatedSprite(ghostSheet, 9, 64, 64, true, true, {min:0, max:0}, 0, {min:0, max:8}, 128, {min:8, max:8}, 0);
-	const SPRITE_SCALE = 1;
+	const sprite = new AnimatedSprite(ghostSheet, 9, 64, 64, false, true, {min:0, max:0}, 0, {min:0, max:8}, 128, {min:8, max:8}, 0);
+	const SPRITE_SCALE = 0.6;
 	this.size = {width:sprite.width * SPRITE_SCALE, height:sprite.height * SPRITE_SCALE};
 	let shotType = EntityType.PlayerShot;
+	const pathPoints = [];
+	this.path = new EnemyPath(PathType.Points, this.position, speed, pathPoints, 0);
 //	let path = new GhostPath();
 	this.isActive = false;
 	
@@ -14,6 +16,10 @@ function GhostShipEntity(position = {x:0, y:0}) {
 	this.setPosition = function(newPos) {
 		this.position.x = newPos.x;
 		this.position.y = newPos.y;
+	};
+	
+	this.setSpeed = function(newSpeed) {
+		this.path.updateSpeed(newSpeed);
 	}
 	
 	this.update = function(deltaTime, playerPos) {

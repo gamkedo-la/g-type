@@ -51,6 +51,10 @@ function EnemyPath(type = PathType.None, start = {x:0, y:0}, speed = 0, points =
 	}
 	
 	this.nextPoint = function(deltaTime) {
+		if(lastPointIndex > 1) {//Keep array size down since it can grow quite large.
+			lastPointIndex--;
+			points.splice(0, 1);
+		}
 		elapsedTime += deltaTime;
 		if(elapsedTime >= timeOffset) {
 			if(type === PathType.None) {
@@ -120,6 +124,14 @@ function EnemyPath(type = PathType.None, start = {x:0, y:0}, speed = 0, points =
 			}
 		}
 	};
+	
+	this.addPoint = function(newPoint) {
+		points.push({x:newPoint.x, y:newPoint.y});
+	};
+	
+	this.updateSpeed = function(newSpeed) {
+		currentSpeed = newSpeed / 1000;
+	}
 	
 	return this;
 }
