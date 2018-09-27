@@ -89,11 +89,20 @@ function CreditsScreen() {
         
     };
     this.control = function creditsScreenControl(keyCode, pressed) {
-        if (pressed) {
-	        if(keyCode === KEY_SPACE) {
-		        this.scrollSpeed = 0;
+        if (pressed) 
+	{
+		if(keyCode === KEY_SPACE) 
+		{
+		 	if(this.scrollSpeed !== 0)
+			{
+				this.scrollSpeed = 0;
+			}
+			else
+			{
+				this.scrollSpeed = 4/50;
+			}
 	        }
-            return true;
+            	return true;
         }
         let skipAmt = 150;
         switch (keyCode) {
@@ -103,9 +112,6 @@ function CreditsScreen() {
             case KEY_UP:
                 this.scrollSpeed += 2/50;
                 return true;
-            case KEY_SPACE:
-            	this.scrollSpeed = 4 / 50;
-            	return true;
             case KEY_ENTER:
             case KEY_ESCAPE:
             case KEY_BACKSPACE:
