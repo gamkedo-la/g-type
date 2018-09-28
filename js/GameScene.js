@@ -206,6 +206,13 @@ function GameScene(levelIndex) {
 			uiManager.reset(false);
 		}
 	};
+
+	//add extra life
+	this.life = function()
+	{
+		remainingLives++;
+		extraLife.play();
+	};
 	
 	this.removeEntity = function(entityToRemove, isPlayerBullet) {
 		if(isPlayerBullet) {
@@ -313,7 +320,7 @@ function GameScene(levelIndex) {
 		
 		uiManager.addToScore(entity.score);
 		if(uiManager.getScore() % 30000 == 0) {//TODO: Figure out how to do this if score crosses over 30000 or 60000 without hitting it exactly
-			remainingLives++;
+			this.life();
 		}
 	};
 	

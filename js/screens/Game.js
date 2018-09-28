@@ -132,7 +132,7 @@ function GamePlayScreen () {
             return true;
             case KEY_L: //Adding lives
                 if (!pressed && cheats.debugKeysEnabled) {
-                    remainingLives++;
+                    scene.life();
                 }
             return true;
             case DIGIT_0:
