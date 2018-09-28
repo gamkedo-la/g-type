@@ -12,10 +12,12 @@ const tripleShotUI = document.createElement("img");
 const livesUI = document.createElement("img");
 
 //Backgrounds
-const starSheet = document.createElement("img");
-const planetSheet = document.createElement("img");
-const backgroundParallaxLayer1 = document.createElement("img");
-const backgroundColorLookup = document.createElement("img");
+const starSheet = document.createElement("img"); // bg twinkling star sprites
+const planetSheet = document.createElement("img"); // bg planet sprites
+const backgroundColorLookup = document.createElement("img"); // background gradients
+const backgroundParallaxLayer1 = document.createElement("img"); // dense starfield
+const backgroundParallaxLayer2 = document.createElement("img"); // planets and ships
+const foregroundParallaxLayer1 = document.createElement("img"); // overlay above gameplay
 
 //Terrain & World
 const largeRhombusBoulder = document.createElement("img");
@@ -79,8 +81,10 @@ function loadImages() {
         // backgrounds
         { imgName: starSheet, theFile: "Stars.png" },
         { imgName: planetSheet, theFile: "Planet.png" },
-        { imgName: backgroundParallaxLayer1, theFile: "stars1024x1024.png" },
         { imgName: backgroundColorLookup, theFile: "backgroundColorLookup.png" },
+        { imgName: backgroundParallaxLayer1, theFile: "stars1024x1024.png" },
+        { imgName: backgroundParallaxLayer2, theFile: "backgroundParallax.png" },
+        //{ imgName: foregroundParallaxLayer1, theFile: "foregroundParallax.png" },
                 
         
         //Terrain & World

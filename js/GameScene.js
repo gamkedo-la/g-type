@@ -118,7 +118,10 @@ function GameScene(levelIndex) {
 	
 	this.updateBackground = function(deltaTime) {
 
+		// the dense starfield
 		this.parallaxOffset1 = -1*(this.worldPos*BG_PARALLAX_RATIO_1%backgroundParallaxLayer1.width);
+		// the distant planets in midground
+		this.parallaxOffset2 = -1*(this.worldPos*BG_PARALLAX_RATIO_2%backgroundParallaxLayer2.width);
 
 		if (!this.bgTime) {
 			this.bgTime = deltaTime; 
@@ -165,6 +168,10 @@ function GameScene(levelIndex) {
 		canvasContext.drawImage(backgroundParallaxLayer1,this.parallaxOffset1,0);
 		canvasContext.drawImage(backgroundParallaxLayer1,this.parallaxOffset1+backgroundParallaxLayer1.width,0);
 
+		// distant planets and nebulae
+		canvasContext.drawImage(backgroundParallaxLayer2,this.parallaxOffset2,GameField.bgOffset);
+		canvasContext.drawImage(backgroundParallaxLayer2,this.parallaxOffset2+backgroundParallaxLayer2.width,+ GameField.bgOffset);
+		
 		// twinkling stars
 		starfield.draw();
 	}
