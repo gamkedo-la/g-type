@@ -7,8 +7,8 @@ function GhostShipEntity(position = {x:0, y:0}, speed = 0) {
 	this.size = {width:sprite.width * SPRITE_SCALE, height:sprite.height * SPRITE_SCALE};
 	let shotType = EntityType.PlayerShot;
 	const pathPoints = [];
-	this.path = new EnemyPath(PathType.Points, this.position, speed, pathPoints, 0);
-//	let path = new GhostPath();
+//	this.path = new EnemyPath(PathType.Points, this.position, speed, pathPoints, 0);
+	let path = new GhostPath(75);
 	this.isActive = false;
 	
 	this.collisionBody = null;
@@ -26,8 +26,11 @@ function GhostShipEntity(position = {x:0, y:0}, speed = 0) {
 		if(!this.isActive) {return;}//don't update inactive ghosts
 		sprite.update(deltaTime);
 		
-		this.position.x = playerPos.x - 75;//temporary
-		this.position.y = playerPos.y;//temporary
+		const newPos = path.nextPoint(playerPos);
+		if(newPos != null) {
+			this.position.x = newPos.x;
+			this.position.y = newPos.y;
+		}
 	};
 	
 	this.doShooting = function() {
@@ -40,6 +43,53 @@ function GhostShipEntity(position = {x:0, y:0}, speed = 0) {
 	};
 	
 	return this;
+}
+
+function GhostPath(distance = 75) {
+	let distanceToPlayer = 0;
+	let desiredDistance = distance;
+	const points = [];
+	
+	this.nextPoint = function(playerPos) {
+		addPoint(playerPos);
+		
+		if((points.length < 2) || (distanceToPlayer < 0.9 * desiredDistance)) {
+			return {x:playerPos.x - desiredDistance, y: playerPos.y};
+		}
+		
+		const newPosition = {x:0, y:0};
+		while(distanceToPlayer > desiredDistance) {
+			advanceGhostPos();
+		}
+		
+		return points[0];
+	};
+	
+	const advanceGhostPos = function() {
+		const oldPos = points.splice(0, 1)[0];
+		const newPos = points[0];
+		
+		const deltaX = oldPos.x - newPos.x;
+		const deltaY = oldPos.y - newPos.y;
+		
+		distanceToPlayer -= (Math.sqrt((deltaX * deltaX) + (deltaY * deltaY)));
+	};
+	
+	const addPoint = function(newPoint) {
+		points.push({x:newPoint.x, y:newPoint.y});
+
+		if(points.length < 2) {return;}
+
+		const previousEndPoint = points[(points.length - 2)];
+		const deltaX = newPoint.x - previousEndPoint.x;
+		const deltaY = newPoint.y - previousEndPoint.y;
+		
+		distanceToPlayer += Math.sqrt((deltaX * deltaX) + (deltaY * deltaY));		
+	};
+	
+	this.setDistance = function(newDistance) {
+		desiredDistance = newDistance;
+	};
 }
 
 /*function KeyPoint(time = 0, point = {x:0, y:0}) {
