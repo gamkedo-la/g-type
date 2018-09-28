@@ -27,8 +27,9 @@ const SIM_STEP = 16;//milliseconds in each simulation step ~1/2 frame
 const MAX_SHAKE_MAGNITUDE = 10;
 const MAX_LIVES_TO_SHOW = 9;
 
-const BG_PARALLAX_RATIO_1 = 0.3;
-const BG_PARALLAX_RATIO_2 = 0.2;
+const BG_PARALLAX_RATIO_1 = 0.3; // startfield
+const BG_PARALLAX_RATIO_2 = 0.2; // transparent planets
+const BG_PARALLAX_RATIO_3 = 2.0; // girders
 const BG_COLOR_CHANGE_SPEED = 0.005; // pixels per second for the bacgroundColorLookup table
 
 const gameTitle = {

@@ -122,6 +122,8 @@ function GameScene(levelIndex) {
 		this.parallaxOffset1 = -1*(this.worldPos*BG_PARALLAX_RATIO_1%backgroundParallaxLayer1.width);
 		// the distant planets in midground
 		this.parallaxOffset2 = -1*(this.worldPos*BG_PARALLAX_RATIO_2%backgroundParallaxLayer2.width);
+		// things overlaid above the gameplay (girders)
+		this.parallaxOffset3 = -1*(this.worldPos*BG_PARALLAX_RATIO_3%foregroundParallaxLayer1.width);
 
 		if (!this.bgTime) {
 			this.bgTime = deltaTime; 
@@ -130,6 +132,12 @@ function GameScene(levelIndex) {
 		}
 		
 		starfield.update(deltaTime, this.worldPos);
+	}
+
+	this.drawForeground = function() {
+		// foreground layer: girders truss beams aligned to bottom of screen
+		canvasContext.drawImage(foregroundParallaxLayer1,this.parallaxOffset3,canvas.height-foregroundParallaxLayer1.height);
+		canvasContext.drawImage(foregroundParallaxLayer1,this.parallaxOffset3+foregroundParallaxLayer1.width,canvas.height-foregroundParallaxLayer1.height);
 	}
 
 	this.drawBackground = function() {
@@ -193,6 +201,8 @@ function GameScene(levelIndex) {
 		for(let entity of foregroundEntities) {
 			entity.draw();
 		}
+
+		this.drawForeground();
 
 		uiManager.draw();
 	};

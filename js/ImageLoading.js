@@ -84,7 +84,7 @@ function loadImages() {
         { imgName: backgroundColorLookup, theFile: "backgroundColorLookup.png" },
         { imgName: backgroundParallaxLayer1, theFile: "stars1024x1024.png" },
         { imgName: backgroundParallaxLayer2, theFile: "backgroundParallax.png" },
-        //{ imgName: foregroundParallaxLayer1, theFile: "foregroundParallax.png" },
+        { imgName: foregroundParallaxLayer1, theFile: "foregroundParallax1.png" },
                 
         
         //Terrain & World
