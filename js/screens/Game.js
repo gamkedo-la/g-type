@@ -129,12 +129,17 @@ function GamePlayScreen () {
                 if (!pressed && cheats.debugKeysEnabled) {
                     scene.collectedCapsule();
                 }
-            return true;
+                return true;
             case KEY_L: //Adding lives
                 if (!pressed && cheats.debugKeysEnabled) {
                     scene.life();
                 }
-            return true;
+                return true;
+            case KEY_E: //Activating shields
+                if (!pressed && cheats.debugKeysEnabled) {
+                    scene.activatedShield();
+                }
+                return true;
             case DIGIT_0:
             	if((!pressed) && cheats.debugKeysEnabled) {
 	            	worldSpeed = 0;

@@ -210,6 +210,10 @@ function GameScene(levelIndex) {
 	this.collectedCapsule = function() {
 		uiManager.incrementActivePowerUp();
 	};
+
+	this.activatedShield = function() {
+		player.activateShield();
+	};
 	
 	this.removePlayer = function() {
 		if(remainingLives < 1) {
