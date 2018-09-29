@@ -298,7 +298,7 @@ function Player(position = {x:0, y:0}) {
 	};
 	
 	this.activateTheForce = function() {
-		if((this.forcUnit === null) || (this.foceUnit === undefined)) {
+		if((this.forceUnit === null) || (this.forceUnit === undefined)) {
 			this.forceUnit = new PlayerForceUnit({x:0, y:0});
 			// Give the force unit a reference to "this", so we can update its position based on the ship's position
 			this.forceUnit.parentObj = this;
