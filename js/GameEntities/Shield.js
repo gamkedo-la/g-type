@@ -6,6 +6,7 @@ function ShieldEntity(position = {x:0, y:0}, playerSize = {width:0, height:0}) {
 	this.damagePoints = 1;
 	this.isActive = false;
 	const SPRITE_SCALE = 2;
+	let wasReset = false;
 	
 	sprite = new AnimatedSprite(shieldSheet, 3, 60, 45, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
 	
@@ -55,7 +56,10 @@ function ShieldEntity(position = {x:0, y:0}, playerSize = {width:0, height:0}) {
 			scene.removeCollisions(this);
 		}
 		
-		console.log("Frame: " + sprite.getCurrentFrame());
+		if(wasReset) {
+			wasReset = false;
+			sprite.update(deltaTime);
+		}
 		
 		this.position.x = playerPos.x - (this.size.width - playerSize.width) / 2;
 		this.position.y = playerPos.y - (this.size.height - playerSize.height) / 2;
@@ -81,17 +85,20 @@ function ShieldEntity(position = {x:0, y:0}, playerSize = {width:0, height:0}) {
 		   (otherEntity.type === EntityType.PlayerTriple) ||
 		   (otherEntity.type === EntityType.PlayerForceUnit)) {
 			   return; //Player weapons don't interact with the shields
+		} else {
+			this.hitPoints--;
+			scene.shouldShake(MAX_SHAKE_MAGNITUDE / 2);
+			playerShieldHit.play();
 		}
 		
-		this.hitPoints--;
-		scene.shouldShake(MAX_SHAKE_MAGNITUDE / 2);
-		playerShieldHit.play();
+		console.log("Hit Points: " + this.hitPoints);
 	};
 	
 	this.reset = function() {
 		this.hitPoints = MAX_HITPOINTS;
 		this.isActive = true;
 		sprite.setFrame(0);
+		wasReset = true;
 	};
 	
 	this.deactivate = function() {
