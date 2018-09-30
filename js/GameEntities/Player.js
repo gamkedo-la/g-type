@@ -318,13 +318,14 @@ function Player(position = {x:0, y:0}) {
 	this.activateGhostShip = function() {
 		let thisGhost;
 		if(ghosts.length < 3) {
-			thisGhost = new GhostShipEntity({x:this.position.x - 50, y:this.position.y});
+			thisGhost = new GhostShipEntity({x:this.position.x, y:this.position.y}, 75 * (1 + ghosts.length));
 			ghosts.push(thisGhost);
 		} else {
 			for(let i = 0; i < ghosts.length; i++) {
 				if(!ghosts[i].isActive) {
 					thisGhost = ghosts[i];
-					thisGhost.setPosition({x:this.position.x - 50, y:this.position.y});
+					thisGhost.setPosition({x:this.position.x, y:this.position.y}, 75 * (1 + i));
+					break;//found the first one which is inActive => done
 				}
 			}
 		}
