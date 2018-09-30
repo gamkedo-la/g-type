@@ -32,6 +32,7 @@ const rock4 = document.createElement("img");
 
 //Player Associated
 const player1Sheet = document.createElement("img");
+const playerThruster = document.createElement("img");
 const playerBoom2Sheet = document.createElement("img");
 const playerShots = document.createElement("img");
 const playerLaserShot = document.createElement("img");
@@ -102,6 +103,7 @@ function loadImages() {
 
         // player related
         { imgName: player1Sheet, theFile: "G-TypePlayer1.png" },
+        { imgName: playerThruster, theFile: "G-TypePlayer1-Thruster.png" },
         { imgName: playerShots, theFile: "PlayerShots.png" },
 		{ imgName: playerShotFlash, theFile: "player_shot_vfx_sheet.png"},
 		{ imgName: playerBoom2Sheet, theFile: "player_explosion_v2_sheet.png"},

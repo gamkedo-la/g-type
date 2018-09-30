@@ -20,7 +20,7 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None) {
 			case PowerUpType.None:
 				return null;
 			case PowerUpType.Speed:
-				return (new AnimatedSprite(flyingEnemySheet, 5, 30, 21, true, true, {min:0, max:0}, 0, {min:0, max:4}, 128, {min:4, max:4}, 0));
+				return (new AnimatedSprite(playerThruster, 3, 32, 32, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0));
 			case PowerUpType.Missile:
 				return (new AnimatedSprite(missileSheet, 5, 35, 19, true, true, {min:0, max:0}, 0, {min:0, max:2}, 512, {min:2, max:2}, 0));
 			case PowerUpType.Double:
