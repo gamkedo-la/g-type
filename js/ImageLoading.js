@@ -10,6 +10,8 @@ const fontImage = document.createElement("img");
 const doubleShotUI = document.createElement("img");
 const tripleShotUI = document.createElement("img");
 const livesUI = document.createElement("img");
+const lightGhostUI = document.createElement("img");
+const darkGhostUI = document.createElement("img");
 
 //Backgrounds
 const starSheet = document.createElement("img"); // bg twinkling star sprites
@@ -77,6 +79,8 @@ function loadImages() {
         { imgName: doubleShotUI, theFile: "DoubleShotUI.png" },
         { imgName: tripleShotUI, theFile: "TripleShotUI.png" },
         { imgName: livesUI, theFile: "UILivesIconEven.png" },
+        { imgName: lightGhostUI, theFile: "GhostShipUI-Lit.png" },
+        { imgName: darkGhostUI, theFile: "GhostShipUI-Dark.png" },
 
         // backgrounds
         { imgName: starSheet, theFile: "Stars.png" },

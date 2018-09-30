@@ -25,6 +25,7 @@ function UIManager() {
 	elements.push(new SpacerUI({x: 509, y: 59}));
 	elements.push(new PowerUpUI({x: 550, y: 25}));
 	
+	const ghost = new GhostUI({x:GameField.x + 15, y:GameField.y - 75});
 	const score = new UIScore({x:GameField.midX, y:GameField.y - 20});
 	const lives = new UILives({x:GameField.midX - 150, y:GameField.y + 20});
 	
@@ -85,6 +86,8 @@ function UIManager() {
 		}
 		
 		lives.update(deltaTime);
+		
+		ghost.update(deltaTime);
 	};
 	
 	this.draw = function() {
@@ -97,6 +100,8 @@ function UIManager() {
 		score.draw();
 		
 		lives.draw();
+		
+		ghost.draw();
 	};
 	
 	this.addToScore = function(scoreToAdd) {
@@ -123,7 +128,7 @@ function UIManager() {
 	};
 	
 	this.getPowerUpToActivate = function() {
-		elements[highlightedIndex].lockMe();
+//		elements[highlightedIndex].lockMe();
 		return powerUpToActivate;
 	}
 	
@@ -149,13 +154,19 @@ function UIManager() {
 				break;
 			case PowerUpType.Ghost:
 				powerUpToActivate = PowerUpType.Shield;
-				return;
+				break;
 			case PowerUpType.Shield:
 				powerUpToActivate = PowerUpType.Force;
 				break;
 			case PowerUpType.Force:
 				powerUpToActivate = PowerUpType.Speed;
 				break;
+		}
+		
+		if(powerUpToActivate === PowerUpType.Ghost) {
+			ghost.isLit = true;
+		} else {
+			ghost.isLit = false;
 		}
 
 //		uiManager.incrementActivePowerUp();
