@@ -1,5 +1,62 @@
 //LevelData
 const LevelData = [
+	/*{//levelIndex = -1 Rybar's tiled level loading scheme
+		clearColor:"#010119",
+		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY}},
+		initializeEnemies: function() {
+			
+			const enemies = [];
+			let offRight = GameField.right + 50;
+			TileMaps.levelOne.layers[2].objects.forEach(function(obj){
+				
+				switch(obj.type){
+					case "flyingEnemy1":
+					//tiled-editor object origin is bottom-left, game engine sprite origin is top-left
+					enemies.push(new FlyingEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, -100, "none" ,25,obj.x,1))
+					break;
+					case "flyingEnemy2":
+					enemies.push(new FlyingEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, -100, "none",25,obj.x,1))
+					break;
+					case "flyingEnemy1sine":
+					enemies.push(new FlyingEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, -100, "sine" ,25,obj.x,1))
+					break;
+					case "flyingEnemy2sine":
+					enemies.push(new FlyingEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, -100, "sine",25,obj.x,1))
+					break;
+					case "groundEnemy1":
+					enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.rotation, -100, "none", 0, obj.x, 1))
+					break;
+					default:
+					break;
+				}
+			})
+			return enemies;
+		},
+		initializeTerrain: function() {
+			const world = [];
+			let offRight = GameField.right + 50;
+			TileMaps.levelOne.layers[1].objects.forEach(function(obj){
+				switch(obj.type){
+					case "bubble":
+					world.push(new BubbleEntity(EntityType.Bubble, {x:offRight, y:GameField.y+obj.y-obj.height}, obj.x, 1, 1024));
+					break;
+					case "capsule1":
+					world.push(new Capsule({x:offRight, y:GameField.y+obj.y-obj.height}, obj.x));
+					break;
+					default:
+					world.push(new TerrainEntity(obj.type, {x:offRight, y:GameField.y+obj.y-obj.height}, obj.x, 1));
+					break;
+				}
+				
+			})
+			return world;      
+		},
+		initializeDebris: function() {
+			const debris = [];
+			return debris;
+		},
+		checkpointPositions:[0, 600, 1200]
+	}, */
 	{//levelIndex = 0
 		clearColor:"#010119",
 		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY}},
@@ -151,6 +208,17 @@ const LevelData = [
 		checkpointPositions:[0, 600, 1200]
 	},
 	{//levelIndex = 1
+		clearColor: "#010119",//placeholder value
+		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY}},
+		initializeEnemies: function() {
+		},
+		initializeTerrain: function() {
+		},
+		initializeDebris: function() {
+		},
+		checkpointPositions:[0, 600, 1200]//placeholder values
+	},
+	{//levelIndex = 2
 		clearColor: "#010119",//placeholder value
 		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY}},
 		initializeEnemies: function() {
