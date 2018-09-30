@@ -23,12 +23,16 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 	
 	this.update = function(deltaTime, playerPos, worldPos) {
 		if(!this.isActive) {return;}//don't update inactive ghosts
+		
 		sprite.update(deltaTime);
 		
 		const newPos = path.nextPoint(playerPos);
 		if(newPos != null) {
 			this.position.x = newPos.x;
 			this.position.y = newPos.y;
+		} else {
+			this.position.x = playerPos.x;
+			this.position.y = playerPos.y;
 		}
 		
 		//update all player shots
@@ -127,6 +131,7 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 	
 	this.draw = function() {
 		if(!this.isActive) {return;}//don't draw inactive ghosts
+		
 		sprite.drawAt(this.position, this.size);
 		
 		//draw player shots
@@ -150,8 +155,8 @@ function GhostPath(distance = 75) {
 	this.nextPoint = function(playerPos) {
 		addPoint(playerPos);
 		
-		if((points.length < 2) || (distanceToPlayer < 0.9 * desiredDistance)) {
-			return {x:playerPos.x - desiredDistance, y: playerPos.y};
+		if(points.length < 2) {
+			return null;
 		}
 		
 		const newPosition = {x:0, y:0};
