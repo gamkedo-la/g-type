@@ -82,7 +82,7 @@ function Player(position = {x:0, y:0}) {
 			}
 			
 			for(let i = 0; i < ghosts.length; i++) {
-				ghosts[i].update(deltaTime, {x:this.position.x, y:this.position.y});
+				ghosts[i].update(deltaTime, {x:this.position.x, y:this.position.y}, worldPos);
 			}
 			
 			//update all player shots
@@ -188,6 +188,9 @@ function Player(position = {x:0, y:0}) {
 		
 		if(timeSinceLastShot > currentShotDelay) {
 			//enough time has passed so we can shoot again
+			for(let i = 0; i < ghosts.length; i++) {
+				ghosts[i].doShooting(MAX_SHOTS_ON_SCREEN, this.currentShotType, hasMissiles);
+			}
 			let newShot;
 			if(shots.length === MAX_SHOTS_ON_SCREEN) {
 				//basically a pool of shots, grab the oldest one
@@ -217,8 +220,7 @@ function Player(position = {x:0, y:0}) {
 				thirdShot = new PlayerShot();
 			}
 						
-			switch(this.currentShotType)
-			{
+			switch(this.currentShotType) {
 				case EntityType.PlayerShot:
 					initializeShot(newShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 13}, {x: 200, y: 0}, false);
 					playerFireRegular.play();//play the audio
@@ -270,7 +272,7 @@ function Player(position = {x:0, y:0}) {
 		shot.setVelocity({x: shotVel.x, y: shotVel.y});
 		if(isRotated) {shot.rotation = Math.atan2(-shotVel.y, shotVel.x);}
 		shots.push(shot);
-	}
+	};
 		
 	this.adjustVelocityAndSpriteForPlayerInput = function() {
 		//indicates the sprite is NOT "playing" the death animation => can still fly around the screen and shoot
