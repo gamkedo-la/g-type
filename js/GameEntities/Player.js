@@ -248,10 +248,10 @@ function Player(position = {x:0, y:0}) {
 				let newMissile
 				if(missiles.length === MAX_SHOTS_ON_SCREEN) {
 					newMissile = missiles.splice(0, 1)[0];
-					newMissile.setPosition({x:this.position.x, y:this.position.y});
+					newMissile.setPosition({x:this.position.x + this.size.width / 2, y:this.position.y + (2 * this.size.height / 3)});
 					newMissile.setVelocity({x:100, y:150});
 				} else {
-					newMissile = new PlayerMissile({x:this.position.x, y:this.position.y}, {x:100, y:150});
+					newMissile = new PlayerMissile({x:this.position.x + this.size.width / 2, y:this.position.y + (2 * this.size.height / 3)}, {x:100, y:150});
 				}
 				
 				newMissile.reset();

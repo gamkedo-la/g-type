@@ -10,6 +10,8 @@ function GhostShipEntity(position = {x:0, y:0}, speed = 0) {
 //	this.path = new EnemyPath(PathType.Points, this.position, speed, pathPoints, 0);
 	let path = new GhostPath(75);
 	this.isActive = false;
+	const shots = [];
+	const missiles = [];
 	
 	this.collisionBody = null;
 	
@@ -31,9 +33,18 @@ function GhostShipEntity(position = {x:0, y:0}, speed = 0) {
 			this.position.x = newPos.x;
 			this.position.y = newPos.y;
 		}
+		
+		//update all player shots
+		for(let i = 0; i < shots.length; i++) {
+			shots[i].update(deltaTime, worldPos);
+		}
+		
+		for(let i = 0; i < missiles.length; i++) {
+			missiles[i].update(deltaTime, worldPos);
+		}
 	};
 	
-	this.doShooting = function() {
+	this.doShooting = function(shotType) {
 		
 	};
 	
