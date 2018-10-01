@@ -136,9 +136,10 @@ function OptionsScreen() {
     };
     
     const drawHelp = function() {
-	    gameFont.printTextAt("volume", {x:GameField.midX, y:(GameField.y + 60 + GameField.height / 4)}, 25, textAlignment.Center);
-	    gameFont.printTextAt("music", {x:GameField.midX, y:(GameField.y + 120 + GameField.height / 4)}, 25, textAlignment.Center);
-	    gameFont.printTextAt("SFX", {x:GameField.midX, y:(GameField.y + 180 + GameField.height / 4)}, 25, textAlignment.Center);
+	    gameFont.printTextAt("Game Speed", {x:1.5 * GameField.midX - 30, y:(GameField.y + 60 + GameField.height / 4)}, 25, textAlignment.Center);
+	    gameFont.printTextAt("volume", {x:0.5 * GameField.midX, y:(GameField.y + 60 + GameField.height / 4)}, 25, textAlignment.Center);
+	    gameFont.printTextAt("music", {x:0.5 * GameField.midX - 70, y:(GameField.y + 120 + GameField.height / 4)}, 25, textAlignment.Center);
+	    gameFont.printTextAt("SFX", {x:0.5 * GameField.midX - 70, y:(GameField.y + 180 + GameField.height / 4)}, 25, textAlignment.Center);
     };
         
     return this;

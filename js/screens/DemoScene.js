@@ -20,7 +20,6 @@ function DemoSceneScreen() {
     };
     
     this.transitionOut = function demoPlayScreenTransitionOut() {
-	    scene = null;
 	    clearKeyboardInput();
 	    canvasContext.setTransform(1, 0, 0, 1, 0, 0);
         currentBackgroundMusic.pause();
@@ -313,7 +312,7 @@ function DemoScene(levelIndex = 0) {
 	};
 	
 	this.collectedCapsule = function() {
-		uiManager.incrementActivePowerUp();
+		uiManager.incrementPowerUpToActivate();
 		this.capsuleCount++;
 	};
 	
