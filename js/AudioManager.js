@@ -32,7 +32,7 @@ playerShieldHit.setVolume(0.7);
 const playerExplosion = new sfxClipSingle("PlayerExplosion");
 playerExplosion.setVolume(0.6);
 const extraLife = new sfxClipSingle("extraLife");
-extraLife.setVolume(0.6);
+extraLife.setVolume(0.7);
 
 //enemy and environment sfx
 const enemySmallExplosion = new sfxClipOverlap("EnemySmallExplosion", 3);
