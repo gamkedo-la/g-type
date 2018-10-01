@@ -88,11 +88,12 @@ function OptionsScreen() {
 
 	    let buttonsXOffset = mainMenuX + 70;
 
-	    for (let i = 0; i < menuItems.length; i++){
-		    colorText(menuItems[i].title, mainMenuX, mainMenuY + selectorYOffset * i, Color.White, Fonts.ButtonTitle, textAlignment.Left);
+	    for (let i = 0; i < menuItems.length; i++) {
+		    gameFont.printTextAt(menuItems[i].title, {x:mainMenuX, y:mainMenuY + selectorYOffset * i}, 20, textAlignment.Left);
+//		    colorText(menuItems[i].title, mainMenuX, mainMenuY + selectorYOffset * i, Color.White, Fonts.ButtonTitle, textAlignment.Left);
 		    if(i === selected) {
 			    selectorPosition.x = mainMenuX - 35;
-			    selectorPosition.y = mainMenuY + selectorYOffset * i - 15;
+			    selectorPosition.y = mainMenuY + selectorYOffset * i;
 		    }
 	    }
 	    
