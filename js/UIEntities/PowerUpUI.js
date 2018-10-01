@@ -1,8 +1,8 @@
 //PowerUpUI
-function PowerUpUI(position, highlighted = false, contains = PowerUpType.None) {
+function PowerUpUI(position, highlighted = false, contains = PowerUpType.None, scale = 1) {
 	this.position = {x: position.x, y: position.y};
 	let isLit = highlighted;
-	let contentsType = contains;
+	this.contentsType = contains;
 	let isLocked = false;
 	
 	let darkSprite = new AnimatedSprite(darkPowerUpUI, 5, 100, 100, true, true, {min: 0, max: 0}, 0, {min: 0, max: 4}, 256, {min: 4, max: 4}, 0);
@@ -13,7 +13,7 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None) {
 		sprite = lightSprite;
 	}
 	
-	this.size = {width:sprite.width, height:sprite.height};
+	this.size = {width:scale * sprite.width, height:scale * sprite.height};
 	
 	const spriteForContentsType = function(type) {
 		switch(type) {
@@ -30,18 +30,20 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None) {
 			case PowerUpType.Triple:
 				return (new AnimatedSprite(tripleShotUI, 4, 65, 41, false, true, {min:0, max:0}, 0, {min:0, max:3}, 192, {min:3, max:3}, 0));
 			case PowerUpType.Ghost:
+				return null;
 				return (new AnimatedSprite(lightGhostUI, 4, 46, 41, true, true, {min:0, max:0}, 0, {min:0, max:3}, 192, {min:3, max:3}, 0));
 			case PowerUpType.Shield:
 				return (new AnimatedSprite(shieldSheet, 3, 60, 45, false, true, {min:0, max:0}, 0, {min:0, max:0}, 128, {min:2, max:2}, 0));
 				return null;//TODO: need a spritesheet for this
 			case PowerUpType.Force:
+				return null;
 				return (new AnimatedSprite(forceUnitSheet, 1, 48, 48));
 			default://TODO: remove this, it is just for testing
 				return (new AnimatedSprite(playerLaserShot, 13, 28, 6, false, true, {min:0, max:0}, 0, {min:0, max:12}, 128, {min:13, max:18}, 64));			
 		}
 	};
 		
-	let contents = spriteForContentsType(contentsType);
+	let contents = spriteForContentsType(this.contentsType);
 	
 	this.updateContentPosition = function() {
 		if(contents == null) {
@@ -67,8 +69,8 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None) {
 	};
 	
 	this.setContents = function(newContent) {
-		contentsType = newContent;
-		contents = spriteForContentsType(contentsType);
+		this.contentsType = newContent;
+		contents = spriteForContentsType(this.contentsType);
 		contentPosition = this.updateContentPosition();
 	};
 	
@@ -82,14 +84,17 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None) {
 
 	this.lockMe = function() {
 		isLocked = true;
-	}
+	};
 
 	this.hasBeenLocked = function() {
 		return isLocked;
-	}
+	};
+	
+	this.unlockMe = function() {
+		isLocked = false;
+	};
 	
 	this.draw = function() {
-
 		sprite.drawAt(this.position, this.size);
 
 		if (isLocked) {
