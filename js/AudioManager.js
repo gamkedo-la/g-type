@@ -10,7 +10,7 @@ const menuMusic = new musicTrackLoop("PrepareToStrike-v1", 208.976, {author: "Jo
 //menuMusic.setVolume(0.2);
 
 const currentBackgroundMusic = new musicContainer([menuMusic/*, retroDream, dreamPunk, nightMusic, forestRock, drjuno, gameOver*/]);
-menuMusic.setVolume(0.6);
+currentBackgroundMusic.setVolume(0.6);
 
 //menu sfx
 const pauseSound = new sfxClipSingle("PauseSound");

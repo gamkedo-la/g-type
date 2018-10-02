@@ -2,16 +2,23 @@
 function OptionsScreen() {
 	const MENU_BG_COLOR = "#010119";
 
-    this.selectorPositionsIndex = 0;
-    let selectorPosition = {x:0, y:0};
+	const selectionPosition = {
+		Music:{x:GameField.midX + 90, y:(GameField.y + 60 + GameField.height / 4)},
+		SFX:{x:GameField.midX + 90, y:(GameField.y + 120 + GameField.height / 4)},
+		Speed:{x:GameField.midX + 90, y:(GameField.y + 180 + GameField.height / 4)},
+		Menu:{x:GameField.midX + 90, y:(GameField.y + 240 + GameField.height / 4)}
+	};
+
+    let selectorPositionIndex = 0;
+    let selectorPosition = {x:selectionPosition.Music.x + 35, y:selectionPosition.Music.y};
     let selectorSprite;
     let starfield;
 	this.selections = [
-	    {screen: GAME_SCREEN, title: textStrings.Play},
+//	    {screen: GAME_SCREEN, title: textStrings.Play},
 	    {screen: MENU_SCREEN, title: textStrings.Main},
 	   ];
     this.transitionIn = function () {
-        this.selectorPositionsIndex = 0;
+        selectorPositionIndex = 0;
         starfield = new Starfield();
         selectorSprite = new AnimatedSprite(player1Sheet, 6, 120, 76, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
         
@@ -32,7 +39,7 @@ function OptionsScreen() {
     this.run = function helpScreenRun(deltaTime) {
 	    update(deltaTime);
 	    
-	    draw(this.selections, this.selectorPositionsIndex);
+	    draw(this.selections, selectorPositionIndex);
     };
     
 	const update = function(deltaTime) {
@@ -48,28 +55,41 @@ function OptionsScreen() {
         
         switch (keyCode) {
             case KEY_UP:
-                this.selectorPositionsIndex--;
-                if (this.selectorPositionsIndex < 0) {
-                    this.selectorPositionsIndex += this.selections.length;
+                selectorPositionIndex--;
+                if (selectorPositionIndex < 0) {
+                    selectorPositionIndex += Object.keys(selectionPosition).length;
                 }
+                adjustSelectorPosition();
                 return true;
             case KEY_DOWN:
-                this.selectorPositionsIndex = (this.selectorPositionsIndex + 1) % this.selections.length;
-                if (this.selectorPositionsIndex > this.selections.length - 1) {
-                    this.selectorPositionsIndex = 0;
+                selectorPositionIndex++;
+                if (selectorPositionIndex === Object.keys(selectionPosition).length) {
+                    selectorPositionIndex = 0;
                 }
+                adjustSelectorPosition();
                 return true;
+            case KEY_PLUS:
+            	if(selectorPositionIndex === 0) {
+	            	const currentVolume = MusicVolumeManager.getVolume();
+	            	MusicVolumeManager.setVolume(currentVolume + 0.1);
+            	} else if(selectorPositionIndex === 1) {
+	            	const currentVolume = SFXVolumeManager.getVolume();
+	            	SFXVolumeManager.setVolume(currentVolume + 0.1);
+            	}
+            	return true;
+            case KEY_MINUS:
+            	if(selectorPositionIndex === 0) {
+	            	const currentVolume = MusicVolumeManager.getVolume();
+	            	MusicVolumeManager.setVolume(currentVolume - 0.1);
+            	} else if(selectorPositionIndex === 1) {
+	            	const currentVolume = SFXVolumeManager.getVolume();
+	            	SFXVolumeManager.setVolume(currentVolume - 0.1);
+            	}
+            	return true;
             case KEY_ENTER:
-                ScreenStates.setState(this.selections[this.selectorPositionsIndex].screen);
-                return true;
-            case KEY_H:
-                ScreenStates.setState(HELP_SCREEN);
-                return true;
-            case KEY_C:
-                ScreenStates.setState(CREDITS_SCREEN);
-                return true;
-            case KEY_E:
-                ScreenStates.setState(EDITOR_SCREEN);
+            	if(selectorPositionIndex === 3) {
+	                ScreenStates.setState(this.selections[0].screen);
+            	}
                 return true;
             case KEY_M:
     	        toggleMute();
@@ -79,27 +99,22 @@ function OptionsScreen() {
         return false;
     };
     
-	const printMenu = function(menuItems, selected, yOffset = null) {
-	    let mainMenuX = GameField.midX - 45;
-	    let mainMenuY = (yOffset == null ? GameField.bottom - 120 : yOffset);
-
-	    let selectorXOffset = 60;
-	    let selectorYOffset = 30;
-
-	    let buttonsXOffset = mainMenuX + 70;
-
-	    for (let i = 0; i < menuItems.length; i++) {
-		    gameFont.printTextAt(menuItems[i].title, {x:mainMenuX, y:mainMenuY + selectorYOffset * i}, 20, textAlignment.Left);
-//		    colorText(menuItems[i].title, mainMenuX, mainMenuY + selectorYOffset * i, Color.White, Fonts.ButtonTitle, textAlignment.Left);
-		    if(i === selected) {
-			    selectorPosition.x = mainMenuX - 35;
-			    selectorPosition.y = mainMenuY + selectorYOffset * i;
-		    }
-	    }
-	    
-	    starPosition = {x:GameField.midX, y:GameField.midY};
-	};
-
+    const adjustSelectorPosition = function() {
+	    if(selectorPositionIndex === 0) {
+		    selectorPosition.x = selectionPosition.Music.x + 35;
+		    selectorPosition.y = selectionPosition.Music.y;
+	    } else if(selectorPositionIndex === 1) {
+		    selectorPosition.x = selectionPosition.SFX.x + 35;
+		    selectorPosition.y = selectionPosition.SFX.y;
+		} else if(selectorPositionIndex === 2) {
+		    selectorPosition.x = selectionPosition.Speed.x + 35;
+		    selectorPosition.y = selectionPosition.Speed.y;
+		} else if(selectorPositionIndex === 3) {
+		    selectorPosition.x = selectionPosition.Menu.x + 35;
+		    selectorPosition.y = selectionPosition.Menu.y;
+		}
+    }
+    
 	const draw = function(selections, selectorPositionIndex) {
 		// render the menu background
         drawBG();
@@ -113,10 +128,7 @@ function OptionsScreen() {
 		drawTitle();
 		
 		//draw the actual help info
-		drawHelp();
-
-        // render menu
-        printMenu(selections, selectorPositionIndex);
+		drawOptions();
         
         //draw selector sprite
         selectorSprite.drawAt(selectorPosition, {width:30, height:19});
@@ -135,11 +147,11 @@ function OptionsScreen() {
 	    gameFont.printTextAt(gameTitle.Subtitle, {x:GameField.midX, y:(GameField.y + 120)}, 30, textAlignment.Center);
     };
     
-    const drawHelp = function() {
-	    gameFont.printTextAt("Game Speed", {x:1.5 * GameField.midX - 30, y:(GameField.y + 60 + GameField.height / 4)}, 25, textAlignment.Center);
-	    gameFont.printTextAt("volume", {x:0.5 * GameField.midX, y:(GameField.y + 60 + GameField.height / 4)}, 25, textAlignment.Center);
-	    gameFont.printTextAt("music", {x:0.5 * GameField.midX - 70, y:(GameField.y + 120 + GameField.height / 4)}, 25, textAlignment.Center);
-	    gameFont.printTextAt("SFX", {x:0.5 * GameField.midX - 70, y:(GameField.y + 180 + GameField.height / 4)}, 25, textAlignment.Center);
+    const drawOptions = function() {
+	    gameFont.printTextAt("music volume - " + (Math.round(MusicVolumeManager.getVolume() * 10)).toString(), selectionPosition.Music, 25, textAlignment.Right);
+	    gameFont.printTextAt("SFX volume - " + (Math.round(SFXVolumeManager.getVolume() * 10)).toString(), selectionPosition.SFX, 25, textAlignment.Right);
+	    gameFont.printTextAt("Game Speed - " + ("1"), selectionPosition.Speed, 25, textAlignment.Right);
+	    gameFont.printTextAt(textStrings.Main, selectionPosition.Menu, 25, textAlignment.Right);
     };
         
     return this;
