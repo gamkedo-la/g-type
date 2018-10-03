@@ -24,6 +24,7 @@ function DemoSceneScreen() {
 	    canvasContext.setTransform(1, 0, 0, 1, 0, 0);
         currentBackgroundMusic.pause();
         allSFX.stop();
+//	    scene = null;
     };
     
     const clearKeyboardInput = function() {
@@ -318,11 +319,11 @@ function DemoScene(levelIndex = 0) {
 	
 	this.removePlayer = function() {
 		ScreenStates.setState(MENU_SCREEN, 1);
-/*		if(remainingLives < 1) {
+//		if(remainingLives < 1) {
 			this.gameIsOver = true;
 			canvasContext.setTransform(1, 0, 0, 1, 0, 0);
 			uiManager.reset(true);
-		} else {
+/*		} else {
 			remainingLives--;
 			player.reset();
 			powerUpToActivate = PowerUpType.None;
