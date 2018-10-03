@@ -1,14 +1,48 @@
 //LevelData
 const LevelData = [
-	/*{//levelIndex = -1 Rybar's tiled level loading scheme
+	/* {//levelIndex = -1 Rybar's tiled level loading scheme
 		clearColor:"#010119",
 		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY}},
 		initializeEnemies: function() {
 			
 			const enemies = [];
 			let offRight = GameField.right + 50;
-			TileMaps.levelOne.layers[2].objects.forEach(function(obj){
-				
+			let enemiesData = TileMaps.levelOne.layers[2].objects;
+			let enemiesInGroups = enemiesData.filter((obj)=>{return obj.properties[0].value > 0});
+			enemiesInGroups.unshift([]);
+			let enemyGroups = enemiesInGroups.reduce((group, obj)=>{
+					let groupNumber = obj.properties[0].value;
+					if(!group[groupNumber.toString()]) { group[groupNumber] = []; }
+					group[groupNumber].push(obj);
+					return group;
+				});
+			enemyGroups.forEach((group)=>{
+					let currentGroup = new EnemyGroup();
+					group.forEach((obj)=>{
+						switch(obj.type){
+							case "flyingEnemy1":
+							//tiled-editor object origin is bottom-left, game engine sprite origin is top-left
+							enemies.push(currentGroup.add(new FlyingEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, -100, "none" ,25,obj.x,1)));
+							break;
+							case "flyingEnemy2":
+							enemies.push(currentGroup.add(new FlyingEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, -100, "none",25,obj.x,1)));
+							break;
+							case "flyingEnemy1sine":
+							enemies.push(currentGroup.add(new FlyingEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, -100, "sine" ,25,obj.x,1)));
+							break;
+							case "flyingEnemy2sine":
+							enemies.push(currentGroup.add(new FlyingEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, -100, "sine",25,obj.x,1)));
+							break;
+							case "groundEnemy1":
+							enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.rotation, -100, "none", 0, obj.x, 1)));
+							break;
+							default:
+							break;
+						}
+					});
+				}); 
+			let noGroupsEnemies = enemiesData.filter((obj)=>{return obj.properties[0].value == 0});
+			noGroupsEnemies.forEach((obj)=>{	
 				switch(obj.type){
 					case "flyingEnemy1":
 					//tiled-editor object origin is bottom-left, game engine sprite origin is top-left

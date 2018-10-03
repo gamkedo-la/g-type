@@ -1,5 +1,5 @@
 //FlyingEnemy2
-function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.None, timeOffset = 0, spawnPos = 0, difficulty = 0) {
+function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.None, timeOffset = 0, spawnPos = 0, difficulty = 0, path = []) {
 	this.type = EntityType.FlyingEnemy2;
 	this.group = null;
 	this.worldPos = 0;

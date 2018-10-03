@@ -17,22 +17,33 @@
   <image width="90" height="90" source="../images/_editorBoulder.png"/>
  </tile>
  <tile id="8" type="flyingEnemy1">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
   <image width="30" height="21" source="../images/_editorFlyingEnemy1.png"/>
  </tile>
  <tile id="9" type="flyingEnemy2">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
   <image width="50" height="50" source="../images/_editorFlyingEnemy2.png"/>
  </tile>
  <tile id="10" type="groundEnemy1">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
   <image width="30" height="30" source="../images/_editorGroundEnemy1.png"/>
  </tile>
  <tile id="11" type="flyingEnemy1sine">
   <properties>
+   <property name="Group" type="int" value="0"/>
    <property name="PathType" value="sine"/>
   </properties>
   <image width="30" height="21" source="../images/_editorFlyingEnemy1Sine.png"/>
  </tile>
  <tile id="13" type="flyingEnemy2sine">
   <properties>
+   <property name="Group" type="int" value="0"/>
    <property name="PathType" value="sine"/>
   </properties>
   <image width="50" height="50" source="../images/_editorFlyingEnemy2Sine.png"/>
