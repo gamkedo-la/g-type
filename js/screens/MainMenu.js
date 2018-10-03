@@ -58,6 +58,7 @@ function MenuScreen() {
                 return true;
             case KEY_ENTER:
             	if(this.selectorPositionsIndex === 0) {
+	            	scene = null;
 	            	ScreenStates.setState(CUT_SCENE_SCREEN, 1);
             	} else {
 	            	ScreenStates.setState(this.selections[this.selectorPositionsIndex].screen);

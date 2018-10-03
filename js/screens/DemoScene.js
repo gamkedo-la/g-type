@@ -318,11 +318,12 @@ function DemoScene(levelIndex = 0) {
 	};
 	
 	this.removePlayer = function() {
+		this.gameIsOver = true;
+		canvasContext.setTransform(1, 0, 0, 1, 0, 0);
+		uiManager.reset(true);
 		ScreenStates.setState(MENU_SCREEN, 1);
 //		if(remainingLives < 1) {
-			this.gameIsOver = true;
-			canvasContext.setTransform(1, 0, 0, 1, 0, 0);
-			uiManager.reset(true);
+			
 /*		} else {
 			remainingLives--;
 			player.reset();
