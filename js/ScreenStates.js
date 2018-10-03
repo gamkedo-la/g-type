@@ -18,6 +18,7 @@ function setPaused(shouldPause) {
 	if(shouldPause) {
 		ScreenStates.isPaused = true;
 		pauseSound.play();
+		gameFont.printTextAt("[PAUSED]", {x:GameField.midX - 100, y:GameField.midY - 80}, 24, textAlignment.Left);
 		currentBackgroundMusic.pause();
 	} else {
 		ScreenStates.isPaused = false;
