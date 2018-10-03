@@ -10,6 +10,11 @@ function clear() {
 }*/
 
 function setPaused(shouldPause) {
+
+	if(shouldPause === ScreenStates.isPaused) {
+		return;
+	};
+
 	if(shouldPause) {
 		ScreenStates.isPaused = true;
 		pauseSound.play();
@@ -19,6 +24,7 @@ function setPaused(shouldPause) {
 		resumeSound.play();
 		currentBackgroundMusic.resume();
 	}
+	return;
 }
 
 const ScreenStates = {
