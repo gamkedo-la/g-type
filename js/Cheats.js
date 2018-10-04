@@ -10,6 +10,12 @@ function Cheats() {
             console.log("E activates shield");
             console.log("L adds lives");
             console.log("0 - 9 changes game speed");
+	    console.log("J activates missiles");
+	    console.log("K activates double");
+	    console.log("H activates laser");
+	    console.log("T activates triple");
+	    console.log("G activates ghost ship");
+	    console.log("F activates force");
         } else {
             console.log("Debug Keys are turned off in Cheats.js");
         }

@@ -214,6 +214,32 @@ function GameScene(levelIndex) {
 	this.activatedShield = function() {
 		player.activateShield();
 	};
+
+	this.activatedMissile = function() {
+		player.setHasMissiles(true);
+	};
+
+	this.activatedDouble = function() {
+		player.setShotTo(EntityType.PlayerDouble);
+	};
+
+	this.activatedLaser = function() {
+		player.setShotTo(EntityType.PlayerLaser);
+	};
+
+	this.activatedTriple = function() {
+		player.setShotTo(EntityType.PlayerTriple);
+	};
+
+	this.activatedGhost = function() {
+		player.activateGhostShip();
+		console.log("Tried to activate a Ghost Ship");
+	};
+
+	this.activatedForce = function() {
+		player.activateTheForce();
+		console.log("Tried to 'Use The Force!'");
+	};
 	
 	this.removePlayer = function() {
 		uiManager.clearPowerUps();

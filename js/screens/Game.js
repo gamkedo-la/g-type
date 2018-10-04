@@ -140,6 +140,36 @@ function GamePlayScreen () {
                     scene.activatedShield();
                 }
                 return true;
+	    case KEY_J: //Activating missils
+                if (!pressed && cheats.debugKeysEnabled) {
+                    scene.activatedMissile();
+                }
+                return true;
+	    case KEY_K: //Activating double
+                if (!pressed && cheats.debugKeysEnabled) {
+                    scene.activatedDouble();
+                }
+                return true;
+	    case KEY_H: //Activating laser
+                if (!pressed && cheats.debugKeysEnabled) {
+                    scene.activatedLaser();
+                }
+                return true;
+	   case KEY_T: //Activating triple
+                if (!pressed && cheats.debugKeysEnabled) {
+                    scene.activatedTriple();
+                }
+                return true;
+	   case KEY_G: //Activating ghost ship
+                if (!pressed && cheats.debugKeysEnabled) {
+                    scene.activatedGhost();
+                }
+                return true;
+	  case KEY_F: //Activating force
+                if (!pressed && cheats.debugKeysEnabled) {
+                    scene.activatedForce();
+                }
+                return true;
             case DIGIT_0:
             	if((!pressed) && cheats.debugKeysEnabled) {
 	            	worldSpeed = 0;
