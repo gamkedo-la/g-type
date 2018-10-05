@@ -208,7 +208,7 @@ function GameScene(levelIndex) {
 	};
 	
 	this.collectedCapsule = function() {
-		uiManager.incrementPowerUpToActivate();
+		uiManager.incrementActivePowerUp();
 	};
 
 	this.activatedShield = function() {
@@ -242,7 +242,6 @@ function GameScene(levelIndex) {
 	};
 	
 	this.removePlayer = function() {
-		uiManager.clearPowerUps();
 		if(remainingLives < 1) {
 			this.gameIsOver = true;
 			canvasContext.setTransform(1, 0, 0, 1, 0, 0);

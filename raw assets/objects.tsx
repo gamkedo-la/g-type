@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="90" tileheight="90" tilecount="12" columns="0">
+<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="90" tileheight="90" tilecount="18" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0" type="rock01">
   <image width="74" height="73" source="../images/Rock01.png"/>
@@ -28,30 +28,64 @@
   </properties>
   <image width="50" height="50" source="../images/_editorFlyingEnemy2.png"/>
  </tile>
- <tile id="10" type="groundEnemy1">
-  <properties>
-   <property name="Group" type="int" value="0"/>
-  </properties>
-  <image width="30" height="30" source="../images/_editorGroundEnemy1.png"/>
- </tile>
  <tile id="11" type="flyingEnemy1sine">
   <properties>
    <property name="Group" type="int" value="0"/>
-   <property name="PathType" value="sine"/>
   </properties>
   <image width="30" height="21" source="../images/_editorFlyingEnemy1Sine.png"/>
- </tile>
- <tile id="13" type="flyingEnemy2sine">
-  <properties>
-   <property name="Group" type="int" value="0"/>
-   <property name="PathType" value="sine"/>
-  </properties>
-  <image width="50" height="50" source="../images/_editorFlyingEnemy2Sine.png"/>
  </tile>
  <tile id="14" type="capsule1">
   <image width="33" height="27" source="../images/_editorPowerUp.png"/>
  </tile>
  <tile id="15" type="bubble">
   <image width="30" height="30" source="../images/_editorBubble.png"/>
+ </tile>
+ <tile id="17" type="groundEnemy1E">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="30" height="30" source="../images/_editorGroundEnemy1E.png"/>
+ </tile>
+ <tile id="18" type="groundEnemy1NE">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="30" height="30" source="../images/_editorGroundEnemy1NE.png"/>
+ </tile>
+ <tile id="19" type="groundEnemy1NW">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="30" height="30" source="../images/_editorGroundEnemy1NW.png"/>
+ </tile>
+ <tile id="20" type="groundEnemy1S">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="30" height="30" source="../images/_editorGroundEnemy1S.png"/>
+ </tile>
+ <tile id="21" type="groundEnemy1SE">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="30" height="30" source="../images/_editorGroundEnemy1SE.png"/>
+ </tile>
+ <tile id="22" type="groundEnemy1SW">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="30" height="30" source="../images/_editorGroundEnemy1SW.png"/>
+ </tile>
+ <tile id="23" type="groundEnemy1W">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="30" height="30" source="../images/_editorGroundEnemy1W.png"/>
+ </tile>
+ <tile id="24" type="groundEnemy1N">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="30" height="30" source="../images/_editorGroundEnemy1.png"/>
  </tile>
 </tileset>
