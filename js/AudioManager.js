@@ -41,6 +41,8 @@ const enemyMediumExplosion = new sfxClipOverlap("EnemyMediumExplosion", 3);
 enemyMediumExplosion.setVolume(0.6);
 const bubbleExplosion = new sfxClipOverlap("bubble", 3);
 bubbleExplosion.setVolume(0.35);
+const shotHitIndestructible = new sfxClipOverlap("PlayerShieldReflect", 3); //placeholder sound effect.  Need new made -LP
+shotHitIndestructible.setVolume(0.6);
 
 //const uiSelect = new sfxClipSingle("uiSelect");
 
@@ -56,7 +58,9 @@ const allSFX = {
 			   extraLife,
 			   enemySmallExplosion,
 			   enemyMediumExplosion,
-			   bubbleExplosion],
+			   bubbleExplosion,
+			   shotHitIndestructible
+			   ],
 	stop: function(){
 		for(var i=0; i < this.sfxList.length; i++){
 			this.sfxList[i].stop();

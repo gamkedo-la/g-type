@@ -158,6 +158,14 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 		if(this.shotLife === 0) {
 			sprite.isDying = true;
 			vel = {x:0, y:0};
+			if((otherEntity.type == EntityType.RhombusBoulder) || 
+			   (otherEntity.type == EntityType.Rock01) ||
+			   (otherEntity.type == EntityType.Rock02) ||
+			   (otherEntity.type == EntityType.Rock03) ||
+			   (otherEntity.type == EntityType.Rock04))   {
+				shotHitIndestructible.play();
+			   }
+			
 		}
 	};
 	
