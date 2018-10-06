@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+ <object type="path">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <polygon points="0,0 -40,75 47,74"/>
+ </object>
+</template>
