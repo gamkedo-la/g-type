@@ -1,4 +1,7 @@
 //Image Loading
+//Logo
+const titleLogo = document.createElement("img");
+
 //UI
 const gameFrame1 = document.createElement("img");
 const gameFrame2 = document.createElement("img");
@@ -69,6 +72,9 @@ function beginLoadingImage(imgVar, fileName) {
 
 function loadImages() {
     const imageList = [
+	    //Logo
+        { imgName: titleLogo, theFile: "gTypeLogo.png" },	    
+	    
 	    //UI 
         { imgName: gameFrame1, theFile: "GameUIFrame1.png" },	    
         { imgName: gameFrame2, theFile: "GameUIFrame2.png" },	    
