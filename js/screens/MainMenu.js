@@ -43,18 +43,12 @@ function MenuScreen() {
     this.control = function menuScreenControl(keyCode, pressed) {
 	    timeSinceKey = 0;
 	    
-	    //Cheat code entry
-	    if(keyCode === KEY_TAB) {
-	    	holdTab = pressed;
-    	}
-	    
         if (pressed) {//only act on key released events => prevent multiple changes on single press
             return false;
         }
         
-        if(holdTab) {
+		if(keyCode != KEY_ENTER) {
         	keyStrokes.push(keyCode);
-        	return true;
     	}
         
         //actual navigation logic
