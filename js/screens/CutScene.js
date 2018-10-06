@@ -48,7 +48,7 @@ function CutSceneScreen() {
         
         switch (keyCode) {
             case KEY_ENTER:
-                ScreenStates.setState(GAME_SCREEN);
+                ScreenStates.setState(GAME_SCREEN, this.properties);
                 return true;
             case KEY_M:
             	toggleMute();	            	

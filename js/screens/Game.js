@@ -1,5 +1,6 @@
 function GamePlayScreen () {
 	const GAME_BG_COLOR = "#010119";
+	this.properties = null;
 
     this.transitionIn = function gamePlayScreenTransitionIn() {
 	    remainingLives = 2;
@@ -8,6 +9,11 @@ function GamePlayScreen () {
             scene = new GameScene(currentLevelIndex);
         } else {
 	        scene.reset();
+        }
+        
+        console.log("Properties? " + this.properties);
+        if(this.properties === true) {
+	        scene.activateBasePowerUps();
         }
         
         let backgroundMusicIndex;

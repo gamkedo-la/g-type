@@ -6,6 +6,9 @@ function MenuScreen() {
     let selectorPosition = {x:0, y:0};
     let selectorSprite;
     let starfield;
+    const keyStrokes = [];
+    const cheatCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+    
     this.selections = [
 	    { screen: GAME_SCREEN, title: textStrings.Play },
 //        { screen: LEVEL_SELECT_SCREEN, title: textStrings.Play },
@@ -38,13 +41,26 @@ function MenuScreen() {
     };
 
     this.control = function menuScreenControl(keyCode, pressed) {
+	    console.log("KeyCode: " + keyCode + ", wasPressed: " + pressed);
 	    timeSinceKey = 0;
+	    
+	    //Cheat code entry
+	    if(keyCode === KEY_TAB) {
+	    	holdTab = pressed;
+    	}
+	    
         if (pressed) {//only act on key released events => prevent multiple changes on single press
             return false;
         }
         
+        if(holdTab) {
+        	keyStrokes.push(keyCode);
+        	return true;
+    	}
+        
+        //actual navigation logic
         switch (keyCode) {
-            case KEY_UP:
+            case KEY_UP:            
                 this.selectorPositionsIndex--;
                 if (this.selectorPositionsIndex < 0) {
                     this.selectorPositionsIndex += this.selections.length;
@@ -59,7 +75,7 @@ function MenuScreen() {
             case KEY_ENTER:
             	if(this.selectorPositionsIndex === 0) {
 	            	scene = null;
-	            	ScreenStates.setState(CUT_SCENE_SCREEN, 1);
+	            	ScreenStates.setState(CUT_SCENE_SCREEN, this.getDidEnterCode());
             	} else {
 	            	ScreenStates.setState(this.selections[this.selectorPositionsIndex].screen);
             	}
@@ -79,6 +95,23 @@ function MenuScreen() {
         }
         return false;
     };
+    
+    this.getDidEnterCode = function() {
+	    if(keyStrokes.length != cheatCode.length) {return false;}
+	    
+	    for(let i = 0; i < cheatCode.length; i++) {
+		    if(keyStrokes[i] != cheatCode[i]) {return false;}
+	    }
+	    
+	    return true;
+    };
+    
+    this.addKeyToCode = function(key) {
+	    keyStrokes.push(key);
+	    if(keyStrokes.length > cheatCode.length) {
+		    keyStrokes.splice(0, 1);
+	    }
+    }
     
     const printMenu = function(menuItems, selected, yOffset = null) {
 	    let mainMenuX = GameField.midX - 90;

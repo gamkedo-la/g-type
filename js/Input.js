@@ -52,7 +52,7 @@ const KEY_PLUS = 187;
 const KEY_MINUS = 189;
 const KEY_TILDE = 192;
 
-let holdLeft, holdRight, holdUp, holdDown, holdSpace = false;
+let holdLeft, holdRight, holdUp, holdDown, holdSpace, holdTab = false;
 
 function initializeInput() {
 	document.addEventListener("keydown", keyPress);

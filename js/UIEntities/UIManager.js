@@ -66,16 +66,70 @@ function UIManager() {
 		}
 		
 		this.reset(false);
-	}
+	};
+	
+	this.powerUpWasActivated = function(activatedPowerUp) {
+		console.log("activating a power up");
+		switch(activatedPowerUp) {//more concise than an if statement
+			case PowerUpType.Double:
+			case PowerUpType.Laser:
+			case PowerUpType.Triple:
+				this.synchronizePowerUpUI(activatedPowerUp);
+				return;
+		}
+		
+		//logic for power ups which allow >1 (Speed and Ghost) goes here, in the mean time assume only one of anything
+		
+		for(let i = 0; i < pages.length; i++) {
+			pages[i].lockPowerUp(activatedPowerUp);
+		}
+	};
+	
+	this.powerUpWasDeactivated = function(deactivatedPowerUp) {
+		for(let i = 0; i < pages.length; i++) {
+			pages[i].unLockPowerUp(powerUpToUnlock);
+		}
+	};
 	
 	this.getCanActivatePowerUp = function() {
 		return (pages[activePage].canActivatePowerUp());
 	};
 		
 	this.getPowerUpToActivate = function() {
-		pages[activePage].lockActive();
 		return (pages[activePage].getPowerUpToActivate());
-	}
+	};
+	
+	const lockPowerUp = function(powerUpToLock) {
+		for(let i = 0; i < pages.length; i++) {
+			pages[i].lockPowerUp(powerUpToLock);
+		}
+	};
+	
+	const unLockPowerUp = function(powerUpToUnlock) {
+		for(let i = 0; i < pages.length; i++) {
+			pages[i].unLockPowerUp(powerUpToUnlock);
+		}
+	};
+	
+	this.synchronizePowerUpUI = function(activatedPowerUp) {
+		switch(activatedPowerUp) {
+			case PowerUpType.Double:
+				lockPowerUp(PowerUpType.Double);
+				unLockPowerUp(PowerUpType.Laser);
+				unLockPowerUp(PowerUpType.Triple);
+				break;
+			case PowerUpType.Laser:
+				unLockPowerUp(PowerUpType.Double);
+				lockPowerUp(PowerUpType.Laser);
+				unLockPowerUp(PowerUpType.Triple);
+				break;
+			case PowerUpType.Triple:
+				unLockPowerUp(PowerUpType.Double);
+				unLockPowerUp(PowerUpType.Laser);
+				lockPowerUp(PowerUpType.Triple);
+				break;
+		}
+	};
 	
 	this.incrementPowerUpToActivate = function() {
 		const activeIndex = pages[activePage].incrementPowerUp();
@@ -205,6 +259,23 @@ function UIPage(powerUps = [], hasSpacers = false, hasGhost_Force = false) {
 	
 	this.lockActive = function() {
 		this.elements[activeIndex].lockMe();
+		return this.elements[activeIndex];
+	};
+	
+	this.lockPowerUp = function(powerUpToLock) {
+		for(let i = 0; i < this.elements.length; i++) {
+			if(this.elements[i].contentsType === powerUpToLock) {
+				this.elements[i].lockMe();
+			}
+		}
+	};
+	
+	this.unLockPowerUp = function(powerUpToUnlock) {
+		for(let i = 0; i < this.elements.length; i++) {
+			if(this.elements[i].contentsType === powerUpToUnlock) {
+				this.elements[i].unlockMe();
+			}
+		}
 	};
 	
 	this.reset = function() {

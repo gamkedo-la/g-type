@@ -213,32 +213,47 @@ function GameScene(levelIndex) {
 
 	this.activatedShield = function() {
 		player.activateShield();
+		uiManager.powerUpWasActivated(PowerUpType.Shield);
 	};
 
 	this.activatedMissile = function() {
 		player.setHasMissiles(true);
+		uiManager.powerUpWasActivated(PowerUpType.Missile);
 	};
 
 	this.activatedDouble = function() {
 		player.setShotTo(EntityType.PlayerDouble);
+		uiManager.powerUpWasActivated(PowerUpType.Double);
 	};
 
 	this.activatedLaser = function() {
 		player.setShotTo(EntityType.PlayerLaser);
+		uiManager.powerUpWasActivated(PowerUpType.Laser);
 	};
 
 	this.activatedTriple = function() {
 		player.setShotTo(EntityType.PlayerTriple);
+		uiManager.powerUpWasActivated(PowerUpType.Triple);
 	};
 
 	this.activatedGhost = function() {
 		player.activateGhostShip();
-		console.log("Tried to activate a Ghost Ship");
+		uiManager.powerUpWasActivated(PowerUpType.Ghost);
 	};
 
 	this.activatedForce = function() {
 		player.activateTheForce();
 		console.log("Tried to 'Use The Force!'");
+		uiManager.powerUpWasActivated(PowerUpType.Force);
+	};
+	
+	this.activateBasePowerUps = function() {
+		this.activatedShield();
+		this.activatedMissile();
+		this.activatedDouble();
+		this.activatedGhost();
+		this.activatedGhost();
+		this.activatedGhost();
 	};
 	
 	this.removePlayer = function() {
@@ -314,6 +329,7 @@ function GameScene(levelIndex) {
 		}
 		
 		const powerUpToActivate = uiManager.getPowerUpToActivate();
+		uiManager.powerUpWasActivated(powerUpToActivate);
 		
 		switch(powerUpToActivate) {
 			case PowerUpType.None:
@@ -335,16 +351,11 @@ function GameScene(levelIndex) {
 				break;
 			case PowerUpType.Ghost:
 				player.activateGhostShip();
-				//TODO: Need to do something here...
-				console.log("Tried to activate a Ghost Ship");
-				return;
+				break;
 			case PowerUpType.Shield:
-				//TODO: Need to do something here...
-				console.log("Tried to activate shields");
 				player.activateShield();
 				break;
 			case PowerUpType.Force:
-				//TODO: Need to do something here...
 				player.activateTheForce();
 				console.log("Tried to 'Use The Force!'");
 				break;
@@ -352,7 +363,7 @@ function GameScene(levelIndex) {
 				break;
 		}
 		
-		if(powerUpToActivate == PowerUpType.Shield) {
+		if(powerUpToActivate === PowerUpType.Shield) {
 			playerShieldActivate.play();
 		} else {
 			playerPowerUpActivate.play();

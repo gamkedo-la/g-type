@@ -384,6 +384,7 @@ function DemoScene(levelIndex = 0) {
 		}
 		
 		const powerUpToActivate = uiManager.getPowerUpToActivate();
+		uiManager.powerUpWasActivated(powerUpToActivate);
 		
 		switch(powerUpToActivate) {
 			case PowerUpType.None:
@@ -393,7 +394,6 @@ function DemoScene(levelIndex = 0) {
 				break;
 			case PowerUpType.Missile:
 				player.setHasMissiles(true);
-				console.log("Tried to give the player Missiles");
 				break;
 			case PowerUpType.Double:
 				player.setShotTo(EntityType.PlayerDouble);
@@ -406,16 +406,13 @@ function DemoScene(levelIndex = 0) {
 				break;
 			case PowerUpType.Ghost:
 				//TODO: Need to do something here...
-				console.log("Tried to activate a Ghost Ship");
 				return;
 			case PowerUpType.Shield:
 				//TODO: Need to do something here...
-				console.log("Tried to activate shields");
 				break;
 			case PowerUpType.Force:
 				//TODO: Need to do something here...
 				player.activateTheForce();
-				console.log("Tried to 'Use The Force!'");
 				break;
 			default:
 				break;
