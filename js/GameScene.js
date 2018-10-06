@@ -254,6 +254,7 @@ function GameScene(levelIndex) {
 		this.activatedGhost();
 		this.activatedGhost();
 		this.activatedGhost();
+		remainingLives = 29;
 	};
 	
 	this.removePlayer = function() {
