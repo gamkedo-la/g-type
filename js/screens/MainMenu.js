@@ -41,7 +41,6 @@ function MenuScreen() {
     };
 
     this.control = function menuScreenControl(keyCode, pressed) {
-	    console.log("KeyCode: " + keyCode + ", wasPressed: " + pressed);
 	    timeSinceKey = 0;
 	    
 	    //Cheat code entry

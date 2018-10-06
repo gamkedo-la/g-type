@@ -69,7 +69,6 @@ function UIManager() {
 	};
 	
 	this.powerUpWasActivated = function(activatedPowerUp) {
-		console.log("activating a power up");
 		switch(activatedPowerUp) {//more concise than an if statement
 			case PowerUpType.Double:
 			case PowerUpType.Laser:
@@ -193,14 +192,8 @@ function UIPage(powerUps = [], hasSpacers = false, hasGhost_Force = false) {
 		for(let i = 0; i < this.elements.length; i++) {
 			if(i === activeIndex) {
 				this.elements[i].setIsHighlighted(true);
-				if(this.elements[i].contentsType === PowerUpType.Ghost) {
-					ghost.isLit = true;
-				}
 			} else {
 				this.elements[i].setIsHighlighted(false);
-				if(this.elements[i].contentsType === PowerUpType.Ghost) {
-					ghost.isLit = false;
-				}
 			}
 			
 			this.elements[i].update(deltaTime);
@@ -246,7 +239,8 @@ function UIPage(powerUps = [], hasSpacers = false, hasGhost_Force = false) {
 			}
 			
 			if(hasGhost_Force) {
-				if(this.elements[activeIndex].contentsType === PowerUpType.Ghost) {
+				if((this.elements[activeIndex].contentsType === PowerUpType.Ghost) &&
+				   (!this.elements[activeIndex].hasBeenLocked())) {
 					ghost.isLit = true;
 				} else {
 					ghost.isLit = false;

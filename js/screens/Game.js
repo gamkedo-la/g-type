@@ -11,7 +11,6 @@ function GamePlayScreen () {
 	        scene.reset();
         }
         
-        console.log("Properties? " + this.properties);
         if(this.properties === true) {
 	        scene.activateBasePowerUps();
         }
