@@ -81,17 +81,17 @@ function MenuScreen() {
     };
     
     const printMenu = function(menuItems, selected, yOffset = null) {
-	    let mainMenuX = GameField.midX - 70;
-	    let mainMenuY = (yOffset == null ? GameField.y + 4 * GameField.height / 5 : yOffset);
+	    let mainMenuX = GameField.midX - 90;
+	    let mainMenuY = (yOffset == null ? 15 + GameField.y + 2 * GameField.height / 3 : yOffset);
 
-	    const selectorXOffset = 35;
-	    const selectorYOffset = 30;
+	    const selectorXOffset = 65;
+	    const selectorYOffset = 45;
 
 	    for (let i = 0; i < menuItems.length; i++){
-		    gameFont.printTextAt(menuItems[i].title, {x:mainMenuX, y:(mainMenuY + selectorYOffset * i)}, 20, textAlignment.Left);
+		    gameFont.printTextAt(menuItems[i].title, {x:mainMenuX, y:(mainMenuY + selectorYOffset * i)}, 30, textAlignment.Left);
 		    if(i === selected) {
 			    selectorPosition.x = mainMenuX - selectorXOffset;
-			    selectorPosition.y = mainMenuY + selectorYOffset * i;
+			    selectorPosition.y = mainMenuY + selectorYOffset * i - 5;
 		    }
 	    }
 	    
@@ -118,17 +118,24 @@ function MenuScreen() {
         starfield.draw();
         
         // render the logo overlay
-//        drawLogo();
+        drawLogo();
 
         canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
 
-		drawTitle();
+//		drawTitle();
 
         // render menu
         printMenu(selections, selectorPositionIndex);
         
         //draw selector sprite
-        selectorSprite.drawAt(selectorPosition, {width:30, height:19});
+        selectorSprite.drawAt(selectorPosition, {width:60, height:38});
+	};
+	
+	const drawLogo = function() {
+		const logoX = GameField.midX - (1.25 *titleLogo.width / 2);
+		const logoY = GameField.midY - (1.25 *titleLogo.height / 2) - 75;
+		canvasContext.drawImage(titleLogo, logoX, logoY, 1.25 * titleLogo.width, 1.25 * titleLogo.height);
+		
 	};
 	
 	const drawBG = function menuScreenDrawBG() {

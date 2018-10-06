@@ -1,6 +1,7 @@
 //LevelData
 const LevelData = [
-	/* {//levelIndex = -1 Rybar's tiled level loading scheme
+	/*
+	 {//levelIndex = -1 Rybar's tiled level loading scheme
 		clearColor:"#010119",
 		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY}},
 		initializeEnemies: function() {
@@ -33,8 +34,29 @@ const LevelData = [
 							case "flyingEnemy2sine":
 							enemies.push(currentGroup.add(new FlyingEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, -100, "sine",25,obj.x,1)));
 							break;
-							case "groundEnemy1":
-							enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.rotation, -100, "none", 0, obj.x, 1)));
+							case "groundEnemy1N":
+							enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, 0, -100, "none", 0, obj.x, 1)));
+							break;
+							case "groundEnemy1S":
+							enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI, -100, "none", 0, obj.x, 1)));
+							break;
+							case "groundEnemy1E":
+							enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/2*3, -100, "none", 0, obj.x, 1)));
+							break;
+							case "groundEnemy1W":
+							enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/2, -100, "none", 0, obj.x, 1)));
+							break;
+							case "groundEnemy1NE":
+							enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4*7, -100, "none", 0, obj.x, 1)));
+							break;
+							case "groundEnemy1NW":
+							enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4, -100, "none", 0, obj.x, 1)));
+							break;
+							case "groundEnemy1SE":
+							enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4*5, -100, "none", 0, obj.x, 1)));
+							break;
+							case "groundEnemy1SW":
+							enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4*3, -100, "none", 0, obj.x, 1)));
 							break;
 							default:
 							break;
@@ -57,8 +79,29 @@ const LevelData = [
 					case "flyingEnemy2sine":
 					enemies.push(new FlyingEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, -100, "sine",25,obj.x,1))
 					break;
-					case "groundEnemy1":
-					enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.rotation, -100, "none", 0, obj.x, 1))
+					case "groundEnemy1N":
+					enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, 0, -100, "none", 0, obj.x, 1))
+					break;
+					case "groundEnemy1S":
+					enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI, -100, "none", 0, obj.x, 1))
+					break;
+					case "groundEnemy1E":
+					enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/2*3, -100, "none", 0, obj.x, 1))
+					break;
+					case "groundEnemy1W":
+					enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/2, -100, "none", 0, obj.x, 1))
+					break;
+					case "groundEnemy1NE":
+					enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4*7, -100, "none", 0, obj.x, 1))
+					break;
+					case "groundEnemy1NW":
+					enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4, -100, "none", 0, obj.x, 1))
+					break;
+					case "groundEnemy1SE":
+					enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4*5, -100, "none", 0, obj.x, 1))
+					break;
+					case "groundEnemy1SW":
+					enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4*3, -100, "none", 0, obj.x, 1))
 					break;
 					default:
 					break;
@@ -90,7 +133,8 @@ const LevelData = [
 			return debris;
 		},
 		checkpointPositions:[0, 600, 1200]
-	}, */
+	}, 
+	*/
 	{//levelIndex = 0
 		clearColor:"#010119",
 		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY}},
