@@ -15,6 +15,7 @@ function GameScene(levelIndex) {
 	const foregroundEntities = new Set();
 	const enemyBullets = new Set();
 	let uiManager = new UIManager();
+	let nextLifeScore = SCORE_PER_EXTRA_LIFE;
 	
 	const populateWorld = function(worldPos) {
 		const terrain = data.initializeTerrain();
@@ -379,8 +380,9 @@ function GameScene(levelIndex) {
 		this.addEntity(newScore, false);
 		
 		uiManager.addToScore(entity.score);
-		if(uiManager.getScore() % 30000 == 0) {//TODO: Figure out how to do this if score crosses over 30000 or 60000 without hitting it exactly
+		if(uiManager.getScore() >= nextLifeScore) {
 			this.life();
+			nextLifeScore += SCORE_PER_EXTRA_LIFE;
 		}
 	};
 	
