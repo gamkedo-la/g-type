@@ -190,6 +190,8 @@ const LevelData = [
 			enemies.push(new GroundEnemy1({x: GameField.right + 50, y: 506}, Math.PI/4, 0, PathType.None, 0, 4116, 15));
 			enemies.push(new GroundEnemy1({x: GameField.right + 50, y: 508}, -Math.PI/4, 0, PathType.None, 0, 4210, 15));
 			
+			enemies.push(new MiniBoss1({x: GameField.right, y: GameField.midY}, -100, PathType.Points, 0, 5000, 1))
+			
 			return enemies;
 		},
 		initializeTerrain: function() {

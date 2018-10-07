@@ -55,6 +55,7 @@ const flyingEnemy2Sheet = document.createElement("img");
 const groundEnemySheet = document.createElement("img");
 const enemyBulletSheet = document.createElement("img");
 const enemyBullet2Sheet = document.createElement("img");
+const miniBoss1Sheet = document.createElement("img");
 
 let picsToLoad = 0;
 
@@ -129,9 +130,7 @@ function loadImages() {
         { imgName: groundEnemySheet, theFile: "GroundEnemy1.png" },
         { imgName: enemyBulletSheet, theFile: "EnemyBullet.png" },
         { imgName: enemyBullet2Sheet, theFile: "EnemyShot2.png" },
-
-        // UI
-//        { imgName: heartPic, theFile: "heart.png" },
+        { imgName: miniBoss1Sheet, theFile: "MiniBoss1.png" },
     ];
 
     picsToLoad = imageList.length;
