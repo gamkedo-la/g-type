@@ -16,6 +16,7 @@ function GameScene(levelIndex) {
 	const enemyBullets = new Set();
 	let uiManager = new UIManager();
 	let nextLifeScore = SCORE_PER_EXTRA_LIFE;
+	let worldPaused = false;
 	
 	const populateWorld = function(worldPos) {
 		const terrain = data.initializeTerrain();
@@ -55,8 +56,9 @@ function GameScene(levelIndex) {
 	populateWorld(0);//0 = start at the beginning
 	
 	this.update = function(deltaTime) {
-		
-		this.worldPos += 2.5 * worldSpeed;
+		if(!worldPaused) {
+			this.worldPos += 2.5 * worldSpeed;
+		}	
 		
 		this.updateBackground(deltaTime);
 		
@@ -273,10 +275,13 @@ function GameScene(levelIndex) {
 	};
 
 	//add extra life
-	this.life = function()
-	{
+	this.life = function() {
 		remainingLives++;
 		extraLife.play();
+	};
+	
+	this.worldShouldPause = function(shouldPause) {
+		worldPaused = shouldPause;
 	};
 	
 	this.removeEntity = function(entityToRemove, isPlayerBullet) {

@@ -47,6 +47,11 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		}
 		
 		this.worldPos = worldPos;
+		if((this.worldPos > spawnPos + 50) && (!sprite.isDying)) {
+			scene.worldShouldPause(true);
+		} else if(sprite.isDying) {
+			scene.worldShouldPause(false);
+		}
 		
 		let availableTime = unusedTime + deltaTime;
 		while(availableTime > SIM_STEP) {

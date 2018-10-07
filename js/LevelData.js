@@ -260,15 +260,15 @@ const LevelData = [
 			world.push(new TerrainEntity(EntityType.Rock02, {x: GameField.right + 50, y: 623}, 4527, 2));
 						
 			const delta = 45;
-			for(let i = 0; i < 50; i++) {
-				let xPos = delta * Math.floor(i % 10);
-				let yPos = delta * Math.floor(i / 10);
+			for(let i = 0; i < 30; i++) {
+				let xPos = delta * Math.floor(i % 6);
+				let yPos = delta * Math.floor(i / 6);
 				
 				let thisEntity;
-				if(i === 18) {
+				if(i === 9) {
 					thisEntity = new Capsule({x: GameField.right + (50 + xPos), y: GameField.midY + (yPos - 112)}, 850);
 				} else {
-					thisEntity = new BubbleEntity(EntityType.Bubble, {x: GameField.right + (50 + xPos), y: GameField.midY + (yPos - 112)}, 850, 1, 1024);
+					thisEntity = new BubbleEntity(EntityType.Bubble, {x: GameField.right + (50 + xPos), y: GameField.midY + (yPos - 112)}, 850, 1, 3072);
 					thisEntity.setInitialFrame(i % 5);
 				}
 								
