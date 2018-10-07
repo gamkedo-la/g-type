@@ -18,6 +18,9 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None, s
 	let isLocked = false;
 	let helpText = "";
 	const FONT = 30;
+	let displayTime = 0;
+	let shouldShowText = false;
+	const helpTextTime = 512;//milliseconds
 	
 	let darkSprite = new AnimatedSprite(darkPowerUpUI, 5, 100, 100, true, true, {min: 0, max: 0}, 0, {min: 0, max: 4}, 256, {min: 4, max: 4}, 0);
 	let lightSprite = new AnimatedSprite(lightedPowerUpUI, 5, 100, 100, true, true, {min: 0, max: 0}, 0, {min: 0, max: 4}, 256, {min: 4, max: 4}, 0);
@@ -97,6 +100,12 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None, s
 	};
 	
 	this.update = function(deltaTime) {
+		displayTime += deltaTime;
+		if(displayTime > helpTextTime) {
+			shouldShowText = !shouldShowText;
+			displayTime = 0;
+		}
+		
 		sprite.update(deltaTime);
 		
 		if(contents != null) {
@@ -127,7 +136,7 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None, s
 			contents.drawAt(contentPosition, {width:contents.width, height:contents.height});//TODO: fix this after the base object is working correctly
 		}
 		
-		if(isLit) {
+		if((isLit) && (shouldShowText)) {
 			gameFont.printTextAt(helpText, {x:GameField.x + 25, y:GameField.bottom + 10}, FONT, textAlignment.Left);
 		}
 	};
