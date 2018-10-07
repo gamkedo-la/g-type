@@ -25,12 +25,14 @@ function Player(position = {x:0, y:0}) {
 	const ghosts = [];
 	const MAX_GHOSTS = 3;
 	
-	const BASE_SPEED = 90;//essentially pixels per second
+	const BASE_SPEED = 110;//essentially pixels per second
 	const MAX_SHOTS_ON_SCREEN = 10;//TODO: maybe this should be adjustable as a power up or part of the "speed up" power up?
 	const INVINCIBLE_TIME = 1500;//in milliseconds
 	
 	const BASE_SHOT_DELAY = 128;
-	const DELAY_MULTIPLIER = 5
+	const DELAY_MULTIPLIER = 5;
+	const NORMAL_SHOT_SPEED = 400;
+	const MISSILE_VELOCITY = {x:100, y:150};
 	let currentShotDelay = DELAY_MULTIPLIER * BASE_SHOT_DELAY;
 	let isInvincible = false;
 
@@ -201,7 +203,7 @@ function Player(position = {x:0, y:0}) {
 			}
 			
 			let secondShot;
-			const secondVel = {x:150, y:-150};
+			const secondVel = {x:NORMAL_SHOT_SPEED, y:-NORMAL_SHOT_SPEED};
 			if(shots.length === MAX_SHOTS_ON_SCREEN) {
 				//basically a pool of shots, grab the oldest one
 				secondShot = shots.splice(0, 1)[0];
@@ -211,7 +213,7 @@ function Player(position = {x:0, y:0}) {
 			}
 			
 			let thirdShot;
-			const thirdVel = {x:-200, y:0};
+			const thirdVel = {x:-NORMAL_SHOT_SPEED, y:0};
 			if(shots.length === MAX_SHOTS_ON_SCREEN) {
 				//basically a pool of shots, grab the oldest one
 				thirdShot = shots.splice(0, 1)[0];
@@ -222,26 +224,26 @@ function Player(position = {x:0, y:0}) {
 						
 			switch(this.currentShotType) {
 				case EntityType.PlayerShot:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 13}, {x: 200, y: 0}, false);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 13}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
 					playerFireRegular.play();//play the audio
 					break;
 				case EntityType.PlayerDouble:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 13}, {x: 200, y: 0}, false);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 13}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
 					initializeShot(secondShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 6}, {x: secondVel.x, y: secondVel.y}, true);
 					playerFireRegular.play();
 					break;
 				case EntityType.PlayerLaser:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 74, y:this.position.y + 22}, {x: 600, y: 0}, false);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 74, y:this.position.y + 22}, {x: 3 * NORMAL_SHOT_SPEED, y: 0}, false);
 					playerFireLaser.play();
 					break;
 				case EntityType.PlayerTriple:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 13}, {x: 200, y: 0}, false);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 13}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
 					initializeShot(secondShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 13}, {x: secondVel.x, y: secondVel.y}, true);
 					initializeShot(thirdShot, this.currentShotType, {x:this.position.x - thirdShot.size.width, y:this.position.y + 13}, {x: thirdVel.x, y: thirdVel.y}, true);
 					playerFireRegular.play();
 					break;
 				default:
-					initializeNewShot(newShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 6}, {x: 200, y: 0});
+					initializeNewShot(newShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 6}, {x: NORMAL_SHOT_SPEED, y: 0});
 					playerFireRegular.play();
 					break;
 			}
@@ -251,9 +253,9 @@ function Player(position = {x:0, y:0}) {
 				if(missiles.length === MAX_SHOTS_ON_SCREEN) {
 					newMissile = missiles.splice(0, 1)[0];
 					newMissile.setPosition({x:this.position.x + this.size.width / 2, y:this.position.y + (2 * this.size.height / 3)});
-					newMissile.setVelocity({x:100, y:150});
+					newMissile.setVelocity(MISSILE_VELOCITY);
 				} else {
-					newMissile = new PlayerMissile({x:this.position.x + this.size.width / 2, y:this.position.y + (2 * this.size.height / 3)}, {x:100, y:150});
+					newMissile = new PlayerMissile({x:this.position.x + this.size.width / 2, y:this.position.y + (2 * this.size.height / 3)}, MISSILE_VELOCITY);
 				}
 				
 				newMissile.reset();

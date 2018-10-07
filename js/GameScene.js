@@ -55,7 +55,7 @@ function GameScene(levelIndex) {
 	
 	this.update = function(deltaTime) {
 		
-		this.worldPos += 2 * worldSpeed;
+		this.worldPos += 2.5 * worldSpeed;
 		
 		this.updateBackground(deltaTime);
 		

@@ -3,7 +3,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	this.type = EntityType.PlayerShot;
 	
 	let pos = position;
-	const MOVE_VELOCITY = 200;
+	const MOVE_VELOCITY = 400;
 	const SPRITE_SCALE = 1;
 	const FLASH_SCALE = 1;
 	let vel = velocity;
