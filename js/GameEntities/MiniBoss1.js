@@ -31,10 +31,10 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		{x: GameField.right - this.size.width, y: GameField.bottom - this.size.height},
 		{x: GameField.right - this.size.width, y: GameField.y},
 		{x: GameField.right - this.size.width, y: GameField.bottom - this.size.height},
-		{x: GameField.right - this.size.width, y: GameField.y},
+//		{x: GameField.right - this.size.width, y: GameField.y},
 	];//TODO: Give the mini boss a path to follow
 	
-	this.path = new EnemyPath(PathType.Points, this.position, speed, pathPoints, timeOffset);
+	this.path = new EnemyPath(pattern, this.position, speed, pathPoints, timeOffset);
 	
 	this.update = function(deltaTime, worldPos, playerPos) {
 		if(!this.isVisible) {return;}
@@ -61,7 +61,7 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 					} else if(pattern === PathType.Sine) {
 						this.position.x += nextPos.x;
 						this.position.y += nextPos.y;
-					} else if(pattern === PathType.Points) {
+					} else if((pattern === PathType.Points) || (pattern === PathType.Loop)) {
 						this.position.x = nextPos.x;
 						this.position.y = nextPos.y;
 					}

@@ -38,7 +38,8 @@ function EnemyGroup() {
 const PathType = {
 	None:"none",
 	Sine:"sine",
-	Points:"points"
+	Points:"points",
+	Loop:"loop"
 };
 
 function EnemyPath(type = PathType.None, start = {x:0, y:0}, speed = 0, points = [], timeOffset = 0) {
@@ -46,7 +47,7 @@ function EnemyPath(type = PathType.None, start = {x:0, y:0}, speed = 0, points =
 	let lastPointIndex = -1;
 	let lastPosition = {x:start.x, y:start.y};
 	let currentSpeed = speed / 1000;
-	if(type === PathType.Points) {
+	if((type === PathType.Points) || (type === PathType.Loop)) {
 		currentSpeed = Math.abs(speed / 1000);
 	}
 	
@@ -62,7 +63,7 @@ function EnemyPath(type = PathType.None, start = {x:0, y:0}, speed = 0, points =
 			} else if(type === PathType.Sine) {
 				return {x:currentSpeed * deltaTime, 
 					    y:0.0025 * canvas.height * Math.sin((elapsedTime - timeOffset) / 500)};
-			} else if(type === PathType.Points) {
+			} else if((type === PathType.Points) || (type === PathType.Loop)) {
 				if(points.length <= 1) {return lastPosition;}//paths must have at least two points
 				
 				if(lastPointIndex < 0) {//between start and points[0]
@@ -82,6 +83,9 @@ function EnemyPath(type = PathType.None, start = {x:0, y:0}, speed = 0, points =
 						const remainingTime = remainingDistance / currentSpeed;
 						lastPosition = {x:points[0].x, y:points[0].y};
 						lastPointIndex = 0;
+						if(type === PathType.Loop) {
+							points.push(points[0]);//move the point at [0] to the end of the path
+						}
 						if(remainingDistance < 1) {return lastPosition;}//no excess time (i.e. landed right on points[0])
 						return this.nextPoint(remainingTime);
 					}
@@ -102,6 +106,9 @@ function EnemyPath(type = PathType.None, start = {x:0, y:0}, speed = 0, points =
 						const remainingTime = remainingDistance / currentSpeed;
 						lastPointIndex++;
 						lastPosition = {x:points[lastPointIndex].x, y:points[lastPointIndex].y};
+						if(type === PathType.Loop) {
+							points.push(points[0]);//move the point at [0] to the end of the path
+						}
 						if(remainingDistance < 1) {return lastPosition;}//no excess time (i.e. landed right on points[0])
 						return this.nextPoint(remainingTime);
 					}
@@ -117,7 +124,7 @@ function EnemyPath(type = PathType.None, start = {x:0, y:0}, speed = 0, points =
 				}
 			}
 		} else {
-			if(type === PathType.Points) {
+			if((type === PathType.Points) || (type === PathType.Loop)) {
 				return lastPosition;//time delay hasn't expired yet, so don't move
 			} else {
 				return {x:0, y:0};
