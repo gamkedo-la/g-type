@@ -7,6 +7,7 @@ const EntityType = {
 	Rock04:"rock04",
 	Bubble:"bubble",
 	Text:"text",
+	CollidableText:"collidableText",
 	
 	//Player
 	Player:"player",

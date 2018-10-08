@@ -6,6 +6,7 @@ function CollisionManager(player) {
 	this.player = player;
 	this.playerBullets = [];
 	this.playerForceUnit = null;
+	let collidableText = new Set();
 
 	this.setPlayer = function(newPlayer) {
 		this.player = newPlayer;
@@ -41,6 +42,8 @@ function CollisionManager(player) {
 			addTerrain(newEntity);
 		} else if (newEntity.type === EntityType.PlayerForceUnit) {
 			this.addForceUnit(newEntity);
+		} else if (newEntity.type === EntityType.CollidableText) {
+			addCollidableText(newEntity);
 		}
 
 		const beforeLength = entities.size;
@@ -62,6 +65,13 @@ function CollisionManager(player) {
 
 		return (!(beforeLength === terrain.size));
 	};
+	
+	const addCollidableText = function(newText) {
+		const beforeLength = collidableText.size;
+		collidableText.add(newText);
+
+		return (!(beforeLength === collidableText.size));
+	};
 
 	this.removeEntity = function(entityToRemove) {
 		if((entityToRemove.type === EntityType.EnemyBullet1) || (entityToRemove.type === EntityType.EnemyBullet2)) {
@@ -70,6 +80,8 @@ function CollisionManager(player) {
 			removeTerrain(entityToRemove);
 		} else if(entityToRemove.type === EntityType.PlayerForceUnit) {
 			this.playerForceUnit = null;
+		} else if(entityToRemove.type === EntityType.CollidableText) {
+			removeCollidableText(entityToRemove);
 		}
 
 		if(entities.has(entityToRemove)) {
@@ -94,6 +106,16 @@ function CollisionManager(player) {
 	const removeTerrain = function(terrainToRemove) {
 		if(terrain.has(terrainToRemove)) {
 			terrain.delete(terrainToRemove);
+
+			return true;
+		}
+
+		return false;
+	};
+	
+	const removeCollidableText = function(textToRemove) {
+		if(collidableText.has(textToRemove)) {
+			collidableText.delete(textToRemove);
 
 			return true;
 		}
@@ -215,6 +237,20 @@ function CollisionManager(player) {
 					if(checkCollisionBetween(terr.collisionBody, bullet.collisionBody)) {
 						terr.didCollideWith(bullet);
 						bullet.didCollideWith(terr);
+					}
+				}
+			}
+		}
+		
+		//Do collision between player bullets and collidable text
+		for(let txt of collidableText) {
+			for(let i = 0; i < this.playerBullets.length; i++) {
+				const thisBullet = this.playerBullets[i];
+				if(withinSquareRadii(txt.collisionBody, thisBullet.collisionBody)) {
+					//collidable text is all polygon collision bodies (i.e. no circles)
+					if(checkCollisionBetween(txt.collisionBody, thisBullet.collisionBody)) {
+						txt.didCollideWith(thisBullet);
+						thisBullet.didCollideWith(txt);
 					}
 				}
 			}

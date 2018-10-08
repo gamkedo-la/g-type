@@ -16,8 +16,13 @@ function CreditsScreen() {
     this.scrollSpeed = 4 / 50;
     this.totalTime = 0;
     this.contributors = textStrings.Contributors;
+    let creditsText;
     
     this.transitionIn = function () {
+	    if(scene === null || scene === undefined) {
+            scene = new CreditsScene();
+        }
+        
         this.skipBump = 0;
         this.currentY = GameField.bottom - 300;
         
@@ -31,14 +36,37 @@ function CreditsScreen() {
         } else {
             currentBackgroundMusic.play();
         }
+        
+        creditsText = new CreditFont(fontImage, darkFontImage, {width:16, height:16}, canvasContext);
+//        creditsText.addCreditsString("TEST", {x:GameField.midX, y:GameField.midY}, textAlignment.Center, {width:25, height:25});
+        this.buildContributors();
     };
     
-    this.transitionOut = function () {
+    this.transitionOut = function() {
 //        uiSelect.play();
 		currentBackgroundMusic.pause();
     };
     
-    this.drawContributors = function () {
+    this.buildContributors = function() {
+	    let nameX = GameField.midX - 50;
+        let textSkip = 20;
+        let height = 24;
+        var textY = 150;
+        for (let i = 0; i < this.contributors.length; i++) {
+            let contributor = this.contributors[i];
+            creditsText.addCreditsString(contributor.name, {x: nameX, y: (this.currentY + textY)}, textAlignment.Left, {width:20, height:20});
+//            gameFont.printTextAt(contributor.name, {x: nameX, y: (this.currentY + textY)}, 20, textAlignment.Left);
+            textY += height * 1.4;
+            for (let j = 0; j < contributor.works.length; j++) {
+	            creditsText.addCreditsString(contributor.works[j], {x:nameX + 20, y: (this.currentY + textY)}, textAlignment.Left, {width:20, height:20});
+//	            gameFont.printTextAt(contributor.works[j], {x:nameX + 20, y: (this.currentY + textY)}, 20, textAlignment.Left);
+                textY += height;
+            }
+            textY += textSkip;
+        }
+    };
+    
+    this.drawContributors = function() {
         let nameX = GameField.midX - 350;
         let textSkip = 20;
         let height = 24;
@@ -72,7 +100,7 @@ function CreditsScreen() {
         canvasContext.drawImage(backgroundColorLookup,150,0,16,100,0,0,canvas.width,canvas.height);        
         starfield.draw();
         
-        this.drawContributors();
+//        this.drawContributors();
         
         selectorSprite.update(deltaTime);
 		
@@ -86,30 +114,49 @@ function CreditsScreen() {
 		gameFont.printTextAt("[|] to Scroll Slower", {x:GameField.right - 300, y:GameField.bottom - 60}, 12, textAlignment.Left);
 		gameFont.printTextAt("[Space] to Pause", {x:GameField.right - 300, y:GameField.bottom - 40}, 12, textAlignment.Left);
 		gameFont.printTextAt("[Backspace] to Main Menu", {x:GameField.right - 300, y:GameField.bottom - 20}, 12, textAlignment.Left);
-        
+		
+		scene.update(deltaTime);
+		scene.draw();
+		
+		creditsText.update(deltaTime, {x:0, y:this.scrollSpeed});
+		creditsText.draw();
     };
+    
     this.control = function creditsScreenControl(keyCode, pressed) {
-        if (pressed) 
-	{
-		if(keyCode === KEY_SPACE) 
-		{
-		 	if(this.scrollSpeed !== 0)
-			{
+		if((pressed) && (keyCode === KEY_X)) {
+			if(this.scrollSpeed !== 0) {
 				this.scrollSpeed = 0;
-			}
-			else
-			{
+			} else {
 				this.scrollSpeed = 4/50;
 			}
-	        }
-            	return true;
-        }
+
+			return true;
+	    }
+                    
+        switch(keyCode) {
+			case KEY_UP:
+                holdUp = pressed;//move up
+                return true;
+            case KEY_DOWN:
+                holdDown = pressed;//move down
+                return true;
+            case KEY_LEFT:
+                holdLeft = pressed;//move left
+                return true;
+            case KEY_RIGHT:
+                holdRight = pressed;//move right
+                return true;
+			case KEY_SPACE:
+				holdSpace = pressed;//shoot
+                return true;
+	    }
+        
         let skipAmt = 150;
         switch (keyCode) {
-            case KEY_DOWN:
+            case KEY_MINUS:
                 this.scrollSpeed -= 2/50;
                 return true;
-            case KEY_UP:
+            case KEY_PLUS:
                 this.scrollSpeed += 2/50;
                 return true;
             case KEY_ENTER:
@@ -123,5 +170,5 @@ function CreditsScreen() {
         }
         
         return true;
-    }
+    };
 }

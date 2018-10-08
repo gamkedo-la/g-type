@@ -10,6 +10,7 @@ const darkPowerUpUI = document.createElement("img");
 const lightedSpacerUI = document.createElement("img");
 const darkSpacerUI = document.createElement("img");
 const fontImage = document.createElement("img");
+const darkFontImage = document.createElement("img");
 const doubleShotUI = document.createElement("img");
 const tripleShotUI = document.createElement("img");
 const livesUI = document.createElement("img");
@@ -84,6 +85,7 @@ function loadImages() {
         { imgName: lightedSpacerUI, theFile: "LightedSpacerUI.png" },
         { imgName: darkSpacerUI, theFile: "DarkSpacerUI.png" },
         { imgName: fontImage, theFile: "G-Type-FontSheet_tight.png" },
+        { imgName: darkFontImage, theFile: "G-Type-FontSheet_CreditGameHit.png" },
         { imgName: doubleShotUI, theFile: "DoubleShotUI.png" },
         { imgName: tripleShotUI, theFile: "TripleShotUI.png" },
         { imgName: livesUI, theFile: "UILivesIconEven.png" },
