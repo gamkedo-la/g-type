@@ -110,10 +110,10 @@ function CreditsScreen() {
 		
 		gameFont.printTextAt(textStrings.Credits, {x:GameField.midX, y:GameField.y}, 30, textAlignment.Center);
 
-        gameFont.printTextAt("[^] to Scroll Faster", {x:GameField.right - 300, y:GameField.bottom - 80}, 12, textAlignment.Left);
-		gameFont.printTextAt("[|] to Scroll Slower", {x:GameField.right - 300, y:GameField.bottom - 60}, 12, textAlignment.Left);
-		gameFont.printTextAt("[Space] to Pause", {x:GameField.right - 300, y:GameField.bottom - 40}, 12, textAlignment.Left);
-		gameFont.printTextAt("[Backspace] to Main Menu", {x:GameField.right - 300, y:GameField.bottom - 20}, 12, textAlignment.Left);
+        gameFont.printTextAt("[^] to Scroll Faster", {x:GameField.x + 20, y:GameField.bottom - 80}, 12, textAlignment.Left);
+		gameFont.printTextAt("[|] to Scroll Slower", {x:GameField.x + 20, y:GameField.bottom - 60}, 12, textAlignment.Left);
+		gameFont.printTextAt("[Space] to Pause", {x:GameField.x + 20, y:GameField.bottom - 40}, 12, textAlignment.Left);
+		gameFont.printTextAt("[Backspace] to Main Menu", {x:GameField.x + 20, y:GameField.bottom - 20}, 12, textAlignment.Left);
 		
 		scene.update(deltaTime);
 		scene.draw();
@@ -123,7 +123,7 @@ function CreditsScreen() {
     };
     
     this.control = function creditsScreenControl(keyCode, pressed) {
-		if((pressed) && (keyCode === KEY_X)) {
+		if((pressed) && (keyCode === KEY_SPACE)) {
 			if(this.scrollSpeed !== 0) {
 				this.scrollSpeed = 0;
 			} else {
@@ -146,8 +146,8 @@ function CreditsScreen() {
             case KEY_RIGHT:
                 holdRight = pressed;//move right
                 return true;
-			case KEY_SPACE:
-				holdSpace = pressed;//shoot
+			case KEY_X:
+				holdX = pressed;//shoot
                 return true;
 	    }
         

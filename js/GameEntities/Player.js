@@ -79,7 +79,7 @@ function Player(position = {x:0, y:0}) {
 		} else if(!sprite.isDying) {
 			this.adjustVelocityAndSpriteForPlayerInput();
 					
-			if(holdSpace) {//shooting
+			if(holdX) {//shooting
 				this.doShooting();
 			}
 			

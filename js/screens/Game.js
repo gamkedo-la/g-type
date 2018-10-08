@@ -43,6 +43,7 @@ function GamePlayScreen () {
     
     const clearKeyboardInput = function() {
 	    holdSpace = false;
+	    holdX = false;
 	    holdUp = false;
 	    holdW = false;
 	    holdDown = false;
@@ -66,7 +67,7 @@ function GamePlayScreen () {
     
     this.control = function gamePlayScreenControl(keyCode, pressed){
         switch(keyCode) {
-	        case KEY_ENTER:
+	        case KEY_SPACE:
 	        	if(!pressed) {
 		        	scene.activatePowerUp();
 	        	}
@@ -76,8 +77,8 @@ function GamePlayScreen () {
 	                setPaused(!ScreenStates.isPaused);
                 }
                 return true;
-            case KEY_SPACE:
-                holdSpace = pressed;//shoot
+            case KEY_X:
+                holdX = pressed;//shoot
                 return true;
             case KEY_UP:
                 holdUp = pressed;//move up
@@ -145,32 +146,32 @@ function GamePlayScreen () {
                     scene.activatedShield();
                 }
                 return true;
-	    case KEY_J: //Activating missils
+			case KEY_J: //Activating missils
                 if (!pressed && cheats.debugKeysEnabled) {
                     scene.activatedMissile();
                 }
                 return true;
-	    case KEY_K: //Activating double
+			case KEY_K: //Activating double
                 if (!pressed && cheats.debugKeysEnabled) {
                     scene.activatedDouble();
                 }
                 return true;
-	    case KEY_H: //Activating laser
+			case KEY_H: //Activating laser
                 if (!pressed && cheats.debugKeysEnabled) {
                     scene.activatedLaser();
                 }
                 return true;
-	   case KEY_T: //Activating triple
+			case KEY_T: //Activating triple
                 if (!pressed && cheats.debugKeysEnabled) {
                     scene.activatedTriple();
                 }
                 return true;
-	   case KEY_G: //Activating ghost ship
+			case KEY_G: //Activating ghost ship
                 if (!pressed && cheats.debugKeysEnabled) {
                     scene.activatedGhost();
                 }
                 return true;
-	  case KEY_F: //Activating force
+			case KEY_F: //Activating force
                 if (!pressed && cheats.debugKeysEnabled) {
                     scene.activatedForce();
                 }
