@@ -155,7 +155,9 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		}
 		   
 		if(this.hitPoints <= 0) {
-			sprite.isDying = true;			
+			scene.displayScore(this);
+			sprite.isDying = true;
+			scene.removeCollisions(this);	
 		}
 	};
 }
