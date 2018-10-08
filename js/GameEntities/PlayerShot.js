@@ -157,6 +157,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 		this.shotLife--;
 		if(this.shotLife === 0) {
 			sprite.isDying = true;
+			scene.removeCollisions(this);
 			vel = {x:0, y:0};
 			if((otherEntity.type == EntityType.RhombusBoulder) || //Play sfx if shot hits non desctructible object -LP
 			   (otherEntity.type == EntityType.Rock01) ||

@@ -6,6 +6,8 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 	this.score = 5000;
 	
     this.hitPoints = 40;     // Every enemy type should have a hitPoints property
+    const INVINCIBILITY_TIME = 128;
+    this.invincibilityTime = 0;
 
 	const SPRITE_SCALE = 2.5;
 	let vel = {x:speed, y:speed};
@@ -16,13 +18,12 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 	let sprite = new AnimatedSprite(miniBoss1Sheet, 6, 60, 34, false, true, {min:0, max:0}, 0, {min:0, max:2}, 256, {min:3, max:5}, 256);
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 
-	this.collisionBody = new Collider(ColliderType.Circle, {points:   [], 
-															position: {x:(SPRITE_SCALE * 0) + this.position.x + this.size.width / 2, 
-																	   y:this.position.y + this.size.height / 2}, 
-															radius:   this.size.height / 2, 
-															center:   {x:(SPRITE_SCALE * 0) + this.position.x + this.size.width / 2, 
-																	   y:this.position.y + this.size.height / 2}}
-									  );
+	const colliderPath = [{x: this.position.x, y: this.position.y + this.size.height / 2 + (3 * SPRITE_SCALE)}, 
+						  {x: this.position.x + this.size.width - (10 * SPRITE_SCALE), y: this.position.y - (3 * SPRITE_SCALE)}, 
+						  {x: this.position.x + this.size.width - (10 * SPRITE_SCALE), y: this.position.y + this.size.height + (3 * SPRITE_SCALE)}];
+						  
+	this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:this.position.x, y:this.position.y}});
+	
 	let didCollide = false;
 	
 	const pathPoints = [
@@ -39,6 +40,10 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 	this.update = function(deltaTime, worldPos, playerPos) {
 		if(!this.isVisible) {return;}
 		if(worldPos < spawnPos) {return;}//don't update if the world hasn't scrolled far enough to spawn
+
+		if(this.invincibilityTime > 0) {
+			this.invincibilityTime -= deltaTime;
+		}
 
 		if(sprite.getDidDie()) {
 			scene.removeEntity(this, false);
@@ -82,8 +87,8 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		unusedTime = availableTime;
 		
 		if(!sprite.isDying) {//TODO: restore this once the miniboss has a collision body
-			this.collisionBody.setPosition({x:(SPRITE_SCALE * 3) + this.position.x + this.size.height / 2, 
-											y:this.position.y + this.size.height / 2});
+			this.collisionBody.setPosition({x:this.position.x, 
+											y:this.position.y});
 		}
 		
 		sprite.update(deltaTime);
@@ -134,6 +139,23 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 	};
 		
 	this.didCollideWith = function(otherEntity) {
-		//TODO: Implement this once the miniboss has a collision body	
+		if(this.invincibilityTime > 0) {return;}
+		
+		if((otherEntity.type === EntityType.Player) ||
+		   (otherEntity.type === EntityType.PlayerShot) ||
+		   (otherEntity.type === EntityType.PlayerMissile) ||
+		   (otherEntity.type === EntityType.PlayerDouble) ||
+		   (otherEntity.type === EntityType.PlayerLaser) ||
+		   (otherEntity.type === EntityType.PlayerTriple) ||
+		   (otherEntity.type === EntityType.PlayerForceUnit)) {
+			   
+			   this.hitPoints -= otherEntity.damagePoints;
+			   enemyMediumExplosion.play();
+			   this.invincibilityTime = INVINCIBILITY_TIME;
+		}
+		   
+		if(this.hitPoints <= 0) {
+			sprite.isDying = true;			
+		}
 	};
 }
