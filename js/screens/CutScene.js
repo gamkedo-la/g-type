@@ -15,7 +15,7 @@ function CutSceneScreen() {
 
     this.transitionIn = function() {
         starfield = new Starfield();
-        playerSprite = new AnimatedSprite(player1Sheet, 6, 120, 76, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
+        playerSprite = new AnimatedSprite(player1Sheet, 6, 124, 68, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
         planetSprite = new AnimatedSprite(planetSheet, 3, 192, 192, false, true, {min:0, max:0}, 0, {min:0, max:2}, 512, {min:2, max:2}, 0);
  
         currentBackgroundMusic.setCurrentTrack(AudioTracks.GameOver);

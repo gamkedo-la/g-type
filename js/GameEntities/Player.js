@@ -13,7 +13,7 @@ function Player(position = {x:0, y:0}) {
 	this.type = EntityType.Player;
 	this.currentShotType = EntityType.PlayerShot;
 	
-	const sprite = new AnimatedSprite(player1Sheet, 6, 120, 76, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:3, max:5}, 128);
+	const sprite = new AnimatedSprite(player1Sheet, 6, 124, 68, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:3, max:5}, 128);
 	const explosionSprite = new AnimatedSprite(playerBoom2Sheet, 13, 80, 80, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max: 12}, 64);
 	explosionSprite.wasBorn = true;
 	explosionSprite.isDying = true;

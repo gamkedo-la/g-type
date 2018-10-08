@@ -111,7 +111,7 @@ function loadImages() {
         { imgName: rock4, theFile: "Rock04.png" },
 
         // player related
-        { imgName: player1Sheet, theFile: "G-TypePlayer1.png" },
+        { imgName: player1Sheet, theFile: "G-TypePlayer1-Vulture.png" },
         { imgName: playerThruster, theFile: "G-TypePlayer1-Thruster.png" },
         { imgName: playerShots, theFile: "PlayerShots.png" },
 		{ imgName: playerShotFlash, theFile: "player_shot_vfx_sheet.png"},
