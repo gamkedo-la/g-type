@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="90" tileheight="90" tilecount="18" columns="0">
+<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="90" tileheight="90" tilecount="19" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0" type="rock01">
   <image width="74" height="73" source="../images/Rock01.png"/>
@@ -87,5 +87,11 @@
    <property name="Group" type="int" value="0"/>
   </properties>
   <image width="30" height="30" source="../images/_editorGroundEnemy1.png"/>
+ </tile>
+ <tile id="25" type="flyingEnemy2path">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="50" height="50" source="../images/_editorFlyingEnemy2Path.png"/>
  </tile>
 </tileset>

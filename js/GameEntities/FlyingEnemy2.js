@@ -1,5 +1,5 @@
 //FlyingEnemy2
-function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.None, timeOffset = 0, spawnPos = 0, difficulty = 0) {
+function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.None, timeOffset = 0, spawnPos = 0, difficulty = 0, path = null) {
 	this.type = EntityType.FlyingEnemy2;
 	this.group = null;
 	this.worldPos = 0;
@@ -13,6 +13,8 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	let unusedTime = 0;
 	this.isVisible = true;
 	let rotation = 0;
+
+	
 	
 	let sprite = new AnimatedSprite(flyingEnemy2Sheet, 6, 50, 50, false, true, {min:0, max:0}, 0, {min:0, max:5}, 256, {min:5, max:5}, 0);
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
@@ -24,7 +26,7 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 									  );
 	let didCollide = false;
 	
-	const pathPoints = [
+	let pathPoints = [
 		{x: GameField.right, y: GameField.y + 60},
 		{x: GameField.x + GameField.width / 5, y: GameField.y + 60},
 		{x: GameField.x + GameField.width / 4, y: GameField.y + 450},
@@ -32,6 +34,18 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		{x: GameField.x + GameField.width / 2, y: GameField.y + 60},
 		{x: GameField.x + GameField.width + 50, y: GameField.y + 60},
 	];
+
+	if(path){
+		pathPoints = path.polygon.slice(0);
+		pathPoints.forEach((point)=>{
+			//point.x += this.position.x;
+			//point.y += this.position.y;
+			point.x += GameField.x+GameField.width-50;
+			point.y += GameField.y + path.y;
+			pathPoints.push(point);
+		})
+		
+	}
 	
 	this.path = new EnemyPath(PathType.Points, this.position, speed, pathPoints, timeOffset);
 	

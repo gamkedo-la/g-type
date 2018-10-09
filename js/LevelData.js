@@ -1,23 +1,32 @@
 //LevelData
 const LevelData = [
-	/*
+	
 	 {//levelIndex = -1 Rybar's tiled level loading scheme
 		clearColor:"#010119",
 		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY}},
 		initializeEnemies: function() {
 			
 			const enemies = [];
-			let offRight = GameField.right + 50;
+			let offRight = GameField.right + 50; //
 			let enemiesData = TileMaps.levelOne.layers[2].objects;
-			window.enemyPaths = enemiesData.filter((obj)=>{return obj.type=="path"});
+			window.enemyPaths = enemiesData.filter((obj)=>{return obj.type=="path"})
+
+
+			//enemyPaths.forEach()
+
+
+			//obj.properties[0] is the Group, exists on all but is zero by default
 			let enemiesInGroups = enemiesData.filter((obj)=>{return obj.properties[0].value > 0});
+			//we need an empty at the beginning for the following reduce
 			enemiesInGroups.unshift([]);
-			let enemyGroups = enemiesInGroups.reduce((group, obj)=>{
+			//which sorts the enemies into group arrays if their group property is > 1.
+			window.enemyGroups = enemiesInGroups.reduce((group, obj)=>{
 					let groupNumber = obj.properties[0].value;
-					if(!group[groupNumber.toString()]) { group[groupNumber] = []; }
+					if(!group[groupNumber]) { group[groupNumber] = []; }
 					group[groupNumber].push(obj);
 					return group;
 				});
+			//enemyGroups
 			enemyGroups.forEach((group)=>{
 					let currentGroup = new EnemyGroup();
 					group.forEach((obj)=>{
@@ -26,14 +35,14 @@ const LevelData = [
 							//tiled-editor object origin is bottom-left, game engine sprite origin is top-left
 							enemies.push(currentGroup.add(new FlyingEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, -100, "none" ,25,obj.x,1)));
 							break;
-							case "flyingEnemy2":
+							case "flyingEnemy2": 
 							enemies.push(currentGroup.add(new FlyingEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, -100, "none",25,obj.x,1)));
 							break;
 							case "flyingEnemy1sine":
-							enemies.push(currentGroup.add(new FlyingEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, -100, "sine" ,25,obj.x,1)));
+							enemies.push(currentGroup.add(new FlyingEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, -90, "sine" ,25,obj.x,1))); 
 							break;
-							case "flyingEnemy2sine":
-							enemies.push(currentGroup.add(new FlyingEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, -100, "sine",25,obj.x,1)));
+							case "flyingEnemy2path":
+							enemies.push(currentGroup.add(new FlyingEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, -150, "points",0,obj.x,1, getPath(enemyPaths, obj))));
 							break;
 							case "groundEnemy1N":
 							enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, 0, -100, "none", 0, obj.x, 1)));
@@ -135,7 +144,7 @@ const LevelData = [
 		},
 		checkpointPositions:[0, 600, 1200]
 	}, 
-	*/
+	
 	{//levelIndex = 0
 		clearColor:"#010119",
 		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY}},
@@ -311,6 +320,14 @@ const LevelData = [
 		checkpointPositions:[0, 600, 1200]//placeholder values
 	}
 ];
+
+function getPath(pathsObject, entity){
+	let entityGroupValue = entity.properties[0].value;
+	let matchingPath = pathsObject.find((path)=>{
+		return path.properties[0].value == entityGroupValue;
+	})
+	return JSON.parse(JSON.stringify(matchingPath));
+}
 
 /*			
 Used to generate starting point of asteroid field, placed here so it doesn't have to be recreated if we want to do another field.

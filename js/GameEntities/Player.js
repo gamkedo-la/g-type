@@ -29,7 +29,7 @@ function Player(position = {x:0, y:0}) {
 	const MAX_SHOTS_ON_SCREEN = 10;//TODO: maybe this should be adjustable as a power up or part of the "speed up" power up?
 	const INVINCIBLE_TIME = 1500;//in milliseconds
 	
-	const BASE_SHOT_DELAY = 128;
+	const BASE_SHOT_DELAY = 128; //this should be faster for main gun, independent slower variable for missiles
 	const DELAY_MULTIPLIER = 5;
 	const NORMAL_SHOT_SPEED = 400;
 	const MISSILE_VELOCITY = {x:100, y:150};
