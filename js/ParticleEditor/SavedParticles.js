@@ -28,3 +28,5 @@ var exampleExplosion = {
     "angleVar":360,
     "particleLifeVar":0,
     }
+
+var getCapsule = {"speed":55.6,"size":1.2,"angle":333,"emissionRate":1927.9,"duration":0.1,"immortal":false,"particleLife":0.9,"color":[255,255,255,1],"endColor":[118,224,1,1],"useGradient":false,"useTexture":false,"textureAdditive":false,"fadeAlpha":true,"fadeSpeed":true,"fadeSize":true,"gravity":0,"xVar":0,"yVar":0,"speedVar":150,"sizeVar":1,"angleVar":360,"particleLifeVar":0,"startColorVar":[0,0,0,0],"endColorVar":[0,0,0,0],"endColorToggle":true,"colorVarToggle":false}

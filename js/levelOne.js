@@ -4169,8 +4169,8 @@
                  "type":"flyingEnemy2path",
                  "visible":true,
                  "width":50,
-                 "x":10028.3333333333,
-                 "y":138.333333333333
+                 "x":10642.3333333333,
+                 "y":72.3333333333333
                 }, 
                 {
                  "gid":26,
@@ -4187,8 +4187,8 @@
                  "type":"flyingEnemy2path",
                  "visible":true,
                  "width":50,
-                 "x":10320.3333333333,
-                 "y":70.3333333333333
+                 "x":10410.3333333333,
+                 "y":148.333333333333
                 }, 
                 {
                  "gid":26,
@@ -4205,8 +4205,8 @@
                  "type":"flyingEnemy2path",
                  "visible":true,
                  "width":50,
-                 "x":10451,
-                 "y":547.666666666667
+                 "x":10505,
+                 "y":527.666666666667
                 }, 
                 {
                  "gid":26,
@@ -4223,8 +4223,8 @@
                  "type":"flyingEnemy2path",
                  "visible":true,
                  "width":50,
-                 "x":10173.6666666667,
-                 "y":527.666666666667
+                 "x":10681.6666666667,
+                 "y":235.666666666667
                 }, 
                 {
                  "gid":26,
@@ -4241,8 +4241,8 @@
                  "type":"flyingEnemy2path",
                  "visible":true,
                  "width":50,
-                 "x":10288.3333333333,
-                 "y":350.333333333333
+                 "x":10696.3333333333,
+                 "y":516.333333333333
                 }, 
                 {
                  "gid":26,
@@ -4259,8 +4259,8 @@
                  "type":"flyingEnemy2path",
                  "visible":true,
                  "width":50,
-                 "x":10452.3333333333,
-                 "y":211.666666666667
+                 "x":10474.3333333333,
+                 "y":139.666666666667
                 }, 
                 {
                  "gid":26,
@@ -4277,8 +4277,8 @@
                  "type":"flyingEnemy2path",
                  "visible":true,
                  "width":50,
-                 "x":10532.3333333333,
-                 "y":379.666666666667
+                 "x":10572.3333333333,
+                 "y":363.666666666667
                 }, 
                 {
                  "height":0,
@@ -4529,6 +4529,240 @@
                  "width":30,
                  "x":9184,
                  "y":224
+                }, 
+                {
+                 "gid":26,
+                 "height":50,
+                 "id":1162,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"string",
+                         "value":"30"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2path",
+                 "visible":true,
+                 "width":50,
+                 "x":11004.65,
+                 "y":107.33315
+                }, 
+                {
+                 "gid":26,
+                 "height":50,
+                 "id":1163,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"string",
+                         "value":"30"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2path",
+                 "visible":true,
+                 "width":50,
+                 "x":10867.35,
+                 "y":562.66685
+                }, 
+                {
+                 "gid":26,
+                 "height":50,
+                 "id":1164,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"string",
+                         "value":"30"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2path",
+                 "visible":true,
+                 "width":50,
+                 "x":11044.05,
+                 "y":270.66685
+                }, 
+                {
+                 "gid":26,
+                 "height":50,
+                 "id":1165,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"string",
+                         "value":"30"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2path",
+                 "visible":true,
+                 "width":50,
+                 "x":11058.65,
+                 "y":551.33285
+                }, 
+                {
+                 "gid":26,
+                 "height":50,
+                 "id":1166,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"string",
+                         "value":"30"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2path",
+                 "visible":true,
+                 "width":50,
+                 "x":10934.65,
+                 "y":398.66685
+                }, 
+                {
+                 "gid":26,
+                 "height":50,
+                 "id":1167,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"string",
+                         "value":"30"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2path",
+                 "visible":true,
+                 "width":50,
+                 "x":10811,
+                 "y":335
+                }, 
+                {
+                 "gid":26,
+                 "height":50,
+                 "id":1168,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"string",
+                         "value":"30"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2path",
+                 "visible":true,
+                 "width":50,
+                 "x":10859,
+                 "y":147
+                }, 
+                {
+                 "gid":26,
+                 "height":50,
+                 "id":1169,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"string",
+                         "value":"30"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2path",
+                 "visible":true,
+                 "width":50,
+                 "x":11211,
+                 "y":555
+                }, 
+                {
+                 "gid":26,
+                 "height":50,
+                 "id":1170,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"string",
+                         "value":"30"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2path",
+                 "visible":true,
+                 "width":50,
+                 "x":11173,
+                 "y":367
+                }, 
+                {
+                 "gid":26,
+                 "height":50,
+                 "id":1171,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"string",
+                         "value":"30"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2path",
+                 "visible":true,
+                 "width":50,
+                 "x":11287,
+                 "y":115
+                }, 
+                {
+                 "gid":26,
+                 "height":50,
+                 "id":1172,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"string",
+                         "value":"30"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2path",
+                 "visible":true,
+                 "width":50,
+                 "x":11283,
+                 "y":297
+                }, 
+                {
+                 "gid":26,
+                 "height":50,
+                 "id":1173,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"string",
+                         "value":"30"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2path",
+                 "visible":true,
+                 "width":50,
+                 "x":11403,
+                 "y":449
+                }, 
+                {
+                 "gid":26,
+                 "height":50,
+                 "id":1174,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"string",
+                         "value":"30"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2path",
+                 "visible":true,
+                 "width":50,
+                 "x":11403,
+                 "y":201
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -4537,7 +4771,7 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":1162,
+ "nextobjectid":1175,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.0",

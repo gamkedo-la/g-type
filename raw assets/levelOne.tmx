@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="400" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="1162">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="400" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="1175">
  <tileset firstgid="1" source="objects.tsx"/>
  <objectgroup id="6" name="Background">
   <properties>
@@ -510,37 +510,37 @@
   <object id="1150" gid="20" x="9714" y="483" width="30" height="30"/>
   <object id="1151" gid="20" x="9671.33" y="542.667" width="30" height="30"/>
   <object id="1152" gid="20" x="9913" y="528.333" width="30" height="30"/>
-  <object id="1153" gid="26" x="10028.3" y="138.333" width="50" height="50">
+  <object id="1153" gid="26" x="10642.3" y="72.3333" width="50" height="50">
    <properties>
     <property name="Group" value="30"/>
    </properties>
   </object>
-  <object id="1154" gid="26" x="10320.3" y="70.3333" width="50" height="50">
+  <object id="1154" gid="26" x="10410.3" y="148.333" width="50" height="50">
    <properties>
     <property name="Group" value="30"/>
    </properties>
   </object>
-  <object id="1155" gid="26" x="10451" y="547.667" width="50" height="50">
+  <object id="1155" gid="26" x="10505" y="527.667" width="50" height="50">
    <properties>
     <property name="Group" value="30"/>
    </properties>
   </object>
-  <object id="1156" gid="26" x="10173.7" y="527.667" width="50" height="50">
+  <object id="1156" gid="26" x="10681.7" y="235.667" width="50" height="50">
    <properties>
     <property name="Group" value="30"/>
    </properties>
   </object>
-  <object id="1157" gid="26" x="10288.3" y="350.333" width="50" height="50">
+  <object id="1157" gid="26" x="10696.3" y="516.333" width="50" height="50">
    <properties>
     <property name="Group" value="30"/>
    </properties>
   </object>
-  <object id="1158" gid="26" x="10452.3" y="211.667" width="50" height="50">
+  <object id="1158" gid="26" x="10474.3" y="139.667" width="50" height="50">
    <properties>
     <property name="Group" value="30"/>
    </properties>
   </object>
-  <object id="1159" gid="26" x="10532.3" y="379.667" width="50" height="50">
+  <object id="1159" gid="26" x="10572.3" y="363.667" width="50" height="50">
    <properties>
     <property name="Group" value="30"/>
    </properties>
@@ -590,6 +590,71 @@
   <object id="1124" gid="12" x="9184" y="224" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="1162" gid="26" x="11004.6" y="107.333" width="50" height="50">
+   <properties>
+    <property name="Group" value="30"/>
+   </properties>
+  </object>
+  <object id="1163" gid="26" x="10867.4" y="562.667" width="50" height="50">
+   <properties>
+    <property name="Group" value="30"/>
+   </properties>
+  </object>
+  <object id="1164" gid="26" x="11044.1" y="270.667" width="50" height="50">
+   <properties>
+    <property name="Group" value="30"/>
+   </properties>
+  </object>
+  <object id="1165" gid="26" x="11058.6" y="551.333" width="50" height="50">
+   <properties>
+    <property name="Group" value="30"/>
+   </properties>
+  </object>
+  <object id="1166" gid="26" x="10934.6" y="398.667" width="50" height="50">
+   <properties>
+    <property name="Group" value="30"/>
+   </properties>
+  </object>
+  <object id="1167" gid="26" x="10811" y="335" width="50" height="50">
+   <properties>
+    <property name="Group" value="30"/>
+   </properties>
+  </object>
+  <object id="1168" gid="26" x="10859" y="147" width="50" height="50">
+   <properties>
+    <property name="Group" value="30"/>
+   </properties>
+  </object>
+  <object id="1169" gid="26" x="11211" y="555" width="50" height="50">
+   <properties>
+    <property name="Group" value="30"/>
+   </properties>
+  </object>
+  <object id="1170" gid="26" x="11173" y="367" width="50" height="50">
+   <properties>
+    <property name="Group" value="30"/>
+   </properties>
+  </object>
+  <object id="1171" gid="26" x="11287" y="115" width="50" height="50">
+   <properties>
+    <property name="Group" value="30"/>
+   </properties>
+  </object>
+  <object id="1172" gid="26" x="11283" y="297" width="50" height="50">
+   <properties>
+    <property name="Group" value="30"/>
+   </properties>
+  </object>
+  <object id="1173" gid="26" x="11403" y="449" width="50" height="50">
+   <properties>
+    <property name="Group" value="30"/>
+   </properties>
+  </object>
+  <object id="1174" gid="26" x="11403" y="201" width="50" height="50">
+   <properties>
+    <property name="Group" value="30"/>
    </properties>
   </object>
  </objectgroup>
