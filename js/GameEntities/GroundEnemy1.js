@@ -14,7 +14,7 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 	this.rotation = rotation;
 	
 	const normalSprite = new AnimatedSprite(groundEnemySheet, 9, 30, 30, true, true, {min:0, max:0}, 0, {min:0, max:4}, 256, {min:5, max:8}, 128);
-	const explosionSprite = new AnimatedSprite(enemyExplosionSheet2, 18, 144, 144, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
+	const explosionSprite = new AnimatedSprite(enemyExplosionSheet2, 11, 96, 96, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
 	let sprite = normalSprite;
 	
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
