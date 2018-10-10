@@ -17,7 +17,7 @@ window.onload = function() {
 //	loadAudio();
     
 	loadImages();
-	
+	window.scene = null
 	ScreenStates.setState(LOADING_SCREEN);
     gameUpdate = setInterval(update, 1000 / FRAMES_PER_SECOND);
 };

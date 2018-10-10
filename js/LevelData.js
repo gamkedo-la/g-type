@@ -16,7 +16,12 @@ const LevelData = [
 
 
 			//obj.properties[0] is the Group, exists on all but is zero by default
-			let enemiesInGroups = enemiesData.filter((obj)=>{return obj.properties[0].value > 0});
+			let enemiesInGroups = enemiesData.filter((obj)=>{
+				if(obj.properties.length == 0){
+					obj.properties[0] = {value:  0}
+				}
+				return obj.properties[0].value > 0
+			});
 			//we need an empty at the beginning for the following reduce
 			enemiesInGroups.unshift([]);
 			//which sorts the enemies into group arrays if their group property is > 1.
@@ -69,6 +74,7 @@ const LevelData = [
 							enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4*3, -100, "none", 0, obj.x, 1)));
 							break;
 							default:
+								console.error("can not find enemy type")
 							break;
 						}
 					});
@@ -113,7 +119,11 @@ const LevelData = [
 					case "groundEnemy1SW":
 					enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4*3, -100, "none", 0, obj.x, 1))
 					break;
+					case "cargoBoss":
+					enemies.push(new CargoBoss({x:offRight, y:GameField.y+obj.y-obj.height}, -20, "none" ,25,obj.x,1))
+					break;
 					default:
+						console.error("can not find enemy type")
 					break;
 				}
 			})
@@ -200,6 +210,7 @@ const LevelData = [
 			enemies.push(new GroundEnemy1({x: GameField.right + 50, y: 508}, -Math.PI/4, 0, PathType.None, 0, 4210, 15));
 			
 			enemies.push(new MiniBoss1({x: GameField.right, y: GameField.midY}, -100, PathType.Loop, 0, 5000, 100))
+			enemies.push(new CargoBoss({x: GameField.right + 50, y: GameField.y + 50}, -100, PathType.Points, 0, 0, 1));
 			
 			return enemies;
 		},

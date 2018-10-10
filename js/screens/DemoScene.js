@@ -38,7 +38,8 @@ function DemoSceneScreen() {
 	    holdRight = false;
 	    holdD = false;
     };
-    
+   
+
     this.run = function demoPlayScreenRun(deltaTime) {
 	    runtime += deltaTime;
 	    	    
@@ -62,7 +63,8 @@ function DemoSceneScreen() {
 	this.control = function demoPlayScreenControl(keyCode, pressed) {
 		ScreenStates.setState(MENU_SCREEN);
 	};
-   
+
+	
 	const updateDemoControls = function(runtime) {
 		holdSpace = true;
 		
@@ -376,7 +378,10 @@ function DemoScene(levelIndex = 0) {
 			}
 		}		
 	};
-		
+	this.worldShouldPause = function(shouldPause) {
+		worldPaused = shouldPause;
+	};
+   
 	this.activatePowerUp = function() {
 		if(!uiManager.getCanActivatePowerUp()) {
 			//play buzzer => can't activate a power up right now

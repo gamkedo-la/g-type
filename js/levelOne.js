@@ -33,6 +33,19 @@
          "id":2,
          "name":"Terrain",
          "objects":[
+
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":883,
+                 "name":"",
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":92,
+                 "y":311
+                }, 
                 {
                  "gid":7,
                  "height":90,
@@ -764,19 +777,7 @@
                  "width":30,
                  "x":7420.74,
                  "y":541.5
-                }, 
-                {
-                 "gid":15,
-                 "height":27,
-                 "id":883,
-                 "name":"",
-                 "rotation":0,
-                 "type":"capsule1",
-                 "visible":true,
-                 "width":33,
-                 "x":92,
-                 "y":311
-                }, 
+                },
                 {
                  "gid":1,
                  "height":73,
@@ -1701,6 +1702,19 @@
          "name":"Enemies",
          "objects":[
                 {
+                 "gid":9,
+                 "height":21,
+                 "id":892,
+                 "name":"",
+                 "properties":[],
+                 "rotation":0,
+                 "type":"cargoBoss",
+                 "visible":true,
+                 "width":30,
+                 "x":0,
+                 "y":192
+                }, 
+                {
                  "gid":12,
                  "height":21,
                  "id":847,
@@ -2072,7 +2086,7 @@
                          "value":13
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1",
+                 "type":"cargoBoss",
                  "visible":true,
                  "width":30,
                  "x":384,
@@ -2203,25 +2217,7 @@
                  "width":30,
                  "x":768,
                  "y":320
-                }, 
-                {
-                 "gid":9,
-                 "height":21,
-                 "id":892,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"flyingEnemy1",
-                 "visible":true,
-                 "width":30,
-                 "x":608,
-                 "y":192
-                }, 
+                },
                 {
                  "gid":9,
                  "height":21,

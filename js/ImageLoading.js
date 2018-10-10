@@ -57,6 +57,7 @@ const groundEnemySheet = document.createElement("img");
 const enemyBulletSheet = document.createElement("img");
 const enemyBullet2Sheet = document.createElement("img");
 const miniBoss1Sheet = document.createElement("img");
+const cargoBossSheet = document.createElement("img");
 
 let picsToLoad = 0;
 
@@ -133,6 +134,7 @@ function loadImages() {
         { imgName: enemyBulletSheet, theFile: "EnemyBullet.png" },
         { imgName: enemyBullet2Sheet, theFile: "EnemyShot2.png" },
         { imgName: miniBoss1Sheet, theFile: "MiniBoss1.png" },
+        { imgName: cargoBossSheet, theFile: "cargoBoss/CargoBoss.png" },
     ];
 
     picsToLoad = imageList.length;
