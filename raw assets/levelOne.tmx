@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="400" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="1175">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="400" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="1176">
  <tileset firstgid="1" source="objects.tsx"/>
  <objectgroup id="6" name="Background">
   <properties>
@@ -657,5 +657,6 @@
     <property name="Group" value="30"/>
    </properties>
   </object>
+  <object id="1175" gid="27" x="298.788" y="546.788" width="300" height="200"/>
  </objectgroup>
 </map>

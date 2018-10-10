@@ -9,7 +9,7 @@ const LevelData = [
 			const enemies = [];
 			let offRight = GameField.right + 50; //
 			let enemiesData = TileMaps.levelOne.layers[2].objects;
-			window.enemyPaths = enemiesData.filter((obj)=>{return obj.type=="path"})
+			let enemyPaths = enemiesData.filter((obj)=>{return obj.type=="path"})
 
 
 			//enemyPaths.forEach()
