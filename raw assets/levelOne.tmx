@@ -657,6 +657,6 @@
     <property name="Group" value="30"/>
    </properties>
   </object>
-  <object id="1175" gid="27" x="298.788" y="546.788" width="300" height="200"/>
+  <object id="1175" gid="27" x="11498.8" y="410.424" width="300" height="200"/>
  </objectgroup>
 </map>

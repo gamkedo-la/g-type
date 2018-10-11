@@ -21,7 +21,6 @@ function MenuScreen() {
     this.transitionIn = function menuScreenTransitionIn() {
         this.selectorPositionsIndex = 0;
         starfield = new Starfield(240,120,80,-64,-128,-256);
-        //explosionEmitter = createParticleEmitter(100,100, stars);
         selectorSprite = new AnimatedSprite(player1Sheet, 6, 124, 68, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
         
         currentBackgroundMusic.setCurrentTrack(AudioTracks.MainMenu);
