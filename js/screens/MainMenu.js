@@ -6,8 +6,10 @@ function MenuScreen() {
     let selectorPosition = {x:0, y:0};
     let selectorSprite;
     let starfield;
+
     const keyStrokes = [];
     const cheatCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+    
     
     this.selections = [
 	    { screen: GAME_SCREEN, title: textStrings.Play },
@@ -18,7 +20,8 @@ function MenuScreen() {
     ];
     this.transitionIn = function menuScreenTransitionIn() {
         this.selectorPositionsIndex = 0;
-        starfield = new Starfield();
+        starfield = new Starfield(240,120,80,-64,-128,-256);
+        //explosionEmitter = createParticleEmitter(100,100, stars);
         selectorSprite = new AnimatedSprite(player1Sheet, 6, 124, 68, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
         
         currentBackgroundMusic.setCurrentTrack(AudioTracks.MainMenu);
@@ -127,7 +130,7 @@ function MenuScreen() {
 	const update = function(deltaTime) {
 		timeSinceKey += deltaTime;
 		
-		if(timeSinceKey > 3000) {
+		if(timeSinceKey > 5000) {
 			timeSinceKey = 0;
 			ScreenStates.setState(DEMO_SCENE_SCREEN, 1);
 		}
@@ -146,7 +149,7 @@ function MenuScreen() {
         // render the logo overlay
         drawLogo();
 
-        canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
+        //canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
 
 //		drawTitle();
 
