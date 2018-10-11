@@ -95,7 +95,7 @@ function loadImages() {
 
         // backgrounds
         { imgName: starSheet, theFile: "Stars.png" },
-        { imgName: planetSheet, theFile: "Planet.png" },
+        { imgName: planetSheet, theFile: "Planet_1.png" },
         { imgName: backgroundColorLookup, theFile: "backgroundColorLookup.png" },
         { imgName: backgroundParallaxLayer1, theFile: "stars1024x1024.png" },
         { imgName: backgroundParallaxLayer2, theFile: "backgroundParallax.png" },
