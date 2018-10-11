@@ -112,7 +112,7 @@ function MenuScreen() {
 	    let mainMenuX = GameField.midX - 80;
 	    let mainMenuY = (yOffset == null ? GameField.y + 2 * GameField.height / 3 - 30: yOffset);
 
-	    const selectorXOffset = 65;
+	    const selectorXOffset = 80;
 	    const selectorYOffset = 60;
 
 	    for (let i = 0; i < menuItems.length; i++){
@@ -156,7 +156,7 @@ function MenuScreen() {
         printMenu(selections, selectorPositionIndex);
         
         //draw selector sprite
-        selectorSprite.drawAt(selectorPosition, {width:60, height:38});
+        selectorSprite.drawAt(selectorPosition, {width:62, height:27});
 	};
 	
 	const drawLogo = function() {

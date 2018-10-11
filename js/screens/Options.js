@@ -131,7 +131,7 @@ function OptionsScreen() {
 		drawOptions();
         
         //draw selector sprite
-        selectorSprite.drawAt(selectorPosition, {width:30, height:19});
+        selectorSprite.drawAt(selectorPosition, {width:62, height:27});
 
 		canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
 	};

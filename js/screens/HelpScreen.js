@@ -83,12 +83,12 @@ function HelpScreen() {
 	    let mainMenuY = (yOffset == null ? GameField.bottom - 120 : yOffset);
 
 	    let selectorXOffset = 60;
-	    let selectorYOffset = 30;
+	    let selectorYOffset = 40;
 
 	    for (let i = 0; i < menuItems.length; i++){
-		    gameFont.printTextAt(menuItems[i].title, {x: mainMenuX - 50, y: mainMenuY + selectorYOffset * i}, 20, textAlignment.Left);
+		    gameFont.printTextAt(menuItems[i].title, {x: mainMenuX - 50, y: mainMenuY + selectorYOffset * i}, 30, textAlignment.Left);
 		    if(i === selected) {
-			    selectorPosition.x = mainMenuX - 85;
+			    selectorPosition.x = mainMenuX - 130; //adjust spacing between selector sprite and menu option name
 			    selectorPosition.y = mainMenuY + selectorYOffset * i;
 		    }
 	    }
@@ -112,7 +112,7 @@ function HelpScreen() {
         printMenu(selections, selectorPositionIndex);
         
         //draw selector sprite
-        selectorSprite.drawAt(selectorPosition, {width:30, height:19});
+        selectorSprite.drawAt(selectorPosition, {width:62, height:27});
 
 		canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
 		
