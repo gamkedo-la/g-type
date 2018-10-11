@@ -69,7 +69,6 @@ function Player(position = {x:0, y:0}) {
 			//indicates that the sprite has reached the final frame of the "death sequence"
 			scene.removePlayer();
 			sprite.isDying = false;
-//			scene.endShake();
 			const emitterIndex = ParticleEmitterManager.pool.indexOf(explosionEmitter);
 			ParticleEmitterManager.returnEmitterToPool(emitterIndex);
 			if(playerExplosion.getTime() <= 0) {

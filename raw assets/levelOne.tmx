@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="400" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="1176">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="800" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="1176">
  <tileset firstgid="1" source="objects.tsx"/>
  <objectgroup id="6" name="Background">
   <properties>
@@ -545,13 +545,7 @@
     <property name="Group" value="30"/>
    </properties>
   </object>
-  <object id="1160" type="pat" x="10448" y="130.667">
-   <properties>
-    <property name="Group" value="30"/>
-   </properties>
-   <polygon points="0,0 -61.3333,-46.6667 -133.333,-52 -248,-33.3333 -348,96 -324,242.667 -242.667,336 -94.6667,384 41.3333,302.667 90.6667,184 81.3333,96"/>
-  </object>
-  <object id="1161" type="path" x="10448" y="130.667">
+  <object id="1161" type="path" x="11093.5" y="136.728">
    <properties>
     <property name="Group" value="30"/>
    </properties>
@@ -657,6 +651,6 @@
     <property name="Group" value="30"/>
    </properties>
   </object>
-  <object id="1175" gid="27" x="11498.8" y="410.424" width="300" height="200"/>
+  <object id="1175" gid="27" x="11550.3" y="428.606" width="300" height="200"/>
  </objectgroup>
 </map>

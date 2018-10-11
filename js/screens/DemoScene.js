@@ -20,7 +20,8 @@ function DemoSceneScreen() {
     };
     
     this.transitionOut = function demoPlayScreenTransitionOut() {
-	    clearKeyboardInput();
+		clearKeyboardInput();
+		this.remainingShakes = 0;
 	    canvasContext.setTransform(1, 0, 0, 1, 0, 0);
         currentBackgroundMusic.pause();
         allSFX.stop();
@@ -55,7 +56,8 @@ function DemoSceneScreen() {
 	    }
 
         if(scene.gameIsOver){
-//	        currentBackgroundMusic.setCurrentTrack(6);
+			scene.remainingShakes = 0;
+			scene.screenShake();
             ScreenStates.setState(MENU_SCREEN);
         }
     };
@@ -323,7 +325,7 @@ function DemoScene(levelIndex = 0) {
 		this.gameIsOver = true;
 		canvasContext.setTransform(1, 0, 0, 1, 0, 0);
 		uiManager.reset(true);
-		ScreenStates.setState(MENU_SCREEN, 1);
+		//ScreenStates.setState(MENU_SCREEN, 1);
 //		if(remainingLives < 1) {
 			
 /*		} else {
@@ -462,13 +464,15 @@ function DemoScene(levelIndex = 0) {
 			this.shakeMagnitude = 0;
 			canvasContext.setTransform(1, 0, 0, 1, 0, 0);
 		}
+		else {
+			const horizontal = Math.floor((this.shakeMagnitude) * Math.random() - this.shakeMagnitude / 2);
+			const vertical = Math.floor((this.shakeMagnitude) * Math.random() - this.shakeMagnitude / 2);
+			
+			canvasContext.transform(1, 0, 0, 1, horizontal, vertical);
+			
+			this.shakeMagnitude *= 0.9;
+		}
 		
-		const horizontal = Math.floor((this.shakeMagnitude) * Math.random() - this.shakeMagnitude / 2);
-		const vertical = Math.floor((this.shakeMagnitude) * Math.random() - this.shakeMagnitude / 2);
-		
-		canvasContext.setTransform(1, 0, 0, 1, horizontal, vertical);
-		
-		this.shakeMagnitude *= 0.9;
 	};
 	
 	this.endShake = function() {

@@ -19,6 +19,7 @@ function MenuScreen() {
         { screen: CREDITS_SCREEN, title: textStrings.Credits },
     ];
     this.transitionIn = function menuScreenTransitionIn() {
+        //canvasContext.transform(1,0,0,1,0,0);
         this.selectorPositionsIndex = 0;
         starfield = new Starfield(240,120,80,-64,-128,-256);
         selectorSprite = new AnimatedSprite(player1Sheet, 6, 62, 27, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);

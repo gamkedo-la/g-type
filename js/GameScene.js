@@ -264,7 +264,7 @@ function GameScene(levelIndex) {
 		uiManager.clearPowerUps();
 		if(remainingLives < 1) {
 			this.gameIsOver = true;
-			canvasContext.setTransform(1, 0, 0, 1, 0, 0);
+			//canvasContext.setTransform(1, 0, 0, 1, 0, 0);
 			uiManager.reset(true);
 		} else {
 			remainingLives--;
@@ -417,13 +417,16 @@ function GameScene(levelIndex) {
 			this.shakeMagnitude = 0;
 			canvasContext.setTransform(1, 0, 0, 1, 0, 0);
 		}
+		else{
+			const horizontal = Math.floor((this.shakeMagnitude) * Math.random() - this.shakeMagnitude / 2);
+			const vertical = Math.floor((this.shakeMagnitude) * Math.random() - this.shakeMagnitude / 2);
+			
+			canvasContext.setTransform(1, 0, 0, 1, horizontal, vertical);
+			
+			this.shakeMagnitude *= 0.9;
+		}
 		
-		const horizontal = Math.floor((this.shakeMagnitude) * Math.random() - this.shakeMagnitude / 2);
-		const vertical = Math.floor((this.shakeMagnitude) * Math.random() - this.shakeMagnitude / 2);
 		
-		canvasContext.setTransform(1, 0, 0, 1, horizontal, vertical);
-		
-		this.shakeMagnitude *= 0.9;
 	};
 	
 	this.endShake = function() {
