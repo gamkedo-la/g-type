@@ -19,6 +19,8 @@ function OptionsScreen() {
 	   ];
     this.transitionIn = function () {
         selectorPositionIndex = 0;
+        selectorPosition = {x:selectionPosition.Music.x + 35, y:selectionPosition.Music.y};
+        
         starfield = new Starfield();
         selectorSprite = new AnimatedSprite(player1Sheet, 6, 62, 27, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
         
