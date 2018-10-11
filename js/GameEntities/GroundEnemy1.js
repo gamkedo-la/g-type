@@ -133,6 +133,8 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 		}
 
 		if (this.hitPoints <= 0) {
+			if(sprite.isDying) {return;}//already dying, no reason to continue
+			
 			scene.displayScore(this);
 
 			sprite = new AnimatedSprite(enemyExplosionSheet2, 11, 96, 96, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
