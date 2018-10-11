@@ -13,13 +13,13 @@ function Player(position = {x:0, y:0}) {
 	this.type = EntityType.Player;
 	this.currentShotType = EntityType.PlayerShot;
 	
-	const sprite = new AnimatedSprite(player1Sheet, 6, 124, 68, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:3, max:5}, 128);
+	const sprite = new AnimatedSprite(player1Sheet, 6, 62, 27, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:3, max:5}, 128);
 	const explosionSprite = new AnimatedSprite(playerBoom2Sheet, 13, 80, 80, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max: 12}, 64);
 	explosionSprite.wasBorn = true;
 	explosionSprite.isDying = true;
 	let explosionEmitter = 0;
 	
-	const SPRITE_SCALE = 0.60;//make sure to change the x and y position of the playershot to match scaling
+	const SPRITE_SCALE = 1.0;//make sure to change the x and y position of the playershot to match scaling
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	let hasMissiles = false;
 	const ghosts = [];
@@ -224,26 +224,26 @@ function Player(position = {x:0, y:0}) {
 						
 			switch(this.currentShotType) {
 				case EntityType.PlayerShot:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 13}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 80, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
 					playerFireRegular.play();//play the audio
 					break;
 				case EntityType.PlayerDouble:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 13}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
-					initializeShot(secondShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 6}, {x: secondVel.x, y: secondVel.y}, true);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 80, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
+					initializeShot(secondShot, this.currentShotType, {x:this.position.x + 60, y:this.position.y + 2}, {x: secondVel.x, y: secondVel.y}, true);
 					playerFireRegular.play();
 					break;
 				case EntityType.PlayerLaser:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 74, y:this.position.y + 22}, {x: 3 * NORMAL_SHOT_SPEED, y: 0}, false);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 70, y:this.position.y + 13}, {x: 3 * NORMAL_SHOT_SPEED, y: 0}, false);
 					playerFireLaser.play();
 					break;
 				case EntityType.PlayerTriple:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 13}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
-					initializeShot(secondShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 13}, {x: secondVel.x, y: secondVel.y}, true);
-					initializeShot(thirdShot, this.currentShotType, {x:this.position.x - thirdShot.size.width, y:this.position.y + 13}, {x: thirdVel.x, y: thirdVel.y}, true);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 80, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
+					initializeShot(secondShot, this.currentShotType, {x:this.position.x + 80, y:this.position.y + 4}, {x: secondVel.x, y: secondVel.y}, true);
+					initializeShot(thirdShot, this.currentShotType, {x:this.position.x - thirdShot.size.width, y:this.position.y + 4}, {x: thirdVel.x, y: thirdVel.y}, true);
 					playerFireRegular.play();
 					break;
 				default:
-					initializeNewShot(newShot, this.currentShotType, {x:this.position.x + 86, y:this.position.y + 6}, {x: NORMAL_SHOT_SPEED, y: 0});
+					initializeNewShot(newShot, this.currentShotType, {x:this.position.x + 80, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0});
 					playerFireRegular.play();
 					break;
 			}
