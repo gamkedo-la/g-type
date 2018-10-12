@@ -26,16 +26,7 @@ function ShieldEntity(position = {x:0, y:0}, playerSize = {width:0, height:0}) {
 						  
 						  {x: this.position.x + SPRITE_SCALE, y: this.position.y + SPRITE_SCALE * (sprite.height / 2)}, //left point 
 						  {x: this.position.x + this.size.width / 4, y: this.position.y + SPRITE_SCALE * 6}]; //top, half way to left side
-	
-/*	console.log("ColliderPath: " + "(" + colliderPath[0].x + ", " + colliderPath[0].y + ")");					  
-	console.log("ColliderPath: " + "(" + colliderPath[1].x + ", " + colliderPath[1].y + ")");					  
-	console.log("ColliderPath: " + "(" + colliderPath[2].x + ", " + colliderPath[2].y + ")");					  
-	console.log("ColliderPath: " + "(" + colliderPath[3].x + ", " + colliderPath[3].y + ")");					  
-	console.log("ColliderPath: " + "(" + colliderPath[4].x + ", " + colliderPath[4].y + ")");					  
-	console.log("ColliderPath: " + "(" + colliderPath[5].x + ", " + colliderPath[5].y + ")");					  
-	console.log("ColliderPath: " + "(" + colliderPath[6].x + ", " + colliderPath[6].y + ")");					  
-	console.log("ColliderPath: " + "(" + colliderPath[7].x + ", " + colliderPath[7].y + ")");*/				  
-	
+		
 	this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:this.position.x, y:this.position.y}});
 	
 	this.update = function(deltaTime, playerPos) {

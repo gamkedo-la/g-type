@@ -154,7 +154,6 @@ function CollisionManager(player) {
 					}
 
 					if(checkCollisionBetween(entity.collisionBody, aBulletBody)) {
-						console.log("EntityType: " + entity.type);
 						entity.didCollideWith(this.playerBullets[i]);
 						this.playerBullets[i].didCollideWith(entity);
 						collisions.push({blue:this.playerBullets[i], red:entity});

@@ -19,9 +19,7 @@ function CreditsScreen() {
     let creditsText;
     
     this.transitionIn = function () {
-	    if(scene === null || scene === undefined) {
-            scene = new CreditsScene();
-        }
+        scene = new CreditsScene();
         
         this.skipBump = 0;
         this.currentY = GameField.bottom - 300;
@@ -38,7 +36,6 @@ function CreditsScreen() {
         }
         
         creditsText = new CreditFont(fontImage, darkFontImage, {width:16, height:16}, canvasContext);
-//        creditsText.addCreditsString("TEST", {x:GameField.midX, y:GameField.midY}, textAlignment.Center, {width:25, height:25});
         this.buildContributors();
     };
     

@@ -71,11 +71,11 @@ function CollidableChar(activeImage, inactiveImage, character, frameSize, drawSi
 		if(this.isActive) {
 			if((this.position.y < GameField.bottom) && (this.position.y > GameField.y - drawSize.height)) {//active and onscreen
 				if(!this.isCollidable) {//no collision checks occurring => add it to the list
-					scene.addEntity(this);
+					scene.addEntity(this, false);
 					this.isCollidable = true;
 				}
 			} else if(this.isCollidable) {//Not onscreen but active and collidable => remove it from the list
-				scene.removeEntity(this);
+				scene.removeEntity(this, false);
 				this.isCollidable = false;
 			}
 		}
@@ -104,7 +104,7 @@ function CollidableChar(activeImage, inactiveImage, character, frameSize, drawSi
 	this.didCollideWith = function(otherEntity) {
 		this.isActive = false;
 		this.isCollidable = false;
-		scene.removeEntity(this);
+		scene.removeEntity(this, false);
 	};
 	
 	const frameForCharacter = function(character) {

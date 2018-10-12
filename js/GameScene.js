@@ -364,7 +364,6 @@ function GameScene(levelIndex) {
 				break;
 			case PowerUpType.Force:
 				player.activateTheForce();
-				console.log("Tried to 'Use The Force!'");
 				break;
 			default:
 				break;
@@ -381,7 +380,6 @@ function GameScene(levelIndex) {
 	};
 	
 	this.displayScore = function(entity) {
-		console.log("Making a new Score");
 		const newScore = new TextEntity(entity.score.toString(), Fonts.CreditsText, Color.White, {x:entity.position.x, y:entity.position.y}, 512, false);
 		this.addEntity(newScore, false);
 		

@@ -311,7 +311,7 @@ function Player(position = {x:0, y:0}) {
 		}
 
 		this.forceUnitActive = true;
-		scene.addEntity(this.forceUnit);
+		scene.addEntity(this.forceUnit, false);
 	};
 	
 	this.activateShield = function() {

@@ -1,5 +1,6 @@
 //CreditsScene
 function CreditsScene() {
+	this.type = "CreditsScene";
 	this.shaking = false;
 	const MAX_SHAKES = 10;
 	this.remainingShakes = 0;
@@ -36,8 +37,8 @@ function CreditsScene() {
 		}
 	};
 	
-	this.removeCollisions = function(entityToRemove) {
-		this.removeEntity(entityToRemove, false);
+	this.removeCollisions = function(entityToRemove, isPlayerBullet) {
+		this.removeEntity(entityToRemove, isPlayerBullet);
 	};
 	
 	this.removePlayer = function() {

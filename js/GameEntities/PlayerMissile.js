@@ -58,7 +58,6 @@ function PlayerMissile(position = {x:0, y:0}, speed = {x:0, y:0}) {
 			let availableTime = unusedTime + deltaTime;
 			while(availableTime > SIM_STEP) {
 				if(sprite.wasBorn) {
-//					console.log("Velocity: (" + velocity.x + ", " + velocity.y + ")");
 					this.position.x += velocity.x * SIM_STEP / 1000;
 					this.position.y += velocity.y * SIM_STEP / 1000;
 					this.collisionBody.setPosition({x:this.position.x, y:this.position.y});					
