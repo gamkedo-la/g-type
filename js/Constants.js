@@ -63,7 +63,9 @@ const assetPath = {
 
 const AudioTracks = {
 	MainMenu:0,
-	Level1:0, 		//TODO: change these to
+	Level1:1, 		//TODO: change these to
+	MiniBoss1:2,
+	Boss1:3,
 	Level2:0, 		//the correct indices from
 	Level3:0, 		//the "currentBackgroundMusic" 
 	GameOver:0,		//array (AudioManager.js ~line 11) once

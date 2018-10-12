@@ -6,11 +6,13 @@ const DEFAULT_SFX_VOLUME = 0.6;
 //set sound clips and music tracks here
 
 //need to change file name to match
-const menuMusic = new musicTrackLoop("Level1-CoyCompositions", 208.976, {author: "Coy Compositions", album: "G-Type OST", year: "2018", title: "Level 1 Coy Compositions"});  //By Joe Spedale
+const menuMusic = new musicTrackLoop("Level1-CoyCompositions", 208.976, {author: "Coy Compositions", album: "G-Type OST", year: "2018", title: "Level 1 Coy Compositions"});  //By Coy Compositions
 const level1Music = new musicTrackLoop("PrepareToStrike-v1", 208.976, {author: "JoeCS", album: "G-Type OST", year: "2018", title: "Prepare To Strike (Main Menu Theme)"});  //By Joe Spedale
+const miniBoss1Music = new musicTrackLoop("MiniBoss", 208.976, {author: "Chris Markle", album: "G-Type OST", year: "2018", title: "Mini-Boss 1 Theme"});  //By Chris Markle
+const boss1Music = new musicTrackLoop("stebs_g-type_boss_music", 208.976, {author: "Stebs", album: "G-Type OST", year: "2018", title: "Stebs G-Type Boss Music"});  //By Stebs
 //menuMusic.setVolume(0.2);
 
-const currentBackgroundMusic = new musicContainer([menuMusic, level1Music/*, retroDream, dreamPunk, nightMusic, forestRock, drjuno, gameOver*/]);
+const currentBackgroundMusic = new musicContainer([menuMusic, level1Music, miniBoss1Music, boss1Music]);
 currentBackgroundMusic.setVolume(0.6);
 
 //menu sfx

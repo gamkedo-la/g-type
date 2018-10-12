@@ -4,6 +4,7 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 	this.group = null;
 	this.worldPos = 0;
 	this.score = 100;
+	let previousBackgroundMusic = null;
 
     this.hitPoints = 400;     // Every enemy type should have a hitPoints property
 	
@@ -50,6 +51,25 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		this.worldPos = worldPos;
 		if(!this.isVisible) {return;}
 		if(worldPos < spawnPos) {return;}//don't update if the world hasn't scrolled far enough to spawn
+		
+		if((this.worldPos > spawnPos + 50) && (!sprite.isDying)) {
+			if(previousBackgroundMusic === null) {
+				scene.worldShouldPause(true);
+				previousBackgroundMusic = currentBackgroundMusic.getCurrentTrack();
+				currentBackgroundMusic.setCurrentTrack(AudioTracks.Boss1);
+				
+				if(currentBackgroundMusic.getTime() > 0) {
+		            currentBackgroundMusic.resume();    
+		        } else {
+		            currentBackgroundMusic.play();
+		        }				
+			}
+		} else if((sprite.isDying) && (previousBackgroundMusic != null)) {
+			scene.worldShouldPause(false);
+			currentBackgroundMusic.setCurrentTrack(previousBackgroundMusic);
+            currentBackgroundMusic.play();
+			previousBackgroundMusic = null;			
+		}
 		
 		let availableTime = unusedTime + deltaTime;
 		this.timeSinceLastFire += deltaTime;
