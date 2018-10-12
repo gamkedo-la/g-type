@@ -46,10 +46,13 @@ function Player(position = {x:0, y:0}) {
 	const shield = new ShieldEntity({x:this.position.x, y:this.position.y}, {width:this.size.width, height:this.size.height});
 	
 	//this path lays out the corners of the polygon collider for the player (a triangle in this case)
-	const MARGIN=8; // allow some overlap to feel more "fair" to player
-	const colliderPath = [{x: MARGIN+this.position.x + SPRITE_SCALE * 21, y: MARGIN+this.position.y + SPRITE_SCALE * 1}, 
-						  {x: -MARGIN+this.position.x + SPRITE_SCALE * (sprite.width - 2), y: this.position.y + SPRITE_SCALE * sprite.height / 2}, 
-						  {x: MARGIN+this.position.x + SPRITE_SCALE * 21, y: -MARGIN+this.position.y + SPRITE_SCALE * (sprite.height - 1)}];
+	const MARGIN = 4; // allow some overlap to feel more "fair" to player
+	const THRUSTER = 10;
+	
+	const colliderPath = [{x: this.position.x + MARGIN + THRUSTER, y: this.position.y + (1.5 * MARGIN)},
+						  {x: this.position.x + this.size.width - (1.5 * MARGIN), y: this.position.y + (this.size.height / 2) + MARGIN / 2},
+						  {x: this.position.x + MARGIN + THRUSTER, y: this.position.y + this.size.height - MARGIN}];
+	
 	this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:this.position.x, y:this.position.y}});
 	this.getIsDying = function() {
 		return sprite.isDying;
