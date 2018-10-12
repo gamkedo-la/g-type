@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="800" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="1176">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="800" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="1188">
  <tileset firstgid="1" source="objects.tsx"/>
  <objectgroup id="6" name="Background">
   <properties>
@@ -652,5 +652,17 @@
    </properties>
   </object>
   <object id="1175" gid="27" x="11550.3" y="428.606" width="300" height="200"/>
+  <object id="1176" gid="9" x="3219" y="480" width="30" height="21"/>
+  <object id="1177" gid="9" x="3549" y="228" width="30" height="21"/>
+  <object id="1178" gid="9" x="3611" y="350" width="30" height="21"/>
+  <object id="1179" gid="9" x="3895" y="302" width="30" height="21"/>
+  <object id="1180" gid="9" x="2599" y="154" width="30" height="21"/>
+  <object id="1181" gid="9" x="2761" y="222" width="30" height="21"/>
+  <object id="1182" gid="9" x="2649" y="292" width="30" height="21"/>
+  <object id="1183" gid="12" x="1879" y="478" width="30" height="21"/>
+  <object id="1184" gid="12" x="1985" y="542" width="30" height="21"/>
+  <object id="1185" gid="10" x="4593" y="313" width="50" height="50"/>
+  <object id="1186" gid="10" x="4653" y="311" width="50" height="50"/>
+  <object id="1187" gid="10" x="4911" y="107" width="50" height="50"/>
  </objectgroup>
 </map>

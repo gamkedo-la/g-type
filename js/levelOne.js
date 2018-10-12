@@ -1710,6 +1710,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":7
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1sine",
@@ -1728,6 +1733,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":7
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1sine",
@@ -1746,6 +1756,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":7
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1sine",
@@ -1764,6 +1779,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":7
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1sine",
@@ -1782,6 +1802,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":7
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1sine",
@@ -1800,6 +1825,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":7
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1sine",
@@ -1818,6 +1848,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":7
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1sine",
@@ -2070,6 +2105,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":13
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2088,6 +2128,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":13
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2106,6 +2151,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":13
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2124,6 +2174,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":13
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2142,6 +2197,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":13
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2160,6 +2220,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":12
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2178,6 +2243,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":12
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2196,6 +2266,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":12
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2212,6 +2287,11 @@
                  "properties":[
                         {
                          "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"Speed",
                          "type":"int",
                          "value":0
                         }],
@@ -2232,6 +2312,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":12
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2250,6 +2335,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":12
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2268,6 +2358,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":12
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2286,6 +2381,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":12
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2304,6 +2404,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":12
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2322,6 +2427,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":12
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2340,6 +2450,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":12
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2356,6 +2471,11 @@
                  "properties":[
                         {
                          "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"Speed",
                          "type":"int",
                          "value":0
                         }],
@@ -2376,6 +2496,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":11
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2394,6 +2519,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":11
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2412,6 +2542,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":11
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2430,6 +2565,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":11
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2448,6 +2588,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":11
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2466,6 +2611,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":10
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1sine",
@@ -2484,6 +2634,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":10
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1sine",
@@ -2502,6 +2657,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":10
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1sine",
@@ -2520,6 +2680,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":10
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1sine",
@@ -2538,6 +2703,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":10
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1sine",
@@ -2556,6 +2726,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":10
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1sine",
@@ -2572,6 +2747,11 @@
                  "properties":[
                         {
                          "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"Speed",
                          "type":"int",
                          "value":0
                         }],
@@ -2592,6 +2772,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -2608,6 +2793,11 @@
                  "properties":[
                         {
                          "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"Speed",
                          "type":"int",
                          "value":0
                         }],
@@ -2628,6 +2818,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":90,
                  "type":"flyingEnemy2",
@@ -2646,6 +2841,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":1
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -2664,6 +2864,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":1
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -2682,6 +2887,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":1
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -2700,6 +2910,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":1
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -2718,6 +2933,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":1
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -2778,6 +2998,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":2
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -2796,6 +3021,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":2
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -2814,6 +3044,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":2
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -2832,6 +3067,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":2
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -2850,6 +3090,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":2
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -2910,6 +3155,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":20
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -2928,6 +3178,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":20
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -2946,6 +3201,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":20
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -2964,6 +3224,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":20
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -2982,6 +3247,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":20
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -3042,6 +3312,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":21
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -3060,6 +3335,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":21
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -3078,6 +3358,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":21
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -3096,6 +3381,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":21
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -3114,6 +3404,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":21
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4164,6 +4459,11 @@
                          "name":"Group",
                          "type":"string",
                          "value":"30"
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4182,6 +4482,11 @@
                          "name":"Group",
                          "type":"string",
                          "value":"30"
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4200,6 +4505,11 @@
                          "name":"Group",
                          "type":"string",
                          "value":"30"
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4218,6 +4528,11 @@
                          "name":"Group",
                          "type":"string",
                          "value":"30"
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4236,6 +4551,11 @@
                          "name":"Group",
                          "type":"string",
                          "value":"30"
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4254,6 +4574,11 @@
                          "name":"Group",
                          "type":"string",
                          "value":"30"
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4272,6 +4597,11 @@
                          "name":"Group",
                          "type":"string",
                          "value":"30"
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4339,8 +4669,8 @@
                  "type":"path",
                  "visible":true,
                  "width":0,
-                 "x":11093.4545454545,
-                 "y":136.727606060606
+                 "x":11093.5,
+                 "y":136.728
                 }, 
                 {
                  "gid":12,
@@ -4352,6 +4682,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":24
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1sine",
@@ -4370,6 +4705,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":24
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1sine",
@@ -4388,6 +4728,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":24
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1sine",
@@ -4406,6 +4751,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":24
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1sine",
@@ -4424,6 +4774,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":24
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1sine",
@@ -4442,6 +4797,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":24
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1sine",
@@ -4460,6 +4820,11 @@
                          "name":"Group",
                          "type":"int",
                          "value":24
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1sine",
@@ -4478,6 +4843,11 @@
                          "name":"Group",
                          "type":"string",
                          "value":"30"
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4496,6 +4866,11 @@
                          "name":"Group",
                          "type":"string",
                          "value":"30"
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4514,6 +4889,11 @@
                          "name":"Group",
                          "type":"string",
                          "value":"30"
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4532,6 +4912,11 @@
                          "name":"Group",
                          "type":"string",
                          "value":"30"
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4550,6 +4935,11 @@
                          "name":"Group",
                          "type":"string",
                          "value":"30"
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4568,6 +4958,11 @@
                          "name":"Group",
                          "type":"string",
                          "value":"30"
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4586,6 +4981,11 @@
                          "name":"Group",
                          "type":"string",
                          "value":"30"
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4604,6 +5004,11 @@
                          "name":"Group",
                          "type":"string",
                          "value":"30"
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4622,6 +5027,11 @@
                          "name":"Group",
                          "type":"string",
                          "value":"30"
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4640,6 +5050,11 @@
                          "name":"Group",
                          "type":"string",
                          "value":"30"
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4658,6 +5073,11 @@
                          "name":"Group",
                          "type":"string",
                          "value":"30"
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4676,6 +5096,11 @@
                          "name":"Group",
                          "type":"string",
                          "value":"30"
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4694,6 +5119,11 @@
                          "name":"Group",
                          "type":"string",
                          "value":"30"
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2path",
@@ -4717,8 +5147,284 @@
                  "type":"cargoBoss",
                  "visible":true,
                  "width":300,
-                 "x":11550.303030303,
-                 "y":428.606060606061
+                 "x":11550.3,
+                 "y":428.606
+                }, 
+                {
+                 "gid":9,
+                 "height":21,
+                 "id":1176,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":3219,
+                 "y":480
+                }, 
+                {
+                 "gid":9,
+                 "height":21,
+                 "id":1177,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":3549,
+                 "y":228
+                }, 
+                {
+                 "gid":9,
+                 "height":21,
+                 "id":1178,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":3611,
+                 "y":350
+                }, 
+                {
+                 "gid":9,
+                 "height":21,
+                 "id":1179,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":3895,
+                 "y":302
+                }, 
+                {
+                 "gid":9,
+                 "height":21,
+                 "id":1180,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":2599,
+                 "y":154
+                }, 
+                {
+                 "gid":9,
+                 "height":21,
+                 "id":1181,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":2761,
+                 "y":222
+                }, 
+                {
+                 "gid":9,
+                 "height":21,
+                 "id":1182,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":2649,
+                 "y":292
+                }, 
+                {
+                 "gid":12,
+                 "height":21,
+                 "id":1183,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1sine",
+                 "visible":true,
+                 "width":30,
+                 "x":1879,
+                 "y":478
+                }, 
+                {
+                 "gid":12,
+                 "height":21,
+                 "id":1184,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1sine",
+                 "visible":true,
+                 "width":30,
+                 "x":1985,
+                 "y":542
+                }, 
+                {
+                 "gid":10,
+                 "height":50,
+                 "id":1185,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2",
+                 "visible":true,
+                 "width":50,
+                 "x":4593,
+                 "y":313
+                }, 
+                {
+                 "gid":10,
+                 "height":50,
+                 "id":1186,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2",
+                 "visible":true,
+                 "width":50,
+                 "x":4653,
+                 "y":311
+                }, 
+                {
+                 "gid":10,
+                 "height":50,
+                 "id":1187,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2",
+                 "visible":true,
+                 "width":50,
+                 "x":4911,
+                 "y":107
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -4727,7 +5433,7 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":1176,
+ "nextobjectid":1188,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.0",
@@ -4735,7 +5441,7 @@
  "tilesets":[
         {
          "firstgid":1,
-         "source":"..\/raw assets\/objects.tsx"
+         "source":"..\/raw assets\/mapAssets\/objects.tsx"
         }],
  "tilewidth":32,
  "type":"map",
