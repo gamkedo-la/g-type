@@ -176,6 +176,11 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 			this.position.y = this.collisionBody.center.y - this.size.height / 2;
 
 			sprite.isDying = true;
+
+			if((this.group != null) && (this.group !== undefined)) {
+				this.group.amDying(this, this.worldPos);
+			}
+
 			sprite.wasBorn = true;
 			scene.removeCollisions(this);
 
