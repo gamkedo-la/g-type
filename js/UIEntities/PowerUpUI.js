@@ -15,13 +15,14 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None, s
 	this.position = {x: position.x, y: position.y};
 	let isLit = highlighted;
 	this.contentsType = contains;
+	let contents;
 	let isLocked = false;
 	let helpText = "";
 	const FONT = 30;
 	let displayTime = 0;
 	let shouldShowText = false;
 	const helpTextTime = 512;//milliseconds
-	
+
 	let darkSprite = new AnimatedSprite(darkPowerUpUI, 5, 100, 100, true, true, {min: 0, max: 0}, 0, {min: 0, max: 4}, 256, {min: 4, max: 4}, 0);
 	let lightSprite = new AnimatedSprite(lightedPowerUpUI, 5, 100, 100, true, true, {min: 0, max: 0}, 0, {min: 0, max: 4}, 256, {min: 4, max: 4}, 0);
 	
@@ -38,7 +39,9 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None, s
 				return null;
 			case PowerUpType.Speed:
 				helpText = PowerUpUIText.Speed;
-				return (new AnimatedSprite(playerThruster, 3, 32, 32, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0));
+				contents = new SpeedUI();
+				return null;
+//				return (new AnimatedSprite(playerThruster, 3, 32, 32, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0));
 			case PowerUpType.Missile:
 				helpText = PowerUpUIText.Missile;
 				return (new AnimatedSprite(missileSheet, 5, 35, 19, true, true, {min:0, max:0}, 0, {min:0, max:2}, 512, {min:2, max:2}, 0));
@@ -54,7 +57,7 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None, s
 			case PowerUpType.Ghost:
 				helpText = PowerUpUIText.Ghost;
 				return null;
-				return (new AnimatedSprite(lightGhostUI, 4, 46, 41, true, true, {min:0, max:0}, 0, {min:0, max:3}, 192, {min:3, max:3}, 0));
+//				return (new AnimatedSprite(lightGhostUI, 4, 46, 41, true, true, {min:0, max:0}, 0, {min:0, max:3}, 192, {min:3, max:3}, 0));
 			case PowerUpType.Shield:
 				helpText = PowerUpUIText.Shield;
 				return (new AnimatedSprite(shieldSheet, 3, 60, 45, false, true, {min:0, max:0}, 0, {min:0, max:0}, 128, {min:2, max:2}, 0));
@@ -64,23 +67,28 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None, s
 				return null;
 				return (new AnimatedSprite(forceUnitSheet, 1, 48, 48));
 			default://TODO: remove this, it is just for testing
-				return (new AnimatedSprite(playerLaserShot, 13, 28, 6, false, true, {min:0, max:0}, 0, {min:0, max:12}, 128, {min:13, max:18}, 64));			
+				return (new AnimatedSprite(playerLaserShot, 13, 28, 6, false, true, {min:0, max:0}, 0, {min:0, max:12}, 128, {min:13, max:18}, 64));
 		}
 	};
 		
-	let contents = spriteForContentsType(this.contentsType);
+	let contentsSprite = spriteForContentsType(this.contentsType);
 	
-	this.updateContentPosition = function() {
-		if(contents == null) {
+	this.setContentsPosition = function() {
+		if(contentsSprite == null) {
+			if(this.contentsType === PowerUpType.Speed) {
+				contents.position.x = this.position.x + (this.size.width / 2) - (contents.size.width / 2);
+				contents.position.y = this.position.y + (this.size.height / 2) - (contents.size.height / 2);
+			}
+			
 			return {x:this.position.x, y:this.position.y};
 		} else {
-			const xPos = this.position.x + (this.size.width / 2) - (contents.width / 2);
-			const yPos = this.position.y + (this.size.height / 2) - (contents.height / 2);
+			const xPos = this.position.x + (this.size.width / 2) - (contentsSprite.width / 2);
+			const yPos = this.position.y + (this.size.height / 2) - (contentsSprite.height / 2);
 			return {x: xPos, y: yPos};
 		}
 	}
 	
-	let contentPosition = this.updateContentPosition();
+	let contentsPosition = this.setContentsPosition();
 	
 	this.setIsHighlighted = function(isHighlighted) {
 		if(isHighlighted !== isLit) {
@@ -90,13 +98,11 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None, s
 			} else {
 				sprite = darkSprite;
 			}
+			
+			if(this.contentsType === PowerUpType.Speed) {
+				contents.setIsLit(isHighlighted);
+			}
 		}
-	};
-	
-	this.setContents = function(newContent) {
-		this.contentsType = newContent;
-		contents = spriteForContentsType(this.contentsType);
-		contentPosition = this.updateContentPosition();
 	};
 	
 	this.update = function(deltaTime) {
@@ -108,12 +114,19 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None, s
 		
 		sprite.update(deltaTime);
 		
-		if(contents != null) {
+		if(contentsSprite != null) {
+			contentsSprite.update(deltaTime);
+		} else if(this.contentsType === PowerUpType.Speed) {
 			contents.update(deltaTime);
 		}
 	};
 
 	this.lockMe = function() {
+		if(this.contentsType === PowerUpType.Speed) {
+			contents.incrementSpeed();
+			
+			return;//no limit on speed ups
+		}
 		isLocked = true;
 	};
 
@@ -132,8 +145,10 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None, s
 			return;
 		}
 		
-		if(contents != null) {
-			contents.drawAt(contentPosition, {width:contents.width, height:contents.height});//TODO: fix this after the base object is working correctly
+		if(contentsSprite != null) {
+			contentsSprite.drawAt(contentsPosition, {width:contentsSprite.width, height:contentsSprite.height});
+		} else if(this.contentsType === PowerUpType.Speed) {
+			contents.draw();
 		}
 		
 		if((isLit) && (shouldShowText)) {

@@ -16,6 +16,14 @@ const tripleShotUI = document.createElement("img");
 const livesUI = document.createElement("img");
 const lightGhostUI = document.createElement("img");
 const darkGhostUI = document.createElement("img");
+const darkSpeedUI1 = document.createElement("img");
+const darkSpeedUI2 = document.createElement("img");
+const darkSpeedUI3 = document.createElement("img");
+const darkSpeedUI3Plus = document.createElement("img");
+const lightSpeedUI1 = document.createElement("img");
+const lightSpeedUI2 = document.createElement("img");
+const lightSpeedUI3 = document.createElement("img");
+const lightSpeedUI3Plus = document.createElement("img");
 
 //Backgrounds
 const starSheet = document.createElement("img"); // bg twinkling star sprites
@@ -92,6 +100,14 @@ function loadImages() {
         { imgName: livesUI, theFile: "UILivesIconEven.png" },
         { imgName: lightGhostUI, theFile: "GhostShipUI-Lit.png" },
         { imgName: darkGhostUI, theFile: "GhostShipUI-Dark.png" },
+        { imgName: darkSpeedUI1, theFile: "SpeedUI1Dark.png" },
+        { imgName: darkSpeedUI2, theFile: "SpeedUI2Dark.png" },
+        { imgName: darkSpeedUI3, theFile: "SpeedUI3Dark.png" },
+        { imgName: darkSpeedUI3Plus, theFile: "SpeedUI3PlusDark.png" },
+        { imgName: lightSpeedUI1, theFile: "SpeedUI1Lit.png" },
+        { imgName: lightSpeedUI2, theFile: "SpeedUI2Lit.png" },
+        { imgName: lightSpeedUI3, theFile: "SpeedUI3Lit.png" },
+        { imgName: lightSpeedUI3Plus, theFile: "SpeedUI3PlusLit.png" },
 
         // backgrounds
         { imgName: starSheet, theFile: "Stars.png" },
