@@ -156,6 +156,7 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		if(this.invincibilityTime > 0) {return;}
 		
 		if((otherEntity.type === EntityType.Player) ||
+		   (otherEntity.type === EntityType.RagnarokCapsule) || 
 		   (otherEntity.type === EntityType.PlayerShot) ||
 		   (otherEntity.type === EntityType.PlayerMissile) ||
 		   (otherEntity.type === EntityType.PlayerDouble) ||

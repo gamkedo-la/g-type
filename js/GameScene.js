@@ -303,6 +303,19 @@ function GameScene(levelIndex) {
 		collisionBodiesToRemove.push(entityToRemove);
 	};
 	
+	this.destroyAllOnScreen = function(destroyer) {
+		for(let entity of gameEntities) {
+			if((entity.position.x >= GameField.x) &&
+			   (entity.position.x <= GameField.right) &&
+			   (entity.position.y >= GameField.y) &&
+			   (entity.position.y <= GameField.bottom)) {
+				   if(entity.collisionBody != null) {
+				   		entity.didCollideWith(destroyer);
+				   }
+			   }
+		}
+	};
+	
 	this.addCollisions = function(entityToAdd, isPlayerBullet) {
 		if(isPlayerBullet) {
 			collisionManager.addPlayerBullet(entityToAdd);

@@ -340,9 +340,8 @@ function Player(position = {x:0, y:0}) {
 	this.didCollideWith = function(otherEntity) {
 		if(otherEntity.type === EntityType.Capsule1) {
 			scene.collectedCapsule();
-			
-		} else if(otherEntity.type === EntityType.PlayerShield) {
-			return;//Player is not damaged by colliding with it's own shield
+		} else if((otherEntity.type === EntityType.PlayerShield) || (otherEntity.type === EntityType.RagnarokCapsule)) {
+			return;//Player is not damaged by colliding with it's own shield or with the RagnarokCapsule
 		} else {
 			if (isInvincible || cheats.playerInvincible || shield.isActive) {
 				if(cheats.playerInvincible) {

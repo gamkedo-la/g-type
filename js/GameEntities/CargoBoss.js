@@ -213,6 +213,7 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		if (otherEntity) {
 			let entityType = otherEntity.type;
 			if ((entityType === EntityType.PlayerForceUnit) ||
+				(entityType === EntityType.RagnarokCapsule) ||
 				(entityType === EntityType.PlayerShot) || 
 				(entityType === EntityType.PlayerMissile) || 
 				(entityType === EntityType.PlayerDouble) || 

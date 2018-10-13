@@ -54,8 +54,9 @@ const missileSheet = document.createElement("img");
 const shieldSheet = document.createElement("img");
 const ghostSheet = document.createElement("img");
 
-//power ups
+//capsules
 const capsule1Sheet = document.createElement("img");
+const ragnarokSheet = document.createElement("img");
 
 //Enemy Associated
 const enemyExplosionSheet2 = document.createElement("img");
@@ -141,6 +142,7 @@ function loadImages() {
 
         // Capsules
         { imgName: capsule1Sheet, theFile: "PowerUp.png" },
+        { imgName: ragnarokSheet, theFile: "ragnarok_capsule_v2_sheet.png" },
 
         // enemies
         { imgName: enemyExplosionSheet2, theFile: "enemy_explosion_sheet_2.png" },

@@ -22,6 +22,7 @@ const EntityType = {
 	
 	//capsules
 	Capsule1:"capsule1",
+	RagnarokCapsule:"ragnarokCapsule",
 	
 	//Enemies
 	FlyingEnemy1:"flyingEnemy1",

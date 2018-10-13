@@ -138,7 +138,8 @@ function CollisionManager(player) {
 
 			//Do collision between player bullets and all other entites (except the player)
 			for(let i = 0; i < this.playerBullets.length; i++) {
-				if(entity.type === EntityType.Capsule1) {continue;}//can't shoot the power ups
+				if(entity.type === EntityType.Capsule1) {continue;}//can't shoot the capsules
+				if(entity.type === EntityType.RagnarokCapsule) {continue;}//can't shoot the ragnarok capsules
 				if(entity.type === EntityType.PlayerForceUnit) {continue;}//can't shoot the force unit
 				if(!this.playerBullets[i].isActive) {continue;}//don't check collisions on inactive bullets
 
@@ -168,6 +169,7 @@ function CollisionManager(player) {
 					//if both objects are circles, the above check is a valid collision
 					// TODO clean up this code (e.g., there are redundant checks to make sure the force unit doesn't collide with a powerup or player shot -- perhaps smarten up the conditional test?
 					if((entity.type === EntityType.Capsule1) ||	//can't hit the capsules
+					   (entity.type === EntityType.RagnarokCapsule) ||
 					   (entity.type === EntityType.PlayerShot) ||
 					   (entity.type === EntityType.PlayerDouble) || 
 					   (entity.type === EntityType.PlayerLaser) || 
@@ -185,6 +187,7 @@ function CollisionManager(player) {
 
 					if(checkCollisionBetween(entity.collisionBody, forceUnitBody)) {
 						if((entity.type === EntityType.Capsule1) ||	//can't hit the capsules
+					   (entity.type === EntityType.RagnarokCapsule) ||
 					   (entity.type === EntityType.PlayerShot) ||
 					   (entity.type === EntityType.PlayerDouble) || 
 					   (entity.type === EntityType.PlayerLaser) || 
