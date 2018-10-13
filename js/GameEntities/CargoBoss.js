@@ -29,11 +29,23 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		/*deathRate =*/  0);
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 
-	this.collisionBody = new Collider(ColliderType.Circle, {points:   [], 
-															position: {x:(SPRITE_SCALE * 3) + this.position.x + this.size.width / 2, y:this.position.y + this.size.height / 2}, 
-															radius:   this.size.height / 2, 
-															center:   {x:(SPRITE_SCALE * 3) + this.position.x + this.size.width / 2, y:this.position.y + this.size.height / 2}}
-									  );
+	//all magic numbers in collider path are based on the sprite
+	const colliderPath = [{x: this.position.x + 23 * SPRITE_SCALE, y: this.position.y + 112 * SPRITE_SCALE},
+						  {x: this.position.x + 91 * SPRITE_SCALE, y: this.position.y + 46 * SPRITE_SCALE},
+						  {x: this.position.x + 113 * SPRITE_SCALE, y: this.position.y + 46 * SPRITE_SCALE},
+						  {x: this.position.x + 113 * SPRITE_SCALE, y: this.position.y + 23 * SPRITE_SCALE},
+						  {x: this.position.x + 178 * SPRITE_SCALE, y: this.position.y + 23 * SPRITE_SCALE},
+						  {x: this.position.x + 178 * SPRITE_SCALE, y: this.position.y + 46 * SPRITE_SCALE},
+						  {x: this.position.x + 252 * SPRITE_SCALE, y: this.position.y + 46 * SPRITE_SCALE},
+						  {x: this.position.x + 255 * SPRITE_SCALE, y: this.position.y + 134 * SPRITE_SCALE},
+						  {x: this.position.x + 229 * SPRITE_SCALE, y: this.position.y + 184 * SPRITE_SCALE},
+						  {x: this.position.x + 151 * SPRITE_SCALE, y: this.position.y + 186 * SPRITE_SCALE},
+						  {x: this.position.x + 139 * SPRITE_SCALE, y: this.position.y + 169 * SPRITE_SCALE},
+						  {x: this.position.x + 84 * SPRITE_SCALE, y: this.position.y + 169 * SPRITE_SCALE},
+						  {x: this.position.x + 30 * SPRITE_SCALE, y: this.position.y + 151 * SPRITE_SCALE}];
+	
+	this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:this.position.x, y:this.position.y}});
+	
 	let didCollide = false;
 	
 	this.path = new EnemyPath(PathType.Sine, this.position, speed, [], timeOffset);
@@ -97,8 +109,8 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		unusedTime = availableTime;
 		
 		if(!sprite.isDying) {
-			this.collisionBody.setPosition({x:(SPRITE_SCALE * 3) + this.position.x + this.size.height / 2, 
-											y:this.position.y + this.size.height / 2});
+			this.collisionBody.setPosition({x:this.position.x, 
+											y:this.position.y});
 		}
 		
 		sprite.update(deltaTime);
