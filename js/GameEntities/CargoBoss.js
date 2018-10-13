@@ -28,6 +28,8 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		/*deathRange =*/ {min:1, max:1}, 
 		/*deathRate =*/  0);
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+	const EXPLOSION_COUNT = 7;
+	const explosions = [];
 
 	//all magic numbers in collider path are based on the sprite
 	const colliderPath = [{x: this.position.x + 23 * SPRITE_SCALE, y: this.position.y + 112 * SPRITE_SCALE},
@@ -109,11 +111,14 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		unusedTime = availableTime;
 		
 		if(!sprite.isDying) {
-			this.collisionBody.setPosition({x:this.position.x, 
-											y:this.position.y});
+			sprite.update(deltaTime);
+			this.collisionBody.setPosition({x:this.position.x, y:this.position.y});
+		} else {
+			sprite.update(deltaTime / 4);
+			this.updateExplosions(deltaTime);
 		}
 		
-		sprite.update(deltaTime);
+		
 		
 		if(!sprite.isDying) {//Don't allow enemies to shoot when they are in the process of dying
 			const firingChance = Math.floor(100 * Math.random());
@@ -163,6 +168,34 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		sprite.drawAt(this.position, this.size);
 		if(!sprite.isDying) {
 			this.collisionBody.draw();
+		} else {
+			this.drawExplosions();
+		}
+	};
+	
+	this.updateExplosions = function(deltaTime) {
+		console.log("Explosion Count: " + explosions.length);
+		if(explosions.length < EXPLOSION_COUNT) {
+			if((100 * Math.random()) < 25) {//1 in 20 chance the next explosion should spawn
+				const newExplosion = new AnimatedSprite(enemyExplosionSheet2, 11, 96, 96, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
+				newExplosion.deltaXPos = (this.size.width * Math.random());
+				newExplosion.deltaYPos = (this.size.height * Math.random());
+				
+				newExplosion.isDying = true;
+				newExplosion.wasBorn = true;
+				
+				explosions.push(newExplosion);
+			}
+		}
+		
+		for(let i = 0; i < explosions.length; i++) {
+			explosions[i].update(deltaTime);
+		}
+	};
+	
+	this.drawExplosions = function() {
+		for(let i = 0; i < explosions.length; i++) {
+			explosions[i].drawAt({x:(this.position.x + explosions[i].deltaXPos), y: (this.position.y + explosions[i].deltaYPos)}, this.size);
 		}
 	};
 	
@@ -209,7 +242,7 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 			sprite.wasBorn = true;
 			scene.removeCollisions(this);
 
-			enemySmallExplosion.play();
+			enemyLargeExplosion.play();
 		}
 		// TODO else -- add SFX to show a non-lethal hit
 	};

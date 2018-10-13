@@ -42,6 +42,8 @@ const enemySmallExplosion = new sfxClipOverlap("EnemySmallExplosion", 3);
 enemySmallExplosion.setVolume(0.6);
 const enemyMediumExplosion = new sfxClipOverlap("EnemyMediumExplosion", 3);
 enemyMediumExplosion.setVolume(0.6);
+const enemyLargeExplosion = new sfxClipOverlap("EnemyLargeExplosion", 3);
+enemyLargeExplosion.setVolume(0.6);
 const bubbleExplosion = new sfxClipOverlap("bubble", 3);
 bubbleExplosion.setVolume(0.35);
 const shotHitIndestructible = new sfxClipOverlap("PlayerShieldReflect", 3); //placeholder sound effect.  Need new made -LP
