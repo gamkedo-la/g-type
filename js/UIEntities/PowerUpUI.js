@@ -1,13 +1,13 @@
 //PowerUpUI Text
 const PowerUpUIText = {
-	Speed:"[Enter] for   Speed",
-	Missile:"[Enter] for   Missiles",
-	Double:"[Enter] for   Double Shot",
-	Laser:"[Enter] for   Laser",
-	Triple:"[Enter] for   Triple Shot",
-	Ghost:"[Enter] for   Ghost Ship",
-	Shield:"[Enter] for   Shields",
-	Force:"[Enter] for   The Force"
+	Speed:"[SPACE] for   Speed",
+	Missile:"[SPACE] for   Missiles",
+	Double:"[SPACE] for   Double Shot",
+	Laser:"[SPACE] for   Laser",
+	Triple:"[SPACE] for   Triple Shot",
+	Ghost:"[SPACE] for   Ghost Ship",
+	Shield:"[SPACE] for   Shields",
+	Force:"[SPACE] for   The Force"
 }
 
 //PowerUpUI
