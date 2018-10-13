@@ -5,7 +5,7 @@ function ShieldEntity(position = {x:0, y:0}, playerSize = {width:0, height:0}) {
 	this.hitPoints = MAX_HITPOINTS;
 	this.damagePoints = 1;
 	this.isActive = false;
-	const SPRITE_SCALE = 2;
+	const SPRITE_SCALE = 1;
 	let wasReset = false;
 	
 	sprite = new AnimatedSprite(shieldSheet, 3, 60, 45, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);

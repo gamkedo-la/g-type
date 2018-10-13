@@ -344,7 +344,7 @@ function Player(position = {x:0, y:0}) {
 		} else if(otherEntity.type === EntityType.PlayerShield) {
 			return;//Player is not damaged by colliding with it's own shield
 		} else {
-			if (isInvincible || cheats.playerInvincible) {
+			if (isInvincible || cheats.playerInvincible || shield.isActive) {
 				if(cheats.playerInvincible) {
 					console.log("Note: cheats.playerInvincible turned on");
 				}
