@@ -22,22 +22,10 @@ function EnemyGroup() {
 	
 	// called by enenies just as they start to explode (isDying=true but not getDidDie() yet)
 	this.amDying = function(enemyToRemove, worldPos) {
-		//console.log('I am dying! this.enemies.length = ' + this.enemies.length);
-		// this is the very last one in the group, maybe spawn a capsule
-		if((this.enemies.length === 1) && (this.hasCapsule)) {
-			this.hasCapsule = false;
-			const newCapsule = new Capsule({x:enemyToRemove.position.x, y:enemyToRemove.position.y}, worldPos);
-			newCapsule.position.x += ((enemyToRemove.size.width / 2) - (newCapsule.size.width / 2));
-			newCapsule.position.y += ((enemyToRemove.size.height / 2) - (newCapsule.size.height / 2));
-			scene.addEntity(newCapsule, false);
-		}
-	}
-
-	// called by enemies after they have exploded fully (getDidDie()==true)
-	this.remove = function(enemyToRemove, worldPos) {
 		const indexToRemove = this.enemies.indexOf(enemyToRemove);
 		this.enemies.splice(indexToRemove, 1);
-		/*
+
+		// this is the very last one in the group, maybe spawn a capsule		
 		if((this.enemies.length === 0) && (this.hasCapsule)) {
 			this.hasCapsule = false;
 			const newCapsule = new Capsule({x:enemyToRemove.position.x, y:enemyToRemove.position.y}, worldPos);
@@ -45,8 +33,7 @@ function EnemyGroup() {
 			newCapsule.position.y += ((enemyToRemove.size.height / 2) - (newCapsule.size.height / 2));
 			scene.addEntity(newCapsule, false);
 		}
-		*/
-	};
+	}
 }
 
 const PathType = {

@@ -29,9 +29,6 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		if(sprite.getDidDie()) {
 			scene.removeEntity(this, false);
 			sprite.isDying = false;
-			if((this.group != null) && (this.group !== undefined)) {
-				this.group.remove(this, this.worldPos);
-			}
 			return;
 		}
 		
