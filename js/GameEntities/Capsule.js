@@ -2,8 +2,9 @@
 function Capsule(position = {x:0, y:0}, initialWorldPos) {
 	this.worldPos = initialWorldPos;
 	this.type = EntityType.Capsule1;
+	this.score = 50;
 	
-	this.position = position;
+	this.position = {x:position.x, y:position.y};
 	
 	const sprite = new AnimatedSprite(capsule1Sheet, 3, 33, 27, true, true, {min:0, max:0}, 0, {min:0, max:3}, 128, {min:3, max:3}, 0);
 	const SPRITE_SCALE = 1;
@@ -49,6 +50,7 @@ function Capsule(position = {x:0, y:0}, initialWorldPos) {
 	
 	this.didCollideWith = function(otherEntity) {
 		didCollide = true;
+		scene.displayScore(this);
 		scene.removeEntity(this, false);
 		pauseSound.play();
 		explosionEmitter = createParticleEmitter(this.position.x + this.size.width / 2,this.position.y + this.size.height / 2, getCapsule);
