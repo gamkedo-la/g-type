@@ -11,6 +11,8 @@ function CutSceneScreen() {
     let planetScale = 0.5;
     
     const DISPLAY_TIME = 6000;//6000 = 6 second display time
+    const INTRO_STORY_SCROLL_SPEED_Y = 0.0005;
+
     let delayTime = 0;
 
     this.transitionIn = function() {
@@ -39,7 +41,7 @@ function CutSceneScreen() {
 	    
 	    update(deltaTime);
 	    
-	    draw();
+	    draw(deltaTime);
     };
     this.control = function gamePlayFinishedScreenControl(keyCode, pressed){
        if (pressed) {//only act on key released events => prevent multiple changes on single press
@@ -72,16 +74,16 @@ function CutSceneScreen() {
 		planetScale = 0.25 + delayTime / DISPLAY_TIME;
 	};
 
-	const draw = function() {
+	const draw = function(deltaTime) {
 		// render the menu background
         drawBG();
         
         starfield.draw();
         
-        gameFont.printTextAt(textStrings.CutScene1_1, {x:GameField.midX, y:GameField.bottom - 120}, 16, textAlignment.Center);
-		gameFont.printTextAt(textStrings.CutScene1_2, {x:GameField.midX, y: GameField.bottom - 90}, 16, textAlignment.Center);
-		gameFont.printTextAt(textStrings.CutScene1_3, {x:GameField.midX, y: GameField.bottom - 60}, 16, textAlignment.Center);
-		gameFont.printTextAt(textStrings.SkipCutScene, {x:GameField.right - 70, y: GameField.bottom - 30}, 12, textAlignment.Right);
+        gameFont.printTextAt(textStrings.CutScene1_1, {x:GameField.midX, y:GameField.bottom - 120}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
+		gameFont.printTextAt(textStrings.CutScene1_2, {x:GameField.midX, y: GameField.bottom - 90}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
+		gameFont.printTextAt(textStrings.CutScene1_3, {x:GameField.midX, y: GameField.bottom - 60}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
+		gameFont.printTextAt(textStrings.SkipCutScene, {x:GameField.right - 70, y: GameField.bottom - 30}, 12, textAlignment.Right, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
         
         playerSprite.drawAt({x:GameField.x + GameField.width / 8 + playerSpriteDeltaX, y: GameField.y + 2 * GameField.height / 3 + playerSpriteDeltaY}, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
         
