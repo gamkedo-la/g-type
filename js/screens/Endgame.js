@@ -1,6 +1,7 @@
 // Endgame Scroller Screen
 
 // needs to be triggered via ScreenStates.setState(ENDING_SCREEN);
+// which currently happens in Game.js when scene.beatTheGame==true
 
 function EndgameScreen() {
 	const MENU_BG_COLOR = "#010119";
@@ -49,7 +50,7 @@ function EndgameScreen() {
     };
     
     this.buildendgameScript = function() {
-	    let nameX = GameField.midX - 50 - 80;
+	    let nameX = GameField.midX - 50;
         let textSkip = 20;
         let height = 24;
         var textY = 150;
@@ -62,7 +63,7 @@ function EndgameScreen() {
     };
     
     this.drawendgameScript = function() {
-        let nameX = GameField.midX - 350 - 80;
+        let nameX = GameField.midX - 350;
         let textSkip = 20;
         let height = 24;
         var textY = 150;
@@ -96,7 +97,7 @@ function EndgameScreen() {
 		
 		starfield.update(deltaTime);
 
-		canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
+		//canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
 		
 		gameFont.printTextAt(textStrings.Endgame, {x:GameField.midX, y:GameField.y}, 30, textAlignment.Center);
 
