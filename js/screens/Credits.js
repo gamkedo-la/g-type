@@ -103,6 +103,9 @@ function CreditsScreen() {
 		
 		starfield.update(deltaTime);
 
+        creditsText.update(deltaTime, {x:0, y:this.scrollSpeed});
+		creditsText.draw();
+
 		canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
 		
 		gameFont.printTextAt(textStrings.Credits, {x:GameField.midX, y:GameField.y}, 30, textAlignment.Center);
@@ -114,9 +117,6 @@ function CreditsScreen() {
 		
 		scene.update(deltaTime);
 		scene.draw();
-		
-		creditsText.update(deltaTime, {x:0, y:this.scrollSpeed});
-		creditsText.draw();
     };
     
     this.control = function creditsScreenControl(keyCode, pressed) {
