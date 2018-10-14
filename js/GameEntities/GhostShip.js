@@ -150,8 +150,6 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 		sprite = new AnimatedSprite(playerBoom2Sheet, 13, 80, 80, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max: 12}, 64);
 
 		sprite.isDying = true;
-
-		console.log("GhostShip BOOM!");
 	};
 
 	this.reset = function() {
@@ -159,8 +157,6 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 		this.isActive = false;
 
 		sprite = new AnimatedSprite(ghostSheet, 9, 64, 64, false, true, {min:0, max:0}, 0, {min:0, max:8}, 128, {min:8, max:8}, 0);
-
-		console.log("GhostShip reset");
 	};
 	
 	return this;
