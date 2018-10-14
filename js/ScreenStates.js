@@ -38,7 +38,7 @@ const ScreenStates = {
 		[DEMO_SCENE_SCREEN]: new DemoSceneScreen(),
 //		[PAUSE_SCREEN]: new PauseScreen(),
 		[GAME_OVER_SCREEN]: new GameOverScreen(),
-//		[ENDING_SCREEN]: new EndingScreen()*/
+		[ENDING_SCREEN]: new EndgameScreen()
 	},
 	setState: function(newState, properties) {
 		if(newState === this.state) {

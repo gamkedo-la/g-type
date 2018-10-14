@@ -7,6 +7,7 @@ function GameScene(levelIndex) {
 	this.remainingShakes = 0;
 	this.shakeMagnitude = 0;
 	this.gameIsOver = false;
+	this.beatTheGame = false;
 	const starfield = new Starfield();
 	const player = new Player(data.getPlayerSpawn());
 	const collisionManager = new CollisionManager(player);
@@ -102,6 +103,7 @@ function GameScene(levelIndex) {
 		}
 		
 		this.gameIsOver = false;
+		this.beatTheGame = false;
         this.worldPos = newWorldPos;
         this.endShake();
         
@@ -264,6 +266,7 @@ function GameScene(levelIndex) {
 		uiManager.clearPowerUps();
 		if(remainingLives < 1) {
 			this.gameIsOver = true;
+			this.beatTheGame = false;
 			//canvasContext.setTransform(1, 0, 0, 1, 0, 0);
 			uiManager.reset(true);
 		} else {

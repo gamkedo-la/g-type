@@ -59,7 +59,10 @@ function GamePlayScreen () {
         
         scene.draw();
 
-        if(scene.gameIsOver){
+        if(scene.beatTheGame){
+            ScreenStates.setState(ENDING_SCREEN);
+        }
+        else if(scene.gameIsOver){
 //	        currentBackgroundMusic.setCurrentTrack(6);
             ScreenStates.setState(GAME_OVER_SCREEN);
         }
@@ -225,7 +228,11 @@ function GamePlayScreen () {
             	if((!pressed) && cheats.debugKeysEnabled) {
 	            	worldSpeed = 3.0;
             	}
-            	return true;
+                return true;
+            case KEY_O:
+                console.log("Cheat key [O] - triggering scene.beatTheGame EndGame");    
+                scene.beatTheGame = true; // final boss defeated!
+                return true;
             default:
                 return false;
         }
