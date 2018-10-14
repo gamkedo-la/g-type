@@ -1,8 +1,10 @@
 //GameFont
 function GameFont(image, charSize, context) {
-	this.printTextAt = function(text, position, height, alignment) {
-		let actualXPos = position.x;
-		const actualYPos = position.y;
+	let actualYPos = canvas.height;
+	this.printTextAt = function(text, position, height, alignment, scrollProperty) {
+		let actualXPos = position.x;		
+		let actualYPosOffset;
+
 		const drawWidth = (height / charSize.height) * charSize.width;
 		
 		if(alignment === textAlignment.Center) {
@@ -13,7 +15,16 @@ function GameFont(image, charSize, context) {
 		
 		for(let i = 0; i < text.length; i++) {
 			const thisFrame = frameForCharacter(text.charAt(i));
-			context.drawImage(image, thisFrame.x, thisFrame.y, charSize.width, charSize.height, actualXPos + (i * drawWidth), actualYPos, drawWidth, height);
+
+			if (scrollProperty) {
+				actualYPos -= (scrollProperty.deltaTime * scrollProperty.speed.y);
+				actualYPosOffset = (canvas.height - position.y) - canvas.height * 0.25;
+			} else {
+				actualYPos = position.y;
+				actualYPosOffset = 0;
+			}
+
+			context.drawImage(image, thisFrame.x, thisFrame.y, charSize.width, charSize.height, actualXPos + (i * drawWidth), actualYPos - actualYPosOffset, drawWidth, height);
 		}
 	};
 	
