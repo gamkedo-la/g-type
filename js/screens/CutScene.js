@@ -11,7 +11,7 @@ function CutSceneScreen() {
     let planetScale = 0.5;
     
     const DISPLAY_TIME = 6000;//6000 = 6 second display time
-    const INTRO_STORY_SCROLL_SPEED_Y = 0.0005;
+    const INTRO_STORY_SCROLL_SPEED_Y = 0.001;
 
     let delayTime = 0;
 
