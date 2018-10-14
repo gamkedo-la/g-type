@@ -69,8 +69,8 @@ function Player(position = {x:0, y:0}) {
 		} 
 
 		for(let i = 0; i < ghosts.length; i++) {
-				ghosts[i].update(deltaTime, {x:this.position.x, y:this.position.y}, worldPos);
-			}
+			ghosts[i].update(deltaTime, {x:this.position.x, y:this.position.y}, worldPos);
+		}
 		
 		if(sprite.getDidDie()) {
 			//indicates that the sprite has reached the final frame of the "death sequence"
@@ -415,7 +415,7 @@ function Player(position = {x:0, y:0}) {
 			this.forceUnitActive = false;
 		}
 		
-		//delete this part
+		
 		for(let i = 0; i < ghosts.length; i++) {
 			ghosts[i].reset();
 		}

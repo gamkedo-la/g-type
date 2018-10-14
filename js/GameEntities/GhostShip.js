@@ -25,12 +25,6 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 		if(!this.isActive) {return;}//don't update inactive ghosts
 		
 		sprite.update(deltaTime);
-
-		/*if(sprite.getDidDie()) {
-			console.log(" ghost getDidDie");
-			this.reset();
-			return;
-		}*/
 		
 		const newPos = path.nextPoint(playerPos);
 		if(newPos != null) {
