@@ -3,7 +3,7 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 	this.position = {x:position.x - distance, y:position.y};
 	this.type = EntityType.GhostShip;
 
-	const sprite = new AnimatedSprite(ghostSheet, 9, 64, 64, false, true, {min:0, max:0}, 0, {min:0, max:8}, 128, {min:8, max:8}, 0);
+	let sprite = new AnimatedSprite(ghostSheet, 9, 64, 64, false, true, {min:0, max:0}, 0, {min:0, max:8}, 128, {min:8, max:8}, 0);
 	const SPRITE_SCALE = 0.6;
 	this.size = {width:sprite.width * SPRITE_SCALE, height:sprite.height * SPRITE_SCALE};
 
@@ -25,6 +25,12 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 		if(!this.isActive) {return;}//don't update inactive ghosts
 		
 		sprite.update(deltaTime);
+
+		/*if(sprite.getDidDie()) {
+			console.log(" ghost getDidDie");
+			this.reset();
+			return;
+		}*/
 		
 		const newPos = path.nextPoint(playerPos);
 		if(newPos != null) {
@@ -142,6 +148,25 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 		for(let i = 0; i < missiles.length; i++) {
 			missiles[i].draw();
 		}
+	};
+
+	this.playerDied = function() {
+		if(sprite.isDying) {return;}
+
+		sprite = new AnimatedSprite(playerBoom2Sheet, 13, 80, 80, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max: 12}, 64);
+
+		sprite.isDying = true;
+
+		console.log("GhostShip BOOM!");
+	};
+
+	this.reset = function() {
+		sprite.isDying = false;
+		this.isActive = false;
+
+		sprite = new AnimatedSprite(ghostSheet, 9, 64, 64, false, true, {min:0, max:0}, 0, {min:0, max:8}, 128, {min:8, max:8}, 0);
+
+		console.log("GhostShip reset");
 	};
 	
 	return this;

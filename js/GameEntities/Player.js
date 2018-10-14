@@ -351,8 +351,11 @@ function Player(position = {x:0, y:0}) {
 			} else {
 				scene.shouldShake(MAX_SHAKE_MAGNITUDE);
 				sprite.isDying = true;
-                playerExplosion.play();
+               			playerExplosion.play();
 				explosionEmitter = createParticleEmitter(this.position.x + this.size.width / 2,this.position.y + this.size.height / 2, exampleExplosion);
+				for(let i = 0; i < ghosts.length; i++) {
+					ghosts[i].playerDied();
+				}
 			}
 		}
 	};
@@ -412,8 +415,9 @@ function Player(position = {x:0, y:0}) {
 			this.forceUnitActive = false;
 		}
 		
+		//delete this part
 		for(let i = 0; i < ghosts.length; i++) {
-			ghosts[i].isActive = false;
+			ghosts[i].reset();
 		}
 	};
 	
