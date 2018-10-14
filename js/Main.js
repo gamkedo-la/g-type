@@ -25,12 +25,12 @@ window.onload = function() {
 window.focus();//necessary to ensure the game receives keyboard input once it is uploaded to itch.io
 
 function windowOnBlur() {
-	setPaused(true);
+	setPaused(true, PauseCause.LostFocus);
 }
 
 function windowOnFocus() {
 //	playAndLoopMusic(backgroundMusic);
-	setPaused(false);
+	setPaused(false, PauseCause.LostFocus);
 }
 
 function loadingDoneSoStartGame() {

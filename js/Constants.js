@@ -185,3 +185,9 @@ const textStrings = {
         // IF MAKING CHANGES that affect length update scrollLimit in credits.js
     ],
 };
+
+const PauseCause = {
+    NotPaused: 0,
+    PressedPause: 1,
+    LostFocus: 2,
+};

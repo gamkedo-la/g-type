@@ -3,19 +3,27 @@ function clear() {
     drawRect(0,0, canvas.width, canvas.height, CLEAR_COLOR);
 };
 
-function setPaused(shouldPause) {
+function setPaused(shouldPause, pauseCause) {
 
 	if(shouldPause === ScreenStates.isPaused) {
 		return;
 	};
 
+	// Prevent resume if paused for a different reason
+	if (pauseCause !== ScreenStates.pauseCause
+		&& ScreenStates.pauseCause !== PauseCause.NotPaused) {
+		return;
+	}
+
 	if(shouldPause) {
 		ScreenStates.isPaused = true;
+		ScreenStates.pauseCause = pauseCause;
 		pauseSound.play();
 		gameFont.printTextAt("[PAUSED]", {x:GameField.midX - 100, y:GameField.midY - 80}, 24, textAlignment.Left);
 		currentBackgroundMusic.pause();
 	} else {
 		ScreenStates.isPaused = false;
+		ScreenStates.pauseCause = PauseCause.NotPaused;
 		resumeSound.play();
 		currentBackgroundMusic.resume();
 	}
@@ -26,6 +34,7 @@ const ScreenStates = {
 	stateLog : [],
 	state: LOADING_SCREEN,
 	isPaused:false,
+	pauseCause:PauseCause.NotPaused,
 	screens: {
 		[LOADING_SCREEN]: new LoadingScreen(),
 		[MENU_SCREEN]: new MenuScreen(),

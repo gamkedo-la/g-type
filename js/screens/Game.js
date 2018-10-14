@@ -77,7 +77,7 @@ function GamePlayScreen () {
 	        	return true;
             case KEY_ESCAPE:
                 if(!pressed) {
-	                setPaused(!ScreenStates.isPaused);
+	                setPaused(!ScreenStates.isPaused, PauseCause.PressedPause);
                 }
                 return true;
             case KEY_X:
@@ -124,12 +124,12 @@ function GamePlayScreen () {
                 return true;
             case KEY_P:
                 if(!pressed) {
-	                setPaused(!ScreenStates.isPaused);
+	                setPaused(!ScreenStates.isPaused, PauseCause.PressedPause);
                 }
                 return true;
             case KEY_BACKSPACE:
                 if(!pressed) {
-	                setPaused(!ScreenStates.isPaused);
+	                setPaused(!ScreenStates.isPaused, PauseCause.PressedPause);
                 }
                 return true;
 
