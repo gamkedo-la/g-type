@@ -67,6 +67,10 @@ function Player(position = {x:0, y:0}) {
 		if(sprite.isDying) {
 			explosionSprite.update(deltaTime);
 		} 
+
+		for(let i = 0; i < ghosts.length; i++) {
+				ghosts[i].update(deltaTime, {x:this.position.x, y:this.position.y}, worldPos);
+			}
 		
 		if(sprite.getDidDie()) {
 			//indicates that the sprite has reached the final frame of the "death sequence"
@@ -83,10 +87,6 @@ function Player(position = {x:0, y:0}) {
 					
 			if(holdX) {//shooting
 				this.doShooting();
-			}
-			
-			for(let i = 0; i < ghosts.length; i++) {
-				ghosts[i].update(deltaTime, {x:this.position.x, y:this.position.y}, worldPos);
 			}
 			
 			//update all player shots
