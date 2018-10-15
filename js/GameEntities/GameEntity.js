@@ -31,6 +31,7 @@ const EntityType = {
 	EnemyBullet1:"enemyBullet1",
 	EnemyBullet2:"enemyBullet2",
 	EnemyBullet3:"enemyBullet3",
+	EnemyBullet4:"enemyBullet4",
 	MiniBoss1:"miniBoss1", 
 	CargoBoss: "cargoBoss"
 };

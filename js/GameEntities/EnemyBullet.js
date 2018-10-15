@@ -15,6 +15,8 @@ function EnemyBullet(type, position = {x:0, y:0}, velocity = {x:0, y:0}) {
 		sprite = new AnimatedSprite(enemyBullet2Sheet, 11, 30, 30, true, true, {min:0, max:0}, 0, {min:0, max:10}, 128, {min:0, max:0}, 0);
 	} else if(this.type === EntityType.EnemyBullet3) {
 		sprite = new AnimatedSprite(pewpew1Sheet, 4, 40, 40, false, true, {min:0, max:3}, 0, {min:0, max:3}, 68, {min:3, max:3}, 0);
+	} else if(this.type === EntityType.EnemyBullet4) {
+		sprite = new AnimatedSprite(pewpew2Sheet, 2, 32, 32, false, true, {min:0, max:1}, 0, {min:0, max:1}, 40, {min:1, max:1}, 0);
 	}
 	this.size = {width:sprite.width, height:sprite.height};
 	

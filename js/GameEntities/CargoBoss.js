@@ -15,6 +15,7 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 	this.isVisible = true;
 	this.bulletsLeft = 0;
 	this.timeSinceLastFire = 0;
+	this.ticksInState = 0;
 	let sprite = new AnimatedSprite(cargoBossSheet, 
 		/*frameCount =*/ 2, 
 		/*frameWidth =*/ 300, 
@@ -85,16 +86,9 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		
 		let availableTime = unusedTime + deltaTime;
 		this.timeSinceLastFire += deltaTime;
+		
 
-		if(this.bulletsLeft > 0 && this.timeSinceLastFire > 10){
-			//fireBullet
-			xVel = -130;
-			yVel = (this.bulletsLeft -5) * 20;
-			newBullet = new EnemyBullet(EntityType.EnemyBullet3, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
-			scene.addEntity(newBullet, false);
-			this.bulletsLeft -= 1;
-			this.timeSinceLastFire = 0
-		}
+		
 
 		while(availableTime > SIM_STEP) {
 			availableTime -= SIM_STEP;
@@ -122,6 +116,7 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		
 		unusedTime = availableTime;
 		
+		
 		if(!sprite.isDying) {
 			sprite.update(deltaTime);
 			this.collisionBody.setPosition({x:this.position.x, y:this.position.y});
@@ -131,6 +126,7 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		}
 		//run current state
 		this.currentState();
+		this.ticksInState += 1;
 	};
 
 	this.currentState = function(){}
@@ -150,15 +146,26 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 			this.vel.y = 0;
 			this.targetPos.y = this.position.y
 			
-			this.currentState = state.phase1;
+			//this.currentState = state.phase1;
+			this.changeState(state.pewpew);
+
 		}
 	}
 	this.targetPos = {
 		x: 0,
 		y: 378
 	}
+	this.changeState = function(newState){
+		this.ticksInState = 0
+		this.currentState = newState;
+	}
+
 	this.oldDistance = 0
 	state.phase1 = function(){
+		if(this.ticksInState == 1){
+			this.bulletsLeft = 15;
+			this.targetPos.y = this.position.y
+		}
 		if(!sprite.isDying) {//Don't allow enemies to shoot when they are in the process of dying
 			const firingChance = Math.floor(100 * Math.random());
 		
@@ -176,6 +183,16 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 				}
 			}
 
+			if(this.bulletsLeft > 0 && this.timeSinceLastFire > 10){
+				//fireBullet
+				xVel = -130;
+				yVel = (this.bulletsLeft -5) * 20;
+				newBullet = new EnemyBullet(EntityType.EnemyBullet3, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
+				scene.addEntity(newBullet, false);
+				this.bulletsLeft -= 1;
+				this.timeSinceLastFire = 0
+			}
+
 			if(this.bulletsLeft == 0 && firingChance < difficulty || this.timeSinceLastFire > 3000) {
 				let yVel;
 				this.bulletsLeft = 10;
@@ -183,10 +200,33 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 				
 				let xVel = this.vel.x;
 				
-				
 				const newBullet = new EnemyBullet(EntityType.EnemyBullet2, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
 				scene.addEntity(newBullet, false);
 			}
+			if(this.ticksInState > 600){
+				this.changeState(state.pewpew)
+			}
+		}
+	}
+	state.pewpew = function(){
+		if(this.ticksInState == 1){
+			this.bulletsLeft = 60;
+			this.vel.x = 0
+			this.vel.y = 0;
+		}
+
+		if(this.bulletsLeft > 0 && this.timeSinceLastFire > 25){
+			//fireBullet
+			xVel = -530;
+			yVel = 0
+			newBullet = new EnemyBullet(EntityType.EnemyBullet4, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
+			scene.addEntity(newBullet, false);
+			this.bulletsLeft -= 1;
+			this.timeSinceLastFire = 0
+		}
+
+		if(this.bulletsLeft == 0) {
+			this.changeState(state.phase1)
 		}
 	}
 	this.draw = function() {
