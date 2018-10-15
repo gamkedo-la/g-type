@@ -136,13 +136,16 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 	this.currentState = function(){}
 	var state = {}
 	state.entrance = function(){
-		if(this.position.x - this.worldPos > 500 && this.position.x - this.worldPos < 502){
+		if(this.position.x < 700){
 			this.bulletsLeft = 10;
 		}
-		if(this.position.x - this.worldPos > 400 && this.position.x - this.worldPos < 402){
+		if(this.position.x < 650){
 			this.bulletsLeft = 10;
 		}
-		if(this.position.x - this.worldPos < 366){
+		if(this.position.x < 640){
+			this.bulletsLeft = 10;
+		}
+		if(this.position.x < 500){
 			this.vel.x = 0
 			this.vel.y = 0;
 			this.targetPos.y = this.position.y
