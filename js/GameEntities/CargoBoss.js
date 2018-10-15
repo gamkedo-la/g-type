@@ -6,11 +6,11 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 	this.score = 100;
 	let previousBackgroundMusic = null;
 
-    this.hitPoints = 400;     // Every enemy type should have a hitPoints property
+    this.hitPoints = 2400;     // Every enemy type should have a hitPoints property
 	
 	const SPRITE_SCALE = 1; //TODO: would like to increase the size of the sprite and change this back to 1.
 	this.position = position;
-	let vel = {x:speed, y:speed};
+	this.vel = {x: -50, y:speed};
 	let unusedTime = 0;
 	this.isVisible = true;
 	this.bulletsLeft = 0;
@@ -68,7 +68,8 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 				scene.worldShouldPause(true);
 				previousBackgroundMusic = currentBackgroundMusic.getCurrentTrack();
 				currentBackgroundMusic.setCurrentTrack(AudioTracks.Boss1);
-				
+				this.currentState = state.entrance; 
+
 				if(currentBackgroundMusic.getTime() > 0) {
 		            currentBackgroundMusic.resume();    
 		        } else {
@@ -84,14 +85,25 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		
 		let availableTime = unusedTime + deltaTime;
 		this.timeSinceLastFire += deltaTime;
+
+		if(this.bulletsLeft > 0 && this.timeSinceLastFire > 10){
+			//fireBullet
+			xVel = -130;
+			yVel = (this.bulletsLeft -5) * 20;
+			newBullet = new EnemyBullet(EntityType.EnemyBullet3, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
+			scene.addEntity(newBullet, false);
+			this.bulletsLeft -= 1;
+			this.timeSinceLastFire = 0
+		}
+
 		while(availableTime > SIM_STEP) {
 			availableTime -= SIM_STEP;
 			if(!sprite.isDying) {
 				const nextPos = this.path.nextPoint(SIM_STEP);
 				if(nextPos !== undefined) {
 					if(pattern === PathType.None) {
-						this.position.x += (vel.x * SIM_STEP / 1000);
-						//this.position.y += (vel.y * SIM_STEP / 1000);
+						this.position.x += (this.vel.x * SIM_STEP / 1000);
+						this.position.y += (this.vel.y * SIM_STEP / 1000);
 					} else if(pattern === PathType.Sine) {
 						this.position.x += nextPos.x;
 						this.position.y += nextPos.y;
@@ -117,44 +129,63 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 			sprite.update(deltaTime / 4);
 			this.updateExplosions(deltaTime);
 		}
-		
-		
-		
+		//run current state
+		this.currentState();
+	};
+
+	this.currentState = function(){}
+	var state = {}
+	state.entrance = function(){
+		if(this.position.x - this.worldPos > 500 && this.position.x - this.worldPos < 502){
+			this.bulletsLeft = 10;
+		}
+		if(this.position.x - this.worldPos > 400 && this.position.x - this.worldPos < 402){
+			this.bulletsLeft = 10;
+		}
+		if(this.position.x - this.worldPos < 366){
+			this.vel.x = 0
+			this.vel.y = 0;
+			this.targetPos.y = this.position.y
+			
+			this.currentState = state.phase1;
+		}
+	}
+	this.targetPos = {
+		x: 0,
+		y: 378
+	}
+	this.oldDistance = 0
+	state.phase1 = function(){
 		if(!sprite.isDying) {//Don't allow enemies to shoot when they are in the process of dying
 			const firingChance = Math.floor(100 * Math.random());
-			if(this.bulletsLeft > 0 && this.timeSinceLastFire > 500){
-				//fireBullet
-				xVel = -10;
-				yVel = (this.bulletsLeft -5) * 20;
-				newBullet = new EnemyBullet(EntityType.EnemyBullet2, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
-				scene.addEntity(newBullet, false);
-				this.bulletsLeft -= 1;
+		
+			if(Math.abs(this.position.y - this.targetPos.y) > this.oldDistance){
+				console.warn("going wrong way")
+			}
+			this.oldDistance = Math.abs(this.position.y - this.targetPos.y)
+			if(Math.abs(this.position.y - this.targetPos.y) < 5){
+				this.targetPos.y = Math.floor(400 * Math.random() + 200);
+
+				if(this.targetPos.y > this.position.y){
+					this.vel.y = 20
+				} else {
+					this.vel.y = -20
+				}
 			}
 
-			if(this.bulletsLeft == 0 && firingChance < difficulty) {
+			if(this.bulletsLeft == 0 && firingChance < difficulty || this.timeSinceLastFire > 3000) {
 				let yVel;
 				this.bulletsLeft = 10;
-				if(this.position.y < playerPos.y) {
-					yVel = 50;
-				} else {
-					yVel = -50;
-				}
+				yVel = -50;
 				
-				let xVel = vel.x;
-				if(this.position.x > (playerPos.x + 50)) {
-					xVel -= 10;
-				} else if(this.position.x < (playerPos.x - 50)) {
-					xVel = -xVel;
-				} else {
-					xVel = 0;
-				}
+				let xVel = this.vel.x;
+				
 				
 				const newBullet = new EnemyBullet(EntityType.EnemyBullet2, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
 				scene.addEntity(newBullet, false);
 			}
 		}
-	};
-	
+	}
 	this.draw = function() {
 		if(!this.isVisible) {return;}
 		if(this.worldPos < spawnPos) {return;}
@@ -247,4 +278,5 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		}
 		// TODO else -- add SFX to show a non-lethal hit
 	};
+	window.cargoBoss = this; //TODO: remove this deubgging line
 }

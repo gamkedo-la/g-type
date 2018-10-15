@@ -67,6 +67,7 @@ const enemyBulletSheet = document.createElement("img");
 const enemyBullet2Sheet = document.createElement("img");
 const miniBoss1Sheet = document.createElement("img");
 const cargoBossSheet = document.createElement("img");
+const pewpew1Sheet = document.createElement("img");
 
 let picsToLoad = 0;
 
@@ -153,6 +154,7 @@ function loadImages() {
         { imgName: enemyBullet2Sheet, theFile: "EnemyShot2.png" },
         { imgName: miniBoss1Sheet, theFile: "MiniBoss1.png" },
         { imgName: cargoBossSheet, theFile: "cargoBoss/CargoBoss.png" },
+        { imgName: pewpew1Sheet, theFile: "cargoBoss/pewpew1.png" },
     ];
 
     picsToLoad = imageList.length;

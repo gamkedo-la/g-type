@@ -294,7 +294,7 @@ function GameScene(levelIndex) {
 			if(entityToRemove.collisionBody != null) {
 				collisionManager.removeEntity(entityToRemove);
 			}
-			if((entityToRemove.type === EntityType.EnemyBullet1) || (entityToRemove.type === EntityType.EnemyBullet2)) {
+			if((entityToRemove.type === EntityType.EnemyBullet1) || (entityToRemove.type === EntityType.EnemyBullet2) || (entityToRemove.type === EntityType.EnemyBullet3)) {
 				enemyBullets.delete(entityToRemove);
 			} else {
 				gameEntities.delete(entityToRemove);
@@ -337,7 +337,7 @@ function GameScene(levelIndex) {
 				collisionManager.addEntity(entityToAdd);
 			}
 			
-			if((entityToAdd.type === EntityType.EnemyBullet1) || (entityToAdd.type === EntityType.EnemyBullet2)) {
+			if((entityToAdd.type === EntityType.EnemyBullet1) || (entityToAdd.type === EntityType.EnemyBullet2) || (entityToAdd.type === EntityType.EnemyBullet3)) {
 				enemyBullets.add(entityToAdd);
 			} else {
 				gameEntities.add(entityToAdd);

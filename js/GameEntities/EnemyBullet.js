@@ -13,15 +13,17 @@ function EnemyBullet(type, position = {x:0, y:0}, velocity = {x:0, y:0}) {
 		sprite = new AnimatedSprite(enemyBulletSheet, 2, 21, 21, false, true, {min:0, max:0}, 0, {min:0, max:1}, 128, {min:1, max:1}, 0);
 	} else if(this.type === EntityType.EnemyBullet2) {
 		sprite = new AnimatedSprite(enemyBullet2Sheet, 11, 30, 30, true, true, {min:0, max:0}, 0, {min:0, max:10}, 128, {min:0, max:0}, 0);
+	} else if(this.type === EntityType.EnemyBullet3) {
+		sprite = new AnimatedSprite(pewpew1Sheet, 4, 40, 40, false, true, {min:0, max:3}, 0, {min:0, max:3}, 68, {min:3, max:3}, 0);
 	}
-
 	this.size = {width:sprite.width, height:sprite.height};
 	
 	this.collisionBody = new Collider(ColliderType.Circle, {points:   [], 
-															position: {x:this.position.x + sprite.width / 2, y:this.position.y + sprite.height / 2}, 
-															radius:   7, 
-															center:   {x:this.position.x + sprite.width / 2, y:this.position.y + sprite.height / 2}}
-									  );
+		position: {x:this.position.x + sprite.width / 2, y:this.position.y + sprite.height / 2}, 
+		radius:   7, 
+		center:   {x:this.position.x + sprite.width / 2, y:this.position.y + sprite.height / 2}}
+  	);
+
 	let didCollide = false;
 	
 	this.setPosition = function(newPos) {
@@ -79,6 +81,9 @@ function EnemyBullet(type, position = {x:0, y:0}, velocity = {x:0, y:0}) {
 	};
 	
 	this.didCollideWith = function(otherEntity) {
-		scene.removeEntity(this, false);
+		if(otherEntity.type != "playerShot" && this.type != "enemyBullet3"){
+			scene.removeEntity(this, false);	
+		}
+		
 	};
 }
