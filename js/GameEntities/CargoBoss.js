@@ -16,6 +16,7 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 	this.bulletsLeft = 0;
 	this.timeSinceLastFire = 0;
 	this.ticksInState = 0;
+	this.timeSinceLastDip = 0;
 	let sprite = new AnimatedSprite(cargoBossSheet, 
 		/*frameCount =*/ 2, 
 		/*frameWidth =*/ 300, 
@@ -109,8 +110,8 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 			}
 						
 			if(this.position.x < -sprite.width) {
-				scene.removeEntity(this, false);
-				return;
+				//scene.removeEntity(this, false);
+				//return;
 			}
 		}
 		
@@ -127,11 +128,17 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		//run current state
 		this.currentState();
 		this.ticksInState += 1;
+		this.timeSinceLastDip += 1;
 	};
 
 	this.currentState = function(){}
 	var state = {}
 	state.entrance = function(){
+		if(this.ticksInState == 1){
+			
+			this.vel.x = -100
+			
+		}
 		if(this.position.x < 700){
 			this.bulletsLeft = 10;
 		}
@@ -205,8 +212,13 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 			}
 			if(this.ticksInState > 600){
 				this.changeState(state.pewpew)
+				return;
+			}
+			if(this.timeSinceLastDip > 400 && this.hitPoints < 1500){
+				this.changeState(state.dip)
 			}
 		}
+
 	}
 	state.pewpew = function(){
 		if(this.ticksInState == 1){
@@ -227,8 +239,34 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 
 		if(this.bulletsLeft == 0) {
 			this.changeState(state.phase1)
+			//this.changeState(state.dip)
 		}
 	}
+
+	state.dip = function(){
+		if(this.ticksInState == 1){
+			this.vel.x = -50
+
+		}
+		this.timeSinceLastDip = 0;
+		if(this.vel.x < 450){
+			this.vel.x -= 10
+		}
+		if(this.vel.y > 1){
+			this.vel.y -= 3;
+		} else {
+			this.vel.y += 3;
+		}
+		if(this.position.x < -600){
+			this.vel.y = 0
+			this.vel.x = 0
+			if(this.ticksInState > 300){
+				this.position.x = 1000;
+				this.changeState(state.entrance)
+			}
+		}
+	}
+
 	this.draw = function() {
 		if(!this.isVisible) {return;}
 		if(this.worldPos < spawnPos) {return;}
