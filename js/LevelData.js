@@ -8,7 +8,7 @@ const LevelData = [
 			
 			const enemies = [];
 			let offRight = GameField.right + 50; //
-			let enemiesData = TileMaps.levelOne.layers[2].objects;
+			let enemiesData = TileMaps.levelOneH.layers[2].objects;
 			let enemyPaths = enemiesData.filter((obj)=>{return obj.type=="path"})
 
 
@@ -132,7 +132,7 @@ const LevelData = [
 		initializeTerrain: function() {
 			const world = [];
 			let offRight = GameField.right + 50;
-			TileMaps.levelOne.layers[1].objects.forEach(function(obj){
+			TileMaps.levelOneH.layers[1].objects.forEach(function(obj){
 				switch(obj.type){
 					case "bubble":
 					world.push(new BubbleEntity(EntityType.Bubble, {x:offRight, y:GameField.y+obj.y-obj.height}, obj.x, 1, 1024));
