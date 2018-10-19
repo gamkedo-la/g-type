@@ -71,7 +71,7 @@ function MenuScreen() {
             case KEY_ENTER:
             	if(this.selectorPositionsIndex === 0) {
 	            	scene = null;
-	            	ScreenStates.setState(CUT_SCENE_SCREEN, this.getDidEnterCode());
+	            	ScreenStates.setState(CUT_SCENE1_SCREEN, this.getDidEnterCode());
             	} else {
 	            	ScreenStates.setState(this.selections[this.selectorPositionsIndex].screen);
             	}

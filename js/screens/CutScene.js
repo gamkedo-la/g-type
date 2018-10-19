@@ -1,5 +1,5 @@
 //CutScene - Use between Title Screen & Level 1, between Levels and for Game End animation
-function CutSceneScreen() {
+function CutScene1Screen() {
 	const MENU_BG_COLOR = "#010119";
 
     let starfield;

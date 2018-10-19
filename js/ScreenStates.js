@@ -43,7 +43,9 @@ const ScreenStates = {
 		[CREDITS_SCREEN]: new CreditsScreen(),
 		[HELP_SCREEN]: new HelpScreen(),
 		[GAME_SCREEN]: new GamePlayScreen(),
-		[CUT_SCENE_SCREEN]: new CutSceneScreen(),
+        [CUT_SCENE1_SCREEN]: new CutScene1Screen(),
+        [CUT_SCENE2_SCREEN]: new CutScene1Screen(),//Need to create a new class of cut scene for this
+        [CUT_SCENE3_SCREEN]: new CutScene1Screen(),//Need to create a new class of cut scene for this
 		[DEMO_SCENE_SCREEN]: new DemoSceneScreen(),
 //		[PAUSE_SCREEN]: new PauseScreen(),
 		[GAME_OVER_SCREEN]: new GameOverScreen(),
