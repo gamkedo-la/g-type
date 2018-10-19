@@ -127,8 +127,8 @@ function HelpScreen() {
     
     const drawHelp = function() {
 	    gameFont.printTextAt("^ | < > to move", {x:GameField.midX - 312, y:GameField.midY - 148}, 24, textAlignment.Left);
-	    gameFont.printTextAt("[Space] to shoot", {x:GameField.midX - 312, y:GameField.midY - 112}, 24, textAlignment.Left);
-	    gameFont.printTextAt("[Enter] to active Power Up", {x:GameField.midX - 312, y:GameField.midY - 76}, 24, textAlignment.Left);
+	    gameFont.printTextAt("[X] to shoot", {x:GameField.midX - 312, y:GameField.midY - 112}, 24, textAlignment.Left);
+	    gameFont.printTextAt("[SPACE] to active Power Up", {x:GameField.midX - 312, y:GameField.midY - 76}, 24, textAlignment.Left);
     };
         
     return this;
