@@ -59,12 +59,29 @@ function GamePlayScreen () {
         
         scene.draw();
 
-        if(scene.beatTheGame){
+        if(scene.gameIsOver) {
+            currentBackgroundMusic.setCurrentTrack(AudioTracks.GameOver);
+            ScreenStates.setState(GAME_OVER_SCREEN);
+        } else if(scene.levelIsComplete) {
+            this.cutSceneFor(++currentLevelIndex);
+        } else if(scene.beatTheGame) {
+            currentBackgroundMusic.setCurrentTrack(AudioTracks.GameEnding);
             ScreenStates.setState(ENDING_SCREEN);
         }
-        else if(scene.gameIsOver){
-//	        currentBackgroundMusic.setCurrentTrack(6);
-            ScreenStates.setState(GAME_OVER_SCREEN);
+    };
+    
+    this.cutSceneFor = function(newCurrentLevel) {
+        let newCutScene;
+        switch(newCurrentLevel) {
+            case 1:
+                ScreenStates.setState(CUT_SCENE2_SCREEN);
+                break;
+            case 2:
+                ScreenStates.setState(CUT_SCENE2_SCREEN);
+                break;
+            case 3:
+                ScreenStates.setState(CUT_SCENE2_SCREEN);
+                break;
         }
     };
     

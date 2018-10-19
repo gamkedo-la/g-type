@@ -58,6 +58,7 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		if(sprite.getDidDie()) {
 			scene.removeEntity(this, false);
 			sprite.isDying = false;
+            scene.levelComplete();
 			return;
 		}
 		

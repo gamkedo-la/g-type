@@ -8,6 +8,7 @@ function GameScene(levelIndex) {
 	this.shakeMagnitude = 0;
 	this.gameIsOver = false;
 	this.beatTheGame = false;
+    this.levelIsComplete = false;
 	const starfield = new Starfield();
 	const player = new Player(data.getPlayerSpawn());
 	const collisionManager = new CollisionManager(player);
@@ -286,6 +287,10 @@ function GameScene(levelIndex) {
 	this.worldShouldPause = function(shouldPause) {
 		worldPaused = shouldPause;
 	};
+    
+    this.levelComplete = function() {
+        this.levelIsComplete = true;
+    };
 	
 	this.removeEntity = function(entityToRemove, isPlayerBullet) {
 		if(isPlayerBullet) {
