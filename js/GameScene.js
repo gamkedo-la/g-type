@@ -1,5 +1,5 @@
 //Game Scene
-function GameScene(levelIndex, aPlayer = null) {
+function GameScene(levelIndex, aPlayer = null, aUIManager = null) {
 	const data = LevelData[levelIndex];
 	this.worldPos = 0;
 	this.shaking = false;
@@ -18,13 +18,21 @@ function GameScene(levelIndex, aPlayer = null) {
         const playerSpawnPos = data.getPlayerSpawn();
         player.position.x = playerSpawnPos.x;
         player.position.y = playerSpawnPos.y;
+        player.clearDeath();
     }
 	const collisionManager = new CollisionManager(player);
 	let collisionBodiesToRemove = [];
 	const gameEntities = new Set();
 	const foregroundEntities = new Set();
 	const enemyBullets = new Set();
-	let uiManager = new UIManager();
+    
+    let uiManager;
+    if(aUIManager === null) {
+        uiManager= new UIManager();
+    } else {
+        uiManager = aUIManager;
+    }
+	 
 	let nextLifeScore = SCORE_PER_EXTRA_LIFE;
 	let worldPaused = false;
 	
@@ -302,6 +310,10 @@ function GameScene(levelIndex, aPlayer = null) {
     
     this.getPlayerObject = function() {
         return player;
+    };
+    
+    this.getUIManagerObject = function() {
+        return uiManager;
     };
 	
 	this.removeEntity = function(entityToRemove, isPlayerBullet) {

@@ -3,10 +3,10 @@ function GamePlayScreen () {
 	this.properties = null;
 
     this.transitionIn = function gamePlayScreenTransitionIn() {
-	    remainingLives = 2;
+//	    remainingLives = 2;
 
 //        if(scene === null || scene === undefined) {
-            scene = new GameScene(currentLevelIndex, this.properties.player);
+            scene = new GameScene(currentLevelIndex, this.properties.player, this.properties.uiManager);
 //        } else {
 //	        scene.reset();
 //        }
@@ -74,13 +74,13 @@ function GamePlayScreen () {
         let newCutScene;
         switch(newCurrentLevel) {
             case 1:
-                ScreenStates.setState(CUT_SCENE2_SCREEN, {code: false, player: scene.getPlayerObject()});
+                ScreenStates.setState(CUT_SCENE2_SCREEN, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject()});
                 break;
             case 2:
-                ScreenStates.setState(CUT_SCENE3_SCREEN, {code: false, player: scene.getPlayerObject()});
+                ScreenStates.setState(CUT_SCENE3_SCREEN, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject()});
                 break;
             case 3:
-                ScreenStates.setState(CUT_SCENE2_SCREEN, {code: false, player: scene.getPlayerObject()});//TODO: Get right cut scene
+                ScreenStates.setState(CUT_SCENE2_SCREEN, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject()});//TODO: Get right cut scene
                 break;
         }
     };

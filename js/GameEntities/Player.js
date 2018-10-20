@@ -371,11 +371,11 @@ function Player(position = {x:0, y:0}) {
 			delayMultiplier = 2;
 		}
 		currentShotDelay = delayMultiplier * BASE_SHOT_DELAY;
-	}
+    };
 	
 	this.setHasMissiles = function(hasMiss) {
 		hasMissiles = hasMiss;
-	}
+    };
 	
 	//helper function to restore the player to initial state (restart/continue/new life/etc)
 	this.reset = function() {
@@ -387,15 +387,19 @@ function Player(position = {x:0, y:0}) {
 		this.position.x = GameField.x;
 		this.position.y = GameField.midY;
 		
-		//reset the player sprite
-		sprite.clearDeath();
-		explosionSprite.clearDeath();
-		explosionSprite.wasBorn = true;
-		explosionSprite.isDying = true;
+        this.clearDeath();
 		
 		//give the player a short period of invincibility	
 		this.setInvincible(true);
 	};
+    
+    this.clearDeath = function() {
+        //reset the player sprite
+        sprite.clearDeath();
+        explosionSprite.clearDeath();
+        explosionSprite.wasBorn = true;
+        explosionSprite.isDying = true;
+    };
 	
 	this.clearPowerUps = function() {
 		//reset player shot to the base shot type

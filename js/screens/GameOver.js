@@ -16,6 +16,8 @@ function GameOverScreen() {
 //        { screen: CREDITS_SCREEN, title: textStrings.Credits },
     ];
     this.transitionIn = function(){
+        remainingLives = 2;//Set up for a continue or restart
+        
         this.selectorPositionsIndex = 0;        
         starfield = new Starfield();
         selectorSprite = new AnimatedSprite(player1Sheet, 6, 62, 27, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
@@ -58,7 +60,7 @@ function GameOverScreen() {
                 }
                 return true;
             case KEY_ENTER:
-                ScreenStates.setState(this.selections[this.selectorPositionsIndex].screen);
+                ScreenStates.setState(this.selections[this.selectorPositionsIndex].screen, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject()});
                 return true;
             case KEY_H:
                 ScreenStates.setState(HELP_SCREEN);
