@@ -36,7 +36,7 @@ function CutScene1Screen() {
 	    delayTime += deltaTime;
 	    
 	    if(delayTime >= DISPLAY_TIME) {
-		    ScreenStates.setState(GAME_SCREEN);
+		    ScreenStates.setState(GAME_SCREEN, this.properties);
 	    }
 	    
 	    update(deltaTime);

@@ -3,15 +3,15 @@ function GamePlayScreen () {
 	this.properties = null;
 
     this.transitionIn = function gamePlayScreenTransitionIn() {
-	    remainingLives = 2;
+//	    remainingLives = 2;
 
-        if(scene === null || scene === undefined) {
-            scene = new GameScene(currentLevelIndex);
-        } else {
-	        scene.reset();
-        }
+//        if(scene === null || scene === undefined) {
+            scene = new GameScene(currentLevelIndex, this.properties.player, this.properties.uiManager);
+//        } else {
+//	        scene.reset();
+//        }
         
-        if(this.properties === true) {
+        if(this.properties.code === true) {
 	        scene.activateBasePowerUps();
         }
         
@@ -74,13 +74,13 @@ function GamePlayScreen () {
         let newCutScene;
         switch(newCurrentLevel) {
             case 1:
-                ScreenStates.setState(CUT_SCENE2_SCREEN);
+                ScreenStates.setState(CUT_SCENE2_SCREEN, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject()});
                 break;
             case 2:
-                ScreenStates.setState(CUT_SCENE2_SCREEN);
+                ScreenStates.setState(CUT_SCENE3_SCREEN, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject()});
                 break;
             case 3:
-                ScreenStates.setState(CUT_SCENE2_SCREEN);
+                ScreenStates.setState(CUT_SCENE2_SCREEN, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject()});//TODO: Get right cut scene
                 break;
         }
     };
@@ -247,7 +247,6 @@ function GamePlayScreen () {
             	}
                 return true;
             case KEY_O:
-                console.log("Cheat key [O] - triggering scene.beatTheGame EndGame");    
                 scene.beatTheGame = true; // final boss defeated!
                 return true;
             default:

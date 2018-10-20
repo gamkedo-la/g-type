@@ -5,7 +5,7 @@ let timer;
 let gameFont;
 let currentLevelIndex = 0;
 let worldSpeed = 1;
-let remainingLives = 3;
+let remainingLives = 2;
 	
 const DRAW_COLLIDERS = false;
 const COLLIDER_COLOR = 'yellow';
