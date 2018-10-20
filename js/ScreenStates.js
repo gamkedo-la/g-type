@@ -19,7 +19,7 @@ function setPaused(shouldPause, pauseCause) {
 		ScreenStates.isPaused = true;
 		ScreenStates.pauseCause = pauseCause;
 		pauseSound.play();
-		gameFont.printTextAt("[PAUSED]", {x:GameField.midX - 100, y:GameField.midY - 80}, 24, textAlignment.Left);
+		gameFont.printTextAt("[PAUSED]", {x:GameField.midX - 100, y:GameField.midY - 150}, 24, textAlignment.Left);
 		currentBackgroundMusic.pause();
 	} else {
 		ScreenStates.isPaused = false;
