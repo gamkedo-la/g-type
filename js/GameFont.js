@@ -1,9 +1,9 @@
 //GameFont
 function GameFont(image, charSize, context) {
-	let yPos = canvas.height;
+    let yPos;
 	this.printTextAt = function(text, position, height, alignment, scrollProperty) {
 		let actualXPos = position.x;		
-		let actualYPos = yPos;
+        let actualYPos;
 		let yPosScrollOffset = 0;
 
 		const drawWidth = (height / charSize.height) * charSize.width;
@@ -16,14 +16,22 @@ function GameFont(image, charSize, context) {
 		
 		for(let i = 0; i < text.length; i++) {
 			const thisFrame = frameForCharacter(text.charAt(i));
-
-			if (!ScreenStates.isPaused) {
-				yPos = scrollProperty ? yPos - (scrollProperty.deltaTime * scrollProperty.speed.y) : position.y;				
-			}
-			yPosScrollOffset = scrollProperty ? (canvas.height - position.y) - canvas.height * 0.25 : 0;
+            
+            if(!ScreenStates.isPaused) {
+                if(scrollProperty != undefined) {
+                    yPos -= (scrollProperty.deltaTime * scrollProperty.speed.y);
+                }
+            }
+            
+            if(scrollProperty === undefined) {
+                yPos = position.y;
+                yPosScrollOffset = 0;
+            } else {
+                yPosScrollOffset = (canvas.height - position.y) - canvas.height * 0.25;
+            }
 			
 			actualYPos = yPos - yPosScrollOffset;
-			context.drawImage(image, thisFrame.x, thisFrame.y, charSize.width, charSize.height, actualXPos + (i * drawWidth), actualYPos, drawWidth, height);
+            context.drawImage(image, thisFrame.x, thisFrame.y, charSize.width, charSize.height, actualXPos + (i * drawWidth), actualYPos, drawWidth, height);
 		}
 	};
 	
