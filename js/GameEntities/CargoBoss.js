@@ -287,7 +287,6 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 	};
 	
 	this.updateExplosions = function(deltaTime) {
-		console.log("Explosion Count: " + explosions.length);
 		if(explosions.length < EXPLOSION_COUNT) {
 			if((100 * Math.random()) < 25) {//1 in 20 chance the next explosion should spawn
 				const newExplosion = new AnimatedSprite(enemyExplosionSheet2, 11, 96, 96, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);

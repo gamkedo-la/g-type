@@ -23,7 +23,6 @@ function EndgameScreen() {
     let EndgameText;
     
     this.transitionIn = function () {
-        console.log("Endgame.transitionIn starting...");
         scene = new EndgameScene();
         
         this.skipBump = 0;

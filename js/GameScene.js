@@ -1,5 +1,5 @@
 //Game Scene
-function GameScene(levelIndex) {
+function GameScene(levelIndex, aPlayer = null) {
 	const data = LevelData[levelIndex];
 	this.worldPos = 0;
 	this.shaking = false;
@@ -10,7 +10,15 @@ function GameScene(levelIndex) {
 	this.beatTheGame = false;
     this.levelIsComplete = false;
 	const starfield = new Starfield();
-	const player = new Player(data.getPlayerSpawn());
+    let player;
+    if((aPlayer === null) || (aPlayer === undefined)) {
+        player = new Player(data.getPlayerSpawn());
+    } else {
+        player = aPlayer;
+        const playerSpawnPos = data.getPlayerSpawn();
+        player.position.x = playerSpawnPos.x;
+        player.position.y = playerSpawnPos.y;
+    }
 	const collisionManager = new CollisionManager(player);
 	let collisionBodiesToRemove = [];
 	const gameEntities = new Set();
@@ -290,6 +298,10 @@ function GameScene(levelIndex) {
     
     this.levelComplete = function() {
         this.levelIsComplete = true;
+    };
+    
+    this.getPlayerObject = function() {
+        return player;
     };
 	
 	this.removeEntity = function(entityToRemove, isPlayerBullet) {
