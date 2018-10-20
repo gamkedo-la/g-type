@@ -1,4 +1,5 @@
 //Main for G-Type
+//test commit by liam twose
 window.onload = function() {
     window.addEventListener("focus", windowOnFocus);
     window.addEventListener("blur", windowOnBlur);
