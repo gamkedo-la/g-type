@@ -1350,8 +1350,8 @@
                  "type":"bubble",
                  "visible":true,
                  "width":30,
-                 "x":7744,
-                 "y":544
+                 "x":7747,
+                 "y":547
                 }, 
                 {
                  "gid":16,
@@ -1688,6 +1688,18 @@
                  "width":30,
                  "x":7680,
                  "y":32
+                }, 
+                {
+                 "gid":31,
+                 "height":60,
+                 "id":1188,
+                 "name":"",
+                 "rotation":0,
+                 "type":"ragnarokCapsule",
+                 "visible":true,
+                 "width":60,
+                 "x":9872,
+                 "y":298
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -5433,7 +5445,7 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":1188,
+ "nextobjectid":1189,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.0",

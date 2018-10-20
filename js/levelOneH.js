@@ -2094,8 +2094,8 @@
                  "type":"rock03",
                  "visible":true,
                  "width":32,
-                 "x":9446,
-                 "y":234
+                 "x":9450,
+                 "y":239.333333333333
                 }, 
                 {
                  "gid":4,
@@ -7184,8 +7184,8 @@
                  "type":"flyingEnemy2path",
                  "visible":true,
                  "width":50,
-                 "x":11287,
-                 "y":115
+                 "x":11283,
+                 "y":103
                 }, 
                 {
                  "gid":26,
