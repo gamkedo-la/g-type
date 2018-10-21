@@ -52,6 +52,9 @@ const KEY_PLUS = 187;
 const KEY_MINUS = 189;
 const KEY_TILDE = 192;
 
+const KEY_PGUP = 33;
+const KEY_PGDOWN = 34;
+
 let holdLeft, holdRight, holdUp, holdDown, holdSpace, holdTab, holdX = false;
 
 function initializeInput() {

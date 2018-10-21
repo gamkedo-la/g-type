@@ -16,7 +16,9 @@ function Cheats() {
 	    console.log("T activates triple");
 	    console.log("G activates ghost ship");
 	    console.log("F activates force");
-	    console.log("O triggers the endgame");
+        console.log("O triggers the endgame");
+        console.log("Page Up moves to previous level.");
+        console.log("Page Down moves to next level.");
         } else {
             console.log("Debug Keys are turned off in Cheats.js");
         }

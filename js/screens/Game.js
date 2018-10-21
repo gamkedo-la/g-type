@@ -2,19 +2,19 @@ function GamePlayScreen () {
 	const GAME_BG_COLOR = "#010119";
 	this.properties = null;
 
-    this.transitionIn = function gamePlayScreenTransitionIn() {
-        scene = new GameScene(currentLevelIndex, this.properties.player, this.properties.uiManager);
+    this.transitionIn = function gamePlayScreenTransitionIn(index = currentLevelIndex) {
+        scene = new GameScene(index, this.properties.player, this.properties.uiManager);
 
         if(this.properties.code === true) {
 	        scene.activateBasePowerUps();
         }
         
         let backgroundMusicIndex;
-        if(currentLevelIndex === 0) {
+        if(index === 0) {
 	        backgroundMusicIndex = AudioTracks.Level1;
-        } else if(currentLevelIndex === 1) {
+        } else if(index === 1) {
 	        backgroundMusicIndex = AudioTracks.Level2;
-        } else if(currentLevelIndex === 2) {
+        } else if(index === 2) {
 	        backgroundMusicIndex = AudioTracks.Level3;
         }
         
@@ -243,6 +243,24 @@ function GamePlayScreen () {
                 return true;
             case KEY_O:
                 scene.beatTheGame = true; // final boss defeated!
+                return true;
+            case KEY_PGUP:
+                holdRight = pressed;
+                if (!pressed) {
+                    currentLevelIndex--; // TODO: Take into account level that does not exist.
+                    console.log("Loaded Level " + currentLevelIndex + "!");
+                    this.transitionOut();
+                    this.transitionIn(currentLevelIndex); 
+                }
+                return true;
+            case KEY_PGDOWN:
+                holdRight = pressed;
+                if (!pressed) {
+                    currentLevelIndex++; // TODO: Take into account level that does not exist.
+                    console.log("Loaded Level " + currentLevelIndex + "!");
+                    this.transitionOut();
+                    this.transitionIn(currentLevelIndex);
+                }
                 return true;
             default:
                 return false;
