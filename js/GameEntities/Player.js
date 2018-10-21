@@ -69,7 +69,7 @@ function Player(position = {x:0, y:0}) {
 		}
         
         
-        
+        //TODO: this doesn't belong here, but works to get TheForce appearing in-game while we work on incorporating it properly into the UI/PowerUp system.
         if((this.forceUnit === null) || (this.forceUnit === undefined)) {
             this.activateTheForce();
         }

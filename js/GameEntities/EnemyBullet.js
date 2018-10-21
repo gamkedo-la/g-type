@@ -7,6 +7,7 @@ function EnemyBullet(type, position = {x:0, y:0}, velocity = {x:0, y:0}) {
 	let unusedTime = 0;
 	this.isVisible = true;
 	this.worldPos = null;
+    this.damagePoints = 5;
 	
 	let sprite;
 	if(this.type === EntityType.EnemyBullet1) {
@@ -83,9 +84,28 @@ function EnemyBullet(type, position = {x:0, y:0}, velocity = {x:0, y:0}) {
 	};
 	
 	this.didCollideWith = function(otherEntity) {
-		if(otherEntity.type != "playerShot" && this.type != "enemyBullet3"){
-			scene.removeEntity(this, false);	
-		}
-		
+        if(this.type === EntityType.EnemyBullet3) {
+            if(otherEntity.type != PlayerShot) {
+                scene.removeEntity(this, false);
+            }
+        } else {
+            if(otherEntity.type === EntityType.PlayerForceUnit) {
+                if(otherEntity.position.x <= this.position.x) {
+                    vel.x = Math.abs(vel.x);
+                } else {
+                    vel.x = -Math.abs(vel.x);
+                }
+                
+                if(otherEntity.position.y <= this.position.y) {
+                    vel.y = Math.abs(vel.y);
+                } else {
+                    vel.y = -Math.abs(vel.y);
+                }
+                
+                this.type = EntityType.PlayerShot;
+            } else {
+                scene.removeEntity(this, false);
+            }
+        }
 	};
 }

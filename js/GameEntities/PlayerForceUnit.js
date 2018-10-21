@@ -26,8 +26,8 @@ function PlayerForceUnit(position = {x:0, y:0}) {
 	this.collisionBody = new Collider(ColliderType.Circle,	{points:   [], 
 														//position: {x:centerX, y:centerY}, 
 														position: {x:this.position.x, y:this.position.y}, 
-														radius:   18, 
-														center:   {x:centerX, y:centerY}});
+														radius:   12,
+														center:   {x:this.position.x + this.size.width/2, y:this.position.y + this.size.height/2}});
 
 	let didCollide = false;
 	this.getIsDying = function() {
