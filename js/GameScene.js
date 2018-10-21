@@ -9,6 +9,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null) {
 	this.gameIsOver = false;
 	this.beatTheGame = false;
     this.levelIsComplete = false;
+    this.didCompleteWarpChallenge = false;
 	const starfield = new Starfield();
     let player;
     if((aPlayer === null) || (aPlayer === undefined)) {

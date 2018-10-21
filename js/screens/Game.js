@@ -3,14 +3,8 @@ function GamePlayScreen () {
 	this.properties = null;
 
     this.transitionIn = function gamePlayScreenTransitionIn() {
-//	    remainingLives = 2;
+        scene = new GameScene(currentLevelIndex, this.properties.player, this.properties.uiManager);
 
-//        if(scene === null || scene === undefined) {
-            scene = new GameScene(currentLevelIndex, this.properties.player, this.properties.uiManager);
-//        } else {
-//	        scene.reset();
-//        }
-        
         if(this.properties.code === true) {
 	        scene.activateBasePowerUps();
         }
@@ -63,6 +57,7 @@ function GamePlayScreen () {
             currentBackgroundMusic.setCurrentTrack(AudioTracks.GameOver);
             ScreenStates.setState(GAME_OVER_SCREEN);
         } else if(scene.levelIsComplete) {
+            if((currentLevelIndex === 1) && (scene.didCompleteWarpChallenge)) {currentLevelIndex++;}
             this.cutSceneFor(++currentLevelIndex);
         } else if(scene.beatTheGame) {
             currentBackgroundMusic.setCurrentTrack(AudioTracks.GameEnding);
