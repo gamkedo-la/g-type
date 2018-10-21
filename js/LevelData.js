@@ -15,9 +15,9 @@ const LevelData = [
         clearColor:"#010119",
 		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY}},
 		
-        initializeEnemies: function() {return initializeEnemies(TileMaps.levelOne.layers[2].objects);},
+        initializeEnemies: function() {return initializeEnemies(TileMaps.levelOneH2.layers[2].objects);},
         
-        initializeTerrain: function() {return initializeTerrain(TileMaps.levelOne.layers[1].objects);},
+        initializeTerrain: function() {return initializeTerrain(TileMaps.levelOneH2.layers[1].objects);},
 
         initializeDebris: function() {return initializeDebris();},
 		checkpointPositions:[0, 600, 1200]
@@ -329,6 +329,9 @@ function initializeEnemies(enemyData) {
                     break;
                 case "groundEnemy1SW":
                     enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4*3, -100, "none", 0, obj.x, 1))
+                    break;
+                case "miniBoss1":
+                            enemies.push(new MiniBoss1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[3].value, obj.properties[2].value,0,obj.x,obj.properties[1].value));
                     break;
                 case "cargoBoss":
                     enemies.push(new CargoBoss({x:offRight, y:GameField.y+obj.y-obj.height}, -20, "none" ,25,obj.x,1))

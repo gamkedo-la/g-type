@@ -4,7 +4,7 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 	this.type = EntityType.MiniBoss1;
 	this.worldPos = 0;
 	this.score = 5000;
-	let previousBackgroundMusic;
+	let previousBackgroundMusic = null;
 	
     this.hitPoints = 40;     // Every enemy type should have a hitPoints property
     const INVINCIBILITY_TIME = 128;
