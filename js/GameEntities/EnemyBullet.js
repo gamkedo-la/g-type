@@ -85,7 +85,8 @@ function EnemyBullet(type, position = {x:0, y:0}, velocity = {x:0, y:0}) {
 	
 	this.didCollideWith = function(otherEntity) {
         if(this.type === EntityType.EnemyBullet3) {
-            if(otherEntity.type != PlayerShot) {
+            if((otherEntity.type === PlayerLaser) ||
+               (otherEntity.type === EntityType.PlayerForceUnit)) {//Only the laser & the force destroy the shot
                 scene.removeEntity(this, false);
             }
         } else {

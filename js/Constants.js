@@ -7,7 +7,7 @@ let currentLevelIndex = 0;
 let worldSpeed = 1;
 let remainingLives = 2;
 	
-const DRAW_COLLIDERS = true;
+const DRAW_COLLIDERS = false;
 const COLLIDER_COLOR = 'yellow';
 const CANVAS_WIDTH = 900;
 const CANVAS_HEIGHT = 800;

@@ -324,7 +324,11 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null) {
 			if(entityToRemove.collisionBody != null) {
 				collisionManager.removeEntity(entityToRemove);
 			}
-			if((entityToRemove.type === EntityType.EnemyBullet1) || (entityToRemove.type === EntityType.EnemyBullet2) || (entityToRemove.type === EntityType.EnemyBullet3)  || (entityToRemove.type === EntityType.EnemyBullet4)) {
+			if((entityToRemove.type === EntityType.EnemyBullet1) ||
+               (entityToRemove.type === EntityType.EnemyBullet2) ||
+               (entityToRemove.type === EntityType.EnemyBullet3)  ||
+               (entityToRemove.type === EntityType.EnemyBullet4)  ||
+               (entityToRemove.type === EntityType.PlayerShot)) {//reflected shots have type = PlayerShot
 				enemyBullets.delete(entityToRemove);
 			} else {
 				gameEntities.delete(entityToRemove);
