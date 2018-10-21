@@ -137,6 +137,10 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None, s
 	};
 	
 	this.unlockMe = function() {
+        if(this.contentsType === PowerUpType.Speed) {
+            contents.resetSpeed();
+        }
+        
 		isLocked = false;
 	};
 	

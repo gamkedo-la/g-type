@@ -287,6 +287,7 @@ function UIPage(powerUps = [], hasSpacers = false, hasGhost_Force = false) {
 	this.clearPowerUps = function() {
 		for(let i = 0; i < this.elements.length; i++) {
 			this.elements[i].unlockMe();
+            
 		}
 		
 		this.reset();
