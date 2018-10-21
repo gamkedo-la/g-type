@@ -7,7 +7,6 @@ function HelpScreen() {
     let selectorSprite;
     let starfield;
 	this.selections = [
-	    {screen: GAME_SCREEN, title: textStrings.Play},
 	    {screen: MENU_SCREEN, title: textStrings.Main},
 	   ];
     this.transitionIn = function () {
