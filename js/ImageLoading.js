@@ -137,7 +137,7 @@ function loadImages() {
 		{ imgName: playerShotFlash, theFile: "player_shot_vfx_sheet.png"},
 		{ imgName: playerBoom2Sheet, theFile: "player_explosion_v2_sheet.png"},
 		{ imgName: playerLaserShot, theFile: "player_laser_shot_v5.png"},
-		{ imgName: forceUnitSheet, theFile: "shape_hexagon_48x48.png"},
+		{ imgName: forceUnitSheet, theFile: "TheForce.png"},
 		{ imgName: missileSheet, theFile: "PlayerMissile.png"},
 		{ imgName: shieldSheet, theFile: "Shield.png"},
 		{ imgName: ghostSheet, theFile: "Ghost-ship.png"},

@@ -4,6 +4,8 @@ const KEY_TAB = 9;
 const KEY_ENTER = 13;
 const KEY_ESCAPE = 27;
 const KEY_SPACE = 32;
+const KEY_PGUP = 33;
+const KEY_PGDOWN = 34;
 
 const KEY_LEFT = 37;
 const KEY_UP = 38;
@@ -51,9 +53,6 @@ const KEY_Z = 90;
 const KEY_PLUS = 187;
 const KEY_MINUS = 189;
 const KEY_TILDE = 192;
-
-const KEY_PGUP = 33;
-const KEY_PGDOWN = 34;
 
 let holdLeft, holdRight, holdUp, holdDown, holdSpace, holdTab, holdX = false;
 
