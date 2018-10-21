@@ -364,11 +364,11 @@ function Player(position = {x:0, y:0}) {
 	
 	this.incrementSpeed = function() {
 		let multiplier = currentSpeed / BASE_SPEED;
-		multiplier += 1.0;
+        multiplier += 0.25;//1.0;
 		currentSpeed = multiplier * BASE_SPEED;
 		
 		let delayMultiplier = currentShotDelay / BASE_SHOT_DELAY;
-		delayMultiplier -= 0.5;
+		delayMultiplier -= 1.0;
 		if(delayMultiplier < 2) {
 			delayMultiplier = 2;
 		}
