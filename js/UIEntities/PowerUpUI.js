@@ -126,7 +126,9 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None, s
 			contents.incrementSpeed();
 			
 			return;//no limit on speed ups
-		}
+        } else if(this.contentsType === PowerUpType.Ghost) {
+            
+        }
 		isLocked = true;
 	};
 

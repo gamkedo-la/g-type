@@ -382,8 +382,13 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null) {
 		}
 		
 		const powerUpToActivate = uiManager.getPowerUpToActivate();
-		uiManager.powerUpWasActivated(powerUpToActivate);
-		
+        
+        if(powerUpToActivate === PowerUpType.Ghost) {
+            uiManager.powerUpWasActivated(powerUpToActivate, (player.activeGhosts + 1));
+        } else {
+            uiManager.powerUpWasActivated(powerUpToActivate, null);
+        }
+
 		switch(powerUpToActivate) {
 			case PowerUpType.None:
 				return;//No power up so exit now and don't play the activation sound

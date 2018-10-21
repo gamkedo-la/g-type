@@ -23,7 +23,7 @@ function Player(position = {x:0, y:0}) {
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	let hasMissiles = false;
 	const ghosts = [];
-	const MAX_GHOSTS = 3;
+    this.activeGhosts = 0;
 	
 	const BASE_SPEED = 110;//essentially pixels per second
 	const MAX_SHOTS_ON_SCREEN = 10;//TODO: maybe this should be adjustable as a power up or part of the "speed up" power up?
@@ -320,6 +320,7 @@ function Player(position = {x:0, y:0}) {
 	};
 	
 	this.activateGhostShip = function() {
+        if(this.activeGhosts >= MAX_GHOSTS) {return;}
 		let thisGhost;
 		if(ghosts.length < 3) {
 			thisGhost = new GhostShipEntity({x:this.position.x, y:this.position.y}, 75 * (1 + ghosts.length));
@@ -335,7 +336,8 @@ function Player(position = {x:0, y:0}) {
 		}
 		
 		thisGhost.isActive = true;
-	}
+        this.activeGhosts++;
+    };
 	
 	this.didCollideWith = function(otherEntity) {
 		if(otherEntity.type === EntityType.Capsule1) {
@@ -423,6 +425,7 @@ function Player(position = {x:0, y:0}) {
 		for(let i = 0; i < ghosts.length; i++) {
 			ghosts[i].reset();
 		}
+        this.activeGhosts = 0;
 	};
 	
 	this.clearBullets = function() {

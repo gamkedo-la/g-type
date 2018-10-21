@@ -27,6 +27,7 @@ const SIM_STEP = 16;//milliseconds in each simulation step ~1/2 frame
 const MAX_SHAKE_MAGNITUDE = 10;
 const MAX_LIVES_TO_SHOW = 9;
 const SCORE_PER_EXTRA_LIFE = 30000;
+const MAX_GHOSTS = 3;
 
 const BG_PARALLAX_RATIO_1 = 0.3; // startfield
 const BG_PARALLAX_RATIO_2 = 0.2; // transparent planets

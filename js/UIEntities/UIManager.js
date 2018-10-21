@@ -68,7 +68,7 @@ function UIManager() {
 		this.reset(false);
 	};
 	
-	this.powerUpWasActivated = function(activatedPowerUp) {
+	this.powerUpWasActivated = function(activatedPowerUp, powerUpCount) {
 		switch(activatedPowerUp) {//more concise than an if statement
 			case PowerUpType.Double:
 			case PowerUpType.Laser:
@@ -78,10 +78,11 @@ function UIManager() {
 		}
 		
 		//logic for power ups which allow >1 (Speed and Ghost) goes here, in the mean time assume only one of anything
-		
-		for(let i = 0; i < pages.length; i++) {
-			pages[i].lockPowerUp(activatedPowerUp);
-		}
+        if((powerUpCount === null) || (powerUpCount >= MAX_GHOSTS)) {
+            for(let i = 0; i < pages.length; i++) {
+                pages[i].lockPowerUp(activatedPowerUp);
+            }
+        }
 	};
 	
 	this.powerUpWasDeactivated = function(deactivatedPowerUp) {
