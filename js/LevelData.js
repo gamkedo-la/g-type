@@ -287,7 +287,10 @@ function initializeEnemies(enemyData) {
                       case "spawnPoint":
                   console.log("Found the Spawn Point");
                           enemies.push(currentGroup.add(new SpawnPoint({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x)));
-                          break;
+						  break;
+					  case "path":
+						  //do nothing
+						  break;
                       default:
                           console.error("can not find grouped enemy type: " + obj.type);
                           break;
