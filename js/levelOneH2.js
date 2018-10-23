@@ -74,6 +74,12 @@
                  "height":73,
                  "id":857,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock01",
                  "visible":true,
@@ -782,6 +788,12 @@
                  "height":73,
                  "id":1116,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock01",
                  "visible":true,
@@ -794,6 +806,12 @@
                  "height":73,
                  "id":1117,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock01",
                  "visible":true,
@@ -830,11 +848,17 @@
                  "height":73,
                  "id":1127,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock01",
                  "visible":true,
                  "width":74,
-                 "x":10789.33,
+                 "x":10789.3,
                  "y":145.333
                 }, 
                 {
@@ -846,7 +870,7 @@
                  "type":"rock03",
                  "visible":true,
                  "width":32,
-                 "x":10801.67,
+                 "x":10801.7,
                  "y":85.6667
                 }, 
                 {
@@ -870,7 +894,7 @@
                  "type":"rock04",
                  "visible":true,
                  "width":27,
-                 "x":10794.67,
+                 "x":10794.7,
                  "y":102
                 }, 
                 {
@@ -882,7 +906,7 @@
                  "type":"rock04",
                  "visible":true,
                  "width":27,
-                 "x":10828.33,
+                 "x":10828.3,
                  "y":83.3333
                 }, 
                 {
@@ -906,7 +930,7 @@
                  "type":"rhombusBoulder",
                  "visible":true,
                  "width":90,
-                 "x":10993.33,
+                 "x":10993.3,
                  "y":591.667
                 }, 
                 {
@@ -914,11 +938,17 @@
                  "height":73,
                  "id":1134,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock01",
                  "visible":true,
                  "width":74,
-                 "x":11028.67,
+                 "x":11028.7,
                  "y":526.333
                 }, 
                 {
@@ -942,7 +972,7 @@
                  "type":"rock03",
                  "visible":true,
                  "width":32,
-                 "x":11037.33,
+                 "x":11037.3,
                  "y":613.667
                 }, 
                 {
@@ -978,7 +1008,7 @@
                  "type":"rhombusBoulder",
                  "visible":true,
                  "width":90,
-                 "x":11207.83,
+                 "x":11207.8,
                  "y":605.167
                 }, 
                 {
@@ -986,11 +1016,17 @@
                  "height":73,
                  "id":1140,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock01",
                  "visible":true,
                  "width":74,
-                 "x":11276.16,
+                 "x":11276.2,
                  "y":622.5
                 }, 
                 {
@@ -1014,7 +1050,7 @@
                  "type":"rock03",
                  "visible":true,
                  "width":32,
-                 "x":11258.83,
+                 "x":11258.8,
                  "y":620.167
                 }, 
                 {
@@ -1050,7 +1086,7 @@
                  "type":"rock04",
                  "visible":true,
                  "width":27,
-                 "x":11274.83,
+                 "x":11274.8,
                  "y":629.167
                 }, 
                 {
@@ -3936,7 +3972,7 @@
                  "type":"groundEnemy1E",
                  "visible":true,
                  "width":30,
-                 "x":10085.66,
+                 "x":10085.7,
                  "y":564
                 }, 
                 {
@@ -3954,7 +3990,7 @@
                  "type":"groundEnemy1NE",
                  "visible":true,
                  "width":30,
-                 "x":10064.33,
+                 "x":10064.3,
                  "y":532.667
                 }, 
                 {
@@ -3972,7 +4008,7 @@
                  "type":"groundEnemy1N",
                  "visible":true,
                  "width":30,
-                 "x":10034.33,
+                 "x":10034.3,
                  "y":512
                 }, 
                 {
@@ -4008,7 +4044,7 @@
                  "type":"groundEnemy1S",
                  "visible":true,
                  "width":30,
-                 "x":10034.33,
+                 "x":10034.3,
                  "y":614
                 }, 
                 {
@@ -4026,7 +4062,7 @@
                  "type":"groundEnemy1SW",
                  "visible":true,
                  "width":30,
-                 "x":10007.66,
+                 "x":10007.7,
                  "y":588.667
                 }, 
                 {
@@ -4044,7 +4080,7 @@
                  "type":"groundEnemy1NW",
                  "visible":true,
                  "width":30,
-                 "x":10003.66,
+                 "x":10003.7,
                  "y":535.333
                 }, 
                 {
@@ -4350,7 +4386,7 @@
                  "type":"groundEnemy1SE",
                  "visible":true,
                  "width":30,
-                 "x":10841.67,
+                 "x":10841.7,
                  "y":144.667
                 }, 
                 {
@@ -4404,7 +4440,7 @@
                  "type":"groundEnemy1NE",
                  "visible":true,
                  "width":30,
-                 "x":11073.33,
+                 "x":11073.3,
                  "y":475.333
                 }, 
                 {
@@ -4440,7 +4476,7 @@
                  "type":"groundEnemy1NW",
                  "visible":true,
                  "width":30,
-                 "x":10984.33,
+                 "x":10984.3,
                  "y":542.667
                 }, 
                 {
@@ -5700,6 +5736,24 @@
                  "width":30,
                  "x":9587,
                  "y":394
+                }, 
+                {
+                 "gid":33,
+                 "height":45,
+                 "id":1204,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":47
+                        }],
+                 "rotation":0,
+                 "type":"spawnPoint",
+                 "visible":true,
+                 "width":75,
+                 "x":221,
+                 "y":310
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -5708,7 +5762,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":1203,
+ "nextobjectid":1205,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.0",

@@ -290,8 +290,8 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		if(explosions.length < EXPLOSION_COUNT) {
 			if((100 * Math.random()) < 25) {//1 in 20 chance the next explosion should spawn
 				const newExplosion = new AnimatedSprite(enemyExplosionSheet2, 11, 96, 96, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
-				newExplosion.deltaXPos = (this.size.width * Math.random());
-				newExplosion.deltaYPos = (this.size.height * Math.random());
+                newExplosion.deltaXPos = (0.5 * this.size.width) - (this.size.width * Math.random());
+                newExplosion.deltaYPos = (0.5 * this.size.height) - (this.size.height * Math.random());
 				
 				newExplosion.isDying = true;
 				newExplosion.wasBorn = true;
@@ -307,7 +307,7 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 	
 	this.drawExplosions = function() {
 		for(let i = 0; i < explosions.length; i++) {
-			explosions[i].drawAt({x:(this.position.x + explosions[i].deltaXPos), y: (this.position.y + explosions[i].deltaYPos)}, this.size);
+            explosions[i].drawAt({x:(this.position.x + explosions[i].deltaXPos), y: (this.position.y + explosions[i].deltaYPos)}, {width: this.size.width * 2, height: this.size.height * 2});
 		}
 	};
 	

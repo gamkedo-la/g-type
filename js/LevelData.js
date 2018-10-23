@@ -284,8 +284,12 @@ function initializeEnemies(enemyData) {
                       case "groundEnemy1SW":
                           enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4*3, -100, "none", 0, obj.x, 1)));
                           break;
+                      case "spawnPoint":
+                  console.log("Found the Spawn Point");
+                          enemies.push(currentGroup.add(new SpawnPoint({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x)));
+                          break;
                       default:
-                          console.error("can not find enemy type")
+                          console.error("can not find grouped enemy type: " + obj.type);
                           break;
                   }
                 });
@@ -337,7 +341,7 @@ function initializeEnemies(enemyData) {
                     enemies.push(new CargoBoss({x:offRight, y:GameField.y+obj.y-obj.height}, -20, "none" ,25,obj.x,1))
                     break;
                 default:
-                    console.error("can not find enemy type")
+                    console.error("can not find ungrouped enemy type: " + obj.type);
                     break;
                 }
     });

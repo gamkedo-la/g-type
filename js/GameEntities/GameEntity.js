@@ -33,7 +33,8 @@ const EntityType = {
 	EnemyBullet3:"enemyBullet3",
 	EnemyBullet4:"enemyBullet4",
 	MiniBoss1:"miniBoss1", 
-	CargoBoss: "cargoBoss"
+	CargoBoss: "cargoBoss",
+    SpawnPoint:"spawnPoint"
 };
 
 const spriteForType = function(type) {
