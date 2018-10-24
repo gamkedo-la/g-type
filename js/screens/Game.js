@@ -63,6 +63,9 @@ function GamePlayScreen () {
             currentBackgroundMusic.setCurrentTrack(AudioTracks.GameEnding);
             ScreenStates.setState(ENDING_SCREEN);
         }
+	if(currentBackgroundMusic.getTime() > currentBackgroundMusic.getDuration()) {	
+		currentBackgroundMusic.play();
+	}
     };
     
     this.cutSceneFor = function(newCurrentLevel) {
