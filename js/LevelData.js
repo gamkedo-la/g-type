@@ -23,18 +23,6 @@ const LevelData = [
 		checkpointPositions:[0, 600, 1200]
 	},
    {
-   clearColor:"#010119",
-   getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY}},
-   
-   initializeEnemies: function() {return initializeEnemies(TileMaps.levelOneH.layers[2].objects);},
-   
-   initializeTerrain: function() {return initializeTerrain(TileMaps.levelOneH.layers[1].objects);},
-   
-   initializeDebris: function() {return initializeDebris();},
-   checkpointPositions:[0, 600, 1200]
-   },
-
-   {
 	clearColor:"#010119",
 	getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY}},
 	initializeEnemies: function() {return initializeEnemies(TileMaps.levelMcFunky.layers[2].objects);},
