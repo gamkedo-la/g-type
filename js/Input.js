@@ -62,6 +62,7 @@ function initializeInput() {
 }
 
 function keyPress(evt) {
+    didInteract = true;
 	evt.preventDefault();
 	if(ScreenStates.control(evt.keyCode, true)) {
         evt.preventDefault();
