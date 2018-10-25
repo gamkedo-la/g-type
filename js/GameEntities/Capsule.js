@@ -25,7 +25,7 @@ function Capsule(position = {x:0, y:0}, initialWorldPos) {
 		this.worldPos = worldPos;
 		
 		this.collisionBody.setPosition(this.position);
-		
+
 		sprite.update(deltaTime);
 	};
 	
@@ -50,6 +50,9 @@ function Capsule(position = {x:0, y:0}, initialWorldPos) {
 	
 	this.didCollideWith = function(otherEntity) {
 		didCollide = true;
+		if((this.group != null) && (this.group !== undefined)) {
+			this.group.collected(this, this.worldPos);
+		}
 		scene.displayScore(this);
 		scene.removeEntity(this, false);
 		pauseSound.play();

@@ -33,6 +33,16 @@ const LevelData = [
    initializeDebris: function() {return initializeDebris();},
    checkpointPositions:[0, 600, 1200]
    },
+
+   {
+	clearColor:"#010119",
+	getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY}},
+	initializeEnemies: function() {return initializeEnemies(TileMaps.levelMcFunky.layers[2].objects);},
+	initializeTerrain: function() {return initializeTerrain(TileMaps.levelMcFunky.layers[1].objects);},
+	initializeDebris: function() {return initializeDebris();},
+	checkpointPositions:[0, 600, 1200]
+	},
+
 	{//levelIndex = 0
 		clearColor:"#010119",
 		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY}},
@@ -235,7 +245,7 @@ function initializeEnemies(enemyData) {
     //we need an empty at the beginning for the following reduce
     enemiesInGroups.unshift([]);
     //which sorts the enemies into group arrays if their group property is > 1.
-    window.enemyGroups = enemiesInGroups.reduce((group, obj) => {
+    let enemyGroups = enemiesInGroups.reduce((group, obj) => {
                                                 let groupNumber = obj.properties[0].value;
                                                 if(!group[groupNumber]) { group[groupNumber] = []; }
                                                 group[groupNumber].push(obj);
