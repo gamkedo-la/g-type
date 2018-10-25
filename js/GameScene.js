@@ -236,38 +236,38 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null) {
 
 	this.activatedShield = function() {
 		player.activateShield();
-		uiManager.powerUpWasActivated(PowerUpType.Shield);
+		uiManager.powerUpWasActivated(PowerUpType.Shield, null);
 	};
 
 	this.activatedMissile = function() {
 		player.setHasMissiles(true);
-		uiManager.powerUpWasActivated(PowerUpType.Missile);
+		uiManager.powerUpWasActivated(PowerUpType.Missile, null);
 	};
 
 	this.activatedDouble = function() {
 		player.setShotTo(EntityType.PlayerDouble);
-		uiManager.powerUpWasActivated(PowerUpType.Double);
+		uiManager.powerUpWasActivated(PowerUpType.Double, null);
 	};
 
 	this.activatedLaser = function() {
 		player.setShotTo(EntityType.PlayerLaser);
-		uiManager.powerUpWasActivated(PowerUpType.Laser);
+		uiManager.powerUpWasActivated(PowerUpType.Laser, null);
 	};
 
 	this.activatedTriple = function() {
 		player.setShotTo(EntityType.PlayerTriple);
-		uiManager.powerUpWasActivated(PowerUpType.Triple);
+		uiManager.powerUpWasActivated(PowerUpType.Triple, null);
 	};
 
 	this.activatedGhost = function() {
 		player.activateGhostShip();
-		uiManager.powerUpWasActivated(PowerUpType.Ghost);
+		uiManager.powerUpWasActivated(PowerUpType.Ghost, (player.activeGhosts + 1));
 	};
 
 	this.activatedForce = function() {
 		player.activateTheForce();
 		console.log("Tried to 'Use The Force!'");
-		uiManager.powerUpWasActivated(PowerUpType.Force);
+		uiManager.powerUpWasActivated(PowerUpType.Force, null);
 	};
 	
 	this.activateBasePowerUps = function() {

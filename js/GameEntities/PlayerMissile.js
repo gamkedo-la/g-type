@@ -82,6 +82,7 @@ function PlayerMissile(position = {x:0, y:0}, speed = {x:0, y:0}) {
 		if(!this.isVisible) {return;}
 		
 		sprite.drawAt(this.position, this.size, rotation);
+        this.collisionBody.draw();
 	};
 	
 	this.reset = function() {
