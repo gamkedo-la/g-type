@@ -23,7 +23,9 @@ function EnemyGroup() {
 	// called by enenies just as they start to explode (isDying=true but not getDidDie() yet)
 	this.amDying = function(enemyToRemove, worldPos) {
 		const indexToRemove = this.enemies.indexOf(enemyToRemove);
-		this.enemies.splice(indexToRemove, 1);
+        if(indexToRemove >= 0) {
+            this.enemies.splice(indexToRemove, 1);
+        }
 
 		// this is the very last one in the group, maybe spawn a capsule		
 		if((this.enemies.length === 0) && (this.hasCapsule)) {

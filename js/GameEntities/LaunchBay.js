@@ -52,20 +52,20 @@ function LaunchBay(position = {x:0, y:0}, spawnPos) {
         
         if(this.position.x < -this.size.width) {scene.removeEntity(this, false);}
         
-        if(startSpawn <= (children.length * DELTA_SPAWN)) {
-            startSpawn += deltaTime;
-            
-            if(startSpawn > 0) {
-                const anIndex = Math.floor(startSpawn / DELTA_SPAWN);
-                if(anIndex < children.length) {
-                    children[anIndex].spawn(-position.x + this.position.x + this.size.width);
-                }
-            }
-        }
-        
         this.worldPos = worldPos;
         
         if(!sprite.isDying) {
+            if(startSpawn <= (children.length * DELTA_SPAWN)) {
+                startSpawn += deltaTime;
+                
+                if(startSpawn > 0) {
+                    const anIndex = Math.floor(startSpawn / DELTA_SPAWN);
+                    if(anIndex < children.length) {
+                        children[anIndex].spawn(-position.x + this.position.x + this.size.width);
+                    }
+                }
+            }
+            
             sprite.update(deltaTime);
             this.collisionBody.setPosition({x:this.position.x, y:this.position.y});
         } else {
@@ -128,6 +128,12 @@ function LaunchBay(position = {x:0, y:0}, spawnPos) {
             sprite.isDying = true;
             
             if((this.group != null) && (this.group !== undefined)) {
+                for(let i = 0; i < children.length; i++) {
+                    if(!children[i].getDidSpawn()) {
+                        this.group.amDying(children[i], this.worldPos);
+                        scene.removeEntity(children[i]);
+                    }
+                }
                 this.group.amDying(this, this.worldPos);
             }
             

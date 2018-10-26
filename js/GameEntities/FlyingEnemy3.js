@@ -58,6 +58,10 @@ function FlyingEnemy3(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
         this.isVisible = true;
         didSpawn = true;
     };
+    
+    this.getDidSpawn = function() {
+        return didSpawn;
+    };
 
     this.update = function(deltaTime, worldPos, playerPos) {
         if(!this.isVisible) {return;}
