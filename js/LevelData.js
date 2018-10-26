@@ -15,9 +15,9 @@ const LevelData = [
         clearColor:"#010119",
 		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY}},
 		
-        initializeEnemies: function() {return initializeEnemies(TileMaps.levelOneH2.layers[2].objects);},
+        initializeEnemies: function() {return initializeEnemies(TileMaps.levelOne.layers[2].objects);},
         
-        initializeTerrain: function() {return initializeTerrain(TileMaps.levelOneH2.layers[1].objects);},
+        initializeTerrain: function() {return initializeTerrain(TileMaps.levelOne.layers[1].objects);},
 
         initializeDebris: function() {return initializeDebris();},
 		checkpointPositions:[0, 600, 1200]
@@ -351,8 +351,17 @@ function initializeEnemies(enemyData) {
 
 function initializeTerrain(terrainData) {
     const world = [];
-    let offRight = GameField.right + 50;
-    terrainData.forEach(function(obj) {
+	let offRight = GameField.right + 50;
+	window.warpCapsules = terrainData.filter(obj => {
+											if(typeof obj.properties === "undefined"){
+												obj.properties = [];
+		  										obj.properties[0] = {value:  0}
+											}
+		   									return obj.properties[0].value > 0 && obj.type == 'capsule1';
+										});
+	let levelTerrain = terrainData.filter((obj)=>{return obj.properties[0].value == 0});
+
+    levelTerrain.forEach(obj=>{
          switch(obj.type){
             case "bubble":
                 world.push(new BubbleEntity(EntityType.Bubble, {x:offRight, y:GameField.y+obj.y-obj.height}, obj.x, 1, 1024));
@@ -368,7 +377,11 @@ function initializeTerrain(terrainData) {
                  break;
          }
          
-    });
+	});
+	window.warpGroup = new CapsuleGroup();
+	warpCapsules.forEach(obj=>{
+		world.push( warpGroup.add( new Capsule({x:offRight, y:GameField.y+obj.y-obj.height}, obj.x) ) );
+	})
     return world;
 }
 

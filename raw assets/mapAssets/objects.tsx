@@ -8,15 +8,27 @@
   <image width="74" height="73" source="objectSprites/Rock01.png"/>
  </tile>
  <tile id="2" type="rock02">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
   <image width="40" height="40" source="objectSprites/Rock02.png"/>
  </tile>
  <tile id="3" type="rock03">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
   <image width="32" height="37" source="objectSprites/Rock03.png"/>
  </tile>
  <tile id="4" type="rock04">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
   <image width="27" height="27" source="objectSprites/Rock04.png"/>
  </tile>
  <tile id="6" type="rhombusBoulder">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
   <image width="90" height="90" source="objectSprites/_editorBoulder.png"/>
  </tile>
  <tile id="8" type="flyingEnemy1">
@@ -41,9 +53,15 @@
   <image width="30" height="21" source="objectSprites/_editorFlyingEnemy1Sine.png"/>
  </tile>
  <tile id="14" type="capsule1">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
   <image width="33" height="27" source="objectSprites/_editorPowerUp.png"/>
  </tile>
  <tile id="15" type="bubble">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
   <image width="30" height="30" source="objectSprites/_editorBubble.png"/>
  </tile>
  <tile id="17" type="groundEnemy1E">
@@ -117,6 +135,9 @@
   <image width="19" height="133" source="objectSprites/girder_vertical.png"/>
  </tile>
  <tile id="30" type="ragnarokCapsule">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
   <image width="60" height="60" source="objectSprites/_editorRagnarok.png"/>
  </tile>
  <tile id="31" type="miniBoss1">

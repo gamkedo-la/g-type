@@ -50,7 +50,7 @@ function Capsule(position = {x:0, y:0}, initialWorldPos) {
 	
 	this.didCollideWith = function(otherEntity) {
 		didCollide = true;
-		if((this.group != null) && (this.group !== undefined)) {
+		if((this.group != null) && (typeof this.group !== "undefined")) {
 			this.group.collected(this, this.worldPos);
 		}
 		scene.displayScore(this);
