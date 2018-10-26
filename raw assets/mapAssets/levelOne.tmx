@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="800" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="1208">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="800" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="1216">
  <tileset firstgid="1" source="objects.tsx"/>
  <objectgroup id="6" name="Background">
   <properties>
@@ -732,6 +732,37 @@
    </properties>
   </object>
   <object id="1204" gid="33" x="221" y="310" width="75" height="45">
+   <properties>
+    <property name="Group" type="int" value="47"/>
+   </properties>
+  </object>
+  <object id="1210" gid="35" x="236" y="310" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="47"/>
+   </properties>
+  </object>
+  <object id="1211" type="path" x="258" y="288">
+   <properties>
+    <property name="Group" type="int" value="47"/>
+   </properties>
+   <polyline points="0,0 0,-186 -254,-186"/>
+  </object>
+  <object id="1212" gid="35" x="234" y="310" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="47"/>
+   </properties>
+  </object>
+  <object id="1213" gid="35" x="234" y="312" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="47"/>
+   </properties>
+  </object>
+  <object id="1214" gid="35" x="236" y="310" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="47"/>
+   </properties>
+  </object>
+  <object id="1215" gid="35" x="234" y="310" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="47"/>
    </properties>

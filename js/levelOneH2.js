@@ -38,6 +38,12 @@
                  "height":90,
                  "id":854,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rhombusBoulder",
                  "visible":true,
@@ -50,6 +56,12 @@
                  "height":90,
                  "id":855,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rhombusBoulder",
                  "visible":true,
@@ -62,6 +74,12 @@
                  "height":90,
                  "id":856,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rhombusBoulder",
                  "visible":true,
@@ -92,6 +110,12 @@
                  "height":40,
                  "id":923,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -104,6 +128,12 @@
                  "height":40,
                  "id":924,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -116,6 +146,12 @@
                  "height":40,
                  "id":925,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -128,6 +164,12 @@
                  "height":40,
                  "id":926,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -140,6 +182,12 @@
                  "height":40,
                  "id":927,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -152,6 +200,12 @@
                  "height":40,
                  "id":928,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -164,6 +218,12 @@
                  "height":40,
                  "id":929,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -176,6 +236,12 @@
                  "height":40,
                  "id":930,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -188,6 +254,12 @@
                  "height":40,
                  "id":931,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -200,6 +272,12 @@
                  "height":40,
                  "id":932,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -212,6 +290,12 @@
                  "height":40,
                  "id":933,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -224,6 +308,12 @@
                  "height":40,
                  "id":934,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -236,6 +326,12 @@
                  "height":40,
                  "id":935,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -248,6 +344,12 @@
                  "height":40,
                  "id":936,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -260,6 +362,12 @@
                  "height":27,
                  "id":937,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"capsule1",
                  "visible":true,
@@ -272,6 +380,12 @@
                  "height":30,
                  "id":938,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -284,6 +398,12 @@
                  "height":30,
                  "id":939,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -296,6 +416,12 @@
                  "height":30,
                  "id":940,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -308,6 +434,12 @@
                  "height":30,
                  "id":941,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -320,6 +452,12 @@
                  "height":40,
                  "id":942,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -332,6 +470,12 @@
                  "height":40,
                  "id":943,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -344,6 +488,12 @@
                  "height":40,
                  "id":944,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -356,6 +506,12 @@
                  "height":40,
                  "id":945,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -368,6 +524,12 @@
                  "height":40,
                  "id":946,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -380,6 +542,12 @@
                  "height":40,
                  "id":947,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -392,6 +560,12 @@
                  "height":40,
                  "id":948,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -404,6 +578,12 @@
                  "height":40,
                  "id":949,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -416,6 +596,12 @@
                  "height":40,
                  "id":950,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -428,6 +614,12 @@
                  "height":40,
                  "id":951,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -440,6 +632,12 @@
                  "height":40,
                  "id":952,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -452,6 +650,12 @@
                  "height":40,
                  "id":953,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -464,6 +668,12 @@
                  "height":40,
                  "id":954,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -476,6 +686,12 @@
                  "height":40,
                  "id":955,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -488,6 +704,12 @@
                  "height":27,
                  "id":956,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"capsule1",
                  "visible":true,
@@ -500,6 +722,12 @@
                  "height":30,
                  "id":957,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -512,6 +740,12 @@
                  "height":30,
                  "id":958,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -524,6 +758,12 @@
                  "height":30,
                  "id":959,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -536,6 +776,12 @@
                  "height":30,
                  "id":960,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -548,6 +794,12 @@
                  "height":40,
                  "id":961,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -560,6 +812,12 @@
                  "height":40,
                  "id":962,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -572,6 +830,12 @@
                  "height":40,
                  "id":963,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -584,6 +848,12 @@
                  "height":40,
                  "id":964,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -596,6 +866,12 @@
                  "height":40,
                  "id":965,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -608,6 +884,12 @@
                  "height":40,
                  "id":966,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -620,6 +902,12 @@
                  "height":40,
                  "id":967,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -632,6 +920,12 @@
                  "height":40,
                  "id":968,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -644,6 +938,12 @@
                  "height":40,
                  "id":969,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -656,6 +956,12 @@
                  "height":40,
                  "id":970,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -668,6 +974,12 @@
                  "height":40,
                  "id":971,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -680,6 +992,12 @@
                  "height":40,
                  "id":972,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -692,6 +1010,12 @@
                  "height":40,
                  "id":973,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -704,6 +1028,12 @@
                  "height":40,
                  "id":974,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -716,6 +1046,12 @@
                  "height":27,
                  "id":975,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"capsule1",
                  "visible":true,
@@ -728,6 +1064,12 @@
                  "height":30,
                  "id":976,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -740,6 +1082,12 @@
                  "height":30,
                  "id":977,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -752,6 +1100,12 @@
                  "height":30,
                  "id":978,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -764,6 +1118,12 @@
                  "height":30,
                  "id":979,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -776,6 +1136,12 @@
                  "height":27,
                  "id":883,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"capsule1",
                  "visible":true,
@@ -824,6 +1190,12 @@
                  "height":90,
                  "id":1125,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rhombusBoulder",
                  "visible":true,
@@ -836,6 +1208,12 @@
                  "height":90,
                  "id":1126,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rhombusBoulder",
                  "visible":true,
@@ -866,6 +1244,12 @@
                  "height":37,
                  "id":1128,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock03",
                  "visible":true,
@@ -878,6 +1262,12 @@
                  "height":37,
                  "id":1129,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock03",
                  "visible":true,
@@ -890,6 +1280,12 @@
                  "height":27,
                  "id":1130,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock04",
                  "visible":true,
@@ -902,6 +1298,12 @@
                  "height":27,
                  "id":1131,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock04",
                  "visible":true,
@@ -914,6 +1316,12 @@
                  "height":27,
                  "id":1132,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock04",
                  "visible":true,
@@ -926,6 +1334,12 @@
                  "height":90,
                  "id":1133,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rhombusBoulder",
                  "visible":true,
@@ -956,6 +1370,12 @@
                  "height":40,
                  "id":1135,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock02",
                  "visible":true,
@@ -968,6 +1388,12 @@
                  "height":37,
                  "id":1136,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock03",
                  "visible":true,
@@ -980,6 +1406,12 @@
                  "height":27,
                  "id":1137,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock04",
                  "visible":true,
@@ -992,6 +1424,12 @@
                  "height":27,
                  "id":1138,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"capsule1",
                  "visible":true,
@@ -1004,6 +1442,12 @@
                  "height":90,
                  "id":1139,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rhombusBoulder",
                  "visible":true,
@@ -1034,6 +1478,12 @@
                  "height":37,
                  "id":1141,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock03",
                  "visible":true,
@@ -1046,6 +1496,12 @@
                  "height":37,
                  "id":1142,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock03",
                  "visible":true,
@@ -1058,6 +1514,12 @@
                  "height":27,
                  "id":1143,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock04",
                  "visible":true,
@@ -1070,6 +1532,12 @@
                  "height":27,
                  "id":1144,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock04",
                  "visible":true,
@@ -1082,6 +1550,12 @@
                  "height":27,
                  "id":1145,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rock04",
                  "visible":true,
@@ -1094,6 +1568,12 @@
                  "height":90,
                  "id":1071,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rhombusBoulder",
                  "visible":true,
@@ -1106,6 +1586,12 @@
                  "height":90,
                  "id":1080,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rhombusBoulder",
                  "visible":true,
@@ -1118,6 +1604,12 @@
                  "height":90,
                  "id":1107,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rhombusBoulder",
                  "visible":true,
@@ -1130,6 +1622,12 @@
                  "height":90,
                  "id":1062,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rhombusBoulder",
                  "visible":true,
@@ -1142,6 +1640,12 @@
                  "height":90,
                  "id":1089,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rhombusBoulder",
                  "visible":true,
@@ -1154,6 +1658,12 @@
                  "height":90,
                  "id":1098,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"rhombusBoulder",
                  "visible":true,
@@ -1166,6 +1676,12 @@
                  "height":30,
                  "id":1014,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1178,6 +1694,12 @@
                  "height":30,
                  "id":1015,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1190,6 +1712,12 @@
                  "height":30,
                  "id":1016,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1202,6 +1730,12 @@
                  "height":30,
                  "id":1017,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1214,6 +1748,12 @@
                  "height":30,
                  "id":1018,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1226,6 +1766,12 @@
                  "height":30,
                  "id":1019,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1238,6 +1784,12 @@
                  "height":30,
                  "id":1020,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1250,6 +1802,12 @@
                  "height":30,
                  "id":1021,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1262,6 +1820,12 @@
                  "height":30,
                  "id":1022,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1274,6 +1838,12 @@
                  "height":30,
                  "id":1023,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1286,6 +1856,12 @@
                  "height":30,
                  "id":1024,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1298,6 +1874,12 @@
                  "height":30,
                  "id":1025,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1310,6 +1892,12 @@
                  "height":30,
                  "id":1026,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1322,6 +1910,12 @@
                  "height":30,
                  "id":1027,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1334,6 +1928,12 @@
                  "height":30,
                  "id":1028,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1346,6 +1946,12 @@
                  "height":30,
                  "id":1029,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1358,6 +1964,12 @@
                  "height":30,
                  "id":1030,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1370,6 +1982,12 @@
                  "height":30,
                  "id":1031,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1382,6 +2000,12 @@
                  "height":30,
                  "id":1032,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1394,6 +2018,12 @@
                  "height":30,
                  "id":1033,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1406,6 +2036,12 @@
                  "height":30,
                  "id":1034,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1418,6 +2054,12 @@
                  "height":30,
                  "id":1035,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1430,6 +2072,12 @@
                  "height":30,
                  "id":1036,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1442,6 +2090,12 @@
                  "height":30,
                  "id":1037,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1454,6 +2108,12 @@
                  "height":30,
                  "id":1038,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1466,6 +2126,12 @@
                  "height":30,
                  "id":1039,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1478,6 +2144,12 @@
                  "height":30,
                  "id":1040,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1490,6 +2162,12 @@
                  "height":30,
                  "id":1041,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1502,6 +2180,12 @@
                  "height":30,
                  "id":1042,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1514,6 +2198,12 @@
                  "height":30,
                  "id":1043,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1526,6 +2216,12 @@
                  "height":30,
                  "id":1044,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1538,6 +2234,12 @@
                  "height":30,
                  "id":1045,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1550,6 +2252,12 @@
                  "height":30,
                  "id":1046,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1562,6 +2270,12 @@
                  "height":30,
                  "id":1047,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1574,6 +2288,12 @@
                  "height":30,
                  "id":1048,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1586,6 +2306,12 @@
                  "height":30,
                  "id":1049,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1598,6 +2324,12 @@
                  "height":30,
                  "id":1050,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1610,6 +2342,12 @@
                  "height":30,
                  "id":1051,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1622,6 +2360,12 @@
                  "height":30,
                  "id":1052,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1634,6 +2378,12 @@
                  "height":30,
                  "id":1053,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1646,6 +2396,12 @@
                  "height":30,
                  "id":1054,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1658,6 +2414,12 @@
                  "height":30,
                  "id":1055,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1670,6 +2432,12 @@
                  "height":30,
                  "id":1056,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1682,6 +2450,12 @@
                  "height":30,
                  "id":1057,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1694,6 +2468,12 @@
                  "height":30,
                  "id":1058,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1706,6 +2486,12 @@
                  "height":30,
                  "id":1059,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1718,6 +2504,12 @@
                  "height":30,
                  "id":1060,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"bubble",
                  "visible":true,
@@ -1730,12 +2522,72 @@
                  "height":60,
                  "id":1188,
                  "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
                  "rotation":0,
                  "type":"ragnarokCapsule",
                  "visible":true,
                  "width":60,
                  "x":11185,
                  "y":298
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1205,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":321.333,
+                 "y":189
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1206,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":370.667,
+                 "y":189
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1207,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":424,
+                 "y":189
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -5749,10 +6601,205 @@
                          "value":47
                         }],
                  "rotation":0,
-                 "type":"spawnPoint",
+                 "type":"launchBay",
                  "visible":true,
                  "width":75,
                  "x":221,
+                 "y":310
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1210,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":47
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-100
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3path",
+                 "visible":true,
+                 "width":45,
+                 "x":236,
+                 "y":310
+                }, 
+                {
+                 "height":0,
+                 "id":1211,
+                 "name":"",
+                 "polyline":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":0,
+                         "y":-186
+                        }, 
+                        {
+                         "x":-254,
+                         "y":-186
+                        }],
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":47
+                        }],
+                 "rotation":0,
+                 "type":"path",
+                 "visible":true,
+                 "width":0,
+                 "x":258,
+                 "y":288
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1212,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":47
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-100
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3path",
+                 "visible":true,
+                 "width":45,
+                 "x":234,
+                 "y":310
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1213,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":47
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-100
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3path",
+                 "visible":true,
+                 "width":45,
+                 "x":234,
+                 "y":312
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1214,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":47
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-100
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3path",
+                 "visible":true,
+                 "width":45,
+                 "x":236,
+                 "y":310
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1215,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":47
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-100
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3path",
+                 "visible":true,
+                 "width":45,
+                 "x":234,
                  "y":310
                 }],
          "opacity":1,
@@ -5762,7 +6809,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":1205,
+ "nextobjectid":1216,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.0",

@@ -33,7 +33,7 @@ function EnemyGroup() {
 			newCapsule.position.y += ((enemyToRemove.size.height / 2) - (newCapsule.size.height / 2));
 			scene.addEntity(newCapsule, false);
 		}
-	}
+    };
 }
 
 const PathType = {
@@ -44,6 +44,7 @@ const PathType = {
 };
 
 function EnemyPath(type = PathType.None, start = {x:0, y:0}, speed = 0, points = [], timeOffset = 0) {
+    this.pointCount = points.length;
 	let elapsedTime = 0;
 	let lastPointIndex = -1;
 	let lastPosition = {x:start.x, y:start.y};
@@ -51,6 +52,12 @@ function EnemyPath(type = PathType.None, start = {x:0, y:0}, speed = 0, points =
 	if((type === PathType.Points) || (type === PathType.Loop)) {
 		currentSpeed = Math.abs(speed / 1000);
 	}
+    
+    this.putAtFirstPoint = function() {
+        lastPointIndex = 0;
+        lastPosition = {x:points[0].x, y:points[0].y};
+        return lastPosition;
+    };
 	
 	this.nextPoint = function(deltaTime) {
 		if(lastPointIndex > 1) {//Keep array size down since it can grow quite large.
@@ -139,7 +146,14 @@ function EnemyPath(type = PathType.None, start = {x:0, y:0}, speed = 0, points =
 	
 	this.updateSpeed = function(newSpeed) {
 		currentSpeed = newSpeed / 1000;
-	}
+    };
+    
+    this.updatePosition = function(deltaPosition, callerType) {
+        for(let i = 0; i < points.length; i++) {
+            points[i].x += deltaPosition.x;
+            points[i].y += deltaPosition.y;
+        }
+    };
 	
 	return this;
 }

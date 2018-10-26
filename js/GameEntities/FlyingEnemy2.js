@@ -38,12 +38,10 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	if(path){
 		pathPoints = path.polygon.slice(0);
 		pathPoints.forEach((point)=>{
-			//point.x += this.position.x;
-			//point.y += this.position.y;
-			point.x += GameField.x+GameField.width-50;
+			point.x += GameField.x + GameField.width - 50;
 			point.y += GameField.y + path.y;
 			pathPoints.push(point);
-		})
+            });
 		
 	}
 	
@@ -71,8 +69,6 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 				if(nextPos !== undefined) {
 					if(pattern === PathType.None) {
 						this.position.x += (vel.x * SIM_STEP / 1000);
-						//default should maybe be fly straight? removing y movement for level-load testing. -Rybar
-						//this.position.y += (vel.y * SIM_STEP / 1000);  
 					} else if(pattern === PathType.Sine) {
 						this.position.x += nextPos.x;
 						this.position.y += nextPos.y;
@@ -89,8 +85,10 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 			}
 		}
 		
+        //store unused time for future use
 		unusedTime = availableTime;
 		
+        //update the collision body position
 		if(!sprite.isDying) {
 			this.collisionBody.setPosition({x:(SPRITE_SCALE * 3) + this.position.x + this.size.height / 2, 
 											y:this.position.y + this.size.height / 2});
@@ -136,7 +134,7 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	this.respawn = function(worldPos) {
 		if(worldPos > spawnPos) {
 			this.worldPos = worldPos;
-			const totalTime = (worldPos *  SIM_STEP);
+			const totalTime = (worldPos * SIM_STEP);
 			const nextPos = this.path.nextPoint(totalTime - timeOffset);
 			this.position.x = nextPos.x;
 			this.position.y = nextPos.y;

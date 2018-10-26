@@ -15,9 +15,9 @@ const LevelData = [
         clearColor:"#010119",
 		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY}},
 		
-        initializeEnemies: function() {return initializeEnemies(TileMaps.levelOne.layers[2].objects);},
+        initializeEnemies: function() {return initializeEnemies(TileMaps.levelOneH2.layers[2].objects);},
         
-        initializeTerrain: function() {return initializeTerrain(TileMaps.levelOne.layers[1].objects);},
+        initializeTerrain: function() {return initializeTerrain(TileMaps.levelOneH2.layers[1].objects);},
 
         initializeDebris: function() {return initializeDebris();},
 		checkpointPositions:[0, 600, 1200]
@@ -258,6 +258,12 @@ function initializeEnemies(enemyData) {
                       case "flyingEnemy2path":
                           enemies.push(currentGroup.add(new FlyingEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, -150, "points",0,obj.x,1, getPath(enemyPaths, obj))));
                           break;
+                      case "flyingEnemy3":
+                          enemies.push(currentGroup.add(new FlyingEnemy3({x:offRight, y:GameField.y+obj.y-obj.height}, -150, "none",obj.x,1)));
+                          break;
+                      case "flyingEnemy3path":
+                          enemies.push(currentGroup.add(new FlyingEnemy3({x:offRight, y:GameField.y+obj.y-obj.height}, -150, "points",obj.x,1, getPath(enemyPaths, obj))));
+                          break;
                       case "groundEnemy1N":
                           enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, 0, -100, "none", 0, obj.x, 1)));
                           break;
@@ -282,8 +288,8 @@ function initializeEnemies(enemyData) {
                       case "groundEnemy1SW":
                           enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4*3, -100, "none", 0, obj.x, 1)));
                           break;
-                      case "spawnPoint":
-                          enemies.push(currentGroup.add(new SpawnPoint({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x)));
+                      case "launchBay":
+                          enemies.push(currentGroup.add(new LaunchBay({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x)));
 						  break;
 					  case "path":
 						  //do nothing

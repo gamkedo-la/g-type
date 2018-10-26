@@ -149,7 +149,7 @@
   </properties>
   <image width="60" height="34" source="objectSprites/MiniBoss1.png"/>
  </tile>
- <tile id="32" type="spawnPoint">
+ <tile id="32" type="launchBay">
   <properties>
    <property name="Group" type="int" value="0"/>
   </properties>
@@ -158,12 +158,18 @@
  <tile id="33" type="flyingEnemy3">
   <properties>
    <property name="Group" type="int" value="0"/>
+   <property name="difficulty" type="int" value="10"/>
+   <property name="pattern" value="none"/>
+   <property name="speed" type="int" value="-100"/>
   </properties>
   <image width="45" height="45" source="objectSprites/_editorFlyingEnemy3.png"/>
  </tile>
- <tile id="34" type="flyingEnemy3Path">
+ <tile id="34" type="flyingEnemy3path">
   <properties>
    <property name="Group" type="int" value="0"/>
+   <property name="difficulty" type="int" value="10"/>
+   <property name="pattern" value="points"/>
+   <property name="speed" type="int" value="-100"/>
   </properties>
   <image width="45" height="45" source="objectSprites/_editorFlyingEnemy3Path.png"/>
  </tile>

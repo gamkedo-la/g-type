@@ -26,7 +26,8 @@ const EntityType = {
 	
 	//Enemies
 	FlyingEnemy1:"flyingEnemy1",
-	FlyingEnemy2:"flyingEnemy2",
+    FlyingEnemy2:"flyingEnemy2",
+    FlyingEnemy3:"flyingEnemy3",
 	GroundEnemy1:"groundEnemy1",
 	EnemyBullet1:"enemyBullet1",
 	EnemyBullet2:"enemyBullet2",
@@ -34,7 +35,7 @@ const EntityType = {
 	EnemyBullet4:"enemyBullet4",
 	MiniBoss1:"miniBoss1", 
 	CargoBoss: "cargoBoss",
-    SpawnPoint:"spawnPoint"
+    LaunchBay:"launchBay"
 };
 
 const spriteForType = function(type) {

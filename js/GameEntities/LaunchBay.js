@@ -1,7 +1,8 @@
-//SpawnPoint
-function SpawnPoint(position = {x:0, y:0}, spawnPos) {
-    this.type = EntityType.SpawnPoint;
+//LaunchBay
+function LaunchBay(position = {x:0, y:0}, spawnPos) {
+    this.type = EntityType.LaunchBay;
     this.group = null;
+    const children = [];
     this.score = 500;
     this.worldPos = spawnPos;
     
@@ -10,24 +11,34 @@ function SpawnPoint(position = {x:0, y:0}, spawnPos) {
     const SPRITE_SCALE = 2;
     this.position = {x:position.x, y:position.y};
     let unusedTime = 0;
+    let startSpawn = -2048;
+    const DELTA_SPAWN = 768;
     this.isVisible = true;
     
-    let sprite = new AnimatedSprite(spawnPointSheet, 30, 75, 45, false, true, {min:0, max:0}, 0, {min:0, max:29}, 128, {min:29, max:29}, 0);
+    let sprite = new AnimatedSprite(launchBaySheet, 30, 75, 45, false, true, {min:0, max:0}, 0, {min:0, max:29}, 128, {min:29, max:29}, 0);
     this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
     
     const EXPLOSION_COUNT = 3;
     const explosions = [];
     
     const colliderPath = [{x: this.position.x, y: this.position.y + (SPRITE_SCALE * 3)},
-                          {x: this.position.x + (SPRITE_SCALE * sprite.width), y: this.position.y + (SPRITE_SCALE * 3)},
-                          {x: this.position.x + (SPRITE_SCALE * sprite.width), y: this.position.y + (SPRITE_SCALE * sprite.height)},
-                          {x: this.position.x, y: this.position.y + (SPRITE_SCALE * sprite.height)}];
+                          {x: this.position.x + this.size.width, y: this.position.y + (SPRITE_SCALE * 3)},
+                          {x: this.position.x + this.size.width, y: this.position.y + this.size.height},
+                          {x: this.position.x, y: this.position.y + this.size.height}];
     
     this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:this.position.x, y:this.position.y}});
     
     let didCollide = false;
     
     this.update = function(deltaTime, worldPos) {
+        if((this.group != null) && (children.length === 0)) {
+            for(let i = 0; i < this.group.enemies.length; i++) {
+                if(this.group.enemies[i] != this) {
+                    children.push(this.group.enemies[i]);
+                }
+            }
+        }
+        
         if(!this.isVisible) {return;}
         if(worldPos < spawnPos) {return;}//don't update if the world hasn't scrolled far enough to spawn
         
@@ -40,6 +51,17 @@ function SpawnPoint(position = {x:0, y:0}, spawnPos) {
         this.position.x -= (worldPos - this.worldPos);
         
         if(this.position.x < -this.size.width) {scene.removeEntity(this, false);}
+        
+        if(startSpawn <= (children.length * DELTA_SPAWN)) {
+            startSpawn += deltaTime;
+            
+            if(startSpawn > 0) {
+                const anIndex = Math.floor(startSpawn / DELTA_SPAWN);
+                if(anIndex < children.length) {
+                    children[anIndex].spawn(-position.x + this.position.x + this.size.width);
+                }
+            }
+        }
         
         this.worldPos = worldPos;
         
