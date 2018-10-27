@@ -378,6 +378,9 @@ function initializeTerrain(terrainData) {
             case "ragnarokCapsule":
                  world.push(new RagnarokCapsule({x:offRight, y:GameField.y+obj.y-obj.height}, obj.x));
                  break;
+             case "platform1":
+                 world.push(new TerrainEntity(obj.type, {x:offRight, y:GameField.y+obj.y-obj.height}, obj.x, 2));
+                 break;
             default:
                  world.push(new TerrainEntity(obj.type, {x:offRight, y:GameField.y+obj.y-obj.height}, obj.x, 1));
                  break;

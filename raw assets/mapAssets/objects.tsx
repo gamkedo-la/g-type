@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="300" tileheight="200" tilecount="28" columns="0">
+<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="300" tileheight="200" tilecount="29" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0" type="rock01">
   <properties>
@@ -172,5 +172,11 @@
    <property name="speed" type="int" value="-100"/>
   </properties>
   <image width="45" height="45" source="objectSprites/_editorFlyingEnemy3Path.png"/>
+ </tile>
+ <tile id="35" type="platform1">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="40" height="40" source="objectSprites/_editorPlatform1.png"/>
  </tile>
 </tileset>
