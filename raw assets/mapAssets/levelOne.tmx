@@ -772,17 +772,13 @@
     <property name="Group" type="int" value="47"/>
    </properties>
   </object>
-  <object id="1240" gid="38" x="160.5" y="467.5" width="40" height="28">
+  <object id="1240" gid="38" x="300.5" y="467.5" width="40" height="28">
    <properties>
-    <property name="Group" type="int" value="48"/>
-    <property name="Speed" type="int" value="-200"/>
+    <property name="Group" type="int" value="0"/>
+    <property name="Speed" type="int" value="0"/>
+    <property name="difficulty" type="int" value="20"/>
+    <property name="pattern" value="none"/>
    </properties>
-  </object>
-  <object id="1246" type="path" x="177" y="458">
-   <properties>
-    <property name="Group" type="int" value="48"/>
-   </properties>
-   <polyline points="0,0 286.5,-0.5"/>
   </object>
  </objectgroup>
 </map>

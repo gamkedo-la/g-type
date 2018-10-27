@@ -26,79 +26,27 @@ function GroundEnemy2(position = {x:0, y:0}, speed = 100, pattern = PathType.Loo
     
     let didCollide = false;
     
-    let pathPoints = [
-                      {x: GameField.right, y: GameField.y + 60},
-                      {x: GameField.x + GameField.width / 5, y: GameField.y + 60},
-                      {x: GameField.x + GameField.width / 4, y: GameField.y + 450},
-                      {x: GameField.x + GameField.width / 3, y: GameField.y + 450},
-                      {x: GameField.x + GameField.width / 2, y: GameField.y + 60},
-                      {x: GameField.x + GameField.width + 50, y: GameField.y + 60},
-                      ];
-    
-    if(path) {
-        if(path.polygon === undefined) {
-            pathPoints = path.polyline.slice(0);
-        } else {
-            pathPoints = path.polygon.slice(0);
-        }
-        
-        pathPoints.forEach((point) => {
-                           point.x += spawnPos;
-                           point.y += GameField.y + path.y;
-                           });
-    }
-    
-    this.path = new EnemyPath(pattern, this.position, speed, pathPoints, 0);
-    
     this.update = function(deltaTime, worldPos, playerPos) {
-        if(!this.isVisible) {return;}
-        if(worldPos < spawnPos) {return;}//don't update if the world hasn't scrolled far enough to spawn
-        
-        if(sprite.getDidDie()) {
-            scene.removeEntity(this, false);
-            sprite.isDying = false;
-            return;
-        }
-        
-//        if(this.worldPos != 0) {
-            this.path.updatePosition({x: ((this.worldPos - worldPos) * deltaTime / 1000), y:0});
-//            console.log("DeltaX: " + (this.worldPos - worldPos));
-//        }
-        this.worldPos = worldPos;
-        
-        let availableTime = unusedTime + deltaTime;
-        while(availableTime > SIM_STEP) {
-            availableTime -= SIM_STEP;
-            if(!sprite.isDying) {
-                const nextPos = this.path.nextPoint(SIM_STEP);
-                if(nextPos !== undefined) {
-                    if(pattern === PathType.None) {
-                        this.position.x += (vel.x * SIM_STEP / 1000);
-                    } else if(pattern === PathType.Sine) {
-                        this.position.x += nextPos.x;
-                        this.position.y += nextPos.y;
-                    } else if((pattern === PathType.Points) || (pattern === PathType.Loop)) {
-                        this.position.x = nextPos.x;
-                        this.position.y = nextPos.y;
-                    }
-                }
+        if((worldPos >= spawnPos) && (this.position.x > -this.size.width)) {
+            if(this.worldPos == null) {
+                this.worldPos = worldPos;
             }
             
-            if(this.position.x < -sprite.width) {
-                scene.removeEntity(this, false);
-                return;
+            sprite.update(deltaTime);//update the image
+            
+            let availableTime = unusedTime + deltaTime;
+            while(availableTime > SIM_STEP) {
+                availableTime -= SIM_STEP;
+                
+                this.position.x -= (worldPos - this.worldPos);
+                this.worldPos = worldPos;
             }
+            
+            unusedTime = availableTime;
+            this.collisionBody.setPosition({x: this.position.x, y: this.position.y});
+        } else if(this.position.x < -this.size.width) {
+            scene.removeEntity(this, false);
         }
-        
-        //store unused time for future use
-        unusedTime = availableTime;
-        
-        //update the collision body position
-        if(!sprite.isDying) {
-            this.collisionBody.setPosition(this.position);
-        }
-        
-        sprite.update(deltaTime);
         
         if(sprite !== explosionSprite) {
             this.doShooting(playerPos);
@@ -106,9 +54,11 @@ function GroundEnemy2(position = {x:0, y:0}, speed = 100, pattern = PathType.Loo
     };
     
     this.doShooting = function(playerPos) {
+        if(sprite === explosionSprite) {return;}//don't allow enemies to shoot while they are dying
+        
         if(sprite.getDidDie()) {
-            const facing = Math.PI / 2;
-
+            let facing = Math.PI / 2;
+            
             const angleToPlayer = Math.atan2(this.position.y - playerPos.y, playerPos.x - this.position.x);
             
             const deltaAngle = angleToPlayer - facing;
@@ -127,6 +77,12 @@ function GroundEnemy2(position = {x:0, y:0}, speed = 100, pattern = PathType.Loo
             }
             
             sprite.clearDeath();
+            return;
+        }
+        
+        const firingChance = Math.floor(1000 * Math.random());
+        if(firingChance < difficulty) {
+            sprite.isDying = true;//using the "dying" frames as "shooting" frames instead
         }
     };
     

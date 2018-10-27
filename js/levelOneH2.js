@@ -8661,55 +8661,29 @@
                         {
                          "name":"Group",
                          "type":"int",
-                         "value":48
+                         "value":0
                         }, 
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":-200
+                         "value":0
                         }, 
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":1
+                         "value":20
                         }, 
                         {
                          "name":"pattern",
                          "type":"string",
-                         "value":"loop"
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"groundEnemy2",
                  "visible":true,
                  "width":40,
-                 "x":160.5,
+                 "x":300.5,
                  "y":467.5
-                }, 
-                {
-                 "height":0,
-                 "id":1246,
-                 "name":"",
-                 "polyline":[
-                        {
-                         "x":0,
-                         "y":0
-                        }, 
-                        {
-                         "x":286.5,
-                         "y":-0.5
-                        }],
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":48
-                        }],
-                 "rotation":0,
-                 "type":"path",
-                 "visible":true,
-                 "width":0,
-                 "x":177,
-                 "y":458
                 }],
          "opacity":1,
          "type":"objectgroup",
