@@ -63,9 +63,12 @@ const ragnarokSheet = document.createElement("img");
 
 //Enemy Associated
 const enemyExplosionSheet2 = document.createElement("img");
-const flyingEnemySheet = document.createElement("img");
+const flyingEnemy1Sheet = document.createElement("img");
+const flyingEnemy1YellowSheet = document.createElement("img");
 const flyingEnemy2Sheet = document.createElement("img");
+const flyingEnemy2RedSheet = document.createElement("img");
 const flyingEnemy3Sheet = document.createElement("img");
+const flyingEnemy3RedSheet = document.createElement("img");
 const groundEnemySheet = document.createElement("img");
 const groundEnemy2Sheet = document.createElement("img");
 const enemyBulletSheet = document.createElement("img");
@@ -157,9 +160,12 @@ function loadImages() {
 
         // enemies
         { imgName: enemyExplosionSheet2, theFile: "enemy_explosion_sheet_2.png" },
-        { imgName: flyingEnemySheet, theFile: "FlyingEnemy1.png" },
+        { imgName: flyingEnemy1Sheet, theFile: "FlyingEnemy1.png" },
+        { imgName: flyingEnemy1YellowSheet, theFile: "FlyingEnemy1Yellow.png" },
         { imgName: flyingEnemy2Sheet, theFile: "FlyingEnemy2.png" },
+        { imgName: flyingEnemy2RedSheet, theFile: "FlyingEnemy2Red.png" },
         { imgName: flyingEnemy3Sheet, theFile: "FlyingEnemy3.png" },
+        { imgName: flyingEnemy3RedSheet, theFile: "FlyingEnemy3.png" },
         { imgName: groundEnemySheet, theFile: "GroundEnemy1.png" },
         { imgName: groundEnemy2Sheet, theFile: "GroundEnemy2.png" },
         { imgName: enemyBulletSheet, theFile: "EnemyBullet.png" },

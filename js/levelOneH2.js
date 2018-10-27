@@ -3568,7 +3568,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":1
+                         "value":30
                         }, 
                         {
                          "name":"pattern",
@@ -3865,7 +3865,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":1
+                         "value":30
                         }, 
                         {
                          "name":"pattern",
@@ -3898,7 +3898,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":1
+                         "value":30
                         }, 
                         {
                          "name":"pattern",
@@ -3931,7 +3931,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":1
+                         "value":30
                         }, 
                         {
                          "name":"pattern",
@@ -3964,7 +3964,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":1
+                         "value":30
                         }, 
                         {
                          "name":"pattern",
@@ -3997,7 +3997,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":1
+                         "value":30
                         }, 
                         {
                          "name":"pattern",
