@@ -67,17 +67,6 @@ function Player(position = {x:0, y:0}) {
 		if(sprite.isDying) {
 			explosionSprite.update(deltaTime);
 		}
-        
-        
-        //TODO: this doesn't belong here, but works to get TheForce appearing in-game while we work on incorporating it properly into the UI/PowerUp system.
-        if((this.forceUnit === null) || (this.forceUnit === undefined)) {
-            this.activateTheForce();
-        }
-        
-        
-        
-        
-        
 
 		for(let i = 0; i < ghosts.length; i++) {
 			ghosts[i].update(deltaTime, {x:this.position.x, y:this.position.y}, worldPos);

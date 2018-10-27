@@ -16,6 +16,8 @@ const tripleShotUI = document.createElement("img");
 const livesUI = document.createElement("img");
 const lightGhostUI = document.createElement("img");
 const darkGhostUI = document.createElement("img");
+const lightForceUI = document.createElement("img");
+const darkForceUI = document.createElement("img");
 const darkSpeedUI1 = document.createElement("img");
 const darkSpeedUI2 = document.createElement("img");
 const darkSpeedUI3 = document.createElement("img");
@@ -107,6 +109,8 @@ function loadImages() {
         { imgName: livesUI, theFile: "UILivesIconEven.png" },
         { imgName: lightGhostUI, theFile: "GhostShipUI-Lit.png" },
         { imgName: darkGhostUI, theFile: "GhostShipUI-Dark.png" },
+        { imgName: lightForceUI, theFile: "ForceTempUI-Lit.png" },
+        { imgName: darkForceUI, theFile: "ForceTempUI-Dark.png" },
         { imgName: darkSpeedUI1, theFile: "SpeedUI1Dark.png" },
         { imgName: darkSpeedUI2, theFile: "SpeedUI2Dark.png" },
         { imgName: darkSpeedUI3, theFile: "SpeedUI3Dark.png" },
