@@ -2660,6 +2660,24 @@
                  "width":76,
                  "x":395.5,
                  "y":506.25
+                }, 
+                {
+                 "gid":31,
+                 "height":60,
+                 "id":1248,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"ragnarokCapsule",
+                 "visible":true,
+                 "width":60,
+                 "x":476,
+                 "y":384.5
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -8700,7 +8718,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":1247,
+ "nextobjectid":1249,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.0",

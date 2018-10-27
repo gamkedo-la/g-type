@@ -56,6 +56,7 @@ function RagnarokCapsule(position = {x:0, y:0}, initialWorldPos) {
 	
 	this.didCollideWith = function(otherEntity) {
 		didCollide = true;
+        scene.shouldShake(MAX_SHAKE_MAGNITUDE/2);
 		scene.removeEntity(this, false);
 		scene.destroyAllOnScreen(this);
 		pauseSound.play();
