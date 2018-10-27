@@ -65,6 +65,7 @@ const flyingEnemySheet = document.createElement("img");
 const flyingEnemy2Sheet = document.createElement("img");
 const flyingEnemy3Sheet = document.createElement("img");
 const groundEnemySheet = document.createElement("img");
+const groundEnemy2Sheet = document.createElement("img");
 const enemyBulletSheet = document.createElement("img");
 const enemyBullet2Sheet = document.createElement("img");
 const miniBoss1Sheet = document.createElement("img");
@@ -156,6 +157,7 @@ function loadImages() {
         { imgName: flyingEnemy2Sheet, theFile: "FlyingEnemy2.png" },
         { imgName: flyingEnemy3Sheet, theFile: "FlyingEnemy3.png" },
         { imgName: groundEnemySheet, theFile: "GroundEnemy1.png" },
+        { imgName: groundEnemy2Sheet, theFile: "GroundEnemy2.png" },
         { imgName: enemyBulletSheet, theFile: "EnemyBullet.png" },
         { imgName: enemyBullet2Sheet, theFile: "EnemyShot2.png" },
         { imgName: miniBoss1Sheet, theFile: "MiniBoss1.png" },

@@ -91,6 +91,7 @@ function GameEntity(sprite, position = {x:0, y:0}, velocity = {x:0, y:0}, size =
 }
 
 function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
+//    console.log(type);
 	this.type = type;
 	this.position = position;
 	this.worldPos = null;

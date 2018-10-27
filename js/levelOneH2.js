@@ -2686,10 +2686,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":5120,
@@ -2709,10 +2719,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":5160,
@@ -2732,10 +2752,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":5206,
@@ -2755,10 +2785,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":5252,
@@ -2778,10 +2818,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":5302,
@@ -2801,10 +2851,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":5344,
@@ -2824,10 +2884,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":5376,
@@ -2843,9 +2913,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":5.497787143
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NE",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":5253.94,
@@ -2861,9 +2941,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0.785398163
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":5192.61,
@@ -2879,9 +2969,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":2.35619449
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1SW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":5667.94,
@@ -2897,9 +2997,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":2.35619449
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1SW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":5595.94,
@@ -2915,9 +3025,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":2.35619449
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1SW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":5619.27,
@@ -2933,9 +3053,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.926990816
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1SE",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":5992.61,
@@ -2951,9 +3081,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":4.71238898
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1E",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":6019.27,
@@ -2969,9 +3109,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":5.497787143
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NE",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":5997.94,
@@ -2987,9 +3137,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1N",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":5967.94,
@@ -3005,9 +3165,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":1.570796326
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1W",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":5918.61,
@@ -3023,9 +3193,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.141592653
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1S",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":5967.94,
@@ -3041,9 +3221,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":2.35619449
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1SW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":5941.27,
@@ -3059,9 +3249,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0.785398163
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":5937.27,
@@ -3081,7 +3281,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3104,7 +3314,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3127,7 +3347,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3150,7 +3380,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3173,7 +3413,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3196,7 +3446,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3219,7 +3479,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3242,7 +3512,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3265,7 +3545,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3288,7 +3578,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3311,7 +3611,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3334,7 +3644,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3357,7 +3677,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3380,7 +3710,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3403,7 +3743,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3426,7 +3776,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3449,7 +3809,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3472,7 +3842,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3495,7 +3875,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3518,7 +3908,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3541,7 +3941,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3564,7 +3974,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3587,10 +4007,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":1472,
@@ -3610,10 +4040,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":1504,
@@ -3633,10 +4073,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":1536,
@@ -3656,10 +4106,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":1568,
@@ -3679,10 +4139,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":1600,
@@ -3702,10 +4172,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":1632,
@@ -3725,7 +4205,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3748,7 +4238,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3771,7 +4271,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -3794,7 +4304,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":90,
                  "type":"flyingEnemy2",
@@ -3817,10 +4337,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":2145,
@@ -3840,10 +4370,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":2207,
@@ -3863,10 +4403,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":2271,
@@ -3886,10 +4436,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":2335,
@@ -3909,10 +4469,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":2403,
@@ -3974,10 +4544,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":2978,
@@ -3997,10 +4577,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":3040,
@@ -4020,10 +4610,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":3104,
@@ -4043,10 +4643,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":3168,
@@ -4066,10 +4676,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":3226,
@@ -4131,10 +4751,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":4062,
@@ -4154,10 +4784,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":4124,
@@ -4177,10 +4817,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":4188,
@@ -4200,10 +4850,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":4252,
@@ -4223,10 +4883,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":4320,
@@ -4288,10 +4958,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":3971,
@@ -4311,10 +4991,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":4033,
@@ -4334,10 +5024,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":4097,
@@ -4357,10 +5057,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":4161,
@@ -4380,10 +5090,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":4219,
@@ -4441,9 +5161,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.926990816
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1SE",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9259,
@@ -4459,9 +5189,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":4.71238898
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1E",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9285.66,
@@ -4477,9 +5217,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":5.497787143
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NE",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9264.33,
@@ -4495,9 +5245,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1N",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9234.33,
@@ -4513,9 +5273,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":1.570796326
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1W",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9185,
@@ -4531,9 +5301,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.141592653
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1S",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9234.33,
@@ -4549,9 +5329,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":2.35619449
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1SW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9207.66,
@@ -4567,9 +5357,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0.785398163
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9203.66,
@@ -4585,9 +5385,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.926990816
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1SE",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9451,
@@ -4603,9 +5413,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":4.71238898
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1E",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9477.66,
@@ -4621,9 +5441,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":5.497787143
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NE",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9456.33,
@@ -4639,9 +5469,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1N",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9426.33,
@@ -4657,9 +5497,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":1.570796326
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1W",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9377,
@@ -4675,9 +5525,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.141592653
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1S",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9426.33,
@@ -4693,9 +5553,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":2.35619449
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1SW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9399.66,
@@ -4711,9 +5581,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0.785398163
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9395.66,
@@ -4729,9 +5609,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.926990816
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1SE",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9707,
@@ -4747,9 +5637,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":4.71238898
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1E",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9733.66,
@@ -4765,9 +5665,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":5.497787143
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NE",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9712.33,
@@ -4783,9 +5693,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1N",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9682.33,
@@ -4801,9 +5721,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":1.570796326
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1W",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9633,
@@ -4819,9 +5749,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.141592653
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1S",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9682.33,
@@ -4837,9 +5777,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":2.35619449
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1SW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9655.66,
@@ -4855,9 +5805,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0.785398163
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9651.66,
@@ -4873,9 +5833,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.926990816
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1SE",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":10059,
@@ -4891,9 +5861,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":4.71238898
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1E",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":10085.7,
@@ -4909,9 +5889,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":5.497787143
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NE",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":10064.3,
@@ -4927,9 +5917,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1N",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":10034.3,
@@ -4945,9 +5945,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":1.570796326
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1W",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9985,
@@ -4963,9 +5973,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.141592653
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1S",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":10034.3,
@@ -4981,9 +6001,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":2.35619449
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1SW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":10007.7,
@@ -4999,9 +6029,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0.785398163
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":10003.7,
@@ -5017,9 +6057,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.926990816
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1SE",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9547,
@@ -5035,9 +6085,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":4.71238898
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1E",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9573.66,
@@ -5053,9 +6113,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":5.497787143
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NE",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9552.33,
@@ -5071,9 +6141,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1N",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9522.33,
@@ -5089,9 +6169,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":1.570796326
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1W",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9473,
@@ -5107,9 +6197,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.141592653
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1S",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9522.33,
@@ -5125,9 +6225,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":2.35619449
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1SW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9495.66,
@@ -5143,9 +6253,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0.785398163
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9491.66,
@@ -5161,9 +6281,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.926990816
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1SE",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9899,
@@ -5179,9 +6309,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":4.71238898
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1E",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9925.66,
@@ -5197,9 +6337,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":5.497787143
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NE",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9904.33,
@@ -5215,9 +6365,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1N",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9874.33,
@@ -5233,9 +6393,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":1.570796326
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1W",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9825,
@@ -5251,9 +6421,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.141592653
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1S",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9874.33,
@@ -5269,9 +6449,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":2.35619449
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1SW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9847.66,
@@ -5287,9 +6477,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0.785398163
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9843.66,
@@ -5305,9 +6505,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.926990816
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1SE",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":10841.7,
@@ -5323,9 +6533,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.926990816
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1SE",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":10694,
@@ -5341,9 +6561,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":5.497787143
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NE",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":10685,
@@ -5359,9 +6589,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":5.497787143
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NE",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":11073.3,
@@ -5377,9 +6617,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0.785398163
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":11027,
@@ -5395,9 +6645,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0.785398163
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":10984.3,
@@ -5413,9 +6673,19 @@
                          "name":"Group",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0.785398163
                         }],
                  "rotation":0,
-                 "type":"groundEnemy1NW",
+                 "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
                  "x":11226,
@@ -5435,10 +6705,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":11955.3,
@@ -5458,10 +6738,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":11723.3,
@@ -5481,10 +6771,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":11818,
@@ -5504,10 +6804,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":11994.7,
@@ -5527,10 +6837,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12009.3,
@@ -5550,10 +6870,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":11787.3,
@@ -5573,10 +6903,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":11885.3,
@@ -5658,10 +6998,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":10305,
@@ -5681,10 +7031,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":10337,
@@ -5704,10 +7064,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":10369,
@@ -5727,10 +7097,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":10401,
@@ -5750,10 +7130,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":10433,
@@ -5773,10 +7163,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":10465,
@@ -5796,10 +7196,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":10497,
@@ -5819,10 +7229,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12317.6,
@@ -5842,10 +7262,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12180.4,
@@ -5865,10 +7295,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12357.1,
@@ -5888,10 +7328,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12371.6,
@@ -5911,10 +7361,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12247.6,
@@ -5934,10 +7394,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12124,
@@ -5957,10 +7427,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12172,
@@ -5980,10 +7460,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12524,
@@ -6003,10 +7493,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12486,
@@ -6026,10 +7526,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12600,
@@ -6049,10 +7559,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12596,
@@ -6072,10 +7592,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12716,
@@ -6095,10 +7625,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2path",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12716,
@@ -6136,7 +7676,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -6159,7 +7709,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -6182,7 +7742,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -6205,7 +7775,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -6228,7 +7808,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -6251,7 +7841,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -6274,7 +7874,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy1",
@@ -6297,10 +7907,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":1879,
@@ -6320,10 +7940,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":1985,
@@ -6343,7 +7973,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2",
@@ -6366,7 +8006,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2",
@@ -6389,7 +8039,17 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
                         }],
                  "rotation":0,
                  "type":"flyingEnemy2",
@@ -6445,10 +8105,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9013,
@@ -6468,10 +8138,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9073,
@@ -6491,10 +8171,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9139,
@@ -6514,10 +8204,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9199,
@@ -6537,10 +8237,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9263,
@@ -6560,10 +8270,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9333,
@@ -6583,10 +8303,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9395,
@@ -6606,10 +8336,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9459,
@@ -6629,10 +8369,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9521,
@@ -6652,10 +8402,20 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy1sine",
+                 "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
                  "x":9587,
@@ -6703,10 +8463,10 @@
                         {
                          "name":"speed",
                          "type":"int",
-                         "value":-100
+                         "value":-150
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy3path",
+                 "type":"flyingEnemy3",
                  "visible":true,
                  "width":45,
                  "x":236,
@@ -6766,10 +8526,10 @@
                         {
                          "name":"speed",
                          "type":"int",
-                         "value":-100
+                         "value":-150
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy3path",
+                 "type":"flyingEnemy3",
                  "visible":true,
                  "width":45,
                  "x":234,
@@ -6799,10 +8559,10 @@
                         {
                          "name":"speed",
                          "type":"int",
-                         "value":-100
+                         "value":-150
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy3path",
+                 "type":"flyingEnemy3",
                  "visible":true,
                  "width":45,
                  "x":234,
@@ -6832,10 +8592,10 @@
                         {
                          "name":"speed",
                          "type":"int",
-                         "value":-100
+                         "value":-150
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy3path",
+                 "type":"flyingEnemy3",
                  "visible":true,
                  "width":45,
                  "x":236,
@@ -6865,10 +8625,10 @@
                         {
                          "name":"speed",
                          "type":"int",
-                         "value":-100
+                         "value":-150
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy3path",
+                 "type":"flyingEnemy3",
                  "visible":true,
                  "width":45,
                  "x":234,

@@ -1,5 +1,5 @@
 //FlyingEnemy2
-function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.None, timeOffset = 0, spawnPos = 0, difficulty = 0, path = null) {
+function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.None, spawnPos = 0, difficulty = 0, path = null) {
 	this.type = EntityType.FlyingEnemy2;
 	this.group = null;
 	this.worldPos = 0;
@@ -45,7 +45,7 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		
 	}
 	
-	this.path = new EnemyPath(PathType.Points, this.position, speed, pathPoints, timeOffset);
+	this.path = new EnemyPath(PathType.Points, this.position, speed, pathPoints, 0);
 	
 	this.update = function(deltaTime, worldPos, playerPos) {
 		if(!this.isVisible) {return;}
@@ -135,7 +135,7 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		if(worldPos > spawnPos) {
 			this.worldPos = worldPos;
 			const totalTime = (worldPos * SIM_STEP);
-			const nextPos = this.path.nextPoint(totalTime - timeOffset);
+			const nextPos = this.path.nextPoint(totalTime);
 			this.position.x = nextPos.x;
 			this.position.y = nextPos.y;
 		}

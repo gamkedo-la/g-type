@@ -1,5 +1,5 @@
 //GroundEnemy1
-function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, pattern = PathType.None, timeOffset = 0, spawnPos = 0, difficulty = 0) {
+function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, spawnPos = 0, difficulty = 0) {
 	this.type = EntityType.GroundEnemy1;
 	this.group = null;
 	this.worldPos = 0;
@@ -8,7 +8,6 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 	
 	const SPRITE_SCALE = 1;
 	this.position = {x: position.x + spawnPos, y:position.y};
-	let vel = {x:speed, y:speed};
 	let unusedTime = 0;
 	this.isVisible = true;
 	this.rotation = rotation;
@@ -26,9 +25,9 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 										center: {x:this.position.x + this.size.height / 2, y:this.position.y + this.size.height / 2}}
 									  );
 	let didCollide = false;
-		
-	this.path = new EnemyPath(PathType.None, this.position, speed, [], timeOffset);
-	
+    
+    this.path = new EnemyPath(PathType.None, this.position, 0, [], 0);//speed & timeOffset = 0
+			
 	this.update = function(deltaTime, worldPos, playerPos) {
 		if((worldPos >= spawnPos) && (this.position.x > -this.size.width)) {
 			if(this.worldPos == null) {
@@ -109,9 +108,9 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, speed = 0, p
 		if(worldPos > spawnPos) {
 			this.worldPos = worldPos;
 			const totalTime = (worldPos *  SIM_STEP);
-			const nextPos = this.path.nextPoint(totalTime - timeOffset);
-			this.position.x = nextPos.x;
-			this.position.y = nextPos.y;
+            const nextPos = this.path.nextPoint(totalTime);
+            this.position.x = nextPos.x;
+            this.position.y = nextPos.y;
 		}
 	};
 	

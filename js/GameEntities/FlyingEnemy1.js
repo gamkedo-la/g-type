@@ -1,5 +1,5 @@
 //FlyingEnemy1
-function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.None, timeOffset = 0, spawnPos = 0, difficulty = 0) {
+function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.None, spawnPos = 0, difficulty = 0) {
 	this.type = EntityType.FlyingEnemy1;
 	this.group = null;
 	this.worldPos = 0;
@@ -23,7 +23,7 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 									  );
 	let didCollide = false;
 	
-	this.path = new EnemyPath(PathType.Sine, this.position, speed, [], timeOffset);
+	this.path = new EnemyPath(PathType.Sine, this.position, speed, [], 0);
 
 	this.update = function(deltaTime, worldPos, playerPos) {
 		if(sprite.getDidDie()) {
@@ -115,7 +115,7 @@ function FlyingEnemy1(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		if(worldPos > spawnPos) {
 			this.worldPos = worldPos;
 			const totalTime = (worldPos *  SIM_STEP);
-			const nextPos = this.path.nextPoint(totalTime - timeOffset);
+			const nextPos = this.path.nextPoint(totalTime);
 			this.position.x = nextPos.x;
 			this.position.y = nextPos.y;
 		}
