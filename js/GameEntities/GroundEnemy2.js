@@ -1,5 +1,5 @@
 //GroundEnemy2
-function GroundEnemy2(position = {x:0, y:0}, speed = 100, pattern = PathType.Loop, spawnPos = 0, difficulty = 1) {
+function GroundEnemy2(position = {x:0, y:0}, speed = 100, pattern = PathType.Loop, spawnPos = 0, difficulty = 1, path = null) {
     this.type = EntityType.GroundEnemy1;
     this.group = null;
     this.worldPos = 0;
@@ -12,12 +12,187 @@ function GroundEnemy2(position = {x:0, y:0}, speed = 100, pattern = PathType.Loo
     let unusedTime = 0;
     this.isVisible = true;
     
-    const normalSprite = new AnimatedSprite(groundEnemySheet, 9, 30, 30, true, true, {min:0, max:0}, 0, {min:0, max:4}, 256, {min:5, max:8}, 128);
+    const normalSprite = new AnimatedSprite(groundEnemy2Sheet, 9, 40, 28, true, true, {min:0, max:0}, 0, {min:0, max:4}, 256, {min:5, max:8}, 128);
     const explosionSprite = new AnimatedSprite(enemyExplosionSheet2, 11, 96, 96, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
     let sprite = normalSprite;
     
     this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 
+    const colliderPath = [{x: this.position.x, y: this.position.y},
+                          {x: this.position.x + this.size.width, y: this.position.y},
+                          {x: this.position.x + this.size.width, y: this.position.y + this.size.height},
+                          {x: this.position.x, y: this.position.y + this.size.height}];
+    this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:this.position.x, y:this.position.y}});
+    
+    let didCollide = false;
+    
+    let pathPoints = [
+                      {x: GameField.right, y: GameField.y + 60},
+                      {x: GameField.x + GameField.width / 5, y: GameField.y + 60},
+                      {x: GameField.x + GameField.width / 4, y: GameField.y + 450},
+                      {x: GameField.x + GameField.width / 3, y: GameField.y + 450},
+                      {x: GameField.x + GameField.width / 2, y: GameField.y + 60},
+                      {x: GameField.x + GameField.width + 50, y: GameField.y + 60},
+                      ];
+    
+    if(path) {
+        if(path.polygon === undefined) {
+            pathPoints = path.polyline.slice(0);
+        } else {
+            pathPoints = path.polygon.slice(0);
+        }
+        
+        pathPoints.forEach((point) => {
+                           point.x += spawnPos;
+                           point.y += GameField.y + path.y;
+                           });
+    }
+    
+    this.path = new EnemyPath(pattern, this.position, speed, pathPoints, 0);
+    
+    this.update = function(deltaTime, worldPos, playerPos) {
+        if(!this.isVisible) {return;}
+        if(worldPos < spawnPos) {return;}//don't update if the world hasn't scrolled far enough to spawn
+        
+        if(sprite.getDidDie()) {
+            scene.removeEntity(this, false);
+            sprite.isDying = false;
+            return;
+        }
+        
+//        if(this.worldPos != 0) {
+            this.path.updatePosition({x: ((this.worldPos - worldPos) * deltaTime / 1000), y:0});
+//            console.log("DeltaX: " + (this.worldPos - worldPos));
+//        }
+        this.worldPos = worldPos;
+        
+        let availableTime = unusedTime + deltaTime;
+        while(availableTime > SIM_STEP) {
+            availableTime -= SIM_STEP;
+            if(!sprite.isDying) {
+                const nextPos = this.path.nextPoint(SIM_STEP);
+                if(nextPos !== undefined) {
+                    if(pattern === PathType.None) {
+                        this.position.x += (vel.x * SIM_STEP / 1000);
+                    } else if(pattern === PathType.Sine) {
+                        this.position.x += nextPos.x;
+                        this.position.y += nextPos.y;
+                    } else if((pattern === PathType.Points) || (pattern === PathType.Loop)) {
+                        this.position.x = nextPos.x;
+                        this.position.y = nextPos.y;
+                    }
+                }
+            }
+            
+            if(this.position.x < -sprite.width) {
+                scene.removeEntity(this, false);
+                return;
+            }
+        }
+        
+        //store unused time for future use
+        unusedTime = availableTime;
+        
+        //update the collision body position
+        if(!sprite.isDying) {
+            this.collisionBody.setPosition(this.position);
+        }
+        
+        sprite.update(deltaTime);
+        
+        if(sprite !== explosionSprite) {
+            this.doShooting(playerPos);
+        }
+    };
+    
+    this.doShooting = function(playerPos) {
+        if(sprite.getDidDie()) {
+            const facing = Math.PI / 2;
+
+            const angleToPlayer = Math.atan2(this.position.y - playerPos.y, playerPos.x - this.position.x);
+            
+            const deltaAngle = angleToPlayer - facing;
+            if((deltaAngle > -Math.PI / 2) && (deltaAngle < Math.PI / 2)) {
+                const xVel = 50 * Math.cos(angleToPlayer);
+                const yVel = -50 * Math.sin(angleToPlayer);
+                
+                const bulletXPos = this.collisionBody.center.x + this.collisionBody.radius * Math.cos(facing);
+                const bulletYPos = this.collisionBody.center.y - this.collisionBody.radius * Math.sin(facing);
+                
+                const newBullet = new EnemyBullet(EntityType.EnemyBullet1, {x: bulletXPos, y: bulletYPos}, {x: xVel, y:yVel});
+                newBullet.setPosition({x:newBullet.position.x - newBullet.size.width / 2,
+                                      y:newBullet.position.y - newBullet.size.height / 2});
+                
+                scene.addEntity(newBullet, false);
+            }
+            
+            sprite.clearDeath();
+        }
+    };
+    
+    this.draw = function() {
+        if(!this.isVisible) {return;}
+        if(this.worldPos < spawnPos) {return;}
+
+        sprite.drawAt(this.position, this.size);
+        if(!sprite.isDying) {
+            this.collisionBody.draw();
+        }
+    };
+    
+    this.respawn = function(worldPos) {
+        if(worldPos > spawnPos) {
+            this.worldPos = worldPos;
+            const totalTime = (worldPos *  SIM_STEP);
+            const nextPos = this.path.nextPoint(totalTime - timeOffset);
+            this.position.x = nextPos.x;
+            this.position.y = nextPos.y;
+        }
+    };
+    
+    this.didCollideWith = function(otherEntity) {
+        if (otherEntity) {
+            let entityType = otherEntity.type;
+            if ((entityType === EntityType.PlayerForceUnit) ||
+                (entityType === EntityType.RagnarokCapsule) ||
+                (entityType === EntityType.PlayerShot) ||
+                (entityType === EntityType.PlayerMissile) ||
+                (entityType === EntityType.PlayerDouble) ||
+                (entityType === EntityType.PlayerLaser) ||
+                (entityType === EntityType.PlayerTriple) ||
+                (entityType === EntityType.PlayerShield)) {
+                this.hitPoints -= otherEntity.damagePoints;
+            }
+        }
+        else {
+            this.hitPoints = 0; // TODO remove this catch-all; we want all collisions with player weapons to inflict damage based on their damagePoints
+        }
+        
+        if (this.hitPoints <= 0) {
+            if(sprite.isDying) {return;}//already dying, no reason to continue
+            
+            scene.displayScore(this);
+            
+            sprite = new AnimatedSprite(enemyExplosionSheet2, 11, 96, 96, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
+            
+            this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+            
+            this.position.x = this.collisionBody.center.x - this.size.width / 2;
+            this.position.y = this.collisionBody.center.y - this.size.height / 2;
+            
+            sprite = explosionSprite;
+            this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+            
+            this.position.x = this.collisionBody.center.x - this.size.width / 2;
+            this.position.y = this.collisionBody.center.y - this.size.height / 2;
+            
+            sprite.isDying = true;
+            sprite.wasBorn = true;
+            scene.removeCollisions(this);
+            
+            enemySmallExplosion.play();
+        }
+    };
 }
 
 

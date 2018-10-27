@@ -261,6 +261,9 @@ function initializeEnemies(enemyData) {
           case EntityType.GroundEnemy1:
               enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[2].value, obj.x, obj.properties[1].value)));
               break;
+          case EntityType.GroundEnemy2:
+              enemies.push(currentGroup.add(new GroundEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[1].value, obj.properties[3].value, obj.x, obj.properties[2].value, getPath(enemyPaths, obj))));
+              break;
           case EntityType.LaunchBay:
               enemies.push(currentGroup.add(new LaunchBay({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x)));
               break;
@@ -289,8 +292,9 @@ function initializeEnemies(enemyData) {
             case EntityType.GroundEnemy1:
                 enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[2].value, obj.x, obj.properties[1].value))
                 break;
-            case "groundEnemy2":
-                enemies.push(new GroundEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, -100, PathType.None, 0, obj.x, obj.properties[1].value))
+            case EntityType.GroundEnemy2:
+                console.log("Found the not-grouped Ground Enemy 2.");
+                enemies.push(new GroundEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[1].value, obj.properties[3].value, obj.x, obj.properties[2].value, getPath(enemyPaths, obj)));
                 break;
             case EntityType.MiniBoss1:
                         enemies.push(new MiniBoss1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
@@ -320,7 +324,6 @@ function initializeTerrain(terrainData) {
 	let levelTerrain = terrainData.filter((obj)=>{return obj.properties[0].value == 0});
 
     levelTerrain.forEach(obj=> {
-                         console.log("Switch Type: " + obj.type);
          switch(obj.type) {
             case "bubble":
                 world.push(new BubbleEntity(EntityType.Bubble, {x:offRight, y:GameField.y + obj.y - obj.height}, obj.x, 1, 1024));

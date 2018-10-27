@@ -2605,7 +2605,7 @@
                  "visible":true,
                  "width":76,
                  "x":168.25,
-                 "y":410.25
+                 "y":506.25
                 }, 
                 {
                  "gid":37,
@@ -2623,7 +2623,7 @@
                  "visible":true,
                  "width":76,
                  "x":244.25,
-                 "y":410.25
+                 "y":506.25
                 }, 
                 {
                  "gid":37,
@@ -2641,7 +2641,7 @@
                  "visible":true,
                  "width":76,
                  "x":320.25,
-                 "y":410.25
+                 "y":506.25
                 }, 
                 {
                  "gid":37,
@@ -2659,7 +2659,7 @@
                  "visible":true,
                  "width":76,
                  "x":395.5,
-                 "y":410.25
+                 "y":506.25
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -8633,6 +8633,65 @@
                  "width":45,
                  "x":234,
                  "y":310
+                }, 
+                {
+                 "gid":38,
+                 "height":28,
+                 "id":1240,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":48
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-200
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"loop"
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy2",
+                 "visible":true,
+                 "width":40,
+                 "x":160.5,
+                 "y":467.5
+                }, 
+                {
+                 "height":0,
+                 "id":1246,
+                 "name":"",
+                 "polyline":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":286.5,
+                         "y":-0.5
+                        }],
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":48
+                        }],
+                 "rotation":0,
+                 "type":"path",
+                 "visible":true,
+                 "width":0,
+                 "x":177,
+                 "y":458
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -8641,7 +8700,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":1233,
+ "nextobjectid":1247,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.0",

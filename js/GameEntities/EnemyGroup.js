@@ -150,7 +150,7 @@ function EnemyPath(type = PathType.None, start = {x:0, y:0}, speed = 0, points =
 		currentSpeed = newSpeed / 1000;
     };
     
-    this.updatePosition = function(deltaPosition, callerType) {
+    this.updatePosition = function(deltaPosition) {
         for(let i = 0; i < points.length; i++) {
             points[i].x += deltaPosition.x;
             points[i].y += deltaPosition.y;

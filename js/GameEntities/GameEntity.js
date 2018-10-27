@@ -29,7 +29,8 @@ const EntityType = {
 	FlyingEnemy1:"flyingEnemy1",
     FlyingEnemy2:"flyingEnemy2",
     FlyingEnemy3:"flyingEnemy3",
-	GroundEnemy1:"groundEnemy1",
+    GroundEnemy1:"groundEnemy1",
+    GroundEnemy2:"groundEnemy2",
 	EnemyBullet1:"enemyBullet1",
 	EnemyBullet2:"enemyBullet2",
 	EnemyBullet3:"enemyBullet3",
@@ -91,13 +92,13 @@ function GameEntity(sprite, position = {x:0, y:0}, velocity = {x:0, y:0}, size =
 }
 
 function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
-//    console.log(type);
 	this.type = type;
 	this.position = position;
 	this.worldPos = null;
 	let unusedTime = 0;
 	
 	const sprite = spriteForType(type);
+
 	this.size = {width:scale * sprite.width, height:scale * sprite.height};
 	
 	const colliderForTypeAndPosition = function(type, pos) {
