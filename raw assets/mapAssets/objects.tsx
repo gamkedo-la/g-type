@@ -173,10 +173,10 @@
   </properties>
   <image width="45" height="45" source="objectSprites/_editorFlyingEnemy3Path.png"/>
  </tile>
- <tile id="35" type="platform1">
+ <tile id="36" type="platform1">
   <properties>
    <property name="Group" type="int" value="0"/>
   </properties>
-  <image width="40" height="40" source="objectSprites/_editorPlatform1.png"/>
+  <image width="76" height="38" source="objectSprites/_editorPlatform1.png"/>
  </tile>
 </tileset>
