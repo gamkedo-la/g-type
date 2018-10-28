@@ -165,7 +165,7 @@ function loadImages() {
         { imgName: flyingEnemy2Sheet, theFile: "FlyingEnemy2.png" },
         { imgName: flyingEnemy2RedSheet, theFile: "FlyingEnemy2Red.png" },
         { imgName: flyingEnemy3Sheet, theFile: "FlyingEnemy3.png" },
-        { imgName: flyingEnemy3RedSheet, theFile: "FlyingEnemy3.png" },
+        { imgName: flyingEnemy3RedSheet, theFile: "FlyingEnemy3Red.png" },
         { imgName: groundEnemySheet, theFile: "GroundEnemy1.png" },
         { imgName: groundEnemy2Sheet, theFile: "GroundEnemy2.png" },
         { imgName: enemyBulletSheet, theFile: "EnemyBullet.png" },
