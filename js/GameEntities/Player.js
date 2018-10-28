@@ -280,19 +280,19 @@ function Player(position = {x:0, y:0}) {
 		
 	this.adjustVelocityAndSpriteForPlayerInput = function() {
 		//indicates the sprite is NOT "playing" the death animation => can still fly around the screen and shoot
-		if(holdLeft) {
+		if(holdLeft || holdA) {
 			velocity.x = -currentSpeed;
 			sprite.setFrame(thrustFrame.min);//show a frame with minimal thrust fire
-		} else if(holdRight) {
+		} else if(holdRight || holdD) {
 			velocity.x = currentSpeed;
 			sprite.setFrame(thrustFrame.max);//show a frame with maximal thrust fire
 		} else {
 			velocity.x = 0;
 		}
 		
-		if(holdUp) {
+		if(holdUp || holdW) {
 			velocity.y = -currentSpeed;
-		} else if(holdDown) {
+		} else if(holdDown || holdS) {
 			velocity.y = currentSpeed;
 		} else {
 			velocity.y = 0;
