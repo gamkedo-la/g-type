@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="300" tileheight="200" tilecount="29" columns="0">
+<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="300" tileheight="200" tilecount="30" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0" type="rock01">
   <properties>
@@ -34,21 +34,27 @@
  <tile id="8" type="flyingEnemy1">
   <properties>
    <property name="Group" type="int" value="0"/>
-   <property name="Speed" type="int" value="0"/>
+   <property name="Speed" type="int" value="-100"/>
+   <property name="difficulty" type="int" value="1"/>
+   <property name="pattern" value="none"/>
   </properties>
   <image width="30" height="21" source="objectSprites/_editorFlyingEnemy1.png"/>
  </tile>
  <tile id="9" type="flyingEnemy2">
   <properties>
    <property name="Group" type="int" value="0"/>
-   <property name="Speed" type="int" value="0"/>
+   <property name="Speed" type="int" value="-150"/>
+   <property name="difficulty" type="int" value="1"/>
+   <property name="pattern" value="none"/>
   </properties>
   <image width="50" height="50" source="objectSprites/_editorFlyingEnemy2.png"/>
  </tile>
- <tile id="11" type="flyingEnemy1sine">
+ <tile id="11" type="flyingEnemy1">
   <properties>
    <property name="Group" type="int" value="0"/>
-   <property name="Speed" type="int" value="0"/>
+   <property name="Speed" type="int" value="-100"/>
+   <property name="difficulty" type="int" value="1"/>
+   <property name="pattern" value="sine"/>
   </properties>
   <image width="30" height="21" source="objectSprites/_editorFlyingEnemy1Sine.png"/>
  </tile>
@@ -64,58 +70,76 @@
   </properties>
   <image width="30" height="30" source="objectSprites/_editorBubble.png"/>
  </tile>
- <tile id="17" type="groundEnemy1E">
+ <tile id="17" type="groundEnemy1">
   <properties>
    <property name="Group" type="int" value="0"/>
+   <property name="difficulty" type="int" value="1"/>
+   <property name="rotation" type="float" value="4.7123889800000001"/>
   </properties>
   <image width="30" height="30" source="objectSprites/_editorGroundEnemy1E.png"/>
  </tile>
- <tile id="18" type="groundEnemy1NE">
+ <tile id="18" type="groundEnemy1">
   <properties>
    <property name="Group" type="int" value="0"/>
+   <property name="difficulty" type="int" value="1"/>
+   <property name="rotation" type="float" value="5.497787143"/>
   </properties>
   <image width="30" height="30" source="objectSprites/_editorGroundEnemy1NE.png"/>
  </tile>
- <tile id="19" type="groundEnemy1NW">
+ <tile id="19" type="groundEnemy1">
   <properties>
    <property name="Group" type="int" value="0"/>
+   <property name="difficulty" type="int" value="1"/>
+   <property name="rotation" type="float" value="0.78539816299999998"/>
   </properties>
   <image width="30" height="30" source="objectSprites/_editorGroundEnemy1NW.png"/>
  </tile>
- <tile id="20" type="groundEnemy1S">
+ <tile id="20" type="groundEnemy1">
   <properties>
    <property name="Group" type="int" value="0"/>
+   <property name="difficulty" type="int" value="1"/>
+   <property name="rotation" type="float" value="3.141592653"/>
   </properties>
   <image width="30" height="30" source="objectSprites/_editorGroundEnemy1S.png"/>
  </tile>
- <tile id="21" type="groundEnemy1SE">
+ <tile id="21" type="groundEnemy1">
   <properties>
    <property name="Group" type="int" value="0"/>
+   <property name="difficulty" type="int" value="1"/>
+   <property name="rotation" type="float" value="3.926990816"/>
   </properties>
   <image width="30" height="30" source="objectSprites/_editorGroundEnemy1SE.png"/>
  </tile>
- <tile id="22" type="groundEnemy1SW">
+ <tile id="22" type="groundEnemy1">
   <properties>
    <property name="Group" type="int" value="0"/>
+   <property name="difficulty" type="int" value="1"/>
+   <property name="rotation" type="float" value="2.35619449"/>
   </properties>
   <image width="30" height="30" source="objectSprites/_editorGroundEnemy1SW.png"/>
  </tile>
- <tile id="23" type="groundEnemy1W">
+ <tile id="23" type="groundEnemy1">
   <properties>
    <property name="Group" type="int" value="0"/>
+   <property name="difficulty" type="int" value="1"/>
+   <property name="rotation" type="float" value="1.570796326"/>
   </properties>
   <image width="30" height="30" source="objectSprites/_editorGroundEnemy1W.png"/>
  </tile>
- <tile id="24" type="groundEnemy1N">
+ <tile id="24" type="groundEnemy1">
   <properties>
    <property name="Group" type="int" value="0"/>
+   <property name="difficulty" type="int" value="1"/>
+   <property name="rotation" type="float" value="0"/>
   </properties>
   <image width="30" height="30" source="objectSprites/_editorGroundEnemy1.png"/>
  </tile>
- <tile id="25" type="flyingEnemy2path">
+ <tile id="25" type="flyingEnemy2">
   <properties>
    <property name="Group" type="int" value="0"/>
-   <property name="Speed" type="int" value="0"/>
+   <property name="Speed" type="int" value="-150"/>
+   <property name="difficulty" type="int" value="1"/>
+   <property name="pattern" value="points"/>
   </properties>
   <image width="50" height="50" source="objectSprites/_editorFlyingEnemy2Path.png"/>
  </tile>
@@ -160,16 +184,16 @@
    <property name="Group" type="int" value="0"/>
    <property name="difficulty" type="int" value="10"/>
    <property name="pattern" value="none"/>
-   <property name="speed" type="int" value="-100"/>
+   <property name="speed" type="int" value="-150"/>
   </properties>
   <image width="45" height="45" source="objectSprites/_editorFlyingEnemy3.png"/>
  </tile>
- <tile id="34" type="flyingEnemy3path">
+ <tile id="34" type="flyingEnemy3">
   <properties>
    <property name="Group" type="int" value="0"/>
    <property name="difficulty" type="int" value="10"/>
    <property name="pattern" value="points"/>
-   <property name="speed" type="int" value="-100"/>
+   <property name="speed" type="int" value="-150"/>
   </properties>
   <image width="45" height="45" source="objectSprites/_editorFlyingEnemy3Path.png"/>
  </tile>
@@ -178,5 +202,14 @@
    <property name="Group" type="int" value="0"/>
   </properties>
   <image width="76" height="38" source="objectSprites/_editorPlatform1.png"/>
+ </tile>
+ <tile id="37" type="groundEnemy2">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+   <property name="Speed" type="int" value="-150"/>
+   <property name="difficulty" type="int" value="1"/>
+   <property name="pattern" value="loop"/>
+  </properties>
+  <image width="40" height="28" source="objectSprites/_editorGroundEnemy2.png"/>
  </tile>
 </tileset>

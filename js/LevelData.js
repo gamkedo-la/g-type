@@ -210,9 +210,12 @@ const LevelData = [
 
 function getPath(pathsObject, entity){
 	let entityGroupValue = entity.properties[0].value;
-	let matchingPath = pathsObject.find((path)=>{
+	let matchingPath = pathsObject.find((path)=> {
 		return path.properties[0].value == entityGroupValue;
-	})
+    });
+    
+    if(matchingPath === undefined) {return null;};
+    
 	return JSON.parse(JSON.stringify(matchingPath));
 }
 
@@ -244,112 +247,65 @@ function initializeEnemies(enemyData) {
     enemyGroups.forEach((group)=> {
     let currentGroup = new EnemyGroup();
     group.forEach((obj)=> {
-                  switch(obj.type) {
-                      case "flyingEnemy1":
-                          //tiled-editor object origin is bottom-left, game engine sprite origin is top-left
-                          enemies.push(currentGroup.add(new FlyingEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, -100, "none" ,25,obj.x,1)));
-                          break;
-                      case "flyingEnemy2":
-                          enemies.push(currentGroup.add(new FlyingEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, -100, "none",25,obj.x,1)));
-                          break;
-                      case "flyingEnemy1sine":
-                          enemies.push(currentGroup.add(new FlyingEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, -90, "sine" ,25,obj.x,1)));
-                          break;
-                      case "flyingEnemy2path":
-                          enemies.push(currentGroup.add(new FlyingEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, -150, "points",0,obj.x,1, getPath(enemyPaths, obj))));
-                          break;
-                      case "flyingEnemy3":
-                          enemies.push(currentGroup.add(new FlyingEnemy3({x:offRight, y:GameField.y+obj.y-obj.height}, -150, "none",obj.x,1)));
-                          break;
-                      case "flyingEnemy3path":
-                          enemies.push(currentGroup.add(new FlyingEnemy3({x:offRight, y:GameField.y+obj.y-obj.height}, -150, "points",obj.x,1, getPath(enemyPaths, obj))));
-                          break;
-                      case "groundEnemy1N":
-                          enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, 0, -100, "none", 0, obj.x, 1)));
-                          break;
-                      case "groundEnemy1S":
-                          enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI, -100, "none", 0, obj.x, 1)));
-                          break;
-                      case "groundEnemy1E":
-                          enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/2*3, -100, "none", 0, obj.x, 1)));
-                          break;
-                      case "groundEnemy1W":
-                          enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/2, -100, "none", 0, obj.x, 1)));
-                          break;
-                      case "groundEnemy1NE":
-                          enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4*7, -100, "none", 0, obj.x, 1)));
-                          break;
-                      case "groundEnemy1NW":
-                          enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4, -100, "none", 0, obj.x, 1)));
-                          break;
-                      case "groundEnemy1SE":
-                          enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4*5, -100, "none", 0, obj.x, 1)));
-                          break;
-                      case "groundEnemy1SW":
-                          enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4*3, -100, "none", 0, obj.x, 1)));
-                          break;
-                      case "launchBay":
-                          enemies.push(currentGroup.add(new LaunchBay({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x)));
-						  break;
-					  case "path":
-						  //do nothing
-						  break;
-                      default:
-                          console.error("can not find grouped enemy type: " + obj.type);
-                          break;
-                  }
+      switch(obj.type) {
+          case EntityType.FlyingEnemy1:
+              //tiled-editor object origin is bottom-left, game engine sprite origin is top-left
+              enemies.push(currentGroup.add(new FlyingEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[1].value, obj.properties[3].value, obj.x, obj.properties[2].value)));
+              break;
+          case EntityType.FlyingEnemy2:
+              enemies.push(currentGroup.add(new FlyingEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[1].value, obj.properties[3].value, obj.x,obj.properties[2].value, getPath(enemyPaths, obj))));
+              break;
+          case EntityType.FlyingEnemy3:
+              enemies.push(currentGroup.add(new FlyingEnemy3({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[3].value, obj.properties[2].value, obj.x,obj.properties[1].value, getPath(enemyPaths, obj))));
+              break;
+          case EntityType.GroundEnemy1:
+              enemies.push(currentGroup.add(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[2].value, obj.x, obj.properties[1].value)));
+              break;
+          case EntityType.GroundEnemy2:
+              enemies.push(currentGroup.add(new GroundEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[1].value, obj.properties[3].value, obj.x, obj.properties[2].value, getPath(enemyPaths, obj))));
+              break;
+          case EntityType.LaunchBay:
+              enemies.push(currentGroup.add(new LaunchBay({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x)));
+              break;
+          case "path":
+              //do nothing
+              break;
+          default:
+              console.error("can not find grouped enemy type: " + obj.type);
+              break;
+      }
                 });
         });
     let noGroupsEnemies = enemiesData.filter((obj)=>{return obj.properties[0].value == 0});
     noGroupsEnemies.forEach((obj)=> {
-                switch(obj.type) {
-                    case "flyingEnemy1":
-                    //tiled-editor object origin is bottom-left, game engine sprite origin is top-left
-                    enemies.push(new FlyingEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, -100, "none" ,25,obj.x,1))
-                    break;
-                case "flyingEnemy2":
-                    enemies.push(new FlyingEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, -100, "none",25,obj.x,1))
-                    break;
-                    case "flyingEnemy1sine":
-                    enemies.push(new FlyingEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, -100, "sine" ,25,obj.x,1))
-                    break;
-                case "flyingEnemy2sine":
-                    enemies.push(new FlyingEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, -100, "sine",25,obj.x,1))
-                    break;
-                case "groundEnemy1N":
-                    enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, 0, -100, "none", 0, obj.x, 1))
-                    break;
-                case "groundEnemy1S":
-                    enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI, -100, "none", 0, obj.x, 1))
-                    break;
-                case "groundEnemy1E":
-                    enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/2*3, -100, "none", 0, obj.x, 1))
-                    break;
-                case "groundEnemy1W":
-                    enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/2, -100, "none", 0, obj.x, 1))
-                    break;
-                case "groundEnemy1NE":
-                    enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4*7, -100, "none", 0, obj.x, 1))
-                    break;
-                case "groundEnemy1NW":
-                    enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4, -100, "none", 0, obj.x, 1))
-                    break;
-                case "groundEnemy1SE":
-                    enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4*5, -100, "none", 0, obj.x, 1))
-                    break;
-                case "groundEnemy1SW":
-                    enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, Math.PI/4*3, -100, "none", 0, obj.x, 1))
-                    break;
-                case "miniBoss1":
-                            enemies.push(new MiniBoss1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[3].value, obj.properties[2].value,0,obj.x,obj.properties[1].value));
-                    break;
-                case "cargoBoss":
-                    enemies.push(new CargoBoss({x:offRight, y:GameField.y+obj.y-obj.height}, -20, "none" ,25,obj.x,1))
-                    break;
-                default:
-                    console.error("can not find ungrouped enemy type: " + obj.type);
-                    break;
-                }
+        switch(obj.type) {
+            case EntityType.FlyingEnemy1:
+            //tiled-editor object origin is bottom-left, game engine sprite origin is top-left
+                    enemies.push(new FlyingEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[1].value, obj.properties[3].value, obj.x, obj.properties[2].value));
+                break;
+            case EntityType.FlyingEnemy2:
+                enemies.push(new FlyingEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[1].value, obj.properties[3].value, obj.x,obj.properties[2].value, getPath(enemyPaths, obj)));
+                break;
+            case EntityType.FlyingEnemy3:
+                enemies.push(new FlyingEnemy3({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[3].value, obj.properties[2].value, obj.x,obj.properties[1].value, getPath(enemyPaths, obj)));
+                break;
+            case EntityType.GroundEnemy1:
+                enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[2].value, obj.x, obj.properties[1].value))
+                break;
+            case EntityType.GroundEnemy2:
+                console.log("Found the not-grouped Ground Enemy 2.");
+                enemies.push(new GroundEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[1].value, obj.properties[3].value, obj.x, obj.properties[2].value, getPath(enemyPaths, obj)));
+                break;
+            case EntityType.MiniBoss1:
+                        enemies.push(new MiniBoss1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
+                break;
+            case EntityType.CargoBoss:
+                enemies.push(new CargoBoss({x:offRight, y:GameField.y+obj.y-obj.height}, -20, PathType.None, 25, obj.x, 1))
+                break;
+            default:
+                console.error("can not find ungrouped enemy type: " + obj.type);
+                break;
+        }
     });
     
     return enemies;
@@ -367,19 +323,19 @@ function initializeTerrain(terrainData) {
 										});
 	let levelTerrain = terrainData.filter((obj)=>{return obj.properties[0].value == 0});
 
-    levelTerrain.forEach(obj=>{
-         switch(obj.type){
+    levelTerrain.forEach(obj=> {
+         switch(obj.type) {
             case "bubble":
-                world.push(new BubbleEntity(EntityType.Bubble, {x:offRight, y:GameField.y+obj.y-obj.height}, obj.x, 1, 1024));
+                world.push(new BubbleEntity(EntityType.Bubble, {x:offRight, y:GameField.y + obj.y - obj.height}, obj.x, 1, 1024));
                 break;
             case "capsule1":
-                 world.push(new Capsule({x:offRight, y:GameField.y+obj.y-obj.height}, obj.x));
+                 world.push(new Capsule({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x));
                  break;
             case "ragnarokCapsule":
-                 world.push(new RagnarokCapsule({x:offRight, y:GameField.y+obj.y-obj.height}, obj.x));
+                 world.push(new RagnarokCapsule({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x));
                  break;
             default:
-                 world.push(new TerrainEntity(obj.type, {x:offRight, y:GameField.y+obj.y-obj.height}, obj.x, 1));
+                 world.push(new TerrainEntity(obj.type, {x:offRight, y:GameField.y + obj.y - obj.height}, obj.x, 1));
                  break;
          }
          

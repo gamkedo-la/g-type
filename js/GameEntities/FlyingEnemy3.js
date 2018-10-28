@@ -13,7 +13,12 @@ function FlyingEnemy3(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
     let unusedTime = 0;
     this.isVisible = false;
     
-    let sprite = new AnimatedSprite(flyingEnemy3Sheet, 18, 45, 45, false, true, {min:0, max:0}, 0, {min:0, max:17}, 64, {min:17, max:17}, 0);
+    let sprite;
+    if(difficulty > 25) {
+        sprite = new AnimatedSprite(flyingEnemy3RedSheet, 18, 45, 45, false, true, {min:0, max:0}, 0, {min:0, max:17}, 64, {min:17, max:17}, 0);
+    } else {
+        sprite = new AnimatedSprite(flyingEnemy3Sheet, 18, 45, 45, false, true, {min:0, max:0}, 0, {min:0, max:17}, 64, {min:17, max:17}, 0);
+    }
     this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
     
     const colliderPath = [{x: this.position.x, y: this.position.y},
@@ -53,7 +58,7 @@ function FlyingEnemy3(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
     this.spawn = function(deltaX) {
         if(didSpawn) {return;}//only spawn once
         const deltaPos = {x:deltaX, y:0};
-        this.path.updatePosition(deltaPos, this.type);
+        this.path.updatePosition(deltaPos);
         this.position = this.path.putAtFirstPoint();
         this.isVisible = true;
         didSpawn = true;

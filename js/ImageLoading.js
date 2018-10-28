@@ -16,6 +16,8 @@ const tripleShotUI = document.createElement("img");
 const livesUI = document.createElement("img");
 const lightGhostUI = document.createElement("img");
 const darkGhostUI = document.createElement("img");
+const lightForceUI = document.createElement("img");
+const darkForceUI = document.createElement("img");
 const darkSpeedUI1 = document.createElement("img");
 const darkSpeedUI2 = document.createElement("img");
 const darkSpeedUI3 = document.createElement("img");
@@ -61,10 +63,14 @@ const ragnarokSheet = document.createElement("img");
 
 //Enemy Associated
 const enemyExplosionSheet2 = document.createElement("img");
-const flyingEnemySheet = document.createElement("img");
+const flyingEnemy1Sheet = document.createElement("img");
+const flyingEnemy1YellowSheet = document.createElement("img");
 const flyingEnemy2Sheet = document.createElement("img");
+const flyingEnemy2RedSheet = document.createElement("img");
 const flyingEnemy3Sheet = document.createElement("img");
+const flyingEnemy3RedSheet = document.createElement("img");
 const groundEnemySheet = document.createElement("img");
+const groundEnemy2Sheet = document.createElement("img");
 const enemyBulletSheet = document.createElement("img");
 const enemyBullet2Sheet = document.createElement("img");
 const miniBoss1Sheet = document.createElement("img");
@@ -106,6 +112,8 @@ function loadImages() {
         { imgName: livesUI, theFile: "UILivesIconEven.png" },
         { imgName: lightGhostUI, theFile: "GhostShipUI-Lit.png" },
         { imgName: darkGhostUI, theFile: "GhostShipUI-Dark.png" },
+        { imgName: lightForceUI, theFile: "ForceTempUI-Lit.png" },
+        { imgName: darkForceUI, theFile: "ForceTempUI-Dark.png" },
         { imgName: darkSpeedUI1, theFile: "SpeedUI1Dark.png" },
         { imgName: darkSpeedUI2, theFile: "SpeedUI2Dark.png" },
         { imgName: darkSpeedUI3, theFile: "SpeedUI3Dark.png" },
@@ -152,10 +160,14 @@ function loadImages() {
 
         // enemies
         { imgName: enemyExplosionSheet2, theFile: "enemy_explosion_sheet_2.png" },
-        { imgName: flyingEnemySheet, theFile: "FlyingEnemy1.png" },
+        { imgName: flyingEnemy1Sheet, theFile: "FlyingEnemy1.png" },
+        { imgName: flyingEnemy1YellowSheet, theFile: "FlyingEnemy1Yellow.png" },
         { imgName: flyingEnemy2Sheet, theFile: "FlyingEnemy2.png" },
+        { imgName: flyingEnemy2RedSheet, theFile: "FlyingEnemy2Red.png" },
         { imgName: flyingEnemy3Sheet, theFile: "FlyingEnemy3.png" },
+        { imgName: flyingEnemy3RedSheet, theFile: "FlyingEnemy3.png" },
         { imgName: groundEnemySheet, theFile: "GroundEnemy1.png" },
+        { imgName: groundEnemy2Sheet, theFile: "GroundEnemy2.png" },
         { imgName: enemyBulletSheet, theFile: "EnemyBullet.png" },
         { imgName: enemyBullet2Sheet, theFile: "EnemyShot2.png" },
         { imgName: miniBoss1Sheet, theFile: "MiniBoss1.png" },
