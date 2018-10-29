@@ -25,7 +25,7 @@ resumeSound.setVolume(0.4);
 const playerFireRegular = new sfxClipOverlap("PlayerFireRegular", 3);
 playerFireRegular.setVolume(0.6);
 const playerFireLaser = new sfxClipOverlap("PlayerFireLaser", 3);
-playerFireLaser.setVolume(0.5);
+playerFireLaser.setVolume(0.6);
 const playerPowerUpActivate = new sfxClipSingle("PlayerPowerupActivate");
 playerPowerUpActivate.setVolume(0.65);
 const playerShieldActivate = new sfxClipSingle("PlayerShieldActivate");
@@ -48,6 +48,8 @@ const bubbleExplosion = new sfxClipOverlap("bubble", 3);
 bubbleExplosion.setVolume(0.35);
 const shotHitIndestructible = new sfxClipOverlap("PlayerShieldReflect", 3); //placeholder sound effect.  Need new made -LP
 shotHitIndestructible.setVolume(0.6);
+const clearScreen = new sfxClipSingle("ClearScreen");
+clearScreen.setVolume(0.8);
 
 //const uiSelect = new sfxClipSingle("uiSelect");
 
@@ -64,7 +66,8 @@ const allSFX = {
 			   enemySmallExplosion,
 			   enemyMediumExplosion,
 			   bubbleExplosion,
-			   shotHitIndestructible
+			   shotHitIndestructible,
+			   clearScreen
 			   ],
 	stop: function(){
 		for(var i=0; i < this.sfxList.length; i++){

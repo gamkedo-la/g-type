@@ -59,7 +59,7 @@ function RagnarokCapsule(position = {x:0, y:0}, initialWorldPos) {
         scene.shouldShake(MAX_SHAKE_MAGNITUDE/2);
 		scene.removeEntity(this, false);
 		scene.destroyAllOnScreen(this);
-		pauseSound.play();
+		clearScreen.play();
 //		explosionEmitter = createParticleEmitter(this.position.x + this.size.width / 2,this.position.y + this.size.height / 2, getCapsule);
 	};
 }
