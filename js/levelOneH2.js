@@ -8684,6 +8684,29 @@
                  "width":40,
                  "x":300.5,
                  "y":467.5
+                }, 
+                {
+                 "gid":39,
+                 "height":126,
+                 "id":1249,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":20
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy3",
+                 "visible":true,
+                 "width":120,
+                 "x":339,
+                 "y":471
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -8692,7 +8715,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":1249,
+ "nextobjectid":1250,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.0",

@@ -31,6 +31,7 @@ const EntityType = {
     FlyingEnemy3:"flyingEnemy3",
     GroundEnemy1:"groundEnemy1",
     GroundEnemy2:"groundEnemy2",
+    GroundEnemy3:"groundEnemy3",
 	EnemyBullet1:"enemyBullet1",
 	EnemyBullet2:"enemyBullet2",
 	EnemyBullet3:"enemyBullet3",

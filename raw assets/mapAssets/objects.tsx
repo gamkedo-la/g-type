@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="300" tileheight="200" tilecount="30" columns="0">
+<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="300" tileheight="200" tilecount="31" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0" type="rock01">
   <properties>
@@ -211,5 +211,12 @@
    <property name="pattern" value="loop"/>
   </properties>
   <image width="40" height="28" source="objectSprites/_editorGroundEnemy2.png"/>
+ </tile>
+ <tile id="38" type="groundEnemy3">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+   <property name="difficulty" type="int" value="20"/>
+  </properties>
+  <image width="120" height="126" source="objectSprites/_editorTurret.png"/>
  </tile>
 </tileset>
