@@ -6,9 +6,11 @@ function OptionsScreen() {
 		Music:{x:GameField.midX + 90, y:(GameField.y + 60 + GameField.height / 4)},
 		SFX:{x:GameField.midX + 90, y:(GameField.y + 120 + GameField.height / 4)},
 		Speed:{x:GameField.midX + 90, y:(GameField.y + 180 + GameField.height / 4)},
-		Menu:{x:GameField.midX + 90, y:(GameField.y + 240 + GameField.height / 4)}
+		AutoFiring:{x:GameField.midX + 90, y:(GameField.y + 240 + GameField.height / 4)},
+		Menu:{x:GameField.midX + 90, y:(GameField.y + 300 + GameField.height / 4)}
 	};
 
+    let autoFiring = "Off";
     let selectorPositionIndex = 0;
     let selectorPosition = {x:selectionPosition.Music.x + 35, y:selectionPosition.Music.y};
     let selectorSprite;
@@ -89,7 +91,17 @@ function OptionsScreen() {
             	}
             	return true;
             case KEY_ENTER:
-            	if(selectorPositionIndex === 3) {
+		if(selectorPositionIndex === 3) {
+	                if(autoFiring !== "On") {
+			    autoFiring = "On";
+			    holdX = true;
+			}
+			else {
+			    autoFiring = "Off";
+			    holdX = false;
+			}
+            	}
+            	if(selectorPositionIndex === 4) {
 	                ScreenStates.setState(this.selections[0].screen);
             	}
                 return true;
@@ -112,6 +124,9 @@ function OptionsScreen() {
 		    selectorPosition.x = selectionPosition.Speed.x + 35;
 		    selectorPosition.y = selectionPosition.Speed.y;
 		} else if(selectorPositionIndex === 3) {
+		    selectorPosition.x = selectionPosition.AutoFiring.x + 35;
+		    selectorPosition.y = selectionPosition.AutoFiring.y;
+		} else if(selectorPositionIndex === 4) {
 		    selectorPosition.x = selectionPosition.Menu.x + 35;
 		    selectorPosition.y = selectionPosition.Menu.y;
 		}
@@ -153,6 +168,7 @@ function OptionsScreen() {
 	    gameFont.printTextAt("music volume - " + (Math.round(MusicVolumeManager.getVolume() * 10)).toString(), selectionPosition.Music, 25, textAlignment.Right);
 	    gameFont.printTextAt("SFX volume - " + (Math.round(SFXVolumeManager.getVolume() * 10)).toString(), selectionPosition.SFX, 25, textAlignment.Right);
 	    gameFont.printTextAt("Game Speed - " + ("1"), selectionPosition.Speed, 25, textAlignment.Right);
+	    gameFont.printTextAt("Auto-firing - " + (autoFiring), selectionPosition.AutoFiring, 25, textAlignment.Right);
 	    gameFont.printTextAt(textStrings.Main, selectionPosition.Menu, 25, textAlignment.Right);
     };
         
