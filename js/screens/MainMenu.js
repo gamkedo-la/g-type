@@ -148,7 +148,7 @@ function MenuScreen() {
         
         // render the logo overlay
         drawLogo();
-
+        drawHighScores();
         //canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
 
 //		drawTitle();
@@ -160,6 +160,13 @@ function MenuScreen() {
         selectorSprite.drawAt(selectorPosition, {width:62, height:27});
 	};
 	
+
+    const drawHighScores = function() {
+        gameFont.printTextAt("*High Scores*", {x:GameField.midX - 390 , y:GameField.midY - 410 }, 20, textAlignment.Left);
+        gameFont.printTextAt("Jack", {x:GameField.midX - 390 , y:GameField.midY - 380}, 20, textAlignment.Left);
+        gameFont.printTextAt("Jill", {x:GameField.midX - 390 , y:GameField.midY - 350}, 20, textAlignment.Left);
+    };
+        
 	const drawLogo = function() {
 		const logoX = GameField.midX - (1.75 *titleLogo.width / 2) - 5;
 		const logoY = GameField.midY - (1.75 *titleLogo.height / 2) - 100;
