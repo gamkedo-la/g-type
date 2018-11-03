@@ -72,7 +72,7 @@ function OptionsScreen() {
                 }
                 adjustSelectorPosition();
                 return true;
-            case KEY_PLUS:
+            case KEY_RIGHT:
             	if(selectorPositionIndex === 0) {
 	            	const currentVolume = MusicVolumeManager.getVolume();
 	            	MusicVolumeManager.setVolume(currentVolume + 0.1);
@@ -81,7 +81,7 @@ function OptionsScreen() {
 	            	SFXVolumeManager.setVolume(currentVolume + 0.1);
             	}
             	return true;
-            case KEY_MINUS:
+            case KEY_LEFT:
             	if(selectorPositionIndex === 0) {
 	            	const currentVolume = MusicVolumeManager.getVolume();
 	            	MusicVolumeManager.setVolume(currentVolume - 0.1);
