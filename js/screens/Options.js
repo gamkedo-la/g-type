@@ -80,6 +80,11 @@ function OptionsScreen() {
 	            	const currentVolume = SFXVolumeManager.getVolume();
 	            	SFXVolumeManager.setVolume(currentVolume + 0.1);
             	}
+
+		if(selectorPositionIndex === 3 && autoFiring !== "On") {
+			autoFiring = "On";
+			holdX = true;
+		}
             	return true;
             case KEY_LEFT:
             	if(selectorPositionIndex === 0) {
@@ -89,18 +94,13 @@ function OptionsScreen() {
 	            	const currentVolume = SFXVolumeManager.getVolume();
 	            	SFXVolumeManager.setVolume(currentVolume - 0.1);
             	}
+
+		if(selectorPositionIndex === 3 && autoFiring !== "Off") {
+			autoFiring = "Off";
+			holdX = false;
+		}
             	return true;
             case KEY_ENTER:
-		if(selectorPositionIndex === 3) {
-	                if(autoFiring !== "On") {
-			    autoFiring = "On";
-			    holdX = true;
-			}
-			else {
-			    autoFiring = "Off";
-			    holdX = false;
-			}
-            	}
             	if(selectorPositionIndex === 4) {
 	                ScreenStates.setState(this.selections[0].screen);
             	}
