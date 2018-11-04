@@ -83,7 +83,7 @@ function OptionsScreen() {
 
 		if(selectorPositionIndex === 3 && autoFiring !== "On") {
 			autoFiring = "On";
-			holdX = true;
+			holdKey[KEY_X] = true;
 		}
             	return true;
             case KEY_LEFT:
@@ -97,7 +97,7 @@ function OptionsScreen() {
 
 		if(selectorPositionIndex === 3 && autoFiring !== "Off") {
 			autoFiring = "Off";
-			holdX = false;
+			holdKey[KEY_X] = false;
 		}
             	return true;
             case KEY_ENTER:

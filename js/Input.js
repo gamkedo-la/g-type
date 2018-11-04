@@ -54,7 +54,19 @@ const KEY_PLUS = 187;
 const KEY_MINUS = 189;
 const KEY_TILDE = 192;
 
-let holdLeft, holdA, holdRight, holdD, holdUp, holdW, holdDown, holdS, holdSpace, holdTab, holdX = false;
+let holdKey = [];
+
+holdKey[KEY_UP] = false;
+holdKey[KEY_DOWN] = false;
+holdKey[KEY_LEFT] = false;
+holdKey[KEY_RIGHT] = false;
+holdKey[KEY_W] = false;
+holdKey[KEY_S] = false;
+holdKey[KEY_A] = false;
+holdKey[KEY_D] = false;
+holdKey[KEY_SPACE] = false;
+holdKey[KEY_TAB] = false;
+holdKey[KEY_X] = false;
 
 function initializeInput() {
 	document.addEventListener("keydown", keyPress);

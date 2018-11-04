@@ -29,15 +29,15 @@ function DemoSceneScreen() {
     };
     
     const clearKeyboardInput = function() {
-	    holdSpace = false;
-	    holdUp = false;
-	    holdW = false;
-	    holdDown = false;
-	    holdS = false;
-	    holdLeft = false;
-	    holdA = false;
-	    holdRight = false;
-	    holdD = false;
+	    holdKey[KEY_SPACE] = false;
+	    holdKey[KEY_UP] = false;
+	    holdKey[KEY_W] = false;
+	    holdKey[KEY_DOWN] = false;
+	    holdKey[KEY_S] = false;
+	    holdKey[KEY_LEFT] = false;
+	    holdKey[KEY_A] = false;
+	    holdKey[KEY_RIGHT] = false;
+	    holdKey[KEY_D] = false;
     };
    
 
@@ -68,46 +68,46 @@ function DemoSceneScreen() {
 
 	
 	const updateDemoControls = function(runtime) {
-		holdSpace = true;
+		holdKey[KEY_SPACE] = true;
 		
 		if(runtime < 300) {
 			//do nothing
 		} else if(runtime < 600) {// >300
-			holdRight = true;
+			holdKey[KEY_RIGHT] = true;
 		} else if(runtime < 900) {// >600
-			holdUp = true;
+			holdKey[KEY_UP] = true;
 		} else if(runtime < 1500) {// >900
-			holdRight = false;
+			holdKey[KEY_RIGHT] = false;
 		} else if(runtime < 3000) {// >1500
-			holdRight = true;
+			holdKey[KEY_RIGHT] = true;
 		} else if(runtime < 7000) {// >3000
-			holdUp = false;
-			holdRight = false;
+			holdKey[KEY_UP] = false;
+			holdKey[KEY_RIGHT] = false;
 		} else if(runtime < 10000) {// >7000
-			holdRight = true;
+			holdKey[KEY_RIGHT] = true;
 		} else if(runtime < 11000) {// >10000
-			holdRight = false;
-			holdLeft = true;
+			holdKey[KEY_RIGHT] = false;
+			holdKey[KEY_LEFT] = true;
 		} else if(runtime < 13250) {// >11000
-			holdDown = true;
+			holdKey[KEY_DOWN] = true;
 		} else if(runtime < 15000) {// >13250
-			holdDown = false;
-			holdLeft = false;
+			holdKey[KEY_DOWN] = false;
+			holdKey[KEY_LEFT] = false;
 		} else if(runtime < 16000) {// >15000
-			holdRight = true;
+			holdKey[KEY_RIGHT] = true;
 		} else if(runtime < 20000) {// >16000
-			holdRight = false;
+			holdKey[KEY_RIGHT] = false;
 		} else if(runtime < 22000) {// >20000
-			holdUp = true;
+			holdKey[KEY_UP] = true;
 		} else if(runtime < 27500) {// >22000
-			holdUp = false;
+			holdKey[KEY_UP] = false;
 		} else if(runtime < 29500) {// >27500
-			holdRight = true;
+			holdKey[KEY_RIGHT] = true;
 		} else if(runtime < 30000) {// >29500
-			holdRight = false;
-			holdUp = true;
+			holdKey[KEY_RIGHT] = false;
+			holdKey[KEY_UP] = true;
 		} else if(runtime < 34000) {// >30000
-			holdUp = false;
+			holdKey[KEY_UP] = false;
 		} else {// >34000
 			ScreenStates.setState(MENU_SCREEN);
 		}

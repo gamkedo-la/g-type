@@ -36,16 +36,16 @@ function GamePlayScreen () {
     };
     
     const clearKeyboardInput = function() {
-	    holdSpace = false;
-	    holdX = false;
-	    holdUp = false;
-	    holdW = false;
-	    holdDown = false;
-	    holdS = false;
-	    holdLeft = false;
-	    holdA = false;
-	    holdRight = false;
-	    holdD = false;
+	    holdKey[KEY_SPACE] = false;
+	    holdKey[KEY_X] = false;
+	    holdKey[KEY_UP] = false;
+	    holdKey[KEY_W] = false;
+	    holdKey[KEY_DOWN] = false;
+	    holdKey[KEY_S] = false;
+	    holdKey[KEY_LEFT] = false;
+	    holdKey[KEY_A] = false;
+	    holdKey[KEY_RIGHT] = false;
+	    holdKey[KEY_D] = false;
     };
     
     this.run = function gamePlayScreenRun(deltaTime) {
@@ -96,31 +96,31 @@ function GamePlayScreen () {
                 }
                 return true;
             case KEY_X:
-                holdX = pressed;//shoot
+                holdKey[KEY_X] = pressed;//shoot
                 return true;
             case KEY_UP:
-                holdUp = pressed;//move up
+                holdKey[KEY_UP] = pressed;//move up
                 return true;
             case KEY_W:
-                holdW = pressed;//move up
+                holdKey[KEY_W] = pressed;//move up
                 return true;
             case KEY_DOWN:
-                holdDown = pressed;//move down
+                holdKey[KEY_DOWN] = pressed;//move down
                 return true;
             case KEY_S:
-                holdS = pressed;//move down
+                holdKey[KEY_S] = pressed;//move down
                 return true;
             case KEY_LEFT:
-                holdLeft = pressed;//move left
+                holdKey[KEY_LEFT] = pressed;//move left
                 return true;
             case KEY_A:
-                holdA = pressed;//move left
+                holdKey[KEY_A] = pressed;//move left
                 return true;
             case KEY_RIGHT:
-                holdRight = pressed;//move right
+                holdKey[KEY_RIGHT] = pressed;//move right
                 return true;
             case KEY_D:
-                holdD = pressed;//move right
+                holdKey[KEY_D] = pressed;//move right
                 return true;
             case KEY_M:
             	if(!pressed) {
@@ -248,7 +248,7 @@ function GamePlayScreen () {
                 scene.beatTheGame = true; // final boss defeated!
                 return true;
             case KEY_PGUP:
-                holdRight = pressed;
+                holdKey[KEY_RIGHT] = pressed;
                 if (!pressed) {
                     currentLevelIndex--; // TODO: Take into account level that does not exist.
                     console.log("Loaded Level " + currentLevelIndex + "!");
@@ -257,7 +257,7 @@ function GamePlayScreen () {
                 }
                 return true;
             case KEY_PGDOWN:
-                holdRight = pressed;
+                holdKey[KEY_RIGHT] = pressed;
                 if (!pressed) {
                     currentLevelIndex++; // TODO: Take into account level that does not exist.
                     console.log("Loaded Level " + currentLevelIndex + "!");

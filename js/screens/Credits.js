@@ -132,19 +132,19 @@ function CreditsScreen() {
                     
         switch(keyCode) {
 			case KEY_UP:
-                holdUp = pressed;//move up
+                holdKey[KEY_UP] = pressed;//move up
                 return true;
             case KEY_DOWN:
-                holdDown = pressed;//move down
+                holdKey[KEY_DOWN] = pressed;//move down
                 return true;
             case KEY_LEFT:
-                holdLeft = pressed;//move left
+                holdKey[KEY_LEFT] = pressed;//move left
                 return true;
             case KEY_RIGHT:
-                holdRight = pressed;//move right
+                holdKey[KEY_RIGHT] = pressed;//move right
                 return true;
 			case KEY_X:
-				holdX = pressed;//shoot
+				holdKey[KEY_X] = pressed;//shoot
                 return true;
 	    }
         
