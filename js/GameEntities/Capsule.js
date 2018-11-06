@@ -55,7 +55,7 @@ function Capsule(position = {x:0, y:0}, initialWorldPos) {
 		}
 		scene.displayScore(this);
 		scene.removeEntity(this, false);
-		pauseSound.play();
+		capsulePickup.play();
 		explosionEmitter = createParticleEmitter(this.position.x + this.size.width / 2,this.position.y + this.size.height / 2, getCapsule);
 	};
 }

@@ -36,6 +36,10 @@ const playerExplosion = new sfxClipSingle("PlayerExplosion");
 playerExplosion.setVolume(0.6);
 const extraLife = new sfxClipSingle("extraLife");
 extraLife.setVolume(0.7);
+const capsulePickup = new sfxClipOverlap("CapsulePickup", 3);
+capsulePickup.setVolume(0.7);
+const playerShieldFail = new sfxClipSingle("PlayerShieldFail");
+playerShieldFail.setVolume(0.7);
 
 //enemy and environment sfx
 const enemySmallExplosion = new sfxClipOverlap("EnemySmallExplosion", 3);
@@ -60,13 +64,15 @@ const allSFX = {
 			   playerFireLaser, 
 			   playerPowerUpActivate, 
 			   playerShieldActivate, 
-			   playerShieldHit,  
+			   playerShieldHit,
+			   playerShieldFail,
 			   playerExplosion,
 			   extraLife,
 			   enemySmallExplosion,
 			   enemyMediumExplosion,
 			   bubbleExplosion,
 			   shotHitIndestructible,
+			   capsulePickup,
 			   clearScreen
 			   ],
 	stop: function(){

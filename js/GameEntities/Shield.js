@@ -79,7 +79,11 @@ function ShieldEntity(position = {x:0, y:0}, playerSize = {width:0, height:0}) {
 		} else {
 			this.hitPoints--;
 			scene.shouldShake(MAX_SHAKE_MAGNITUDE / 2);
-			playerShieldHit.play();
+			if(this.hitPoints <= 0) {
+				playerShieldFail.play();
+			} else {
+				playerShieldHit.play();
+			}
 		}
 	};
 	
