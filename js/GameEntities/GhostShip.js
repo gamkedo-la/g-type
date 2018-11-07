@@ -70,7 +70,7 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 			
 			let thirdShot;
 			const thirdVel = {x:-200, y:0};
-			if(shots.length === maxShots) {
+			if(shots.length >= maxShots) {
 				//basically a pool of shots, grab the oldest one
 				thirdShot = shots.splice(0, 1)[0];
 			} else {
@@ -106,7 +106,7 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 			
 			if(hasMissiles) {
 				let newMissile
-				if(missiles.length === maxShots) {
+				if(missiles.length >= maxShots) {
 					newMissile = missiles.splice(0, 1)[0];
 					newMissile.setPosition({x:this.position.x + this.size.width / 2, y:this.position.y + (2 * this.size.height / 3)});
 					newMissile.setVelocity({x:100, y:150});
@@ -143,6 +143,22 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 			missiles[i].draw();
 		}
 	};
+	
+	this.clearBullets = function() {
+		for(let i = 0; i < shots.length; i++) {
+			shots[i].isVisible = false;
+			shots[i].isActive = false;
+			scene.removeCollisions(shots[i], true);
+//			console.log("clearing bullet: " + i);
+		}
+		
+		for(let i = 0; i < missiles.length; i++) {
+			missiles[i].isVisible = false;
+			missiles[i].isActive = false;
+			scene.removeCollisions(missiles[i], true);
+//			console.log("clearing missile: " + i);
+		}
+	};
 
 	this.playerDied = function() {
 		if(sprite.isDying) {return;}
@@ -150,6 +166,8 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 		sprite = new AnimatedSprite(playerBoom2Sheet, 13, 80, 80, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max: 12}, 64);
 
 		sprite.isDying = true;
+		
+		this.clearBullets();
 	};
 
 	this.reset = function() {
@@ -208,26 +226,3 @@ function GhostPath(distance = 75) {
 		desiredDistance = newDistance;
 	};
 }
-
-/*function KeyPoint(time = 0, point = {x:0, y:0}) {
-	this.time = time;
-	this.point = {x:point.x, y:point.y};
-}
-
-function GhostPath() {
-	const keyPoints [];
-	let currentTime = 0;
-	
-	this.addKeyPoint = function(newKeyPoint) {
-		keyPoints.push(newKeyPoint);
-	};
-	
-	this.nextPoint = function(deltaTime) {
-		currentTime += deltaTime;
-		const newPoint = {x:0, y:0};
-		
-		
-		
-		return newPoint;
-	}
-}*/
