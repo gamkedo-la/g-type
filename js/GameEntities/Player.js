@@ -281,21 +281,43 @@ function Player(position = {x:0, y:0}) {
 	this.adjustVelocityAndSpriteForPlayerInput = function() {
 		//indicates the sprite is NOT "playing" the death animation => can still fly around the screen and shoot
 		if(holdKey[KEY_LEFT] || holdKey[KEY_A]) {
-			velocity.x = -currentSpeed;
+			if(velocity.x > -currentSpeed) {
+				velocity.x -= 0.2 * currentSpeed;
+			} else {
+				velocity.x = -currentSpeed;
+			}
 			sprite.setFrame(thrustFrame.min);//show a frame with minimal thrust fire
 		} else if(holdKey[KEY_RIGHT] || holdKey[KEY_D]) {
-			velocity.x = currentSpeed;
+			if(velocity.x < currentSpeed) {
+				velocity.x += 0.2 * currentSpeed;
+			} else {
+				velocity.x = currentSpeed;
+			}
 			sprite.setFrame(thrustFrame.max);//show a frame with maximal thrust fire
 		} else {
-			velocity.x = 0;
+			velocity.x *= 0.9;
+			if((velocity.x < 0.25 * currentSpeed) && (velocity.x > -0.25 * currentSpeed)) {
+				velocity.x = 0;
+			}
 		}
 		
 		if(holdKey[KEY_UP] || holdKey[KEY_W]) {
-			velocity.y = -currentSpeed;
+			if(velocity.y > -currentSpeed) {
+				velocity.y -= 0.2 * currentSpeed;
+			} else {
+				velocity.y = -currentSpeed;
+			}
 		} else if(holdKey[KEY_DOWN] || holdKey[KEY_S]) {
-			velocity.y = currentSpeed;
+			if(velocity.y < currentSpeed) {
+				velocity.y += 0.2 * currentSpeed;
+			} else {
+				velocity.y = currentSpeed;
+			}
 		} else {
-			velocity.y = 0;
+			velocity.y *= 0.8;
+			if((velocity.y < 0.25 * currentSpeed) && (velocity.y > -0.25 * currentSpeed)) {
+				velocity.y = 0;
+			}
 		}	
 	};
 	
