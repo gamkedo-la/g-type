@@ -12,7 +12,7 @@ function UIScore(position = {x:0, y:0}) {
 		return currentScore;
 	}
 
-	this.gethighScore = function() {
+	this.getHighScore = function() {
 		return highScore;
 	}
 	
@@ -27,7 +27,8 @@ function UIScore(position = {x:0, y:0}) {
    this.addToHighScore = function(highScoreToAdd) {
 	if(currentScore > highScore){
 		 	highScore = currentScore;
-             hishScoreText = hishScore.toString();
+		 	console.log(highScore);
+             highScoreText = highScore.toString();
             }
 		while(highScoreText.length < 15) {
 			highScoreText = "0" + highScoreText;
