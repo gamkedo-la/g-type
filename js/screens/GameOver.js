@@ -109,7 +109,7 @@ function GameOverScreen() {
 
         // render menu
         printMenu(selections, selectorPositionIndex);
-        
+        drawHighScores();
         //draw selector sprite
         selectorSprite.drawAt(selectorPosition, {width:30, height:19});
 
@@ -117,6 +117,12 @@ function GameOverScreen() {
 		
 		gameFont.printTextAt(textStrings.GameOver, {x:GameField.midX, y:GameField.y - 20}, 35, textAlignment.Center);
 	};
+
+    const drawHighScores = function() {
+        gameFont.printTextAt("*High Scores*", {x:GameField.midX - 120, y:GameField.midY - 210 }, 20, textAlignment.Left);
+        gameFont.printTextAt("1.playerA", {x:GameField.midX - 290 , y:GameField.midY - 80}, 20, textAlignment.Left);
+        gameFont.printTextAt("2.playerB", {x:GameField.midX - 290 , y:GameField.midY - 50}, 20, textAlignment.Left);
+    };
 	
 	const drawBG = function menuScreenDrawBG() {
         // fill the background since there is no image for now
