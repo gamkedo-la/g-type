@@ -76,6 +76,8 @@ function Player(position = {x:0, y:0}) {
 			//indicates that the sprite has reached the final frame of the "death sequence"
 			scene.removePlayer();
 			sprite.isDying = false;
+			this.clearBullets();
+			
 			const emitterIndex = ParticleEmitterManager.pool.indexOf(explosionEmitter);
 			ParticleEmitterManager.returnEmitterToPool(emitterIndex);
 			if(playerExplosion.getTime() <= 0) {
@@ -216,7 +218,7 @@ function Player(position = {x:0, y:0}) {
 			
 			let thirdShot;
 			const thirdVel = {x:-NORMAL_SHOT_SPEED, y:0};
-			if(shots.length === MAX_SHOTS_ON_SCREEN) {
+			if(shots.length >= MAX_SHOTS_ON_SCREEN) {
 				//basically a pool of shots, grab the oldest one
 				thirdShot = shots.splice(0, 1)[0];
 			} else {
@@ -252,7 +254,7 @@ function Player(position = {x:0, y:0}) {
 			
 			if(hasMissiles) {
 				let newMissile
-				if(missiles.length === MAX_SHOTS_ON_SCREEN) {
+				if(missiles.length >= MAX_SHOTS_ON_SCREEN) {
 					newMissile = missiles.splice(0, 1)[0];
 					newMissile.setPosition({x:this.position.x + this.size.width / 2, y:this.position.y + (2 * this.size.height / 3)});
 					newMissile.setVelocity(MISSILE_VELOCITY);
@@ -281,21 +283,43 @@ function Player(position = {x:0, y:0}) {
 	this.adjustVelocityAndSpriteForPlayerInput = function() {
 		//indicates the sprite is NOT "playing" the death animation => can still fly around the screen and shoot
 		if(holdKey[KEY_LEFT] || holdKey[KEY_A]) {
-			velocity.x = -currentSpeed;
+			if(velocity.x > -currentSpeed) {
+				velocity.x -= 0.2 * currentSpeed;
+			} else {
+				velocity.x = -currentSpeed;
+			}
 			sprite.setFrame(thrustFrame.min);//show a frame with minimal thrust fire
 		} else if(holdKey[KEY_RIGHT] || holdKey[KEY_D]) {
-			velocity.x = currentSpeed;
+			if(velocity.x < currentSpeed) {
+				velocity.x += 0.2 * currentSpeed;
+			} else {
+				velocity.x = currentSpeed;
+			}
 			sprite.setFrame(thrustFrame.max);//show a frame with maximal thrust fire
 		} else {
-			velocity.x = 0;
+			velocity.x *= 0.9;
+			if((velocity.x < 0.25 * currentSpeed) && (velocity.x > -0.25 * currentSpeed)) {
+				velocity.x = 0;
+			}
 		}
 		
 		if(holdKey[KEY_UP] || holdKey[KEY_W]) {
-			velocity.y = -currentSpeed;
+			if(velocity.y > -currentSpeed) {
+				velocity.y -= 0.2 * currentSpeed;
+			} else {
+				velocity.y = -currentSpeed;
+			}
 		} else if(holdKey[KEY_DOWN] || holdKey[KEY_S]) {
-			velocity.y = currentSpeed;
+			if(velocity.y < currentSpeed) {
+				velocity.y += 0.2 * currentSpeed;
+			} else {
+				velocity.y = currentSpeed;
+			}
 		} else {
-			velocity.y = 0;
+			velocity.y *= 0.8;
+			if((velocity.y < 0.25 * currentSpeed) && (velocity.y > -0.25 * currentSpeed)) {
+				velocity.y = 0;
+			}
 		}	
 	};
 	
@@ -353,7 +377,7 @@ function Player(position = {x:0, y:0}) {
 			} else {
 				scene.shouldShake(MAX_SHAKE_MAGNITUDE);
 				sprite.isDying = true;
-               			playerExplosion.play();
+				playerExplosion.play();
 				explosionEmitter = createParticleEmitter(this.position.x + this.size.width / 2,this.position.y + this.size.height / 2, exampleExplosion);
 				for(let i = 0; i < ghosts.length; i++) {
 					ghosts[i].playerDied();
@@ -432,11 +456,13 @@ function Player(position = {x:0, y:0}) {
 		for(let i = 0; i < shots.length; i++) {
 			shots[i].isVisible = false;
 			shots[i].isActive = false;
+			scene.removeCollisions(shots[i], true);
 		}
 		
 		for(let i = 0; i < missiles.length; i++) {
 			missiles[i].isVisible = false;
 			missiles[i].isActive = false;
+			scene.removeCollisions(missiles[i], true);
 		}
 	};
 	
