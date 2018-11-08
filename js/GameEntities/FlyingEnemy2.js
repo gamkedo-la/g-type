@@ -41,7 +41,12 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	];
 
 	if(path){
-		pathPoints = path.polygon.slice(0);
+		if(path.polygon === undefined) {
+            pathPoints = path.polyline.slice(0);
+        } else {
+            pathPoints = path.polygon.slice(0);
+        }
+        
 		pathPoints.forEach((point)=>{
 			point.x += GameField.x + GameField.width - 50;
 			point.y += GameField.y + path.y;

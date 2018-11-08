@@ -173,12 +173,6 @@
   </properties>
   <image width="60" height="34" source="objectSprites/MiniBoss1.png"/>
  </tile>
- <tile id="32" type="launchBay">
-  <properties>
-   <property name="Group" type="int" value="0"/>
-  </properties>
-  <image width="75" height="45" source="objectSprites/_editorSpawnPoint.png"/>
- </tile>
  <tile id="33" type="flyingEnemy3">
   <properties>
    <property name="Group" type="int" value="0"/>
@@ -218,5 +212,11 @@
    <property name="difficulty" type="int" value="20"/>
   </properties>
   <image width="120" height="126" source="objectSprites/_editorTurret.png"/>
+ </tile>
+ <tile id="39" type="launchBay">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="150" height="90" source="objectSprites/_editorSpawnPoint.png"/>
  </tile>
 </tileset>
