@@ -26,6 +26,15 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null) {
 	const gameEntities = new Set();
 	const foregroundEntities = new Set();
 	const enemyBullets = new Set();
+	
+	this.parallaxOffset1 = 0;
+	this.parallaxOffset2 = 0;
+	this.parallaxOffset3 = 0;
+	const bkgdColorLookup = data.getBkgdColorLookup();
+	const bkgdStars = data.getBkgdStars();
+	const bkgdParallaxLayer = data.getBkgdParallaxLayer();
+	const bgOffset = data.getBkgdOffset();
+	const foregroundLayer = data.getForegroundParallaxLayer();
     
     let uiManager;
     if(aUIManager === null) {
@@ -142,11 +151,11 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null) {
 	this.updateBackground = function(deltaTime) {
 
 		// the dense starfield
-		this.parallaxOffset1 = -1*(this.worldPos*BG_PARALLAX_RATIO_1%backgroundParallaxLayer1.width);
+		this.parallaxOffset1 = -1 * (this.worldPos * BG_PARALLAX_RATIO_1 % bkgdStars.width);
 		// the distant planets in midground
-		this.parallaxOffset2 = -1*(this.worldPos*BG_PARALLAX_RATIO_2%backgroundParallaxLayer2.width);
+		this.parallaxOffset2 = -1 * (this.worldPos * BG_PARALLAX_RATIO_2 % bkgdParallaxLayer.width);
 		// things overlaid above the gameplay (girders)
-		this.parallaxOffset3 = -1*(this.worldPos*BG_PARALLAX_RATIO_3%foregroundParallaxLayer1.width);
+		this.parallaxOffset3 = -1 * (this.worldPos * BG_PARALLAX_RATIO_3 % foregroundLayer.width);
 
 		if (!this.bgTime) {
 			this.bgTime = deltaTime; 
@@ -159,8 +168,8 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null) {
 
 	this.drawForeground = function() {
 		// foreground layer: girders truss beams aligned to bottom of screen
-		canvasContext.drawImage(foregroundParallaxLayer1,this.parallaxOffset3,canvas.height-foregroundParallaxLayer1.height);
-		canvasContext.drawImage(foregroundParallaxLayer1,this.parallaxOffset3+foregroundParallaxLayer1.width,canvas.height-foregroundParallaxLayer1.height);
+		canvasContext.drawImage(foregroundLayer, this.parallaxOffset3, canvas.height - foregroundLayer.height);
+		canvasContext.drawImage(foregroundLayer, this.parallaxOffset3 + foregroundLayer.width, canvas.height - foregroundLayer.height);
 	}
 
 	this.drawBackground = function() {
@@ -169,39 +178,39 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null) {
 
 		// gradually tweened background fill color
 		// scrolls through a super zoomed in lookup table (gradient texture)
-		const sampleXPos = Math.floor(this.bgTime * BG_COLOR_CHANGE_SPEED) % backgroundColorLookup.width;
+		const sampleXPos = Math.floor(this.bgTime * BG_COLOR_CHANGE_SPEED) % bkgdColorLookup.width;
 		//Need to account for sample potentially running off the end of the sample image
-		if(sampleXPos > backgroundColorLookup.width - BG_SAMPLE_PIXELS) {
-			const firstSampleWidth = backgroundColorLookup.width - sampleXPos;
+		if(sampleXPos > bkgdColorLookup.width - BG_SAMPLE_PIXELS) {
+			const firstSampleWidth = bkgdColorLookup.width - sampleXPos;
 			const secondSampleWidth = BG_SAMPLE_PIXELS - firstSampleWidth;
 			const fillRatio = GameField.width / BG_SAMPLE_PIXELS;
 			
-			canvasContext.drawImage(backgroundColorLookup,
+			canvasContext.drawImage(bkgdColorLookup,
 			// source x,y,w,d (scroll source x over time)
 			sampleXPos, 0, firstSampleWidth, 100,
 			// dest x,y,w,d (scale one pixel worth of the gradient to fill entire screen)
-			GameField.x, GameField.y - GameField.bgOffset, Math.floor(fillRatio * firstSampleWidth), GameField.height + GameField.bgOffset); 
+			GameField.x, GameField.y - bgOffset, Math.floor(fillRatio * firstSampleWidth), GameField.height + bgOffset); 
 			
-			canvasContext.drawImage(backgroundColorLookup,
+			canvasContext.drawImage(bkgdColorLookup,
 			// source x,y,w,d (scroll source x over time)
 			0, 0, secondSampleWidth, 100,
 			// dest x,y,w,d (scale one pixel worth of the gradient to fill entire screen)
-			GameField.x + Math.floor(fillRatio * firstSampleWidth), GameField.y - GameField.bgOffset, Math.floor(fillRatio * secondSampleWidth), GameField.height + GameField.bgOffset); 
+			GameField.x + Math.floor(fillRatio * firstSampleWidth), GameField.y - bgOffset, Math.floor(fillRatio * secondSampleWidth), GameField.height + bgOffset); 
 		} else {
-			canvasContext.drawImage(backgroundColorLookup,
+			canvasContext.drawImage(bkgdColorLookup,
 			// source x,y,w,d (scroll source x over time)
 			sampleXPos, 0, BG_SAMPLE_PIXELS, 100, 
 			// dest x,y,w,d (scale one pixel worth of the gradient to fill entire screen)
-			GameField.x, GameField.y - GameField.bgOffset, GameField.width, GameField.height + GameField.bgOffset); 
+			GameField.x, GameField.y - bgOffset, GameField.width, GameField.height + bgOffset); 
 		}
 
 		// galaxy / starfield images, tiled, with parallax
-		canvasContext.drawImage(backgroundParallaxLayer1,this.parallaxOffset1,0);
-		canvasContext.drawImage(backgroundParallaxLayer1,this.parallaxOffset1+backgroundParallaxLayer1.width,0);
+		canvasContext.drawImage(bkgdStars, this.parallaxOffset1, 0);
+		canvasContext.drawImage(bkgdStars, this.parallaxOffset1 + bkgdStars.width, 0);
 
 		// distant planets and nebulae
-		canvasContext.drawImage(backgroundParallaxLayer2,this.parallaxOffset2,GameField.bgOffset);
-		canvasContext.drawImage(backgroundParallaxLayer2,this.parallaxOffset2+backgroundParallaxLayer2.width,+ GameField.bgOffset);
+		canvasContext.drawImage(bkgdParallaxLayer, this.parallaxOffset2, bgOffset);
+		canvasContext.drawImage(bkgdParallaxLayer, this.parallaxOffset2 + bkgdParallaxLayer.width,+ bgOffset);
 		
 		// twinkling stars
 		starfield.draw();

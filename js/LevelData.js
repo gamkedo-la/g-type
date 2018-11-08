@@ -13,7 +13,12 @@ const LevelData = [
 	*/
 	{
         clearColor:"#010119",
-		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY}},
+        getBkgdColorLookup: function() {return backgroundColorLookup;},
+        getBkgdStars: function() {return backgroundStars;},
+        getBkgdParallaxLayer: function() {return backgroundParallaxLayer1;},
+        getBkgdOffset: function() {return 50;},//50 is magic number based on background image
+        getForegroundParallaxLayer: function() {return foregroundParallaxLayer1;},
+		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY};},
 		
         initializeEnemies: function() {return initializeEnemies(TileMaps.levelOneH2.layers[2].objects);},
         
@@ -22,7 +27,23 @@ const LevelData = [
         initializeDebris: function() {return initializeDebris();},
 		checkpointPositions:[0, 600, 1200]
 	},
-   {
+ 	{
+        clearColor:"#010119",
+        getBkgdColorLookup: function() {return backgroundColorLookup2;},
+        getBkdgStars: function() {return backgroundStars;},
+        getBkgdParallaxLayer: function() {return backgroundParallaxLayer2;},
+        getBkgdOffset: function() {return 238;},//238 is magic number based on background image
+        getForegroundParallaxLayer: function() {return foregroundParallaxLayer2;},
+		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY};},
+		
+        initializeEnemies: function() {return initializeEnemies(TileMaps.levelOneH2.layers[2].objects);},
+        
+        initializeTerrain: function() {return initializeTerrain(TileMaps.levelOneH2.layers[1].objects);},
+
+        initializeDebris: function() {return initializeDebris();},
+		checkpointPositions:[0, 600, 1200]
+	},
+	{
 	clearColor:"#010119",
 	getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY}},
 	initializeEnemies: function() {return initializeEnemies(TileMaps.levelMcFunky.layers[2].objects);},

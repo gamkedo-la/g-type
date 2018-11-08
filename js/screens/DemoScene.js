@@ -246,7 +246,7 @@ function DemoScene(levelIndex = 0) {
 	
 	this.updateBackground = function(deltaTime) {
 
-		this.parallaxOffset1 = -1*(this.worldPos*BG_PARALLAX_RATIO_1%backgroundParallaxLayer1.width);
+		this.parallaxOffset1 = -1 * (this.worldPos * BG_PARALLAX_RATIO_1 % backgroundStars.width);
 
 		if (!this.bgTime) {
 			this.bgTime = deltaTime; 
@@ -290,8 +290,8 @@ function DemoScene(levelIndex = 0) {
 		}
 
 		// galaxy / starfield images, tiled, with parallax
-		canvasContext.drawImage(backgroundParallaxLayer1,this.parallaxOffset1,0);
-		canvasContext.drawImage(backgroundParallaxLayer1,this.parallaxOffset1+backgroundParallaxLayer1.width,0);
+		canvasContext.drawImage(backgroundStars, this.parallaxOffset1, 0);
+		canvasContext.drawImage(backgroundStars, this.parallaxOffset1 + backgroundStars.width, 0);
 
 		// twinkling stars
 		starfield.draw();
