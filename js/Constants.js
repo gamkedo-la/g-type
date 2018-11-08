@@ -8,6 +8,11 @@ let worldSpeed = 1;
 let remainingLives = 2;
 let didInteract = false;
 	
+let currentScore = 0;
+let scoreText = "00000000" + currentScore.toString();
+let highScore = 0;
+let highScoreText = "00000000000000" + highScore.toString();
+
 const DRAW_COLLIDERS = false;
 const COLLIDER_COLOR = 'yellow';
 const CANVAS_WIDTH = 900;

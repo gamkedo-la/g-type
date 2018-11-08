@@ -1,9 +1,6 @@
 //UIScore
 function UIScore(position = {x:0, y:0}) {
-	let currentScore = 0;
-	let scoreText = "00000000" + currentScore.toString();
-	let highScore = 0;
-	let highScoreText = "00000000000000" + highScore.toString();
+
 	this.position = {x:position.x, y:position.y};
 	
 	const FONT = 30;
@@ -23,11 +20,10 @@ function UIScore(position = {x:0, y:0}) {
 			scoreText = "0" + scoreText;
 		}
 	};
-
-   this.addToHighScore = function(highScoreToAdd) {
+   
+   this.updateHighScore = function()  {
 	if(currentScore > highScore){
 		 	highScore = currentScore;
-		 	console.log(highScore);
              highScoreText = highScore.toString();
             }
 		while(highScoreText.length < 15) {
@@ -37,12 +33,12 @@ function UIScore(position = {x:0, y:0}) {
 	
 	this.draw = function() {
 		gameFont.printTextAt(scoreText, this.position, FONT, textAlignment.Center);
-		gameFont.printTextAt(highScoreText, {x:GameField.midX - 380 , y:GameField.midY - 450 }, 20, textAlignment.Left);
 	}
 	
 	this.reset = function() {
+         this.updateHighScore();
 		currentScore = 0;
 		this.addToScore(0);
-		this.addToHighScore(0);
+		this.updateHighScore(0);
 	}
 }
