@@ -122,6 +122,10 @@ function GroundEnemy3(position = {x:0, y:0}, spawnPos = 0, difficulty = 0) {
             
             scene.displayScore(this);
             
+            if((this.group != null) && (this.group !== undefined)) {
+				this.group.amDying(this, this.worldPos);
+			}
+			            
             sprite = new AnimatedSprite(enemyExplosionSheet2, 11, 96, 96, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
             
             this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};

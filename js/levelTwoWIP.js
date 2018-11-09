@@ -49,7 +49,7 @@
                  "visible":true,
                  "width":76,
                  "x":1653.67,
-                 "y":630.333
+                 "y":598.333
                 }, 
                 {
                  "gid":37,
@@ -67,7 +67,7 @@
                  "visible":true,
                  "width":76,
                  "x":1933.25,
-                 "y":630.75
+                 "y":598.75
                 }, 
                 {
                  "gid":3,
@@ -427,7 +427,7 @@
                  "visible":true,
                  "width":76,
                  "x":2467.71,
-                 "y":630.667
+                 "y":598.667
                 }, 
                 {
                  "gid":37,
@@ -445,7 +445,7 @@
                  "visible":true,
                  "width":76,
                  "x":2543.62,
-                 "y":630.667
+                 "y":598.667
                 }, 
                 {
                  "gid":37,
@@ -463,7 +463,7 @@
                  "visible":true,
                  "width":76,
                  "x":2619.62,
-                 "y":630.667
+                 "y":598.667
                 }, 
                 {
                  "gid":37,
@@ -517,7 +517,7 @@
                  "visible":true,
                  "width":76,
                  "x":3818,
-                 "y":630
+                 "y":598
                 }, 
                 {
                  "gid":37,
@@ -535,7 +535,7 @@
                  "visible":true,
                  "width":76,
                  "x":3894,
-                 "y":630
+                 "y":598
                 }, 
                 {
                  "gid":37,
@@ -553,7 +553,7 @@
                  "visible":true,
                  "width":76,
                  "x":3969.88,
-                 "y":630
+                 "y":598
                 }, 
                 {
                  "gid":37,
@@ -571,7 +571,7 @@
                  "visible":true,
                  "width":76,
                  "x":4045.75,
-                 "y":630
+                 "y":598
                 }, 
                 {
                  "gid":37,
@@ -589,7 +589,7 @@
                  "visible":true,
                  "width":76,
                  "x":4121.73,
-                 "y":630
+                 "y":598
                 }, 
                 {
                  "gid":37,
@@ -607,7 +607,7 @@
                  "visible":true,
                  "width":76,
                  "x":4197.64,
-                 "y":630
+                 "y":598
                 }, 
                 {
                  "gid":37,
@@ -625,7 +625,7 @@
                  "visible":true,
                  "width":76,
                  "x":4273.64,
-                 "y":630
+                 "y":598
                 }, 
                 {
                  "gid":37,
@@ -643,7 +643,7 @@
                  "visible":true,
                  "width":76,
                  "x":3894,
-                 "y":487
+                 "y":455
                 }, 
                 {
                  "gid":37,
@@ -661,7 +661,7 @@
                  "visible":true,
                  "width":76,
                  "x":3970,
-                 "y":348
+                 "y":316
                 }, 
                 {
                  "gid":37,
@@ -679,7 +679,7 @@
                  "visible":true,
                  "width":76,
                  "x":4046,
-                 "y":234
+                 "y":202
                 }, 
                 {
                  "gid":37,
@@ -697,7 +697,7 @@
                  "visible":true,
                  "width":76,
                  "x":4046,
-                 "y":348
+                 "y":316
                 }, 
                 {
                  "gid":37,
@@ -715,7 +715,7 @@
                  "visible":true,
                  "width":76,
                  "x":4046,
-                 "y":487
+                 "y":455
                 }, 
                 {
                  "gid":37,
@@ -733,7 +733,7 @@
                  "visible":true,
                  "width":76,
                  "x":3970,
-                 "y":487
+                 "y":455
                 }, 
                 {
                  "gid":37,
@@ -751,7 +751,7 @@
                  "visible":true,
                  "width":76,
                  "x":4122,
-                 "y":348
+                 "y":316
                 }, 
                 {
                  "gid":37,
@@ -769,7 +769,7 @@
                  "visible":true,
                  "width":76,
                  "x":4122,
-                 "y":487
+                 "y":455
                 }, 
                 {
                  "gid":37,
@@ -787,7 +787,7 @@
                  "visible":true,
                  "width":76,
                  "x":4198,
-                 "y":487
+                 "y":455
                 }, 
                 {
                  "gid":16,
@@ -805,7 +805,7 @@
                  "visible":true,
                  "width":30,
                  "x":4038,
-                 "y":302
+                 "y":270
                 }, 
                 {
                  "gid":16,
@@ -823,7 +823,7 @@
                  "visible":true,
                  "width":30,
                  "x":4039,
-                 "y":270
+                 "y":238
                 }, 
                 {
                  "gid":16,
@@ -841,7 +841,7 @@
                  "visible":true,
                  "width":30,
                  "x":4070,
-                 "y":271
+                 "y":239
                 }, 
                 {
                  "gid":16,
@@ -859,7 +859,7 @@
                  "visible":true,
                  "width":30,
                  "x":4070,
-                 "y":303
+                 "y":271
                 }, 
                 {
                  "gid":16,
@@ -877,7 +877,7 @@
                  "visible":true,
                  "width":30,
                  "x":4102,
-                 "y":271
+                 "y":239
                 }, 
                 {
                  "gid":16,
@@ -895,7 +895,7 @@
                  "visible":true,
                  "width":30,
                  "x":4102,
-                 "y":303
+                 "y":271
                 }, 
                 {
                  "gid":16,
@@ -913,7 +913,7 @@
                  "visible":true,
                  "width":30,
                  "x":3985,
-                 "y":448
+                 "y":416
                 }, 
                 {
                  "gid":16,
@@ -931,7 +931,7 @@
                  "visible":true,
                  "width":30,
                  "x":3985,
-                 "y":416
+                 "y":384
                 }, 
                 {
                  "gid":16,
@@ -949,7 +949,7 @@
                  "visible":true,
                  "width":30,
                  "x":3985,
-                 "y":383
+                 "y":351
                 }, 
                 {
                  "gid":16,
@@ -967,7 +967,7 @@
                  "visible":true,
                  "width":30,
                  "x":4017,
-                 "y":384
+                 "y":352
                 }, 
                 {
                  "gid":16,
@@ -985,7 +985,7 @@
                  "visible":true,
                  "width":30,
                  "x":4017,
-                 "y":448
+                 "y":416
                 }, 
                 {
                  "gid":16,
@@ -1003,7 +1003,7 @@
                  "visible":true,
                  "width":30,
                  "x":4049,
-                 "y":383
+                 "y":351
                 }, 
                 {
                  "gid":16,
@@ -1021,7 +1021,7 @@
                  "visible":true,
                  "width":30,
                  "x":4048,
-                 "y":415
+                 "y":383
                 }, 
                 {
                  "gid":16,
@@ -1039,7 +1039,7 @@
                  "visible":true,
                  "width":30,
                  "x":4048,
-                 "y":448
+                 "y":416
                 }, 
                 {
                  "gid":16,
@@ -1057,7 +1057,7 @@
                  "visible":true,
                  "width":30,
                  "x":4080,
-                 "y":384
+                 "y":352
                 }, 
                 {
                  "gid":16,
@@ -1075,7 +1075,7 @@
                  "visible":true,
                  "width":30,
                  "x":4080,
-                 "y":415
+                 "y":383
                 }, 
                 {
                  "gid":16,
@@ -1093,7 +1093,7 @@
                  "visible":true,
                  "width":30,
                  "x":4080,
-                 "y":448
+                 "y":416
                 }, 
                 {
                  "gid":16,
@@ -1111,7 +1111,7 @@
                  "visible":true,
                  "width":30,
                  "x":4114,
-                 "y":384
+                 "y":352
                 }, 
                 {
                  "gid":16,
@@ -1129,7 +1129,7 @@
                  "visible":true,
                  "width":30,
                  "x":4113,
-                 "y":447
+                 "y":415
                 }, 
                 {
                  "gid":16,
@@ -1147,7 +1147,7 @@
                  "visible":true,
                  "width":30,
                  "x":4146,
-                 "y":384
+                 "y":352
                 }, 
                 {
                  "gid":16,
@@ -1165,7 +1165,7 @@
                  "visible":true,
                  "width":30,
                  "x":4145,
-                 "y":416
+                 "y":384
                 }, 
                 {
                  "gid":16,
@@ -1183,7 +1183,7 @@
                  "visible":true,
                  "width":30,
                  "x":4145,
-                 "y":448
+                 "y":416
                 }, 
                 {
                  "gid":15,
@@ -1201,7 +1201,7 @@
                  "visible":true,
                  "width":33,
                  "x":4015,
-                 "y":413
+                 "y":381
                 }, 
                 {
                  "gid":15,
@@ -1219,7 +1219,7 @@
                  "visible":true,
                  "width":33,
                  "x":4111,
-                 "y":413
+                 "y":381
                 }, 
                 {
                  "gid":16,
@@ -1237,7 +1237,7 @@
                  "visible":true,
                  "width":30,
                  "x":3983.5,
-                 "y":587.5
+                 "y":555.5
                 }, 
                 {
                  "gid":16,
@@ -1255,7 +1255,7 @@
                  "visible":true,
                  "width":30,
                  "x":3983.5,
-                 "y":555.5
+                 "y":523.5
                 }, 
                 {
                  "gid":16,
@@ -1273,7 +1273,7 @@
                  "visible":true,
                  "width":30,
                  "x":3983.5,
-                 "y":522.5
+                 "y":490.5
                 }, 
                 {
                  "gid":16,
@@ -1291,7 +1291,7 @@
                  "visible":true,
                  "width":30,
                  "x":4015.5,
-                 "y":523.5
+                 "y":491.5
                 }, 
                 {
                  "gid":16,
@@ -1309,7 +1309,7 @@
                  "visible":true,
                  "width":30,
                  "x":4015.5,
-                 "y":587.5
+                 "y":555.5
                 }, 
                 {
                  "gid":16,
@@ -1327,7 +1327,7 @@
                  "visible":true,
                  "width":30,
                  "x":4047.5,
-                 "y":522.5
+                 "y":490.5
                 }, 
                 {
                  "gid":16,
@@ -1345,7 +1345,7 @@
                  "visible":true,
                  "width":30,
                  "x":4046.5,
-                 "y":554.5
+                 "y":522.5
                 }, 
                 {
                  "gid":16,
@@ -1363,7 +1363,7 @@
                  "visible":true,
                  "width":30,
                  "x":4046.5,
-                 "y":587.5
+                 "y":555.5
                 }, 
                 {
                  "gid":16,
@@ -1381,7 +1381,7 @@
                  "visible":true,
                  "width":30,
                  "x":4078.5,
-                 "y":523.5
+                 "y":491.5
                 }, 
                 {
                  "gid":16,
@@ -1399,7 +1399,7 @@
                  "visible":true,
                  "width":30,
                  "x":4078.5,
-                 "y":554.5
+                 "y":522.5
                 }, 
                 {
                  "gid":16,
@@ -1417,7 +1417,7 @@
                  "visible":true,
                  "width":30,
                  "x":4078.5,
-                 "y":587.5
+                 "y":555.5
                 }, 
                 {
                  "gid":16,
@@ -1435,7 +1435,7 @@
                  "visible":true,
                  "width":30,
                  "x":4112.5,
-                 "y":523.5
+                 "y":491.5
                 }, 
                 {
                  "gid":16,
@@ -1453,7 +1453,7 @@
                  "visible":true,
                  "width":30,
                  "x":4111.5,
-                 "y":586.5
+                 "y":554.5
                 }, 
                 {
                  "gid":16,
@@ -1471,7 +1471,7 @@
                  "visible":true,
                  "width":30,
                  "x":4144.5,
-                 "y":523.5
+                 "y":491.5
                 }, 
                 {
                  "gid":16,
@@ -1489,7 +1489,7 @@
                  "visible":true,
                  "width":30,
                  "x":4143.5,
-                 "y":555.5
+                 "y":523.5
                 }, 
                 {
                  "gid":16,
@@ -1507,7 +1507,7 @@
                  "visible":true,
                  "width":30,
                  "x":4143.5,
-                 "y":587.5
+                 "y":555.5
                 }, 
                 {
                  "gid":15,
@@ -1525,7 +1525,7 @@
                  "visible":true,
                  "width":33,
                  "x":4013.5,
-                 "y":552.5
+                 "y":520.5
                 }, 
                 {
                  "gid":15,
@@ -1543,7 +1543,7 @@
                  "visible":true,
                  "width":33,
                  "x":4109.5,
-                 "y":552.5
+                 "y":520.5
                 }, 
                 {
                  "gid":16,
@@ -1561,7 +1561,7 @@
                  "visible":true,
                  "width":30,
                  "x":3919,
-                 "y":522.5
+                 "y":490.5
                 }, 
                 {
                  "gid":16,
@@ -1579,7 +1579,7 @@
                  "visible":true,
                  "width":30,
                  "x":3918,
-                 "y":554.5
+                 "y":522.5
                 }, 
                 {
                  "gid":16,
@@ -1597,7 +1597,7 @@
                  "visible":true,
                  "width":30,
                  "x":3918,
-                 "y":587.5
+                 "y":555.5
                 }, 
                 {
                  "gid":16,
@@ -1615,7 +1615,7 @@
                  "visible":true,
                  "width":30,
                  "x":3950,
-                 "y":523.5
+                 "y":491.5
                 }, 
                 {
                  "gid":16,
@@ -1633,7 +1633,7 @@
                  "visible":true,
                  "width":30,
                  "x":3950,
-                 "y":587.5
+                 "y":555.5
                 }, 
                 {
                  "gid":16,
@@ -1651,7 +1651,7 @@
                  "visible":true,
                  "width":30,
                  "x":4175,
-                 "y":523.5
+                 "y":491.5
                 }, 
                 {
                  "gid":16,
@@ -1669,7 +1669,7 @@
                  "visible":true,
                  "width":30,
                  "x":4174,
-                 "y":588.5
+                 "y":556.5
                 }, 
                 {
                  "gid":16,
@@ -1687,7 +1687,7 @@
                  "visible":true,
                  "width":30,
                  "x":4206,
-                 "y":524.5
+                 "y":492.5
                 }, 
                 {
                  "gid":16,
@@ -1705,7 +1705,7 @@
                  "visible":true,
                  "width":30,
                  "x":4206,
-                 "y":555.5
+                 "y":523.5
                 }, 
                 {
                  "gid":16,
@@ -1723,7 +1723,7 @@
                  "visible":true,
                  "width":30,
                  "x":4206,
-                 "y":588.5
+                 "y":556.5
                 }, 
                 {
                  "gid":15,
@@ -1741,7 +1741,7 @@
                  "visible":true,
                  "width":33,
                  "x":4174,
-                 "y":555
+                 "y":523
                 }, 
                 {
                  "gid":15,
@@ -1759,7 +1759,7 @@
                  "visible":true,
                  "width":33,
                  "x":3950,
-                 "y":553
+                 "y":521
                 }, 
                 {
                  "gid":37,
@@ -1812,8 +1812,512 @@
                  "type":"platform1",
                  "visible":true,
                  "width":76,
-                 "x":1729.33333333333,
-                 "y":630.333333333333
+                 "x":1729.33,
+                 "y":598.333
+                }, 
+                {
+                 "gid":7,
+                 "height":90,
+                 "id":1613,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rhombusBoulder",
+                 "visible":true,
+                 "width":90,
+                 "x":4665.66666666667,
+                 "y":651.666666666667
+                }, 
+                {
+                 "gid":7,
+                 "height":90,
+                 "id":1614,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rhombusBoulder",
+                 "visible":true,
+                 "width":90,
+                 "x":4756.33333333333,
+                 "y":654.333333333333
+                }, 
+                {
+                 "gid":7,
+                 "height":90,
+                 "id":1615,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rhombusBoulder",
+                 "visible":true,
+                 "width":90,
+                 "x":4844.33333333333,
+                 "y":654.333333333333
+                }, 
+                {
+                 "gid":7,
+                 "height":90,
+                 "id":1616,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rhombusBoulder",
+                 "visible":true,
+                 "width":90,
+                 "x":4935,
+                 "y":654.333333333333
+                }, 
+                {
+                 "gid":7,
+                 "height":90,
+                 "id":1617,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rhombusBoulder",
+                 "visible":true,
+                 "width":90,
+                 "x":5024.33333333333,
+                 "y":654.333333333333
+                }, 
+                {
+                 "gid":1,
+                 "height":73,
+                 "id":1618,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rock01",
+                 "visible":true,
+                 "width":74,
+                 "x":4720.33333333333,
+                 "y":608
+                }, 
+                {
+                 "gid":1,
+                 "height":73,
+                 "id":1620,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rock01",
+                 "visible":true,
+                 "width":74,
+                 "x":4987,
+                 "y":608
+                }, 
+                {
+                 "gid":7,
+                 "height":90,
+                 "id":1621,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rhombusBoulder",
+                 "visible":true,
+                 "width":90,
+                 "x":4891,
+                 "y":609
+                }, 
+                {
+                 "gid":7,
+                 "height":90,
+                 "id":1622,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rhombusBoulder",
+                 "visible":true,
+                 "width":90,
+                 "x":4801.66666666667,
+                 "y":607.666666666667
+                }, 
+                {
+                 "gid":1,
+                 "height":73,
+                 "id":1623,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rock01",
+                 "visible":true,
+                 "width":74,
+                 "x":4951,
+                 "y":570.666666666667
+                }, 
+                {
+                 "gid":1,
+                 "height":73,
+                 "id":1624,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rock01",
+                 "visible":true,
+                 "width":74,
+                 "x":4759,
+                 "y":572
+                }, 
+                {
+                 "gid":1,
+                 "height":73,
+                 "id":1625,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rock01",
+                 "visible":true,
+                 "width":74,
+                 "x":4684.33333333333,
+                 "y":570.666666666667
+                }, 
+                {
+                 "gid":1,
+                 "height":73,
+                 "id":1626,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rock01",
+                 "visible":true,
+                 "width":74,
+                 "x":4636.33333333333,
+                 "y":597.333333333333
+                }, 
+                {
+                 "gid":1,
+                 "height":73,
+                 "id":1627,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rock01",
+                 "visible":true,
+                 "width":74,
+                 "x":4600.33333333333,
+                 "y":634.666666666667
+                }, 
+                {
+                 "gid":1,
+                 "height":73,
+                 "id":1628,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rock01",
+                 "visible":true,
+                 "width":74,
+                 "x":5025.66666666667,
+                 "y":572
+                }, 
+                {
+                 "gid":1,
+                 "height":73,
+                 "id":1629,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rock01",
+                 "visible":true,
+                 "width":74,
+                 "x":5071,
+                 "y":602.666666666667
+                }, 
+                {
+                 "gid":1,
+                 "height":73,
+                 "id":1630,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rock01",
+                 "visible":true,
+                 "width":74,
+                 "x":5109.66666666667,
+                 "y":641.333333333333
+                }, 
+                {
+                 "gid":1,
+                 "height":73,
+                 "id":1631,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rock01",
+                 "visible":true,
+                 "width":74,
+                 "x":4853.66666666667,
+                 "y":561.333333333333
+                }, 
+                {
+                 "gid":3,
+                 "height":40,
+                 "id":1632,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rock02",
+                 "visible":true,
+                 "width":40,
+                 "x":5006.66666666667,
+                 "y":534.666666666667
+                }, 
+                {
+                 "gid":3,
+                 "height":40,
+                 "id":1633,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rock02",
+                 "visible":true,
+                 "width":40,
+                 "x":4932,
+                 "y":532
+                }, 
+                {
+                 "gid":3,
+                 "height":40,
+                 "id":1634,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rock02",
+                 "visible":true,
+                 "width":40,
+                 "x":4902.66666666667,
+                 "y":520
+                }, 
+                {
+                 "gid":3,
+                 "height":40,
+                 "id":1635,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rock02",
+                 "visible":true,
+                 "width":40,
+                 "x":4810.66666666667,
+                 "y":533.333333333333
+                }, 
+                {
+                 "gid":3,
+                 "height":40,
+                 "id":1636,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rock02",
+                 "visible":true,
+                 "width":40,
+                 "x":4837.33333333333,
+                 "y":520
+                }, 
+                {
+                 "gid":3,
+                 "height":40,
+                 "id":1637,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rock02",
+                 "visible":true,
+                 "width":40,
+                 "x":4738.66666666667,
+                 "y":536
+                }, 
+                {
+                 "gid":3,
+                 "height":40,
+                 "id":1638,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"rock02",
+                 "visible":true,
+                 "width":40,
+                 "x":4664,
+                 "y":533.333333333333
+                }, 
+                {
+                 "gid":37,
+                 "height":38,
+                 "id":1665,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"platform1",
+                 "visible":true,
+                 "width":76,
+                 "x":5786,
+                 "y":565.666666666667
+                }, 
+                {
+                 "gid":37,
+                 "height":38,
+                 "id":1666,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"platform1",
+                 "visible":true,
+                 "width":76,
+                 "x":5952.66666666667,
+                 "y":565.666666666667
+                }, 
+                {
+                 "gid":37,
+                 "height":38,
+                 "id":1667,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"platform1",
+                 "visible":true,
+                 "width":76,
+                 "x":6112.66666666667,
+                 "y":565.666666666667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2286,7 +2790,7 @@
                  "visible":true,
                  "width":45,
                  "x":1706.59,
-                 "y":591.5
+                 "y":559.5
                 }, 
                 {
                  "height":0,
@@ -2324,7 +2828,7 @@
                  "visible":true,
                  "width":0,
                  "x":1728.84,
-                 "y":586
+                 "y":479
                 }, 
                 {
                  "gid":35,
@@ -2512,7 +3016,7 @@
                  "visible":true,
                  "width":120,
                  "x":1876.01,
-                 "y":593
+                 "y":561
                 }, 
                 {
                  "gid":26,
@@ -2864,7 +3368,7 @@
                  "visible":true,
                  "width":40,
                  "x":2484.33,
-                 "y":594.667
+                 "y":562.667
                 }, 
                 {
                  "gid":38,
@@ -2897,7 +3401,7 @@
                  "visible":true,
                  "width":40,
                  "x":2559.33,
-                 "y":594.667
+                 "y":562.667
                 }, 
                 {
                  "gid":38,
@@ -2930,7 +3434,7 @@
                  "visible":true,
                  "width":40,
                  "x":2639.33,
-                 "y":595.333
+                 "y":563.333
                 }, 
                 {
                  "gid":35,
@@ -2963,7 +3467,7 @@
                  "visible":true,
                  "width":45,
                  "x":3021.64,
-                 "y":238.545
+                 "y":270.545
                 }, 
                 {
                  "gid":35,
@@ -2996,7 +3500,7 @@
                  "visible":true,
                  "width":45,
                  "x":3021.62,
-                 "y":238.625
+                 "y":270.625
                 }, 
                 {
                  "gid":35,
@@ -3029,7 +3533,7 @@
                  "visible":true,
                  "width":45,
                  "x":3021.62,
-                 "y":238.75
+                 "y":270.75
                 }, 
                 {
                  "gid":35,
@@ -3062,7 +3566,7 @@
                  "visible":true,
                  "width":45,
                  "x":3021.62,
-                 "y":238.75
+                 "y":270.75
                 }, 
                 {
                  "gid":35,
@@ -3095,7 +3599,7 @@
                  "visible":true,
                  "width":45,
                  "x":3021.75,
-                 "y":238.625
+                 "y":270.625
                 }, 
                 {
                  "gid":35,
@@ -3127,50 +3631,8 @@
                  "type":"flyingEnemy3",
                  "visible":true,
                  "width":45,
-                 "x":3402.71333333333,
-                 "y":274.083333333333
-                }, 
-                {
-                 "height":0,
-                 "id":1474,
-                 "name":"",
-                 "polyline":[
-                        {
-                         "x":0,
-                         "y":0
-                        }, 
-                        {
-                         "x":-127,
-                         "y":-217
-                        }, 
-                        {
-                         "x":-467,
-                         "y":213
-                        }, 
-                        {
-                         "x":150,
-                         "y":299
-                        }, 
-                        {
-                         "x":392,
-                         "y":-231
-                        }, 
-                        {
-                         "x":109,
-                         "y":-232
-                        }],
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":8
-                        }],
-                 "rotation":0,
-                 "type":"path",
-                 "visible":true,
-                 "width":0,
-                 "x":3424,
-                 "y":304
+                 "x":3402.71,
+                 "y":306.083
                 }, 
                 {
                  "gid":39,
@@ -3193,7 +3655,7 @@
                  "visible":true,
                  "width":120,
                  "x":3765,
-                 "y":592
+                 "y":560
                 }, 
                 {
                  "gid":39,
@@ -3216,7 +3678,7 @@
                  "visible":true,
                  "width":120,
                  "x":3841,
-                 "y":448
+                 "y":416
                 }, 
                 {
                  "gid":39,
@@ -3239,7 +3701,7 @@
                  "visible":true,
                  "width":120,
                  "x":3912,
-                 "y":310
+                 "y":278
                 }, 
                 {
                  "gid":39,
@@ -3262,7 +3724,7 @@
                  "visible":true,
                  "width":120,
                  "x":3987,
-                 "y":196
+                 "y":164
                 }, 
                 {
                  "gid":38,
@@ -3295,7 +3757,7 @@
                  "visible":true,
                  "width":40,
                  "x":4150,
-                 "y":311
+                 "y":279
                 }, 
                 {
                  "gid":38,
@@ -3328,7 +3790,7 @@
                  "visible":true,
                  "width":40,
                  "x":4177,
-                 "y":448
+                 "y":416
                 }, 
                 {
                  "gid":38,
@@ -3361,7 +3823,7 @@
                  "visible":true,
                  "width":40,
                  "x":4226,
-                 "y":450
+                 "y":418
                 }, 
                 {
                  "gid":38,
@@ -3394,7 +3856,7 @@
                  "visible":true,
                  "width":40,
                  "x":4240,
-                 "y":594
+                 "y":562
                 }, 
                 {
                  "gid":38,
@@ -3427,41 +3889,7 @@
                  "visible":true,
                  "width":40,
                  "x":4290,
-                 "y":594
-                }, 
-                {
-                 "height":0,
-                 "id":1565,
-                 "name":"",
-                 "polyline":[
-                        {
-                         "x":0,
-                         "y":0
-                        }, 
-                        {
-                         "x":-194,
-                         "y":-230
-                        }, 
-                        {
-                         "x":-841,
-                         "y":111
-                        }, 
-                        {
-                         "x":-1326,
-                         "y":112
-                        }],
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":7
-                        }],
-                 "rotation":0,
-                 "type":"path",
-                 "visible":true,
-                 "width":0,
-                 "x":3044,
-                 "y":267
+                 "y":562
                 }, 
                 {
                  "gid":40,
@@ -3479,7 +3907,7 @@
                  "visible":true,
                  "width":150,
                  "x":3352,
-                 "y":308.666666666667
+                 "y":308.667
                 }, 
                 {
                  "gid":40,
@@ -3514,8 +3942,1219 @@
                  "type":"launchBay",
                  "visible":true,
                  "width":150,
-                 "x":1654.66666666667,
-                 "y":592.333333333333
+                 "x":1654.67,
+                 "y":560.333
+                }, 
+                {
+                 "height":0,
+                 "id":1577,
+                 "name":"",
+                 "polyline":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":-55,
+                         "y":-101
+                        }, 
+                        {
+                         "x":2,
+                         "y":-101
+                        }, 
+                        {
+                         "x":-126,
+                         "y":287
+                        }, 
+                        {
+                         "x":-356,
+                         "y":287
+                        }],
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":8
+                        }],
+                 "rotation":0,
+                 "type":"path",
+                 "visible":true,
+                 "width":0,
+                 "x":3424,
+                 "y":223
+                }, 
+                {
+                 "height":0,
+                 "id":1578,
+                 "name":"",
+                 "polyline":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":-54,
+                         "y":-100
+                        }, 
+                        {
+                         "x":-224,
+                         "y":-100
+                        }, 
+                        {
+                         "x":-736,
+                         "y":255
+                        }, 
+                        {
+                         "x":-909,
+                         "y":254
+                        }],
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":7
+                        }],
+                 "rotation":0,
+                 "type":"path",
+                 "visible":true,
+                 "width":0,
+                 "x":3040,
+                 "y":191
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1579,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":8
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":3402.75,
+                 "y":306
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1580,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":8
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":3403,
+                 "y":306
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1581,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":8
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":3403,
+                 "y":306
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1582,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":8
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":3402.75,
+                 "y":306.25
+                }, 
+                {
+                 "gid":20,
+                 "height":30,
+                 "id":1639,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0.785398163
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":4650.33333333333,
+                 "y":508.333333333333
+                }, 
+                {
+                 "gid":20,
+                 "height":30,
+                 "id":1640,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0.785398163
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":4601,
+                 "y":576.333333333333
+                }, 
+                {
+                 "gid":20,
+                 "height":30,
+                 "id":1641,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0.785398163
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":4823.66666666667,
+                 "y":492.333333333333
+                }, 
+                {
+                 "gid":20,
+                 "height":30,
+                 "id":1642,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0.785398163
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":4891.66666666667,
+                 "y":489.666666666667
+                }, 
+                {
+                 "gid":20,
+                 "height":30,
+                 "id":1643,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0.785398163
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":4993,
+                 "y":507
+                }, 
+                {
+                 "gid":19,
+                 "height":30,
+                 "id":1644,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":5.497787143
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":5082.33333333333,
+                 "y":531
+                }, 
+                {
+                 "gid":19,
+                 "height":30,
+                 "id":1645,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":5.497787143
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":4958.33333333333,
+                 "y":508.333333333333
+                }, 
+                {
+                 "gid":19,
+                 "height":30,
+                 "id":1646,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":5.497787143
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":4765,
+                 "y":511
+                }, 
+                {
+                 "gid":19,
+                 "height":30,
+                 "id":1647,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":5.497787143
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":5139.66666666667,
+                 "y":572.333333333333
+                }, 
+                {
+                 "gid":12,
+                 "height":21,
+                 "id":1648,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":9
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":26
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":5202.33333333333,
+                 "y":266
+                }, 
+                {
+                 "gid":12,
+                 "height":21,
+                 "id":1649,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":9
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":5266.33333333333,
+                 "y":266
+                }, 
+                {
+                 "gid":12,
+                 "height":21,
+                 "id":1650,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":9
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":5331.66666666667,
+                 "y":267.333333333333
+                }, 
+                {
+                 "gid":12,
+                 "height":21,
+                 "id":1651,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":9
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":5394.33333333333,
+                 "y":266
+                }, 
+                {
+                 "gid":12,
+                 "height":21,
+                 "id":1653,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":9
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":5458.33333333333,
+                 "y":267.333333333333
+                }, 
+                {
+                 "gid":26,
+                 "height":50,
+                 "id":1654,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":11
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":26
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2",
+                 "visible":true,
+                 "width":50,
+                 "x":5768.33333333333,
+                 "y":313
+                }, 
+                {
+                 "height":0,
+                 "id":1655,
+                 "name":"",
+                 "polyline":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":-133.333333333334,
+                         "y":0
+                        }, 
+                        {
+                         "x":-230.666666666667,
+                         "y":-166.666666666667
+                        }, 
+                        {
+                         "x":-416,
+                         "y":149.333333333333
+                        }, 
+                        {
+                         "x":-586.666666666667,
+                         "y":-158.666666666667
+                        }, 
+                        {
+                         "x":-788,
+                         "y":154.666666666667
+                        }, 
+                        {
+                         "x":-938.666666666667,
+                         "y":-168
+                        }, 
+                        {
+                         "x":-1133.33333333333,
+                         "y":157.333333333333
+                        }, 
+                        {
+                         "x":-1305.33333333333,
+                         "y":-168
+                        }, 
+                        {
+                         "x":-1426.66666666667,
+                         "y":-166.666666666667
+                        }],
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":11
+                        }],
+                 "rotation":0,
+                 "type":"path",
+                 "visible":true,
+                 "width":0,
+                 "x":5792,
+                 "y":288
+                }, 
+                {
+                 "gid":26,
+                 "height":50,
+                 "id":1656,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":11
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2",
+                 "visible":true,
+                 "width":50,
+                 "x":5863,
+                 "y":313
+                }, 
+                {
+                 "gid":26,
+                 "height":50,
+                 "id":1657,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":11
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2",
+                 "visible":true,
+                 "width":50,
+                 "x":5957.66666666667,
+                 "y":313
+                }, 
+                {
+                 "gid":26,
+                 "height":50,
+                 "id":1658,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":11
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2",
+                 "visible":true,
+                 "width":50,
+                 "x":6055,
+                 "y":313
+                }, 
+                {
+                 "gid":26,
+                 "height":50,
+                 "id":1659,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":11
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2",
+                 "visible":true,
+                 "width":50,
+                 "x":6152.33333333333,
+                 "y":313
+                }, 
+                {
+                 "gid":9,
+                 "height":21,
+                 "id":1660,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":12
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":5681,
+                 "y":74
+                }, 
+                {
+                 "gid":9,
+                 "height":21,
+                 "id":1661,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":12
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":5745,
+                 "y":74
+                }, 
+                {
+                 "gid":9,
+                 "height":21,
+                 "id":1662,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":12
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":5809,
+                 "y":74
+                }, 
+                {
+                 "gid":9,
+                 "height":21,
+                 "id":1663,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":12
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":5874.33333333333,
+                 "y":75.3333333333333
+                }, 
+                {
+                 "gid":9,
+                 "height":21,
+                 "id":1664,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":12
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":5938.33333333333,
+                 "y":75.3333333333333
+                }, 
+                {
+                 "gid":38,
+                 "height":28,
+                 "id":1668,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":13
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"loop"
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy2",
+                 "visible":true,
+                 "width":40,
+                 "x":5782.66666666667,
+                 "y":530
+                }, 
+                {
+                 "gid":38,
+                 "height":28,
+                 "id":1669,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":13
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"loop"
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy2",
+                 "visible":true,
+                 "width":40,
+                 "x":5824,
+                 "y":530
+                }, 
+                {
+                 "gid":38,
+                 "height":28,
+                 "id":1670,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":14
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"loop"
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy2",
+                 "visible":true,
+                 "width":40,
+                 "x":5950.66666666667,
+                 "y":530
+                }, 
+                {
+                 "gid":38,
+                 "height":28,
+                 "id":1671,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":14
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"loop"
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy2",
+                 "visible":true,
+                 "width":40,
+                 "x":5990.66666666667,
+                 "y":530
+                }, 
+                {
+                 "gid":38,
+                 "height":28,
+                 "id":1672,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"loop"
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy2",
+                 "visible":true,
+                 "width":40,
+                 "x":6110.66666666667,
+                 "y":530
+                }, 
+                {
+                 "gid":38,
+                 "height":28,
+                 "id":1673,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"loop"
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy2",
+                 "visible":true,
+                 "width":40,
+                 "x":6149.33333333333,
+                 "y":530
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -3524,7 +5163,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":1573,
+ "nextobjectid":1674,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.0",
