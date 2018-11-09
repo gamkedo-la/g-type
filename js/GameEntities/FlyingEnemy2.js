@@ -16,7 +16,7 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 
     let sprite;
 	
-    if(difficulty > 25) {
+    if(difficulty > 15) {
         sprite = new AnimatedSprite(flyingEnemy2RedSheet, 6, 50, 50, false, true, {min:0, max:0}, 0, {min:0, max:5}, 256, {min:5, max:5}, 0);
     } else {
         sprite = new AnimatedSprite(flyingEnemy2Sheet, 6, 50, 50, false, true, {min:0, max:0}, 0, {min:0, max:5}, 256, {min:5, max:5}, 0);
@@ -123,6 +123,11 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 					xVel = -xVel;
 				} else {
 					xVel = 0;
+				}
+				
+				if(difficulty > 10) {
+					xVel *= 2;
+					yVel *= 2;
 				}
 				
 				const newBullet = new EnemyBullet(EntityType.EnemyBullet2, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});

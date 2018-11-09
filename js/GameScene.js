@@ -85,7 +85,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null) {
 	
 	this.update = function(deltaTime) {
 		if(!worldPaused) {
-			this.worldPos += 2.5 * worldSpeed;
+			this.worldPos += 3.0 * worldSpeed;
 		}	
 		
 		this.updateBackground(deltaTime);

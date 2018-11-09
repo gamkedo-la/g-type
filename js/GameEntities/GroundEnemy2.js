@@ -63,8 +63,15 @@ function GroundEnemy2(position = {x:0, y:0}, speed = 100, pattern = PathType.Loo
             
             const deltaAngle = angleToPlayer - facing;
             if((deltaAngle > -Math.PI / 2) && (deltaAngle < Math.PI / 2)) {
-                const xVel = 50 * Math.cos(angleToPlayer);
-                const yVel = -50 * Math.sin(angleToPlayer);
+                let xVel;
+				let yVel;
+				if(difficulty > 10) {
+					xVel = 100 * Math.cos(angleToPlayer);
+					yVel = -100 * Math.sin(angleToPlayer);
+				} else {
+					xVel = 50 * Math.cos(angleToPlayer);
+					yVel = -50 * Math.sin(angleToPlayer);
+				}
                 
                 const bulletXPos = this.collisionBody.center.x + this.collisionBody.radius * Math.cos(facing);
                 const bulletYPos = this.collisionBody.center.y - this.collisionBody.radius * Math.sin(facing);

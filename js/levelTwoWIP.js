@@ -2349,7 +2349,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"pattern",
@@ -2382,7 +2382,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"pattern",
@@ -2415,7 +2415,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"pattern",
@@ -2448,7 +2448,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"pattern",
@@ -2481,7 +2481,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"pattern",
@@ -2514,7 +2514,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"pattern",
@@ -2547,7 +2547,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"pattern",
@@ -2580,7 +2580,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"pattern",
@@ -2613,7 +2613,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"pattern",
@@ -2646,7 +2646,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"pattern",
@@ -2679,7 +2679,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"pattern",
@@ -2712,7 +2712,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"pattern",
@@ -2745,7 +2745,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"pattern",
@@ -3037,7 +3037,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":1
+                         "value":5
                         }, 
                         {
                          "name":"pattern",
@@ -3145,7 +3145,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":5
                         }, 
                         {
                          "name":"pattern",
@@ -3178,7 +3178,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"pattern",
@@ -3211,7 +3211,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":5
                         }, 
                         {
                          "name":"pattern",
@@ -3239,7 +3239,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":25
+                         "value":20
                         }, 
                         {
                          "name":"rotation",
@@ -3267,7 +3267,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":25
+                         "value":20
                         }, 
                         {
                          "name":"rotation",
@@ -3295,7 +3295,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":25
+                         "value":20
                         }, 
                         {
                          "name":"rotation",
@@ -3323,7 +3323,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":25
+                         "value":20
                         }, 
                         {
                          "name":"rotation",
@@ -3356,7 +3356,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":25
+                         "value":20
                         }, 
                         {
                          "name":"pattern",
@@ -3389,7 +3389,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":25
+                         "value":20
                         }, 
                         {
                          "name":"pattern",
@@ -3422,7 +3422,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":25
+                         "value":20
                         }, 
                         {
                          "name":"pattern",
@@ -3643,12 +3643,12 @@
                         {
                          "name":"Group",
                          "type":"int",
-                         "value":0
+                         "value":16
                         }, 
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":20
+                         "value":15
                         }],
                  "rotation":0,
                  "type":"groundEnemy3",
@@ -3666,12 +3666,12 @@
                         {
                          "name":"Group",
                          "type":"int",
-                         "value":0
+                         "value":17
                         }, 
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":20
+                         "value":15
                         }],
                  "rotation":0,
                  "type":"groundEnemy3",
@@ -3689,12 +3689,12 @@
                         {
                          "name":"Group",
                          "type":"int",
-                         "value":0
+                         "value":18
                         }, 
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":20
+                         "value":15
                         }],
                  "rotation":0,
                  "type":"groundEnemy3",
@@ -3712,12 +3712,12 @@
                         {
                          "name":"Group",
                          "type":"int",
-                         "value":0
+                         "value":19
                         }, 
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":20
+                         "value":15
                         }],
                  "rotation":0,
                  "type":"groundEnemy3",
@@ -4457,7 +4457,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"pattern",
@@ -4490,7 +4490,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"pattern",
@@ -4523,7 +4523,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"pattern",
@@ -4556,7 +4556,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"pattern",
@@ -4713,7 +4713,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":5
                         }, 
                         {
                          "name":"pattern",
@@ -4779,7 +4779,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":10
+                         "value":5
                         }, 
                         {
                          "name":"pattern",
@@ -4977,7 +4977,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":10
+                         "value":20
                         }, 
                         {
                          "name":"pattern",
@@ -5010,7 +5010,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":10
+                         "value":20
                         }, 
                         {
                          "name":"pattern",
@@ -5043,7 +5043,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":10
+                         "value":20
                         }, 
                         {
                          "name":"pattern",
@@ -5076,7 +5076,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":10
+                         "value":20
                         }, 
                         {
                          "name":"pattern",
@@ -5109,7 +5109,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":10
+                         "value":20
                         }, 
                         {
                          "name":"pattern",
@@ -5142,7 +5142,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":10
+                         "value":20
                         }, 
                         {
                          "name":"pattern",
