@@ -53,6 +53,7 @@ const KEY_Z = 90;
 const KEY_PLUS = 187;
 const KEY_MINUS = 189;
 const KEY_TILDE = 192;
+const KEY_SHIFT = 16;
 
 let holdKey = [];
 
@@ -68,21 +69,22 @@ holdKey[KEY_SPACE] = false;
 holdKey[KEY_TAB] = false;
 holdKey[KEY_X] = false;
 
+let keydownMap = {};
+
 function initializeInput() {
-	document.addEventListener("keydown", keyPress);
-	document.addEventListener("keyup", keyRelease);
+	document.addEventListener("keydown", keyDown);
+	document.addEventListener("keyup", keyDown);	
 }
+    
+function keyDown(evt) {
+	if (evt.type == "keydown") {
+		didInteract = true;		
+	}
+	
+	keydownMap[evt.keyCode] = evt.type == "keydown";
 
-function keyPress(evt) {
-    didInteract = true;
 	evt.preventDefault();
-	if(ScreenStates.control(evt.keyCode, true)) {
-        evt.preventDefault();
-	}
-}
-
-function keyRelease(evt) {
-    if (ScreenStates.control(evt.keyCode, false)) {
-        evt.preventDefault();
-	}
+	if (ScreenStates.control(keydownMap, false)) {
+		evt.preventDefault();
+	}		
 }

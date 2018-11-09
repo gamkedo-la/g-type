@@ -41,36 +41,35 @@ function GameOverScreen() {
 	    
 	    draw(this.selections, this.selectorPositionsIndex);
     };
-    this.control = function gamePlayFinishedScreenControl(keyCode, pressed){
-       if (pressed) {//only act on key released events => prevent multiple changes on single press
+    this.control = function gamePlayFinishedScreenControl(keydownMap, pressed){
+        if (pressed) {//only act on key released events => prevent multiple changes on single press
             return false;
         }
         
-        switch (keyCode) {
-            case KEY_UP:
-                this.selectorPositionsIndex--;
-                if (this.selectorPositionsIndex < 0) {
-                    this.selectorPositionsIndex += this.selections.length;
-                }
-                return true;
-            case KEY_DOWN:
-                this.selectorPositionsIndex = (this.selectorPositionsIndex + 1) % this.selections.length;
-                if (this.selectorPositionsIndex > this.selections.length - 1) {
-                    this.selectorPositionsIndex = 0;
-                }
-                return true;
-            case KEY_ENTER:
-                ScreenStates.setState(this.selections[this.selectorPositionsIndex].screen, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject()});
-                return true;
-            case KEY_H:
-                ScreenStates.setState(HELP_SCREEN);
-                return true;
-            case KEY_C:
-                ScreenStates.setState(CREDITS_SCREEN);
-                return true;
-            case KEY_M:
-            	toggleMute();	            	
-                return true;
+        if (this.keysPressed(KEY_UP)) {
+            this.selectorPositionsIndex--;
+            if (this.selectorPositionsIndex < 0) {
+                this.selectorPositionsIndex += this.selections.length;
+            }
+            return true;
+        } else if (this.keysPressed(KEY_DOWN)) {
+            this.selectorPositionsIndex = (this.selectorPositionsIndex + 1) % this.selections.length;
+            if (this.selectorPositionsIndex > this.selections.length - 1) {
+                this.selectorPositionsIndex = 0;
+            }
+            return true;
+        } else if (this.keysPressed(KEY_ENTER)) {
+            ScreenStates.setState(this.selections[this.selectorPositionsIndex].screen, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject()});
+            return true;
+        } else if (this.keysPressed(KEY_H)) {
+            ScreenStates.setState(HELP_SCREEN);
+            return true;
+        } else if (this.keysPressed(KEY_C)) {
+            ScreenStates.setState(CREDITS_SCREEN);
+            return true;
+        } else if (this.keysPressed(KEY_M)) {
+            toggleMute();	            	
+            return true;
         }
 
         return false;

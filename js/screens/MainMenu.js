@@ -43,52 +43,55 @@ function MenuScreen() {
 	    draw(this.selections, this.selectorPositionsIndex);
     };
 
-    this.control = function menuScreenControl(keyCode, pressed) {
-	    timeSinceKey = 0;
-	    
-        if (pressed) {//only act on key released events => prevent multiple changes on single press
+    this.control = function menuScreenControl(keydownMap, pressed) { // TO-DO: prevent multiple changes on single press     
+        timeSinceKey = 0;
+        
+        if (this.keysPressed(KEY_A, KEY_X)) {
+            console.log("AX");
+        }
+
+        if (pressed) {            
             return false;
         }
-        
-		if(keyCode != KEY_ENTER) {
-        	keyStrokes.push(keyCode);
-    	}
-        
-        //actual navigation logic
-        switch (keyCode) {
-            case KEY_UP:            
-                this.selectorPositionsIndex--;
-                if (this.selectorPositionsIndex < 0) {
-                    this.selectorPositionsIndex += this.selections.length;
-                }
-                return true;
-            case KEY_DOWN:
-                this.selectorPositionsIndex = (this.selectorPositionsIndex + 1) % this.selections.length;
-                if (this.selectorPositionsIndex > this.selections.length - 1) {
-                    this.selectorPositionsIndex = 0;
-                }
-                return true;
-            case KEY_ENTER:
-            	if(this.selectorPositionsIndex === 0) {
-	            	scene = null;
-                    ScreenStates.setState(CUT_SCENE1_SCREEN, {code: this.getDidEnterCode(), player:null, uiManager:null});
-            	} else {
-	            	ScreenStates.setState(this.selections[this.selectorPositionsIndex].screen);
-            	}
-                return true;
-            case KEY_H:
-                ScreenStates.setState(HELP_SCREEN);
-                return true;
-            case KEY_C:
-                ScreenStates.setState(CREDITS_SCREEN);
-                return true;
-            case KEY_E:
-                ScreenStates.setState(EDITOR_SCREEN);
-                return true;
-            case KEY_M:
-            	toggleMute();
-            	return true;
+
+		if(this.keysPressed(KEY_ENTER)) {
+        	keyStrokes.push(KEY_ENTER);
+    	}        
+
+        if (this.keysPressed(KEY_UP)) {            
+            this.selectorPositionsIndex--;
+            if (this.selectorPositionsIndex < 0) {
+                this.selectorPositionsIndex += this.selections.length;
+            }
+            return true;
+        } else if (this.keysPressed(KEY_DOWN)) {            
+            this.selectorPositionsIndex = (this.selectorPositionsIndex + 1) % this.selections.length;
+            if (this.selectorPositionsIndex > this.selections.length - 1) {
+                this.selectorPositionsIndex = 0;
+            }
+            return true;
+        } else if (this.keysPressed(KEY_ENTER)) {
+            if(this.selectorPositionsIndex === 0) {
+                scene = null;
+                ScreenStates.setState(CUT_SCENE1_SCREEN, {code: this.getDidEnterCode(), player:null, uiManager:null});
+            } else {
+                ScreenStates.setState(this.selections[this.selectorPositionsIndex].screen);
+            }
+            return true;
+        } else if (this.keysPressed(KEY_H)) {
+            ScreenStates.setState(HELP_SCREEN);
+            return true;
+        } else if (this.keysPressed(KEY_C)) {
+            ScreenStates.setState(CREDITS_SCREEN);
+            return true;
+        } else if (this.keysPressed(KEY_E)) {
+            ScreenStates.setState(EDITOR_SCREEN);
+            return true;
+        } else if (this.keysPressed(KEY_M)) {
+            toggleMute();
+            return true;
         }
+
         return false;
     };
     

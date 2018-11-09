@@ -80,13 +80,25 @@ const ScreenStates = {
 		   this.screens[this.state].run(deltaTime);
 		}
  	},
-	control: function(keyCode, pressed){
-		let currentState = this.screens[this.state];
-        let handled = currentState.control(keyCode, pressed);
-        if(!handled) {//Do something here if that becomes necessary
+	control: function(keydownMap, pressed){
+		this.screens[this.state].keysPressed = function () {
+			let keysToPress = arguments;
+		
+			for(let i = 0; i < keysToPress.length; i++) {
+				if(!keydownMap[keysToPress[i]]) { // if any key in arguments is not pressed
+					return false;		
+				}
+			}			
+			
+			return true;			
+		};
 
+		let currentState = this.screens[this.state];
+		let handled = currentState.control(keydownMap, pressed);
+
+        if(!handled) {//Do something here if that becomes necessary
+			
 		}
 		return handled;
     }
-
 };

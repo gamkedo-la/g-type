@@ -62,7 +62,7 @@ function DemoSceneScreen() {
         }
     };
     
-	this.control = function demoPlayScreenControl(keyCode, pressed) {
+	this.control = function demoPlayScreenControl() {
 		ScreenStates.setState(MENU_SCREEN);
 	};
 

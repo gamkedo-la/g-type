@@ -83,190 +83,169 @@ function GamePlayScreen () {
         }
     };
     
-    this.control = function gamePlayScreenControl(keyCode, pressed){
-        switch(keyCode) {
-	        case KEY_SPACE:
-	        	if(!pressed) {
-		        	scene.activatePowerUp();
-	        	}
-	        	return true;
-            case KEY_ESCAPE:
-                if(!pressed) {
-	                setPaused(!ScreenStates.isPaused, PauseCause.PressedPause);
-                }
-                return true;
-            case KEY_X:
-                holdKey[KEY_X] = pressed;//shoot
-                return true;
-            case KEY_UP:
-                holdKey[KEY_UP] = pressed;//move up
-                return true;
-            case KEY_W:
-                holdKey[KEY_W] = pressed;//move up
-                return true;
-            case KEY_DOWN:
-                holdKey[KEY_DOWN] = pressed;//move down
-                return true;
-            case KEY_S:
-                holdKey[KEY_S] = pressed;//move down
-                return true;
-            case KEY_LEFT:
-                holdKey[KEY_LEFT] = pressed;//move left
-                return true;
-            case KEY_A:
-                holdKey[KEY_A] = pressed;//move left
-                return true;
-            case KEY_RIGHT:
-                holdKey[KEY_RIGHT] = pressed;//move right
-                return true;
-            case KEY_D:
-                holdKey[KEY_D] = pressed;//move right
-                return true;
-            case KEY_M:
-            	if(!pressed) {
-	            	toggleMute();	            	
-            	}
-                return true;
-            case KEY_PLUS:
-                if(!pressed) {
-                    turnVolumeUp();
-                }
-                return true;
-            case KEY_MINUS:
-                if(!pressed) {
-                    turnVolumeDown();
-                }
-                return true;
-            case KEY_P:
-                if(!pressed) {
-	                setPaused(!ScreenStates.isPaused, PauseCause.PressedPause);
-                }
-                return true;
-            case KEY_BACKSPACE:
-                if(!pressed) {
-	                setPaused(!ScreenStates.isPaused, PauseCause.PressedPause);
-                }
-                return true;
+    this.control = function gamePlayScreenControl(keydownMap, pressed){ // TO-DO: prevent multiple changes on single press
+        // SHIP CONTROLS START        
+        holdKey[KEY_UP] = this.keysPressed(KEY_UP) || this.keysPressed(KEY_W);
+        holdKey[KEY_DOWN] = this.keysPressed(KEY_DOWN) || this.keysPressed(KEY_S);
+        holdKey[KEY_LEFT] = this.keysPressed(KEY_LEFT) || this.keysPressed(KEY_A);
+        holdKey[KEY_RIGHT] = this.keysPressed(KEY_RIGHT) || this.keysPressed(KEY_D);
+        holdKey[KEY_X] = this.keysPressed(KEY_X);
+        // SHIP CONTROLS END
 
-            // Keys below are used for cheats    
-            case KEY_C: //Adding capsules
-                if (!pressed && cheats.debugKeysEnabled) {
-                    scene.collectedCapsule();
-                }
-                return true;
-            case KEY_L: //Adding lives
-                if (!pressed && cheats.debugKeysEnabled) {
-                    scene.life();
-                }
-                return true;
-            case KEY_E: //Activating shields
-                if (!pressed && cheats.debugKeysEnabled) {
-                    scene.activatedShield();
-                }
-                return true;
-			case KEY_J: //Activating missils
-                if (!pressed && cheats.debugKeysEnabled) {
-                    scene.activatedMissile();
-                }
-                return true;
-			case KEY_K: //Activating double
-                if (!pressed && cheats.debugKeysEnabled) {
-                    scene.activatedDouble();
-                }
-                return true;
-			case KEY_H: //Activating laser
-                if (!pressed && cheats.debugKeysEnabled) {
-                    scene.activatedLaser();
-                }
-                return true;
-			case KEY_T: //Activating triple
-                if (!pressed && cheats.debugKeysEnabled) {
-                    scene.activatedTriple();
-                }
-                return true;
-			case KEY_G: //Activating ghost ship
-                if (!pressed && cheats.debugKeysEnabled) {
-                    scene.activatedGhost();
-                }
-                return true;
-			case KEY_F: //Activating force
-                if (!pressed && cheats.debugKeysEnabled) {
-                    scene.activatedForce();
-                }
-                return true;
-            case DIGIT_0:
-            	if((!pressed) && cheats.debugKeysEnabled) {
-	            	worldSpeed = 0;
-            	}
-            	return true;
-            case DIGIT_1:
-            	if((!pressed) && cheats.debugKeysEnabled) {
-	            	worldSpeed = 1;
-            	}
-            	return true;
-            case DIGIT_2:
-            	if((!pressed) && cheats.debugKeysEnabled) {
-	            	worldSpeed = 1.25;
-            	}
-            	return true;
-            case DIGIT_3:
-            	if((!pressed) && cheats.debugKeysEnabled) {
-	            	worldSpeed = 1.50;
-            	}
-            	return true;
-            case DIGIT_4:
-            	if((!pressed) && cheats.debugKeysEnabled) {
-	            	worldSpeed = 1.75;
-            	}
-            	return true;
-            case DIGIT_5:
-            	if((!pressed) && cheats.debugKeysEnabled) {
-	            	worldSpeed = 2.0;
-            	}
-            	return true;
-            case DIGIT_6:
-            	if((!pressed) && cheats.debugKeysEnabled) {
-	            	worldSpeed = 2.25;
-            	}
-            	return true;
-            case DIGIT_7:
-            	if((!pressed) && cheats.debugKeysEnabled) {
-	            	worldSpeed = 2.50;
-            	}
-            	return true;
-            case DIGIT_8:
-            	if((!pressed) && cheats.debugKeysEnabled) {
-	            	worldSpeed = 2.75;
-            	}
-            	return true;
-            case DIGIT_9:
-            	if((!pressed) && cheats.debugKeysEnabled) {
-	            	worldSpeed = 3.0;
-            	}
-                return true;
-            case KEY_O:
-                scene.beatTheGame = true; // final boss defeated!
-                return true;
-            case KEY_PGUP:
-                holdKey[KEY_RIGHT] = pressed;
-                if (!pressed) {
-                    currentLevelIndex--; // TODO: Take into account level that does not exist.
-                    console.log("Loaded Level " + currentLevelIndex + "!");
-                    this.transitionOut();
-                    this.transitionIn(currentLevelIndex); 
-                }
-                return true;
-            case KEY_PGDOWN:
-                holdKey[KEY_RIGHT] = pressed;
-                if (!pressed) {
-                    currentLevelIndex++; // TODO: Take into account level that does not exist.
-                    console.log("Loaded Level " + currentLevelIndex + "!");
-                    this.transitionOut();
-                    this.transitionIn(currentLevelIndex);
-                }
-                return true;
-            default:
-                return false;
+        // CHEAT KEYS START
+        if (this.keysPressed(KEY_SHIFT, KEY_LEFT)) {
+            if (!pressed) {
+                currentLevelIndex--; // TODO: Take into account level that does not exist.
+                console.log("Loaded Level " + currentLevelIndex + "!");
+                this.transitionOut();
+                this.transitionIn(currentLevelIndex); 
+            }
+            return true;
+        } else if (this.keysPressed(KEY_SHIFT, KEY_RIGHT)) {
+            if (!pressed) {
+                currentLevelIndex++; // TODO: Take into account level that does not exist.
+                console.log("Loaded Level " + currentLevelIndex + "!");
+                this.transitionOut();
+                this.transitionIn(currentLevelIndex);
+            }
+            return true;
+        }  else if (this.keysPressed(KEY_C)) { //Adding capsules
+            if (!pressed && cheats.debugKeysEnabled) {
+                scene.collectedCapsule();
+            }
+            return true;
+        } else if (this.keysPressed(KEY_L)) { //Adding lives
+            if (!pressed && cheats.debugKeysEnabled) {
+                scene.life();
+            }
+            return true;
+        } else if (this.keysPressed(KEY_E)) { //Activating shields
+            if (!pressed && cheats.debugKeysEnabled) {
+                scene.activatedShield();
+            }
+            return true;
+        } else if (this.keysPressed(KEY_J)) { //Activating missiles
+            if (!pressed && cheats.debugKeysEnabled) {
+                scene.activatedMissile();
+            }
+            return true;
+        } else if (this.keysPressed(KEY_K)) { //Activating double
+            if (!pressed && cheats.debugKeysEnabled) {
+                scene.activatedDouble();
+            }
+            return true;
+        } else if (this.keysPressed(KEY_H)) { //Activating laser
+            if (!pressed && cheats.debugKeysEnabled) {
+                scene.activatedLaser();
+            }
+            return true;
+        } else if (this.keysPressed(KEY_T)) { //Activating triple
+            if (!pressed && cheats.debugKeysEnabled) {
+                scene.activatedTriple();
+            }
+            return true;
+        } else if (this.keysPressed(KEY_G)) { //Activating ghost ship
+            if (!pressed && cheats.debugKeysEnabled) {
+                scene.activatedGhost();
+            }
+            return true;
+        } else if (this.keysPressed(KEY_F)) { //Activating force
+            if (!pressed && cheats.debugKeysEnabled) {
+                scene.activatedForce();
+            }
+            return true;
+        } else if (this.keysPressed(DIGIT_0)) {
+            if((!pressed) && cheats.debugKeysEnabled) {
+                worldSpeed = 0;
+            }
+            return true;
+        } else if (this.keysPressed(DIGIT_1)) {
+            if((!pressed) && cheats.debugKeysEnabled) {
+                worldSpeed = 1;
+            }
+            return true;
+        } else if (this.keysPressed(DIGIT_2)) {
+            if((!pressed) && cheats.debugKeysEnabled) {
+                worldSpeed = 1.25;
+            }
+            return true;
+        } else if (this.keysPressed(DIGIT_3)) {
+            if((!pressed) && cheats.debugKeysEnabled) {
+                worldSpeed = 1.50;
+            }
+            return true;
+        } else if (this.keysPressed(DIGIT_4)) {
+            if((!pressed) && cheats.debugKeysEnabled) {
+                worldSpeed = 1.75;
+            }
+            return true;
+        } else if (this.keysPressed(DIGIT_5)) {
+            if((!pressed) && cheats.debugKeysEnabled) {
+                worldSpeed = 2.0;
+            }
+            return true;
+        } else if (this.keysPressed(DIGIT_6)) {
+            if((!pressed) && cheats.debugKeysEnabled) {
+                worldSpeed = 2.25;
+            }
+            return true;
+        } else if (this.keysPressed(DIGIT_7)) {
+            if((!pressed) && cheats.debugKeysEnabled) {
+                worldSpeed = 2.50;
+            }
+            return true;
+        } else if (this.keysPressed(DIGIT_8)) {
+            if((!pressed) && cheats.debugKeysEnabled) {
+                worldSpeed = 2.75;
+            }
+            return true;
+        } else if (this.keysPressed(DIGIT_9)) {
+            if((!pressed) && cheats.debugKeysEnabled) {
+                worldSpeed = 3.0;
+            }
+            return true;
+        } else if (this.keysPressed(KEY_O)) {
+            scene.beatTheGame = true; // final boss defeated!
+            return true;        
+        // CHEAT KEYS END
+        
+        } else if (this.keysPressed(KEY_SPACE)) {
+            if(!pressed) {
+                scene.activatePowerUp();
+            }
+            return true;
+        } else if (this.keysPressed(KEY_ESCAPE)) {
+            if(!pressed) {
+                setPaused(!ScreenStates.isPaused, PauseCause.PressedPause);
+            }
+            return true;        
+        } else if (this.keysPressed(KEY_M)) {
+            if(!pressed) {
+                toggleMute();	            	
+            }
+            return true;
+        } else if (this.keysPressed(KEY_PLUS)) {
+            if(!pressed) {
+                turnVolumeUp();
+            }
+            return true;
+        } else if (this.keysPressed(KEY_MINUS)) {
+            if(!pressed) {
+                turnVolumeDown();
+            }
+            return true;
+        } else if (this.keysPressed(KEY_P)) {
+            if(!pressed) {
+                setPaused(!ScreenStates.isPaused, PauseCause.PressedPause);
+            }
+            return true;
+        } else if (this.keysPressed(KEY_BACKSPACE)) {
+            if(!pressed) {
+                setPaused(!ScreenStates.isPaused, PauseCause.PressedPause);
+            }
+            return true;            
+        } else {
+            return false;
         }
     };
     

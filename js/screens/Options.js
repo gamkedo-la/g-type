@@ -52,62 +52,77 @@ function OptionsScreen() {
 		starfield.update(deltaTime);
 	};
     
-    this.control = function gamePlayFinishedScreenControl(keyCode, pressed){
-       if (pressed) {//only act on key released events => prevent multiple changes on single press
+    this.control = function gamePlayFinishedScreenControl(keydownMap, pressed){
+        if (pressed) {//only act on key released events => prevent multiple changes on single press
             return false;
         }
         
-        switch (keyCode) {
-            case KEY_UP:
-                selectorPositionIndex--;
-                if (selectorPositionIndex < 0) {
-                    selectorPositionIndex += Object.keys(selectionPosition).length;
-                }
-                adjustSelectorPosition();
-                return true;
-            case KEY_DOWN:
-                selectorPositionIndex++;
-                if (selectorPositionIndex === Object.keys(selectionPosition).length) {
-                    selectorPositionIndex = 0;
-                }
-                adjustSelectorPosition();
-                return true;
-            case KEY_RIGHT:
-            	if(selectorPositionIndex === 0) {
-	            	const currentVolume = MusicVolumeManager.getVolume();
-	            	MusicVolumeManager.setVolume(currentVolume + 0.1);
-            	} else if(selectorPositionIndex === 1) {
-	            	const currentVolume = SFXVolumeManager.getVolume();
-	            	SFXVolumeManager.setVolume(currentVolume + 0.1);
-            	}
-
-		if(selectorPositionIndex === 3 && autoFiring !== "On") {
-			autoFiring = "On";
-			holdKey[KEY_X] = true;
-		}
-            	return true;
-            case KEY_LEFT:
-            	if(selectorPositionIndex === 0) {
-	            	const currentVolume = MusicVolumeManager.getVolume();
-	            	MusicVolumeManager.setVolume(currentVolume - 0.1);
-            	} else if(selectorPositionIndex === 1) {
-	            	const currentVolume = SFXVolumeManager.getVolume();
-	            	SFXVolumeManager.setVolume(currentVolume - 0.1);
-            	}
-
-		if(selectorPositionIndex === 3 && autoFiring !== "Off") {
-			autoFiring = "Off";
-			holdKey[KEY_X] = false;
-		}
-            	return true;
-            case KEY_ENTER:
-            	if(selectorPositionIndex === 4) {
-	                ScreenStates.setState(this.selections[0].screen);
-            	}
-                return true;
-            case KEY_M:
-    	        toggleMute();
-                return true;
+        if (this.keysPressed(KEY_UP)) {
+            selectorPositionIndex--;
+            if (selectorPositionIndex < 0) {
+                selectorPositionIndex += Object.keys(selectionPosition).length;
+            }
+            adjustSelectorPosition();
+            return true;
+        } else if (this.keysPressed(KEY_DOWN)) {
+            selectorPositionIndex++;
+            if (selectorPositionIndex === Object.keys(selectionPosition).length) {
+                selectorPositionIndex = 0;
+            }
+            adjustSelectorPosition();
+            return true;
+        } else if (this.keysPressed(KEY_RIGHT)) {
+            if(selectorPositionIndex === 0) {
+                const currentVolume = MusicVolumeManager.getVolume();
+                MusicVolumeManager.setVolume(currentVolume + 0.1);
+            } else if(selectorPositionIndex === 1) {
+                const currentVolume = SFXVolumeManager.getVolume();
+                SFXVolumeManager.setVolume(currentVolume + 0.1);
+            }
+            if(selectorPositionIndex === 3 && autoFiring !== "On") {
+                autoFiring = "On";
+                holdKey[KEY_X] = true;
+            }
+            return true;
+        } else if (this.keysPressed(KEY_LEFT)) {
+            if(selectorPositionIndex === 0) {
+                const currentVolume = MusicVolumeManager.getVolume();
+                MusicVolumeManager.setVolume(currentVolume - 0.1);
+            } else if(selectorPositionIndex === 1) {
+                const currentVolume = SFXVolumeManager.getVolume();
+                SFXVolumeManager.setVolume(currentVolume - 0.1);
+            }        
+            if(selectorPositionIndex === 3 && autoFiring !== "Off") {
+                autoFiring = "Off";
+                holdKey[KEY_X] = false;
+            }
+            return true;
+        } else if (this.keysPressed(KEY_PLUS)) {
+            if(selectorPositionIndex === 0) {
+                const currentVolume = MusicVolumeManager.getVolume();
+                MusicVolumeManager.setVolume(currentVolume + 0.1);
+            } else if(selectorPositionIndex === 1) {
+                const currentVolume = SFXVolumeManager.getVolume();
+                SFXVolumeManager.setVolume(currentVolume + 0.1);
+            }
+            return true;
+        } else if (this.keysPressed(KEY_MINUS)) {
+            if(selectorPositionIndex === 0) {
+                const currentVolume = MusicVolumeManager.getVolume();
+                MusicVolumeManager.setVolume(currentVolume - 0.1);
+            } else if(selectorPositionIndex === 1) {
+                const currentVolume = SFXVolumeManager.getVolume();
+                SFXVolumeManager.setVolume(currentVolume - 0.1);
+            }
+            return true;
+        } else if (this.keysPressed(KEY_ENTER)) {
+            if (selectorPositionIndex === 4) {
+                ScreenStates.setState(this.selections[0].screen);
+            }
+            return true;
+        } else if (this.keysPressed(KEY_M)) {
+            toggleMute();
+            return true;
         }
 
         return false;

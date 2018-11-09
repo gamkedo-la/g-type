@@ -119,51 +119,37 @@ function CreditsScreen() {
 		scene.draw();
     };
     
-    this.control = function creditsScreenControl(keyCode, pressed) {
-		if((pressed) && (keyCode === KEY_SPACE)) {
-			if(this.scrollSpeed !== 0) {
-				this.scrollSpeed = 0;
-			} else {
-				this.scrollSpeed = 4/50;
-			}
-
-			return true;
-	    }
-                    
-        switch(keyCode) {
-			case KEY_UP:
-                holdKey[KEY_UP] = pressed;//move up
-                return true;
-            case KEY_DOWN:
-                holdKey[KEY_DOWN] = pressed;//move down
-                return true;
-            case KEY_LEFT:
-                holdKey[KEY_LEFT] = pressed;//move left
-                return true;
-            case KEY_RIGHT:
-                holdKey[KEY_RIGHT] = pressed;//move right
-                return true;
-			case KEY_X:
-				holdKey[KEY_X] = pressed;//shoot
-                return true;
-	    }
+    this.control = function creditsScreenControl() {
+        if (this.keysPressed(KEY_SPACE)) {
+            if(this.scrollSpeed !== 0) {
+                this.scrollSpeed = 0;
+            } else {
+                this.scrollSpeed = 4/50;
+            }            
+            return true;
+        } 
         
+        // SHIP CONTROLS START        
+        holdKey[KEY_UP] = this.keysPressed(KEY_UP) || this.keysPressed(KEY_W);
+        holdKey[KEY_DOWN] = this.keysPressed(KEY_DOWN) || this.keysPressed(KEY_S);
+        holdKey[KEY_LEFT] = this.keysPressed(KEY_LEFT) || this.keysPressed(KEY_A);
+        holdKey[KEY_RIGHT] = this.keysPressed(KEY_RIGHT) || this.keysPressed(KEY_D);
+        holdKey[KEY_X] = this.keysPressed(KEY_X);
+        // SHIP CONTROLS END
+    
         let skipAmt = 150;
-        switch (keyCode) {
-            case KEY_MINUS:
-                this.scrollSpeed -= 2/50;
-                return true;
-            case KEY_PLUS:
-                this.scrollSpeed += 2/50;
-                return true;
-            case KEY_ENTER:
-            case KEY_ESCAPE:
-            case KEY_BACKSPACE:
-                ScreenStates.setState(MENU_SCREEN);
-                return true;
-            case KEY_M:
-            	toggleMute();	            	
-                return true;
+        if (this.keysPressed(KEY_MINUS)) {
+            this.scrollSpeed -= 2/50;
+            return true;
+        } else if (this.keysPressed(KEY_PLUS)) {
+            this.scrollSpeed += 2/50;
+            return true;
+        } else if (this.keysPressed(KEY_ENTER) || this.keysPressed(KEY_ESCAPE) || this.keysPressed(KEY_BACKSPACE)) {
+            ScreenStates.setState(MENU_SCREEN);
+            return true;
+        } else if (this.keysPressed(KEY_M)) {
+            toggleMute();
+            return true;
         }
         
         return true;

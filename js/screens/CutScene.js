@@ -43,18 +43,17 @@ function CutScene1Screen() {
 	    
 	    draw(deltaTime);
     };
-    this.control = function gamePlayFinishedScreenControl(keyCode, pressed){
+    this.control = function gamePlayFinishedScreenControl(keydownMap, pressed){
        if (pressed) {//only act on key released events => prevent multiple changes on single press
             return false;
         }
         
-        switch (keyCode) {
-            case KEY_ENTER:
-                ScreenStates.setState(GAME_SCREEN, this.properties);
-                return true;
-            case KEY_M:
-            	toggleMute();	            	
-                return true;
+        if (this.keysPressed(KEY_ENTER)) {
+            ScreenStates.setState(GAME_SCREEN, this.properties);
+            return true;
+        } else if (this.keysPressed(KEY_M)) {
+            toggleMute();
+            return true;
         }
 
         return false;
