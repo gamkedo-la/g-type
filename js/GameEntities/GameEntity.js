@@ -1,6 +1,8 @@
 const EntityType = {
 	//Terrain & World
 	RhombusBoulder:"rhombusBoulder",
+	BrokenBoulder:"brokenBoulder",
+	BrokenBoulderFlipped:"brokenBoulderFlipped",
 	Rock01:"rock01",
 	Rock02:"rock02",
 	Rock03:"rock03",
@@ -54,6 +56,10 @@ const spriteForType = function(type) {
 			return (new AnimatedSprite(rock4, 1, 27, 27, false, true, {min:0, max:0}, 0, {min:0, max:0}, 512, {min:0, max:0}, 0));
         case EntityType.RhombusBoulder:
             return (new AnimatedSprite(largeRhombusBoulder, 2, 90, 90, false, true, {min:0, max:0}, 0, {min:0, max:1}, 512, {min:1, max:1}, 0));
+        case EntityType.BrokenBoulder:
+            return (new AnimatedSprite(brokenBoulder, 1, 77, 68, false, true, {min:0, max:0}, 0, {min:0, max:0}, 512, {min:0, max:0}, 0));
+        case EntityType.BrokenBoulderFlipped:
+            return (new AnimatedSprite(brokenBoulderFlipped, 1, 77, 68, false, true, {min:0, max:0}, 0, {min:0, max:0}, 512, {min:0, max:0}, 0));
         case EntityType.Platform1:
             return (new AnimatedSprite(platform1, 5, 76, 38, false, true, {min:0, max:0}, 0, {min:0, max:4}, 512, {min:4, max:4}, 0));
 		case EntityType.Bubble:
@@ -93,15 +99,34 @@ function GameEntity(sprite, position = {x:0, y:0}, velocity = {x:0, y:0}, size =
 	return this;
 }
 
-function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
+function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, speed = 0, pattern = PathType.None, timeDelay = 0, path = null) {
 	this.type = type;
+	this.isVisible = false;
 	this.position = position;
 	this.worldPos = null;
+	this.timeDelay = timeDelay;
 	let unusedTime = 0;
 	
 	const sprite = spriteForType(type);
 
 	this.size = {width:scale * sprite.width, height:scale * sprite.height};
+	
+	this.path = null;
+	if(path != null) {
+		if(path.polygon === undefined) {
+            pathPoints = path.polyline.slice(0);
+        } else {
+            pathPoints = path.polygon.slice(0);
+        }
+        
+		pathPoints.forEach((point) => {
+			point.x += GameField.x + GameField.width - 50;
+			point.y += GameField.y + path.y;
+			pathPoints.push(point);
+        });
+        
+        this.path = new EnemyPath(PathType.Points, this.position, speed, pathPoints, 0);
+	}
 	
 	const colliderForTypeAndPosition = function(type, pos) {
 		let colliderPath = [];
@@ -111,6 +136,20 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 				colliderPath.push({x: pos.x, 							y: pos.y + scale * ((sprite.height / 2) - 2)});
 				colliderPath.push({x: pos.x + scale * ((sprite.width / 2) + 2), y: pos.y});
 				colliderPath.push({x: pos.x + scale * sprite.width, 	y: pos.y + scale * ((sprite.height / 2) + 2)});
+				colliderPath.push({x: pos.x + scale * ((sprite.width / 2) - 2), y: pos.y + scale * sprite.height});
+				
+				return (new Collider(ColliderType.Polygon, {points:colliderPath, position:{x:pos.x, y:pos.y}}));
+			case EntityType.BrokenBoulder:
+				colliderPath.push({x: pos.x, 							y: pos.y + scale * ((sprite.height / 2) - 12)});
+				colliderPath.push({x: pos.x + scale * ((sprite.width / 2)), y: pos.y});
+				colliderPath.push({x: pos.x + scale * sprite.width, 	y: pos.y + scale * ((sprite.height / 2) + 2)});
+				colliderPath.push({x: pos.x + scale * ((sprite.width / 2) + 2), y: pos.y + scale * sprite.height});
+				
+				return (new Collider(ColliderType.Polygon, {points:colliderPath, position:{x:pos.x, y:pos.y}}));
+			case EntityType.BrokenBoulderFlipped:
+				colliderPath.push({x: pos.x, 							y: pos.y + scale * ((sprite.height / 2) + 2)});
+				colliderPath.push({x: pos.x + scale * ((sprite.width / 2) + 2), y: pos.y});
+				colliderPath.push({x: pos.x + scale * sprite.width, 	y: pos.y + scale * ((sprite.height / 2) - 12)});
 				colliderPath.push({x: pos.x + scale * ((sprite.width / 2) - 2), y: pos.y + scale * sprite.height});
 				
 				return (new Collider(ColliderType.Polygon, {points:colliderPath, position:{x:pos.x, y:pos.y}}));
@@ -161,6 +200,9 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 	
 	this.update = function(deltaTime, worldPos) {
 		if((worldPos >= spawnPos) && (this.position.x > -this.size.width)) {
+			this.timeDelay -= deltaTime;
+			if(this.timeDelay > 0) {return;}
+			
 			if(this.worldPos == null) {
 				this.worldPos = worldPos;
 			}
@@ -171,8 +213,28 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 			while(availableTime > SIM_STEP) {
 				availableTime -= SIM_STEP;
 				
-				this.position.x -= (worldPos - this.worldPos);
-				this.worldPos = worldPos;
+				if(this.path != null) {
+					if(!this.isVisible) {
+						this.isVisible = true;
+						this.position = this.path.putAtFirstPoint();
+					}
+					const nextPos = this.path.nextPoint(SIM_STEP);
+					if(nextPos !== undefined) {
+						if(pattern === PathType.None) {
+							this.position.x += (vel.x * SIM_STEP / 1000);
+						} else if(pattern === PathType.Sine) {
+							this.position.x += nextPos.x;
+							this.position.y += nextPos.y;
+						} else if(pattern === PathType.Points) {
+							this.position.x = nextPos.x;
+							this.position.y = nextPos.y;
+						}
+					}
+				} else {
+					this.position.x -= (worldPos - this.worldPos);
+					this.worldPos = worldPos;
+					this.isVisible = true;
+				}
 			}
 			
 			unusedTime = availableTime;
@@ -183,6 +245,7 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1) {
 	};
 	
 	this.draw = function() {
+		if(!this.isVisible) {return;}
 		if((this.worldPos >= spawnPos) && 
 		   (this.position.x > GameField.x - this.size.width) &&
 		   (this.position.x <= GameField.right)) {

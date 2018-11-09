@@ -40,6 +40,8 @@ const foregroundParallaxLayer2 = document.createElement("img"); // overlay above
 
 //Terrain & World
 const largeRhombusBoulder = document.createElement("img");
+const brokenBoulder = document.createElement("img");
+const brokenBoulderFlipped = document.createElement("img");
 const bubble = document.createElement("img");
 const debrisSheet = document.createElement("img");
 const rock1 = document.createElement("img");
@@ -142,6 +144,8 @@ function loadImages() {
         
         //Terrain & World
         { imgName: largeRhombusBoulder, theFile: "Boulder.png" },
+        { imgName: brokenBoulder, theFile: "BrokenBoulder.png" },
+        { imgName: brokenBoulderFlipped, theFile: "BrokenBoulderFlipped.png" },
         { imgName: bubble, theFile: "Bubble.png" },
         { imgName: debrisSheet, theFile: "DebrisSheet.png" },
         { imgName: rock1, theFile: "Rock01.png" },

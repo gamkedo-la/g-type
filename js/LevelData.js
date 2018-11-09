@@ -11,7 +11,7 @@ const LevelData = [
 		checkpointPositions:[0, 600, 1200]
 	},
 	*/
-	{
+/*	{
         clearColor:"#010119",
         getBkgdColorLookup: function() {return backgroundColorLookup;},
         getBkgdStars: function() {return backgroundStars;},
@@ -26,7 +26,7 @@ const LevelData = [
 
         initializeDebris: function() {return initializeDebris();},
 		checkpointPositions:[0, 600, 1200]
-	},
+	},*/
  	{
         clearColor:"#010119",
         getBkgdColorLookup: function() {return backgroundColorLookup2;},
@@ -53,11 +53,15 @@ const LevelData = [
 	}
 ];
 
-function getPath(pathsObject, entity){
+function getPath(pathsObject, entity) {
 	let entityGroupValue = entity.properties[0].value;
-	let matchingPath = pathsObject.find((path)=> {
+	let matchingPath = pathsObject.find((path) => {
 		return path.properties[0].value == entityGroupValue;
     });
+    
+    if(entity.type === EntityType.Rock01) {
+	    console.log("Matching Path: " + matchingPath);
+    }
     
     if(matchingPath === undefined) {return null;};
     
@@ -68,7 +72,7 @@ function initializeEnemies(enemyData) {
     const enemies = [];
     let offRight = GameField.right + 50; //
     let enemiesData = enemyData;//TileMaps.levelOneH.layers[2].objects;
-    let enemyPaths = enemiesData.filter((obj) => {return obj.type === "path"})
+    let enemyPaths = enemiesData.filter((obj) => {return obj.type === "path"});
 
     //obj.properties[0] is the Group, exists on all but is zero by default
     let enemiesInGroups = enemiesData.filter((obj) => {
@@ -167,16 +171,18 @@ function initializeEnemies(enemyData) {
 function initializeTerrain(terrainData) {
     const world = [];
 	let offRight = GameField.right + 50;
+	let terrainPaths = terrainData.filter((obj) => {return obj.type === "path"});
 	window.warpCapsules = terrainData.filter(obj => {
 											if(typeof obj.properties === "undefined"){
 												obj.properties = [];
 		  										obj.properties[0] = {value:  0}
 											}
-		   									return obj.properties[0].value > 0 && obj.type == 'capsule1';
+		   									return ((obj.properties[0].value > 0) && (obj.type === 'capsule1'));
 										});
-	let levelTerrain = terrainData.filter((obj)=>{return obj.properties[0].value == 0});
+	const levelTerrain = terrainData.filter((obj) => {return obj.properties[0].value === 0});
+	const movingTerrain = terrainData.filter((obj) => {return ((obj.properties[0].value > 0) && (obj.type != 'capsule1') && (obj.type != 'path'));});
 
-    levelTerrain.forEach(obj=> {
+    levelTerrain.forEach(obj => {
          switch(obj.type) {
             case "bubble":
                 world.push(new BubbleEntity(EntityType.Bubble, {x:offRight, y:GameField.y + obj.y - obj.height}, obj.x, 1, 1024));
@@ -193,11 +199,18 @@ function initializeTerrain(terrainData) {
          }
          
 	});
+	
 	window.warpGroup = new CapsuleGroup();
-	warpCapsules.forEach(obj=>{
-		world.push( warpGroup.add( new Capsule({x:offRight, y:GameField.y+obj.y-obj.height}, obj.x) ) );
-	})
-    return world;
+	warpCapsules.forEach(obj => {
+		world.push(warpGroup.add(new Capsule({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x)));
+	});
+	
+	movingTerrain.forEach(obj => {
+		console.log("Terrain Paths Length: " + terrainPaths.length);
+		world.push(new TerrainEntity(obj.type, {x:offRight, y:GameField.y + obj.y - obj.height}, obj.x, 1, obj.properties[1].value, obj.properties[2].value, obj.properties[3].value, getPath(terrainPaths, obj)));
+	});
+	
+	return world;
 }
 
 function initializeDebris() {
