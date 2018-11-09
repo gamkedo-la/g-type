@@ -45,17 +45,17 @@ function MenuScreen() {
 
     this.control = function menuScreenControl(keydownMap, pressed) { // TO-DO: prevent multiple changes on single press     
         timeSinceKey = 0;
-        
-        if (this.keysPressed(KEY_A, KEY_X)) {
-            console.log("AX");
-        }
 
         if (pressed) {            
             return false;
         }
 
-		if(this.keysPressed(KEY_ENTER)) {
-        	keyStrokes.push(KEY_ENTER);
+		if(!this.keysPressed(KEY_ENTER)) {
+            for (key in keydownMap) {
+                if (keydownMap[key]) {
+                    keyStrokes.push(Number(key));
+                }
+            }
     	}        
 
         if (this.keysPressed(KEY_UP) || this.keysPressed(KEY_W)) {            
