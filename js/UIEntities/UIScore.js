@@ -24,7 +24,6 @@ function UIScore(position = {x:0, y:0}) {
    this.updateHighScore = function()  {
 	if(currentScore > highScore){
 		 	highScore = currentScore;
-             highScoreText = highScore.toString();
             }
 		while(highScoreText.length < 15) {
 			highScoreText = "0" + highScoreText;

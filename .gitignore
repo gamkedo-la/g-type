@@ -3,3 +3,4 @@
 .DS_Store
 js/.DS_Store
 /Web.config
+*.js

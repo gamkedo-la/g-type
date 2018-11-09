@@ -109,7 +109,7 @@ function GameOverScreen() {
 
         // render menu
         printMenu(selections, selectorPositionIndex);
-        drawHighScores();
+        //drawHighScores();
         //draw selector sprite
         selectorSprite.drawAt(selectorPosition, {width:30, height:19});
 
@@ -117,15 +117,37 @@ function GameOverScreen() {
 		
 		gameFont.printTextAt(textStrings.GameOver, {x:GameField.midX, y:GameField.y - 20}, 35, textAlignment.Center);
 	};
+ /* 
+  const scoreLeaders = function{
+  
+   for (var a = 0; a < highscoreList.length; ++a)
+{
+    for (var b = 0; b < highscoreList[a].length; ++b)
+    {
+        highscoreList[a][b].frameList = localStorage[getItem(highScores[a], b)].frameList;
+        highscoreList[a][b].inbetweensList = localStorage[getItem(highScores[a], b)].inbetweensList;
+        highscoreList.sort(function(a,b){return a.score < b.score});
+}
 
+    localStorage.setItem("highScore3", highScore3);      
+    localStorage.setItem("highScore2", highScore2);
+    localStorage.setItem("highScore1", highscore1);
+  
+
+ 
     const drawHighScores = function() {
+   highScoreText1 = highScore1.toString();
+   highScoreText2 = highScore2.toString();
+   highScoreText3 = highScore3.toString();
         gameFont.printTextAt("*High Scores*", {x:GameField.midX - 120, y:GameField.midY - 210 }, 20, textAlignment.Left);
         gameFont.printTextAt("1st.", {x:GameField.midX - 120 , y:GameField.midY - 180}, 20, textAlignment.Left);
-        gameFont.printTextAt(highScoreText, {x:GameField.midX - 120 , y:GameField.midY - 150 }, 20, textAlignment.Left);
+        gameFont.printTextAt(highScoreText1, {x:GameField.midX - 120 , y:GameField.midY - 150 }, 20, textAlignment.Left);
         gameFont.printTextAt("2nd.", {x:GameField.midX - 120 , y:GameField.midY - 120}, 20, textAlignment.Left);
+        gameFont.printTextAt(highScoreText2, {x:GameField.midX - 120 , y:GameField.midY - 150 }, 20, textAlignment.Left);
         gameFont.printTextAt("3rd", {x:GameField.midX - 120 , y:GameField.midY - 90}, 20, textAlignment.Left);
+        gameFont.printTextAt(highScoreText3, {x:GameField.midX - 120 , y:GameField.midY - 150 }, 20, textAlignment.Left);
     };
-	
+	*/
 	const drawBG = function menuScreenDrawBG() {
         // fill the background since there is no image for now
         drawRect(GameField.x, GameField.y - GameField.bgOffset, GameField.width, GameField.height + GameField.bgOffset, MENU_BG_COLOR);

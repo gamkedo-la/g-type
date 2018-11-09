@@ -72,6 +72,7 @@ const AudioTracks = {
 	MainMenu:0,
 	Level1:1, 		//TODO: change these to
 	MiniBoss1:2,
+    EyeBoss1:2,
 	Boss1:3,
 	Level2:0, 		//the correct indices from
 	Level3:0, 		//the "currentBackgroundMusic" 

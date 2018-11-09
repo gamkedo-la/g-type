@@ -197,6 +197,7 @@ function CollisionManager(player) {
                (otherEntity.type === EntityType.EnemyBullet3) ||
                (otherEntity.type === EntityType.EnemyBullet4) ||
                (otherEntity.type === EntityType.MiniBoss1) ||
+               (otherEntity.type === EntityType.EyeBoss1) ||
                (otherEntity.type === EntityType.CargoBoss)) {
                this.actualCollisionCheck(entity, otherEntity);
             }
