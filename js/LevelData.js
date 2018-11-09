@@ -11,7 +11,7 @@ const LevelData = [
 		checkpointPositions:[0, 600, 1200]
 	},
 	*/
-/*	{
+	{
         clearColor:"#010119",
         getBkgdColorLookup: function() {return backgroundColorLookup;},
         getBkgdStars: function() {return backgroundStars;},
@@ -26,7 +26,7 @@ const LevelData = [
 
         initializeDebris: function() {return initializeDebris();},
 		checkpointPositions:[0, 600, 1200]
-	},*/
+	},
  	{
         clearColor:"#010119",
         getBkgdColorLookup: function() {return backgroundColorLookup2;},
