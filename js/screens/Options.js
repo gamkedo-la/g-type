@@ -57,14 +57,14 @@ function OptionsScreen() {
             return false;
         }
         
-        if (this.keysPressed(KEY_UP)) {
+        if (this.keysPressed(KEY_UP) || this.keysPressed(KEY_W)) {
             selectorPositionIndex--;
             if (selectorPositionIndex < 0) {
                 selectorPositionIndex += Object.keys(selectionPosition).length;
             }
             adjustSelectorPosition();
             return true;
-        } else if (this.keysPressed(KEY_DOWN)) {
+        } else if (this.keysPressed(KEY_DOWN) || this.keysPressed(KEY_S)) {
             selectorPositionIndex++;
             if (selectorPositionIndex === Object.keys(selectionPosition).length) {
                 selectorPositionIndex = 0;
