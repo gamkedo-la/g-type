@@ -58,13 +58,13 @@ function MenuScreen() {
         	keyStrokes.push(KEY_ENTER);
     	}        
 
-        if (this.keysPressed(KEY_UP)) {            
+        if (this.keysPressed(KEY_UP) || this.keysPressed(KEY_W)) {            
             this.selectorPositionsIndex--;
             if (this.selectorPositionsIndex < 0) {
                 this.selectorPositionsIndex += this.selections.length;
             }
             return true;
-        } else if (this.keysPressed(KEY_DOWN)) {            
+        } else if (this.keysPressed(KEY_DOWN) || this.keysPressed(KEY_S)) {            
             this.selectorPositionsIndex = (this.selectorPositionsIndex + 1) % this.selections.length;
             if (this.selectorPositionsIndex > this.selections.length - 1) {
                 this.selectorPositionsIndex = 0;
