@@ -71,7 +71,7 @@ function OptionsScreen() {
             }
             adjustSelectorPosition();
             return true;
-        } else if (this.keysPressed(KEY_RIGHT)) {
+        } else if (this.keysPressed(KEY_RIGHT) || this.keysPressed(KEY_D)) {
             if(selectorPositionIndex === 0) {
                 const currentVolume = MusicVolumeManager.getVolume();
                 MusicVolumeManager.setVolume(currentVolume + 0.1);
@@ -84,7 +84,7 @@ function OptionsScreen() {
                 holdKey[KEY_X] = true;
             }
             return true;
-        } else if (this.keysPressed(KEY_LEFT)) {
+        } else if (this.keysPressed(KEY_LEFT) || this.keysPressed(KEY_A)) {
             if(selectorPositionIndex === 0) {
                 const currentVolume = MusicVolumeManager.getVolume();
                 MusicVolumeManager.setVolume(currentVolume - 0.1);
