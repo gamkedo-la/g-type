@@ -54,11 +54,11 @@ function Player(position = {x:0, y:0}) {
 	const ghosts = [];
     this.activeGhosts = 0;
 
-	const BASE_SPEED = 110;//essentially pixels per second
+	const BASE_SPEED = 160;//essentially pixels per second
 	const MAX_SHOTS_ON_SCREEN = 10;//TODO: maybe this should be adjustable as a power up or part of the "speed up" power up?
 	const INVINCIBLE_TIME = 1500;//in milliseconds
 
-	const BASE_SHOT_DELAY = 128; //this should be faster for main gun, independent slower variable for missiles
+	const BASE_SHOT_DELAY = 96; //this should be faster for main gun, independent slower variable for missiles
 	const DELAY_MULTIPLIER = 5;
 	const NORMAL_SHOT_SPEED = 1200;
 	const MISSILE_VELOCITY = {x:100, y:150};
@@ -169,8 +169,10 @@ function Player(position = {x:0, y:0}) {
 		}
 
 		//draw the thruster
-		this.thrusterPosition.x = this.position.x-28;
+		let thrusterMod = timer.getCurrentTime() % 16 < 8 ? 0 : 3;
+		this.thrusterPosition.x = this.position.x-28+thrusterMod;
 		this.thrusterPosition.y = this.position.y;
+		//this.thrusterSize.width = thrusterSprite.width * thrusterMod;
 		thrusterSprite.drawAt(this.thrusterPosition, this.thrusterSize);
 		//draw the player
 		sprite.drawAt(this.position, this.size);
@@ -315,52 +317,74 @@ function Player(position = {x:0, y:0}) {
 	};
 
 	this.adjustVelocityAndSpriteForPlayerInput = function() {
+		//adjust tilt frames based on velocity independent of keypresses
+		sprite.setFrame(idleFrame.min);
+		if(velocity.y < 0){
+			if(velocity.y > -currentSpeed * .85){sprite.setFrame(upFrame.min)}
+			else ( sprite.setFrame(upFrame.max) );
+		}
+		else if (velocity.y > 0){
+			if(velocity.y < currentSpeed * .85){sprite.setFrame(downFrame.min)}
+			else ( sprite.setFrame(downFrame.max) );
+		}
+		thrusterSprite.setFrame(thrusterFrame.mid);
+		if(velocity.x < 0){
+			if(velocity.x > -currentSpeed * .85){thrusterSprite.setFrame(thrusterFrame.mid)}
+			else ( thrusterSprite.setFrame(thrusterFrame.min) );
+		}
+		else if (velocity.x > 0){
+			if(velocity.x < currentSpeed * .85){thrusterSprite.setFrame(thrusterFrame.mid)}
+			else ( thrusterSprite.setFrame(thrusterFrame.max) );
+		}
+		
+
 		//indicates the sprite is NOT "playing" the death animation => can still fly around the screen and shoot
 		if(holdKey[KEY_LEFT] || holdKey[KEY_A]) {
 			if(velocity.x > -currentSpeed) {
-				velocity.x -= 0.2 * currentSpeed;
+				velocity.x -= 0.6 * currentSpeed;
 			} else {
 				velocity.x = -currentSpeed;
 			}
-			sprite.setFrame(thrustFrame.min);//show a frame with minimal thrust fire
-			thrusterSprite.setFrame(thrusterFrame.min);
+			//sprite.setFrame(thrustFrame.min);//show a frame with minimal thrust fire
+			//thrusterSprite.setFrame(thrusterFrame.min);
 		} else if(holdKey[KEY_RIGHT] || holdKey[KEY_D]) {
 			if(velocity.x < currentSpeed) {
-				velocity.x += 0.2 * currentSpeed;
+				velocity.x += 0.6 * currentSpeed;
 			} else {
 				velocity.x = currentSpeed;
 			}
-			sprite.setFrame(thrustFrame.max);//show a frame with maximal thrust fire
-			thrusterSprite.setFrame(thrusterFrame.max);
+			//sprite.setFrame(thrustFrame.max);//show a frame with maximal thrust fire
+			//thrusterSprite.setFrame(thrusterFrame.max);
 		} else {
-			velocity.x *= 0.9;
+			velocity.x *= 0.5;
 			if((velocity.x < 0.25 * currentSpeed) && (velocity.x > -0.25 * currentSpeed)) {
 				velocity.x = 0;
 			}
-			sprite.setFrame(idleFrame.min);
-			thrusterSprite.setFrame(thrusterFrame.mid);
+			//sprite.setFrame(idleFrame.min);
+			//thrusterSprite.setFrame(thrusterFrame.mid);
 		}
 
 		if(holdKey[KEY_UP] || holdKey[KEY_W]) {
 			if(velocity.y > -currentSpeed) {
-				velocity.y -= 0.2 * currentSpeed;
+				velocity.y -= 0.6 * currentSpeed;
 			} else {
 				velocity.y = -currentSpeed;
 			}
-			sprite.setFrame(upFrame.max); // tilt ship
+			
+			
 		} else if(holdKey[KEY_DOWN] || holdKey[KEY_S]) {
 			if(velocity.y < currentSpeed) {
-				velocity.y += 0.2 * currentSpeed;
+				velocity.y += 0.6 * currentSpeed;
 			} else {
 				velocity.y = currentSpeed;
 			}
-			sprite.setFrame(downFrame.max); // tilt ship
+			//sprite.setFrame(downFrame.max); // tilt ship
 		} else {
-			velocity.y *= 0.8;
+			velocity.y *= 0.5;
 			if((velocity.y < 0.25 * currentSpeed) && (velocity.y > -0.25 * currentSpeed)) {
 				velocity.y = 0;
 			}
-			sprite.setFrame(idleFrame.max);
+			//sprite.setFrame(idleFrame.max);
 		}
 	};
 
