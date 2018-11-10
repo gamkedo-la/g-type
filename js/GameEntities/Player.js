@@ -1,7 +1,12 @@
 //Player
 function Player(position = {x:0, y:0}) {
-	const thrustFrame = {
-		min:0, // TODO: use "playerThruster" instead?
+	const thrusterFrame = { // of the thruster plasma sprite
+		min:2,
+		mid:1,
+		max:0
+	};
+	const thrustFrame = { // of the ship sprite
+		min:0,
 		max:0
 	};
 	const downFrame = {
@@ -318,7 +323,7 @@ function Player(position = {x:0, y:0}) {
 				velocity.x = -currentSpeed;
 			}
 			sprite.setFrame(thrustFrame.min);//show a frame with minimal thrust fire
-			thrusterSprite.setFrame(2);
+			thrusterSprite.setFrame(thrusterFrame.min);
 		} else if(holdKey[KEY_RIGHT] || holdKey[KEY_D]) {
 			if(velocity.x < currentSpeed) {
 				velocity.x += 0.2 * currentSpeed;
@@ -326,14 +331,14 @@ function Player(position = {x:0, y:0}) {
 				velocity.x = currentSpeed;
 			}
 			sprite.setFrame(thrustFrame.max);//show a frame with maximal thrust fire
-			thrusterSprite.setFrame(0);
+			thrusterSprite.setFrame(thrusterFrame.max);
 		} else {
 			velocity.x *= 0.9;
 			if((velocity.x < 0.25 * currentSpeed) && (velocity.x > -0.25 * currentSpeed)) {
 				velocity.x = 0;
 			}
 			sprite.setFrame(idleFrame.min);
-			thrusterSprite.setFrame(1);
+			thrusterSprite.setFrame(thrusterFrame.mid);
 		}
 
 		if(holdKey[KEY_UP] || holdKey[KEY_W]) {
