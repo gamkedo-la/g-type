@@ -11,6 +11,7 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 
 	let path = new GhostPath(distance);
 	this.isActive = false;
+	const NORMAL_SHOT_SPEED = 1200;
 	const shots = [];
 	const missiles = [];
 	
@@ -59,7 +60,7 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 			}
 			
 			let secondShot;
-			const secondVel = {x:150, y:-150};
+			const secondVel = {x:0.707 * NORMAL_SHOT_SPEED, y:-0.707* NORMAL_SHOT_SPEED};
 			if(shots.length === maxShots) {
 				//basically a pool of shots, grab the oldest one
 				secondShot = shots.splice(0, 1)[0];
@@ -69,7 +70,7 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 			}
 			
 			let thirdShot;
-			const thirdVel = {x:-200, y:0};
+			const thirdVel = {x:-NORMAL_SHOT_SPEED, y:0};
 			if(shots.length >= maxShots) {
 				//basically a pool of shots, grab the oldest one
 				thirdShot = shots.splice(0, 1)[0];
@@ -80,26 +81,26 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 						
 			switch(shotType) {
 				case EntityType.PlayerShot:
-					initializeShot(newShot, shotType, {x:this.position.x + 46, y:this.position.y + 5}, {x: 200, y: 0}, false);
+					initializeShot(newShot, shotType, {x:this.position.x + 46, y:this.position.y + 5}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
 					playerFireRegular.play();//play the audio
 					break;
 				case EntityType.PlayerDouble:
-					initializeShot(newShot, shotType, {x:this.position.x + 46, y:this.position.y + 5}, {x: 200, y: 0}, false);
+					initializeShot(newShot, shotType, {x:this.position.x + 46, y:this.position.y + 5}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
 					initializeShot(secondShot, shotType, {x:this.position.x + 46, y:this.position.y  - 2}, {x: secondVel.x, y: secondVel.y}, true);
 					playerFireRegular.play();
 					break;
 				case EntityType.PlayerLaser:
-					initializeShot(newShot, shotType, {x:this.position.x + 34, y:this.position.y + 14}, {x: 600, y: 0}, false);
+					initializeShot(newShot, shotType, {x:this.position.x + 34, y:this.position.y + 14}, {x: 3 * NORMAL_SHOT_SPEED, y: 0}, false);
 					playerFireLaser.play();
 					break;
 				case EntityType.PlayerTriple:
-					initializeShot(newShot, shotType, {x:this.position.x + 46, y:this.position.y + 5}, {x: 200, y: 0}, false);
+					initializeShot(newShot, shotType, {x:this.position.x + 46, y:this.position.y + 5}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
 					initializeShot(secondShot, shotType, {x:this.position.x + 46, y:this.position.y + 5}, {x: secondVel.x, y: secondVel.y}, true);
 					initializeShot(thirdShot, shotType, {x:this.position.x - thirdShot.size.width, y:this.position.y + 13}, {x: thirdVel.x, y: thirdVel.y}, true);
 					playerFireRegular.play();
 					break;
 				default:
-					initializeNewShot(newShot, shotType, {x:this.position.x + 46, y:this.position.y - 2}, {x: 200, y: 0});
+					initializeNewShot(newShot, shotType, {x:this.position.x + 46, y:this.position.y - 2}, {x: NORMAL_SHOT_SPEED, y: 0});
 					playerFireRegular.play();
 					break;
 			}
