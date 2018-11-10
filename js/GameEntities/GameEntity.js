@@ -8,6 +8,7 @@ const EntityType = {
 	Rock03:"rock03",
 	Rock04:"rock04",
     Platform1:"platform1",
+    WarpObstacle:"warpObstacle",
 	Bubble:"bubble",
 	Text:"text",
 	CollidableText:"collidableText",
@@ -62,6 +63,8 @@ const spriteForType = function(type) {
             return (new AnimatedSprite(brokenBoulderFlipped, 1, 77, 68, false, true, {min:0, max:0}, 0, {min:0, max:0}, 512, {min:0, max:0}, 0));
         case EntityType.Platform1:
             return (new AnimatedSprite(platform1, 5, 76, 38, false, true, {min:0, max:0}, 0, {min:0, max:4}, 512, {min:4, max:4}, 0));
+        case EntityType.WarpObstacle:
+            return (new AnimatedSprite(warpObstacle, 5, 107, 74, true, true, {min:0, max:0}, 0, {min:0, max:4}, 256, {min:4, max:4}, 0));
 		case EntityType.Bubble:
 			return (new AnimatedSprite(bubble, 10, 30, 30, true, true, {min:0, max:0}, 0, {min:0, max:4}, 128, {min:5, max:9}, 32));
 	}
@@ -191,6 +194,12 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, spe
                 colliderPath.push({x: pos.x + scale * sprite.width, y: pos.y});
                 colliderPath.push({x: pos.x + scale * sprite.width, y: pos.y + scale * sprite.height});
                 colliderPath.push({x: pos.x,                        y: pos.y + scale * sprite.height});
+                
+                return (new Collider(ColliderType.Polygon, {points:colliderPath, position:{x:pos.x, y:pos.y}}));
+            case EntityType.WarpObstacle:
+                colliderPath.push({x: pos.x + scale * 2,            y: pos.y + scale * (2 + (sprite.height / 2))});
+                colliderPath.push({x: pos.x + scale * (sprite.width - 6), y: pos.y + scale * 4});
+                colliderPath.push({x: pos.x + scale * (sprite.width - 6), y: pos.y + scale * (sprite.height - 4)});
                 
                 return (new Collider(ColliderType.Polygon, {points:colliderPath, position:{x:pos.x, y:pos.y}}));
 		}

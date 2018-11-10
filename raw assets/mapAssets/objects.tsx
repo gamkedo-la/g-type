@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="300" tileheight="200" tilecount="33" columns="0">
+<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="300" tileheight="200" tilecount="34" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0" type="rock01">
   <properties>
@@ -230,5 +230,11 @@
    <property name="Group" type="int" value="0"/>
   </properties>
   <image width="77" height="68" source="objectSprites/BrokenBoulderFlipped.png"/>
+ </tile>
+ <tile id="42" type="warpObstacle">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="107" height="74" source="objectSprites/_editorWarpObstacle.png"/>
  </tile>
 </tileset>
