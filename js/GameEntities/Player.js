@@ -34,7 +34,7 @@ function Player(position = {x:0, y:0}) {
 	// because otherwise it flickers between intended frame and a different tilt frame (min can't == max? always assumes max-1 when looping)
 	const sprite = new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, 9999999, {min:5, max:7}, 128);
 
-	const thrusterSprite = new AnimatedSprite(playerThruster, 3, 32, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, 9999999, {min:0, max:0}, 128);
+	const thrusterSprite = new AnimatedSprite(playerThruster, 3, 33, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, 9999999, {min:0, max:0}, 128);
 
 	const explosionSprite = new AnimatedSprite(playerBoom2Sheet, 13, 80, 80, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max: 12}, 64);
 	explosionSprite.wasBorn = true;
@@ -44,6 +44,7 @@ function Player(position = {x:0, y:0}) {
 	const SPRITE_SCALE = 1.0;//make sure to change the x and y position of the playershot to match scaling
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	this.thrusterSize = {width:thrusterSprite.width, height:thrusterSprite.height};
+	this.thrusterPosition = {x:0,y:0};
 	let hasMissiles = false;
 	const ghosts = [];
     this.activeGhosts = 0;
@@ -162,8 +163,11 @@ function Player(position = {x:0, y:0}) {
 			canvasContext.globalAlpha = alpha;
 		}
 
+		//draw the thruster
+		this.thrusterPosition.x = this.position.x-28;
+		this.thrusterPosition.y = this.position.y;
+		thrusterSprite.drawAt(this.thrusterPosition, this.thrusterSize);
 		//draw the player
-		thrusterSprite.drawAt({x:this.position.x-29,y:this.position.y}, this.thrusterSize);
 		sprite.drawAt(this.position, this.size);
 		if((sprite.isDying) && (!explosionSprite.getDidDie())) {
 			explosionSprite.drawAt(this.position, this.size);
