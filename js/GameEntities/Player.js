@@ -30,6 +30,8 @@ function Player(position = {x:0, y:0}) {
 
 	// v2 of player sprite with tilting - 52px x 32px
 	// sheet, frameCount, frameWidth, frameHeight, reverses, autoLife, birthRange, birthRate, lifeRange, lifeRate, deathRange, deathRate
+	// FIXME: we need thruster frames added to the art, and reverses is false and likeRate is a big number
+	// because otherwise it flickers between intended frame and a different tilt frame (min can't == max? always assumes max-1 when looping)
 	const sprite = new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, 9999999, {min:5, max:7}, 128);
 
 	const explosionSprite = new AnimatedSprite(playerBoom2Sheet, 13, 80, 80, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max: 12}, 64);

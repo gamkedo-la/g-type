@@ -30,9 +30,7 @@ function EndgameScreen() {
 
         this.selectorPositionsIndex = 0;
         starfield = new Starfield();
-        selectorSprite =
-            //new AnimatedSprite(player1Sheet, 6, 62, 27, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
-            new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, 9999999, {min:5, max:7}, 128);
+        selectorSprite = new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, 9999999, {min:5, max:7}, 128);
 
         currentBackgroundMusic.setCurrentTrack(AudioTracks.Help);
         if(currentBackgroundMusic.getTime() > 0){
