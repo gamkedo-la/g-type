@@ -1,34 +1,52 @@
 //Player
 function Player(position = {x:0, y:0}) {
 	const thrustFrame = {
-		min:2,
+		min:0, // TODO: use "playerThruster" instead?
 		max:0
 	};
-	
+	const downFrame = {
+		min:1,
+		max:2
+	};
+	const upFrame = {
+		min:3,
+		max:4
+	};
+	const idleFrame = {
+		min:0,
+		max:0
+	};
+
 	const PlayerEvent = {
 		Invincible:"invinciblePlayer",
 		LastShot:"lastShot"
 	};
-	
+
 	this.type = EntityType.Player;
 	this.currentShotType = EntityType.PlayerShot;
-	
-	const sprite = new AnimatedSprite(player1Sheet, 6, 62, 27, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:3, max:5}, 128);
+
+	// original version 1 of player sprite
+	// const sprite = new AnimatedSprite(player1Sheet, 6, 62, 27, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:3, max:5}, 128);
+
+	// v2 of player sprite with tilting - 52px x 32px
+	// sheet, frameCount, frameWidth, frameHeight, reverses, autoLife, birthRange, birthRate, lifeRange, lifeRate, deathRange, deathRate
+	const sprite = new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, 9999999, {min:5, max:7}, 128);
+
 	const explosionSprite = new AnimatedSprite(playerBoom2Sheet, 13, 80, 80, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max: 12}, 64);
 	explosionSprite.wasBorn = true;
 	explosionSprite.isDying = true;
 	let explosionEmitter = 0;
-	
+
 	const SPRITE_SCALE = 1.0;//make sure to change the x and y position of the playershot to match scaling
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	let hasMissiles = false;
 	const ghosts = [];
     this.activeGhosts = 0;
-	
+
 	const BASE_SPEED = 110;//essentially pixels per second
 	const MAX_SHOTS_ON_SCREEN = 10;//TODO: maybe this should be adjustable as a power up or part of the "speed up" power up?
 	const INVINCIBLE_TIME = 1500;//in milliseconds
-	
+
 	const BASE_SHOT_DELAY = 128; //this should be faster for main gun, independent slower variable for missiles
 	const DELAY_MULTIPLIER = 5;
 	const NORMAL_SHOT_SPEED = 400;
@@ -41,29 +59,29 @@ function Player(position = {x:0, y:0}) {
 	const missiles = [];
 
 	let currentSpeed = BASE_SPEED;
-	
+
 	this.position = {x: position.x, y: position.y};
 	const shield = new ShieldEntity({x:this.position.x, y:this.position.y}, {width:this.size.width, height:this.size.height});
-	
+
 	//this path lays out the corners of the polygon collider for the player (a triangle in this case)
 	const MARGIN = 4; // allow some overlap to feel more "fair" to player
 	const THRUSTER = 10;
-	
+
 	const colliderPath = [{x: this.position.x + MARGIN + THRUSTER, y: this.position.y + (1.5 * MARGIN)},
 						  {x: this.position.x + this.size.width - (1.5 * MARGIN), y: this.position.y + (this.size.height / 2) + MARGIN / 2},
 						  {x: this.position.x + MARGIN + THRUSTER, y: this.position.y + this.size.height - MARGIN}];
-	
+
 	this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:this.position.x, y:this.position.y}});
 	this.getIsDying = function() {
 		return sprite.isDying;
 	};
-	
+
 	let unusedTime = 0;//time left over from last call to this.update, helps smooth movement with variable frame rate
-	
+
 	this.update = function(deltaTime, worldPos) {
 		sprite.update(deltaTime);//update the image
 		shield.update(deltaTime, this.position);
-		
+
 		if(sprite.isDying) {
 			explosionSprite.update(deltaTime);
 		}
@@ -71,73 +89,73 @@ function Player(position = {x:0, y:0}) {
 		for(let i = 0; i < ghosts.length; i++) {
 			ghosts[i].update(deltaTime, {x:this.position.x, y:this.position.y}, worldPos);
 		}
-		
+
 		if(sprite.getDidDie()) {
 			//indicates that the sprite has reached the final frame of the "death sequence"
 			scene.removePlayer();
 			sprite.isDying = false;
 			this.clearBullets();
-			
+
 			const emitterIndex = ParticleEmitterManager.pool.indexOf(explosionEmitter);
 			ParticleEmitterManager.returnEmitterToPool(emitterIndex);
 			if(playerExplosion.getTime() <= 0) {
 				playerExplosion.play();
 			}
-			return;	
+			return;
 		} else if(!sprite.isDying) {
 			this.adjustVelocityAndSpriteForPlayerInput();
-					
+
 			if(holdKey[KEY_X]) {//shooting
 				this.doShooting();
 			}
-			
+
 			//update all player shots
 			for(let i = 0; i < shots.length; i++) {
 				shots[i].update(deltaTime, worldPos);
 			}
-			
+
 			for(let i = 0; i < missiles.length; i++) {
 				missiles[i].update(deltaTime, worldPos);
 			}
-			
+
 			//increment player position based on elapsed time calculated velocities
 			let availableTime = unusedTime + deltaTime;
 			while(availableTime > SIM_STEP) {
 				availableTime -= SIM_STEP;
-				
+
 				this.position.x += velocity.x * SIM_STEP / 1000;
 				this.position.y += velocity.y * SIM_STEP / 1000;
 			}
-			
+
 			//save any unused time for use during the next call to this.update
 			unusedTime = availableTime;
-			
+
 			this.clampPositionToScreen();
-			
+
 			//keep the collisionBody position in synch with the visual position
 			this.collisionBody.setPosition({x:this.position.x, y:this.position.y});
 
 			if (this.forceUnitActive) {
 				this.forceUnit.update(deltaTime, worldPos);
 			}
-			
+
 			if(isInvincible) {
 				if(timer.timeSinceUpdateForEvent(PlayerEvent.Invincible) >= INVINCIBLE_TIME) {
 					this.setInvincible(false);
-				} 
+				}
 			}
 		}
 	};
-	
+
 	this.draw = function() {
 		//If the player is invincible, draw just the player sprite at 50% opacity
 		if(isInvincible) {
 			canvasContext.save();
-			let alpha = timer.getCurrentTime() % 20 < 10 ? 1 : 0.50;  //blinky blinky! 
-			
+			let alpha = timer.getCurrentTime() % 20 < 10 ? 1 : 0.50;  //blinky blinky!
+
 			canvasContext.globalAlpha = alpha;
 		}
-		
+
 		//draw the player
 		sprite.drawAt(this.position, this.size);
 		if((sprite.isDying) && (!explosionSprite.getDidDie())) {
@@ -145,7 +163,7 @@ function Player(position = {x:0, y:0}) {
 		}
 		//collision bodies know not to draw themselves if DRAW_COLLIDERS = false
 		this.collisionBody.draw();
-		
+
 		if(isInvincible) {
 			canvasContext.restore();
 		}
@@ -153,23 +171,23 @@ function Player(position = {x:0, y:0}) {
 		if (this.forceUnitActive) {
 			this.forceUnit.draw();
 		}
-		
+
 		shield.draw();
-		
+
 		for(let i = 0; i < ghosts.length; i++) {
 			ghosts[i].draw();
 		}
-		
+
 		//draw player shots
 		for(let i = 0; i < shots.length; i++) {
 			shots[i].draw();
 		}
-		
+
 		for(let i = 0; i < missiles.length; i++) {
 			missiles[i].draw();
 		}
 	};
-	
+
 	this.clampPositionToScreen = function() {
 		//clamp player position to the screen
 		if(this.position.x < GameField.x) {
@@ -177,21 +195,21 @@ function Player(position = {x:0, y:0}) {
 		} else if(this.position.x > (GameField.right - this.size.width)) {
 			this.position.x = GameField.right - this.size.width;
 		}
-		
+
 		if(this.position.y < GameField.y + 50) {//50 is fudge factor to account for UI Frame size
 			this.position.y = GameField.y + 50;
 		} else if(this.position.y > (GameField.bottom - this.size.height)) {
 			this.position.y = GameField.bottom - this.size.height;
 		}
 	};
-	
+
 	this.doShooting = function() {
 		let timeSinceLastShot = timer.timeSinceUpdateForEvent(PlayerEvent.LastShot);
 		if((timeSinceLastShot == null) || (timeSinceLastShot === undefined)) {
 			//this is the first time the player has shot, so need to register the event with the timer object
 			timeSinceLastShot = timer.registerEvent(PlayerEvent.LastShot);
 		}
-		
+
 		if(timeSinceLastShot > currentShotDelay) {
 			//enough time has passed so we can shoot again
 			for(let i = 0; i < ghosts.length; i++) {
@@ -205,7 +223,7 @@ function Player(position = {x:0, y:0}) {
 				//not enough shots in the pool, so make a new one
 				newShot = new PlayerShot();
 			}
-			
+
 			let secondShot;
 			const secondVel = {x:NORMAL_SHOT_SPEED, y:-NORMAL_SHOT_SPEED};
 			if(shots.length === MAX_SHOTS_ON_SCREEN) {
@@ -215,7 +233,7 @@ function Player(position = {x:0, y:0}) {
 				//not enough shots in the pool, so make a new one
 				secondShot = new PlayerShot();
 			}
-			
+
 			let thirdShot;
 			const thirdVel = {x:-NORMAL_SHOT_SPEED, y:0};
 			if(shots.length >= MAX_SHOTS_ON_SCREEN) {
@@ -225,7 +243,7 @@ function Player(position = {x:0, y:0}) {
 				//not enough shots in the pool, so make a new one
 				thirdShot = new PlayerShot();
 			}
-						
+
 			switch(this.currentShotType) {
 				case EntityType.PlayerShot:
 					initializeShot(newShot, this.currentShotType, {x:this.position.x + 80, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
@@ -251,7 +269,7 @@ function Player(position = {x:0, y:0}) {
 					playerFireRegular.play();
 					break;
 			}
-			
+
 			if(hasMissiles) {
 				let newMissile
 				if(missiles.length >= MAX_SHOTS_ON_SCREEN) {
@@ -261,16 +279,16 @@ function Player(position = {x:0, y:0}) {
 				} else {
 					newMissile = new PlayerMissile({x:this.position.x + this.size.width / 2, y:this.position.y + (2 * this.size.height / 3)}, MISSILE_VELOCITY);
 				}
-				
+
 				newMissile.reset();
 				missiles.push(newMissile);
 				scene.addEntity(newMissile, true);
 			}
-						
+
 			timer.updateEvent(PlayerEvent.LastShot);
 		}
 	};
-	
+
 	const initializeShot = function(shot, shotType, shotPos, shotVel, isRotated) {
 		shot.resetWithType(shotType);
 		scene.addEntity(shot, true);
@@ -279,7 +297,7 @@ function Player(position = {x:0, y:0}) {
 		if(isRotated) {shot.rotation = Math.atan2(-shotVel.y, shotVel.x);}
 		shots.push(shot);
 	};
-		
+
 	this.adjustVelocityAndSpriteForPlayerInput = function() {
 		//indicates the sprite is NOT "playing" the death animation => can still fly around the screen and shoot
 		if(holdKey[KEY_LEFT] || holdKey[KEY_A]) {
@@ -301,32 +319,36 @@ function Player(position = {x:0, y:0}) {
 			if((velocity.x < 0.25 * currentSpeed) && (velocity.x > -0.25 * currentSpeed)) {
 				velocity.x = 0;
 			}
+			sprite.setFrame(idleFrame.min);
 		}
-		
+
 		if(holdKey[KEY_UP] || holdKey[KEY_W]) {
 			if(velocity.y > -currentSpeed) {
 				velocity.y -= 0.2 * currentSpeed;
 			} else {
 				velocity.y = -currentSpeed;
 			}
+			sprite.setFrame(upFrame.max); // tilt ship
 		} else if(holdKey[KEY_DOWN] || holdKey[KEY_S]) {
 			if(velocity.y < currentSpeed) {
 				velocity.y += 0.2 * currentSpeed;
 			} else {
 				velocity.y = currentSpeed;
 			}
+			sprite.setFrame(downFrame.max); // tilt ship
 		} else {
 			velocity.y *= 0.8;
 			if((velocity.y < 0.25 * currentSpeed) && (velocity.y > -0.25 * currentSpeed)) {
 				velocity.y = 0;
 			}
-		}	
+			sprite.setFrame(idleFrame.max);
+		}
 	};
-	
+
 	this.setShotTo = function(newShotType) {
 		this.currentShotType = newShotType;
 	};
-	
+
 	this.activateTheForce = function() {
 		if((this.forceUnit === null) || (this.forceUnit === undefined)) {
 			this.forceUnit = new PlayerForceUnit({x:0, y:0});
@@ -337,12 +359,12 @@ function Player(position = {x:0, y:0}) {
 		this.forceUnitActive = true;
 		scene.addEntity(this.forceUnit, false);
 	};
-	
+
 	this.activateShield = function() {
 		shield.reset();
 		scene.addEntity(shield, true);
 	};
-	
+
 	this.activateGhostShip = function() {
         if(this.activeGhosts >= MAX_GHOSTS) {return;}
 		let thisGhost;
@@ -358,11 +380,11 @@ function Player(position = {x:0, y:0}) {
 				}
 			}
 		}
-		
+
 		thisGhost.isActive = true;
         this.activeGhosts++;
     };
-	
+
 	this.didCollideWith = function(otherEntity) {
 		if(otherEntity.type === EntityType.Capsule1) {
 			scene.collectedCapsule();
@@ -385,12 +407,12 @@ function Player(position = {x:0, y:0}) {
 			}
 		}
 	};
-	
+
 	this.incrementSpeed = function() {
 		let multiplier = currentSpeed / BASE_SPEED;
         multiplier += 0.25;//1.0;
 		currentSpeed = multiplier * BASE_SPEED;
-		
+
 		let delayMultiplier = currentShotDelay / BASE_SHOT_DELAY;
 		delayMultiplier -= 1.0;
 		if(delayMultiplier < 2) {
@@ -398,27 +420,27 @@ function Player(position = {x:0, y:0}) {
 		}
 		currentShotDelay = delayMultiplier * BASE_SHOT_DELAY;
     };
-	
+
 	this.setHasMissiles = function(hasMiss) {
 		hasMissiles = hasMiss;
     };
-	
+
 	//helper function to restore the player to initial state (restart/continue/new life/etc)
 	this.reset = function() {
 		//clear all power ups and player shots on screen
 		this.clearPowerUps();
 		this.clearBullets();
-		
+
 		//reset the player's position
 		this.position.x = GameField.x;
 		this.position.y = GameField.midY;
-		
+
         this.clearDeath();
-		
-		//give the player a short period of invincibility	
+
+		//give the player a short period of invincibility
 		this.setInvincible(true);
 	};
-    
+
     this.clearDeath = function() {
         //reset the player sprite
         sprite.clearDeath();
@@ -426,52 +448,52 @@ function Player(position = {x:0, y:0}) {
         explosionSprite.wasBorn = true;
         explosionSprite.isDying = true;
     };
-	
+
 	this.clearPowerUps = function() {
 		//reset player shot to the base shot type
 		this.currentShotType = EntityType.PlayerShot;
-		
+
 		//restore player speed and shooting rate to base values
 		currentSpeed = BASE_SPEED;
 		currentShotDelay = DELAY_MULTIPLIER * BASE_SHOT_DELAY;
-		
+
 		//clear Missiles and Shields Flags
 		hasMissiles = false;
 		shield.deactivate();
-		
+
 		//remove The Force from the scene and Collision manager & make it Inactive
 		if((this.forceUnit !== null) && (this.forceUnit !== undefined)) {
 			scene.removeEntity(this.forceUnit);
 			this.forceUnitActive = false;
 		}
-		
-		
+
+
 		for(let i = 0; i < ghosts.length; i++) {
 			ghosts[i].reset();
 		}
         this.activeGhosts = 0;
 	};
-	
+
 	this.clearBullets = function() {
 		for(let i = 0; i < shots.length; i++) {
 			shots[i].isVisible = false;
 			shots[i].isActive = false;
 			scene.removeCollisions(shots[i], true);
 		}
-		
+
 		for(let i = 0; i < missiles.length; i++) {
 			missiles[i].isVisible = false;
 			missiles[i].isActive = false;
 			scene.removeCollisions(missiles[i], true);
 		}
 	};
-	
+
 	this.setInvincible = function(newValue) {
 		isInvincible = newValue;
 		if(newValue) {
 			timer.registerEvent(PlayerEvent.Invincible);
 		}
 	};
-	
+
 	return this;
 }

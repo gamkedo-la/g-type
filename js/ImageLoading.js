@@ -103,13 +103,13 @@ function beginLoadingImage(imgVar, fileName) {
 function loadImages() {
     const imageList = [
 	    //Logo
-        { imgName: titleLogo, theFile: "gTypeLogo.png" },	    
-	    
-	    //UI 
-        { imgName: gameFrame1, theFile: "GameUIFrame1.png" },	    
-        { imgName: gameFrame2, theFile: "GameUIFrame2.png" },	    
-        { imgName: lightedPowerUpUI, theFile: "LightedPowerUpUI.png" },	    
-        { imgName: darkPowerUpUI, theFile: "DarkPowerUpUI.png" },	    
+        { imgName: titleLogo, theFile: "gTypeLogo.png" },
+
+	    //UI
+        { imgName: gameFrame1, theFile: "GameUIFrame1.png" },
+        { imgName: gameFrame2, theFile: "GameUIFrame2.png" },
+        { imgName: lightedPowerUpUI, theFile: "LightedPowerUpUI.png" },
+        { imgName: darkPowerUpUI, theFile: "DarkPowerUpUI.png" },
         { imgName: lightedSpacerUI, theFile: "LightedSpacerUI.png" },
         { imgName: darkSpacerUI, theFile: "DarkSpacerUI.png" },
         { imgName: fontImage, theFile: "G-Type-FontSheet_tight.png" },
@@ -140,8 +140,8 @@ function loadImages() {
         { imgName: backgroundParallaxLayer2, theFile: "backgroundParallax_level_2.png" },
         { imgName: foregroundParallaxLayer1, theFile: "foregroundParallax1.png" },
         { imgName: foregroundParallaxLayer2, theFile: "foregroundParallax1.png" },
-                
-        
+
+
         //Terrain & World
         { imgName: largeRhombusBoulder, theFile: "Boulder.png" },
         { imgName: brokenBoulder, theFile: "BrokenBoulder.png" },
@@ -155,7 +155,7 @@ function loadImages() {
         { imgName: platform1, theFile: "Platform1-sheet.png" },
 
         // player related
-        { imgName: player1Sheet, theFile: "G-TypePlayer1-sm.png" },
+        { imgName: player1Sheet, theFile: "G-TypePlayer1-sm-v3.png" },
         { imgName: playerThruster, theFile: "G-TypePlayer1-Thruster.png" },
         { imgName: playerShots, theFile: "PlayerShots.png" },
 		{ imgName: playerShotFlash, theFile: "player_shot_vfx_sheet.png"},

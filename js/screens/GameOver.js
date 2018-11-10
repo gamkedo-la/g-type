@@ -17,13 +17,16 @@ function GameOverScreen() {
     ];
     this.transitionIn = function(){
         remainingLives = 2;//Set up for a continue or restart
-        
-        this.selectorPositionsIndex = 0;        
+
+        this.selectorPositionsIndex = 0;
         starfield = new Starfield();
-        selectorSprite = new AnimatedSprite(player1Sheet, 6, 62, 27, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
+        selectorSprite =
+            //new AnimatedSprite(player1Sheet, 6, 62, 27, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
+            new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, 9999999, {min:5, max:7}, 128);
+
         currentBackgroundMusic.setCurrentTrack(AudioTracks.GameOver);
         if(currentBackgroundMusic.getTime() > 0){
-            currentBackgroundMusic.resume();    
+            currentBackgroundMusic.resume();
         }
         else {
             currentBackgroundMusic.play();
@@ -38,14 +41,14 @@ function GameOverScreen() {
     };
     this.run = function gamePlayFinishedScreenRun(deltaTime) {
 	    update(deltaTime);
-	    
+
 	    draw(this.selections, this.selectorPositionsIndex);
     };
     this.control = function gamePlayFinishedScreenControl(keydownMap, pressed){
         if (pressed) {//only act on key released events => prevent multiple changes on single press
             return false;
         }
-        
+
         if (this.keysPressed(KEY_UP)) {
             this.selectorPositionsIndex--;
             if (this.selectorPositionsIndex < 0) {
@@ -68,13 +71,13 @@ function GameOverScreen() {
             ScreenStates.setState(CREDITS_SCREEN);
             return true;
         } else if (this.keysPressed(KEY_M)) {
-            toggleMute();	            	
+            toggleMute();
             return true;
         }
 
         return false;
     };
-    
+
     const printMenu = function(menuItems, selected, yOffset = null) {
 	    let mainMenuX = GameField.midX - 80;
 	    let mainMenuY = (yOffset == null ? GameField.y + 4 * GameField.height / 5 : yOffset);
@@ -90,19 +93,19 @@ function GameOverScreen() {
 		    }
 	    }
 	};
-    
+
 	const update = function(deltaTime) {
 		selectorSprite.update(deltaTime);
-		
+
 		starfield.update(deltaTime);
 	};
 
 	const draw = function(selections, selectorPositionIndex) {
 		// render the menu background
         drawBG();
-        
+
         starfield.draw();
-        
+
         // render the logo overlay
 //        drawLogo();
 
@@ -113,12 +116,12 @@ function GameOverScreen() {
         selectorSprite.drawAt(selectorPosition, {width:30, height:19});
 
 		canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
-		
+
 		gameFont.printTextAt(textStrings.GameOver, {x:GameField.midX, y:GameField.y - 20}, 35, textAlignment.Center);
 	};
- /* 
+ /*
   const scoreLeaders = function{
-  
+
    for (var a = 0; a < highscoreList.length; ++a)
 {
     for (var b = 0; b < highscoreList[a].length; ++b)
@@ -128,12 +131,12 @@ function GameOverScreen() {
         highscoreList.sort(function(a,b){return a.score < b.score});
 }
 
-    localStorage.setItem("highScore3", highScore3);      
+    localStorage.setItem("highScore3", highScore3);
     localStorage.setItem("highScore2", highScore2);
     localStorage.setItem("highScore1", highscore1);
-  
 
- 
+
+
     const drawHighScores = function() {
    highScoreText1 = highScore1.toString();
    highScoreText2 = highScore2.toString();

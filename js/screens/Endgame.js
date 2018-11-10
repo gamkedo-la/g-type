@@ -21,33 +21,35 @@ function EndgameScreen() {
     this.totalTime = 0;
     this.endgameScript = textStrings.endgameScript;
     let EndgameText;
-    
+
     this.transitionIn = function () {
         scene = new EndgameScene();
-        
+
         this.skipBump = 0;
         this.currentY = GameField.bottom - 300;
-        
-        this.selectorPositionsIndex = 0;        
+
+        this.selectorPositionsIndex = 0;
         starfield = new Starfield();
-        selectorSprite = new AnimatedSprite(player1Sheet, 6, 62, 27, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
-        
+        selectorSprite =
+            //new AnimatedSprite(player1Sheet, 6, 62, 27, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
+            new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, 9999999, {min:5, max:7}, 128);
+
         currentBackgroundMusic.setCurrentTrack(AudioTracks.Help);
         if(currentBackgroundMusic.getTime() > 0){
-            currentBackgroundMusic.resume();    
+            currentBackgroundMusic.resume();
         } else {
             currentBackgroundMusic.play();
         }
-        
+
         EndgameText = new CreditFont(fontImage, darkFontImage, {width:16, height:16}, canvasContext);
         this.buildendgameScript();
     };
-    
+
     this.transitionOut = function() {
 //        uiSelect.play();
 		currentBackgroundMusic.pause();
     };
-    
+
     this.buildendgameScript = function() {
 	    let nameX = GameField.midX - 50;
         let textSkip = 20;
@@ -60,7 +62,7 @@ function EndgameScreen() {
             textY += textSkip;
         }
     };
-    
+
     this.drawendgameScript = function() {
         let nameX = GameField.midX - 350;
         let textSkip = 20;
@@ -84,52 +86,52 @@ function EndgameScreen() {
         if (this.currentY < this.scrollLimit) {
             ScreenStates.setState(MENU_SCREEN);
         }
-        
+
         drawRect(GameField.x, GameField.y - GameField.bgOffset, GameField.width, GameField.height + GameField.bgOffset, MENU_BG_COLOR);
-        
-        canvasContext.drawImage(backgroundColorLookup,150,0,16,100,0,0,canvas.width,canvas.height);        
+
+        canvasContext.drawImage(backgroundColorLookup,150,0,16,100,0,0,canvas.width,canvas.height);
         starfield.draw();
-        
+
 //        this.drawendgameScript();
-        
+
         selectorSprite.update(deltaTime);
-		
+
 		starfield.update(deltaTime);
 
 		//canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
-		
+
 		gameFont.printTextAt(textStrings.Endgame, {x:GameField.midX, y:GameField.y}, 30, textAlignment.Center);
 
         gameFont.printTextAt("[^] to Scroll Faster", {x:GameField.x + 20, y:GameField.bottom - 80}, 12, textAlignment.Left);
 		gameFont.printTextAt("[|] to Scroll Slower", {x:GameField.x + 20, y:GameField.bottom - 60}, 12, textAlignment.Left);
 		gameFont.printTextAt("[Space] to Pause", {x:GameField.x + 20, y:GameField.bottom - 40}, 12, textAlignment.Left);
 		gameFont.printTextAt("[Backspace] to Main Menu", {x:GameField.x + 20, y:GameField.bottom - 20}, 12, textAlignment.Left);
-		
+
 		scene.update(deltaTime);
 		scene.draw();
-		
+
 		EndgameText.update(deltaTime, {x:0, y:this.scrollSpeed});
 		EndgameText.draw();
     };
-    
+
     this.control = function endgameScreenControl() {
 		if (this.keysPressed(KEY_SPACE)) {
             if(this.scrollSpeed !== 0) {
                 this.scrollSpeed = 0;
             } else {
                 this.scrollSpeed = 4/50;
-            }            
+            }
             return true;
-        } 
-        
-        // SHIP CONTROLS START        
+        }
+
+        // SHIP CONTROLS START
         holdKey[KEY_UP] = this.keysPressed(KEY_UP) || this.keysPressed(KEY_W);
         holdKey[KEY_DOWN] = this.keysPressed(KEY_DOWN) || this.keysPressed(KEY_S);
         holdKey[KEY_LEFT] = this.keysPressed(KEY_LEFT) || this.keysPressed(KEY_A);
         holdKey[KEY_RIGHT] = this.keysPressed(KEY_RIGHT) || this.keysPressed(KEY_D);
         holdKey[KEY_X] = this.keysPressed(KEY_X);
         // SHIP CONTROLS END
-        
+
         let skipAmt = 150;
         if (this.keysPressed(KEY_MINUS)) {
             this.scrollSpeed -= 2/50;
@@ -144,7 +146,7 @@ function EndgameScreen() {
             toggleMute();
             return true;
         }
-        
+
         return true;
     };
 }
