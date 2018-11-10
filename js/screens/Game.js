@@ -1,9 +1,11 @@
 function GamePlayScreen () {
 	const GAME_BG_COLOR = "#010119";
 	this.properties = null;
+	let currentLevelComplete = false;
 
     this.transitionIn = function gamePlayScreenTransitionIn(index = currentLevelIndex) {
         scene = new GameScene(index, this.properties.player, this.properties.uiManager);
+        currentLevelComplete = false;
 
         if(this.properties.code === true) {
 	        scene.activateBasePowerUps();
@@ -15,6 +17,8 @@ function GamePlayScreen () {
         } else if(index === 1) {
 	        backgroundMusicIndex = AudioTracks.Level2;
         } else if(index === 2) {
+	        backgroundMusicIndex = AudioTracks.Level3;
+        } else if(index === 3) {
 	        backgroundMusicIndex = AudioTracks.Level3;
         }
         
@@ -56,16 +60,25 @@ function GamePlayScreen () {
         if(scene.gameIsOver) {
             currentBackgroundMusic.setCurrentTrack(AudioTracks.GameOver);
             ScreenStates.setState(GAME_OVER_SCREEN);
-        } else if(scene.levelIsComplete) {
-            if((currentLevelIndex === 1) && (scene.didCompleteWarpChallenge)) {currentLevelIndex++;}
-            this.cutSceneFor(++currentLevelIndex);
+        } else if((scene.levelIsComplete) && (!currentLevelComplete)) {
+	        currentLevelComplete = true;
+            if((currentLevelIndex === 0) && (scene.didCompleteWarpChallenge)) {
+	            currentLevelIndex = WARP_INDEX;
+	            ScreenStates.setState(GAME_SCREEN, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject()});
+	        } else if(currentLevelIndex	=== WARP_INDEX) {
+		        currentLevelIndex = 2;//warp only allows you to skip level 2 => next level must be level 3
+		        this.cutSceneFor(currentLevelIndex);
+	        } else {
+		        this.cutSceneFor(++currentLevelIndex);
+	        }           
         } else if(scene.beatTheGame) {
             currentBackgroundMusic.setCurrentTrack(AudioTracks.GameEnding);
             ScreenStates.setState(ENDING_SCREEN);
         }
-	if(currentBackgroundMusic.getTime() > currentBackgroundMusic.getDuration()) {	
-		currentBackgroundMusic.play();
-	}
+        
+		if(currentBackgroundMusic.getTime() > currentBackgroundMusic.getDuration()) {	
+			currentBackgroundMusic.play();
+		}
     };
     
     this.cutSceneFor = function(newCurrentLevel) {

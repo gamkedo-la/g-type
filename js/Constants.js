@@ -32,6 +32,7 @@ const FRAMES_PER_SECOND = 30;
 const SIM_STEP = 16;//milliseconds in each simulation step ~1/2 frame
 const MAX_SHAKE_MAGNITUDE = 10;
 const MAX_LIVES_TO_SHOW = 9;
+const WARP_INDEX = 3;//This should be 3, once we have all three levels implemented
 const SCORE_PER_EXTRA_LIFE = 30000;
 const MAX_GHOSTS = 3;
 

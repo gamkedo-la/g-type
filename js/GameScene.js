@@ -85,7 +85,15 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null) {
 	
 	this.update = function(deltaTime) {
 		if(!worldPaused) {
-			this.worldPos += 3.0 * worldSpeed;
+			if(levelIndex === WARP_INDEX) {
+				if(this.worldPos > 21500) {
+					this.levelComplete();
+				} else {
+					this.worldPos += 18.0 * worldSpeed;
+				}
+			} else {
+				this.worldPos += 3.0 * worldSpeed;
+			}
 		}	
 		
 		this.updateBackground(deltaTime);

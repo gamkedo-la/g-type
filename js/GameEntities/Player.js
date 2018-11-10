@@ -60,7 +60,7 @@ function Player(position = {x:0, y:0}) {
 
 	const BASE_SHOT_DELAY = 128; //this should be faster for main gun, independent slower variable for missiles
 	const DELAY_MULTIPLIER = 5;
-	const NORMAL_SHOT_SPEED = 400;
+	const NORMAL_SHOT_SPEED = 1200;
 	const MISSILE_VELOCITY = {x:100, y:150};
 	let currentShotDelay = DELAY_MULTIPLIER * BASE_SHOT_DELAY;
 	let isInvincible = false;

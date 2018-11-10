@@ -61,9 +61,11 @@ const ScreenStates = {
 		[ENDING_SCREEN]: new EndgameScreen()
 	},
 	setState: function(newState, properties) {
-		if(newState === this.state) {
-			return;
-        }
+		//I removed these so we can transition from one game scene directly
+		//to another, I don't think it causes any problems
+//		if(newState === this.state) {
+//			return;
+//        }
         this.screens[this.state].transitionOut();
         this.stateLog.push(this.state);
 		this.state = newState;
