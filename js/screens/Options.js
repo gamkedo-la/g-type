@@ -10,7 +10,7 @@ function OptionsScreen() {
 		Menu:{x:GameField.midX + 90, y:(GameField.y + 300 + GameField.height / 4)}
 	};
 
-    let autoFiring = "Off";
+    let autoFiring;
     let selectorPositionIndex = 0;
     let selectorPosition = {x:selectionPosition.Music.x + 35, y:selectionPosition.Music.y};
     let selectorSprite;
@@ -20,6 +20,11 @@ function OptionsScreen() {
 	    {screen: MENU_SCREEN, title: textStrings.Main},
 	   ];
     this.transitionIn = function () {
+	    autoFiring = localStorageHelper.getObject("autoFiring");
+	    if(autoFiring === null) {
+		    autoFiring = "off";
+		    localStorageHelper.setObject("autoFiring", "off");
+	    }
         selectorPositionIndex = 0;
         selectorPosition = {x:selectionPosition.Music.x + 35, y:selectionPosition.Music.y};
 
@@ -81,6 +86,7 @@ function OptionsScreen() {
             }
             if(selectorPositionIndex === 3 && autoFiring !== "On") {
                 autoFiring = "On";
+                localStorageHelper.setObject("autoFiring", "On");
                 holdKey[KEY_X] = true;
             }
             return true;
@@ -94,6 +100,7 @@ function OptionsScreen() {
             }
             if(selectorPositionIndex === 3 && autoFiring !== "Off") {
                 autoFiring = "Off";
+                localStorageHelper.setObject("autoFiring", "Off");
                 holdKey[KEY_X] = false;
             }
             return true;
