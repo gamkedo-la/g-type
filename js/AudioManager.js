@@ -23,9 +23,9 @@ resumeSound.setVolume(0.4);
 
 //player sfx
 const playerFireRegular = new sfxClipOverlap("PlayerFireRegular", 3);
-playerFireRegular.setVolume(0.6);
+playerFireRegular.setVolume(0.36);
 const playerFireLaser = new sfxClipOverlap("PlayerFireLaser", 3);
-playerFireLaser.setVolume(0.6);
+playerFireLaser.setVolume(0.46);
 const playerPowerUpActivate = new sfxClipSingle("PlayerPowerupActivate");
 playerPowerUpActivate.setVolume(0.65);
 const playerShieldActivate = new sfxClipSingle("PlayerShieldActivate");
@@ -33,7 +33,7 @@ playerShieldActivate.setVolume(0.7);
 const playerShieldHit = new sfxClipOverlap("PlayerShieldReflect", 3);
 playerShieldHit.setVolume(0.7);
 const playerExplosion = new sfxClipSingle("PlayerExplosion");
-playerExplosion.setVolume(0.6);
+playerExplosion.setVolume(0.7);
 const extraLife = new sfxClipSingle("extraLife");
 extraLife.setVolume(0.7);
 const capsulePickup = new sfxClipOverlap("CapsulePickup", 3);

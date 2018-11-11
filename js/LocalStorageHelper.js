@@ -73,6 +73,7 @@ function LocalStorageHelper() {
    */
   this.getFloat = function(keyName) {
     var storedValue = this.getItem(keyName);
+    if(storedValue === null) {return storedValue;}
     return parseFloat(storedValue);
   };
 

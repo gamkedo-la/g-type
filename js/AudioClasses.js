@@ -22,7 +22,12 @@ clicks, and chops, we get a clean loop with no gaps of silence.
 var isMuted = false;
 
 //SFX Classes
-var sfxVolume = 1;
+var sfxVolume = localStorageHelper.getFloat('sfxVolume');
+console.log("SFX Volume: " + sfxVolume);
+if((sfxVolume === null) || (sfxVolume === undefined)) {
+	localStorageHelper.setFloat('sfxVolume', 1);
+	sfxVolume = 1;
+}
 SFXVolumeManager = new sfxVolumeManager();
 function sfxVolumeManager() {
 	var clipList = [];
@@ -539,7 +544,11 @@ function sfxContainerRandom(clipList) {//Plays a random list-item on playback
 
 
 //Music Classes
-var musicVolume = 1;
+var musicVolume = localStorageHelper.getFloat('musicVolume');
+if((musicVolume === null) || (musicVolume === undefined)) {
+	localStorageHelper.setFloat('musicVolume', 1);
+	musicVolume = 1;
+}
 MusicVolumeManager = new musicVolumeManager();
 function musicVolumeManager() {
 	var trackList = [];
