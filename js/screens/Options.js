@@ -25,6 +25,12 @@ function OptionsScreen() {
 		    autoFiring = "off";
 		    localStorageHelper.setObject("autoFiring", "off");
 	    }
+	    let tmpSpeed = localStorageHelper.getInt("gameSpeed");
+	    if(tmpSpeed === null) {
+		    localStorageHelper.setInt("gameSpeed", gameSpeed);
+	    } else {
+		    gameSpeed = tmpSpeed;
+	    }
         selectorPositionIndex = 0;
         selectorPosition = {x:selectionPosition.Music.x + 35, y:selectionPosition.Music.y};
 
@@ -83,8 +89,10 @@ function OptionsScreen() {
             } else if(selectorPositionIndex === 1) {
                 const currentVolume = SFXVolumeManager.getVolume();
                 SFXVolumeManager.setVolume(currentVolume + 0.1);
-            }
-            if(selectorPositionIndex === 3) {
+            } else if(selectorPositionIndex === 2) {
+	            gameSpeed++;
+	            localStorageHelper.setInt("gameSpeed", gameSpeed);
+            } else if(selectorPositionIndex === 3) {
 	            if(autoFiring === "Off") {
 		            autoFiring = "On";
 					localStorageHelper.setObject("autoFiring", "On");
@@ -103,8 +111,13 @@ function OptionsScreen() {
             } else if(selectorPositionIndex === 1) {
                 const currentVolume = SFXVolumeManager.getVolume();
                 SFXVolumeManager.setVolume(currentVolume - 0.1);
-            }
-            if(selectorPositionIndex === 3) {
+            } else if(selectorPositionIndex === 2) {
+	            gameSpeed--;
+	            if(gameSpeed < 1) {
+		            gameSpeed = 1;
+	            }
+	            localStorageHelper.setInt("gameSpeed", gameSpeed);
+            } else if(selectorPositionIndex === 3) {
 	            if(autoFiring === "Off") {
 		            autoFiring = "On";
 					localStorageHelper.setObject("autoFiring", "On");
@@ -201,7 +214,7 @@ function OptionsScreen() {
     const drawOptions = function() {
 	    gameFont.printTextAt("music volume - " + (Math.round(MusicVolumeManager.getVolume() * 10)).toString(), selectionPosition.Music, 25, textAlignment.Right);
 	    gameFont.printTextAt("SFX volume - " + (Math.round(SFXVolumeManager.getVolume() * 10)).toString(), selectionPosition.SFX, 25, textAlignment.Right);
-	    gameFont.printTextAt("Game Speed - " + ("1"), selectionPosition.Speed, 25, textAlignment.Right);
+	    gameFont.printTextAt("Game Speed - " + (gameSpeed.toString()), selectionPosition.Speed, 25, textAlignment.Right);
 	    gameFont.printTextAt("Auto-firing - " + (autoFiring), selectionPosition.AutoFiring, 25, textAlignment.Right);
 	    gameFont.printTextAt(textStrings.Main, selectionPosition.Menu, 25, textAlignment.Right);
     };
