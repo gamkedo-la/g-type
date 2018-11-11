@@ -24,7 +24,8 @@ function Player(position = {x:0, y:0}) {
 
 	const PlayerEvent = {
 		Invincible:"invinciblePlayer",
-		LastShot:"lastShot"
+		LastShot:"lastShot",
+		LastMissile:"lastMissile"
 	};
 
 	this.type = EntityType.Player;
@@ -59,10 +60,12 @@ function Player(position = {x:0, y:0}) {
 	const INVINCIBLE_TIME = 1500;//in milliseconds
 
 	const BASE_SHOT_DELAY = 96; //this should be faster for main gun, independent slower variable for missiles
+	const BASE_MISSILE_DELAY = 144;
 	const DELAY_MULTIPLIER = 5;
 	const NORMAL_SHOT_SPEED = 1200;
-	const MISSILE_VELOCITY = {x:100, y:150};
+	const MISSILE_VELOCITY = {x:125, y:175};
 	let currentShotDelay = DELAY_MULTIPLIER * BASE_SHOT_DELAY;
+	let currentMissileDelay = DELAY_MULTIPLIER * BASE_MISSILE_DELAY;
 	let isInvincible = false;
 
 	const velocity = {x:0, y:0};
@@ -223,9 +226,11 @@ function Player(position = {x:0, y:0}) {
 
 	this.doShooting = function() {
 		let timeSinceLastShot = timer.timeSinceUpdateForEvent(PlayerEvent.LastShot);
+		let timeSinceLastMissile = timer.timeSinceUpdateForEvent(PlayerEvent.LastMissile);
 		if((timeSinceLastShot == null) || (timeSinceLastShot === undefined)) {
 			//this is the first time the player has shot, so need to register the event with the timer object
 			timeSinceLastShot = timer.registerEvent(PlayerEvent.LastShot);
+			timeSinceLastMissile = timer.registerEvent(PlayerEvent.LastMissile);
 		}
 
 		if(timeSinceLastShot > currentShotDelay) {
@@ -288,22 +293,24 @@ function Player(position = {x:0, y:0}) {
 					break;
 			}
 
-			if(hasMissiles) {
-				let newMissile
-				if(missiles.length >= MAX_SHOTS_ON_SCREEN) {
-					newMissile = missiles.splice(0, 1)[0];
-					newMissile.setPosition({x:this.position.x + this.size.width / 2, y:this.position.y + (2 * this.size.height / 3)});
-					newMissile.setVelocity(MISSILE_VELOCITY);
-				} else {
-					newMissile = new PlayerMissile({x:this.position.x + this.size.width / 2, y:this.position.y + (2 * this.size.height / 3)}, MISSILE_VELOCITY);
-				}
-
-				newMissile.reset();
-				missiles.push(newMissile);
-				scene.addEntity(newMissile, true);
+			timer.updateEvent(PlayerEvent.LastShot);
+		}
+		
+		if((hasMissiles) && (timeSinceLastMissile > currentMissileDelay)) {
+			let newMissile
+			if(missiles.length >= MAX_SHOTS_ON_SCREEN) {
+				newMissile = missiles.splice(0, 1)[0];
+				newMissile.setPosition({x:this.position.x + this.size.width / 2, y:this.position.y + (2 * this.size.height / 3)});
+				newMissile.setVelocity(MISSILE_VELOCITY);
+			} else {
+				newMissile = new PlayerMissile({x:this.position.x + this.size.width / 2, y:this.position.y + (2 * this.size.height / 3)}, MISSILE_VELOCITY);
 			}
 
-			timer.updateEvent(PlayerEvent.LastShot);
+			newMissile.reset();
+			missiles.push(newMissile);
+			scene.addEntity(newMissile, true);
+			
+			timer.updateEvent(PlayerEvent.LastMissile);
 		}
 	};
 
@@ -462,6 +469,13 @@ function Player(position = {x:0, y:0}) {
 			delayMultiplier = 2;
 		}
 		currentShotDelay = delayMultiplier * BASE_SHOT_DELAY;
+		
+		let missileDelayMult = currentMissileDelay / BASE_MISSILE_DELAY;
+		missileDelayMult -= 1.0;
+		if(missileDelayMult < 2) {
+			missileDelayMult = 2;
+		}
+		currentMissileDelay = missileDelayMult * BASE_MISSILE_DELAY;
     };
 
 	this.setHasMissiles = function(hasMiss) {
@@ -499,6 +513,7 @@ function Player(position = {x:0, y:0}) {
 		//restore player speed and shooting rate to base values
 		currentSpeed = BASE_SPEED;
 		currentShotDelay = DELAY_MULTIPLIER * BASE_SHOT_DELAY;
+		currentMissileDelay = DELAY_MULTIPLIER * BASE_MISSILE_DELAY;
 
 		//clear Missiles and Shields Flags
 		hasMissiles = false;
