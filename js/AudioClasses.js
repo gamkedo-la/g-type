@@ -39,6 +39,7 @@ function sfxVolumeManager() {
 		for (var i in clipList) {
 			clipList[i].updateVolume();
 		}
+		localStorageHelper.setFloat('sfxVolume', sfxVolume);
 	};
 
 	this.getVolume = function() {
@@ -560,6 +561,7 @@ function musicVolumeManager() {
 		for (var i in trackList) {
 			trackList[i].updateVolume();
 		}
+		localStorageHelper.setFloat('musicVolume', musicVolume);
 	};
 
 	this.getVolume = function() {
