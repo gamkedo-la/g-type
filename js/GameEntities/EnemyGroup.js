@@ -1,12 +1,3 @@
-const EnemyType = {
-	Flying1:"flying1",
-};
-
-const MovementPattern = {
-	None:"none",
-	Sine:"sine",
-};
-
 //Enemy Grouping
 function EnemyGroup() {
 	this.enemies = [];

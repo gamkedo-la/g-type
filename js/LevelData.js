@@ -230,7 +230,6 @@ function initializeTerrain(terrainData) {
 	});
 	
 	movingTerrain.forEach(obj => {
-		console.log("Terrain Paths Length: " + terrainPaths.length);
 		world.push(new TerrainEntity(obj.type, {x:offRight, y:GameField.y + obj.y - obj.height}, obj.x, 1, obj.properties[1].value, obj.properties[2].value, obj.properties[3].value, getPath(terrainPaths, obj)));
 	});
 	
