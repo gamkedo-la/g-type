@@ -5,6 +5,7 @@ let timer;
 let gameFont;
 let currentLevelIndex = 0;
 let worldSpeed = 1;
+let gameSpeed = 3;
 let remainingLives = 2;
 let didInteract = false;
 	

@@ -92,7 +92,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null) {
 					this.worldPos += 18.0 * worldSpeed;
 				}
 			} else {
-				this.worldPos += 3.0 * worldSpeed;
+				this.worldPos += gameSpeed * worldSpeed;
 			}
 		}	
 		

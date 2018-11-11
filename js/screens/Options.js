@@ -84,10 +84,16 @@ function OptionsScreen() {
                 const currentVolume = SFXVolumeManager.getVolume();
                 SFXVolumeManager.setVolume(currentVolume + 0.1);
             }
-            if(selectorPositionIndex === 3 && autoFiring !== "On") {
-                autoFiring = "On";
-                localStorageHelper.setObject("autoFiring", "On");
-                holdKey[KEY_X] = true;
+            if(selectorPositionIndex === 3) {
+	            if(autoFiring === "Off") {
+		            autoFiring = "On";
+					localStorageHelper.setObject("autoFiring", "On");
+	            } else {
+					autoFiring = "Off";
+					localStorageHelper.setObject("autoFiring", "Off");
+	            }
+                
+                holdKey[KEY_X] = false;
             }
             return true;
         } else if (this.keysPressed(KEY_LEFT) || this.keysPressed(KEY_A)) {
@@ -98,9 +104,15 @@ function OptionsScreen() {
                 const currentVolume = SFXVolumeManager.getVolume();
                 SFXVolumeManager.setVolume(currentVolume - 0.1);
             }
-            if(selectorPositionIndex === 3 && autoFiring !== "Off") {
-                autoFiring = "Off";
-                localStorageHelper.setObject("autoFiring", "Off");
+            if(selectorPositionIndex === 3) {
+	            if(autoFiring === "Off") {
+		            autoFiring = "On";
+					localStorageHelper.setObject("autoFiring", "On");
+	            } else {
+					autoFiring = "Off";
+					localStorageHelper.setObject("autoFiring", "Off");
+	            }
+                
                 holdKey[KEY_X] = false;
             }
             return true;
