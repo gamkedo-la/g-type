@@ -21,15 +21,21 @@ function UIScore(position = {x:0, y:0}) {
 		}
 	};
    
-   this.updateHighScore = function()  {
-	if(currentScore > highScore){
-		 	highScore = currentScore;
-            }
-		while(highScoreText.length < 15) {
-			highScoreText = "0" + highScoreText;
-		}
-    };
-	
+   this.updateHighScore = function(currentScore, highScore){
+     if (currentScore > highScore){
+     	highScore = currentScore;
+     	allHighScores.sort();
+        }
+     }
+    
+    this.saveHighScores = function(){
+  	if((allHighScores=== null) || (allHighScores === undefined)) {
+  	var allHighScores = [];
+  localStorage.setFloat("allHighScores", (highScore));
+  	}
+  	else{localStorage.allHighScores.unshift([highScore]);}
+  }
+
 	this.draw = function() {
 		gameFont.printTextAt(scoreText, this.position, FONT, textAlignment.Center);
 	}
