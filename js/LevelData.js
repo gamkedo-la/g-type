@@ -159,6 +159,9 @@ function initializeEnemies(enemyData) {
           case EntityType.LaunchBay:
               enemies.push(currentGroup.add(new LaunchBay({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x)));
               break;
+		  case EntityType.MiniBoss1:
+              enemies.push(currentGroup.add(new MiniBoss1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value, getPath(enemyPaths, obj))));
+              break;
           case "path":
               //do nothing
               break;
