@@ -4,7 +4,7 @@ function GamePlayScreen () {
 	let currentLevelComplete = false;
 
     this.transitionIn = function gamePlayScreenTransitionIn(index = currentLevelIndex) {
-        scene = new GameScene(index, this.properties.player, this.properties.uiManager);
+        scene = new GameScene(index, this.properties.player, this.properties.uiManager, this.properties.bgTime);
         currentLevelComplete = false;
 
         if(this.properties.code === true) {
@@ -64,7 +64,7 @@ function GamePlayScreen () {
 	        currentLevelComplete = true;
             if((currentLevelIndex === 0) && (scene.didCompleteWarpChallenge)) {
 	            currentLevelIndex = WARP_INDEX;
-	            ScreenStates.setState(GAME_SCREEN, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject()});
+	            ScreenStates.setState(GAME_SCREEN, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject(), bgTime:scene.bgTime});
 	        } else if(currentLevelIndex	=== WARP_INDEX) {
 		        currentLevelIndex = 2;//warp only allows you to skip level 2 => next level must be level 3
 		        this.cutSceneFor(currentLevelIndex);

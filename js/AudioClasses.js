@@ -23,7 +23,6 @@ var isMuted = false;
 
 //SFX Classes
 var sfxVolume = localStorageHelper.getFloat('sfxVolume');
-console.log("SFX Volume: " + sfxVolume);
 if((sfxVolume === null) || (sfxVolume === undefined)) {
 	localStorageHelper.setFloat('sfxVolume', 1);
 	sfxVolume = 1;

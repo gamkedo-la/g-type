@@ -42,6 +42,10 @@ const foregroundParallaxLayer2 = document.createElement("img"); // overlay above
 const largeRhombusBoulder = document.createElement("img");
 const brokenBoulder = document.createElement("img");
 const brokenBoulderFlipped = document.createElement("img");
+const bigDestRock = document.createElement("img");
+const smDestRock1 = document.createElement("img");
+const smDestRock2 = document.createElement("img");
+const smDestRock3 = document.createElement("img");
 const bubble = document.createElement("img");
 const debrisSheet = document.createElement("img");
 const rock1 = document.createElement("img");
@@ -147,6 +151,10 @@ function loadImages() {
         { imgName: largeRhombusBoulder, theFile: "Boulder.png" },
         { imgName: brokenBoulder, theFile: "BrokenBoulder.png" },
         { imgName: brokenBoulderFlipped, theFile: "BrokenBoulderFlipped.png" },
+        { imgName: bigDestRock, theFile: "DestructableBoulder_Big.png" },
+        { imgName: smDestRock1, theFile: "DestructableRock_Sm1.png" },
+        { imgName: smDestRock2, theFile: "DestructableRock_Sm2.png" },
+        { imgName: smDestRock3, theFile: "DestructableRock_Sm3.png" },
         { imgName: bubble, theFile: "Bubble.png" },
         { imgName: debrisSheet, theFile: "DebrisSheet.png" },
         { imgName: rock1, theFile: "Rock01.png" },

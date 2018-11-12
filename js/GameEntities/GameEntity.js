@@ -7,6 +7,10 @@ const EntityType = {
 	Rock02:"rock02",
 	Rock03:"rock03",
 	Rock04:"rock04",
+	BigDestRock:"bigDestRock",
+	SmDestRock1:"smDestRock1",
+	SmDestRock2:"smDestRock2",
+	SmDestRock3:"smDestRock3",
     Platform1:"platform1",
     WarpObstacle:"warpObstacle",
 	Bubble:"bubble",
@@ -61,6 +65,14 @@ const spriteForType = function(type) {
             return (new AnimatedSprite(brokenBoulder, 1, 77, 68, false, true, {min:0, max:0}, 0, {min:0, max:0}, 512, {min:0, max:0}, 0));
         case EntityType.BrokenBoulderFlipped:
             return (new AnimatedSprite(brokenBoulderFlipped, 1, 77, 68, false, true, {min:0, max:0}, 0, {min:0, max:0}, 512, {min:0, max:0}, 0));
+        case EntityType.BigDestRock:
+            return (new AnimatedSprite(bigDestRock, 1, 37, 39, false, true, {min:0, max:0}, 0, {min:0, max:0}, 512, {min:0, max:0}, 0));
+        case EntityType.SmDestRock1:
+            return (new AnimatedSprite(smDestRock1, 1, 23, 21, false, true, {min:0, max:0}, 0, {min:0, max:0}, 512, {min:0, max:0}, 0));
+        case EntityType.SmDestRock2:
+            return (new AnimatedSprite(smDestRock2, 1, 33, 24, false, true, {min:0, max:0}, 0, {min:0, max:0}, 512, {min:0, max:0}, 0));
+        case EntityType.SmDestRock3:
+            return (new AnimatedSprite(smDestRock3, 1, 25, 25, false, true, {min:0, max:0}, 0, {min:0, max:0}, 512, {min:0, max:0}, 0));
         case EntityType.Platform1:
             return (new AnimatedSprite(platform1, 5, 76, 38, false, true, {min:0, max:0}, 0, {min:0, max:4}, 512, {min:4, max:4}, 0));
         case EntityType.WarpObstacle:
@@ -102,34 +114,28 @@ function GameEntity(sprite, position = {x:0, y:0}, velocity = {x:0, y:0}, size =
 	return this;
 }
 
-function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, speed = 0, pattern = PathType.None, timeDelay = 0, path = null) {
+function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, speed = 0, timeDelay = 0, childrenCount = 0) {
 	this.type = type;
-	this.isVisible = false;
+	this.isVisible = true;
 	this.position = position;
 	this.worldPos = null;
 	this.timeDelay = timeDelay;
+	this.childrenCount = childrenCount;
 	let unusedTime = 0;
+	this.velocity = {x:0, y:0};//only used for destructible rocks, regular terrain does not need to change this
+	
+	if(((this.type === EntityType.BigDestRock) ||
+		(this.type === EntityType.SmDestRock1) || 
+		(this.type === EntityType.SmDestRock2) ||
+		(this.type === EntityType.SmDestRock3)) &&
+	   (this.childrenCount === 0)) {
+		this.velocity.x = Math.ceil(20 * Math.random()) - 10;//get values between -9 and +10
+		this.velocity.y = -Math.ceil(18 * Math.random()) - 18;//values between -14 and 0 (negative so they travel up)
+	}
 	
 	const sprite = spriteForType(type);
 
 	this.size = {width:scale * sprite.width, height:scale * sprite.height};
-	
-	this.path = null;
-	if(path != null) {
-		if(path.polygon === undefined) {
-            pathPoints = path.polyline.slice(0);
-        } else {
-            pathPoints = path.polygon.slice(0);
-        }
-        
-		pathPoints.forEach((point) => {
-			point.x += GameField.x + GameField.width - 50;
-			point.y += GameField.y + path.y;
-			pathPoints.push(point);
-        });
-        
-        this.path = new EnemyPath(PathType.Points, this.position, speed, pathPoints, 0);
-	}
 	
 	const colliderForTypeAndPosition = function(type, pos) {
 		let colliderPath = [];
@@ -154,6 +160,15 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, spe
 				colliderPath.push({x: pos.x + scale * ((sprite.width / 2) + 2), y: pos.y});
 				colliderPath.push({x: pos.x + scale * sprite.width, 	y: pos.y + scale * ((sprite.height / 2) - 12)});
 				colliderPath.push({x: pos.x + scale * ((sprite.width / 2) - 2), y: pos.y + scale * sprite.height});
+				
+			case EntityType.BigDestRock:
+			case EntityType.SmDestRock1:
+			case EntityType.SmDestRock2:
+			case EntityType.SmDestRock3:
+				return (new Collider(ColliderType.Circle, {points:   [], 
+															position: {x:pos.x + scale * sprite.width, y:pos.y + scale * sprite.height}, 
+															radius:   (scale * sprite.height / 2) - 2, 
+															center:   {x:pos.x + scale * sprite.width, y:pos.y + scale * sprite.height}}));
 				
 				return (new Collider(ColliderType.Polygon, {points:colliderPath, position:{x:pos.x, y:pos.y}}));
 			case EntityType.Rock01:
@@ -206,12 +221,10 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, spe
 	};
 	
 	this.collisionBody = colliderForTypeAndPosition(type, this.position);
+	this.didCollide = false;
 	
 	this.update = function(deltaTime, worldPos) {
 		if((worldPos >= spawnPos) && (this.position.x > -this.size.width)) {
-			this.timeDelay -= deltaTime;
-			if(this.timeDelay > 0) {return;}
-			
 			if(this.worldPos == null) {
 				this.worldPos = worldPos;
 			}
@@ -221,36 +234,51 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, spe
 			let availableTime = unusedTime + deltaTime;
 			while(availableTime > SIM_STEP) {
 				availableTime -= SIM_STEP;
+				this.position.x -= (worldPos - this.worldPos);
+				this.worldPos = worldPos;
+			}
+			
+			if(((this.type === EntityType.BigDestRock) ||
+				(this.type === EntityType.SmDestRock1) || 
+				(this.type === EntityType.SmDestRock2) ||
+				(this.type === EntityType.SmDestRock3)) &&
+			   (this.childrenCount === 0)) {
+				this.position.x += this.velocity.x;
+				this.position.y += this.velocity.y;//adding because velocities are negative
+				this.velocity.y += 1;//apply a constant change to velocity to simulate gravity
+			} else if((this.type === EntityType.BigDestRock) && (this.childrenCount > 0)) {
+				this.isVisible = false;
+				if(this.position.x < GameField.midX) {
+					scene.worldShouldPause(true);
+				}
 				
-				if(this.path != null) {
-					if(!this.isVisible) {
-						this.isVisible = true;
-						this.position = this.path.putAtFirstPoint();
+				this.timeDelay -= deltaTime;
+				if(this.timeDelay <= 0) {
+					this.timeDelay = timeDelay;
+					
+					const newRock = new TerrainEntity(EntityType.BigDestRock, {x: this.position.x, y:this.position.y}, spawnPos);
+					scene.addEntity(newRock);
+					
+					this.childrenCount--;
+					if(this.childrenCount === 0) {
+						scene.worldShouldPause(false);
+						//need to tell the group this one is done...
 					}
-					const nextPos = this.path.nextPoint(SIM_STEP);
-					if(nextPos !== undefined) {
-						if(pattern === PathType.None) {
-							this.position.x += (vel.x * SIM_STEP / 1000);
-						} else if(pattern === PathType.Sine) {
-							this.position.x += nextPos.x;
-							this.position.y += nextPos.y;
-						} else if(pattern === PathType.Points) {
-							this.position.x = nextPos.x;
-							this.position.y = nextPos.y;
-						}
-					}
-				} else {
-					this.position.x -= (worldPos - this.worldPos);
-					this.worldPos = worldPos;
-					this.isVisible = true;
 				}
 			}
 			
 			unusedTime = availableTime;
-			this.collisionBody.setPosition({x: this.position.x, y: this.position.y});
-		} else if(this.position.x < GameField.x - this.size.width) {
+			
+			if(this.collisionBody.type === ColliderType.Polygon) {
+				this.collisionBody.setPosition({x: this.position.x, y: this.position.y});
+			} else if(this.collisionBody.type === ColliderType.Circle) {
+				this.collisionBody.setPosition({x:this.position.x + this.size.height / 2, 
+											    y:this.position.y + this.size.height / 2});
+			}
+			
+		} else if((this.position.x < GameField.x - this.size.width) || (this.position.y > GameField.bottom)) {
 			scene.removeEntity(this, false);
-		}
+		} 
 	};
 	
 	this.draw = function() {
@@ -272,6 +300,51 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, spe
 	
 	this.didCollideWith = function(otherEntity) {
 		if((this.collisionBody == null) || (otherEntity.collisionBody == null)) {return false;}
+		
+		if(this.type === EntityType.BigDestRock) {
+			let entityType = otherEntity.type;
+			if ((entityType === EntityType.PlayerForceUnit) ||
+				(entityType === EntityType.RagnarokCapsule) || 
+				(entityType === EntityType.PlayerShot) || 
+				(entityType === EntityType.PlayerMissile) || 
+				(entityType === EntityType.PlayerDouble) || 
+				(entityType === EntityType.PlayerLaser) || 
+				(entityType === EntityType.PlayerTriple) ||
+				(entityType === EntityType.PlayerShield)) {
+					
+					if(this.didCollide) {return;}
+					
+					this.didCollide = true;
+					
+					const chip1 = new TerrainEntity(EntityType.SmDestRock1, {x:this.position.x, y:this.position.y - 20}, spawnPos);
+					chip1.velocity.x = (chip1.velocity.x + this.velocity.x) / 2;
+					chip1.velocity.y *= 0.25;
+					scene.addEntity(chip1);
+					
+					const chip2 = new TerrainEntity(EntityType.SmDestRock2, {x:this.position.x, y:this.position.y - 20}, spawnPos);
+					chip2.velocity.x = (chip1.velocity.x + this.velocity.x) / 2;
+					chip2.velocity.y *= 0.25;
+					scene.addEntity(chip2);
+					
+					const chip3 = new TerrainEntity(EntityType.SmDestRock3, {x:this.position.x, y:this.position.y - 20}, spawnPos);
+					chip3.velocity.x = (chip1.velocity.x + this.velocity.x) / 2;
+					chip3.velocity.y *= 0.25;
+					scene.addEntity(chip3);
+					
+					this.score = 100;
+					scene.displayScore(this);
+					
+					scene.removeEntity(this);
+			}
+		} else if((this.type === EntityType.SmDestRock1) ||
+				  (this.type === EntityType.SmDestRock2) ||
+				  (this.type === EntityType.SmDestRock3)) {
+					  
+				    this.score = 50;
+					scene.displayScore(this);
+					  
+				  	scene.removeEntity(this);
+		}
 	};
 	
 	return this;

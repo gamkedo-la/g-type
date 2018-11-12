@@ -34,39 +34,6 @@
          "name":"Terrain",
          "objects":[
                 {
-                 "gid":5,
-                 "height":27,
-                 "id":1746,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":23
-                        }, 
-                        {
-                         "name":"Speed",
-                         "type":"int",
-                         "value":-500
-                        }, 
-                        {
-                         "name":"pattern",
-                         "type":"string",
-                         "value":"points"
-                        }, 
-                        {
-                         "name":"timeDelay",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rock04",
-                 "visible":true,
-                 "width":27,
-                 "x":8371,
-                 "y":497
-                }, 
-                {
                  "gid":37,
                  "height":38,
                  "id":1395,
@@ -3268,7 +3235,7 @@
                  "visible":true,
                  "width":90,
                  "x":8204,
-                 "y":537
+                 "y":538
                 }, 
                 {
                  "gid":7,
@@ -3286,7 +3253,7 @@
                  "visible":true,
                  "width":90,
                  "x":8279,
-                 "y":537
+                 "y":538
                 }, 
                 {
                  "gid":7,
@@ -3304,7 +3271,7 @@
                  "visible":true,
                  "width":90,
                  "x":8352,
-                 "y":540
+                 "y":541
                 }, 
                 {
                  "gid":7,
@@ -3322,7 +3289,7 @@
                  "visible":true,
                  "width":90,
                  "x":8426,
-                 "y":536
+                 "y":537
                 }, 
                 {
                  "gid":7,
@@ -3358,7 +3325,7 @@
                  "visible":true,
                  "width":90,
                  "x":8318,
-                 "y":486
+                 "y":487
                 }, 
                 {
                  "gid":7,
@@ -3375,7 +3342,7 @@
                  "type":"rhombusBoulder",
                  "visible":true,
                  "width":90,
-                 "x":8251,
+                 "x":8249,
                  "y":494
                 }, 
                 {
@@ -3393,7 +3360,7 @@
                  "type":"brokenBoulder",
                  "visible":true,
                  "width":77,
-                 "x":8298,
+                 "x":8295,
                  "y":450
                 }, 
                 {
@@ -3415,66 +3382,32 @@
                  "y":447
                 }, 
                 {
-                 "height":0,
-                 "id":1786,
+                 "gid":44,
+                 "height":40,
+                 "id":1793,
                  "name":"",
-                 "polyline":[
-                        {
-                         "x":-8,
-                         "y":-105.333
-                        }, 
-                        {
-                         "x":-88,
-                         "y":-490.667
-                        }, 
-                        {
-                         "x":-132,
-                         "y":-544
-                        }, 
-                        {
-                         "x":-177.333,
-                         "y":-545.333
-                        }, 
-                        {
-                         "x":-224,
-                         "y":-541.333
-                        }, 
-                        {
-                         "x":-265.333,
-                         "y":-516
-                        }, 
-                        {
-                         "x":-298.667,
-                         "y":-474.667
-                        }, 
-                        {
-                         "x":-324,
-                         "y":-412
-                        }, 
-                        {
-                         "x":-357.333,
-                         "y":-298.667
-                        }, 
-                        {
-                         "x":-381.333,
-                         "y":-24
-                        }, 
-                        {
-                         "x":-382.667,
-                         "y":60
-                        }],
                  "properties":[
                         {
                          "name":"Group",
                          "type":"int",
-                         "value":23
+                         "value":0
+                        }, 
+                        {
+                         "name":"childrenCount",
+                         "type":"int",
+                         "value":100
+                        }, 
+                        {
+                         "name":"timeDelay",
+                         "type":"int",
+                         "value":256
                         }],
                  "rotation":0,
-                 "type":"path",
+                 "type":"bigDestRock",
                  "visible":true,
-                 "width":0,
-                 "x":8384,
-                 "y":577.333
+                 "width":40,
+                 "x":8342,
+                 "y":448
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -7106,7 +7039,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":1790,
+ "nextobjectid":1795,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.0",

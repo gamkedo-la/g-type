@@ -1,5 +1,5 @@
 //Game Scene
-function GameScene(levelIndex, aPlayer = null, aUIManager = null) {
+function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null) {
 	const data = LevelData[levelIndex];
 	this.worldPos = 0;
 	this.shaking = false;
@@ -10,6 +10,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null) {
 	this.beatTheGame = false;
     this.levelIsComplete = false;
     this.didCompleteWarpChallenge = false;
+    this.bgTime = bgTime;
 	const starfield = new Starfield();
     let player;
     if((aPlayer === null) || (aPlayer === undefined)) {
@@ -165,7 +166,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null) {
 		// things overlaid above the gameplay (girders)
 		this.parallaxOffset3 = -1 * (this.worldPos * BG_PARALLAX_RATIO_3 % foregroundLayer.width);
 
-		if (!this.bgTime) {
+		if ((this.bgTime === null) || (this.bgTime === undefined)) {
 			this.bgTime = deltaTime; 
 		} else {
 			this.bgTime += deltaTime;

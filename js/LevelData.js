@@ -11,7 +11,7 @@ const LevelData = [
 		checkpointPositions:[0, 600, 1200]
 	},
 	*/
-	{
+/*	{
         clearColor:"#010119",
         getBkgdColorLookup: function() {return backgroundColorLookup;},
         getBkgdStars: function() {return backgroundStars;},
@@ -26,7 +26,7 @@ const LevelData = [
 
         initializeDebris: function() {return initializeDebris();},
 		checkpointPositions:[0, 600, 1200]
-	},
+	},*/
  	{
         clearColor:"#010119",
         getBkgdColorLookup: function() {return backgroundColorLookup2;},
@@ -195,7 +195,6 @@ function initializeEnemies(enemyData) {
 function initializeTerrain(terrainData) {
     const world = [];
 	let offRight = GameField.right + 50;
-	let terrainPaths = terrainData.filter((obj) => {return obj.type === "path"});
 	window.warpCapsules = terrainData.filter(obj => {
 											if(typeof obj.properties === "undefined"){
 												obj.properties = [];
@@ -204,7 +203,6 @@ function initializeTerrain(terrainData) {
 		   									return ((obj.properties[0].value > 0) && (obj.type === 'capsule1'));
 										});
 	const levelTerrain = terrainData.filter((obj) => {return obj.properties[0].value === 0});
-	const movingTerrain = terrainData.filter((obj) => {return ((obj.properties[0].value > 0) && (obj.type != 'capsule1') && (obj.type != 'path'));});
 
     levelTerrain.forEach(obj => {
          switch(obj.type) {
@@ -218,7 +216,14 @@ function initializeTerrain(terrainData) {
                  world.push(new RagnarokCapsule({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x));
                  break;
             default:
-                 world.push(new TerrainEntity(obj.type, {x:offRight, y:GameField.y + obj.y - obj.height}, obj.x, 1));
+            	let timeDelay = 0;
+            	let childrenCount = 0;
+            	if(obj.properties[1] != undefined) {
+	            	timeDelay = obj.properties[2].value;
+	            	childrenCount = obj.properties[1].value;
+            	}
+            
+                 world.push(new TerrainEntity(obj.type, {x:offRight, y:GameField.y + obj.y - obj.height}, obj.x, 1, 0, timeDelay, childrenCount));
                  break;
          }
          
@@ -227,10 +232,6 @@ function initializeTerrain(terrainData) {
 	window.warpGroup = new CapsuleGroup();
 	warpCapsules.forEach(obj => {
 		world.push(warpGroup.add(new Capsule({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x)));
-	});
-	
-	movingTerrain.forEach(obj => {
-		world.push(new TerrainEntity(obj.type, {x:offRight, y:GameField.y + obj.y - obj.height}, obj.x, 1, obj.properties[1].value, obj.properties[2].value, obj.properties[3].value, getPath(terrainPaths, obj)));
 	});
 	
 	return world;

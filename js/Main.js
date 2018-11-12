@@ -69,17 +69,3 @@ localStorageHelper.setInt('highscore3', 300);
 console.log(localStorageHelper.getInt('highscore3'));
 // Make sure this is a Number and not a String
 console.log(typeof localStorageHelper.getInt('highscore3'));
-
-// Make sure other methods work
-
-localStorageHelper.setBoolean('key1', true);
-console.log(localStorageHelper.getBoolean('key1'));
-console.log(typeof localStorageHelper.getBoolean('key1'));
-
-localStorageHelper.setFloat('key2', 0.5);
-console.log(localStorageHelper.getFloat('key2'));
-console.log(typeof localStorageHelper.getFloat('key2'));
-
-localStorageHelper.setObject('key3', {"g-type": "rules!"});
-console.log(localStorageHelper.getObject('key3'));
-console.log(typeof localStorageHelper.getObject('key3'));

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="300" tileheight="200" tilecount="34" columns="0">
+<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="300" tileheight="200" tilecount="35" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0" type="rock01">
   <properties>
@@ -236,5 +236,13 @@
    <property name="Group" type="int" value="0"/>
   </properties>
   <image width="107" height="74" source="objectSprites/_editorWarpObstacle.png"/>
+ </tile>
+ <tile id="43" type="bigDestRock">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+   <property name="childrenCount" type="int" value="100"/>
+   <property name="timeDelay" type="int" value="256"/>
+  </properties>
+  <image width="40" height="40" source="objectSprites/_editorDestructableBoulder_Big.png"/>
  </tile>
 </tileset>
