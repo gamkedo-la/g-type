@@ -163,6 +163,7 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, spe
 				colliderPath.push({x: pos.x + scale * sprite.width, 	y: pos.y + scale * ((sprite.height / 2) - 12)});
 				colliderPath.push({x: pos.x + scale * ((sprite.width / 2) - 2), y: pos.y + scale * sprite.height});
 				
+				return (new Collider(ColliderType.Polygon, {points:colliderPath, position:{x:pos.x, y:pos.y}}));
 			case EntityType.BigDestRock:
 			case EntityType.SmDestRock1:
 			case EntityType.SmDestRock2:
@@ -171,8 +172,6 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, spe
 															position: {x:pos.x + scale * sprite.width, y:pos.y + scale * sprite.height}, 
 															radius:   (scale * sprite.height / 2) - 2, 
 															center:   {x:pos.x + scale * sprite.width, y:pos.y + scale * sprite.height}}));
-				
-				return (new Collider(ColliderType.Polygon, {points:colliderPath, position:{x:pos.x, y:pos.y}}));
 			case EntityType.Rock01:
 				colliderPath.push({x: pos.x, 							y: pos.y + scale * sprite.height / 2});
 				colliderPath.push({x: pos.x + scale * sprite.width / 2, y: pos.y});
