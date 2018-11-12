@@ -1,25 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="700" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="1261">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="700" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="14" nextobjectid="1350">
  <tileset firstgid="1" source="objects.tsx"/>
  <objectgroup id="6" name="Background">
   <properties>
    <property name="clearColor" type="color" value="#ff000053"/>
   </properties>
+  <object id="1346" x="0" y="0" width="22560" height="64"/>
+  <object id="1348" x="57" y="247" width="1" height="1"/>
+  <object id="1349" x="0" y="576" width="22560" height="32"/>
  </objectgroup>
  <objectgroup id="2" name="Terrain"/>
  <objectgroup id="5" name="Enemies">
-  <object id="1250" gid="9" x="864" y="320" width="30" height="21"/>
-  <object id="1251" gid="9" x="384" y="320" width="30" height="21"/>
-  <object id="1252" gid="9" x="160" y="320" width="30" height="21"/>
+  <object id="1252" gid="9" x="160" y="32" width="30" height="21">
+   <properties>
+    <property name="Group" value="1"/>
+   </properties>
+  </object>
+  <object id="1306" gid="9" x="208" y="32" width="30" height="21">
+   <properties>
+    <property name="Group" value="1"/>
+   </properties>
+  </object>
+  <object id="1307" gid="9" x="256" y="32" width="30" height="21">
+   <properties>
+    <property name="Group" value="1"/>
+   </properties>
+  </object>
+  <object id="1308" gid="9" x="304" y="32" width="30" height="21">
+   <properties>
+    <property name="Group" value="1"/>
+   </properties>
+  </object>
+  <object id="1309" gid="9" x="352" y="32" width="30" height="21">
+   <properties>
+    <property name="Group" value="1"/>
+   </properties>
+  </object>
+  <object id="1310" gid="9" x="400" y="32" width="30" height="21">
+   <properties>
+    <property name="Group" value="1"/>
+   </properties>
+  </object>
+  <object id="1311" gid="9" x="592" y="88" width="30" height="21">
+   <properties>
+    <property name="Group" value="2"/>
+   </properties>
+  </object>
+  <object id="1312" gid="9" x="656" y="88" width="30" height="21">
+   <properties>
+    <property name="Group" value="2"/>
+   </properties>
+  </object>
+  <object id="1313" gid="9" x="720" y="88" width="30" height="21">
+   <properties>
+    <property name="Group" value="2"/>
+   </properties>
+  </object>
+  <object id="1314" gid="9" x="784" y="88" width="30" height="21">
+   <properties>
+    <property name="Group" value="2"/>
+   </properties>
+  </object>
+  <object id="1315" gid="9" x="848" y="88" width="30" height="21">
+   <properties>
+    <property name="Group" value="2"/>
+   </properties>
+  </object>
+  <object id="1317" gid="12" x="1056" y="376" width="30" height="21"/>
+  <object id="1318" gid="12" x="1096" y="376" width="30" height="21"/>
+  <object id="1319" gid="12" x="1136" y="376" width="30" height="21"/>
+  <object id="1320" gid="12" x="1176" y="376" width="30" height="21"/>
+  <object id="1321" gid="12" x="1216" y="376" width="30" height="21"/>
+  <object id="1322" gid="12" x="1256" y="376" width="30" height="21"/>
+  <object id="1327" gid="10" x="1424" y="512" width="50" height="50"/>
+  <object id="1328" gid="10" x="1552" y="360" width="50" height="50"/>
+  <object id="1329" gid="10" x="1696" y="208" width="50" height="50"/>
+  <object id="1330" gid="10" x="1840" y="56" width="50" height="50"/>
+  <object id="1331" gid="9" x="160" y="504" width="30" height="21"/>
+  <object id="1332" gid="9" x="200" y="504" width="30" height="21"/>
+  <object id="1334" gid="9" x="240" y="504" width="30" height="21"/>
+  <object id="1335" gid="9" x="160" y="536" width="30" height="21"/>
+  <object id="1336" gid="9" x="160" y="568" width="30" height="21"/>
+  <object id="1337" gid="9" x="160" y="64" width="30" height="21"/>
+  <object id="1338" gid="9" x="160" y="96" width="30" height="21"/>
+  <object id="1339" gid="9" x="160" y="600" width="30" height="21"/>
+  <object id="1340" gid="9" x="480" y="32" width="30" height="21"/>
+  <object id="1341" gid="9" x="480" y="64" width="30" height="21"/>
+  <object id="1342" gid="9" x="480" y="96" width="30" height="21"/>
+  <object id="1343" gid="9" x="480" y="608" width="30" height="21"/>
+  <object id="1344" gid="9" x="480" y="576" width="30" height="21"/>
+  <object id="1345" gid="9" x="480" y="544" width="30" height="21"/>
  </objectgroup>
- <objectgroup id="9" name="Foreground">
-  <object id="1253" gid="30" x="1376" y="576" width="19" height="133"/>
-  <object id="1254" gid="30" x="0" y="384" width="19" height="133"/>
-  <object id="1255" gid="30" x="160" y="544" width="19" height="133"/>
-  <object id="1256" gid="28" x="320" y="512" width="12" height="12"/>
-  <object id="1257" gid="28" x="128" y="480" width="12" height="12"/>
-  <object id="1258" gid="28" x="224" y="352" width="12" height="12"/>
-  <object id="1259" gid="28" x="480" y="544" width="12" height="12"/>
-  <object id="1260" gid="28" x="512" y="512" width="12" height="12"/>
- </objectgroup>
+ <objectgroup id="9" name="Foreground"/>
 </map>

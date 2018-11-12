@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="700" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="1250">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="700" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="1256">
  <tileset firstgid="1" source="objects.tsx"/>
  <objectgroup id="6" name="Background">
   <properties>
    <property name="clearColor" type="color" value="#ff000053"/>
   </properties>
+  <object id="1252" x="-0.5" y="-0.166667" width="22560" height="64"/>
+  <object id="1253" x="-0.5" y="575.833" width="22560" height="32"/>
+  <object id="1254" x="-0.5" y="-0.166667" width="22560" height="64"/>
+  <object id="1255" x="-0.5" y="575.833" width="22560" height="32"/>
  </objectgroup>
  <objectgroup id="2" name="Terrain"/>
  <objectgroup id="5" name="Enemies"/>
