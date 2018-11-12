@@ -71,18 +71,18 @@ const assetPath = {
 };
 
 const AudioTracks = {
-	MainMenu:0,
-	Level1:1, 		//TODO: change these to
-	MiniBoss1:2,
-    EyeBoss1:2,
-	Boss1:3,
+	MainMenu:0,		//
+	Level1:1, 		//
+	MiniBoss1:2,	//
+    EyeBoss1:2,		//
+	Boss1:3,		//TODO: change these to
 	Level2:0, 		//the correct indices from
-	Level3:0, 		//the "currentBackgroundMusic" 
+	Level3:4, 		//the "currentBackgroundMusic" 
 	GameOver:0,		//array (AudioManager.js ~line 11) once
 	GameEnding:0,	//there is more than 1 element in that array
-	Help:0,
-	Options:0,
-	Credits:0
+	Help:0,			//
+	Options:0,		//
+	Credits:0		//
 };
 
 const loadingText = "LOADING...";
