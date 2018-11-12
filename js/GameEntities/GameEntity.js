@@ -14,6 +14,8 @@ const EntityType = {
     Platform1:"platform1",
     WarpObstacle:"warpObstacle",
 	Bubble:"bubble",
+	
+	//Miscellaneous
 	Text:"text",
 	CollidableText:"collidableText",
 	

@@ -344,8 +344,8 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 			}
 			if((entityToRemove.type === EntityType.EnemyBullet1) ||
                (entityToRemove.type === EntityType.EnemyBullet2) ||
-               (entityToRemove.type === EntityType.EnemyBullet3)  ||
-               (entityToRemove.type === EntityType.EnemyBullet4)  ||
+               (entityToRemove.type === EntityType.EnemyBullet3) ||
+               (entityToRemove.type === EntityType.EnemyBullet4) ||
                (entityToRemove.type === EntityType.PlayerShot)) {//reflected shots have type = PlayerShot
 				enemyBullets.delete(entityToRemove);
 			} else {
@@ -389,7 +389,10 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 				collisionManager.addEntity(entityToAdd);
 			}
 			
-			if((entityToAdd.type === EntityType.EnemyBullet1) || (entityToAdd.type === EntityType.EnemyBullet2) || (entityToAdd.type === EntityType.EnemyBullet3)|| (entityToAdd.type === EntityType.EnemyBullet3)) {
+			if((entityToAdd.type === EntityType.EnemyBullet1) || 
+			   (entityToAdd.type === EntityType.EnemyBullet2) || 
+			   (entityToAdd.type === EntityType.EnemyBullet3) || 
+			   (entityToAdd.type === EntityType.EnemyBullet4)) {
 				enemyBullets.add(entityToAdd);
 			} else {
 				gameEntities.add(entityToAdd);
