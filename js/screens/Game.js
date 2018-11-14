@@ -102,7 +102,9 @@ function GamePlayScreen () {
         holdKey[KEY_DOWN] = this.keysPressed(KEY_DOWN) || this.keysPressed(KEY_S);
         holdKey[KEY_LEFT] = this.keysPressed(KEY_LEFT) || this.keysPressed(KEY_A);
         holdKey[KEY_RIGHT] = this.keysPressed(KEY_RIGHT) || this.keysPressed(KEY_D);
-        holdKey[KEY_X] = this.keysPressed(KEY_X);
+
+        let autoFiring = localStorageHelper.getObject("autoFiring");
+        holdKey[KEY_X] = this.keysPressed(KEY_X) || autoFiring === "On";
         // SHIP CONTROLS END
 
         // CHEAT KEYS START
