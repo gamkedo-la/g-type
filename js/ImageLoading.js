@@ -32,11 +32,14 @@ const starSheet = document.createElement("img"); // bg twinkling star sprites
 const planetSheet = document.createElement("img"); // bg planet sprites
 const backgroundColorLookup = document.createElement("img"); // background gradients - Level 1
 const backgroundColorLookup2 = document.createElement("img"); // background gradients - Level 2
+const backgroundColorLookup3 = document.createElement("img"); // background gradients - Level 2
 const backgroundStars = document.createElement("img"); // dense starfield
 const backgroundParallaxLayer1 = document.createElement("img"); // planets and ships - Level 1
 const backgroundParallaxLayer2 = document.createElement("img"); // ground and clouds - Level 1
+const backgroundParallaxLayer3 = document.createElement("img"); // ground and clouds - Level 1
 const foregroundParallaxLayer1 = document.createElement("img"); // overlay above gameplay - Level 1
 const foregroundParallaxLayer2 = document.createElement("img"); // overlay above gameplay - Level 2
+const foregroundParallaxLayer3 = document.createElement("img"); // overlay above gameplay - Level 2
 
 //Terrain & World
 const largeRhombusBoulder = document.createElement("img");
@@ -140,11 +143,14 @@ function loadImages() {
         { imgName: planetSheet, theFile: "Planet_1.png" },
         { imgName: backgroundColorLookup, theFile: "backgroundColorLookup.png" },
         { imgName: backgroundColorLookup2, theFile: "backgroundColorLookup_level_2.png" },
+        { imgName: backgroundColorLookup3, theFile: "backgroundColorLookup_level_2.png" },
         { imgName: backgroundStars, theFile: "stars1024x1024.png" },
         { imgName: backgroundParallaxLayer1, theFile: "backgroundParallax.png" },
         { imgName: backgroundParallaxLayer2, theFile: "backgroundParallax_level_2.png" },
+        { imgName: backgroundParallaxLayer3, theFile: "backgroundParallax_level_3.png" },
         { imgName: foregroundParallaxLayer1, theFile: "foregroundParallax1.png" },
         { imgName: foregroundParallaxLayer2, theFile: "foregroundParallax1.png" },
+        { imgName: foregroundParallaxLayer3, theFile: "foregroundParallax1.png" },
 
 
         //Terrain & World
