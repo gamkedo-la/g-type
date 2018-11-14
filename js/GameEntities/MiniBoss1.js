@@ -1,5 +1,5 @@
 //Planetary Approach Mini-Boss
-function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, timeOffset = 0, spawnPos = 0, difficulty = 0) {
+function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, timeOffset = 0, spawnPos = 0, difficulty = 0, path = null) {
 	this.position = {x:position.x, y:position.y};
 	this.type = EntityType.MiniBoss1;
 	this.worldPos = 0;
@@ -27,7 +27,7 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 	
 	let didCollide = false;
 	
-	const pathPoints = [
+	let pathPoints = [
 		{x: GameField.right - this.size.width, y: GameField.midY},
 		{x: GameField.right - this.size.width, y: GameField.y},
 		{x: GameField.right - this.size.width, y: GameField.bottom - this.size.height},
@@ -36,7 +36,20 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 //		{x: GameField.right - this.size.width, y: GameField.y},
 	];//TODO: Give the mini boss a path to follow
 	
-	this.path = new EnemyPath(pattern, this.position, speed, pathPoints, timeOffset);
+	if(path) {
+        if(path.polygon === undefined) {
+            pathPoints = path.polyline.slice(0);
+        } else {
+            pathPoints = path.polygon.slice(0);
+        }
+        
+        pathPoints.forEach((point) => {
+            point.x += GameField.x + GameField.width - 50;
+            point.y += GameField.y + path.y;
+        });
+    }
+    
+    this.path = new EnemyPath(pattern, this.position, speed, pathPoints);
 	
 	this.update = function(deltaTime, worldPos, playerPos) {
 		if(!this.isVisible) {return;}
@@ -58,6 +71,8 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 				scene.worldShouldPause(true);
 				previousBackgroundMusic = currentBackgroundMusic.getCurrentTrack();
 				currentBackgroundMusic.setCurrentTrack(AudioTracks.Boss1);
+				
+				this.path.updatePosition({x: -100, y:0});//using -100 to get the sprite fully on screen
 				
 				if(currentBackgroundMusic.getTime() > 0) {
 		            currentBackgroundMusic.resume();    

@@ -17,10 +17,14 @@ function GroundEnemy3(position = {x:0, y:0}, spawnPos = 0, difficulty = 0) {
     
     this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
     
-    const colliderPath = [{x: this.position.x, y: this.position.y},
-                          {x: this.position.x + this.size.width, y: this.position.y},
-                          {x: this.position.x + this.size.width, y: this.position.y + this.size.height},
-                          {x: this.position.x, y: this.position.y + this.size.height}];
+    const colliderPath = [{x: this.position.x + SPRITE_SCALE * 20, y: this.position.y + SPRITE_SCALE * 20},
+                          {x: this.position.x + SPRITE_SCALE * 79, y: this.position.y + SPRITE_SCALE * 14},
+                          {x: this.position.x + SPRITE_SCALE * 81, y: this.position.y},
+                          {x: this.position.x + SPRITE_SCALE * 111, y: this.position.y},
+                          {x: this.position.x + SPRITE_SCALE * 119, y: this.position.y + this.size.height},
+                          {x: this.position.x + SPRITE_SCALE * 73, y: this.position.y + this.size.height},
+                          {x: this.position.x + SPRITE_SCALE * 78, y: this.position.y + SPRITE_SCALE * 32},
+                          {x: this.position.x + SPRITE_SCALE * 20, y: this.position.y + SPRITE_SCALE * 28}];
     
     this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:this.position.x, y:this.position.y}});
     

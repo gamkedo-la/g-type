@@ -120,16 +120,7 @@ function CollisionManager(player) {
 	const removeEnemyBullet = function(enemyBulletToRemove) {
 		if(enemyBullets.has(enemyBulletToRemove)) {
 			enemyBullets.delete(enemyBulletToRemove);
-			
-			if(enemyBulletToRemove.type === EntityType.EnemyBullet4) {
-				console.log("Succesfully removed an enemy Bullet collision body");
-			}
-
 			return true;
-		}
-		
-		if(enemyBulletToRemove.type === EntityType.EnemyBullet4) {
-			console.log("trying to remove an enemy Bullet collision body");
 		}
 
 		return false;
