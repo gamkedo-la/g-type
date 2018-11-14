@@ -30,11 +30,13 @@ function UIScore(position = {x:0, y:0}) {
     
     this.saveHighScores = function(){
   	if((allHighScores=== null) || (allHighScores === undefined)) {
-  	var allHighScores = [];
-  localStorage.setFloat("allHighScores", (highScore));
+  	 allHighScores = [];
+  localStorage.setFloat("allHighScores", highScore);
   	}
-  	else{localStorage.allHighScores.unshift([highScore]);}
-  }
+  	else{
+  		localStorage.allHighScores.unshift(highScore);
+   }
+      }
 
 	this.draw = function() {
 		gameFont.printTextAt(scoreText, this.position, FONT, textAlignment.Center);
