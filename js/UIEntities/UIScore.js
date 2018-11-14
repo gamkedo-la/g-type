@@ -23,10 +23,9 @@ function UIScore(position = {x:0, y:0}) {
    
     this.updateHighScore = function(){
     	allHighScores.push(currentScore);
-    	allHighScores.sort();
-    	allHighScores.reverse();
+    	allHighScores.sort((a, b) => b - a);
     	if (allHighScores.length > 3){
-    		allHighScores.pop();
+    		console.log("removed lowest score: " + allHighScores.pop());
     	}
     	console.log(allHighScores);
     };
@@ -40,6 +39,9 @@ function UIScore(position = {x:0, y:0}) {
     this.loadHighScores = function(){
     	for(var i=0; i<3 ; i++){
     		allHighScores[i] = localStorageHelper.getFloat("highScore" + i);
+			if(allHighScores[i] == null || isNaN(allHighScores[i])) {
+				allHighScores[i] = 0;
+			}
     	}
     	console.log(allHighScores);
     }

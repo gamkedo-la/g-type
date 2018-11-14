@@ -60,20 +60,3 @@ function update() {
 	ParticleEmitterManager.updateAllEmitters(dt/1000);
 	ParticleRenderer.renderAll(canvasContext);
 }
-
-// This is example usage of localStorageHelper for storing high scores. This is only a test - code can be removed when high scores are implemented for real.
-
-localStorageHelper.setInt('highscore1', 100);
-console.log(localStorageHelper.getInt('highscore1'));
-// Make sure this is a Number and not a String
-console.log(typeof localStorageHelper.getInt('highscore1'));
-
-localStorageHelper.setInt('highscore2', 200);
-console.log(localStorageHelper.getInt('highscore2'));
-// Make sure this is a Number and not a String
-console.log(typeof localStorageHelper.getInt('highscore2'));
-
-localStorageHelper.setInt('highscore3', 300);
-console.log(localStorageHelper.getInt('highscore3'));
-// Make sure this is a Number and not a String
-console.log(typeof localStorageHelper.getInt('highscore3'));
