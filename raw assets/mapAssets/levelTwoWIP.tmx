@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="700" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="1846">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="700" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="1891">
  <tileset firstgid="1" source="objects.tsx"/>
  <objectgroup id="6" name="Background">
   <properties>
@@ -199,89 +199,101 @@
   <object id="1797" gid="37" x="9111" y="534" width="76" height="38"/>
   <object id="1824" gid="37" x="10766" y="585.667" width="76" height="38"/>
   <object id="1825" gid="37" x="10689.8" y="586" width="76" height="38"/>
+  <object id="1865" gid="37" x="12379" y="566" width="76" height="38"/>
+  <object id="1866" gid="37" x="12303.5" y="566.25" width="76" height="38"/>
+  <object id="1871" gid="37" x="12492.8" y="630.75" width="76" height="38"/>
+  <object id="1873" gid="31" x="12386.7" y="460.083" width="60" height="60"/>
+  <object id="1874" gid="37" x="12455.2" y="465.5" width="76" height="38"/>
+  <object id="1875" gid="37" x="12531.5" y="465.5" width="76" height="38"/>
+  <object id="1885" gid="16" x="12401" y="366.333" width="30" height="30"/>
+  <object id="1886" gid="16" x="12400.3" y="401.667" width="30" height="30"/>
+  <object id="1888" gid="16" x="12625" y="367.667" width="30" height="30"/>
+  <object id="1889" gid="16" x="12624.3" y="403" width="30" height="30"/>
+  <object id="1890" gid="16" x="12625" y="437.667" width="30" height="30"/>
  </objectgroup>
  <objectgroup id="5" name="Enemies">
   <object id="1371" gid="12" x="244.335" y="75" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="1"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1372" gid="12" x="309.335" y="74" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="1"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1373" gid="12" x="372.335" y="74" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="1"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1374" gid="12" x="436.335" y="74" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="1"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1375" gid="12" x="501.335" y="74" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="1"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1376" gid="12" x="756.335" y="299" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="2"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1377" gid="12" x="756.335" y="361" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="2"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1378" gid="12" x="756.335" y="235" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="2"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1379" gid="12" x="980.335" y="460" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="3"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1380" gid="12" x="1044.34" y="459" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="3"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1381" gid="12" x="1108.34" y="459" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="3"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1382" gid="12" x="1173.34" y="459" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="3"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1383" gid="12" x="1235.34" y="459" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="3"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1386" gid="35" x="1706.59" y="559.5" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="4"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1387" type="path" x="1728.84" y="479">
@@ -293,26 +305,31 @@
   <object id="1388" gid="35" x="1706.34" y="557" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="4"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1389" gid="35" x="1706.61" y="556.545" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="4"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1390" gid="35" x="1706.61" y="557.091" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="4"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1391" gid="35" x="1706.79" y="556.545" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="4"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1392" gid="35" x="1706.79" y="556.909" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="4"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1394" gid="39" x="1876.01" y="561" width="120" height="126"/>
@@ -331,7 +348,7 @@
   <object id="1401" gid="26" x="1959" y="89" width="50" height="50">
    <properties>
     <property name="Group" type="int" value="5"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1402" gid="26" x="2087" y="89" width="50" height="50">
@@ -343,7 +360,7 @@
   <object id="1403" gid="26" x="2216" y="89" width="50" height="50">
    <properties>
     <property name="Group" type="int" value="5"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1404" gid="26" x="2343" y="89" width="50" height="50">
@@ -393,37 +410,37 @@
   <object id="1467" gid="35" x="3021.64" y="270.545" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="7"/>
-    <property name="difficulty" type="int" value="15"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1469" gid="35" x="3021.62" y="270.625" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="7"/>
-    <property name="difficulty" type="int" value="15"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1470" gid="35" x="3021.62" y="270.75" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="7"/>
-    <property name="difficulty" type="int" value="15"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1471" gid="35" x="3021.62" y="270.75" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="7"/>
-    <property name="difficulty" type="int" value="15"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1472" gid="35" x="3021.75" y="270.625" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="7"/>
-    <property name="difficulty" type="int" value="15"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1473" gid="35" x="3402.71" y="306.083" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="8"/>
-    <property name="difficulty" type="int" value="15"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1495" gid="39" x="3765" y="560" width="120" height="126">
@@ -505,25 +522,25 @@
   <object id="1579" gid="35" x="3402.75" y="306" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="8"/>
-    <property name="difficulty" type="int" value="15"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1580" gid="35" x="3403" y="306" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="8"/>
-    <property name="difficulty" type="int" value="15"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1581" gid="35" x="3403" y="306" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="8"/>
-    <property name="difficulty" type="int" value="15"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1582" gid="35" x="3402.75" y="306.25" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="8"/>
-    <property name="difficulty" type="int" value="15"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1639" gid="20" x="4650.33" y="508.333" width="30" height="30">
@@ -583,37 +600,37 @@
   <object id="1648" gid="12" x="5202.33" y="266" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="9"/>
-    <property name="difficulty" type="int" value="26"/>
+    <property name="difficulty" type="int" value="16"/>
    </properties>
   </object>
   <object id="1649" gid="12" x="5266.33" y="266" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="9"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1650" gid="12" x="5331.67" y="267.333" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="9"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1651" gid="12" x="5394.33" y="266" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="9"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1653" gid="12" x="5458.33" y="267.333" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="9"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1654" gid="26" x="5768.33" y="313" width="50" height="50">
    <properties>
     <property name="Group" type="int" value="11"/>
-    <property name="difficulty" type="int" value="26"/>
+    <property name="difficulty" type="int" value="16"/>
    </properties>
   </object>
   <object id="1655" type="path" x="5792" y="288">
@@ -625,7 +642,7 @@
   <object id="1656" gid="26" x="5863" y="313" width="50" height="50">
    <properties>
     <property name="Group" type="int" value="11"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1657" gid="26" x="5957.67" y="313" width="50" height="50">
@@ -637,7 +654,7 @@
   <object id="1658" gid="26" x="6055" y="313" width="50" height="50">
    <properties>
     <property name="Group" type="int" value="11"/>
-    <property name="difficulty" type="int" value="15"/>
+    <property name="difficulty" type="int" value="16"/>
    </properties>
   </object>
   <object id="1659" gid="26" x="6152.33" y="313" width="50" height="50">
@@ -649,31 +666,31 @@
   <object id="1660" gid="9" x="5681" y="74" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="12"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1661" gid="9" x="5745" y="74" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="12"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1662" gid="9" x="5809" y="74" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="12"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1663" gid="9" x="5874.33" y="75.3333" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="12"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1664" gid="9" x="5938.33" y="75.3333" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="12"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1668" gid="38" x="5782.67" y="530" width="40" height="28">
@@ -768,25 +785,25 @@
   <object id="1710" gid="10" x="6792.33" y="202.333" width="50" height="50">
    <properties>
     <property name="Group" type="int" value="20"/>
-    <property name="difficulty" type="int" value="11"/>
+    <property name="difficulty" type="int" value="6"/>
    </properties>
   </object>
   <object id="1711" gid="10" x="6788.33" y="409" width="50" height="50">
    <properties>
     <property name="Group" type="int" value="20"/>
-    <property name="difficulty" type="int" value="11"/>
+    <property name="difficulty" type="int" value="6"/>
    </properties>
   </object>
   <object id="1712" gid="10" x="6919" y="117" width="50" height="50">
    <properties>
     <property name="Group" type="int" value="20"/>
-    <property name="difficulty" type="int" value="11"/>
+    <property name="difficulty" type="int" value="6"/>
    </properties>
   </object>
   <object id="1713" gid="10" x="6919" y="310.333" width="50" height="50">
    <properties>
     <property name="Group" type="int" value="20"/>
-    <property name="difficulty" type="int" value="11"/>
+    <property name="difficulty" type="int" value="6"/>
    </properties>
   </object>
   <object id="1718" gid="39" x="7356" y="571" width="120" height="126">
@@ -812,26 +829,31 @@
   <object id="1727" gid="35" x="7788.75" y="566.75" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="22"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1728" gid="35" x="7788.5" y="566.75" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="22"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1729" gid="35" x="7788.75" y="566.75" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="22"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1730" gid="35" x="7789" y="566.75" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="22"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1731" gid="35" x="7789" y="566.75" width="45" height="45">
    <properties>
     <property name="Group" type="int" value="22"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1732" type="path" x="7808" y="481.333">
@@ -843,19 +865,19 @@
   <object id="1741" gid="10" x="6594.34" y="502.333" width="50" height="50">
    <properties>
     <property name="Group" type="int" value="20"/>
-    <property name="difficulty" type="int" value="11"/>
+    <property name="difficulty" type="int" value="6"/>
    </properties>
   </object>
   <object id="1742" gid="10" x="6594.34" y="310.334" width="50" height="50">
    <properties>
     <property name="Group" type="int" value="20"/>
-    <property name="difficulty" type="int" value="11"/>
+    <property name="difficulty" type="int" value="6"/>
    </properties>
   </object>
   <object id="1743" gid="10" x="6595.66" y="119.667" width="50" height="50">
    <properties>
     <property name="Group" type="int" value="20"/>
-    <property name="difficulty" type="int" value="11"/>
+    <property name="difficulty" type="int" value="6"/>
    </properties>
   </object>
   <object id="1798" gid="38" x="8880" y="432" width="40" height="28">
@@ -951,13 +973,13 @@
   <object id="1813" gid="12" x="9874" y="426" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="26"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1814" gid="12" x="9940" y="394" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="26"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1815" gid="12" x="10002" y="425" width="30" height="21">
@@ -969,25 +991,25 @@
   <object id="1816" gid="12" x="10067" y="458" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="26"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1817" gid="12" x="10132" y="426" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="26"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1818" gid="12" x="10148" y="244.167" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="27"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1819" gid="12" x="10214" y="212.167" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="27"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1820" gid="12" x="10276" y="243.167" width="30" height="21">
@@ -999,13 +1021,13 @@
   <object id="1821" gid="12" x="10341" y="276.167" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="27"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1822" gid="12" x="10406" y="244.167" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="27"/>
-    <property name="difficulty" type="int" value="10"/>
+    <property name="difficulty" type="int" value="5"/>
    </properties>
   </object>
   <object id="1826" gid="40" x="10690.5" y="547.75" width="150" height="90">
@@ -1061,6 +1083,172 @@
     <property name="Group" type="int" value="29"/>
    </properties>
    <polygon points="0,0 0,-281 1,118 1,20 -620,20 2,20 0,-63 -250,-63 0,-63 0,173 1,-226 -472,-225 0,-226"/>
+  </object>
+  <object id="1848" gid="12" x="11381" y="106" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="30"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1849" gid="12" x="11441" y="140" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="30"/>
+    <property name="difficulty" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1850" gid="12" x="11507" y="106" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="30"/>
+    <property name="difficulty" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1851" gid="12" x="11573" y="76" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="30"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1852" gid="12" x="11637" y="106" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="30"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1853" gid="9" x="11699" y="264" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="31"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1854" gid="9" x="11763" y="266" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="31"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1856" gid="9" x="11825.7" y="267.333" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="31"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1857" gid="9" x="11891" y="266.667" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="31"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1858" gid="9" x="11955" y="266" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="31"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1859" gid="12" x="12114.3" y="490.667" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="32"/>
+    <property name="difficulty" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1860" gid="12" x="12114.3" y="426.667" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="33"/>
+    <property name="difficulty" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1861" gid="12" x="12113" y="362.667" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="33"/>
+    <property name="difficulty" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1862" gid="34" x="12202" y="118" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="34"/>
+    <property name="difficulty" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1863" gid="34" x="12298" y="214" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="35"/>
+    <property name="difficulty" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1864" gid="34" x="12394" y="311" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="36"/>
+    <property name="difficulty" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1867" gid="38" x="12303.8" y="530.25" width="40" height="28">
+   <properties>
+    <property name="difficulty" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1868" gid="38" x="12358" y="530.25" width="40" height="28">
+   <properties>
+    <property name="difficulty" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1869" gid="38" x="12415" y="530" width="40" height="28">
+   <properties>
+    <property name="difficulty" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1870" gid="39" x="12435.1" y="594.333" width="120" height="126"/>
+  <object id="1872" gid="39" x="12369" y="698" width="120" height="126"/>
+  <object id="1876" gid="40" x="12455" y="429.5" width="150" height="90">
+   <properties>
+    <property name="Group" type="int" value="37"/>
+   </properties>
+  </object>
+  <object id="1877" gid="35" x="12507.5" y="428.5" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="37"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1878" gid="35" x="12507.2" y="428.5" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="37"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1879" gid="35" x="12507" y="428.25" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="37"/>
+    <property name="difficulty" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1880" gid="35" x="12507.2" y="428.75" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="37"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1881" gid="35" x="12507.2" y="428.25" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="37"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1882" gid="35" x="12507.8" y="428.25" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="37"/>
+    <property name="difficulty" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="1883" gid="35" x="12507.8" y="428.25" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="37"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="1884" gid="35" x="12507.2" y="428.5" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="37"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
   </object>
  </objectgroup>
 </map>
