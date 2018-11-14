@@ -19,31 +19,39 @@ window.onload = function() {
 	loadImages();
 	window.scene = null
 	ScreenStates.setState(LOADING_SCREEN);
-    gameUpdate = setInterval(update, 1000 / FRAMES_PER_SECOND);
+//    gameUpdate = setInterval(update, 1000 / FRAMES_PER_SECOND);
 };
 
 window.focus();//necessary to ensure the game receives keyboard input once it is uploaded to itch.io
 
 function windowOnBlur() {
+	if(!loadingComplete) return;
 	setPaused(true, PauseCause.LostFocus);
 }
 
 function windowOnFocus() {
 //	playAndLoopMusic(backgroundMusic);
+	if(!loadingComplete) return;
 	setPaused(false, PauseCause.LostFocus);
 }
 
 function loadingDoneSoStartGame() {
-	window.focus();
 	timer = new Chronogram();
 	gameFont = new GameFont(fontImage, {width:16, height:16}, canvasContext);
     
     ScreenStates.setState(MENU_SCREEN);
+    loadingComplete = true;
+
+    gameUpdate = setInterval(update, 1000 / FRAMES_PER_SECOND);
+
+	window.focus();
 }
 
 function update() {
-	
-	if (!timer) return; // bugfix: timer can sometimes be undefined here (while images are still loading)
+//	if(!loadingComplete) return;
+
+	if (timer === null) return; // bugfix: timer can sometimes be undefined here (while images are still loading)
+	if (!gameFont === null) return;
 	
 	const dt = timer.update();
 
