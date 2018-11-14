@@ -15,6 +15,7 @@ let scoreText = "00000000" + currentScore.toString();
 let highScore = 0;
 let highScoreText = "00000000000000" + highScore.toString();
 
+let allHighScores = [];
 const DRAW_COLLIDERS = false;
 const COLLIDER_COLOR = 'yellow';
 const CANVAS_WIDTH = 900;

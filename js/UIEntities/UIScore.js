@@ -1,6 +1,6 @@
 //UIScore
 function UIScore(position = {x:0, y:0}) {
-
+    
 	this.position = {x:position.x, y:position.y};
 	
 	const FONT = 30;
@@ -21,22 +21,28 @@ function UIScore(position = {x:0, y:0}) {
 		}
 	};
    
-   this.updateHighScore = function(currentScore, highScore){
-     if (currentScore > highScore){
-     	highScore = currentScore;
-     	allHighScores.sort();
-        }
-     }
+    this.updateHighScore = function(){
+    	allHighScores.push(currentScore);
+    	allHighScores.sort();
+    	allHighScores.reverse();
+    	if (allHighScores.length > 3){
+    		allHighScores.pop();
+    	}
+    	console.log(allHighScores);
+    };
     
     this.saveHighScores = function(){
-  	if((allHighScores=== null) || (allHighScores === undefined)) {
-  	 allHighScores = [];
-  localStorage.setFloat("allHighScores", highScore);
-  	}
-  	else{
-  		localStorage.allHighScores.unshift(highScore);
-   }
-      }
+    	for(var i=0; i<allHighScores.length; i++){
+    		localStorageHelper.setFloat("highScore" + i, allHighScores[i]);
+    	}
+    }
+
+    this.loadHighScores = function(){
+    	for(var i=0; i<3 ; i++){
+    		allHighScores[i] = localStorageHelper.getFloat("highScore" + i);
+    	}
+    	console.log(allHighScores);
+    }
 
 	this.draw = function() {
 		gameFont.printTextAt(scoreText, this.position, FONT, textAlignment.Center);
@@ -44,8 +50,9 @@ function UIScore(position = {x:0, y:0}) {
 	
 	this.reset = function() {
          this.updateHighScore();
+         this.saveHighScores();
+         this.loadHighScores();
 		currentScore = 0;
 		this.addToScore(0);
-		this.updateHighScore(0);
 	}
 }

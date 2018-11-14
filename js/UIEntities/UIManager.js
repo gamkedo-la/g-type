@@ -23,7 +23,11 @@ function UIManager() {
 	
 	const score = new UIScore({x:GameField.midX, y:GameField.y - 20});
 	const lives = new UILives({x:GameField.midX - 150, y:GameField.y + 20});
-			
+	
+	this.reloadScores = function(){
+		score.loadHighScores();
+	}
+
 	this.update = function(deltaTime) {
 		pages[activePage].update(deltaTime);
 		
