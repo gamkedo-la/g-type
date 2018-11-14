@@ -89,6 +89,9 @@ const enemyBulletSheet = document.createElement("img");
 const enemyBullet2Sheet = document.createElement("img");
 const miniBoss1Sheet = document.createElement("img");
 const eyeBoss1Sheet = document.createElement("img");
+const alienBoss1Sheet = document.createElement("img");
+const maskBoss1Sheet = document.createElement("img");
+const miniminiBoss1Sheet = document.createElement("img");
 const cargoBossSheet = document.createElement("img");
 const pewpew1Sheet = document.createElement("img");
 const pewpew2Sheet = document.createElement("img");
@@ -201,6 +204,9 @@ function loadImages() {
         { imgName: enemyBullet2Sheet, theFile: "EnemyShot2.png" },
         { imgName: miniBoss1Sheet, theFile: "MiniBoss1.png" },
         { imgName: eyeBoss1Sheet, theFile: "EyeBoss1.png" },
+         { imgName: alienBoss1Sheet, theFile: "AlienBoss1.png" },
+          { imgName: maskBoss1Sheet, theFile: "MaskBoss1.png" },
+           { imgName: miniminiBoss1Sheet, theFile: "MiniMiniBoss1.png" },
         { imgName: cargoBossSheet, theFile: "cargoBoss/CargoBoss.png" },
         { imgName: pewpew1Sheet, theFile: "cargoBoss/pewpew1.png" },
         { imgName: pewpew2Sheet, theFile: "cargoBoss/pewpew2.png" },

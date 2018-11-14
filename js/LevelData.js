@@ -199,6 +199,15 @@ function initializeEnemies(enemyData) {
             case EntityType.EyeBoss1:
                         enemies.push(new EyeBoss1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
                 break;
+            case EntityType.AlienBoss1:
+                        enemies.push(new AlienBoss1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
+                break;
+           case EntityType.MaskBoss1:
+                        enemies.push(new MaskBoss1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
+                break;
+           case EntityType.MiniMiniBoss1:
+                        enemies.push(new MiniMiniBoss1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
+                break;
             case EntityType.CargoBoss:
                 enemies.push(new CargoBoss({x:offRight, y:GameField.y+obj.y-obj.height}, -20, PathType.None, 25, obj.x, 1))
                 break;

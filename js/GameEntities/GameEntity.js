@@ -47,6 +47,9 @@ const EntityType = {
 	EnemyBullet4:"enemyBullet4",
 	MiniBoss1:"miniBoss1", 
 	EyeBoss1:"eyeBoss1",
+	AlienBoss1:"alienBoss1",
+	MaskBoss1:"maskBoss1",
+	MiniMiniBoss1:"miniminiBoss1",
 	CargoBoss: "cargoBoss",
     LaunchBay:"launchBay"
 };
