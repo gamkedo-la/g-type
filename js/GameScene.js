@@ -169,7 +169,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
         scene.endShake();
         
         //player.reset();
-        uiManager.reset(false);
+        //uiManager.reset(false);
         
         gameEntities.clear();
         enemyBullets.clear();
