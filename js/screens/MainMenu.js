@@ -159,7 +159,7 @@ function MenuScreen() {
         printMenu(selections, selectorPositionIndex);
 
         //draw selector sprite
-        selectorSprite.drawAt(selectorPosition, {width:62, height:27});
+        selectorSprite.drawAt(selectorPosition, {width:52, height:32});
 	};
 
 	const drawLogo = function() {

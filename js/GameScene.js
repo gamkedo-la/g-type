@@ -43,7 +43,8 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
     } else {
         uiManager = aUIManager;
     }
-	 
+	uiManager.reloadScores();
+
 	let nextLifeScore = SCORE_PER_EXTRA_LIFE;
 	let worldPaused = false;
 	

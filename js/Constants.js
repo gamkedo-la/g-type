@@ -1,8 +1,9 @@
 let canvas;
 let canvasContext;
+let loadingComplete = false;
 let scene;
-let timer;
-let gameFont;
+let timer = null;
+let gameFont = null;
 let currentLevelIndex = 0;
 let worldSpeed = 1;
 let gameSpeed = 3;
@@ -12,8 +13,9 @@ let didInteract = false;
 let currentScore = 0;
 let scoreText = "00000000" + currentScore.toString();
 let highScore = 0;
-let highScoreText = "00000000000000" + highScore.toString();
 
+
+let allHighScores = [];
 const DRAW_COLLIDERS = false;
 const COLLIDER_COLOR = 'yellow';
 const CANVAS_WIDTH = 900;

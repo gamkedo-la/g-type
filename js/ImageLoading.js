@@ -101,6 +101,13 @@ let picsToLoad = 0;
 
 function countLoadedImageAndLaunchIfReady() {
     picsToLoad--;
+    
+    drawRect(0, 0, canvas.width, canvas.height, 'red');
+	colorText("LOADING", canvas.width / 2, canvas.height / 2, 'white', 64, textAlignment.Center, opacity = 1);
+	const numberText = "Remaining Images: " + picsToLoad.toString();
+	colorText(numberText, canvas.width / 2, 2 * canvas.height / 3, 'white', 52, textAlignment.Center, opacity = 1);
+    
+    
     if (picsToLoad === 0) { // last image loaded?
         loadingDoneSoStartGame();
     }

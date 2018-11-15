@@ -7,28 +7,19 @@ function setPaused(shouldPause, pauseCause) {
 
 	if(shouldPause === ScreenStates.isPaused) {
 		return;
-	};
+	}
 
 	// Prevent resume if paused for a different reason
 	if (pauseCause !== ScreenStates.pauseCause
 		&& ScreenStates.pauseCause !== PauseCause.NotPaused) {
 		return;
-	}
-
-  function showPause(){
-  	
-  if(ScreenStates.state === GAME_SCREEN) {
-  	gameFont.printTextAt("[PAUSED]", {x:GameField.midX - 100, y:GameField.midY - 80}, 24, textAlignment.Left);}
-else{
-	gameFont.printTextAt("[HOLD]", {x:GameField.midX - 400, y:GameField.midY - 220}, 24, textAlignment.Left);
-    }
-  }  
+	} 
 	
 	if(shouldPause) {
 		ScreenStates.isPaused = true;
 		ScreenStates.pauseCause = pauseCause;
 		pauseSound.play();
-		showPause();
+		gameFont.printTextAt("[PAUSED]", {x:GameField.midX - 100, y:GameField.midY - 80}, 24, textAlignment.Left);
 		currentBackgroundMusic.pause();
 	} else {
 		ScreenStates.isPaused = false;
