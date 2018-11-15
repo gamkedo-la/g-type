@@ -114,13 +114,13 @@ function GameOverScreen() {
 
 		canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
 
-		gameFont.printTextAt(textStrings.GameOver, {x:GameField.midX, y:GameField.y - 20}, 35, textAlignment.Left);
+		gameFont.printTextAt(textStrings.GameOver, {x:GameField.midX - 150, y:GameField.y - 20}, 35, textAlignment.Left);
         drawHighScores();
 	};
 
     const drawHighScores = function() {
         for(var i = 0; i < allHighScores.length; i++){
-            gameFont.printTextAt(""+allHighScores[i],  {x:GameField.midX - 120, y:GameField.y + GameField.height / 2 - 150 + i*50 }, 35, textAlignment.Center); 
+            gameFont.printTextAt((i+1)+"."+allHighScores[i],  {x:GameField.midX - 120, y:GameField.y + GameField.height / 2 - 150 + i*50 }, 35, textAlignment.Center); 
         }        
     }
 

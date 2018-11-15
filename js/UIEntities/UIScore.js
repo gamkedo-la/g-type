@@ -53,7 +53,6 @@ function UIScore(position = {x:0, y:0}) {
 	this.reset = function() {
          this.updateHighScore();
          this.saveHighScores();
-         this.loadHighScores();
 		currentScore = 0;
 		this.addToScore(0);
 	}
