@@ -1,6 +1,7 @@
 //Game Scene
 function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null) {
 	const data = LevelData[levelIndex];
+	scene = this;
 	this.worldPos = 0;
 	this.shaking = false;
 	const MAX_SHAKES = 10;
@@ -14,9 +15,11 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 	const starfield = new Starfield();
     let player;
     if((aPlayer === null) || (aPlayer === undefined)) {
-        player = new Player(data.getPlayerSpawn());
+		player = new Player(data.getPlayerSpawn());
+		window.player = player; //temp for debugging
     } else {
-        player = aPlayer;
+		player = aPlayer;
+		window.player = player; //temp for debugging
         const playerSpawnPos = data.getPlayerSpawn();
         player.position.x = playerSpawnPos.x;
         player.position.y = playerSpawnPos.y;
@@ -156,6 +159,23 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 	
 	this.setWorldPos = function(newWorldPos) {
 		this.worldPos = newWorldPos;
+	};
+	
+	//adding for debugging levels
+	window.pos = function(newWorldPos) {
+		scene.gameIsOver = false;
+		scene.beatTheGame = false;
+        scene.worldPos = newWorldPos;
+        scene.endShake();
+        
+        //player.reset();
+        uiManager.reset(false);
+        
+        gameEntities.clear();
+        enemyBullets.clear();
+        collisionManager.clearWorldAndBullets();
+        
+        populateWorld(newWorldPos);
 	};
 	
 	this.updateBackground = function(deltaTime) {
