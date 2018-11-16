@@ -39,7 +39,6 @@ function LaunchBay(position = {x:0, y:0}, spawnPos) {
             }
         }
         
-        if(!this.isVisible) {return;}
         if(worldPos < spawnPos) {return;}//don't update if the world hasn't scrolled far enough to spawn
         
         if(sprite.getDidDie()) {
@@ -82,6 +81,7 @@ function LaunchBay(position = {x:0, y:0}, spawnPos) {
             return;
         }
         
+        if(!this.isVisible) {return;}
         sprite.drawAt(this.position, this.size);
         sprite.drawAt(this.position, this.size);
         if(!sprite.isDying) {
