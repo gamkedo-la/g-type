@@ -113,6 +113,7 @@ function initializeEnemies(enemyData) {
     let offRight = GameField.right + 50; //
     let enemiesData = enemyData;//TileMaps.levelOneH.layers[2].objects;
     let enemyPaths = enemiesData.filter((obj) => {return obj.type === "path"});
+//    let colliderPaths = enemiesData.filter((obj) => {return obj.type === "freeCollider"});
 
     //obj.properties[0] is the Group, exists on all but is zero by default
     let enemiesInGroups = enemiesData.filter((obj) => {
@@ -133,9 +134,9 @@ function initializeEnemies(enemyData) {
                                                 });
 
     //enemyGroups
-    enemyGroups.forEach((group)=> {
+    enemyGroups.forEach((group) => {
     let currentGroup = new EnemyGroup();
-    group.forEach((obj)=> {
+    group.forEach((obj) => {
       switch(obj.type) {
           case EntityType.FlyingEnemy1:
               //tiled-editor object origin is bottom-left, game engine sprite origin is top-left
@@ -162,7 +163,7 @@ function initializeEnemies(enemyData) {
               enemies.push(currentGroup.add(aBay));
               break;
 		  case EntityType.MiniBoss1:
-              enemies.push(currentGroup.add(new MiniBoss1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value, getPath(enemyPaths, obj))));
+              enemies.push(currentGroup.add(new MiniBoss1({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value, getPath(enemyPaths, obj))));
               break;
           case "path":
               //do nothing
@@ -173,46 +174,49 @@ function initializeEnemies(enemyData) {
       }
                 });
         });
-    let noGroupsEnemies = enemiesData.filter((obj)=>{return obj.properties[0].value == 0});
-    noGroupsEnemies.forEach((obj)=> {
+    let noGroupsEnemies = enemiesData.filter((obj) => {return obj.properties[0].value == 0});
+    noGroupsEnemies.forEach((obj) => {
         switch(obj.type) {
             case EntityType.FlyingEnemy1:
             //tiled-editor object origin is bottom-left, game engine sprite origin is top-left
-                    enemies.push(new FlyingEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[1].value, obj.properties[3].value, obj.x, obj.properties[2].value));
+                    enemies.push(new FlyingEnemy1({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[1].value, obj.properties[3].value, obj.x, obj.properties[2].value));
                 break;
             case EntityType.FlyingEnemy2:
-                enemies.push(new FlyingEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[1].value, obj.properties[3].value, obj.x,obj.properties[2].value, getPath(enemyPaths, obj)));
+                enemies.push(new FlyingEnemy2({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[1].value, obj.properties[3].value, obj.x, obj.properties[2].value, getPath(enemyPaths, obj)));
                 break;
             case EntityType.FlyingEnemy3:
-                enemies.push(new FlyingEnemy3({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[3].value, obj.properties[2].value, obj.x,obj.properties[1].value, getPath(enemyPaths, obj)));
+                enemies.push(new FlyingEnemy3({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[3].value, obj.properties[2].value, obj.x, obj.properties[1].value, getPath(enemyPaths, obj)));
                 break;
             case EntityType.GroundEnemy1:
-                enemies.push(new GroundEnemy1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[2].value, obj.x, obj.properties[1].value))
+                enemies.push(new GroundEnemy1({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[2].value, obj.x, obj.properties[1].value))
                 break;
             case EntityType.GroundEnemy2:
-                enemies.push(new GroundEnemy2({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[1].value, obj.properties[3].value, obj.x, obj.properties[2].value, getPath(enemyPaths, obj)));
+                enemies.push(new GroundEnemy2({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[1].value, obj.properties[3].value, obj.x, obj.properties[2].value, getPath(enemyPaths, obj)));
                 break;
             case EntityType.GroundEnemy3:
                 enemies.push(new GroundEnemy3({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x, obj.properties[1].value));
                 break;
             case EntityType.MiniBoss1:
-                        enemies.push(new MiniBoss1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
+                        enemies.push(new MiniBoss1({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
                 break;
             case EntityType.EyeBoss1:
-                        enemies.push(new EyeBoss1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
+                        enemies.push(new EyeBoss1({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
                 break;
             case EntityType.AlienBoss1:
-                        enemies.push(new AlienBoss1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
+                        enemies.push(new AlienBoss1({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
                 break;
            case EntityType.MaskBoss1:
-                        enemies.push(new MaskBoss1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
+                        enemies.push(new MaskBoss1({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
                 break;
            case EntityType.MiniMiniBoss1:
-                        enemies.push(new MiniMiniBoss1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
+                        enemies.push(new MiniMiniBoss1({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
                 break;
             case EntityType.CargoBoss:
-                enemies.push(new CargoBoss({x:offRight, y:GameField.y+obj.y-obj.height}, -20, PathType.None, 25, obj.x, 1))
+                enemies.push(new CargoBoss({x:offRight, y:GameField.y + obj.y - obj.height}, -20, PathType.None, 25, obj.x, 1));
                 break;
+            case EntityType.FreeCollider:
+            	enemies.push(new FreeCollider(obj.properties[1].value, {x:offRight, y:GameField.y + obj.y - obj.height}, obj.x, JSON.parse(JSON.stringify(obj))));
+            	break;
             default:
                 console.error("can not find ungrouped enemy type: " + obj.type);
                 break;
@@ -236,13 +240,13 @@ function initializeTerrain(terrainData) {
 
     levelTerrain.forEach(obj => {
          switch(obj.type) {
-            case "bubble":
+            case EntityType.Bubble:
                 world.push(new BubbleEntity(EntityType.Bubble, {x:offRight, y:GameField.y + obj.y - obj.height}, obj.x, 1, 1024));
                 break;
-            case "capsule1":
+            case EntityType.Capsule1:
                  world.push(new Capsule({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x));
                  break;
-            case "ragnarokCapsule":
+            case EntityType.RagnarokCapsule:
                  world.push(new RagnarokCapsule({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x));
                  break;
             default:

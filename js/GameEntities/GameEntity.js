@@ -18,6 +18,7 @@ const EntityType = {
 	//Miscellaneous
 	Text:"text",
 	CollidableText:"collidableText",
+	FreeCollider:"freeCollider",
 	
 	//Player
 	Player:"player",
