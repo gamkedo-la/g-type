@@ -157,7 +157,9 @@ function initializeEnemies(enemyData) {
               enemies.push(currentGroup.add(new GroundEnemy3({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x, obj.properties[1].value)));
               break;
           case EntityType.LaunchBay:
-              enemies.push(currentGroup.add(new LaunchBay({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x)));
+          	  const aBay = new LaunchBay({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x);
+          	  if(!obj.visible) {aBay.isVisible = false;}
+              enemies.push(currentGroup.add(aBay));
               break;
 		  case EntityType.MiniBoss1:
               enemies.push(currentGroup.add(new MiniBoss1({x:offRight, y:GameField.y+obj.y-obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value, getPath(enemyPaths, obj))));
