@@ -154,6 +154,8 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	this.didCollideWith = function(otherEntity) {
 		if((this.collisionBody == null) || (otherEntity.collisionBody == null)) {return false;}
 		
+		if(otherEntity.type === EntityType.FreeCollider) {return false;}
+		
 		this.shotLife--;
 		if(this.shotLife === 0) {
 			sprite.isDying = true;
@@ -163,10 +165,13 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 			   (otherEntity.type == EntityType.Rock01) ||
 			   (otherEntity.type == EntityType.Rock02) ||
 			   (otherEntity.type == EntityType.Rock03) ||
-			   (otherEntity.type == EntityType.Rock04))   {
+			   (otherEntity.type == EntityType.Rock04) ||
+			   (otherEntity.type == EntityType.BrokenBoulder) ||
+			   (otherEntity.type == EntityType.BrokenBoulderFlipped) ||
+			   (otherEntity.type == EntityType.Platform1) ||
+			   (otherEntity.type == EntityType.WarpObstacle))   {
 				shotHitIndestructible.play();
-			   }
-			
+			   }	
 		}
 	};
 	
