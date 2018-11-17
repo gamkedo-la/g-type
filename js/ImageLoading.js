@@ -96,6 +96,7 @@ const cargoBossSheet = document.createElement("img");
 const pewpew1Sheet = document.createElement("img");
 const pewpew2Sheet = document.createElement("img");
 const launchBaySheet = document.createElement("img");
+const level2BossSheet = document.createElement("img");
 
 let picsToLoad = 0;
 
@@ -218,6 +219,7 @@ function loadImages() {
         { imgName: pewpew1Sheet, theFile: "cargoBoss/pewpew1.png" },
         { imgName: pewpew2Sheet, theFile: "cargoBoss/pewpew2.png" },
         { imgName: launchBaySheet, theFile: "LaunchBay-sheet.png" },
+        { imgName: level2BossSheet, theFile: "Level2Bosssheet.png" },
     ];
 
     picsToLoad = imageList.length;

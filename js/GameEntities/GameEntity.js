@@ -50,6 +50,7 @@ const EntityType = {
 	EyeBoss1:"eyeBoss1",
 	AlienBoss1:"alienBoss1",
 	MaskBoss1:"maskBoss1",
+	Level2Boss:"level2Boss",
 	MiniMiniBoss1:"miniminiBoss1",
 	CargoBoss: "cargoBoss",
     LaunchBay:"launchBay"

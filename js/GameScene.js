@@ -12,14 +12,16 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
     this.levelIsComplete = false;
     this.didCompleteWarpChallenge = false;
     this.bgTime = bgTime;
-	const starfield = new Starfield();
+    let starfield = new Starfield();
+    if(levelIndex === WARP_INDEX) {
+	    starfield = new Starfield(240,120,80,-64,-128,-256);
+    }
+//	const starfield = new Starfield();
     let player;
     if((aPlayer === null) || (aPlayer === undefined)) {
 		player = new Player(data.getPlayerSpawn());
-		window.player = player; //temp for debugging
     } else {
 		player = aPlayer;
-		window.player = player; //temp for debugging
         const playerSpawnPos = data.getPlayerSpawn();
         player.position.x = playerSpawnPos.x;
         player.position.y = playerSpawnPos.y;
@@ -174,18 +176,17 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
         gameEntities.clear();
         enemyBullets.clear();
         collisionManager.clearWorldAndBullets();
-        
+    
         populateWorld(newWorldPos);
 	};
 	
 	this.updateBackground = function(deltaTime) {
-
 		// the dense starfield
-		this.parallaxOffset1 = -1 * (this.worldPos * BG_PARALLAX_RATIO_1 % bkgdStars.width);
+		this.parallaxOffset1 = -1 * (this.worldPos * BG_PARALLAX_RATIO_1[currentLevelIndex] % bkgdStars.width);
 		// the distant planets in midground
-		this.parallaxOffset2 = -1 * (this.worldPos * BG_PARALLAX_RATIO_2 % bkgdParallaxLayer.width);
+		this.parallaxOffset2 = -1 * (this.worldPos * BG_PARALLAX_RATIO_2[currentLevelIndex] % bkgdParallaxLayer.width);
 		// things overlaid above the gameplay (girders)
-		this.parallaxOffset3 = -1 * (this.worldPos * BG_PARALLAX_RATIO_3 % foregroundLayer.width);
+		this.parallaxOffset3 = -1 * (this.worldPos * BG_PARALLAX_RATIO_3[currentLevelIndex] % foregroundLayer.width);
 
 		if ((this.bgTime === null) || (this.bgTime === undefined)) {
 			this.bgTime = deltaTime; 
@@ -243,7 +244,18 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		canvasContext.drawImage(bkgdParallaxLayer, this.parallaxOffset2 + bkgdParallaxLayer.width,+ bgOffset);
 		
 		// twinkling stars
-		starfield.draw();
+		if(levelIndex === 1) {//level 2
+			canvasContext.save();
+			canvasContext.globalAlpha = 0.4;
+		}
+		
+		if(levelIndex != 2) {
+			starfield.draw();
+		}
+		
+		if(levelIndex === 1) {//level 2
+			canvasContext.restore();
+		}
 	}
 	
 	this.draw = function() {
