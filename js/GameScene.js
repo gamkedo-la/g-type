@@ -16,10 +16,8 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
     let player;
     if((aPlayer === null) || (aPlayer === undefined)) {
 		player = new Player(data.getPlayerSpawn());
-		window.player = player; //temp for debugging
     } else {
 		player = aPlayer;
-		window.player = player; //temp for debugging
         const playerSpawnPos = data.getPlayerSpawn();
         player.position.x = playerSpawnPos.x;
         player.position.y = playerSpawnPos.y;
@@ -181,11 +179,11 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 	this.updateBackground = function(deltaTime) {
 
 		// the dense starfield
-		this.parallaxOffset1 = -1 * (this.worldPos * BG_PARALLAX_RATIO_1 % bkgdStars.width);
+		this.parallaxOffset1 = -1 * (this.worldPos * BG_PARALLAX_RATIO_1[currentLevelIndex] % bkgdStars.width);
 		// the distant planets in midground
-		this.parallaxOffset2 = -1 * (this.worldPos * BG_PARALLAX_RATIO_2 % bkgdParallaxLayer.width);
+		this.parallaxOffset2 = -1 * (this.worldPos * BG_PARALLAX_RATIO_2[currentLevelIndex] % bkgdParallaxLayer.width);
 		// things overlaid above the gameplay (girders)
-		this.parallaxOffset3 = -1 * (this.worldPos * BG_PARALLAX_RATIO_3 % foregroundLayer.width);
+		this.parallaxOffset3 = -1 * (this.worldPos * BG_PARALLAX_RATIO_3[currentLevelIndex] % foregroundLayer.width);
 
 		if ((this.bgTime === null) || (this.bgTime === undefined)) {
 			this.bgTime = deltaTime; 

@@ -6,7 +6,7 @@ let timer = null;
 let gameFont = null;
 let currentLevelIndex = 0;
 let worldSpeed = 1;
-let gameSpeed = 3;
+let gameSpeed = 1.5;
 let remainingLives = 2;
 let didInteract = false;
 	
@@ -31,7 +31,7 @@ const GameField = {
 	midY:450,
 	bgOffset:50
 }
-const FRAMES_PER_SECOND = 30;
+const FRAMES_PER_SECOND = 60;
 const SIM_STEP = 16;//milliseconds in each simulation step ~1/2 frame
 const MAX_SHAKE_MAGNITUDE = 10;
 const MAX_LIVES_TO_SHOW = 9;
@@ -39,9 +39,9 @@ const WARP_INDEX = 3;//This should be 3, once we have all three levels implement
 const SCORE_PER_EXTRA_LIFE = 30000;
 const MAX_GHOSTS = 3;
 
-const BG_PARALLAX_RATIO_1 = 0.3; // startfield
-const BG_PARALLAX_RATIO_2 = 0.2; // transparent planets
-const BG_PARALLAX_RATIO_3 = 2.0; // girders
+const BG_PARALLAX_RATIO_1 = [0.3, 5.0, 0.3, 0.3]; // starfield
+const BG_PARALLAX_RATIO_2 = [0.2, 3.0, 0.2, 0.2]; // transparent planets
+const BG_PARALLAX_RATIO_3 = [2.0, 4.0, 2.0, 2.0]; // girders
 const BG_COLOR_CHANGE_SPEED = 0.005; // pixels per second for the bacgroundColorLookup table
 
 const gameTitle = {
