@@ -5,6 +5,8 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 	this.worldPos = 0;
 	this.score = 5000;
 	let previousBackgroundMusic = null;
+	let didSpawn = true;
+	let shouldResumeGame = true;
 	
     this.hitPoints = 40;     // Every enemy type should have a hitPoints property
     const INVINCIBILITY_TIME = 128;
@@ -36,6 +38,18 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 //		{x: GameField.right - this.size.width, y: GameField.y},
 	];//TODO: Give the mini boss a path to follow
 	
+	this.updatePathOffset = function(additionalOffset) {
+		didSpawn = false;
+		shouldResumeGame = false;
+		this.isVisible = false;
+		
+        pathPoints.forEach((point) => {
+            point.x -= additionalOffset;
+        });
+    
+	    this.path = new EnemyPath(pattern, this.position, speed, pathPoints);
+    };
+	
 	if(path) {
         if(path.polygon === undefined) {
             pathPoints = path.polyline.slice(0);
@@ -50,6 +64,15 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
     }
     
     this.path = new EnemyPath(pattern, this.position, speed, pathPoints);
+    
+    this.spawn = function(deltaX) {
+        if(didSpawn) {return;}//only spawn once
+        const deltaPos = {x:deltaX, y:0};
+        this.path.updatePosition(deltaPos);
+        this.position = this.path.putAtFirstPoint();
+        this.isVisible = true;
+        didSpawn = true;
+    };
 	
 	this.update = function(deltaTime, worldPos, playerPos) {
 		if(!this.isVisible) {return;}
@@ -80,7 +103,7 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		            currentBackgroundMusic.play();
 		        }				
 			}
-		} else if((sprite.isDying) && (previousBackgroundMusic != null)) {
+		} else if((sprite.isDying) && (previousBackgroundMusic != null) && (shouldResumeGame)) {
 			scene.worldShouldPause(false);
 			currentBackgroundMusic.setCurrentTrack(previousBackgroundMusic);
             currentBackgroundMusic.play();
@@ -186,6 +209,10 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		   
 		if(this.hitPoints <= 0) {
 			if(sprite.isDying) {return;}//already dying, no reason to continue
+			
+			if((this.group != null) && (this.group !== undefined)) {
+                this.group.amDying(this, this.worldPos);
+            }
 			
 			scene.displayScore(this);
 			sprite.isDying = true;

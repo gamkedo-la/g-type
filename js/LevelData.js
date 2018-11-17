@@ -165,6 +165,9 @@ function initializeEnemies(enemyData) {
 		  case EntityType.MiniBoss1:
               enemies.push(currentGroup.add(new MiniBoss1({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value, getPath(enemyPaths, obj))));
               break;
+		  case EntityType.Level2Boss:
+              enemies.push(currentGroup.add(new Level2Boss({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x)));
+              break;
           case "path":
               //do nothing
               break;
@@ -174,6 +177,7 @@ function initializeEnemies(enemyData) {
       }
                 });
         });
+        
     let noGroupsEnemies = enemiesData.filter((obj) => {return obj.properties[0].value == 0});
     noGroupsEnemies.forEach((obj) => {
         switch(obj.type) {

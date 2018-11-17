@@ -18,8 +18,6 @@ function FreeCollider(score = 0, position = {x:0, y:0}, spawnPos = 0, path = nul
 			
 			let minX = Number.MAX_VALUE, minY = Number.MAX_VALUE, maxX = -Number.MAX_VALUE/2, maxY = -Number.MAX_VALUE/2;
 			pathPoints.forEach((point) => {
-//	            point.x += GameField.x + GameField.width - 50;
-//	            point.y += GameField.y + path.y;
 				point.x += this.position.x;
 				point.y += this.position.y;
 	            
@@ -29,10 +27,6 @@ function FreeCollider(score = 0, position = {x:0, y:0}, spawnPos = 0, path = nul
 	            if(point.y > maxY) {maxY = point.y};
 	        });
 	        
-	        console.log("Position: (" + this.position.x + ", " + this.position.y + "), Min: (" + minX + ", " + minY + "), Max: (" + maxX + ", " + maxY + ")");
-			
-//			this.position.x = minX;
-//			this.position.y = minY;
 			this.size.width = maxX - minX;
 			this.size.height = maxY - minY;
 			
@@ -61,10 +55,7 @@ function FreeCollider(score = 0, position = {x:0, y:0}, spawnPos = 0, path = nul
 	};
 	
 	this.didCollideWith = function(otherEntity) {
-//		console.log("Collided with it");
 		if(otherEntity.type === EntityType.Player) {//FreeColliders only interact with the player
-//			console.log("Now the player collided with it");
-			console.log("Draw Score At: (" + (this.position.x + this.size.width / 2) + ", " + (this.position.y + this.size.height / 2) + ")");
 			scene.displayScore(this, {x:(this.position.x + (this.size.width / 2)), y:(this.position.y + (this.size.height / 2))});
 			capsulePickup.play();
 			scene.removeEntity(this, false);

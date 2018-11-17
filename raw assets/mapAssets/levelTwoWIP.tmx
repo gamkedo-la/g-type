@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="700" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="2032">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="700" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="2048">
  <tileset firstgid="1" source="objects.tsx"/>
  <objectgroup id="6" name="Background">
   <properties>
@@ -254,26 +254,26 @@
   <object id="1943" gid="1" x="22316" y="27" width="74" height="73"/>
   <object id="1944" gid="1" x="22181" y="644" width="74" height="73"/>
   <object id="1945" gid="1" x="22218" y="607" width="74" height="73"/>
-  <object id="1946" gid="1" x="22108" y="644" width="74" height="73"/>
-  <object id="1947" gid="1" x="22034" y="644" width="74" height="73"/>
-  <object id="1948" gid="1" x="21961" y="645" width="74" height="73"/>
-  <object id="1949" gid="1" x="21888" y="645" width="74" height="73"/>
-  <object id="1950" gid="1" x="21816" y="645" width="74" height="73"/>
-  <object id="1951" gid="1" x="21742" y="645" width="74" height="73"/>
-  <object id="1952" gid="1" x="21669" y="645" width="74" height="73"/>
-  <object id="1953" gid="3" x="22162" y="606" width="40" height="40"/>
-  <object id="1954" gid="3" x="22089" y="607" width="40" height="40"/>
-  <object id="1955" gid="3" x="22015" y="607" width="40" height="40"/>
-  <object id="1956" gid="3" x="21941" y="607" width="40" height="40"/>
-  <object id="1957" gid="3" x="21869" y="607" width="40" height="40"/>
-  <object id="1958" gid="3" x="21796" y="608" width="40" height="40"/>
-  <object id="1959" gid="3" x="21722" y="608" width="40" height="40"/>
-  <object id="1960" gid="37" x="21994" y="581" width="76" height="38"/>
-  <object id="1961" gid="37" x="21918" y="581" width="76" height="38"/>
-  <object id="1962" gid="37" x="22070" y="581" width="76" height="38"/>
-  <object id="1963" gid="37" x="21842" y="581" width="76" height="38"/>
-  <object id="1964" gid="37" x="21766" y="581" width="76" height="38"/>
-  <object id="1965" gid="37" x="21690" y="582" width="76" height="38"/>
+  <object id="1946" gid="1" x="22033" y="644" width="74" height="73"/>
+  <object id="1947" gid="1" x="21959" y="644" width="74" height="73"/>
+  <object id="1948" gid="1" x="21886" y="645" width="74" height="73"/>
+  <object id="1949" gid="1" x="21813" y="645" width="74" height="73"/>
+  <object id="1950" gid="1" x="21741" y="645" width="74" height="73"/>
+  <object id="1951" gid="1" x="21667" y="645" width="74" height="73"/>
+  <object id="1952" gid="1" x="21594" y="645" width="74" height="73"/>
+  <object id="1953" gid="3" x="22087" y="606" width="40" height="40"/>
+  <object id="1954" gid="3" x="22014" y="607" width="40" height="40"/>
+  <object id="1955" gid="3" x="21940" y="607" width="40" height="40"/>
+  <object id="1956" gid="3" x="21866" y="607" width="40" height="40"/>
+  <object id="1957" gid="3" x="21794" y="607" width="40" height="40"/>
+  <object id="1958" gid="3" x="21721" y="608" width="40" height="40"/>
+  <object id="1959" gid="3" x="21647" y="608" width="40" height="40"/>
+  <object id="1960" gid="37" x="21919" y="581" width="76" height="38"/>
+  <object id="1961" gid="37" x="21843" y="581" width="76" height="38"/>
+  <object id="1962" gid="37" x="21995" y="581" width="76" height="38"/>
+  <object id="1963" gid="37" x="21767" y="581" width="76" height="38"/>
+  <object id="1964" gid="37" x="21691" y="581" width="76" height="38"/>
+  <object id="1965" gid="37" x="21615" y="582" width="76" height="38"/>
   <object id="1980" gid="1" x="13279" y="649" width="74" height="73"/>
   <object id="1981" gid="1" x="13353" y="649" width="74" height="73"/>
   <object id="1982" gid="1" x="13427" y="651" width="74" height="73"/>
@@ -301,6 +301,8 @@
   <object id="2004" gid="7" x="13431" y="499" width="90" height="90"/>
   <object id="2005" gid="41" x="13477" y="455" width="77" height="68"/>
   <object id="2006" gid="42" x="13536" y="452" width="77" height="68"/>
+  <object id="2046" gid="1" x="22107" y="644" width="74" height="73"/>
+  <object id="2047" gid="3" x="22160" y="607" width="40" height="40"/>
  </objectgroup>
  <objectgroup id="5" name="Enemies">
   <object id="1371" gid="12" x="244.335" y="75" width="30" height="21">
@@ -1423,27 +1425,27 @@
    </properties>
    <polyline points="0,0 -55,-101 2,-101 -126,287 -325,287 -324.45,236.995 -176,238"/>
   </object>
-  <object id="1966" gid="38" x="21689" y="546" width="40" height="28">
+  <object id="1966" gid="38" x="21614" y="546" width="40" height="28">
    <properties>
     <property name="difficulty" type="int" value="25"/>
    </properties>
   </object>
-  <object id="1967" gid="38" x="21728" y="545" width="40" height="28">
+  <object id="1967" gid="38" x="21653" y="545" width="40" height="28">
    <properties>
     <property name="difficulty" type="int" value="25"/>
    </properties>
   </object>
-  <object id="1968" gid="39" x="21709" y="545" width="120" height="126">
+  <object id="1968" gid="39" x="21634" y="545" width="120" height="126">
    <properties>
     <property name="difficulty" type="int" value="30"/>
    </properties>
   </object>
-  <object id="1969" gid="24" x="21662" y="563" width="30" height="30">
+  <object id="1969" gid="24" x="21587" y="563" width="30" height="30">
    <properties>
     <property name="difficulty" type="int" value="25"/>
    </properties>
   </object>
-  <object id="1970" gid="20" x="21652" y="604" width="30" height="30">
+  <object id="1970" gid="20" x="21577" y="604" width="30" height="30">
    <properties>
     <property name="difficulty" type="int" value="25"/>
    </properties>
@@ -1614,6 +1616,28 @@
     <property name="score" type="int" value="1000"/>
    </properties>
    <polygon points="0,0 0,72 30.6667,72 30.6667,-2.66667"/>
+  </object>
+  <object id="2042" gid="47" x="21753.7" y="545.333" width="300" height="168">
+   <properties>
+    <property name="Group" type="int" value="43"/>
+   </properties>
+  </object>
+  <object id="2043" type="path" x="21847.7" y="434.666">
+   <properties>
+    <property name="Group" type="int" value="43"/>
+   </properties>
+   <polygon points="49.3333,-40 25.3333,-250.666 -137.404,-170.785 -183,-33.6667 -147.334,-358.667 361.334,-361.333 206.667,-224 -13.333,-393.333 -194.667,-429.333 -194.667,-113.333 361.334,-127.333 363,-291.333 130.78,-152.872"/>
+  </object>
+  <object id="2044" gid="32" x="21832.3" y="512.666" width="60" height="34">
+   <properties>
+    <property name="Group" type="int" value="43"/>
+   </properties>
+  </object>
+  <object id="2045" gid="32" x="21915" y="515.333" width="60" height="34">
+   <properties>
+    <property name="Group" type="int" value="43"/>
+    <property name="speed" type="int" value="-300"/>
+   </properties>
   </object>
  </objectgroup>
 </map>

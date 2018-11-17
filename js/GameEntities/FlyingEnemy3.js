@@ -40,6 +40,14 @@ function FlyingEnemy3(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
         {x: GameField.x + GameField.width + 50, y: GameField.y + 60},
     ];
     
+    this.updatePathOffset = function(additionalOffset) {
+	        pathPoints.forEach((point) => {
+	            point.x -= additionalOffset;
+	        });
+	    
+	    this.path = new EnemyPath(pattern, this.position, speed, pathPoints);
+    };
+    
     if(path) {
         if(path.polygon === undefined) {
             pathPoints = path.polyline.slice(0);
@@ -54,6 +62,7 @@ function FlyingEnemy3(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
     }
     
     this.path = new EnemyPath(pattern, this.position, speed, pathPoints);
+    
     
     this.spawn = function(deltaX) {
         if(didSpawn) {return;}//only spawn once
@@ -92,7 +101,7 @@ function FlyingEnemy3(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
                         } else if(pattern === PathType.Sine) {
                             this.position.x += nextPos.x;
                             this.position.y += nextPos.y;
-                        } else if(pattern === PathType.Points) {
+                        } else if((pattern === PathType.Points) || (pattern === PathType.Loop)) {
                             this.position.x = nextPos.x;
                             this.position.y = nextPos.y;
                         }
