@@ -10,16 +10,15 @@ function Level2Boss(position = {x:0, y:0}, spawnPos = 0) {
     
     this.hitPoints = 40;//Level2Boss can't be killed
     
-    const SPRITE_SCALE = 4;
+    const SPRITE_SCALE = 2;
     this.position = {x:position.x, y:position.y};
     let unusedTime = 0;
     let startSpawn = -128;
     const DELTA_SPAWN = 768;
     this.isVisible = true;
     
-    let sprite = new AnimatedSprite(launchBaySheet, 30, 75, 45, false, true, {min:0, max:0}, 0, {min:0, max:29}, 128, {min:29, max:29}, 0);
+    let sprite = new AnimatedSprite(level2BossSheet, 30, 150, 84, false, true, {min:0, max:0}, 0, {min:0, max:29}, 128, {min:29, max:29}, 0);
     this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
-    this.position.y -= this.size.height/16;//adjusting due to sprite scale being so high
         
     const colliderPath = [{x: this.position.x, y: this.position.y + (SPRITE_SCALE * 3)},
                           {x: this.position.x + this.size.width, y: this.position.y + (SPRITE_SCALE * 3)},

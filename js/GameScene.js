@@ -12,7 +12,11 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
     this.levelIsComplete = false;
     this.didCompleteWarpChallenge = false;
     this.bgTime = bgTime;
-	const starfield = new Starfield();
+    let starfield = new Starfield();
+    if(levelIndex === WARP_INDEX) {
+	    starfield = new Starfield(240,120,80,-64,-128,-256);
+    }
+//	const starfield = new Starfield();
     let player;
     if((aPlayer === null) || (aPlayer === undefined)) {
 		player = new Player(data.getPlayerSpawn());
@@ -177,7 +181,6 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 	};
 	
 	this.updateBackground = function(deltaTime) {
-
 		// the dense starfield
 		this.parallaxOffset1 = -1 * (this.worldPos * BG_PARALLAX_RATIO_1[currentLevelIndex] % bkgdStars.width);
 		// the distant planets in midground
@@ -241,7 +244,18 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		canvasContext.drawImage(bkgdParallaxLayer, this.parallaxOffset2 + bkgdParallaxLayer.width,+ bgOffset);
 		
 		// twinkling stars
-		starfield.draw();
+		if(levelIndex === 1) {//level 2
+			canvasContext.save();
+			canvasContext.globalAlpha = 0.4;
+		}
+		
+		if(levelIndex != 2) {
+			starfield.draw();
+		}
+		
+		if(levelIndex === 1) {//level 2
+			canvasContext.restore();
+		}
 	}
 	
 	this.draw = function() {

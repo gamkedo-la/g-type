@@ -39,8 +39,8 @@ const WARP_INDEX = 3;//This should be 3, once we have all three levels implement
 const SCORE_PER_EXTRA_LIFE = 30000;
 const MAX_GHOSTS = 3;
 
-const BG_PARALLAX_RATIO_1 = [0.3, 5.0, 0.3, 0.3]; // starfield
-const BG_PARALLAX_RATIO_2 = [0.2, 3.0, 0.2, 0.2]; // transparent planets
+const BG_PARALLAX_RATIO_1 = [0.3, 0.25, 0.3, 0.3]; // starfield
+const BG_PARALLAX_RATIO_2 = [0.2, 0.5, 0.2, 0.2]; // transparent planets
 const BG_PARALLAX_RATIO_3 = [2.0, 4.0, 2.0, 2.0]; // girders
 const BG_COLOR_CHANGE_SPEED = 0.005; // pixels per second for the bacgroundColorLookup table
 
