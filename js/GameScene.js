@@ -174,7 +174,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
         gameEntities.clear();
         enemyBullets.clear();
         collisionManager.clearWorldAndBullets();
-        
+    
         populateWorld(newWorldPos);
 	};
 	
