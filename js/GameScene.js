@@ -476,8 +476,12 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		//powerUpActivated.play();//TODO: need this SFX track in the game, goes at the end so it isn't played if "None" is the power up
 	};
 	
-	this.displayScore = function(entity) {
-		const newScore = new TextEntity(entity.score.toString(), Fonts.CreditsText, Color.White, {x:entity.position.x, y:entity.position.y}, 512, false);
+	this.displayScore = function(entity, position) {
+		let showPos = {x:entity.position.x, y:entity.position.y};
+		if(position != undefined) {
+			showPos = {x:position.x, y:position.y};
+		}
+		const newScore = new TextEntity(entity.score.toString(), Fonts.CreditsText, Color.White, showPos, 512, false);
 		this.addEntity(newScore, false);
 		
 		uiManager.addToScore(entity.score);

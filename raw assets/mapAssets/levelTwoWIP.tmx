@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="700" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="2022">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="700" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="2032">
  <tileset firstgid="1" source="objects.tsx"/>
  <objectgroup id="6" name="Background">
   <properties>
@@ -1579,6 +1579,41 @@
     <property name="Group" type="int" value="41"/>
    </properties>
    <polyline points="0,0 -58.6667,-118.667 88,-117.333 88,134.667 196,136 24,-265.333 210.667,-264 210.667,61.3333 24,-340 244,-338.667 244,-24 156,-25.3333"/>
+  </object>
+  <object id="2022" type="freeCollider" x="6816" y="498.667">
+   <properties>
+    <property name="Group" type="int" value="0"/>
+    <property name="score" type="int" value="5000"/>
+   </properties>
+   <polygon points="0,0 0,110.667 208,108 208,2.66667"/>
+  </object>
+  <object id="2027" type="freeCollider" x="2134.67" y="476">
+   <properties>
+    <property name="Group" type="int" value="0"/>
+    <property name="score" type="int" value="1000"/>
+   </properties>
+   <polygon points="0,0 -1.33333,32 42.6667,33.3333 42.6667,0"/>
+  </object>
+  <object id="2029" type="freeCollider" x="4046.67" y="450.667">
+   <properties>
+    <property name="Group" type="int" value="0"/>
+    <property name="score" type="int" value="2000"/>
+   </properties>
+   <polygon points="0,0 0,105.333 64,104 62.6667,2.66667"/>
+  </object>
+  <object id="2030" type="freeCollider" x="4046.67" y="310.667">
+   <properties>
+    <property name="Group" type="int" value="0"/>
+    <property name="score" type="int" value="1500"/>
+   </properties>
+   <polygon points="0,0 0,101.333 64,102.667 64,2.66667"/>
+  </object>
+  <object id="2031" type="freeCollider" x="4068" y="200">
+   <properties>
+    <property name="Group" type="int" value="0"/>
+    <property name="score" type="int" value="1000"/>
+   </properties>
+   <polygon points="0,0 0,72 30.6667,72 30.6667,-2.66667"/>
   </object>
  </objectgroup>
 </map>
