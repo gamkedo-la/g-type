@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="700" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="2048">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="700" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="2158">
  <tileset firstgid="1" source="objects.tsx"/>
  <objectgroup id="6" name="Background">
   <properties>
@@ -303,6 +303,47 @@
   <object id="2006" gid="42" x="13536" y="452" width="77" height="68"/>
   <object id="2046" gid="1" x="22107" y="644" width="74" height="73"/>
   <object id="2047" gid="3" x="22160" y="607" width="40" height="40"/>
+  <object id="2061" gid="37" x="14497" y="607" width="76" height="38"/>
+  <object id="2062" gid="37" x="14574" y="607" width="76" height="38"/>
+  <object id="2063" gid="37" x="14651" y="607" width="76" height="38"/>
+  <object id="2064" gid="37" x="14727" y="607" width="76" height="38"/>
+  <object id="2065" gid="37" x="14803" y="607" width="76" height="38"/>
+  <object id="2068" gid="1" x="14545" y="587" width="74" height="73"/>
+  <object id="2069" gid="5" x="14603" y="580" width="27" height="27"/>
+  <object id="2070" gid="1" x="14603" y="572" width="74" height="73"/>
+  <object id="2071" gid="3" x="14645" y="588" width="40" height="40"/>
+  <object id="2072" gid="4" x="14670" y="564" width="32" height="37"/>
+  <object id="2073" gid="3" x="14682" y="584" width="40" height="40"/>
+  <object id="2074" gid="5" x="14593" y="534" width="27" height="27"/>
+  <object id="2075" gid="5" x="14612" y="517" width="27" height="27"/>
+  <object id="2076" gid="1" x="14704" y="583" width="74" height="73"/>
+  <object id="2077" gid="3" x="14758" y="586" width="40" height="40"/>
+  <object id="2078" gid="3" x="14797" y="587" width="40" height="40"/>
+  <object id="2079" gid="3" x="14778" y="565" width="40" height="40"/>
+  <object id="2080" gid="1" x="14741" y="545" width="74" height="73"/>
+  <object id="2081" gid="3" x="14685" y="545" width="40" height="40"/>
+  <object id="2082" gid="3" x="14657" y="534" width="40" height="40"/>
+  <object id="2083" gid="7" x="14682" y="526" width="90" height="90"/>
+  <object id="2084" gid="7" x="14613" y="514" width="90" height="90"/>
+  <object id="2100" gid="37" x="15060" y="455" width="76" height="38"/>
+  <object id="2101" gid="37" x="15138" y="455" width="76" height="38"/>
+  <object id="2102" gid="37" x="15216" y="455" width="76" height="38"/>
+  <object id="2106" gid="16" x="15061" y="415" width="30" height="30"/>
+  <object id="2107" gid="16" x="15257" y="417" width="30" height="30"/>
+  <object id="2108" gid="16" x="15257" y="381" width="30" height="30"/>
+  <object id="2109" gid="16" x="15257" y="345" width="30" height="30"/>
+  <object id="2110" gid="16" x="15061" y="381" width="30" height="30"/>
+  <object id="2113" gid="31" x="13984" y="412" width="60" height="60"/>
+  <object id="2114" gid="31" x="14914" y="352" width="60" height="60"/>
+  <object id="2138" gid="37" x="21012" y="292" width="76" height="38"/>
+  <object id="2139" gid="37" x="21090" y="292" width="76" height="38"/>
+  <object id="2140" gid="37" x="21168" y="292" width="76" height="38"/>
+  <object id="2141" gid="16" x="21013" y="252" width="30" height="30"/>
+  <object id="2142" gid="16" x="21209" y="254" width="30" height="30"/>
+  <object id="2143" gid="16" x="21209" y="218" width="30" height="30"/>
+  <object id="2144" gid="16" x="21209" y="182" width="30" height="30"/>
+  <object id="2145" gid="16" x="21013" y="218" width="30" height="30"/>
+  <object id="2146" gid="31" x="20866" y="381" width="60" height="60"/>
  </objectgroup>
  <objectgroup id="5" name="Enemies">
   <object id="1371" gid="12" x="244.335" y="75" width="30" height="21">
@@ -1427,12 +1468,12 @@
   </object>
   <object id="1966" gid="38" x="21614" y="546" width="40" height="28">
    <properties>
-    <property name="difficulty" type="int" value="25"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1967" gid="38" x="21653" y="545" width="40" height="28">
    <properties>
-    <property name="difficulty" type="int" value="25"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1968" gid="39" x="21634" y="545" width="120" height="126">
@@ -1442,57 +1483,57 @@
   </object>
   <object id="1969" gid="24" x="21587" y="563" width="30" height="30">
    <properties>
-    <property name="difficulty" type="int" value="25"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1970" gid="20" x="21577" y="604" width="30" height="30">
    <properties>
-    <property name="difficulty" type="int" value="25"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1971" gid="20" x="22196" y="572" width="30" height="30">
    <properties>
-    <property name="difficulty" type="int" value="25"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1972" gid="20" x="22222" y="547" width="30" height="30">
    <properties>
-    <property name="difficulty" type="int" value="25"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1973" gid="20" x="22249" y="521" width="30" height="30">
    <properties>
-    <property name="difficulty" type="int" value="25"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1974" gid="20" x="22249" y="449" width="30" height="30">
    <properties>
-    <property name="difficulty" type="int" value="25"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1975" gid="20" x="22253" y="377" width="30" height="30">
    <properties>
-    <property name="difficulty" type="int" value="25"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1976" gid="23" x="22270" y="69" width="30" height="30">
    <properties>
-    <property name="difficulty" type="int" value="25"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1977" gid="23" x="22270" y="141" width="30" height="30">
    <properties>
-    <property name="difficulty" type="int" value="25"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1978" gid="24" x="22274" y="220" width="30" height="30">
    <properties>
-    <property name="difficulty" type="int" value="25"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1979" gid="24" x="22269" y="296" width="30" height="30">
    <properties>
-    <property name="difficulty" type="int" value="25"/>
+    <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="2008" gid="40" x="13473" y="505.333" width="150" height="90" visible="0">
@@ -1637,6 +1678,299 @@
    <properties>
     <property name="Group" type="int" value="43"/>
     <property name="speed" type="int" value="-300"/>
+   </properties>
+  </object>
+  <object id="2048" gid="34" x="14025" y="472" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="44"/>
+   </properties>
+  </object>
+  <object id="2049" gid="34" x="14026" y="310" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="44"/>
+   </properties>
+  </object>
+  <object id="2050" gid="34" x="14026" y="151" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="44"/>
+   </properties>
+  </object>
+  <object id="2051" gid="34" x="14186" y="231" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="45"/>
+    <property name="difficulty" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="2052" gid="34" x="14186" y="391" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="46"/>
+    <property name="difficulty" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="2053" gid="34" x="14346" y="150" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="44"/>
+   </properties>
+  </object>
+  <object id="2054" gid="34" x="14345" y="310" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="44"/>
+   </properties>
+  </object>
+  <object id="2055" gid="34" x="14345" y="470" width="45" height="45">
+   <properties>
+    <property name="Group" type="int" value="44"/>
+   </properties>
+  </object>
+  <object id="2056" gid="12" x="15266" y="218" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="47"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="2057" gid="12" x="15329" y="217" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="47"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="2058" gid="12" x="15393" y="218" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="47"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="2059" gid="12" x="15458" y="218" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="47"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="2060" gid="12" x="15521" y="218" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="47"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="2066" gid="38" x="14495" y="571" width="40" height="28">
+   <properties>
+    <property name="difficulty" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="2067" gid="38" x="14841" y="571" width="40" height="28">
+   <properties>
+    <property name="difficulty" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="2085" gid="20" x="14541" y="537" width="30" height="30">
+   <properties>
+    <property name="difficulty" type="int" value="15"/>
+   </properties>
+  </object>
+  <object id="2086" gid="20" x="14587" y="511" width="30" height="30">
+   <properties>
+    <property name="difficulty" type="int" value="15"/>
+   </properties>
+  </object>
+  <object id="2087" gid="20" x="14599" y="462" width="30" height="30">
+   <properties>
+    <property name="difficulty" type="int" value="15"/>
+   </properties>
+  </object>
+  <object id="2088" gid="20" x="14622" y="440" width="30" height="30">
+   <properties>
+    <property name="difficulty" type="int" value="15"/>
+   </properties>
+  </object>
+  <object id="2089" gid="19" x="14664" y="439" width="30" height="30">
+   <properties>
+    <property name="difficulty" type="int" value="15"/>
+   </properties>
+  </object>
+  <object id="2090" gid="19" x="14683" y="460" width="30" height="30">
+   <properties>
+    <property name="difficulty" type="int" value="15"/>
+   </properties>
+  </object>
+  <object id="2091" gid="19" x="14735" y="454" width="30" height="30">
+   <properties>
+    <property name="difficulty" type="int" value="15"/>
+   </properties>
+  </object>
+  <object id="2092" gid="19" x="14754" y="474" width="30" height="30">
+   <properties>
+    <property name="difficulty" type="int" value="15"/>
+   </properties>
+  </object>
+  <object id="2094" gid="19" x="14790" y="494" width="30" height="30">
+   <properties>
+    <property name="difficulty" type="int" value="15"/>
+   </properties>
+  </object>
+  <object id="2095" gid="19" x="14813" y="552" width="30" height="30">
+   <properties>
+    <property name="difficulty" type="int" value="15"/>
+   </properties>
+  </object>
+  <object id="2096" gid="9" x="15330" y="92" width="30" height="21">
+   <properties>
+    <property name="Speed" type="int" value="-150"/>
+   </properties>
+  </object>
+  <object id="2097" gid="9" x="15459" y="123" width="30" height="21">
+   <properties>
+    <property name="Speed" type="int" value="-150"/>
+   </properties>
+  </object>
+  <object id="2098" gid="9" x="14988" y="389" width="30" height="21">
+   <properties>
+    <property name="Speed" type="int" value="-150"/>
+   </properties>
+  </object>
+  <object id="2099" gid="9" x="15555" y="283" width="30" height="21">
+   <properties>
+    <property name="Speed" type="int" value="-150"/>
+   </properties>
+  </object>
+  <object id="2104" gid="38" x="15100" y="414" width="40" height="28">
+   <properties>
+    <property name="difficulty" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="2105" gid="38" x="15210" y="416" width="40" height="28">
+   <properties>
+    <property name="difficulty" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="2112" gid="39" x="15082" y="417" width="120" height="126"/>
+  <object id="2115" gid="9" x="14805" y="142" width="30" height="21">
+   <properties>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="2116" gid="9" x="14673" y="288" width="30" height="21">
+   <properties>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="2126" gid="12" x="21216.5" y="472.5" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="47"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="2127" gid="12" x="21279.5" y="471.5" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="47"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="2128" gid="12" x="21343.5" y="472.5" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="47"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="2129" gid="12" x="21408.5" y="472.5" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="47"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="2130" gid="12" x="21471.5" y="472.5" width="30" height="21">
+   <properties>
+    <property name="Group" type="int" value="47"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="2131" gid="9" x="21280.5" y="346.5" width="30" height="21">
+   <properties>
+    <property name="Speed" type="int" value="-150"/>
+   </properties>
+  </object>
+  <object id="2132" gid="9" x="21409.5" y="377.5" width="30" height="21">
+   <properties>
+    <property name="Speed" type="int" value="-150"/>
+   </properties>
+  </object>
+  <object id="2133" gid="9" x="21002.5" y="419.5" width="30" height="21">
+   <properties>
+    <property name="Speed" type="int" value="-150"/>
+   </properties>
+  </object>
+  <object id="2134" gid="9" x="21505.5" y="537.5" width="30" height="21">
+   <properties>
+    <property name="Speed" type="int" value="-150"/>
+   </properties>
+  </object>
+  <object id="2135" gid="38" x="21050.5" y="254.5" width="40" height="28">
+   <properties>
+    <property name="difficulty" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="2136" gid="38" x="21160.5" y="254.5" width="40" height="28">
+   <properties>
+    <property name="difficulty" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="2137" gid="39" x="21026.5" y="255.5" width="120" height="126"/>
+  <object id="2147" gid="9" x="21107" y="90" width="30" height="21">
+   <properties>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="2148" gid="10" x="15737" y="87" width="50" height="50">
+   <properties>
+    <property name="Speed" type="int" value="-200"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="2149" gid="10" x="15881" y="119" width="50" height="50">
+   <properties>
+    <property name="Speed" type="int" value="-200"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="2150" gid="10" x="16007" y="87" width="50" height="50">
+   <properties>
+    <property name="Speed" type="int" value="-200"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="2152" type="path" x="15976" y="320">
+   <properties>
+    <property name="Group" type="int" value="48"/>
+   </properties>
+   <polyline points="0,0 -124,242 -398,170 -330,-254 388,56 38,232 158,-176 12,-176"/>
+  </object>
+  <object id="2153" gid="26" x="15953" y="343" width="50" height="50">
+   <properties>
+    <property name="Group" type="int" value="48"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="2154" gid="26" x="16035" y="343" width="50" height="50">
+   <properties>
+    <property name="Group" type="int" value="48"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="2155" gid="26" x="16127" y="343" width="50" height="50">
+   <properties>
+    <property name="Group" type="int" value="48"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="2156" gid="26" x="16215" y="341" width="50" height="50">
+   <properties>
+    <property name="Group" type="int" value="48"/>
+    <property name="difficulty" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="2157" gid="26" x="16299" y="345" width="50" height="50">
+   <properties>
+    <property name="Group" type="int" value="48"/>
+    <property name="difficulty" type="int" value="16"/>
    </properties>
   </object>
  </objectgroup>

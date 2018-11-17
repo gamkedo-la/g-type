@@ -19,6 +19,7 @@ function Level2Boss(position = {x:0, y:0}, spawnPos = 0) {
     
     let sprite = new AnimatedSprite(launchBaySheet, 30, 75, 45, false, true, {min:0, max:0}, 0, {min:0, max:29}, 128, {min:29, max:29}, 0);
     this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+    this.position.y -= this.size.height/16;//adjusting due to sprite scale being so high
         
     const colliderPath = [{x: this.position.x, y: this.position.y + (SPRITE_SCALE * 3)},
                           {x: this.position.x + this.size.width, y: this.position.y + (SPRITE_SCALE * 3)},
@@ -45,10 +46,8 @@ function Level2Boss(position = {x:0, y:0}, spawnPos = 0) {
             sprite.isDying = false;
             return;
         }
-        
-        this.position.x -= (worldPos - this.worldPos);
-        
-        if((this.worldPos > spawnPos + 300) && (!sprite.isDying)) {
+               
+        if((this.worldPos > spawnPos + 650) && (!sprite.isDying)) {
 			if(previousBackgroundMusic === null) {
 				scene.worldShouldPause(true);
 				previousBackgroundMusic = currentBackgroundMusic.getCurrentTrack();
