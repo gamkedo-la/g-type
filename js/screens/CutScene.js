@@ -4,6 +4,9 @@ function CutScene1Screen() {
 
     let starfield;
     let playerSprite;
+    let thrusterSprite;
+    let thrusterSize = {};
+    let thrusterPosition = {x:0, y:0};
     let PLAYER_SCALE = 1.2;
     let planetSprite;
     let playerSpriteDeltaX = 0;
@@ -17,7 +20,11 @@ function CutScene1Screen() {
 
     this.transitionIn = function() {
         starfield = new Starfield();
-        playerSprite = new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, 9999999, {min:5, max:7}, 128);
+        playerSprite = new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, Number.MAX_VALUE, {min:5, max:7}, 128);
+        thrusterSprite = new AnimatedSprite(playerThruster, 3, 33, 32, false, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
+
+		thrusterSize = {width:thrusterSprite.width, height:thrusterSprite.height};
+
 
         planetSprite = new AnimatedSprite(planetSheet, 3, 192, 192, false, true, {min:0, max:0}, 0, {min:0, max:2}, 512, {min:2, max:2}, 0);
 
@@ -70,6 +77,7 @@ function CutScene1Screen() {
 		}
 
 		playerSprite.update(deltaTime);
+		thrusterSprite.update(deltaTime);
 		planetSprite.update(deltaTime);
 		planetScale = 0.5 + delayTime / DISPLAY_TIME; //.25
 	};
@@ -90,10 +98,16 @@ function CutScene1Screen() {
 		gameFont.printTextAt(textStrings.CutScene1_4, {x:GameField.midX, y: GameField.bottom - 30}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
 		gameFont.printTextAt(textStrings.CutScene1_5, {x:GameField.midX, y: GameField.bottom + 0}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
 		gameFont.printTextAt(textStrings.SkipCutScene, {x:GameField.right - 70, y: GameField.bottom + 60}, 12, textAlignment.Right, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
+		
+		const spritePos = {x:GameField.x + GameField.width / 8 + playerSpriteDeltaX, y: GameField.y + 2 * GameField.height / 3 + playerSpriteDeltaY};
+		let thrusterMod = timer.getCurrentTime() % 16 < 8 ? 0 : 3;
+		thrusterPosition.x = spritePos.x - (28 + thrusterMod) * PLAYER_SCALE;
+		thrusterPosition.y = spritePos.y;
 
-        playerSprite.drawAt({x:GameField.x + GameField.width / 8 + playerSpriteDeltaX, y: GameField.y + 2 * GameField.height / 3 + playerSpriteDeltaY}, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
-        //playerSprite.drawAt({x:GameField.x + GameField.width / 8 + playerSpriteDeltaX, y: GameField.y + 2 * GameField.height / 3 + playerSpriteDeltaY}, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
-
+		thrusterSprite.drawAt(thrusterPosition, {width:PLAYER_SCALE * thrusterSprite.width, height:PLAYER_SCALE * thrusterSprite.height});
+		
+        playerSprite.drawAt(spritePos, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
+ 
         canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
 
     };
