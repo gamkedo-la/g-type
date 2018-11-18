@@ -5,6 +5,9 @@ function GameOverScreen() {
     this.selectorPositionsIndex = 0;
     let selectorPosition = {x:0, y:0};
     let selectorSprite;
+    let thrusterSprite;
+    let thrusterSize = {};
+    let thrusterPosition = {x:0, y:0};
     let starfield;
     this.selections = [
 	    { screen: GAME_SCREEN, title: textStrings.Continue },
@@ -20,7 +23,10 @@ function GameOverScreen() {
 
         this.selectorPositionsIndex = 0;
         starfield = new Starfield();
-        selectorSprite = new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, 9999999, {min:5, max:7}, 128);
+        selectorSprite = new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, Math.MAX_VALUE, {min:5, max:7}, 128);
+        thrusterSprite = new AnimatedSprite(playerThruster, 3, 33, 32, false, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
+
+		thrusterSize = {width:thrusterSprite.width, height:thrusterSprite.height};
 
         currentBackgroundMusic.setCurrentTrack(AudioTracks.GameOver);
         if(currentBackgroundMusic.getTime() > 0){
@@ -80,20 +86,21 @@ function GameOverScreen() {
 	    let mainMenuX = GameField.midX - 80;
 	    let mainMenuY = (yOffset == null ? GameField.y + 4 * GameField.height / 5 : yOffset);
 
-	    const selectorXOffset = 35;
+	    const selectorXOffset = 65;
 	    const selectorYOffset = 30;
 
 	    for (let i = 0; i < menuItems.length; i++){
     	    gameFont.printTextAt(menuItems[i].title, {x:mainMenuX, y: (mainMenuY + selectorYOffset * i)}, 20,  textAlignment.Left);
 		    if(i === selected) {
 			    selectorPosition.x = mainMenuX - selectorXOffset;
-			    selectorPosition.y = mainMenuY + selectorYOffset * i;
+			    selectorPosition.y = mainMenuY - 7 + selectorYOffset * i;
 		    }
 	    }
 	};
 
 	const update = function(deltaTime) {
 		selectorSprite.update(deltaTime);
+		thrusterSprite.update(deltaTime);
 
 		starfield.update(deltaTime);
 	};
@@ -109,6 +116,14 @@ function GameOverScreen() {
 
         // render menu
         printMenu(selections, selectorPositionIndex);
+        
+        //draw the thruster
+		let thrusterMod = timer.getCurrentTime() % 16 < 8 ? 0 : 3;
+		thrusterPosition.x = selectorPosition.x - 28 + thrusterMod;
+		thrusterPosition.y = selectorPosition.y;
+		//this.thrusterSize.width = thrusterSprite.width * thrusterMod;
+		thrusterSprite.drawAt(thrusterPosition, thrusterSize);
+        
         //draw selector sprite
         selectorSprite.drawAt(selectorPosition, {width:52, height:32});
 

@@ -176,7 +176,7 @@ function Player(position = {x:0, y:0}) {
 
 		//draw the thruster
 		let thrusterMod = timer.getCurrentTime() % 16 < 8 ? 0 : 3;
-		this.thrusterPosition.x = this.position.x-28+thrusterMod;
+		this.thrusterPosition.x = this.position.x - 28 + thrusterMod;
 		this.thrusterPosition.y = this.position.y;
 		//this.thrusterSize.width = thrusterSprite.width * thrusterMod;
 		thrusterSprite.drawAt(this.thrusterPosition, this.thrusterSize);
