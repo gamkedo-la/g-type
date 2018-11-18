@@ -11,9 +11,9 @@ function CreditsScreen() {
 	    {screen: MENU_SCREEN, title: textStrings.Main},
 	   ];
 
-    this.scrollLimit = -3200;
+    this.scrollLimit = -3100;
     this.currentY = 0;
-    this.scrollSpeed = 4 / 50;
+    this.scrollSpeed = 5 / 50;
     this.totalTime = 0;
     this.contributors = textStrings.Contributors;
     let creditsText;
@@ -88,6 +88,7 @@ function CreditsScreen() {
 
         this.currentY -= Math.floor((deltaTime) * this.scrollSpeed);
 
+        // console.log(this.currentY);
         if (this.currentY < this.scrollLimit) {
             ScreenStates.setState(MENU_SCREEN);
         }
