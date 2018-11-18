@@ -46,6 +46,7 @@ function Player(position = {x:0, y:0}) {
 	explosionSprite.wasBorn = true;
 	explosionSprite.isDying = true;
 	let explosionEmitter = 0;
+	let trailEmitter = 0;
 
 	const SPRITE_SCALE = 1.0;//make sure to change the x and y position of the playershot to match scaling
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
@@ -119,6 +120,8 @@ function Player(position = {x:0, y:0}) {
 			return;
 		} else if(!sprite.isDying) {
 			this.adjustVelocityAndSpriteForPlayerInput();
+
+			trailEmitter = createParticleEmitter(this.position.x,this.position.y + this.size.height / 2, playerTrail);
 
 			if(holdKey[KEY_X]) {//shooting
 				this.doShooting();
@@ -295,7 +298,7 @@ function Player(position = {x:0, y:0}) {
 
 			timer.updateEvent(PlayerEvent.LastShot);
 		}
-		
+
 		if((hasMissiles) && (timeSinceLastMissile > currentMissileDelay)) {
 			let newMissile
 			if(missiles.length >= MAX_SHOTS_ON_SCREEN) {
@@ -309,7 +312,7 @@ function Player(position = {x:0, y:0}) {
 			newMissile.reset();
 			missiles.push(newMissile);
 			scene.addEntity(newMissile, true);
-			
+
 			timer.updateEvent(PlayerEvent.LastMissile);
 		}
 	};
@@ -343,7 +346,7 @@ function Player(position = {x:0, y:0}) {
 			if(velocity.x < currentSpeed * .85){thrusterSprite.setFrame(thrusterFrame.mid)}
 			else ( thrusterSprite.setFrame(thrusterFrame.max) );
 		}
-		
+
 
 		//indicates the sprite is NOT "playing" the death animation => can still fly around the screen and shoot
 		if(holdKey[KEY_LEFT] || holdKey[KEY_A]) {
@@ -377,8 +380,8 @@ function Player(position = {x:0, y:0}) {
 			} else {
 				velocity.y = -currentSpeed;
 			}
-			
-			
+
+
 		} else if(holdKey[KEY_DOWN] || holdKey[KEY_S]) {
 			if(velocity.y < currentSpeed) {
 				velocity.y += 0.6 * currentSpeed;
@@ -471,7 +474,7 @@ function Player(position = {x:0, y:0}) {
 			delayMultiplier = 2;
 		}
 		currentShotDelay = delayMultiplier * BASE_SHOT_DELAY;
-		
+
 		let missileDelayMult = currentMissileDelay / BASE_MISSILE_DELAY;
 		missileDelayMult -= 1.0;
 		if(missileDelayMult < 2) {
