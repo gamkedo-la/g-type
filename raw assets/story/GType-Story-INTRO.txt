@@ -1,0 +1,42 @@
+Back story
+Year: 2276
+Location: Edge of the solar system
+Humans have settled on The Moon, Mars and a few planetary moons. They are now reaching beyond the solar system.
+Good guys (light) = United Sol Force (USF)
+Bad guys (dark) = Krammix (play on cram or crunch)
+
+Story Option 2 (chosen by H)
+First USF ships to reach the edge of solar system discover massive alien ship that appears dead or adrift
+USF ships Land on alien ship and begin scanning it
+Find lots of alien data. including unknown powerful tech
+Ship wakes up and sends distress signal which opens a wormhole
+Alien ship disappears into the wormhole taking some of the USF ships and crew with it (this will create zombies later)
+USF uses alien tech data and builds G-Type ship to follow alien ship and rescue lost USF ships and crew
+
+
+--------
+GAME TEXT
+--------
+
+CUT SCENE 1
+
+Version 1
+    CutScene1_1:"-PHASE 1-",
+    CutScene1_2:"Phase 1 - Defeat Planetary Defenses",
+    CutScene1_3:"to enable follow on forces to approach safely",
+
+-PHASE 1-
+Pilot the experimental G-Type ship to the 
+hostile homeworld of the KRAMMIX. Defeat the planetary defenses to enable USF forces to safely search for lost crew.
+
+Good luck G-Type!
+The USF is counting on you!
+
+CUT SCENE 2
+
+-PHASE 2-
+Krammix defenses are down! Destroy the ground forces before reinforcements arrive.
+Act fast!  USF agents have discovered that the Krammix are planning on taking over the galaxy!
+
+Good luck G-Type!
+The galaxy is counting on you!

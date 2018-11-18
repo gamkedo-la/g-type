@@ -171,16 +171,18 @@ const textStrings = {
         "",
         "Copyright 2018"
     ],
-    CutScene1_1:"Operation SAVE THE UNIVERSE",
-    CutScene1_2:"Phase 1 - Defeat Planetary Defenses",
-    CutScene1_3:"to enable follow on forces to approach safely",
+    CutScene1_1:"-PHASE 1-", //aka level 1 intro title
+    CutScene1_2:"Pilot the G-Type ship to the hostile",
+    CutScene1_3:"homeworld of the KRAMMIX.",
+    CutScene1_4:"", //empty line
+    CutScene1_5:"Good luck G-Type!",
     SkipCutScene:"Enter to skip",
     Contributors: [
 {name:"H Trayford",   works: ['stuff'] },
 {name:"Ryan Malm",   works: ['stuff'] },
 {name:"Vaan Hope Khani",   works: ['stuff'] },
 {name:"Christer \"McFunkypants\" Kaitila",   works: ['stuff'] },
-{name:"Jeff Hanlon",   works: ['main story writing','player ship sprite including turns','game font','thruster sprites','original player art (became a boss)','main menu selector', 'planet sprite'] },
+{name:"Jeff \"Axphin\" Hanlon",   works: ['main story writing','player ship sprite including turns','game font','thruster sprites','original player art (became a boss)','main menu selector', 'planet sprite'] },
 {name:"Jaime Rivas",   works: ['explosion animation','shot flash effect','powerup refactoring','clear screen powerup'] },
 {name:"Chris Markle",   works: ['player fire sound','small and large explosion sounds','shield sound','mini boss music','item pickup sound','menu interaction sounds'] },
 {name:"Randy Tan Shaoxian",   works: ['text scroll support', 'cutscene code', 'level skip cheat','WASD input code','improved keyboard support'] },

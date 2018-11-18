@@ -10,8 +10,8 @@ function CutScene1Screen() {
     let playerSpriteDeltaY = 0;
     let planetScale = 0.5;
 
-    const DISPLAY_TIME = 6000;//6000 = 6 second display time
-    const INTRO_STORY_SCROLL_SPEED_Y = 0.001;
+    const DISPLAY_TIME = 7000;//6000 = 6 second display time
+    const INTRO_STORY_SCROLL_SPEED_Y = 0.001; //default is 0.001
 
     let delayTime = 0;
 
@@ -64,14 +64,14 @@ function CutScene1Screen() {
 		starfield.update(deltaTime);
 
 		if(delayTime > 0.25 * DISPLAY_TIME) {
-			playerSpriteDeltaX += (16 * delayTime / DISPLAY_TIME);
-			playerSpriteDeltaY -= (4 * delayTime / DISPLAY_TIME);
+			playerSpriteDeltaX += (18 * delayTime / DISPLAY_TIME); //16
+			playerSpriteDeltaY -= (6 * delayTime / DISPLAY_TIME); //8
 			PLAYER_SCALE -= (0.01 * delayTime / DISPLAY_TIME);
 		}
 
 		playerSprite.update(deltaTime);
 		planetSprite.update(deltaTime);
-		planetScale = 0.25 + delayTime / DISPLAY_TIME;
+		planetScale = 0.5 + delayTime / DISPLAY_TIME; //.25
 	};
 
 	const draw = function(deltaTime) {
@@ -79,16 +79,20 @@ function CutScene1Screen() {
         drawBG();
 
         starfield.draw();
+        
+        planetSprite.drawAt({x:GameField.x + 5 * GameField.width / 6, y:GameField.y + GameField.height / 7}, {width:planetScale * planetSprite.width, height:planetScale * planetSprite.height});
 
-        gameFont.printTextAt(textStrings.CutScene1_1, {x:GameField.midX, y:GameField.bottom - 120}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
+//{deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}}
+
+        gameFont.printTextAt(textStrings.CutScene1_1, {x:GameField.midX, y:GameField.bottom - 300}, 16, textAlignment.Center);//, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
 		gameFont.printTextAt(textStrings.CutScene1_2, {x:GameField.midX, y: GameField.bottom - 90}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
 		gameFont.printTextAt(textStrings.CutScene1_3, {x:GameField.midX, y: GameField.bottom - 60}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
-		gameFont.printTextAt(textStrings.SkipCutScene, {x:GameField.right - 70, y: GameField.bottom - 30}, 12, textAlignment.Right, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
+		gameFont.printTextAt(textStrings.CutScene1_4, {x:GameField.midX, y: GameField.bottom - 30}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
+		gameFont.printTextAt(textStrings.CutScene1_5, {x:GameField.midX, y: GameField.bottom + 0}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
+		gameFont.printTextAt(textStrings.SkipCutScene, {x:GameField.right - 70, y: GameField.bottom + 60}, 12, textAlignment.Right, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
 
         playerSprite.drawAt({x:GameField.x + GameField.width / 8 + playerSpriteDeltaX, y: GameField.y + 2 * GameField.height / 3 + playerSpriteDeltaY}, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
-
-
-        planetSprite.drawAt({x:GameField.x + 5 * GameField.width / 6, y:GameField.y + GameField.height / 7}, {width:planetScale * planetSprite.width, height:planetScale * planetSprite.height});
+        //playerSprite.drawAt({x:GameField.x + GameField.width / 8 + playerSpriteDeltaX, y: GameField.y + 2 * GameField.height / 3 + playerSpriteDeltaY}, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
 
         canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
 
