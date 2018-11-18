@@ -106,14 +106,14 @@ function CreditsScreen() {
         creditsText.update(deltaTime, {x:0, y:this.scrollSpeed});
 		creditsText.draw();
 
-		canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
+		// canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
 
-		gameFont.printTextAt(textStrings.Credits, {x:GameField.midX, y:GameField.y}, 30, textAlignment.Center);
+		gameFont.printTextAt(textStrings.Credits, {x:GameField.midX, y:GameField.y-105}, 30, textAlignment.Center);
 
         /*gameFont.printTextAt("[^] to Scroll Faster", {x:GameField.x + 20, y:GameField.bottom - 80}, 12, textAlignment.Left);
 		gameFont.printTextAt("[|] to Scroll Slower", {x:GameField.x + 20, y:GameField.bottom - 60}, 12, textAlignment.Left);
 		gameFont.printTextAt("[Space] to Pause", {x:GameField.x + 20, y:GameField.bottom - 40}, 12, textAlignment.Left);*/
-		gameFont.printTextAt("[Backspace] to Main Menu", {x:GameField.x + 500, y:GameField.bottom - 20}, 12, textAlignment.Left);
+		gameFont.printTextAt("[Backspace] to Main Menu", {x:GameField.x + 450, y:GameField.bottom + 30}, 14, textAlignment.Left);
 
 		scene.update(deltaTime);
 		scene.draw();

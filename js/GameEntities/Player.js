@@ -443,8 +443,8 @@ function Player(position = {x:0, y:0}) {
 			scene.collectedCapsule();
 		} else if((otherEntity.type === EntityType.PlayerShield) || (otherEntity.type === EntityType.RagnarokCapsule)) {
 			return;//Player is not damaged by colliding with it's own shield or with the RagnarokCapsule
-		} else if(otherEntity.type === EntityType.FreeCollider) {
-			return;//Player is not damaged by colliding with a free collider
+		} else if(otherEntity.type === EntityType.FreeCollider || otherEntity.type === EntityType.Text) {
+			return;//Player is not damaged by colliding with a free collider, or harmless text
 		} else {
 			if (isInvincible || cheats.playerInvincible || shield.isActive) {
 				if(cheats.playerInvincible) {

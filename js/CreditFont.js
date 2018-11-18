@@ -57,7 +57,7 @@ function CreditFont(activeImage, inactiveImage, frameSize, context) {
 function CollidableChar(activeImage, inactiveImage, character, frameSize, drawSize, position, context) {
 	this.isActive = true;
 	this.isCollidable = false;
-	this.type = EntityType.CollidableText;
+	this.type = EntityType.Text;
 	this.position = {x:position.x, y:position.y};
 	this.size = {width:drawSize.width, height:drawSize.height};
 	
