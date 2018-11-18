@@ -200,7 +200,14 @@ function OptionsScreen() {
 
 		//draw the actual help info
 		drawOptions();
-
+		
+		//draw the thruster
+		let thrusterMod = timer.getCurrentTime() % 16 < 8 ? 0 : 3;
+		thrusterPosition.x = selectorPosition.x - 28 + thrusterMod;
+		thrusterPosition.y = selectorPosition.y;
+		//this.thrusterSize.width = thrusterSprite.width * thrusterMod;
+		thrusterSprite.drawAt(thrusterPosition, thrusterSize);
+		
         //draw selector sprite
         selectorSprite.drawAt(selectorPosition, {width:52, height:32});
 
