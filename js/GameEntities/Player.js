@@ -448,7 +448,7 @@ function Player(position = {x:0, y:0}) {
 		} else {
 			if (isInvincible || cheats.playerInvincible || shield.isActive) {
 				if(cheats.playerInvincible) {
-					console.log("Note: cheats.playerInvincible turned on");
+//					console.log("Note: cheats.playerInvincible turned on");
 				}
 				//TODO: does anything need to be done here?
 			} else {

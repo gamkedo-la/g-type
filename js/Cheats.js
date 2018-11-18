@@ -21,11 +21,11 @@ function Cheats() {
             console.log("Shift + Left moves to previous level.");
             console.log("Shift + Right moves to next level.");
         } else {
-            console.log("Debug Keys are turned off in Cheats.js");
+//            console.log("Debug Keys are turned off in Cheats.js");
         }
     }
 
     this.playerInvincible = false;
-    this.debugKeysEnabled = true;
+    this.debugKeysEnabled = false;
 }
 let cheats = new Cheats();

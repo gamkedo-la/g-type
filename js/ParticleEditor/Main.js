@@ -59,15 +59,15 @@ function windowOnResize() {
 }
 
 function onFullscreenChange() {
-    console.log("Fullscreen mode just changed! =)");
+//    console.log("Fullscreen mode just changed! =)");
 }
 
 function onFullscreenError() {
-    console.log("Fullscreen request was denied.");
+//    console.log("Fullscreen request was denied.");
 }
 
 function toggleFullScreen() {
-    console.log("Toggling FULLSCREEN mode...");
+//    console.log("Toggling FULLSCREEN mode...");
     if ((document.fullScreenElement && document.fullScreenElement !== null) ||
         (!document.mozFullScreen && !document.webkitIsFullScreen)) {
         if (document.documentElement.requestFullScreen) {
@@ -222,7 +222,7 @@ function loadConfig () {
         applyAllConfig(currentConfig);
         //currentConfig = loadConfig;
     } catch (error) {
-        console.log("Error: entered configuration is not valid");
+//        console.log("Error: entered configuration is not valid");
     }
 
 }

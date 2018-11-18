@@ -317,7 +317,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 
 	this.activatedForce = function() {
 		player.activateTheForce();
-		console.log("Tried to 'Use The Force!'");
+//		console.log("Tried to 'Use The Force!'");
 		uiManager.powerUpWasActivated(PowerUpType.Force, null);
 	};
 	

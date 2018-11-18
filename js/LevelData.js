@@ -100,7 +100,7 @@ function getPath(pathsObject, entity) {
     });
 
     if(entity.type === EntityType.Rock01) {
-	    console.log("Matching Path: " + matchingPath);
+//	    console.log("Matching Path: " + matchingPath);
     }
 
     if(matchingPath === undefined) {return null;};
