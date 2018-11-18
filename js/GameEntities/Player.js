@@ -272,11 +272,11 @@ function Player(position = {x:0, y:0}) {
 
 			switch(this.currentShotType) {
 				case EntityType.PlayerShot:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 80, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 70, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
 					playerFireRegular.play();//play the audio
 					break;
 				case EntityType.PlayerDouble:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 80, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 70, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
 					initializeShot(secondShot, this.currentShotType, {x:this.position.x + 60, y:this.position.y + 2}, {x: secondVel.x, y: secondVel.y}, true);
 					playerFireRegular.play();
 					break;
@@ -285,7 +285,7 @@ function Player(position = {x:0, y:0}) {
 					playerFireLaser.play();
 					break;
 				case EntityType.PlayerTriple:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 80, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 70, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
 					initializeShot(secondShot, this.currentShotType, {x:this.position.x + 80, y:this.position.y + 4}, {x: secondVel.x, y: secondVel.y}, true);
 					initializeShot(thirdShot, this.currentShotType, {x:this.position.x - thirdShot.size.width, y:this.position.y + 4}, {x: thirdVel.x, y: thirdVel.y}, true);
 					playerFireRegular.play();
