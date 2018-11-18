@@ -211,8 +211,10 @@ function CollidableChar(activeImage, inactiveImage, character, frameSize, drawSi
 				return {x:10 * frameSize.width, y:frameSize.height};
 			case "@":
 				return {x:11 * frameSize.width, y:frameSize.height};
+			case "(":
 			case "[":
 				return {x:12 * frameSize.width, y:frameSize.height};
+			case ")":
 			case "]":
 				return {x:13 * frameSize.width, y:frameSize.height};
 			case ">":

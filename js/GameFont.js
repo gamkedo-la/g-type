@@ -139,9 +139,11 @@ function GameFont(image, charSize, context) {
 				return {x:10 * charSize.width, y:charSize.height};
 			case "@":
 				return {x:11 * charSize.width, y:charSize.height};
+			case "(":
 			case "[":
 				return {x:12 * charSize.width, y:charSize.height};
 			case "]":
+			case ")":
 				return {x:13 * charSize.width, y:charSize.height};
 			case ">":
 				return {x:14 * charSize.width, y:charSize.height};

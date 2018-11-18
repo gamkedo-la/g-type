@@ -64,7 +64,7 @@ function CreditsScreen() {
     };
 
     this.drawContributors = function() {
-        let nameX = GameField.midX - 350;
+        let nameX = GameField.midX - 370;
         let textSkip = 20;
         let height = 24;
         var textY = 150;
