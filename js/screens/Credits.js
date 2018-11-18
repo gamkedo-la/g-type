@@ -45,7 +45,7 @@ function CreditsScreen() {
     };
 
     this.buildContributors = function() {
-	    let nameX = GameField.midX - 50;
+	    let nameX = GameField.midX * 0.2;
         let textSkip = 20;
         let height = 24;
         var textY = 150;
@@ -110,10 +110,10 @@ function CreditsScreen() {
 
 		gameFont.printTextAt(textStrings.Credits, {x:GameField.midX, y:GameField.y}, 30, textAlignment.Center);
 
-        gameFont.printTextAt("[^] to Scroll Faster", {x:GameField.x + 20, y:GameField.bottom - 80}, 12, textAlignment.Left);
+        /*gameFont.printTextAt("[^] to Scroll Faster", {x:GameField.x + 20, y:GameField.bottom - 80}, 12, textAlignment.Left);
 		gameFont.printTextAt("[|] to Scroll Slower", {x:GameField.x + 20, y:GameField.bottom - 60}, 12, textAlignment.Left);
-		gameFont.printTextAt("[Space] to Pause", {x:GameField.x + 20, y:GameField.bottom - 40}, 12, textAlignment.Left);
-		gameFont.printTextAt("[Backspace] to Main Menu", {x:GameField.x + 20, y:GameField.bottom - 20}, 12, textAlignment.Left);
+		gameFont.printTextAt("[Space] to Pause", {x:GameField.x + 20, y:GameField.bottom - 40}, 12, textAlignment.Left);*/
+		gameFont.printTextAt("[Backspace] to Main Menu", {x:GameField.x + 500, y:GameField.bottom - 20}, 12, textAlignment.Left);
 
 		scene.update(deltaTime);
 		scene.draw();

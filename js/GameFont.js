@@ -114,7 +114,7 @@ function GameFont(image, charSize, context) {
 				return {x:24 * charSize.width, y:0};
 			case "z":
 			case "Z":
-				return {x:25 * charSize.width, y:charSize.height};
+				return {x:25 * charSize.width, y:0};
 			case "0":
 				return {x:0, y:charSize.height};
 			case "1":
