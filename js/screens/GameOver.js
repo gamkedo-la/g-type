@@ -110,7 +110,7 @@ function GameOverScreen() {
         // render menu
         printMenu(selections, selectorPositionIndex);
         //draw selector sprite
-        selectorSprite.drawAt(selectorPosition, {width:30, height:19});
+        selectorSprite.drawAt(selectorPosition, {width:52, height:32});
 
 		canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
 

@@ -21,7 +21,7 @@ function MenuScreen() {
     this.transitionIn = function menuScreenTransitionIn() {
         //canvasContext.transform(1,0,0,1,0,0);
         this.selectorPositionsIndex = 0;
-        starfield = new Starfield(240,120,80,-64,-128,-256);
+        starfield = new Starfield(240, 120, 80, -64, -128, -256);
         selectorSprite = new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, 9999999, {min:5, max:7}, 128);
 
         currentBackgroundMusic.setCurrentTrack(AudioTracks.MainMenu);
