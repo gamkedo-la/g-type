@@ -6,7 +6,7 @@ function Cheats() {
 
     this.documentDebugKeysIfEnabled = function() {
         if(this.debugKeysEnabled) {
-            console.log("Debug Keys Enabled: ");
+/*            console.log("Debug Keys Enabled: ");
             console.log("C adds capsules");
             console.log("E activates shield");
             console.log("L adds lives");
@@ -19,13 +19,13 @@ function Cheats() {
             console.log("F activates force");
             console.log("O triggers the endgame");
             console.log("Shift + Left moves to previous level.");
-            console.log("Shift + Right moves to next level.");
+            console.log("Shift + Right moves to next level.");*/
         } else {
 //            console.log("Debug Keys are turned off in Cheats.js");
         }
     }
 
     this.playerInvincible = false;
-    this.debugKeysEnabled = false;
+    this.debugKeysEnabled = true;
 }
 let cheats = new Cheats();
