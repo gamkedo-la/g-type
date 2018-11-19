@@ -18,11 +18,11 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 	this.score = 5000;
 	let previousBackgroundMusic = null;
 	
-    this.hitPoints = 40;     // Every enemy type should have a hitPoints property
+    this.hitPoints = 120;     // Every enemy type should have a hitPoints property
     const INVINCIBILITY_TIME = 128;
     this.invincibilityTime = 0;
 
-	const SPRITE_SCALE = 1.0;
+	const SPRITE_SCALE = 0.5;
 	let vel = {x:speed, y:speed};
 	let unusedTime = 0;
 	this.isVisible = true;
