@@ -76,16 +76,14 @@ function DemoSceneScreen() {
 		} else if(runtime < 600) {// >300
 			holdKey[KEY_RIGHT] = true;
 		} else if(runtime < 900) {// >600
-		//	holdKey[KEY_UP] = true;
+		//	do nothing
 		} else if(runtime < 1500) {// >900
 			holdKey[KEY_RIGHT] = false;
 		} else if(runtime < 4000) {// >1500
 			holdKey[KEY_RIGHT] = true;
 		} else if(runtime < 5300) {// >1500
 			holdKey[KEY_RIGHT] = false;
-		} else if(runtime < 9500) {// >3000
-		//	holdKey[KEY_UP] = false;
-		//	holdKey[KEY_RIGHT] = false;
+		} else if(runtime < 9400) {// >3000
 			holdKey[KEY_X] = true;
 		} else if(runtime < 10800) {// >7000
 			holdKey[KEY_RIGHT] = true;
@@ -93,7 +91,7 @@ function DemoSceneScreen() {
 		} else if(runtime < 11000) {// >10000
 			holdKey[KEY_RIGHT] = false;
 			holdKey[KEY_LEFT] = true;
-		} else if(runtime < 12150) {// >11000
+		} else if(runtime < 12350) {// >11000
 			holdKey[KEY_DOWN] = true;
 		} else if(runtime < 15000) {// >13250
 			holdKey[KEY_DOWN] = false;
@@ -103,11 +101,11 @@ function DemoSceneScreen() {
 		} else if(runtime < 20500) {// >16000
 			holdKey[KEY_RIGHT] = true;
 			holdKey[KEY_X] = false;
-		} else if(runtime < 22250) {// >20000
+		} else if(runtime < 23000) {// >20000
 			holdKey[KEY_RIGHT] = false;
 			holdKey[KEY_LEFT] = true;
 			holdKey[KEY_UP] = true;
-		} else if(runtime < 23000) {// >22000
+		} else if(runtime < 23100) {// >22000
 			holdKey[KEY_UP] = false;
 			holdKey[KEY_LEFT] = false;
 		} else if(runtime < 29000) {// >27500
@@ -124,7 +122,7 @@ function DemoSceneScreen() {
 			ScreenStates.setState(MENU_SCREEN);
 		}
 		
-		if(scene.capsuleCount > 0) {
+		if(scene.capsuleCount === 2) {
 			scene.activatePowerUp();
 		}
 	}
