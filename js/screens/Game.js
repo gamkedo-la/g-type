@@ -111,7 +111,9 @@ function GamePlayScreen () {
         if (this.keysPressed(KEY_SHIFT, KEY_LEFT)) {
             if (!pressed) {
                 currentLevelIndex--; // TODO: Take into account level that does not exist.
-                console.log("Loaded Level " + currentLevelIndex + "!");
+                if(currentLevelIndex < 0) {
+	                currentLevelIndex = (LevelData.length - 1);
+                }
                 this.transitionOut();
                 this.transitionIn(currentLevelIndex); 
             }
@@ -119,7 +121,9 @@ function GamePlayScreen () {
         } else if (this.keysPressed(KEY_SHIFT, KEY_RIGHT)) {
             if (!pressed) {
                 currentLevelIndex++; // TODO: Take into account level that does not exist.
-                console.log("Loaded Level " + currentLevelIndex + "!");
+                if(currentLevelIndex === LevelData.length) {
+	                currentLevelIndex = 0;
+                }
                 this.transitionOut();
                 this.transitionIn(currentLevelIndex);
             }

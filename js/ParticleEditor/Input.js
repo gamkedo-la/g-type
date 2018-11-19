@@ -15,7 +15,7 @@
 //            In addition, the update method must be called every frame, otherwise getKeyDown will not work
 function Input() {
 
-    console.log("Initializing Input module.");
+//    console.log("Initializing Input module.");
 
     var mouseX = 0;
     var mouseY = 0;
@@ -227,7 +227,7 @@ function Input() {
 
     // Mouse movement requires an object named "canvas". Otherwise, only keyboard input works
     if (!canvas) {
-        console.log("Error: no canvas object. Mouse movement detection is not supported.");
+//        console.log("Error: no canvas object. Mouse movement detection is not supported.");
         return;
     }
     if (typeof scaledCanvas !== "undefined") {
@@ -237,7 +237,7 @@ function Input() {
         scaledCanvas.addEventListener("mouseout", function () { mouseIsOverCanvas = false; });
 
         useScaled = true;
-        console.log("Canvas mode detected: using scaled canvas ('scaledCanvas variable').");
+//        console.log("Canvas mode detected: using scaled canvas ('scaledCanvas variable').");
 
     } else {
 
@@ -246,7 +246,7 @@ function Input() {
         canvas.addEventListener("mouseout", function () { mouseIsOverCanvas = false; });
 
         useScaled = false;
-        console.log("Canvas mode detected: no scaled canvas used (use regular 'canvas' variable).");
+//        console.log("Canvas mode detected: no scaled canvas used (use regular 'canvas' variable).");
     }
 
 

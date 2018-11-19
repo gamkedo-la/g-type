@@ -57,7 +57,7 @@ function CreditFont(activeImage, inactiveImage, frameSize, context) {
 function CollidableChar(activeImage, inactiveImage, character, frameSize, drawSize, position, context) {
 	this.isActive = true;
 	this.isCollidable = false;
-	this.type = EntityType.CollidableText;
+	this.type = EntityType.Text;
 	this.position = {x:position.x, y:position.y};
 	this.size = {width:drawSize.width, height:drawSize.height};
 	
@@ -186,7 +186,7 @@ function CollidableChar(activeImage, inactiveImage, character, frameSize, drawSi
 				return {x:24 * frameSize.width, y:0};
 			case "z":
 			case "Z":
-				return {x:25 * frameSize.width, y:frameSize.height};
+				return {x:25 * frameSize.width, y:0};
 			case "0":
 				return {x:0, y:frameSize.height};
 			case "1":
@@ -211,8 +211,10 @@ function CollidableChar(activeImage, inactiveImage, character, frameSize, drawSi
 				return {x:10 * frameSize.width, y:frameSize.height};
 			case "@":
 				return {x:11 * frameSize.width, y:frameSize.height};
+			case "(":
 			case "[":
 				return {x:12 * frameSize.width, y:frameSize.height};
+			case ")":
 			case "]":
 				return {x:13 * frameSize.width, y:frameSize.height};
 			case ">":
@@ -225,8 +227,20 @@ function CollidableChar(activeImage, inactiveImage, character, frameSize, drawSi
 				return {x:17 * frameSize.width, y:frameSize.height};
 			case "-":
 				return {x:18 * frameSize.width, y:frameSize.height};
-			case " ":
+			case ".":
 				return {x:19 * frameSize.width, y:frameSize.height};
+			case ",":
+				return {x:20 * frameSize.width, y:frameSize.height};
+			case ";":
+				return {x:21 * frameSize.width, y:frameSize.height};
+			case ":":
+				return {x:22 * frameSize.width, y:frameSize.height};
+			case '"':
+				return {x:23 * frameSize.width, y:frameSize.height};
+			case '"':
+				return {x:24 * frameSize.width, y:frameSize.height};
+			case " ":
+				return {x:25 * frameSize.width, y:frameSize.height};
 			default:
 				return {x:18.5 * frameSize.width, y:frameSize.height};//18.5 so it doesn't crash, but you can tell something's not right
 		}

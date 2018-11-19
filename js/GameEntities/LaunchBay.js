@@ -109,7 +109,9 @@ function LaunchBay(position = {x:0, y:0}, spawnPos) {
                 (entityType === EntityType.PlayerLaser) ||
                 (entityType === EntityType.PlayerTriple) ||
                 (entityType === EntityType.PlayerShield)) {
-                this.hitPoints -= otherEntity.damagePoints;
+	                if(this.isVisible) {//invisible launch bays should not be destructible
+						this.hitPoints -= otherEntity.damagePoints;
+	                }
             }
         }
         

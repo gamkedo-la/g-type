@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="300" tileheight="200" tilecount="35" columns="0">
+<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="300" tileheight="200" tilecount="36" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0" type="rock01">
   <properties>
@@ -244,5 +244,11 @@
    <property name="timeDelay" type="int" value="256"/>
   </properties>
   <image width="40" height="40" source="objectSprites/_editorDestructableBoulder_Big.png"/>
+ </tile>
+ <tile id="46" type="level2Boss">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="300" height="168" source="objectSprites/_editorLevel2Boss.png"/>
  </tile>
 </tileset>

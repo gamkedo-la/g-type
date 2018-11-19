@@ -46,6 +46,7 @@ function Player(position = {x:0, y:0}) {
 	explosionSprite.wasBorn = true;
 	explosionSprite.isDying = true;
 	let explosionEmitter = 0;
+	let trailEmitter = 0;
 
 	const SPRITE_SCALE = 1.0;//make sure to change the x and y position of the playershot to match scaling
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
@@ -120,6 +121,8 @@ function Player(position = {x:0, y:0}) {
 		} else if(!sprite.isDying) {
 			this.adjustVelocityAndSpriteForPlayerInput();
 
+			trailEmitter = createParticleEmitter(this.position.x,this.position.y + this.size.height / 2, playerTrail);
+
 			if(holdKey[KEY_X]) {//shooting
 				this.doShooting();
 			}
@@ -173,7 +176,7 @@ function Player(position = {x:0, y:0}) {
 
 		//draw the thruster
 		let thrusterMod = timer.getCurrentTime() % 16 < 8 ? 0 : 3;
-		this.thrusterPosition.x = this.position.x-28+thrusterMod;
+		this.thrusterPosition.x = this.position.x - 28 + thrusterMod;
 		this.thrusterPosition.y = this.position.y;
 		//this.thrusterSize.width = thrusterSprite.width * thrusterMod;
 		thrusterSprite.drawAt(this.thrusterPosition, this.thrusterSize);
@@ -269,11 +272,11 @@ function Player(position = {x:0, y:0}) {
 
 			switch(this.currentShotType) {
 				case EntityType.PlayerShot:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 80, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 70, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
 					playerFireRegular.play();//play the audio
 					break;
 				case EntityType.PlayerDouble:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 80, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 70, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
 					initializeShot(secondShot, this.currentShotType, {x:this.position.x + 60, y:this.position.y + 2}, {x: secondVel.x, y: secondVel.y}, true);
 					playerFireRegular.play();
 					break;
@@ -282,7 +285,7 @@ function Player(position = {x:0, y:0}) {
 					playerFireLaser.play();
 					break;
 				case EntityType.PlayerTriple:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 80, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
+					initializeShot(newShot, this.currentShotType, {x:this.position.x + 70, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
 					initializeShot(secondShot, this.currentShotType, {x:this.position.x + 80, y:this.position.y + 4}, {x: secondVel.x, y: secondVel.y}, true);
 					initializeShot(thirdShot, this.currentShotType, {x:this.position.x - thirdShot.size.width, y:this.position.y + 4}, {x: thirdVel.x, y: thirdVel.y}, true);
 					playerFireRegular.play();
@@ -295,7 +298,7 @@ function Player(position = {x:0, y:0}) {
 
 			timer.updateEvent(PlayerEvent.LastShot);
 		}
-		
+
 		if((hasMissiles) && (timeSinceLastMissile > currentMissileDelay)) {
 			let newMissile
 			if(missiles.length >= MAX_SHOTS_ON_SCREEN) {
@@ -309,7 +312,7 @@ function Player(position = {x:0, y:0}) {
 			newMissile.reset();
 			missiles.push(newMissile);
 			scene.addEntity(newMissile, true);
-			
+
 			timer.updateEvent(PlayerEvent.LastMissile);
 		}
 	};
@@ -343,7 +346,7 @@ function Player(position = {x:0, y:0}) {
 			if(velocity.x < currentSpeed * .85){thrusterSprite.setFrame(thrusterFrame.mid)}
 			else ( thrusterSprite.setFrame(thrusterFrame.max) );
 		}
-		
+
 
 		//indicates the sprite is NOT "playing" the death animation => can still fly around the screen and shoot
 		if(holdKey[KEY_LEFT] || holdKey[KEY_A]) {
@@ -377,8 +380,8 @@ function Player(position = {x:0, y:0}) {
 			} else {
 				velocity.y = -currentSpeed;
 			}
-			
-			
+
+
 		} else if(holdKey[KEY_DOWN] || holdKey[KEY_S]) {
 			if(velocity.y < currentSpeed) {
 				velocity.y += 0.6 * currentSpeed;
@@ -440,12 +443,12 @@ function Player(position = {x:0, y:0}) {
 			scene.collectedCapsule();
 		} else if((otherEntity.type === EntityType.PlayerShield) || (otherEntity.type === EntityType.RagnarokCapsule)) {
 			return;//Player is not damaged by colliding with it's own shield or with the RagnarokCapsule
-		} else if(otherEntity.type === EntityType.FreeCollider) {
-			return;//Player is not damaged by colliding with a free collider
+		} else if(otherEntity.type === EntityType.FreeCollider || otherEntity.type === EntityType.Text) {
+			return;//Player is not damaged by colliding with a free collider, or harmless text
 		} else {
 			if (isInvincible || cheats.playerInvincible || shield.isActive) {
 				if(cheats.playerInvincible) {
-					console.log("Note: cheats.playerInvincible turned on");
+//					console.log("Note: cheats.playerInvincible turned on");
 				}
 				//TODO: does anything need to be done here?
 			} else {
@@ -471,7 +474,7 @@ function Player(position = {x:0, y:0}) {
 			delayMultiplier = 2;
 		}
 		currentShotDelay = delayMultiplier * BASE_SHOT_DELAY;
-		
+
 		let missileDelayMult = currentMissileDelay / BASE_MISSILE_DELAY;
 		missileDelayMult -= 1.0;
 		if(missileDelayMult < 2) {

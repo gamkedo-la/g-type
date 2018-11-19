@@ -17,7 +17,7 @@ function CapsuleGroup() {
 		// this is the very last one in the group, set the warp flag
 		if(this.capsules.length === 0){
 			scene.didCompleteWarpChallenge = true;
-			console.log('completed warp challenge!');
+//			console.log('completed warp challenge!');
 		}
 	}
 

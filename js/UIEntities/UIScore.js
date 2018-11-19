@@ -25,9 +25,9 @@ function UIScore(position = {x:0, y:0}) {
     	allHighScores.push(currentScore);
     	allHighScores.sort((a, b) => b - a);
     	if (allHighScores.length > 3){
-    		console.log("removed lowest score: " + allHighScores.pop());
+//    		console.log("removed lowest score: " + allHighScores.pop());
     	}
-    	console.log(allHighScores);
+//    	console.log(allHighScores);
     };
     
     this.saveHighScores = function(){
@@ -43,7 +43,7 @@ function UIScore(position = {x:0, y:0}) {
 				allHighScores[i] = 0;
 			}
     	}
-    	console.log(allHighScores);
+//    	console.log(allHighScores);
     }
 
 	this.draw = function() {

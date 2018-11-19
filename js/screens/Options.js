@@ -14,6 +14,9 @@ function OptionsScreen() {
     let selectorPositionIndex = 0;
     let selectorPosition = {x:selectionPosition.Music.x + 35, y:selectionPosition.Music.y};
     let selectorSprite;
+    let thrusterSprite;
+    let thrusterSize = {};
+    let thrusterPosition = {x:0, y:0};
     let starfield;
 	this.selections = [
 //	    {screen: GAME_SCREEN, title: textStrings.Play},
@@ -35,7 +38,10 @@ function OptionsScreen() {
         selectorPosition = {x:selectionPosition.Music.x + 35, y:selectionPosition.Music.y};
 
         starfield = new Starfield();
-        selectorSprite = new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, 9999999, {min:5, max:7}, 128);
+        selectorSprite = new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, Math.MAX_VALUE, {min:5, max:7}, 128);
+        thrusterSprite = new AnimatedSprite(playerThruster, 3, 33, 32, false, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
+
+		thrusterSize = {width:thrusterSprite.width, height:thrusterSprite.height};
 
         currentBackgroundMusic.setCurrentTrack(AudioTracks.Options);
         if(currentBackgroundMusic.getTime() > 0){
@@ -59,6 +65,7 @@ function OptionsScreen() {
 
 	const update = function(deltaTime) {
 		selectorSprite.update(deltaTime);
+		thrusterSprite.update(deltaTime);
 
 		starfield.update(deltaTime);
 	};
@@ -193,9 +200,16 @@ function OptionsScreen() {
 
 		//draw the actual help info
 		drawOptions();
-
+		
+		//draw the thruster
+		let thrusterMod = timer.getCurrentTime() % 16 < 8 ? 0 : 3;
+		thrusterPosition.x = selectorPosition.x - 28 + thrusterMod;
+		thrusterPosition.y = selectorPosition.y;
+		//this.thrusterSize.width = thrusterSprite.width * thrusterMod;
+		thrusterSprite.drawAt(thrusterPosition, thrusterSize);
+		
         //draw selector sprite
-        selectorSprite.drawAt(selectorPosition, {width:62, height:27});
+        selectorSprite.drawAt(selectorPosition, {width:52, height:32});
 
 		canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
 	};

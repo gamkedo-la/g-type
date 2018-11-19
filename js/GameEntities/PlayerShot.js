@@ -169,6 +169,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 			   (otherEntity.type == EntityType.BrokenBoulder) ||
 			   (otherEntity.type == EntityType.BrokenBoulderFlipped) ||
 			   (otherEntity.type == EntityType.Platform1) ||
+			   (otherEntity.type == EntityType.Level2Boss) ||
 			   (otherEntity.type == EntityType.WarpObstacle))   {
 				shotHitIndestructible.play();
 			   }	
