@@ -8103,7 +8103,7 @@
                          "value":-200
                         }],
                  "rotation":0,
-                 "type":"miniBoss1",
+                 "type":"eyeBoss1",
                  "visible":true,
                  "width":60,
                  "x":8450,
