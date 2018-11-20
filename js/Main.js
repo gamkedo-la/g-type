@@ -15,7 +15,7 @@ window.onload = function() {
 	initializeInput();
 //	configureGameAudio();
 //	loadAudio();
-    
+
 	loadImages();
 	window.scene = null
 	ScreenStates.setState(LOADING_SCREEN);
@@ -38,7 +38,7 @@ function windowOnFocus() {
 function loadingDoneSoStartGame() {
 	timer = new Chronogram();
 	gameFont = new GameFont(fontImage, {width:16, height:16}, canvasContext);
-    
+
     ScreenStates.setState(MENU_SCREEN);
     loadingComplete = true;
 
@@ -52,11 +52,11 @@ function update() {
 
 	if (timer === null) return; // bugfix: timer can sometimes be undefined here (while images are still loading)
 	if (!gameFont === null) return;
-	
+
 	const dt = timer.update();
 
 	ScreenStates.run(dt);
-	
+
 	ParticleEmitterManager.updateAllEmitters(dt/1000);
-	ParticleRenderer.renderAll(canvasContext);
+	// ParticleRenderer.renderAll(canvasContext); // moved to GameScene.draw so it goes underneath the GUI
 }

@@ -32,7 +32,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 	const gameEntities = new Set();
 	const foregroundEntities = new Set();
 	const enemyBullets = new Set();
-	
+
 	this.parallaxOffset1 = 0;
 	this.parallaxOffset2 = 0;
 	this.parallaxOffset3 = 0;
@@ -41,7 +41,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 	const bkgdParallaxLayer = data.getBkgdParallaxLayer();
 	const bgOffset = data.getBkgdOffset();
 	const foregroundLayer = data.getForegroundParallaxLayer();
-    
+
     let uiManager;
     if(aUIManager === null) {
         uiManager= new UIManager();
@@ -52,30 +52,30 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 
 	let nextLifeScore = SCORE_PER_EXTRA_LIFE;
 	let worldPaused = false;
-	
+
 	const populateWorld = function(worldPos) {
 		const terrain = data.initializeTerrain();
-		
+
 		for(let i = 0; i < terrain.length; i++) {
 			const thisTerrain = terrain[i];
-			
+
 			thisTerrain.respawn(worldPos);
-			
+
 			gameEntities.add(thisTerrain);
 			collisionManager.addEntity(thisTerrain, false);
 		}
 
 		const enemies = data.initializeEnemies();
-		
+
 		for(let i = 0; i < enemies.length; i++) {
 			const thisEnemy = enemies[i];
-			
+
 			thisEnemy.respawn(worldPos);
-			
+
 			gameEntities.add(thisEnemy);
 			collisionManager.addEntity(thisEnemy, false);
 		}
-		
+
 		// foregroundEntities
 		const debris = data.initializeDebris();
 
@@ -87,9 +87,9 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 			foregroundEntities.add(thisDebris);
 		}
 	};
-	
+
 	populateWorld(0);//0 = start at the beginning
-	
+
 	this.update = function(deltaTime) {
 		if(!worldPaused) {
 			if(levelIndex === WARP_INDEX) {
@@ -101,16 +101,16 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 			} else {
 				this.worldPos += gameSpeed * worldSpeed;
 			}
-		}	
-		
+		}
+
 		this.updateBackground(deltaTime);
-		
+
 		player.update(deltaTime, this.worldPos);
-		
+
 	    for(let bullet of enemyBullets) {
 		    bullet.update(deltaTime, this.worldPos);
 	    }
-		
+
 		for(let entity of gameEntities) {
 			entity.update(deltaTime, this.worldPos, {x:player.position.x, y:player.position.y});
 		}
@@ -118,23 +118,23 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		for(let entity of foregroundEntities) {
 			entity.update(deltaTime, this.worldPos, {x:player.position.x, y:player.position.y});
 		}
-		
+
 		let collisions;
 		if(!player.getIsDying()) {
 			collisions = collisionManager.doCollisionChecks();
 		}
-		 
+
 		for(let i = 0; i < collisionBodiesToRemove.length; i++) {
 			collisionManager.removeEntity(collisionBodiesToRemove[i]);
 		}
-		
+
 		collisionBodiesToRemove = [];
-		
+
 		if(this.shaking) {this.screenShake();}
-		
+
 		uiManager.update(deltaTime);
 	};
-	
+
 	this.reset = function() {
 		let newWorldPos = 0;
 		let i = 0;
@@ -143,43 +143,43 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 			i++;
 			if(i === data.checkpointPositions.length) {break;}
 		}
-		
+
 		this.gameIsOver = false;
 		this.beatTheGame = false;
         this.worldPos = newWorldPos;
         this.endShake();
-        
+
         player.reset();
         uiManager.reset(false);
-        
+
         gameEntities.clear();
         enemyBullets.clear();
         collisionManager.clearWorldAndBullets();
-        
+
         populateWorld(newWorldPos);
 	};
-	
+
 	this.setWorldPos = function(newWorldPos) {
 		this.worldPos = newWorldPos;
 	};
-	
+
 	//adding for debugging levels
 	window.pos = function(newWorldPos) {
 		scene.gameIsOver = false;
 		scene.beatTheGame = false;
         scene.worldPos = newWorldPos;
         scene.endShake();
-        
+
         //player.reset();
         //uiManager.reset(false);
-        
+
         gameEntities.clear();
         enemyBullets.clear();
         collisionManager.clearWorldAndBullets();
-    
+
         populateWorld(newWorldPos);
 	};
-	
+
 	this.updateBackground = function(deltaTime) {
 		// the dense starfield
 		this.parallaxOffset1 = -1 * (this.worldPos * BG_PARALLAX_RATIO_1[currentLevelIndex] % bkgdStars.width);
@@ -189,11 +189,11 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		this.parallaxOffset3 = -1 * (this.worldPos * BG_PARALLAX_RATIO_3[currentLevelIndex] % foregroundLayer.width);
 
 		if ((this.bgTime === null) || (this.bgTime === undefined)) {
-			this.bgTime = deltaTime; 
+			this.bgTime = deltaTime;
 		} else {
 			this.bgTime += deltaTime;
 		}
-		
+
 		starfield.update(deltaTime, this.worldPos);
 	}
 
@@ -215,24 +215,24 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 			const firstSampleWidth = bkgdColorLookup.width - sampleXPos;
 			const secondSampleWidth = BG_SAMPLE_PIXELS - firstSampleWidth;
 			const fillRatio = GameField.width / BG_SAMPLE_PIXELS;
-			
+
 			canvasContext.drawImage(bkgdColorLookup,
 			// source x,y,w,d (scroll source x over time)
 			sampleXPos, 0, firstSampleWidth, 100,
 			// dest x,y,w,d (scale one pixel worth of the gradient to fill entire screen)
-			GameField.x, GameField.y - bgOffset, Math.floor(fillRatio * firstSampleWidth), GameField.height + bgOffset); 
-			
+			GameField.x, GameField.y - bgOffset, Math.floor(fillRatio * firstSampleWidth), GameField.height + bgOffset);
+
 			canvasContext.drawImage(bkgdColorLookup,
 			// source x,y,w,d (scroll source x over time)
 			0, 0, secondSampleWidth, 100,
 			// dest x,y,w,d (scale one pixel worth of the gradient to fill entire screen)
-			GameField.x + Math.floor(fillRatio * firstSampleWidth), GameField.y - bgOffset, Math.floor(fillRatio * secondSampleWidth), GameField.height + bgOffset); 
+			GameField.x + Math.floor(fillRatio * firstSampleWidth), GameField.y - bgOffset, Math.floor(fillRatio * secondSampleWidth), GameField.height + bgOffset);
 		} else {
 			canvasContext.drawImage(bkgdColorLookup,
 			// source x,y,w,d (scroll source x over time)
-			sampleXPos, 0, BG_SAMPLE_PIXELS, 100, 
+			sampleXPos, 0, BG_SAMPLE_PIXELS, 100,
 			// dest x,y,w,d (scale one pixel worth of the gradient to fill entire screen)
-			GameField.x, GameField.y - bgOffset, GameField.width, GameField.height + bgOffset); 
+			GameField.x, GameField.y - bgOffset, GameField.width, GameField.height + bgOffset);
 		}
 
 		// galaxy / starfield images, tiled, with parallax
@@ -242,22 +242,22 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		// distant planets and nebulae
 		canvasContext.drawImage(bkgdParallaxLayer, this.parallaxOffset2, bgOffset);
 		canvasContext.drawImage(bkgdParallaxLayer, this.parallaxOffset2 + bkgdParallaxLayer.width,+ bgOffset);
-		
+
 		// twinkling stars
 		if(levelIndex === 1) {//level 2
 			canvasContext.save();
 			canvasContext.globalAlpha = 0.4;
 		}
-		
+
 		if(levelIndex != 2) {
 			starfield.draw();
 		}
-		
+
 		if(levelIndex === 1) {//level 2
 			canvasContext.restore();
 		}
 	}
-	
+
 	this.draw = function() {
 
 		this.drawBackground();
@@ -272,6 +272,8 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 
 		player.draw();
 
+		ParticleRenderer.renderAll(canvasContext);
+
 		for(let entity of foregroundEntities) {
 			entity.draw();
 		}
@@ -280,7 +282,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 
 		uiManager.draw();
 	};
-	
+
 	this.collectedCapsule = function() {
 		uiManager.incrementPowerUpToActivate();
 	};
@@ -320,7 +322,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 //		console.log("Tried to 'Use The Force!'");
 		uiManager.powerUpWasActivated(PowerUpType.Force, null);
 	};
-	
+
 	this.activateBasePowerUps = function() {
 		this.activatedShield();
 		this.activatedMissile();
@@ -330,7 +332,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		this.activatedGhost();
 		remainingLives = 29;
 	};
-	
+
 	this.removePlayer = function() {
 		uiManager.clearPowerUps();
 		if(remainingLives < 1) {
@@ -351,23 +353,23 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		remainingLives++;
 		extraLife.play();
 	};
-	
+
 	this.worldShouldPause = function(shouldPause) {
 		worldPaused = shouldPause;
 	};
-    
+
     this.levelComplete = function() {
         this.levelIsComplete = true;
     };
-    
+
     this.getPlayerObject = function() {
         return player;
     };
-    
+
     this.getUIManagerObject = function() {
         return uiManager;
     };
-	
+
 	this.removeEntity = function(entityToRemove, isPlayerBullet) {
 		if(isPlayerBullet) {
 			collisionManager.removePlayerBullet(entityToRemove);
@@ -386,11 +388,11 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 			}
 		}
 	};
-	
+
 	this.removeCollisions = function(entityToRemove) {
 		collisionBodiesToRemove.push(entityToRemove);
 	};
-	
+
 	this.destroyAllOnScreen = function(destroyer) {
 		for(let entity of gameEntities) {
 			if((entity.position.x >= GameField.x) &&
@@ -403,7 +405,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 			   }
 		}
 	};
-	
+
 	this.addCollisions = function(entityToAdd, isPlayerBullet) {
 		if(isPlayerBullet) {
 			collisionManager.addPlayerBullet(entityToAdd);
@@ -413,7 +415,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 			}
 		}
 	}
-	
+
 	this.addEntity = function(entityToAdd, isPlayerBullet) {
 		if(isPlayerBullet) {
 			collisionManager.addPlayerBullet(entityToAdd);
@@ -421,26 +423,26 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 			if(entityToAdd.collisionBody != null) {
 				collisionManager.addEntity(entityToAdd);
 			}
-			
-			if((entityToAdd.type === EntityType.EnemyBullet1) || 
-			   (entityToAdd.type === EntityType.EnemyBullet2) || 
-			   (entityToAdd.type === EntityType.EnemyBullet3) || 
+
+			if((entityToAdd.type === EntityType.EnemyBullet1) ||
+			   (entityToAdd.type === EntityType.EnemyBullet2) ||
+			   (entityToAdd.type === EntityType.EnemyBullet3) ||
 			   (entityToAdd.type === EntityType.EnemyBullet4)) {
 				enemyBullets.add(entityToAdd);
 			} else {
 				gameEntities.add(entityToAdd);
 			}
-		}		
+		}
 	};
-		
+
 	this.activatePowerUp = function() {
 		if(!uiManager.getCanActivatePowerUp()) {
 			//play buzzer => can't activate a power up right now
 			return;
 		}
-		
+
 		const powerUpToActivate = uiManager.getPowerUpToActivate();
-        
+
         if(powerUpToActivate === PowerUpType.Ghost) {
             uiManager.powerUpWasActivated(powerUpToActivate, (player.activeGhosts + 1));
         } else {
@@ -477,17 +479,17 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 			default:
 				break;
 		}
-		
+
 		if(powerUpToActivate === PowerUpType.Shield) {
 			playerShieldActivate.play();
 		} else {
 			playerPowerUpActivate.play();
 		}
-		
+
 		uiManager.reset(false);
 		//powerUpActivated.play();//TODO: need this SFX track in the game, goes at the end so it isn't played if "None" is the power up
 	};
-	
+
 	this.displayScore = function(entity, position) {
 		let showPos = {x:entity.position.x, y:entity.position.y};
 		if(position != undefined) {
@@ -495,14 +497,14 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		}
 		const newScore = new TextEntity(entity.score.toString(), Fonts.CreditsText, Color.White, showPos, 512, false);
 		this.addEntity(newScore, false);
-		
+
 		uiManager.addToScore(entity.score);
 		if(uiManager.getScore() >= nextLifeScore) {
 			this.life();
 			nextLifeScore += SCORE_PER_EXTRA_LIFE;
 		}
 	};
-	
+
 	const checkpointForWorldPos = function(worldPos) {
 		const checkpoints = data.checkpointPositions;
 		for(let i = (checkpoints.length - 1); i >= 0; i--) {
@@ -510,16 +512,16 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 				return checkpoints[i];
 			}
 		}
-		
+
 		return 0;
 	};
-	
+
 	this.shouldShake = function(magnitude) {
 		this.shaking = true;
 		this.remainingShakes = MAX_SHAKES;
 		this.shakeMagnitude = magnitude;
 	};
-	
+
 	this.screenShake = function() {
 		this.remainingShakes--;
 		if(this.remainingShakes <= 0) {
@@ -531,15 +533,15 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		else{
 			const horizontal = Math.floor((this.shakeMagnitude) * Math.random() - this.shakeMagnitude / 2);
 			const vertical = Math.floor((this.shakeMagnitude) * Math.random() - this.shakeMagnitude / 2);
-			
+
 			canvasContext.setTransform(1, 0, 0, 1, horizontal, vertical);
-			
+
 			this.shakeMagnitude *= 0.9;
 		}
-		
-		
+
+
 	};
-	
+
 	this.endShake = function() {
 		this.remainingShakes = 0;
 		this.screenShake();
@@ -550,12 +552,12 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 
 	};
 
-	// Draw power ups. 
+	// Draw power ups.
 	const drawPowerUpBar = function(PowerUps = PowerUpType) {
 		printPowerUps(PowerUps);
 
 	};
-	
+
 	const printPowerUps = function(powerUpItems, selected = powerUpToActivate) {
 		const powerUpNames = Object.values(powerUpItems);
 		const DISABLED_COLOR = '#A8A8A8';
@@ -574,7 +576,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 	    	}
 
 	    	// x,y,w,h,color
-	    	drawRect(powerUpButtonMenuStartX + ((BUTTON_WIDTH + buttonXOffset) * (i - 1)), GameField.bottom + 15, BUTTON_WIDTH, 25, color); 
+	    	drawRect(powerUpButtonMenuStartX + ((BUTTON_WIDTH + buttonXOffset) * (i - 1)), GameField.bottom + 15, BUTTON_WIDTH, 25, color);
 	    	// showWords, textX, textY, fillColor, fontface, textAlign = 'left', opacity = 1
 		    colorText(powerUpNames[i], powerUpMenuTextStartX + ((BUTTON_WIDTH + buttonXOffset) * (i - 1)), powerUpMenuY, Color.Black, Fonts.ButtonTitle, textAlignment.Center);
 	    }
