@@ -7669,12 +7669,12 @@
                  "name":"",
                  "properties":[
                         {
-                         "name":"Group",
+                         "name":"Speed",
                          "type":"int",
-                         "value":0
+                         "value":-10
                         }],
                  "rotation":0,
-                 "type":"cargoBoss",
+                 "type":"alienBoss1",
                  "visible":true,
                  "width":300,
                  "x":12863.3,

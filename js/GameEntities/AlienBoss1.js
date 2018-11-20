@@ -6,16 +6,16 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 	let previousBackgroundMusic = null;
 	
     this.hitPoints = 40;     // Every enemy type should have a hitPoints property
-    const INVINCIBILITY_TIME = 128;
+    const INVINCIBILITY_TIME = 200;
     this.invincibilityTime = 0;
 
-	const SPRITE_SCALE = 2.5;
+	const SPRITE_SCALE = 1.0;
 	let vel = {x:speed, y:speed};
 	let unusedTime = 0;
 	this.isVisible = true;
 	let rotation = 0;
 	//to do make_updates on numbers and dimensions for next line
-	let sprite = new AnimatedSprite(alienBoss1Sheet, 6, 60, 34, false, true, {min:0, max:0}, 0, {min:0, max:2}, 256, {min:3, max:5}, 256);
+	let sprite = new AnimatedSprite(alienBoss1Sheet, 12, 498, 498, false, true, {min:0, max:0}, 0, {min:1, max:1}, 256, {min:3, max:3}, 256);
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 
 	const colliderPath = [{x: this.position.x, y: this.position.y + this.size.height / 2 + (3 * SPRITE_SCALE)}, 

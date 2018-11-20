@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="300" tileheight="200" tilecount="36" columns="0">
+<tileset version="1.2" tiledversion="1.2.1" name="objects" tilewidth="382" tileheight="168" tilecount="37" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0" type="rock01">
   <properties>
@@ -74,7 +74,7 @@
   <properties>
    <property name="Group" type="int" value="0"/>
    <property name="difficulty" type="int" value="1"/>
-   <property name="rotation" type="float" value="4.7123889800000001"/>
+   <property name="rotation" type="float" value="4.71238898"/>
   </properties>
   <image width="30" height="30" source="objectSprites/_editorGroundEnemy1E.png"/>
  </tile>
@@ -90,7 +90,7 @@
   <properties>
    <property name="Group" type="int" value="0"/>
    <property name="difficulty" type="int" value="1"/>
-   <property name="rotation" type="float" value="0.78539816299999998"/>
+   <property name="rotation" type="float" value="0.785398163"/>
   </properties>
   <image width="30" height="30" source="objectSprites/_editorGroundEnemy1NW.png"/>
  </tile>
@@ -143,12 +143,6 @@
   </properties>
   <image width="50" height="50" source="objectSprites/_editorFlyingEnemy2Path.png"/>
  </tile>
- <tile id="26" type="cargoBoss">
-  <properties>
-   <property name="Group" type="int" value="0"/>
-  </properties>
-  <image width="300" height="200" source="objectSprites/_editorCargoBoss.png"/>
- </tile>
  <tile id="27">
   <image width="12" height="12" source="objectSprites/tiny_asteroid.png"/>
  </tile>
@@ -163,15 +157,6 @@
    <property name="Group" type="int" value="0"/>
   </properties>
   <image width="60" height="60" source="objectSprites/_editorRagnarok.png"/>
- </tile>
- <tile id="31" type="miniBoss1">
-  <properties>
-   <property name="Group" type="int" value="0"/>
-   <property name="difficulty" type="int" value="50"/>
-   <property name="pattern" value="loop"/>
-   <property name="speed" type="int" value="-200"/>
-  </properties>
-  <image width="60" height="34" source="objectSprites/MiniBoss1.png"/>
  </tile>
  <tile id="33" type="flyingEnemy3">
   <properties>
@@ -250,5 +235,20 @@
    <property name="Group" type="int" value="0"/>
   </properties>
   <image width="300" height="168" source="objectSprites/_editorLevel2Boss.png"/>
+ </tile>
+ <tile id="50" type="eyeBoss1">
+  <properties>
+   <property name="Group" value="0"/>
+  </properties>
+  <image width="128" height="134" source="objectSprites/_editorEyeBoss1.png"/>
+ </tile>
+ <tile id="51" type="alienBoss1">
+  <properties>
+   <property name="Group" value="0"/>
+  </properties>
+  <image width="382" height="155" source="objectSprites/_editorAlienBoss1.png"/>
+ </tile>
+ <tile id="52">
+  <image width="214" height="103" source="objectSprites/_editorminimini.png"/>
  </tile>
 </tileset>
