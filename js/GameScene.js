@@ -271,8 +271,8 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		}
 
 		player.draw();
-
 		ParticleRenderer.renderAll(canvasContext);
+
 
 		for(let entity of foregroundEntities) {
 			entity.draw();
