@@ -25,6 +25,7 @@ function UIScore(position = {x:0, y:0}) {
     	allHighScores.push(currentScore);
     	allHighScores.sort((a, b) => b - a);
     	if (allHighScores.length > 3){
+    		allHighScores.pop()
 //    		console.log("removed lowest score: " + allHighScores.pop());
     	}
 //    	console.log(allHighScores);
