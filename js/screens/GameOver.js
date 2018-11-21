@@ -10,11 +10,14 @@ function GameOverScreen() {
     let thrusterPosition = {x:0, y:0};
     let starfield;
     this.selections = [
-	    { screen: GAME_SCREEN, title: textStrings.Continue },
 	    { screen: GAME_SCREEN, title: textStrings.Restart },
 	    { screen: MENU_SCREEN, title: textStrings.Quit }
     ];
-    this.transitionIn = function(){
+    this.transitionIn = function() {
+	    if((currentLevelIndex != 0) && (this.selections.length === 2)) {
+		    this.selections.splice(0, 0, { screen: GAME_SCREEN, title: textStrings.Continue });
+	    }
+	    
         remainingLives = 2;//Set up for a continue or restart
 
         this.selectorPositionsIndex = 0;
@@ -36,7 +39,6 @@ function GameOverScreen() {
 	    if(this.selectorPositionsIndex !== 0) {
 		    scene = null;
 	    }
-//        uiSelect.play();
         currentBackgroundMusic.pause();
     };
     this.run = function gamePlayFinishedScreenRun(deltaTime) {
@@ -65,6 +67,9 @@ function GameOverScreen() {
             return true;
         } else if (this.keysPressed(KEY_ENTER)) {
 	        menuSelect.play();
+	        if((this.selectorPositionsIndex === 1) && (this.selections.length === 3)) {//selected restart => reset to first level
+		        currentLevelIndex = 0;
+	        }
             ScreenStates.setState(this.selections[this.selectorPositionsIndex].screen, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject()});
             return true;
         } else if (this.keysPressed(KEY_H)) {
@@ -112,9 +117,6 @@ function GameOverScreen() {
 
         starfield.draw();
 
-        // render the logo overlay
-//        drawLogo();
-
         // render menu
         printMenu(selections, selectorPositionIndex);
         
@@ -122,7 +124,6 @@ function GameOverScreen() {
 		let thrusterMod = timer.getCurrentTime() % 16 < 8 ? 0 : 3;
 		thrusterPosition.x = selectorPosition.x - 28 + thrusterMod;
 		thrusterPosition.y = selectorPosition.y;
-		//this.thrusterSize.width = thrusterSprite.width * thrusterMod;
 		thrusterSprite.drawAt(thrusterPosition, thrusterSize);
         
         //draw selector sprite

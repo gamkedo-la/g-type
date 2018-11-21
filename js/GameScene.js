@@ -334,6 +334,13 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 	};
 
 	this.removePlayer = function() {
+		if(levelIndex === WARP_INDEX) {
+			this.levelIsComplete = true;
+			this.didCompleteWarpChallenge = false;
+			currentLevelIndex = 0;
+			return;
+		}
+		
 		uiManager.clearPowerUps();
 		if(remainingLives < 1) {
 			this.gameIsOver = true;
