@@ -1,6 +1,7 @@
 //Options Screen
 function OptionsScreen() {
 	const MENU_BG_COLOR = "#010119";
+	const MAX_SPEED = 25;
 
 	const selectionPosition = {
 		Music:{x:GameField.midX + 90, y:(GameField.y + 60 + GameField.height / 4)},
@@ -101,6 +102,9 @@ function OptionsScreen() {
                 SFXVolumeManager.setVolume(currentVolume + 0.1);
             } else if(selectorPositionIndex === 2) {
 	            gameSpeed++;
+	            if(gameSpeed > MAX_SPEED) {
+		            gameSpeed = 1;
+	            }
 	            localStorageHelper.setInt("gameSpeed", gameSpeed);
             } else if(selectorPositionIndex === 3) {
 	            if(autoFiring === "Off") {
@@ -125,7 +129,7 @@ function OptionsScreen() {
             } else if(selectorPositionIndex === 2) {
 	            gameSpeed--;
 	            if(gameSpeed < 1) {
-		            gameSpeed = 1;
+		            gameSpeed = MAX_SPEED;
 	            }
 	            localStorageHelper.setInt("gameSpeed", gameSpeed);
             } else if(selectorPositionIndex === 3) {
