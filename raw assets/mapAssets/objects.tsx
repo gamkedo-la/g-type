@@ -143,6 +143,12 @@
   </properties>
   <image width="50" height="50" source="objectSprites/_editorFlyingEnemy2Path.png"/>
  </tile>
+ <tile id="26" type="cargoBoss">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="300" height="200" source="objectSprites/_editorCargoBoss.png"/>
+ </tile>
  <tile id="27">
   <image width="12" height="12" source="objectSprites/tiny_asteroid.png"/>
  </tile>
@@ -157,6 +163,15 @@
    <property name="Group" type="int" value="0"/>
   </properties>
   <image width="60" height="60" source="objectSprites/_editorRagnarok.png"/>
+ </tile>
+ <tile id="31" type="miniBoss1">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+   <property name="difficulty" type="int" value="50"/>
+   <property name="pattern" value="loop"/>
+   <property name="speed" type="int" value="-200"/>
+  </properties>
+  <image width="60" height="34" source="objectSprites/MiniBoss1.png"/>
  </tile>
  <tile id="33" type="flyingEnemy3">
   <properties>
