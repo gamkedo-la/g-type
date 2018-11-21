@@ -28,7 +28,7 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 	this.isVisible = true;
 	let rotation = 0;
 	//to do make_updates on numbers and dimensions for next line
-	let sprite = new AnimatedSprite(eyeBoss1Sheet, 4, 199, 177, false, true, {min:0, max:0}, 0, {min:1, max:1}, 256, {min:0, max:3}, 256);
+	let sprite = new AnimatedSprite(eyeBoss1Sheet, 4, 199, 177, false, true, {min:0, max:1}, 0, {min:0, max:0}, 256, {min:1, max:3}, 256);
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 
 	const colliderPath = [{x: this.position.x, y: this.position.y + this.size.height / 2 + (3 * SPRITE_SCALE)}, 

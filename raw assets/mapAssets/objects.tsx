@@ -248,7 +248,13 @@
   </properties>
   <image width="382" height="155" source="objectSprites/_editorAlienBoss1.png"/>
  </tile>
- <tile id="52">
+ <tile id="52" type="miniminiBoss1">
+  <properties>
+   <property name="Group" value="250"/>
+   <property name="Speed" value=""/>
+   <property name="difficulty" value="70"/>
+   <property name="pattern" value="points"/>
+  </properties>
   <image width="214" height="103" source="objectSprites/_editorminimini.png"/>
  </tile>
 </tileset>

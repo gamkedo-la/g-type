@@ -1,49 +1,65 @@
-function MiniMiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, timeOffset = 0, spawnPos = 0, difficulty = 0) {
-	this.position = {x:position.x, y:position.y};
-	this.type = EntityType.MiniMiniBoss1;
+//FlyingEnemy2
+function MiniMiniBoss1(position = {x:0, y:0}, speed = -10, pattern = PathType.None, spawnPos = 0, difficulty = 0, path = null) {
+	this.type = EntityType.FlyingEnemy2;
+	this.group = null;
 	this.worldPos = 0;
-	this.score = 5000;
-	let previousBackgroundMusic = null;
+	this.score = 100;
 	
-    this.hitPoints = 40;     // Every enemy type should have a hitPoints property
-    const INVINCIBILITY_TIME = 128;
-    this.invincibilityTime = 0;
+    this.hitPoints = 4;     // Every enemy type should have a hitPoints property
 
-	const SPRITE_SCALE = 2.5;
+	const SPRITE_SCALE = 1;
+	this.position = position;
 	let vel = {x:speed, y:speed};
 	let unusedTime = 0;
 	this.isVisible = true;
 	let rotation = 0;
-	//to do make_updates on numbers and dimensions for next line
-	let sprite = new AnimatedSprite(miniminiBoss1Sheet, 6, 60, 34, false, true, {min:0, max:0}, 0, {min:0, max:2}, 256, {min:3, max:5}, 256);
+
+    let sprite;
+	
+    if(difficulty > 15) {
+        sprite = new AnimatedSprite(MiniMiniBoss1RedSheet, 6, 50, 50, false, true, {min:0, max:0}, 0, {min:0, max:5}, 256, {min:5, max:5}, 0);
+    } else {
+        sprite = new AnimatedSprite(MiniMiniBoss1Sheet, 6, 50, 50, false, true, {min:0, max:0}, 0, {min:0, max:5}, 256, {min:5, max:5}, 0);
+    }
+	
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 
-	const colliderPath = [{x: this.position.x, y: this.position.y + this.size.height / 2 + (3 * SPRITE_SCALE)}, 
-						  {x: this.position.x + this.size.width - (10 * SPRITE_SCALE), y: this.position.y - (3 * SPRITE_SCALE)}, 
-						  {x: this.position.x + this.size.width - (10 * SPRITE_SCALE), y: this.position.y + this.size.height + (3 * SPRITE_SCALE)}];
-						  
-	this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:this.position.x, y:this.position.y}});
-	
+	this.collisionBody = new Collider(ColliderType.Circle, {points:   [], 
+															position: {x:(SPRITE_SCALE * 0) + this.position.x + this.size.width / 2, y:this.position.y + this.size.height / 2}, 
+															radius:   this.size.height / 2, 
+															center:   {x:(SPRITE_SCALE * 0) + this.position.x + this.size.width / 2, y:this.position.y + this.size.height / 2}}
+									  );
 	let didCollide = false;
 	
-	const pathPoints = [
-		{x: GameField.right - this.size.width, y: GameField.midY},
-		{x: GameField.right - this.size.width, y: GameField.y},
-		{x: GameField.right - this.size.width, y: GameField.bottom - this.size.height},
-		{x: GameField.right - this.size.width, y: GameField.y},
-		{x: GameField.right - this.size.width, y: GameField.bottom - this.size.height},
-//		{x: GameField.right - this.size.width, y: GameField.y},
-	];//TODO: Give the mini boss a path to follow
+	let pathPoints = [
+		{x: GameField.right, y: GameField.y + 60},
+		{x: GameField.x + GameField.width / 5, y: GameField.y + 60},
+		{x: GameField.x + GameField.width / 4, y: GameField.y + 450},
+		{x: GameField.x + GameField.width / 3, y: GameField.y + 450},
+		{x: GameField.x + GameField.width / 2, y: GameField.y + 60},
+		{x: GameField.x + GameField.width + 50, y: GameField.y + 60},
+	];
+
+	if(path){
+		if(path.polygon === undefined) {
+            pathPoints = path.polyline.slice(0);
+        } else {
+            pathPoints = path.polygon.slice(0);
+        }
+        
+		pathPoints.forEach((point)=>{
+			point.x += GameField.x + GameField.width - 50;
+			point.y += GameField.y + path.y;
+			pathPoints.push(point);
+            });
+		
+	}
 	
-	this.path = new EnemyPath(pattern, this.position, speed, pathPoints, timeOffset);
+	this.path = new EnemyPath(PathType.Points, this.position, speed, pathPoints, 0);
 	
 	this.update = function(deltaTime, worldPos, playerPos) {
 		if(!this.isVisible) {return;}
 		if(worldPos < spawnPos) {return;}//don't update if the world hasn't scrolled far enough to spawn
-
-		if(this.invincibilityTime > 0) {
-			this.invincibilityTime -= deltaTime;
-		}
 
 		if(sprite.getDidDie()) {
 			scene.removeEntity(this, false);
@@ -52,24 +68,8 @@ function MiniMiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.Non
 		}
 		
 		this.worldPos = worldPos;
-		if((this.worldPos > spawnPos + 50) && (!sprite.isDying)) {
-			if(previousBackgroundMusic === null) {
-				scene.worldShouldPause(true);
-				previousBackgroundMusic = currentBackgroundMusic.getCurrentTrack();
-				currentBackgroundMusic.setCurrentTrack(AudioTracks.Boss1);
-				
-				if(currentBackgroundMusic.getTime() > 0) {
-		            currentBackgroundMusic.resume();    
-		        } else {
-		            currentBackgroundMusic.play();
-		        }				
-			}
-		} else if((sprite.isDying) && (previousBackgroundMusic != null)) {
-			scene.worldShouldPause(false);
-			currentBackgroundMusic.setCurrentTrack(previousBackgroundMusic);
-            currentBackgroundMusic.play();
-			previousBackgroundMusic = null;			
-		}
+		
+		rotation += (deltaTime / 250);
 		
 		let availableTime = unusedTime + deltaTime;
 		while(availableTime > SIM_STEP) {
@@ -79,12 +79,10 @@ function MiniMiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.Non
 				if(nextPos !== undefined) {
 					if(pattern === PathType.None) {
 						this.position.x += (vel.x * SIM_STEP / 1000);
-						//default should maybe be fly straight? removing y movement for level-load testing. -Rybar
-						//this.position.y += (vel.y * SIM_STEP / 1000);  
 					} else if(pattern === PathType.Sine) {
 						this.position.x += nextPos.x;
 						this.position.y += nextPos.y;
-					} else if((pattern === PathType.Points) || (pattern === PathType.Loop)) {
+					} else if(pattern === PathType.Points) {
 						this.position.x = nextPos.x;
 						this.position.y = nextPos.y;
 					}
@@ -97,11 +95,13 @@ function MiniMiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.Non
 			}
 		}
 		
+        //store unused time for future use
 		unusedTime = availableTime;
 		
-		if(!sprite.isDying) {//TODO: restore this once the miniboss has a collision body
-			this.collisionBody.setPosition({x:this.position.x, 
-											y:this.position.y});
+        //update the collision body position
+		if(!sprite.isDying) {
+			this.collisionBody.setPosition({x:(SPRITE_SCALE * 3) + this.position.x + this.size.height / 2, 
+											y:this.position.y + this.size.height / 2});
 		}
 		
 		sprite.update(deltaTime);
@@ -125,6 +125,11 @@ function MiniMiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.Non
 					xVel = 0;
 				}
 				
+				if(difficulty > 10) {
+					xVel *= 2;
+					yVel *= 2;
+				}
+				
 				const newBullet = new EnemyBullet(EntityType.EnemyBullet2, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
 				scene.addEntity(newBullet, false);
 			}
@@ -135,8 +140,8 @@ function MiniMiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.Non
 		if(!this.isVisible) {return;}
 		if(this.worldPos < spawnPos) {return;}
 		
-		sprite.drawAt(this.position, this.size);
-		if(!sprite.isDying) {//TODO: restore this once the miniboss has a collision body
+		sprite.drawAt(this.position, this.size, rotation);
+		if(!sprite.isDying) {
 			this.collisionBody.draw();
 		}
 	};
@@ -144,36 +149,54 @@ function MiniMiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.Non
 	this.respawn = function(worldPos) {
 		if(worldPos > spawnPos) {
 			this.worldPos = worldPos;
-			const totalTime = (worldPos *  SIM_STEP);
-			const nextPos = this.path.nextPoint(totalTime - timeOffset);
+			const totalTime = (worldPos * SIM_STEP);
+			const nextPos = this.path.nextPoint(totalTime);
 			this.position.x = nextPos.x;
 			this.position.y = nextPos.y;
 		}
 	};
-		
+	
 	this.didCollideWith = function(otherEntity) {
-		if(this.invincibilityTime > 0) {return;}
-		
-		if((otherEntity.type === EntityType.Player) ||
-		   (otherEntity.type === EntityType.RagnarokCapsule) || 
-		   (otherEntity.type === EntityType.PlayerShot) ||
-		   (otherEntity.type === EntityType.PlayerMissile) ||
-		   (otherEntity.type === EntityType.PlayerDouble) ||
-		   (otherEntity.type === EntityType.PlayerLaser) ||
-		   (otherEntity.type === EntityType.PlayerTriple) ||
-		   (otherEntity.type === EntityType.PlayerForceUnit)) {
-			   
-			   this.hitPoints -= otherEntity.damagePoints;
-			   enemyMediumExplosion.play();
-			   this.invincibilityTime = INVINCIBILITY_TIME;
+		if (otherEntity.collisionBody) {
+			let entityType = otherEntity.type;
+			if ((entityType === EntityType.PlayerForceUnit) ||
+				(entityType === EntityType.RagnarokCapsule) || 
+				(entityType === EntityType.PlayerShot) || 
+				(entityType === EntityType.PlayerMissile) || 
+				(entityType === EntityType.PlayerDouble) || 
+				(entityType === EntityType.PlayerLaser) || 
+				(entityType === EntityType.PlayerTriple) ||
+				(entityType === EntityType.PlayerShield)) {
+				this.hitPoints -= otherEntity.damagePoints;
+			}
+		} 
+		else {
+		    this.hitPoints = 0; // TODO remove this catch-all; we want all collisions with player weapons to inflict damage based on their damagePoints
 		}
-		   
-		if(this.hitPoints <= 0) {
+		
+		if (this.hitPoints <= 0) {
 			if(sprite.isDying) {return;}//already dying, no reason to continue
 			
 			scene.displayScore(this);
+
+			sprite = new AnimatedSprite(enemyExplosionSheet2, 11, 96, 96, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
+			
+			this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+			
+			this.position.x = this.collisionBody.center.x - this.size.width / 2;
+			this.position.y = this.collisionBody.center.y - this.size.height / 2;
+
 			sprite.isDying = true;
-			scene.removeCollisions(this);	
+
+			if((this.group != null) && (this.group !== undefined)) {
+				this.group.amDying(this, this.worldPos);
+			}
+
+			sprite.wasBorn = true;
+			scene.removeCollisions(this);
+
+			enemySmallExplosion.play();
 		}
+		// TODO else -- add SFX to show a non-lethal hit
 	};
 }

@@ -7473,7 +7473,7 @@
                         {
                          "name":"Group",
                          "type":"string",
-                         "value":"30"
+                         "value":"250"
                         }, 
                         {
                          "name":"Speed",
@@ -7491,7 +7491,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2",
+                 "type":"miniminiBoss1",
                  "visible":true,
                  "width":50,
                  "x":12524,
@@ -7506,7 +7506,7 @@
                         {
                          "name":"Group",
                          "type":"string",
-                         "value":"30"
+                         "value":"250"
                         }, 
                         {
                          "name":"Speed",
@@ -7524,7 +7524,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2",
+                 "type":"miniminiBoss1",
                  "visible":true,
                  "width":50,
                  "x":12486,
@@ -7539,7 +7539,7 @@
                         {
                          "name":"Group",
                          "type":"string",
-                         "value":"30"
+                         "value":"250"
                         }, 
                         {
                          "name":"Speed",
@@ -7557,7 +7557,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2",
+                 "type":"miniminiBoss1",
                  "visible":true,
                  "width":50,
                  "x":12600,
@@ -7572,7 +7572,7 @@
                         {
                          "name":"Group",
                          "type":"string",
-                         "value":"30"
+                         "value":"250"
                         }, 
                         {
                          "name":"Speed",
@@ -7590,7 +7590,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2",
+                 "type":"miniminiBoss1",
                  "visible":true,
                  "width":50,
                  "x":12596,
@@ -7605,7 +7605,7 @@
                         {
                          "name":"Group",
                          "type":"string",
-                         "value":"30"
+                         "value":"250"
                         }, 
                         {
                          "name":"Speed",
@@ -7623,7 +7623,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2",
+                 "type":"miniminiBoss1",
                  "visible":true,
                  "width":50,
                  "x":12716,
@@ -7638,7 +7638,7 @@
                         {
                          "name":"Group",
                          "type":"string",
-                         "value":"30"
+                         "value":"250"
                         }, 
                         {
                          "name":"Speed",
@@ -7656,7 +7656,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2",
+                 "type":"miniminiBoss1",
                  "visible":true,
                  "width":50,
                  "x":12716,
@@ -7671,14 +7671,14 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":-10
+                         "value":0
                         }],
                  "rotation":0,
                  "type":"alienBoss1",
                  "visible":true,
                  "width":300,
-                 "x":12863.3,
-                 "y":428.606
+                 "x":12891.3,
+                 "y":228.606
                 }, 
                 {
                  "gid":9,
@@ -8718,7 +8718,7 @@
  "nextobjectid":1250,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.2.0",
+ "tiledversion":"1.2.1",
  "tileheight":32,
  "tilesets":[
         {
