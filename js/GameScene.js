@@ -96,7 +96,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 				if(this.worldPos > 21500) {
 					this.levelComplete();
 				} else {
-					this.worldPos += 18.0 * worldSpeed;
+					this.worldPos += 10.0 * worldSpeed;
 				}
 			} else {
 				this.worldPos += gameSpeed * worldSpeed;
