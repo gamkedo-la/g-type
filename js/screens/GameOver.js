@@ -67,7 +67,8 @@ function GameOverScreen() {
             return true;
         } else if (this.keysPressed(KEY_ENTER)) {
 	        menuSelect.play();
-	        if((this.selectorPositionsIndex === 1) && (this.selections.length === 3)) {//selected restart => reset to first level
+	        if((this.selectorPositionsIndex === (this.selections.length - 2)) || //selected restart => reset to first level
+	           (this.selectorPositionsIndex === (this.selections.length - 1))) { //selected quit => reset to first level
 		        currentLevelIndex = 0;
 	        }
             ScreenStates.setState(this.selections[this.selectorPositionsIndex].screen, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject()});
