@@ -176,6 +176,16 @@ const textStrings = {
     CutScene1_3:"homeworld of the KRAMMIX.",
     CutScene1_4:"", //empty line
     CutScene1_5:"Good luck G-Type!",
+    CutScene2_1:"-PHASE 2-", //aka level 1 intro title
+    CutScene2_2:"Pilot the G-Type ship across the hostile",
+    CutScene2_3:"surface KRAMMIX to find the alien HQ.",
+    CutScene2_4:"", //empty line
+    CutScene2_5:"Good luck G-Type!",
+    CutScene3_1:"-PHASE 3-", //aka level 1 intro title
+    CutScene3_2:"Pilot the G-Type ship through the",
+    CutScene3_3:"alien HQ to end their evil forever.",
+    CutScene3_4:"", //empty line
+    CutScene3_5:"Good luck G-Type!",
     SkipCutScene:"Enter to skip",
     Contributors: [
 {name:"H Trayford",   works: ['project lead','core functionality','scoring and score pop ups','powerup objects','enemy, projectile, and collision code','screenshake','menu base code','checkpoint and continues','enemy pathing','cut scene animations','ground enemy integration','main UI integration','missile, ghost, and clear powerups','boss behavior improvements','boss explosions','several flying and ground enemies','volcano'] },

@@ -36,7 +36,6 @@ function CutScene2Screen() {
         }
     };
     this.transitionOut = function() {
-//        uiSelect.play();
         currentBackgroundMusic.pause();
     };
     this.run = function gamePlayFinishedScreenRun(deltaTime) {
@@ -100,10 +99,12 @@ function CutScene2Screen() {
 		
         playerSprite.drawAt(spritePos, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
         
-        gameFont.printTextAt(textStrings.CutScene1_1, {x:GameField.midX, y:GameField.bottom - 120}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
-		gameFont.printTextAt(textStrings.CutScene1_2, {x:GameField.midX, y: GameField.bottom - 90}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
-		gameFont.printTextAt(textStrings.CutScene1_3, {x:GameField.midX, y: GameField.bottom - 60}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
-		gameFont.printTextAt(textStrings.SkipCutScene, {x:GameField.right - 70, y: GameField.bottom - 30}, 12, textAlignment.Right, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
+        gameFont.printTextAt(textStrings.CutScene2_1, {x:GameField.midX, y:GameField.bottom - 300}, 16, textAlignment.Center);//, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
+		gameFont.printTextAt(textStrings.CutScene2_2, {x:GameField.midX, y: GameField.bottom - 90}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
+		gameFont.printTextAt(textStrings.CutScene2_3, {x:GameField.midX, y: GameField.bottom - 60}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
+		gameFont.printTextAt(textStrings.CutScene2_4, {x:GameField.midX, y: GameField.bottom - 30}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
+		gameFont.printTextAt(textStrings.CutScene2_5, {x:GameField.midX, y: GameField.bottom + 0}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
+		gameFont.printTextAt(textStrings.SkipCutScene, {x:GameField.right - 70, y: GameField.bottom + 60}, 12, textAlignment.Right, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
 
         canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
 
