@@ -355,5 +355,5 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 		}
 		// TODO else -- add SFX to show a non-lethal hit
 	};
-	window.cargoBoss = this; //TODO: remove this deubgging line
+	window.alienBoss1 = this; //TODO: remove this deubgging line
 }
