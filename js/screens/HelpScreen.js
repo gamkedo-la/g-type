@@ -64,15 +64,19 @@ function HelpScreen() {
             }
             return true;
         } else if (this.keysPressed(KEY_ENTER)) {
+	        menuSelect.play();
             ScreenStates.setState(this.selections[this.selectorPositionsIndex].screen);
             return true;
         } else if (this.keysPressed(KEY_H)) {
+	        menuSelect.play();
             ScreenStates.setState(HELP_SCREEN);
             return true;
         } else if (this.keysPressed(KEY_C)) {
+	        menuSelect.play();
             ScreenStates.setState(CREDITS_SCREEN);
             return true;
         } else if (this.keysPressed(KEY_E)) {
+	        menuSelect.play();
             ScreenStates.setState(EDITOR_SCREEN);
             return true;
         } else if (this.keysPressed(KEY_M)) {

@@ -12,11 +12,7 @@ function GameOverScreen() {
     this.selections = [
 	    { screen: GAME_SCREEN, title: textStrings.Continue },
 	    { screen: GAME_SCREEN, title: textStrings.Restart },
-	    { screen: MENU_SCREEN, title: textStrings.Quit },
-//        { screen: LEVEL_SELECT_SCREEN, title: textStrings.Play },
-//        { screen: HELP_SCREEN, title: textStrings.Help },
-//        { screen: OPTIONS_SCREEN, title: textStrings.Options },
-//        { screen: CREDITS_SCREEN, title: textStrings.Credits },
+	    { screen: MENU_SCREEN, title: textStrings.Quit }
     ];
     this.transitionIn = function(){
         remainingLives = 2;//Set up for a continue or restart
@@ -54,24 +50,29 @@ function GameOverScreen() {
         }
 
         if (this.keysPressed(KEY_UP)) {
+	        menuMove.play();
             this.selectorPositionsIndex--;
             if (this.selectorPositionsIndex < 0) {
                 this.selectorPositionsIndex += this.selections.length;
             }
             return true;
         } else if (this.keysPressed(KEY_DOWN)) {
+	        menuMove.play();
             this.selectorPositionsIndex = (this.selectorPositionsIndex + 1) % this.selections.length;
             if (this.selectorPositionsIndex > this.selections.length - 1) {
                 this.selectorPositionsIndex = 0;
             }
             return true;
         } else if (this.keysPressed(KEY_ENTER)) {
+	        menuSelect.play();
             ScreenStates.setState(this.selections[this.selectorPositionsIndex].screen, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject()});
             return true;
         } else if (this.keysPressed(KEY_H)) {
+	        menuSelect.play();
             ScreenStates.setState(HELP_SCREEN);
             return true;
         } else if (this.keysPressed(KEY_C)) {
+	        menuSelect.play();
             ScreenStates.setState(CREDITS_SCREEN);
             return true;
         } else if (this.keysPressed(KEY_M)) {

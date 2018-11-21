@@ -55,6 +55,10 @@ const shotHitIndestructible = new sfxClipOverlap("PlayerShieldReflect", 3); //pl
 shotHitIndestructible.setVolume(0.6);
 const clearScreen = new sfxClipSingle("ClearScreen");
 clearScreen.setVolume(0.8);
+const menuMove = new sfxClipOverlap("MenuMove", 2); //placeholder sound effect.  Need new made -LP
+menuMove.setVolume(0.6);
+const menuSelect = new sfxClipSingle("MenuSelect");
+menuSelect.setVolume(0.8);
 
 //const uiSelect = new sfxClipSingle("uiSelect");
 

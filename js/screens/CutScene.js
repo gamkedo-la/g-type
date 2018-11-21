@@ -57,6 +57,7 @@ function CutScene1Screen() {
         }
 
         if (this.keysPressed(KEY_ENTER)) {
+	        menuSelect.play();
             ScreenStates.setState(GAME_SCREEN, this.properties);
             return true;
         } else if (this.keysPressed(KEY_M)) {

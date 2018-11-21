@@ -65,18 +65,21 @@ function MenuScreen() {
     	}
 
         if (this.keysPressed(KEY_UP) || this.keysPressed(KEY_W)) {
+	        menuMove.play();
             this.selectorPositionsIndex--;
             if (this.selectorPositionsIndex < 0) {
                 this.selectorPositionsIndex += this.selections.length;
             }
             return true;
         } else if (this.keysPressed(KEY_DOWN) || this.keysPressed(KEY_S)) {
+	        menuMove.play();
             this.selectorPositionsIndex = (this.selectorPositionsIndex + 1) % this.selections.length;
             if (this.selectorPositionsIndex > this.selections.length - 1) {
                 this.selectorPositionsIndex = 0;
             }
             return true;
         } else if (this.keysPressed(KEY_ENTER)) {
+	        menuSelect.play();
             if(this.selectorPositionsIndex === 0) {
                 scene = null;
                 ScreenStates.setState(CUT_SCENE1_SCREEN, {code: this.getDidEnterCode(), player:null, uiManager:null});
@@ -85,12 +88,15 @@ function MenuScreen() {
             }
             return true;
         } else if (this.keysPressed(KEY_H)) {
+	        menuSelect.play();
             ScreenStates.setState(HELP_SCREEN);
             return true;
         } else if (this.keysPressed(KEY_C)) {
+	        menuSelect.play();
             ScreenStates.setState(CREDITS_SCREEN);
             return true;
         } else if (this.keysPressed(KEY_E)) {
+	        menuSelect.play();
             ScreenStates.setState(EDITOR_SCREEN);
             return true;
         } else if (this.keysPressed(KEY_M)) {

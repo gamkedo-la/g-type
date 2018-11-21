@@ -64,6 +64,7 @@ function DemoSceneScreen() {
     };
     
 	this.control = function demoPlayScreenControl() {
+        menuSelect.play();
 		ScreenStates.setState(MENU_SCREEN);
 	};
 

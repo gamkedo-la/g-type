@@ -57,6 +57,7 @@ function CutScene2Screen() {
 
         switch (keyCode) {
             case KEY_ENTER:
+		        menuSelect.play();
                 ScreenStates.setState(GAME_SCREEN, this.properties);
                 return true;
             case KEY_M:

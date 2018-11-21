@@ -76,6 +76,7 @@ function OptionsScreen() {
         }
 
         if (this.keysPressed(KEY_UP) || this.keysPressed(KEY_W)) {
+	        menuMove.play();
             selectorPositionIndex--;
             if (selectorPositionIndex < 0) {
                 selectorPositionIndex += Object.keys(selectionPosition).length;
@@ -83,6 +84,7 @@ function OptionsScreen() {
             adjustSelectorPosition();
             return true;
         } else if (this.keysPressed(KEY_DOWN) || this.keysPressed(KEY_S)) {
+	        menuMove.play();
             selectorPositionIndex++;
             if (selectorPositionIndex === Object.keys(selectionPosition).length) {
                 selectorPositionIndex = 0;
@@ -90,6 +92,7 @@ function OptionsScreen() {
             adjustSelectorPosition();
             return true;
         } else if (this.keysPressed(KEY_RIGHT) || this.keysPressed(KEY_D)) {
+	        menuMove.play();
             if(selectorPositionIndex === 0) {
                 const currentVolume = MusicVolumeManager.getVolume();
                 MusicVolumeManager.setVolume(currentVolume + 0.1);
@@ -112,6 +115,7 @@ function OptionsScreen() {
             }
             return true;
         } else if (this.keysPressed(KEY_LEFT) || this.keysPressed(KEY_A)) {
+	        menuMove.play();
             if(selectorPositionIndex === 0) {
                 const currentVolume = MusicVolumeManager.getVolume();
                 MusicVolumeManager.setVolume(currentVolume - 0.1);
@@ -137,6 +141,7 @@ function OptionsScreen() {
             }
             return true;
         } else if (this.keysPressed(KEY_PLUS)) {
+	        menuMove.play();
             if(selectorPositionIndex === 0) {
                 const currentVolume = MusicVolumeManager.getVolume();
                 MusicVolumeManager.setVolume(currentVolume + 0.1);
@@ -146,6 +151,7 @@ function OptionsScreen() {
             }
             return true;
         } else if (this.keysPressed(KEY_MINUS)) {
+	        menuMove.play();
             if(selectorPositionIndex === 0) {
                 const currentVolume = MusicVolumeManager.getVolume();
                 MusicVolumeManager.setVolume(currentVolume - 0.1);
@@ -156,6 +162,7 @@ function OptionsScreen() {
             return true;
         } else if (this.keysPressed(KEY_ENTER)) {
             if (selectorPositionIndex === 4) {
+	            menuSelect.play();
                 ScreenStates.setState(this.selections[0].screen);
             }
             return true;
