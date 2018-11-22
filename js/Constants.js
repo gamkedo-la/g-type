@@ -9,7 +9,7 @@ let worldSpeed = 1;
 let gameSpeed = 1.5;
 let remainingLives = 2;
 let didInteract = false;
-	
+
 let currentScore = 0;
 let scoreText = "00000000" + currentScore.toString();
 let highScore = 0;
@@ -82,7 +82,7 @@ const AudioTracks = {
     MiniMiniBoss1:2,     //
 	Boss1:3,		//TODO: change these to
 	Level2:0, 		//the correct indices from
-	Level3:4, 		//the "currentBackgroundMusic" 
+	Level3:4, 		//the "currentBackgroundMusic"
 	GameOver:0,		//array (AudioManager.js ~line 11) once
 	GameEnding:0,	//there is more than 1 element in that array
 	Help:0,			//
@@ -226,3 +226,6 @@ const PauseCause = {
     PressedPause: 1,
     LostFocus: 2,
 };
+
+const DARKEN_BACKGROUNDS = true; // if true, all backgrounds are darker, to increase contrast
+const DARKEN_BG_ALPHA = 0.5; // how much of the way to pure black? (0.0 to 1.0)

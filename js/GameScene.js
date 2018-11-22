@@ -258,9 +258,16 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		}
 	}
 
+	this.darkenBG = function() {
+		drawRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT,'rgba(0,0,0,'+DARKEN_BG_ALPHA+')');
+	}
+
 	this.draw = function() {
 
 		this.drawBackground();
+
+		// an experiment inspired by user feedback to increase foreground contrast
+		if (DARKEN_BACKGROUNDS) this.darkenBG();
 
 		for(let bullet of enemyBullets) {
 			bullet.draw();
@@ -291,7 +298,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		player.activateShield();
 		uiManager.powerUpWasActivated(PowerUpType.Shield, null);
 	};
-	
+
 	this.deactivatedShield = function() {
 		uiManager.powerUpWasDeactivated(PowerUpType.Shield);
 	}
@@ -344,11 +351,11 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 			currentLevelIndex = 0;
 			return;
 		}
-		
+
 		uiManager.clearPowerUps();
 		player.reset();
 		powerUpToActivate = PowerUpType.None;
-		
+
 		if(remainingLives < 1) {
 			this.gameIsOver = true;
 			this.beatTheGame = false;
