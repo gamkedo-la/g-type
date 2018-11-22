@@ -228,4 +228,4 @@ const PauseCause = {
 };
 
 const DARKEN_BACKGROUNDS = true; // if true, all backgrounds are darker, to increase contrast
-const DARKEN_BG_ALPHA = 0.5; // how much of the way to pure black? (0.0 to 1.0)
+const DARKEN_BG_ALPHA = 0.25; // how much of the way to pure black? (0.0 to 1.0)

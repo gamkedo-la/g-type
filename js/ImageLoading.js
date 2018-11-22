@@ -102,13 +102,13 @@ let picsToLoad = 0;
 
 function countLoadedImageAndLaunchIfReady() {
     picsToLoad--;
-    
+
     drawRect(0, 0, canvas.width, canvas.height, 'red');
 	colorText("LOADING", canvas.width / 2, canvas.height / 2, 'white', 64, textAlignment.Center, opacity = 1);
 	const numberText = "Remaining Images: " + picsToLoad.toString();
 	colorText(numberText, canvas.width / 2, 2 * canvas.height / 3, 'white', 52, textAlignment.Center, opacity = 1);
-    
-    
+
+
     if (picsToLoad === 0) { // last image loaded?
         loadingDoneSoStartGame();
     }
@@ -159,9 +159,11 @@ function loadImages() {
         { imgName: backgroundParallaxLayer1, theFile: "backgroundParallax.png" },
         { imgName: backgroundParallaxLayer2, theFile: "backgroundParallax_level_2.png" },
         { imgName: backgroundParallaxLayer3, theFile: "backgroundParallax_level_3.png" },
-        { imgName: foregroundParallaxLayer1, theFile: "foregroundParallax1.png" },
-        { imgName: foregroundParallaxLayer2, theFile: "foregroundParallax1.png" },
-        { imgName: foregroundParallaxLayer3, theFile: "foregroundParallax1.png" },
+
+        // NOTE: remove "_blurred" from filenames for original crisp "girders" and "debris" graphics.
+        { imgName: foregroundParallaxLayer1, theFile: "foregroundParallax1_blurred.png" },
+        { imgName: foregroundParallaxLayer2, theFile: "foregroundParallax1_blurred.png" },
+        { imgName: foregroundParallaxLayer3, theFile: "foregroundParallax1_blurred.png" },
 
 
         //Terrain & World
