@@ -14,13 +14,7 @@ function MiniMiniBoss1(position = {x:0, y:0}, speed = -10, pattern = PathType.No
 	this.isVisible = true;
 	let rotation = 0;
 
-    let sprite;
-	
-    if(difficulty > 15) {
-        sprite = new AnimatedSprite(MiniMiniBoss1RedSheet, 6, 50, 50, false, true, {min:0, max:0}, 0, {min:0, max:5}, 256, {min:5, max:5}, 0);
-    } else {
-        sprite = new AnimatedSprite(MiniMiniBoss1Sheet, 6, 50, 50, false, true, {min:0, max:0}, 0, {min:0, max:5}, 256, {min:5, max:5}, 0);
-    }
+    let sprite = new AnimatedSprite(miniminiBoss1Sheet, 6, 50, 50, false, true, {min:0, max:0}, 0, {min:0, max:5}, 256, {min:5, max:5}, 0);
 	
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 
