@@ -108,7 +108,7 @@ function GamePlayScreen () {
         // SHIP CONTROLS END
 
         // CHEAT KEYS START
-        if (this.keysPressed(KEY_SHIFT, KEY_LEFT)) {
+        if ((this.keysPressed(KEY_SHIFT, KEY_LEFT)) && (cheats.debugKeysEnabled)) {
             if (!pressed) {
                 currentLevelIndex--; // TODO: Take into account level that does not exist.
                 if(currentLevelIndex < 0) {
@@ -118,7 +118,7 @@ function GamePlayScreen () {
                 this.transitionIn(currentLevelIndex); 
             }
             return true;
-        } else if (this.keysPressed(KEY_SHIFT, KEY_RIGHT)) {
+        } else if ((this.keysPressed(KEY_SHIFT, KEY_RIGHT)) && (cheats.debugKeysEnabled)) {
             if (!pressed) {
                 currentLevelIndex++; // TODO: Take into account level that does not exist.
                 if(currentLevelIndex === LevelData.length) {
