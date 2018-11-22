@@ -8,7 +8,7 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 	let didSpawn = true;
 	let shouldResumeGame = true;
 	
-    this.hitPoints = 40;     // Every enemy type should have a hitPoints property
+    this.hitPoints = 80;     // Every enemy type should have a hitPoints property
     const INVINCIBILITY_TIME = 128;
     this.invincibilityTime = 0;
 
@@ -157,7 +157,7 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 				
 				let xVel = vel.x;
 				if(this.position.x > (playerPos.x + 50)) {
-					xVel -= 10;
+					xVel -= 30;
 				} else if(this.position.x < (playerPos.x - 50)) {
 					xVel = -xVel;
 				} else {

@@ -85,9 +85,6 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		let availableTime = unusedTime + deltaTime;
 		this.timeSinceLastFire += deltaTime;
 		
-
-		
-
 		while(availableTime > SIM_STEP) {
 			availableTime -= SIM_STEP;
 			if(!sprite.isDying) {
@@ -211,7 +208,7 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 				this.changeState(state.pewpew)
 				return;
 			}
-			if(this.timeSinceLastDip > 400 && this.hitPoints < 1500){
+			if(this.timeSinceLastDip > 1000 && this.hitPoints < 1500){
 				this.changeState(state.dip)
 			}
 		}
@@ -257,7 +254,7 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		if(this.position.x < -600){
 			this.vel.y = 0
 			this.vel.x = 0
-			if(this.ticksInState > 300){
+			if(this.ticksInState > 100){
 				this.position.x = 1000;
 				this.changeState(state.entrance)
 			}
