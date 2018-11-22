@@ -88,16 +88,16 @@ function HelpScreen() {
     };
 
 	const printMenu = function(menuItems, selected, yOffset = null) {
-	    let mainMenuX = GameField.midX - 45;
-	    let mainMenuY = (yOffset == null ? GameField.bottom - 120 : yOffset);
+	    let mainMenuX = GameField.midX;
+	    let mainMenuY = (yOffset == null ? GameField.bottom - 70 : yOffset);
 
 	    let selectorXOffset = 60;
 	    let selectorYOffset = 40;
 
 	    for (let i = 0; i < menuItems.length; i++){
-		    gameFont.printTextAt(menuItems[i].title, {x: mainMenuX - 50, y: mainMenuY + selectorYOffset * i}, 30, textAlignment.Left);
+		    gameFont.printTextAt(menuItems[i].title, {x: GameField.midX, y: mainMenuY + selectorYOffset * i}, 30, textAlignment.Center);
 		    if(i === selected) {
-			    selectorPosition.x = mainMenuX - 130; //adjust spacing between selector sprite and menu option name
+			    selectorPosition.x = mainMenuX - 200; //adjust spacing between selector sprite and menu option name
 			    selectorPosition.y = mainMenuY + selectorYOffset * i;
 		    }
 	    }
@@ -139,9 +139,26 @@ function HelpScreen() {
     };
 
     const drawHelp = function() {
-	    gameFont.printTextAt("^ | < > to move", {x:GameField.midX - 312, y:GameField.midY - 148}, 24, textAlignment.Left);
-	    gameFont.printTextAt("[X] to shoot", {x:GameField.midX - 312, y:GameField.midY - 112}, 24, textAlignment.Left);
-	    gameFont.printTextAt("[SPACE] to activate Power Up", {x:GameField.midX - 312, y:GameField.midY - 76}, 24, textAlignment.Left);
+	    const baseX = GameField.x + 125;
+	    const baseY = GameField.y + 60;
+	    const deltaY = 30;
+	    const helpFontSize = 20;
+	    const deltaFontSize = 4;
+	    const indent = 42;
+	    gameFont.printTextAt("WASD or ^ | < > to move", {x:baseX, y:baseY + deltaY}, helpFontSize, textAlignment.Left);
+	    gameFont.printTextAt("[X] to shoot", {x:baseX, y:baseY + (2 * deltaY)}, helpFontSize, textAlignment.Left);
+	    gameFont.printTextAt("[SPACE] to activate Power Up", {x:baseX, y:baseY + (3 * deltaY)}, helpFontSize, textAlignment.Left);
+	    //leaving a blank space for readability
+	    gameFont.printTextAt("Collect capsules to cycle", {x:baseX, y:baseY + (5 * deltaY)}, helpFontSize, textAlignment.Left);
+	    gameFont.printTextAt("through Power Up options.", {x:baseX, y:baseY + (6 * deltaY)}, helpFontSize, textAlignment.Left);
+	    gameFont.printTextAt("Speed = Fly/Shoot faster", {x:baseX + indent, y:baseY + (7 * deltaY)}, helpFontSize - deltaFontSize, textAlignment.Left);
+	    gameFont.printTextAt("Missiles = Add missile weapon", {x:baseX + indent, y:baseY + (8 * deltaY)}, helpFontSize - deltaFontSize, textAlignment.Left);
+	    gameFont.printTextAt("Double = Double shot", {x:baseX + indent, y:baseY + (9 * deltaY)}, helpFontSize - deltaFontSize, textAlignment.Left);
+	    gameFont.printTextAt("Laser = Laser shot", {x:baseX + indent, y:baseY + (10 * deltaY)}, helpFontSize - deltaFontSize, textAlignment.Left);
+	    gameFont.printTextAt("Triple = Triple shot", {x:baseX + indent, y:baseY + (11 * deltaY)}, helpFontSize - deltaFontSize, textAlignment.Left);
+	    gameFont.printTextAt("Shield = Protect from alien shots", {x:baseX + indent, y:baseY + (12 * deltaY)}, helpFontSize - deltaFontSize, textAlignment.Left);
+	    gameFont.printTextAt("Ghost = Add a G.H.O.S.T. Ship", {x:baseX + indent, y:baseY + (13 * deltaY)}, helpFontSize - deltaFontSize, textAlignment.Left);
+	    gameFont.printTextAt("Force = ????", {x:baseX + indent, y:baseY + (14 * deltaY)}, helpFontSize - deltaFontSize, textAlignment.Left);
     };
 
     return this;

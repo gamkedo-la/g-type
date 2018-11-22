@@ -88,7 +88,7 @@ function CreditsScreen() {
 
         drawRect(GameField.x, GameField.y - GameField.bgOffset, GameField.width, GameField.height + GameField.bgOffset, MENU_BG_COLOR);
 
-        canvasContext.drawImage(backgroundColorLookup,150,0,16,100,0,0,canvas.width,canvas.height);
+        canvasContext.drawImage(backgroundColorLookup, 150, 0, 16, 100, 0, 0, canvas.width, canvas.height);
         starfield.draw();
 
 		starfield.update(deltaTime);
@@ -96,7 +96,7 @@ function CreditsScreen() {
         creditsText.update(deltaTime, {x:0, y:this.scrollSpeed});
 		creditsText.draw();
 
-		gameFont.printTextAt(textStrings.Credits, {x:GameField.midX, y:GameField.y-105}, 30, textAlignment.Center);
+		gameFont.printTextAt(textStrings.Credits, {x:GameField.midX, y:GameField.y - 105}, 30, textAlignment.Center);
 
 		gameFont.printTextAt("[Backspace] to Main Menu", {x:GameField.x + 450, y:GameField.bottom + 30}, 14, textAlignment.Left);
 
