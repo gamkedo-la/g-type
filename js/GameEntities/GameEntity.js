@@ -85,7 +85,7 @@ const spriteForType = function(type) {
         case EntityType.WarpObstacle:
             return (new AnimatedSprite(warpObstacle, 5, 107, 74, true, true, {min:0, max:0}, 0, {min:0, max:4}, 64, {min:4, max:4}, 0));
 		case EntityType.Bubble:
-			return (new AnimatedSprite(bubble, 10, 30, 30, true, true, {min:0, max:0}, 0, {min:0, max:4}, 128, {min:5, max:9}, 32));
+			return (new AnimatedSprite(bubble, 15, 30, 30, true, true, {min:0, max:4}, 256, {min:5, max:9}, 128, {min:10, max:14}, 32));
 	}
 };
 
@@ -363,9 +363,10 @@ function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, retu
 	let unusedTime = 0;
 	let didCollide = false;
 	this.returnTime = returnTime;
+	let canCollide = true;
 	
 	const sprite = spriteForType(type);
-	sprite.wasBorn = true;
+//	sprite.wasBorn = true;
 
 	this.size = {width:scale * sprite.width, height:scale * sprite.height};
 	
@@ -378,16 +379,23 @@ function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, retu
 		if(sprite.getDidDie()) {
 			if(this.returnTime < 0) {//this bubble doesn't return
 				scene.removeEntity(this, false);
+				canCollide = false;
 				return;
 			} else {
 				this.returnTime -= deltaTime;
 				if(this.returnTime < 0) {
 					this.returnTime = returnTime;
 					sprite.clearDeath();
-					scene.addCollisions(this, false);
+					sprite.wasBorn = false;
 				}
 			}
-			
+		}
+		
+		if(sprite.wasBorn) {
+			if(!this.canCollide) {
+				this.canCollide = true;
+				scene.addCollisions(this, false);
+			}
 		}
 		
 		if((worldPos >= spawnPos) && (this.position.x > -this.size.width)) {
