@@ -26,6 +26,9 @@ function setPaused(shouldPause, pauseCause) {
 		} else if(ScreenStates.state === CREDITS_SCREEN) {
 			pausedPosition.x = GameField.midX + 200;
 			pausedPosition.y = 10;
+		} else if(ScreenStates.state === MENU_SCREEN) {
+			pausedPosition.x = GameField.midX - 96;
+			pausedPosition.y = 10;
 		}
 		gameFont.printTextAt("[PAUSED]", pausedPosition, 24, textAlignment.Left);
 		currentBackgroundMusic.pause();
@@ -47,7 +50,6 @@ const ScreenStates = {
 		[LOADING_SCREEN]: new LoadingScreen(),
 		[MENU_SCREEN]: new MenuScreen(),
         [OPTIONS_SCREEN]: new OptionsScreen(),
-//		[LEVEL_SELECT_SCREEN]: new LevelSelectScreen(),
 		[CREDITS_SCREEN]: new CreditsScreen(),
 		[HELP_SCREEN]: new HelpScreen(),
 		[GAME_SCREEN]: new GamePlayScreen(),
@@ -55,16 +57,10 @@ const ScreenStates = {
         [CUT_SCENE2_SCREEN]: new CutScene2Screen(),
         [CUT_SCENE3_SCREEN]: new CutScene1Screen(),//Need to create a new class of cut scene for this
 		[DEMO_SCENE_SCREEN]: new DemoSceneScreen(),
-//		[PAUSE_SCREEN]: new PauseScreen(),
 		[GAME_OVER_SCREEN]: new GameOverScreen(),
 		[ENDING_SCREEN]: new EndgameScreen()
 	},
 	setState: function(newState, properties) {
-		//I removed these so we can transition from one game scene directly
-		//to another, I don't think it causes any problems
-//		if(newState === this.state) {
-//			return;
-//        }
         this.screens[this.state].transitionOut();
         this.stateLog.push(this.state);
 		this.state = newState;
