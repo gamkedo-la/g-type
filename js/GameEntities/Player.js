@@ -446,20 +446,38 @@ function Player(position = {x:0, y:0}) {
 		} else if(otherEntity.type === EntityType.FreeCollider || otherEntity.type === EntityType.Text) {
 			return;//Player is not damaged by colliding with a free collider, or harmless text
 		} else {
-			if (isInvincible || cheats.playerInvincible || shield.isActive) {
+			if (isInvincible || cheats.playerInvincible) {
 				if(cheats.playerInvincible) {
 //					console.log("Note: cheats.playerInvincible turned on");
 				}
 				//TODO: does anything need to be done here?
 			} else {
-				scene.shouldShake(MAX_SHAKE_MAGNITUDE);
-				sprite.isDying = true;
-				playerExplosion.play();
-				explosionEmitter = createParticleEmitter(this.position.x + this.size.width / 2,this.position.y + this.size.height / 2, exampleExplosion);
-				for(let i = 0; i < ghosts.length; i++) {
-					ghosts[i].playerDied();
+				if(shield.isActive) {//Shield doesn't protect against terrain
+					if((otherEntity.type === EntityType.RhombusBoulder) ||
+					   (otherEntity.type === EntityType.BrokenBoulder) || 
+					   (otherEntity.type === EntityType.BrokenBoulderFlipped) || 
+					   (otherEntity.type === EntityType.Rock01) || 
+					   (otherEntity.type === EntityType.Rock02) || 
+					   (otherEntity.type === EntityType.Rock03) || 
+					   (otherEntity.type === EntityType.Rock04) || 
+					   (otherEntity.type === EntityType.Platform1) || 
+					   (otherEntity.type === EntityType.WarpObstacle)) {
+						   this.playerHit(otherEntity);
+					   } 
+				} else {
+					this.playerHit(otherEntity);
 				}
 			}
+		}
+	};
+	
+	this.playerHit = function(otherEntity) {
+		scene.shouldShake(MAX_SHAKE_MAGNITUDE);
+		sprite.isDying = true;
+		playerExplosion.play();
+		explosionEmitter = createParticleEmitter(this.position.x + this.size.width / 2,this.position.y + this.size.height / 2, exampleExplosion);
+		for(let i = 0; i < ghosts.length; i++) {
+			ghosts[i].playerDied();
 		}
 	};
 
