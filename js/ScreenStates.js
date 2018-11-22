@@ -23,6 +23,9 @@ function setPaused(shouldPause, pauseCause) {
 		if((ScreenStates.state === HELP_SCREEN) || (ScreenStates.state === OPTIONS_SCREEN)) {
 			pausedPosition.x = GameField.midX + 200;
 			pausedPosition.y = GameField.bottom - 40;
+		} else if(ScreenStates.state === CREDITS_SCREEN) {
+			pausedPosition.x = GameField.midX + 200;
+			pausedPosition.y = 10;
 		}
 		gameFont.printTextAt("[PAUSED]", pausedPosition, 24, textAlignment.Left);
 		currentBackgroundMusic.pause();

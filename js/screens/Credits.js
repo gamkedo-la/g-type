@@ -96,7 +96,7 @@ function CreditsScreen() {
         creditsText.update(deltaTime, {x:0, y:this.scrollSpeed});
 		creditsText.draw();
 
-		gameFont.printTextAt(textStrings.Credits, {x:GameField.midX, y:GameField.y - 105}, 30, textAlignment.Center);
+		gameFont.printTextAt(textStrings.Credits, {x:GameField.midX, y:GameField.y - 135}, 30, textAlignment.Center);
 
 		gameFont.printTextAt("[Backspace] to Main Menu", {x:GameField.x + 450, y:GameField.bottom + 30}, 14, textAlignment.Left);
 

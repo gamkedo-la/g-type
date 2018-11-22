@@ -47,7 +47,9 @@ function CreditFont(activeImage, inactiveImage, frameSize, context) {
 	
 	this.draw = function() {
 		for(let i = 0; i < characters.length; i++) {
-			characters[i].draw();
+			if((characters[i].position.y > (GameField.y - 90)) && (characters[i].position.y < (canvas.height - 55))) {
+				characters[i].draw();
+			}
 		}
 	};
 	
