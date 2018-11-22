@@ -160,10 +160,9 @@ function loadImages() {
         { imgName: backgroundParallaxLayer2, theFile: "backgroundParallax_level_2.png" },
         { imgName: backgroundParallaxLayer3, theFile: "backgroundParallax_level_3.png" },
 
-        // NOTE: remove "_blurred" from filenames for original crisp "girders" and "debris" graphics.
-        { imgName: foregroundParallaxLayer1, theFile: "foregroundParallax1_blurred.png" },
-        { imgName: foregroundParallaxLayer2, theFile: "foregroundParallax1_blurred.png" },
-        { imgName: foregroundParallaxLayer3, theFile: "foregroundParallax1_blurred.png" },
+        { imgName: foregroundParallaxLayer1, theFile: "foregroundParallax1_darker.png" },
+        { imgName: foregroundParallaxLayer2, theFile: "foregroundParallax1_darker.png" },
+        { imgName: foregroundParallaxLayer3, theFile: "foregroundParallax1_darker.png" },
 
 
         //Terrain & World
