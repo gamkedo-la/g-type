@@ -291,6 +291,10 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		player.activateShield();
 		uiManager.powerUpWasActivated(PowerUpType.Shield, null);
 	};
+	
+	this.deactivatedShield = function() {
+		uiManager.powerUpWasDeactivated(PowerUpType.Shield);
+	}
 
 	this.activatedMissile = function() {
 		player.setHasMissiles(true);

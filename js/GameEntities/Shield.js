@@ -43,8 +43,7 @@ function ShieldEntity(position = {x:0, y:0}, playerSize = {width:0, height:0}) {
 				sprite.update(deltaTime);
 			}
 		} else if(this.hitPoints <= 0) {
-			this.isActive = false;
-			scene.removeCollisions(this);
+			this.deactivate();
 		}
 		
 		if(wasReset) {
@@ -96,6 +95,7 @@ function ShieldEntity(position = {x:0, y:0}, playerSize = {width:0, height:0}) {
 	
 	this.deactivate = function() {
 		this.isActive = false;
+		scene.deactivatedShield();
 		scene.removeCollisions(this);
 	}
 }

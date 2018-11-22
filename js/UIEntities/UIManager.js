@@ -91,7 +91,7 @@ function UIManager() {
 	
 	this.powerUpWasDeactivated = function(deactivatedPowerUp) {
 		for(let i = 0; i < pages.length; i++) {
-			pages[i].unLockPowerUp(powerUpToUnlock);
+			pages[i].unLockPowerUp(deactivatedPowerUp);
 		}
 	};
 	
