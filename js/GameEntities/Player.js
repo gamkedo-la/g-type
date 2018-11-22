@@ -420,21 +420,20 @@ function Player(position = {x:0, y:0}) {
 
 	this.activateGhostShip = function() {
         if(this.activeGhosts >= MAX_GHOSTS) {return;}
-		let thisGhost;
-		if(ghosts.length < 3) {
-			thisGhost = new GhostShipEntity({x:this.position.x, y:this.position.y}, 75 * (1 + ghosts.length));
-			ghosts.push(thisGhost);
-		} else {
-			for(let i = 0; i < ghosts.length; i++) {
-				if(!ghosts[i].isActive) {
+        
+        if(this.activeGhosts < ghosts.length) {//previously created a ghost which isn't currently active
+	        for(let i = 0; i < ghosts.length; i++) {
+		        if(!ghosts[i].isActive) {
 					thisGhost = ghosts[i];
-					thisGhost.setPosition({x:this.position.x, y:this.position.y}, 75 * (1 + i));
 					break;//found the first one which is inActive => done
 				}
-			}
-		}
-
-		thisGhost.isActive = true;
+	        }
+        } else {//never had this many active simultaneously before so need to make a new one
+	        thisGhost = new GhostShipEntity({x:this.position.x, y:this.position.y}, 75 * (1 + ghosts.length));
+			ghosts.push(thisGhost);
+        }
+        
+        thisGhost.isActive = true;
         this.activeGhosts++;
     };
 

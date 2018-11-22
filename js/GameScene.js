@@ -346,15 +346,15 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		}
 		
 		uiManager.clearPowerUps();
+		player.reset();
+		powerUpToActivate = PowerUpType.None;
+		
 		if(remainingLives < 1) {
 			this.gameIsOver = true;
 			this.beatTheGame = false;
-			//canvasContext.setTransform(1, 0, 0, 1, 0, 0);
 			uiManager.reset(true);
 		} else {
 			remainingLives--;
-			player.reset();
-			powerUpToActivate = PowerUpType.None;
 			uiManager.reset(false);
 		}
 	};
