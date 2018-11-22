@@ -175,11 +175,14 @@ function Player(position = {x:0, y:0}) {
 		}
 
 		//draw the thruster
-		let thrusterMod = timer.getCurrentTime() % 16 < 8 ? 0 : 3;
-		this.thrusterPosition.x = this.position.x - 28 + thrusterMod;
-		this.thrusterPosition.y = this.position.y;
-		//this.thrusterSize.width = thrusterSprite.width * thrusterMod;
-		thrusterSprite.drawAt(this.thrusterPosition, this.thrusterSize);
+		if(!sprite.isDying) {
+			let thrusterMod = timer.getCurrentTime() % 16 < 8 ? 0 : 3;
+			this.thrusterPosition.x = this.position.x - 28 + thrusterMod;
+			this.thrusterPosition.y = this.position.y;
+	
+			thrusterSprite.drawAt(this.thrusterPosition, this.thrusterSize);
+		}
+
 		//draw the player
 		sprite.drawAt(this.position, this.size);
 		if((sprite.isDying) && (!explosionSprite.getDidDie())) {
@@ -473,6 +476,7 @@ function Player(position = {x:0, y:0}) {
 	this.playerHit = function(otherEntity) {
 		scene.shouldShake(MAX_SHAKE_MAGNITUDE);
 		sprite.isDying = true;
+		sprite.unusedTime = 0;
 		playerExplosion.play();
 		explosionEmitter = createParticleEmitter(this.position.x + this.size.width / 2,this.position.y + this.size.height / 2, exampleExplosion);
 		for(let i = 0; i < ghosts.length; i++) {
