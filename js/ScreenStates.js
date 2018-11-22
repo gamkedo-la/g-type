@@ -20,7 +20,9 @@ function setPaused(shouldPause, pauseCause) {
 		ScreenStates.pauseCause = pauseCause;
 		pauseSound.play();
 		let pausedPosition = {x:GameField.midX - 100, y:GameField.midY - 80};
-		if((ScreenStates.state === HELP_SCREEN) || (ScreenStates.state === OPTIONS_SCREEN)) {
+		if((ScreenStates.state === HELP_SCREEN) || 
+		   (ScreenStates.state === OPTIONS_SCREEN) ||
+		   (ScreenStates.state === GAME_OVER_SCREEN)) {
 			pausedPosition.x = GameField.midX + 200;
 			pausedPosition.y = GameField.bottom - 40;
 		} else if(ScreenStates.state === CREDITS_SCREEN) {
