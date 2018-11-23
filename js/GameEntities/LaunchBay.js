@@ -82,8 +82,7 @@ function LaunchBay(position = {x:0, y:0}, spawnPos) {
         }
         
         if(!this.isVisible) {return;}
-        sprite.drawAt(this.position, this.size);
-        sprite.drawAt(this.position, this.size);
+        sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
         if(!sprite.isDying) {
             this.collisionBody.draw();
         } else {
@@ -167,7 +166,7 @@ function LaunchBay(position = {x:0, y:0}, spawnPos) {
     
     this.drawExplosions = function() {
         for(let i = 0; i < explosions.length; i++) {
-            explosions[i].drawAt({x:(this.position.x + explosions[i].deltaXPos), y: (this.position.y + explosions[i].deltaYPos)}, this.size);
+            explosions[i].drawAt((this.position.x + explosions[i].deltaXPos), (this.position.y + explosions[i].deltaYPos), this.size.width, this.size.height);
         }
     };
 }

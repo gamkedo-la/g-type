@@ -81,7 +81,7 @@ function PlayerMissile(position = {x:0, y:0}, speed = {x:0, y:0}) {
 	this.draw = function() {
 		if(!this.isVisible) {return;}
 		
-		sprite.drawAt(this.position, this.size, rotation);
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height, rotation);//TODO: redraw missile to be pre-rotated
         this.collisionBody.draw();
 	};
 	

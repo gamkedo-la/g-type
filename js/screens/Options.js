@@ -217,10 +217,10 @@ function OptionsScreen() {
 		thrusterPosition.x = selectorPosition.x - 28 + thrusterMod;
 		thrusterPosition.y = selectorPosition.y;
 		//this.thrusterSize.width = thrusterSprite.width * thrusterMod;
-		thrusterSprite.drawAt(thrusterPosition, thrusterSize);
+		thrusterSprite.drawAt(thrusterPosition.x, thrusterPosition.y, thrusterSize.width, thrusterSize.height);
 		
         //draw selector sprite
-        selectorSprite.drawAt(selectorPosition, {width:52, height:32});
+        selectorSprite.drawAt(selectorPosition.x, selectorPosition.y, 52, 32);
 
 		canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
 	};

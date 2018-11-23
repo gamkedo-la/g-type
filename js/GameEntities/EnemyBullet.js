@@ -72,7 +72,7 @@ function EnemyBullet(type, position = {x:0, y:0}, velocity = {x:0, y:0}) {
 	this.draw = function() {
 		if(!this.isVisible) {return;}
 		
-		sprite.drawAt(this.position, this.size);
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 		this.collisionBody.draw();
 		
 		if(didCollide) {

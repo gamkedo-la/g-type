@@ -88,16 +88,16 @@ function CutScene2Screen() {
 
         starfield.draw();
 
-        planetSprite.drawAt({x:GameField.midX - (planetScale * planetSprite.width / 2), y:GameField.bottom - ((GameField.height / 12) * (delayTime / DISPLAY_TIME)) - (planetScale * planetSprite.height / 4)}, {width:planetScale * planetSprite.width, height:planetScale * planetSprite.height});
+        planetSprite.drawAt((GameField.midX - (planetScale * planetSprite.width / 2)), (GameField.bottom - ((GameField.height / 12) * (delayTime / DISPLAY_TIME)) - (planetScale * planetSprite.height / 4)), (planetScale * planetSprite.width), (planetScale * planetSprite.height));
 
 		const spritePos = {x:GameField.x + GameField.width / 8 + playerSpriteDeltaX, y: GameField.y + 2 * GameField.height / 3 + playerSpriteDeltaY};
 		let thrusterMod = timer.getCurrentTime() % 16 < 8 ? 0 : 3;
 		thrusterPosition.x = spritePos.x - (28 + thrusterMod) * PLAYER_SCALE;
 		thrusterPosition.y = spritePos.y;
 
-		thrusterSprite.drawAt(thrusterPosition, {width:PLAYER_SCALE * thrusterSprite.width, height:PLAYER_SCALE * thrusterSprite.height});
+		thrusterSprite.drawAt(thrusterPosition.x, thrusterPosition.y, (PLAYER_SCALE * thrusterSprite.width), (PLAYER_SCALE * thrusterSprite.height));
 		
-        playerSprite.drawAt(spritePos, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
+        playerSprite.drawAt(spritePos.x, spritePos.y, (PLAYER_SCALE * playerSprite.width), (PLAYER_SCALE * playerSprite.height));
         
         gameFont.printTextAt(textStrings.CutScene2_1, {x:GameField.midX, y:GameField.bottom - 300}, 16, textAlignment.Center);//, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
 		gameFont.printTextAt(textStrings.CutScene2_2, {x:GameField.midX, y: GameField.bottom - 90}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});

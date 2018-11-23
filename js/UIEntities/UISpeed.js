@@ -88,6 +88,6 @@ function SpeedUI(position = {x:0, y:0}) {
 	};
 	
 	this.draw = function() {
-		sprite.drawAt(this.position, this.size);
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 	};
 }

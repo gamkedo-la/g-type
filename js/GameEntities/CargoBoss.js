@@ -271,7 +271,7 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 			   return;
 		}
 		
-		sprite.drawAt(this.position, this.size);
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 		if(!sprite.isDying) {
 			this.collisionBody.draw();
 		} else {
@@ -300,7 +300,7 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 	
 	this.drawExplosions = function() {
 		for(let i = 0; i < explosions.length; i++) {
-            explosions[i].drawAt({x:(this.position.x + explosions[i].deltaXPos), y: (this.position.y + explosions[i].deltaYPos)}, {width: this.size.width * 2, height: this.size.height * 2});
+            explosions[i].drawAt((this.position.x + explosions[i].deltaXPos), (this.position.y + explosions[i].deltaYPos), this.size.width * 2, this.size.height * 2);
 		}
 	};
 	

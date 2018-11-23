@@ -89,11 +89,11 @@ function CutScene1Screen() {
 
         starfield.draw();
         
-        planetSprite.drawAt({x:GameField.x + 5 * GameField.width / 6, y:GameField.y + GameField.height / 7}, {width:planetScale * planetSprite.width, height:planetScale * planetSprite.height});
+        planetSprite.drawAt((GameField.x + 5 * GameField.width / 6), (GameField.y + GameField.height / 7), (planetScale * planetSprite.width), (planetScale * planetSprite.height));
 
 //{deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}}
 
-        gameFont.printTextAt(textStrings.CutScene1_1, {x:GameField.midX, y:GameField.bottom - 300}, 16, textAlignment.Center);//, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
+        gameFont.printTextAt(textStrings.CutScene1_1, {x:GameField.midX, y:GameField.bottom - 300}, 16, textAlignment.Center);
 		gameFont.printTextAt(textStrings.CutScene1_2, {x:GameField.midX, y: GameField.bottom - 90}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
 		gameFont.printTextAt(textStrings.CutScene1_3, {x:GameField.midX, y: GameField.bottom - 60}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
 		gameFont.printTextAt(textStrings.CutScene1_4, {x:GameField.midX, y: GameField.bottom - 30}, 16, textAlignment.Center, {deltaTime: deltaTime, speed: {x:0, y:INTRO_STORY_SCROLL_SPEED_Y}});
@@ -105,9 +105,9 @@ function CutScene1Screen() {
 		thrusterPosition.x = spritePos.x - (28 + thrusterMod) * PLAYER_SCALE;
 		thrusterPosition.y = spritePos.y;
 
-		thrusterSprite.drawAt(thrusterPosition, {width:PLAYER_SCALE * thrusterSprite.width, height:PLAYER_SCALE * thrusterSprite.height});
+		thrusterSprite.drawAt(thrusterPosition.x, thrusterPosition.y, (PLAYER_SCALE * thrusterSprite.width), (PLAYER_SCALE * thrusterSprite.height));
 		
-        playerSprite.drawAt(spritePos, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
+        playerSprite.drawAt(spritePos.x, spritePos.y, (PLAYER_SCALE * playerSprite.width), (PLAYER_SCALE * playerSprite.height));
  
         canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
     };

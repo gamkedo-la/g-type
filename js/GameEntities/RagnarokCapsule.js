@@ -43,7 +43,7 @@ function RagnarokCapsule(position = {x:0, y:0}, initialWorldPos) {
 			return;
 		}
 		
-		sprite.drawAt(this.position, this.size);
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 		this.collisionBody.draw();
 	};
 	

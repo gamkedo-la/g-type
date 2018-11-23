@@ -52,7 +52,7 @@ function PlayerForceUnit(position = {x:0, y:0}) {
 	};
 
 	this.draw = function() {
-		sprite.drawAt(this.position, this.size);
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 		//collision bodies know not to draw themselves if DRAW_COLLIDERS = false
 		this.collisionBody.draw();
 
