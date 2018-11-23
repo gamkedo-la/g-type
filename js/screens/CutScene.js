@@ -110,12 +110,9 @@ function CutScene1Screen() {
         playerSprite.drawAt(spritePos, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
  
         canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
-
     };
 
 	const drawBG = function menuScreenDrawBG() {
-        // fill the background since there is no image for now
-        drawRect(GameField.x, GameField.y - GameField.bgOffset, GameField.width, GameField.height + GameField.bgOffset, MENU_BG_COLOR);
         canvasContext.drawImage(backgroundColorLookup,150,0,16,100,0,0,canvas.width,canvas.height);
     }
 }

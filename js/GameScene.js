@@ -569,34 +569,4 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		// Should take in a type of capsule to spawn
 
 	};
-
-	// Draw power ups.
-	const drawPowerUpBar = function(PowerUps = PowerUpType) {
-		printPowerUps(PowerUps);
-
-	};
-
-	const printPowerUps = function(powerUpItems, selected = powerUpToActivate) {
-		const powerUpNames = Object.values(powerUpItems);
-		const DISABLED_COLOR = '#A8A8A8';
-		const ENABLED_COLOR = '#FFFF00';
-		const BUTTON_WIDTH = 90;
-	    const powerUpButtonMenuStartX = GameField.x + 20;
-	    const powerUpMenuY = GameField.bottom + 35;
-	    const powerUpMenuTextStartX = GameField.x + 65;
-	    const buttonXOffset = 20;
-
-	    for (let i = 1; i < powerUpNames.length; i++){
-	    	if (powerUpNames[i] === selected) {
-	    		color = ENABLED_COLOR;
-	    	} else {
-	    		color = DISABLED_COLOR;
-	    	}
-
-	    	// x,y,w,h,color
-	    	drawRect(powerUpButtonMenuStartX + ((BUTTON_WIDTH + buttonXOffset) * (i - 1)), GameField.bottom + 15, BUTTON_WIDTH, 25, color);
-	    	// showWords, textX, textY, fillColor, fontface, textAlign = 'left', opacity = 1
-		    colorText(powerUpNames[i], powerUpMenuTextStartX + ((BUTTON_WIDTH + buttonXOffset) * (i - 1)), powerUpMenuY, Color.Black, Fonts.ButtonTitle, textAlignment.Center);
-	    }
-	};
 }

@@ -153,8 +153,6 @@ function CutScene3Screen() {
     };
 
 	const drawBG = function menuScreenDrawBG() {		
-        // fill the background since there is no image for now
-//        drawRect(GameField.x, GameField.y - GameField.bgOffset, GameField.width, GameField.height + GameField.bgOffset, MENU_BG_COLOR);
         canvasContext.drawImage(backgroundColorLookup2, 150, 0, 16, 100, 0, 0, canvas.width, canvas.height);
         
         // distant planets and nebulae

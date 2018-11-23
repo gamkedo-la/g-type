@@ -86,8 +86,6 @@ function CreditsScreen() {
             ScreenStates.setState(MENU_SCREEN);
         }
 
-        drawRect(GameField.x, GameField.y - GameField.bgOffset, GameField.width, GameField.height + GameField.bgOffset, MENU_BG_COLOR);
-
         canvasContext.drawImage(backgroundColorLookup, 150, 0, 16, 100, 0, 0, canvas.width, canvas.height);
         starfield.draw();
 

@@ -1,8 +1,3 @@
-function clear() {
-	//This is the basic wipe of the whole canvas, do not limit to just the gamefield
-    drawRect(0,0, canvas.width, canvas.height, CLEAR_COLOR);
-};
-
 function setPaused(shouldPause, pauseCause) {
 
 	if(shouldPause === ScreenStates.isPaused) {
@@ -75,7 +70,6 @@ const ScreenStates = {
 	},
 	run: function(deltaTime) {
 		if(!this.isPaused) {
-	       clear();
 		   this.screens[this.state].run(deltaTime);
 		}
  	},

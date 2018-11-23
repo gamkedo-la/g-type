@@ -44,7 +44,6 @@ function EndgameScreen() {
     };
 
     this.transitionOut = function() {
-//        uiSelect.play();
 		currentBackgroundMusic.pause();
     };
 
@@ -55,7 +54,6 @@ function EndgameScreen() {
         var textY = 150;
         for (let i = 0; i < this.endgameScript.length; i++) {
             EndgameText.addCreditsString(this.endgameScript[i], {x: nameX, y: (this.currentY + textY)}, textAlignment.Left, {width:20, height:20});
-//            gameFont.printTextAt(contributor.name, {x: nameX, y: (this.currentY + textY)}, 20, textAlignment.Left);
             textY += height * 1.4;
             textY += textSkip;
         }
@@ -85,18 +83,12 @@ function EndgameScreen() {
             ScreenStates.setState(MENU_SCREEN);
         }
 
-        drawRect(GameField.x, GameField.y - GameField.bgOffset, GameField.width, GameField.height + GameField.bgOffset, MENU_BG_COLOR);
-
         canvasContext.drawImage(backgroundColorLookup,150,0,16,100,0,0,canvas.width,canvas.height);
         starfield.draw();
-
-//        this.drawendgameScript();
 
         selectorSprite.update(deltaTime);
 
 		starfield.update(deltaTime);
-
-		//canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
 
 		gameFont.printTextAt(textStrings.Endgame, {x:GameField.midX, y:GameField.y}, 30, textAlignment.Center);
 
