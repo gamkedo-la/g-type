@@ -421,8 +421,8 @@ function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, retu
 		}
 		
 		if(sprite.wasBorn) {
-			if(!this.canCollide) {
-				this.canCollide = true;
+			if(!canCollide) {
+				canCollide = true;
 				scene.addCollisions(this, false);
 			}
 		}
@@ -485,6 +485,7 @@ function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, retu
 			sprite.isDying = true;
 			bubbleExplosion.play();
 			scene.removeCollisions(this);
+			canCollide = false;
 		}
 	};
 	
