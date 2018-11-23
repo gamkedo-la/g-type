@@ -57,7 +57,7 @@ const ScreenStates = {
 		[GAME_SCREEN]: new GamePlayScreen(),
         [CUT_SCENE1_SCREEN]: new CutScene1Screen(),
         [CUT_SCENE2_SCREEN]: new CutScene2Screen(),
-        [CUT_SCENE3_SCREEN]: new CutScene1Screen(),//Need to create a new class of cut scene for this
+        [CUT_SCENE3_SCREEN]: new CutScene3Screen(),
 		[DEMO_SCENE_SCREEN]: new DemoSceneScreen(),
 		[GAME_OVER_SCREEN]: new GameOverScreen(),
 		[ENDING_SCREEN]: new EndgameScreen()

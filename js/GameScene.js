@@ -195,7 +195,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		}
 
 		starfield.update(deltaTime, this.worldPos);
-	}
+	};
 
 	this.drawForeground = function() {
 		// foreground layer: girders truss beams aligned to bottom of screen
