@@ -13,18 +13,16 @@ function CutScene3Screen() {
     let level2Position;
     const LEVEL2_SCALE = 3;
     let level2Size;
-    let rock1Sprite;
-    const ROCK1_SCALE = 1;
-    let rock1Size;
-    let rock2Sprite;
-    const ROCK2_SCALE = 1;
-    let rock2Size;
     let platform1Sprite;
     const PLTFRM1_SCALE = 3;
     let pltfrm1Size;
     let pltfrm1Position;
     let parallaxOffset2 = 0;
     let parallaxOffset3 = 0;
+    let wormholeSprite;
+    const WORMHOLE_SCALE = 3;
+    let wormholeSize;
+    let wormholePosition;
 
     const DISPLAY_TIME = 6000;//6000 = 6 second display time
     const INTRO_STORY_SCROLL_SPEED_Y = 0.001;
@@ -41,20 +39,18 @@ function CutScene3Screen() {
 		level2Size = {width:LEVEL2_SCALE * level2BossSprite.width, height:LEVEL2_SCALE * level2BossSprite.height};
 		level2Position = {x:GameField.midX - level2Size.width/2, y:GameField.midY + 15};
 		
-		rock1Sprite = new AnimatedSprite(rock1, 1, 74, 73, false, true, {min:0, max:0}, 0, {min:0, max:0}, 512, {min:0, max:0}, 0);
-		rock1Size = {width:ROCK1_SCALE * rock1Sprite.width, height:ROCK1_SCALE * rock1Sprite.height};
-		
-		rock2Sprite = new AnimatedSprite(rock2, 1, 40, 40, false, true, {min:0, max:0}, 0, {min:0, max:0}, 512, {min:0, max:0}, 0);
-		rock2Size = {width:ROCK2_SCALE * rock2Sprite.width, height:ROCK2_SCALE * rock2Sprite.height};
-		
 		platform1Sprite = new AnimatedSprite(platform1, 5, 76, 38, false, true, {min:0, max:0}, 0, {min:0, max:4}, 512, {min:4, max:4}, 0);
 		pltfrm1Size = {width:PLTFRM1_SCALE * platform1Sprite.width, height:PLTFRM1_SCALE * platform1Sprite.height};
 		pltfrm1Position = {x:GameField.midX - pltfrm1Size.width * 1.0, y:GameField.bottom - 35};
 		
+		wormholeSprite = new AnimatedSprite(wormHole, 16, 60, 63, false, true, {min:0, max:6}, 128, {min:6, max:6}, 256, {min:7, max:15}, 128);
+		wormholeSize = {width:WORMHOLE_SCALE * wormholeSprite.width, height:WORMHOLE_SCALE * wormholeSprite.height};
+		wormholePosition = {x:GameField.midX - wormholeSize.width/2, y:GameField.midY - 30};
+		
 		// the distant planets in midground
 		parallaxOffset2 = -1 * (22404 * BG_PARALLAX_RATIO_2[1] % backgroundParallaxLayer2.width);//hard coded for Level 2
 		// things overlaid above the gameplay (girders)
-		parallaxOffset3 = -1 * (100 * BG_PARALLAX_RATIO_3[1] % foregroundParallaxLayer2.width);//hard coded for Level 2
+		parallaxOffset3 = -1 * (22404 * BG_PARALLAX_RATIO_3[1] % foregroundParallaxLayer2.width);//hard coded for Level 2
 		
         currentBackgroundMusic.setCurrentTrack(AudioTracks.GameOver);
         if(currentBackgroundMusic.getTime() > 0){
@@ -97,14 +93,26 @@ function CutScene3Screen() {
     };
 
 	const update = function(deltaTime) {
-		if((delayTime >= 0.1 * DISPLAY_TIME) && (delayTime < 0.40 * DISPLAY_TIME)) {
-			playerSpriteDeltaX += (10 * delayTime / DISPLAY_TIME);
+		if(delayTime < 0.1 * DISPLAY_TIME) {
+			//do nothing
+		} else if((delayTime >= 0.1 * DISPLAY_TIME) && (delayTime < 0.40 * DISPLAY_TIME)) {
+			playerSpriteDeltaX += (9.5 * delayTime / DISPLAY_TIME);
 		} else if((delayTime >= 0.40 * DISPLAY_TIME) && (delayTime < 0.6 * DISPLAY_TIME)) {
-			playerSpriteDeltaY += (8 * delayTime / DISPLAY_TIME);
+			playerSpriteDeltaY += (7.5 * delayTime / DISPLAY_TIME);
+		} else if((delayTime >= 0.60 * DISPLAY_TIME) && (delayTime < 0.75 * DISPLAY_TIME)){
+			PLAYER_SCALE -= (0.025 * delayTime / DISPLAY_TIME);
+			if(PLAYER_SCALE < 0.0) {
+				PLAYER_SCALE = 0.0;
+			}
 		} else {
-			PLAYER_SCALE -= (0.01 * delayTime / DISPLAY_TIME);
-			if(PLAYER_SCALE < 0.05) {
-				PLAYER_SCALE = 0.05;
+			PLAYER_SCALE -= (0.025 * delayTime / DISPLAY_TIME);
+			if(PLAYER_SCALE < 0.0) {
+				PLAYER_SCALE = 0.0;
+			}
+			
+			if(!wormholeSprite.isDying) {
+				wormholeSprite.wasBorn = true;
+				wormholeSprite.isDying = true;
 			}
 		}
 
@@ -112,6 +120,7 @@ function CutScene3Screen() {
 		thrusterSprite.update(deltaTime);
 		
 		level2BossSprite.update(deltaTime);
+		wormholeSprite.update(deltaTime);
 		platform1Sprite.update(deltaTime);
 	};
 
@@ -124,6 +133,7 @@ function CutScene3Screen() {
 		thrusterPosition.x = spritePos.x - (28 + thrusterMod) * PLAYER_SCALE;
 		thrusterPosition.y = spritePos.y;
 		
+		wormholeSprite.drawAt(wormholePosition, wormholeSize);
         playerSprite.drawAt(spritePos, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
         thrusterSprite.drawAt(thrusterPosition, {width:PLAYER_SCALE * thrusterSprite.width, height:PLAYER_SCALE * thrusterSprite.height});
         platform1Sprite.drawAt(pltfrm1Position, pltfrm1Size);

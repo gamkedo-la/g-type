@@ -57,6 +57,7 @@ const rock3 = document.createElement("img");
 const rock4 = document.createElement("img");
 const platform1 = document.createElement("img");
 const warpObstacle = document.createElement("img");
+const wormHole = document.createElement("img");
 
 //Player Associated
 const player1Sheet = document.createElement("img");
@@ -181,6 +182,7 @@ function loadImages() {
         { imgName: rock4, theFile: "Rock04.png" },
         { imgName: platform1, theFile: "Platform1-sheet.png" },
         { imgName: warpObstacle, theFile: "WarpZoneObstacleSpriteSheet.png" },
+        { imgName: wormHole, theFile: "Level2WarpHole.png" },
 
         // player related
         { imgName: player1Sheet, theFile: "G-TypePlayer1-sm-v3.png" },
