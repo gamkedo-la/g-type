@@ -112,8 +112,6 @@ function Player(position = {x:0, y:0}) {
 			sprite.isDying = false;
 			this.clearBullets();
 
-			const emitterIndex = ParticleEmitterManager.pool.indexOf(explosionEmitter);
-			ParticleEmitterManager.returnEmitterToPool(emitterIndex);
 			if(playerExplosion.getTime() <= 0) {
 				playerExplosion.play();
 			}
