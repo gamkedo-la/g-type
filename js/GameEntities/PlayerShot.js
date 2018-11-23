@@ -37,6 +37,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
     this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:pos.x, y:pos.y}});
 
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+	const flashSize = {width: FLASH_SCALE * flashSprite.width, height: FLASH_SCALE * flashSprite.height};
 	
 	this.setPosition = function(newPos) {
 		pos = newPos;
@@ -93,10 +94,9 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 		if(!this.isVisible) {return;}
 		
 		if(this.wasReleased) {
-			const xPos = (pos.x + this.size.width/2 - FLASH_SCALE * flashSprite.width/2) - (this.size.width/2 * Math.cos(this.rotation)) - (FLASH_SCALE * flashSprite.width/2 * Math.cos(this.rotation));
-			const yPos = (pos.y + this.size.height / 2 - FLASH_SCALE * flashSprite.height/2) + (this.size.height / 2 * Math.sin(this.rotation)) + (FLASH_SCALE * flashSprite.height/2 * Math.sin(this.rotation));
-//			const yPos = pos.y + (this.size.height / 2) - (FLASH_SCALE * flashSprite.height / 2);
-			flashSprite.drawAt({x:xPos, y:yPos}, {width:FLASH_SCALE * flashSprite.width, height:FLASH_SCALE * flashSprite.height}, this.rotation);
+			const xPos = (pos.x + this.size.width/2 - flashSize.width/2) - (this.size.width/2 * Math.cos(this.rotation)) - (flashSize.width/2 * Math.cos(this.rotation));
+			const yPos = (pos.y + this.size.height / 2 - flashSize.height/2) + (this.size.height / 2 * Math.sin(this.rotation)) + (flashSize.height/2 * Math.sin(this.rotation));
+			flashSprite.drawAt(xPos, yPos, flashSize.width, flashSize.height, this.rotation);
 		}
 		
 		let drawPos = {x:pos.x, y:pos.y};
@@ -104,7 +104,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 			drawPos = {x:pos.x - 30, y:pos.y};
 		}
 		
-		sprite.drawAt(drawPos, this.size, this.rotation);
+		sprite.drawAt(drawPos.x, drawPos.y, this.size.width, this.size.height, this.rotation);
 		this.collisionBody.draw();
 	};
 	

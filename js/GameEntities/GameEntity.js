@@ -140,7 +140,7 @@ function GameEntity(sprite, position = {x:0, y:0}, velocity = {x:0, y:0}, size =
 	};
 	
 	this.draw = function() {
-		sprite.drawAt(pos, size);
+		sprite.drawAt(pos.x, pos.y, size.width, size.height);
 	};
 	
 	this.didCollideWith = function(otherEntity) {
@@ -321,7 +321,7 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, spe
 		if((this.worldPos >= spawnPos) && 
 		   (this.position.x > GameField.x - this.size.width) &&
 		   (this.position.x <= GameField.right)) {
-			sprite.drawAt(this.position, this.size);
+			sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 			this.collisionBody.draw();
 		}
 	};
@@ -453,7 +453,7 @@ function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, retu
 		if((this.worldPos >= spawnPos) && 
 		   (this.position.x > GameField.x - this.size.width) &&
 		   (this.position.x <= GameField.right)) {
-			sprite.drawAt(this.position, this.size);
+			sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 			this.collisionBody.draw();
 		}
 	};

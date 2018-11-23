@@ -105,7 +105,7 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, spawnPos = 0
 		if(!this.isVisible) {return;}
 		if(this.worldPos < spawnPos) {return;}
 		
-		sprite.drawAt(this.position, this.size, this.rotation);
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height, this.rotation);
 		if(!sprite.isDying) {
 			this.collisionBody.draw();
 		}

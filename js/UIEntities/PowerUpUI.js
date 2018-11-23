@@ -141,14 +141,14 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None, s
 	};
 	
 	this.draw = function() {
-		sprite.drawAt(this.position, this.size);
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 
 		if (isLocked) {
 			return;
 		}
 		
 		if(contentsSprite != null) {
-			contentsSprite.drawAt(contentsPosition, {width:contentsSprite.width, height:contentsSprite.height});
+			contentsSprite.drawAt(contentsPosition.x, contentsPosition.y, contentsSprite.width, contentsSprite.height);
 		} else if(this.contentsType === PowerUpType.Speed) {
 			contents.draw();
 		}

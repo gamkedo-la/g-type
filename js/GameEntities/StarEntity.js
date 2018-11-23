@@ -28,7 +28,7 @@ function StarEntity(sprite, position = {x:0, y:0}, velocity = {x:0, y:0}, size =
 	};
 	
 	this.draw = function() {
-		sprite.drawAt(pos, this.size);
+		sprite.drawAt(pos.x, pos.y, this.size.width, this.size.height);
 	};
 	
 	this.didCollideWith = function(otherEntity) {

@@ -133,13 +133,13 @@ function CutScene3Screen() {
 		thrusterPosition.x = spritePos.x - (28 + thrusterMod) * PLAYER_SCALE;
 		thrusterPosition.y = spritePos.y;
 		
-		wormholeSprite.drawAt(wormholePosition, wormholeSize);
-        playerSprite.drawAt(spritePos, {width:PLAYER_SCALE * playerSprite.width, height:PLAYER_SCALE * playerSprite.height});
-        thrusterSprite.drawAt(thrusterPosition, {width:PLAYER_SCALE * thrusterSprite.width, height:PLAYER_SCALE * thrusterSprite.height});
-        platform1Sprite.drawAt(pltfrm1Position, pltfrm1Size);
-        platform1Sprite.drawAt({x:pltfrm1Position.x + pltfrm1Size.width, y:pltfrm1Position.y}, pltfrm1Size);
-        platform1Sprite.drawAt({x:pltfrm1Position.x - pltfrm1Size.width, y:pltfrm1Position.y}, pltfrm1Size);
-        level2BossSprite.drawAt(level2Position, level2Size);
+		wormholeSprite.drawAt(wormholePosition.x, wormholePosition.y, wormholeSize.width, wormholeSize.height);
+        playerSprite.drawAt(spritePos.x, spritePos.y, (PLAYER_SCALE * playerSprite.width), (PLAYER_SCALE * playerSprite.height));
+        thrusterSprite.drawAt(thrusterPosition.x, thrusterPosition.y, (PLAYER_SCALE * thrusterSprite.width), (PLAYER_SCALE * thrusterSprite.height));
+        platform1Sprite.drawAt(pltfrm1Position.x, pltfrm1Position.y, pltfrm1Size.width, pltfrm1Size.height);
+        platform1Sprite.drawAt((pltfrm1Position.x + pltfrm1Size.width), (pltfrm1Position.y), pltfrm1Size.width, pltfrm1Size.height);
+        platform1Sprite.drawAt((pltfrm1Position.x - pltfrm1Size.width), (pltfrm1Position.y), pltfrm1Size.width, pltfrm1Size.height);
+        level2BossSprite.drawAt(level2Position.x, level2Position.y, level2Size.width, level2Size.height);
         
         gameFont.printTextAt(textStrings.CutScene3_1, {x:GameField.midX, y:GameField.midY - 200}, 16, textAlignment.Center);
 		gameFont.printTextAt(textStrings.CutScene3_2, {x:GameField.midX, y: GameField.midY - 170}, 16, textAlignment.Center);

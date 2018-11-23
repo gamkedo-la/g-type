@@ -140,7 +140,7 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		if(!this.isVisible) {return;}
 		if(this.worldPos < spawnPos) {return;}
 		
-		sprite.drawAt(this.position, this.size, rotation);
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height, rotation);
 		if(!sprite.isDying) {
 			this.collisionBody.draw();
 		}

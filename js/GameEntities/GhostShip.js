@@ -133,7 +133,7 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 	this.draw = function() {
 		if(!this.isActive) {return;}//don't draw inactive ghosts
 		
-		sprite.drawAt(this.position, this.size);
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 		
 		//draw player shots
 		for(let i = 0; i < shots.length; i++) {

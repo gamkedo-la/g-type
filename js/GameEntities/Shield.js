@@ -61,7 +61,7 @@ function ShieldEntity(position = {x:0, y:0}, playerSize = {width:0, height:0}) {
 	this.draw = function() {
 		if(!this.isActive) {return;}// Don't need to draw if not active
 		
-		sprite.drawAt(this.position, this.size);
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 		
 		this.collisionBody.draw();
 	};

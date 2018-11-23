@@ -178,13 +178,13 @@ function Player(position = {x:0, y:0}) {
 			this.thrusterPosition.x = this.position.x - 28 + thrusterMod;
 			this.thrusterPosition.y = this.position.y;
 	
-			thrusterSprite.drawAt(this.thrusterPosition, this.thrusterSize);
+			thrusterSprite.drawAt(this.thrusterPosition.x, this.thrusterPosition.y, this.thrusterSize.width, this.thrusterSize.height);
 		}
 
 		//draw the player
-		sprite.drawAt(this.position, this.size);
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 		if((sprite.isDying) && (!explosionSprite.getDidDie())) {
-			explosionSprite.drawAt(this.position, this.size);
+			explosionSprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 		}
 		//collision bodies know not to draw themselves if DRAW_COLLIDERS = false
 		this.collisionBody.draw();
