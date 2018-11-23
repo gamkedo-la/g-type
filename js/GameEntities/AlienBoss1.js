@@ -16,17 +16,17 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 	this.bulletsLeft = 0;
 	this.timeSinceLastFire = 0;
 	this.ticksInState = 0;
-	this.timeSinceLastDip = 0;
+	this.timeSinceLastDip = 0 * cos(timeSinceLastFire);
 	let sprite = new AnimatedSprite(alienBoss1Sheet, 
-		/*frameCount =*/ 2, 
-		/*frameWidth =*/ 300, 
-		/*frameHeight =*/ 200, 
+		/*frameCount =*/ 12, 
+		/*frameWidth =*/ 211.7, 
+		/*frameHeight =*/ 210, 
 		/*reverses =*/ true, 
 		/*autoLife =*/ true, 
-		/*birthRange =*/ {min:0, max:2}, 
+		/*birthRange =*/ {min:0, max:1}, 
 		/*birthRate =*/ 0, 
-		/*lifeRange =*/ {min:0, max:2}, 
-		/*lifeRate =*/ 128, 
+		/*lifeRange =*/ {min:0, max:11}, 
+		/*lifeRate =*/ 328, 
 		/*deathRange =*/ {min:1, max:1}, 
 		/*deathRate =*/  0);
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
@@ -219,7 +219,7 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 	}
 	state.pewpew = function(){
 		if(this.ticksInState == 1){
-			this.bulletsLeft = 60;
+			this.bulletsLeft = 100;
 			this.vel.x = 0
 			this.vel.y = 0;
 		}
