@@ -23,7 +23,7 @@ function CreditsScreen() {
         this.skipBump = 0;
         this.currentY = GameField.bottom - 300;
 
-        starfield = new Starfield();
+        starfield = new Starfield(180, 120, 80, -16, -32, -64);
 
         currentBackgroundMusic.setCurrentTrack(AudioTracks.Help);
         if(currentBackgroundMusic.getTime() > 0){

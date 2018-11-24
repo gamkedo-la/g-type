@@ -247,8 +247,10 @@ function CollidableChar(activeImage, inactiveImage, character, frameSize, drawSi
 				return {x:0, y:2 * frameSize.height};
 			case "/":
 				return {x:frameSize.width, y:2 * frameSize.height};
-			case " ":
+			case "+":
 				return {x:2 * frameSize.width, y:2 * frameSize.height};
+			case " ":
+				return {x:3 * frameSize.width, y:2 * frameSize.height};
 			default:
 				return {x:18.5 * frameSize.width, y:frameSize.height};//18.5 so it doesn't crash, but you can tell something's not right
 		}

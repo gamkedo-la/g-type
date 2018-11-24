@@ -173,8 +173,10 @@ function GameFont(image, charSize, context) {
 				return {x:0, y: 2 * charSize.height};
 			case "/":
 				return {x:charSize.width, y:2 * charSize.height};
-			case " ":
+			case "+":
 				return {x:2 * charSize.width, y:2 * charSize.height};
+			case " ":
+				return {x:3 * charSize.width, y:2 * charSize.height};
 			default:
 				return {x:18.5 * charSize.width, y:charSize.height};//18.5 so it doesn't crash, but you can tell something's not right
 		}

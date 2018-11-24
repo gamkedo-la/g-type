@@ -15,7 +15,7 @@ function EndgameScreen() {
 	    {screen: MENU_SCREEN, title: textStrings.Main},
 	   ];
 
-    this.scrollLimit = -3200;
+    this.scrollLimit = -1200;
     this.currentY = 0;
     this.scrollSpeed = 4 / 50;
     this.totalTime = 0;
@@ -29,7 +29,7 @@ function EndgameScreen() {
         this.currentY = GameField.bottom - 300;
 
         this.selectorPositionsIndex = 0;
-        starfield = new Starfield();
+        starfield = new Starfield(180, 120, 80, -16, -32, -64);
         selectorSprite = new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, 9999999, {min:5, max:7}, 128);
 
         currentBackgroundMusic.setCurrentTrack(AudioTracks.Help);
@@ -48,24 +48,12 @@ function EndgameScreen() {
     };
 
     this.buildendgameScript = function() {
-	    let nameX = GameField.midX - 50;
+	    let nameX = GameField.midX - 145;
         let textSkip = 20;
         let height = 24;
         var textY = 150;
         for (let i = 0; i < this.endgameScript.length; i++) {
-            EndgameText.addCreditsString(this.endgameScript[i], {x: nameX, y: (this.currentY + textY)}, textAlignment.Left, {width:20, height:20});
-            textY += height * 1.4;
-            textY += textSkip;
-        }
-    };
-
-    this.drawendgameScript = function() {
-        let nameX = GameField.midX - 350;
-        let textSkip = 20;
-        let height = 24;
-        var textY = 150;
-        for (let i = 0; i < this.endgameScript.length; i++) {
-            gameFont.printTextAt(this.endgameScript[i], {x: nameX, y: (this.currentY + textY)}, 20, textAlignment.Left);
+            EndgameText.addCreditsString(this.endgameScript[i], {x: nameX, y: (this.currentY + textY)}, textAlignment.Left, {width:26, height:26});
             textY += height * 1.4;
             textY += textSkip;
         }
@@ -80,22 +68,22 @@ function EndgameScreen() {
         this.currentY -= Math.floor((deltaTime) * this.scrollSpeed);
 
         if (this.currentY < this.scrollLimit) {
-            ScreenStates.setState(MENU_SCREEN);
+            ScreenStates.setState(CREDITS_SCREEN);
         }
 
-        canvasContext.drawImage(backgroundColorLookup,150,0,16,100,0,0,canvas.width,canvas.height);
+        canvasContext.drawImage(backgroundColorLookup, 150, 0, 16, 100, 0, 0, canvas.width, canvas.height);
         starfield.draw();
 
         selectorSprite.update(deltaTime);
 
 		starfield.update(deltaTime);
 
-		gameFont.printTextAt(textStrings.Endgame, {x:GameField.midX, y:GameField.y}, 30, textAlignment.Center);
+		gameFont.printTextAt(textStrings.Endgame, {x:GameField.midX, y:20}, 32, textAlignment.Center);
 
-        gameFont.printTextAt("[^] to Scroll Faster", {x:GameField.x + 20, y:GameField.bottom - 80}, 12, textAlignment.Left);
-		gameFont.printTextAt("[|] to Scroll Slower", {x:GameField.x + 20, y:GameField.bottom - 60}, 12, textAlignment.Left);
-		gameFont.printTextAt("[Space] to Pause", {x:GameField.x + 20, y:GameField.bottom - 40}, 12, textAlignment.Left);
-		gameFont.printTextAt("[Backspace] to Main Menu", {x:GameField.x + 20, y:GameField.bottom - 20}, 12, textAlignment.Left);
+        gameFont.printTextAt("[+] to Scroll Faster", {x:GameField.x - 43, y:GameField.bottom - 40}, 12, textAlignment.Left);
+		gameFont.printTextAt("[-] to Scroll Slower", {x:GameField.x - 43, y:GameField.bottom - 20}, 12, textAlignment.Left);
+		gameFont.printTextAt("[Space] to Pause", {x:GameField.x - 43, y:GameField.bottom}, 12, textAlignment.Left);
+		gameFont.printTextAt("[Backspace] or [Esc] to Main Menu", {x:GameField.x - 43, y:GameField.bottom + 20}, 12, textAlignment.Left);
 
 		scene.update(deltaTime);
 		scene.draw();
