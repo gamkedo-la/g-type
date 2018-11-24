@@ -7260,7 +7260,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2",
+                 "type":"miniminiBoss1",
                  "visible":true,
                  "width":50,
                  "x":12317.6,
@@ -7293,7 +7293,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2",
+                 "type":"miniminiBoss1",
                  "visible":true,
                  "width":50,
                  "x":12180.4,
@@ -7326,7 +7326,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2",
+                 "type":"miniminiBoss1",
                  "visible":true,
                  "width":50,
                  "x":12357.1,
@@ -7359,7 +7359,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2",
+                 "type":"miniminiBoss1",
                  "visible":true,
                  "width":50,
                  "x":12371.6,
@@ -7392,7 +7392,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2",
+                 "type":"miniminiBoss1",
                  "visible":true,
                  "width":50,
                  "x":12247.6,
@@ -7425,7 +7425,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2",
+                 "type":"miniminiBoss1",
                  "visible":true,
                  "width":50,
                  "x":12124,
@@ -7458,7 +7458,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"flyingEnemy2",
+                 "type":"miniminiBoss1",
                  "visible":true,
                  "width":50,
                  "x":12172,

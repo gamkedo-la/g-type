@@ -41,10 +41,12 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 	
 	const pathPoints = [
 		{x: GameField.right - this.size.width, y: GameField.midY},
+		{x: GameField.x + GameField.width / 5, y: GameField.y + 60},
 		{x: GameField.right - this.size.width, y: GameField.y},
 		{x: GameField.right - this.size.width, y: GameField.bottom - this.size.height},
 		{x: GameField.right - this.size.width, y: GameField.y},
 		{x: GameField.right - this.size.width, y: GameField.bottom - this.size.height},
+		{x: GameField.x + GameField.width/2, y: GameField.y},
 //		{x: GameField.right - this.size.width, y: GameField.y},
 	];//TODO: Give the mini boss a path to follow
 	

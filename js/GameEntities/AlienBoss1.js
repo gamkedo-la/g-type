@@ -6,7 +6,7 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 	this.score = 100;
 	let previousBackgroundMusic = null;
 
-    this.hitPoints = 2400;     // Every enemy type should have a hitPoints property
+    this.hitPoints = 2800;     // Every enemy type should have a hitPoints property
 	
 	const SPRITE_SCALE = 1; 
 	this.position = position;
@@ -137,13 +137,13 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 			
 		}
 		if(this.position.x < 700){
-			this.bulletsLeft = 10;
+			this.bulletsLeft = 100;
 		}
 		if(this.position.x < 650){
-			this.bulletsLeft = 10;
+			this.bulletsLeft = 100;
 		}
 		if(this.position.x < 640){
-			this.bulletsLeft = 10;
+			this.bulletsLeft = 100;
 		}
 		if(this.position.x < 500){
 			this.vel.x = 0
