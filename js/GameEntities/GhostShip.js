@@ -3,7 +3,8 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 	this.position = {x:position.x - distance, y:position.y};
 	this.type = EntityType.GhostShip;
 
-	let sprite = new AnimatedSprite(ghostSheet, 9, 64, 64, false, true, {min:0, max:0}, 0, {min:0, max:8}, 128, {min:8, max:8}, 0);
+	const normalSprite = new AnimatedSprite(ghostSheet, 9, 64, 64, false, true, {min:0, max:0}, 0, {min:0, max:8}, 128, {min:8, max:8}, 0);
+	let sprite = normalSprite;
 	const SPRITE_SCALE = 0.6;
 	const MISSILE_VELOCITY = {x:100, y:150};
 	this.size = {width:sprite.width * SPRITE_SCALE, height:sprite.height * SPRITE_SCALE};
@@ -167,6 +168,13 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 		
 		this.clearBullets();
 	};
+	
+	this.restore = function() {
+		sprite = normalSprite;
+		sprite.wasBorn = false;
+		sprite.isDying = false;
+		sprite.currentFrame = 0;
+	}
 
 	this.reset = function() {
 		sprite.isDying = false;

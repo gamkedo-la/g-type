@@ -480,6 +480,14 @@ function Player(position = {x:0, y:0}) {
 			ghosts[i].playerDied();
 		}
 	};
+	
+	this.restoreGhosts = function() {
+		for(let i = 0; i < ghosts.length; i++) {
+			if(ghosts[i].isActive) {
+				ghosts[i].restore();
+			}
+		}
+	};
 
 	this.incrementSpeed = function() {
 		let multiplier = currentSpeed / BASE_SPEED;

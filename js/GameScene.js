@@ -348,6 +348,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 			this.levelIsComplete = true;
 			this.didCompleteWarpChallenge = false;
 			currentLevelIndex = 0;
+			player.restoreGhosts();
 			return;
 		}
 
