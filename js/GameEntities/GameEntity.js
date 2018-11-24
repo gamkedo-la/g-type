@@ -390,12 +390,10 @@ function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, retu
 	this.position = position;
 	this.worldPos = null;
 	let unusedTime = 0;
-	let didCollide = false;
 	this.returnTime = returnTime;
 	let canCollide = true;
 	
 	const sprite = spriteForType(type);
-//	sprite.wasBorn = true;
 
 	this.size = {width:scale * sprite.width, height:scale * sprite.height};
 	
@@ -405,47 +403,41 @@ function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, retu
 										center:   {x:this.position.x + this.size.height / 2, y:this.position.y + this.size.height / 2}});
 	
 	this.update = function(deltaTime, worldPos) {
+		if(worldPos < spawnPos) {return;}//don't update until after spawn position
+		if(this.position.x < GameField.x - this.size.width) {//remove from game once scrolled past left side of screen
+			scene.removeEntity(this, false);
+		}
+		
+		if(this.worldPos == null) {
+			this.worldPos = worldPos;
+		}
+		
+		this.position.x -= (worldPos - this.worldPos);
+		this.worldPos = worldPos;
+		
+		this.collisionBody.setPosition({x: this.position.x, y: this.position.y});
+		
 		if(sprite.getDidDie()) {
 			if(this.returnTime < 0) {//this bubble doesn't return
 				scene.removeEntity(this, false);
-				canCollide = false;
-				return;
 			} else {
 				this.returnTime -= deltaTime;
-				if(this.returnTime < 0) {
+				if(this.returnTime <= 0) {//now it can return, but first it needs to be born
 					this.returnTime = returnTime;
 					sprite.clearDeath();
 					sprite.wasBorn = false;
 				}
 			}
-		}
-		
-		if(sprite.wasBorn) {
-			if(!canCollide) {
-				canCollide = true;
-				scene.addCollisions(this, false);
-			}
-		}
-		
-		if((worldPos >= spawnPos) && (this.position.x > -this.size.width)) {
-			if(this.worldPos == null) {
-				this.worldPos = worldPos;
-			}
+		} else {
+			sprite.update(deltaTime);
 			
-			sprite.update(deltaTime);//update the image
-			
-			let availableTime = unusedTime + deltaTime;
-			while(availableTime > SIM_STEP) {
-				availableTime -= SIM_STEP;
-				
-				this.position.x -= (worldPos - this.worldPos);
-				this.worldPos = worldPos;
+			if(!sprite.isDying) {
+				if((sprite.currentFrame > sprite.birthRange.max) && (!canCollide)) {
+					canCollide = true;
+					scene.addCollisions(this, false);
+					console.log("Restoring collisions: (" + sprite.currentFrame + ", " + sprite.birthRange.max + ")");
+				}
 			}
-			
-			unusedTime = availableTime;
-			this.collisionBody.setPosition({x: this.position.x, y: this.position.y});
-		} else if(this.position.x < GameField.x - this.size.width) {
-			scene.removeEntity(this, false);
 		}
 	};
 	
@@ -481,7 +473,6 @@ function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, retu
 			(entityType === EntityType.PlayerTriple) ||
 			(entityType === EntityType.PlayerShield)) {
 
-			didCollide = true;
 			sprite.isDying = true;
 			bubbleExplosion.play();
 			scene.removeCollisions(this);
