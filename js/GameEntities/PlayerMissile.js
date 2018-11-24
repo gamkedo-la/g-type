@@ -10,7 +10,6 @@ function PlayerMissile(position = {x:0, y:0}, speed = {x:0, y:0}) {
 	let velocity = {x:speed.x, y:speed.y};
 	this.setVelocity = function(newVel) {
 		velocity = {x:newVel.x, y:newVel.y};
-		rotation = Math.atan2(-velocity.y, velocity.x);
 	};
 	
 	this.type = EntityType.PlayerMissile;
@@ -24,8 +23,7 @@ function PlayerMissile(position = {x:0, y:0}, speed = {x:0, y:0}) {
 	let unusedTime = 0;
 
 	const SPRITE_SCALE = 1;
-	const sprite = new AnimatedSprite(missileSheet, 5, 35, 19, true, true, {min:0, max:0}, 0, {min:0, max:2}, 512, {min:3, max:4}, 64);
-	let rotation = Math.atan2(-velocity.y, velocity.x);
+	const sprite = new AnimatedSprite(missileSheet, 8, 28, 28, true, true, {min:0, max:0}, 0, {min:0, max:7}, 128, {min:7, max:7}, 32);
 	
 	this.size = {width:sprite.width * SPRITE_SCALE, height:sprite.height * SPRITE_SCALE};
 	
@@ -81,7 +79,7 @@ function PlayerMissile(position = {x:0, y:0}, speed = {x:0, y:0}) {
 	this.draw = function() {
 		if(!this.isVisible) {return;}
 		
-		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height, rotation);//TODO: redraw missile to be pre-rotated
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
         this.collisionBody.draw();
 	};
 	

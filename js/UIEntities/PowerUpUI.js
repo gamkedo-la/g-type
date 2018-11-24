@@ -43,7 +43,7 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None, s
 				return null;
 			case PowerUpType.Missile:
 				helpText = PowerUpUIText.Missile;
-				return (new AnimatedSprite(missileSheet, 5, 35, 19, true, true, {min:0, max:0}, 0, {min:0, max:2}, 512, {min:2, max:2}, 0));
+				return (new AnimatedSprite(missileSheet, 8, 28, 28, true, true, {min:0, max:0}, 0, {min:0, max:7}, 128, {min:7, max:7}, 32));
 			case PowerUpType.Double:
 				helpText = PowerUpUIText.Double;
 				return (new AnimatedSprite(doubleShotUI, 4, 45, 41, false, true, {min:0, max:0}, 0, {min:0, max:3}, 256, {min:3, max: 3}, 0));
