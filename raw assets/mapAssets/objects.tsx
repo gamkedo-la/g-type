@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.1" name="objects" tilewidth="382" tileheight="168" tilecount="37" columns="0">
+<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="518" tileheight="222" tilecount="40" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0" type="rock01">
   <properties>
@@ -74,7 +74,7 @@
   <properties>
    <property name="Group" type="int" value="0"/>
    <property name="difficulty" type="int" value="1"/>
-   <property name="rotation" type="float" value="4.71238898"/>
+   <property name="rotation" type="float" value="4.7123889800000001"/>
   </properties>
   <image width="30" height="30" source="objectSprites/_editorGroundEnemy1E.png"/>
  </tile>
@@ -90,7 +90,7 @@
   <properties>
    <property name="Group" type="int" value="0"/>
    <property name="difficulty" type="int" value="1"/>
-   <property name="rotation" type="float" value="0.785398163"/>
+   <property name="rotation" type="float" value="0.78539816299999998"/>
   </properties>
   <image width="30" height="30" source="objectSprites/_editorGroundEnemy1NW.png"/>
  </tile>
@@ -271,5 +271,11 @@
    <property name="pattern" value="points"/>
   </properties>
   <image width="214" height="103" source="objectSprites/_editorminimini.png"/>
+ </tile>
+ <tile id="53" type="volcano">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="518" height="222" source="objectSprites/Volcano.png"/>
  </tile>
 </tileset>

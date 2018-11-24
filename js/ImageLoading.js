@@ -55,6 +55,7 @@ const rock1 = document.createElement("img");
 const rock2 = document.createElement("img");
 const rock3 = document.createElement("img");
 const rock4 = document.createElement("img");
+const volcano = document.createElement("img");
 const platform1 = document.createElement("img");
 const warpObstacle = document.createElement("img");
 const wormHole = document.createElement("img");
@@ -184,6 +185,7 @@ function loadImages() {
         { imgName: rock2, theFile: "Rock02.png" },
         { imgName: rock3, theFile: "Rock03.png" },
         { imgName: rock4, theFile: "Rock04.png" },
+        { imgName: volcano, theFile: "Volcano.png" },
         { imgName: platform1, theFile: "Platform1-sheet.png" },
         { imgName: warpObstacle, theFile: "WarpZoneObstacleSpriteSheet.png" },
         { imgName: wormHole, theFile: "Level2WarpHole.png" },
