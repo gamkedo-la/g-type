@@ -19,7 +19,7 @@ function CutScene1Screen() {
     let delayTime = 0;
 
     this.transitionIn = function() {
-        starfield = new Starfield();
+        starfield = new Starfield(240, 120, 80, -64, -128, -256);
         playerSprite = new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, Number.MAX_VALUE, {min:5, max:7}, 128);
         thrusterSprite = new AnimatedSprite(playerThruster, 3, 33, 32, false, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
 
@@ -36,10 +36,12 @@ function CutScene1Screen() {
             currentBackgroundMusic.play();
         }
     };
+    
     this.transitionOut = function() {
 //        uiSelect.play();
         currentBackgroundMusic.pause();
     };
+    
     this.run = function gamePlayFinishedScreenRun(deltaTime) {
 	    delayTime += deltaTime;
 
@@ -51,6 +53,7 @@ function CutScene1Screen() {
 
 	    draw(deltaTime);
     };
+    
     this.control = function gamePlayFinishedScreenControl(keydownMap, pressed){
        if (pressed) {//only act on key released events => prevent multiple changes on single press
             return false;

@@ -435,7 +435,6 @@ function BubbleEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, retu
 				if((sprite.currentFrame > sprite.birthRange.max) && (!canCollide)) {
 					canCollide = true;
 					scene.addCollisions(this, false);
-					console.log("Restoring collisions: (" + sprite.currentFrame + ", " + sprite.birthRange.max + ")");
 				}
 			}
 		}

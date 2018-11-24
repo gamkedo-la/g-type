@@ -13,10 +13,9 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
     this.didCompleteWarpChallenge = false;
     this.bgTime = bgTime;
     let starfield = new Starfield();
-    if(levelIndex === WARP_INDEX) {
-	    starfield = new Starfield(240,120,80,-64,-128,-256);
+    if((levelIndex === 0) || (levelIndex === WARP_INDEX)) {
+	    starfield = new Starfield(240, 120, 80, -64, -128, -256);
     }
-//	const starfield = new Starfield();
     let player;
     if((aPlayer === null) || (aPlayer === undefined)) {
 		player = new Player(data.getPlayerSpawn());

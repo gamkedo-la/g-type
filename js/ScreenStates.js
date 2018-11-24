@@ -50,6 +50,7 @@ const ScreenStates = {
 		[CREDITS_SCREEN]: new CreditsScreen(),
 		[HELP_SCREEN]: new HelpScreen(),
 		[GAME_SCREEN]: new GamePlayScreen(),
+		[STORY_SCENE_SCREEN]: new StorySceneScreen(),
         [CUT_SCENE1_SCREEN]: new CutScene1Screen(),
         [CUT_SCENE2_SCREEN]: new CutScene2Screen(),
         [CUT_SCENE3_SCREEN]: new CutScene3Screen(),

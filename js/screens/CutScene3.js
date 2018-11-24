@@ -60,9 +60,11 @@ function CutScene3Screen() {
             currentBackgroundMusic.play();
         }
     };
+    
     this.transitionOut = function() {
         currentBackgroundMusic.pause();
     };
+    
     this.run = function gamePlayFinishedScreenRun(deltaTime) {
 	    delayTime += deltaTime;
 
@@ -74,19 +76,19 @@ function CutScene3Screen() {
 
 	    draw(deltaTime);
     };
-    this.control = function gamePlayFinishedScreenControl(keyCode, pressed){
+    
+    this.control = function gamePlayFinishedScreenControl(keydownMap, pressed){
        if (pressed) {//only act on key released events => prevent multiple changes on single press
             return false;
         }
 
-        switch (keyCode) {
-            case KEY_ENTER:
-		        menuSelect.play();
-                ScreenStates.setState(GAME_SCREEN, this.properties);
-                return true;
-            case KEY_M:
-            	toggleMute();
-                return true;
+        if (this.keysPressed(KEY_ENTER)) {
+	        menuSelect.play();
+            ScreenStates.setState(GAME_SCREEN, this.properties);
+            return true;
+        } else if (this.keysPressed(KEY_M)) {
+            toggleMute();
+            return true;
         }
 
         return false;
@@ -146,7 +148,7 @@ function CutScene3Screen() {
 		gameFont.printTextAt(textStrings.CutScene3_3, {x:GameField.midX, y: GameField.midY - 140}, 16, textAlignment.Center);
 		gameFont.printTextAt(textStrings.CutScene3_4, {x:GameField.midX, y: GameField.midY - 110}, 16, textAlignment.Center);
 		gameFont.printTextAt(textStrings.CutScene3_5, {x:GameField.midX, y: GameField.midY - 80}, 16, textAlignment.Center);
-		gameFont.printTextAt(textStrings.SkipCutScene, {x:GameField.right - 70, y: GameField.bottom + 60}, 12, textAlignment.Right);
+		gameFont.printTextAt(textStrings.SkipCutScene, {x:GameField.right - 25, y:GameField.bottom - 75}, 12, textAlignment.Right);
 
         canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
 

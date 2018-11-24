@@ -12,17 +12,15 @@ function MenuScreen() {
 
     const keyStrokes = [];
     const cheatCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-
+	let lastShowedDemo = false;
 
     this.selections = [
 	    { screen: GAME_SCREEN, title: textStrings.Play },
-//        { screen: LEVEL_SELECT_SCREEN, title: textStrings.Play },
         { screen: HELP_SCREEN, title: textStrings.Help },
         { screen: OPTIONS_SCREEN, title: textStrings.Options },
         { screen: CREDITS_SCREEN, title: textStrings.Credits },
     ];
     this.transitionIn = function menuScreenTransitionIn() {
-        //canvasContext.transform(1,0,0,1,0,0);
         this.selectorPositionsIndex = 0;
         starfield = new Starfield(240, 120, 80, -64, -128, -256);
         selectorSprite = new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, Math.MAX_VALUE, {min:5, max:7}, 128);
@@ -39,7 +37,6 @@ function MenuScreen() {
         }
     };
     this.transitionOut = function menuScreenTransitionOut() {
-//        uiSelect.play();
         currentBackgroundMusic.pause();
     };
 
@@ -147,7 +144,14 @@ function MenuScreen() {
 
 		if(timeSinceKey > 5000) {
 			timeSinceKey = 0;
-			ScreenStates.setState(DEMO_SCENE_SCREEN, 1);
+			
+			if(lastShowedDemo) {
+				ScreenStates.setState(STORY_SCENE_SCREEN, 1);
+			} else {
+				ScreenStates.setState(DEMO_SCENE_SCREEN, 1);
+			}
+			
+			lastShowedDemo = !lastShowedDemo;
 		}
 
 		selectorSprite.update(deltaTime);
