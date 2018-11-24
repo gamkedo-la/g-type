@@ -18,6 +18,12 @@ function EnemyBullet(type, position = {x:0, y:0}, velocity = {x:0, y:0}) {
 		sprite = new AnimatedSprite(pewpew1Sheet, 4, 40, 40, false, true, {min:0, max:3}, 0, {min:0, max:3}, 68, {min:3, max:3}, 0);
 	} else if(this.type === EntityType.EnemyBullet4) {
 		sprite = new AnimatedSprite(pewpew2Sheet, 2, 32, 32, false, true, {min:0, max:1}, 0, {min:0, max:1}, 40, {min:1, max:1}, 0);
+	} else if(this.type === EntityType.EnemyBullet5) {
+		sprite = new AnimatedSprite(pewpew3Sheet, 3, 32, 32, false, true, {min:0, max:1}, 0, {min:0, max:3}, 68, {min:3, max:3}, 0);
+	} else if(this.type === EntityType.EnemyBullet6) {
+		sprite = new AnimatedSprite(pewpew4Sheet, 5, 32, 32, false, true, {min:0, max:1}, 0, {min:0, max:4}, 68, {min:3, max:3}, 0);
+	} else if(this.type === EntityType.EnemyBullet7) {
+		sprite = new AnimatedSprite(pewpew5Sheet, 2, 35, 35, false, true, {min:0, max:1}, 0, {min:0, max:2}, 68, {min:3, max:3}, 0);
 	}
 	this.size = {width:sprite.width, height:sprite.height};
 	

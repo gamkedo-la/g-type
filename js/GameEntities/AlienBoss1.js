@@ -191,7 +191,7 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 				//fireBullet
 				xVel = -130;
 				yVel = (this.bulletsLeft -5) * 20;
-				newBullet = new EnemyBullet(EntityType.EnemyBullet3, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
+				newBullet = new EnemyBullet(EntityType.EnemyBullet6, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
 				scene.addEntity(newBullet, false);
 				this.bulletsLeft -= 1;
 				this.timeSinceLastFire = 0
@@ -204,7 +204,7 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 				
 				let xVel = this.vel.x;
 				
-				const newBullet = new EnemyBullet(EntityType.EnemyBullet2, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
+				const newBullet = new EnemyBullet(EntityType.EnemyBullet7, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
 				scene.addEntity(newBullet, false);
 			}
 			if(this.ticksInState > 600){
@@ -228,7 +228,7 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 			//fireBullet
 			xVel = -530;
 			yVel = 0
-			newBullet = new EnemyBullet(EntityType.EnemyBullet4, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
+			newBullet = new EnemyBullet(EntityType.EnemyBullet6, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
 			scene.addEntity(newBullet, false);
 			this.bulletsLeft -= 1;
 			this.timeSinceLastFire = 0
