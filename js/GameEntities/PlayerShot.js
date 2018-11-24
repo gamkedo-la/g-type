@@ -28,19 +28,34 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	const laserSprite = new AnimatedSprite(playerLaserShot, 13, 28, 6, false, true, {min:0, max:0}, 0, {min:0, max:12}, 128, {min:13, max:18}, 64);
 	
 	let sprite = normalSprite;
-	
-	const colliderPath = [{x: pos.x, y: pos.y + (TOP_BOTTOM_PADDING * SPRITE_SCALE)}, 
-					  	  {x: pos.x + SPRITE_SCALE * (sprite.width - RIGHT_PADDING), y: pos.y + (TOP_BOTTOM_PADDING * SPRITE_SCALE)}, 
-						  {x: pos.x + SPRITE_SCALE * (sprite.width - RIGHT_PADDING), y: pos.y + ((sprite.height - TOP_BOTTOM_PADDING) * SPRITE_SCALE)}, 
-						  {x: pos.x, y: pos.y + ((sprite.height - TOP_BOTTOM_PADDING) * SPRITE_SCALE)}];
-
-    this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:pos.x, y:pos.y}});
-
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
+	
+	this.collisionBody = new Collider(ColliderType.Circle, 
+									{points:   [], 
+									 position: {x:pos.x, y:pos.y + 12}, 
+									 radius:   3, 
+									 center:   {x:pos.x, y:pos.y + 12}});
 	
 	this.setPosition = function(newPos) {
 		pos = newPos;
-		this.collisionBody.setPosition({x:pos.x, y:pos.y + collisionBodyOffset.y});
+		this.updateCollisionBodyPos()
+	};
+	
+	this.updateCollisionBodyPos = function() {
+		switch(this.type) {
+			case EntityType.PlayerShot:
+				this.collisionBody.setPosition({x:pos.x, y:pos.y + 12});
+				break;
+			case EntityType.PlayerDouble:
+				this.collisionBody.setPosition({x:pos.x + 11, y:pos.y - 1});
+				break;
+			case EntityType.PlayerLaser:
+				this.collisionBody.setPosition({x:pos.x + 10, y:pos.y + 6});
+				break;
+			case EntityType.PlayerTriple:
+				this.collisionBody.setPosition({x:pos.x + 30, y:pos.y + 12});
+				break;
+		}
 	};
 	
 	this.setVelocity = function(newVel) {
@@ -68,7 +83,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 				if(this.wasReleased) {
 						pos.x += vel.x * SIM_STEP / 1000;
 						pos.y += vel.y * SIM_STEP / 1000;
-					this.collisionBody.setPosition({x:pos.x + collisionBodyOffset.x, y:pos.y + collisionBodyOffset.y});
+					this.updateCollisionBodyPos()
 				} else if(sprite.wasBorn) {
 					this.wasReleased = true;
 				}

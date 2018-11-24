@@ -4,7 +4,8 @@ function PlayerMissile(position = {x:0, y:0}, speed = {x:0, y:0}) {
 	this.setPosition = function(newPosition) {
 		this.position.x = newPosition.x;
 		this.position.y = newPosition.y;
-		this.collisionBody.setPosition({x:newPosition.x, y:newPosition.y});
+		this.collisionBody.setPosition({x:this.position.x + 19, 
+										y:this.position.y + 19});
 	};
 	
 	let velocity = {x:speed.x, y:speed.y};
@@ -30,12 +31,12 @@ function PlayerMissile(position = {x:0, y:0}, speed = {x:0, y:0}) {
 	const TOP_BOTTOM_PADDING = 8;
 	const LEFT_PADDING = 13;
 	let didCollide = false;
-	const colliderPath = [{x: this.position.x + LEFT_PADDING * SPRITE_SCALE, y: this.position.y + (TOP_BOTTOM_PADDING * SPRITE_SCALE)}, 
-					  	  {x: this.position.x + SPRITE_SCALE * sprite.width, y: this.position.y + (TOP_BOTTOM_PADDING * SPRITE_SCALE)}, 
-						  {x: this.position.x + SPRITE_SCALE * sprite.width, y: this.position.y + ((sprite.height - TOP_BOTTOM_PADDING) * SPRITE_SCALE)}, 
-						  {x: this.position.x + LEFT_PADDING * SPRITE_SCALE, y: this.position.y + ((sprite.height - TOP_BOTTOM_PADDING) * SPRITE_SCALE)}];
-
-    this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:this.position.x, y:this.position.y}});
+	
+	this.collisionBody = new Collider(ColliderType.Circle, 
+										{points:   [], 
+										 position: {x:this.position.x + 19, y:this.position.y + 19}, 
+										 radius:   9, 
+										 center:   {x:this.position.x + 19, y:this.position.y + 19}});
 	
 	this.update = function(deltaTime, worldPos) {
 		if(this.worldPos === null) {
@@ -58,7 +59,8 @@ function PlayerMissile(position = {x:0, y:0}, speed = {x:0, y:0}) {
 				if(sprite.wasBorn) {
 					this.position.x += velocity.x * SIM_STEP / 1000;
 					this.position.y += velocity.y * SIM_STEP / 1000;
-					this.collisionBody.setPosition({x:this.position.x, y:this.position.y});					
+					this.collisionBody.setPosition({x:this.position.x + 19, 
+													y:this.position.y + 19});					
 				}
 		
 				availableTime -= SIM_STEP;
