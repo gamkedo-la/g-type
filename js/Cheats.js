@@ -26,6 +26,6 @@ function Cheats() {
     }
 
     this.playerInvincible = false;
-    this.debugKeysEnabled = false;
+    this.debugKeysEnabled = true;
 }
 let cheats = new Cheats();

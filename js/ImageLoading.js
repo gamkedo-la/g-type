@@ -64,6 +64,8 @@ const player1Sheet = document.createElement("img");
 const playerThruster = document.createElement("img");
 const playerBoom2Sheet = document.createElement("img");
 const playerShots = document.createElement("img");
+const playerDoubleShot = document.createElement("img");
+const playerTripleShot = document.createElement("img");
 const playerLaserShot = document.createElement("img");
 const playerShotFlash = document.createElement("img");
 const forceUnitSheet = document.createElement("img");
@@ -190,6 +192,8 @@ function loadImages() {
         { imgName: player1Sheet, theFile: "G-TypePlayer1-sm-v3.png" },
         { imgName: playerThruster, theFile: "G-TypePlayer1-Thruster.png" },
         { imgName: playerShots, theFile: "PlayerShots.png" },
+        { imgName: playerDoubleShot, theFile: "PlayerUpwardShot.png" },
+        { imgName: playerTripleShot, theFile: "PlayerRearShot.png" },
 		{ imgName: playerShotFlash, theFile: "player_shot_vfx_sheet.png"},
 		{ imgName: playerBoom2Sheet, theFile: "player_explosion_v2_sheet.png"},
 		{ imgName: playerLaserShot, theFile: "player_laser_shot_v5.png"},

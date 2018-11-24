@@ -5,6 +5,7 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 
 	let sprite = new AnimatedSprite(ghostSheet, 9, 64, 64, false, true, {min:0, max:0}, 0, {min:0, max:8}, 128, {min:8, max:8}, 0);
 	const SPRITE_SCALE = 0.6;
+	const MISSILE_VELOCITY = {x:100, y:150};
 	this.size = {width:sprite.width * SPRITE_SCALE, height:sprite.height * SPRITE_SCALE};
 
 	const pathPoints = [];
@@ -47,95 +48,89 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 	};
 	
 	this.doShooting = function(maxShots = 10, shotType = EntityType.PlayerShot, hasMissiles = false) {
-		if(!this.isActive) {return;}//inactive ghosts don't shoot
+		let newShot;
+		if(shots.length === maxShots) {
+			//basically a pool of shots, grab the oldest one
+			newShot = shots.splice(0, 1)[0];
+		} else {
+			//not enough shots in the pool, so make a new one
+			newShot = new PlayerShot();
+		}
+
+		let secondShot;
+		const secondVel = {x:NORMAL_SHOT_SPEED, y:-NORMAL_SHOT_SPEED};
+		if(shots.length === maxShots) {
+			//basically a pool of shots, grab the oldest one
+			secondShot = shots.splice(0, 1)[0];
+		} else {
+			//not enough shots in the pool, so make a new one
+			secondShot = new PlayerShot();
+		}
+
+		let thirdShot;
+		const thirdVel = {x:-NORMAL_SHOT_SPEED, y:0};
+		if(shots.length >= maxShots) {
+			//basically a pool of shots, grab the oldest one
+			thirdShot = shots.splice(0, 1)[0];
+		} else {
+			//not enough shots in the pool, so make a new one
+			thirdShot = new PlayerShot();
+		}
+
+		switch(shotType) {
+			case EntityType.PlayerShot:
+				initializeShot(newShot, EntityType.PlayerShot, {x:this.position.x + 50, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
+				playerFireRegular.play();//play the audio
+				break;
+			case EntityType.PlayerDouble:
+				initializeShot(newShot, EntityType.PlayerShot, {x:this.position.x + 50, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
+				initializeShot(secondShot, EntityType.PlayerDouble, {x:this.position.x + 40, y:this.position.y + 6}, {x: secondVel.x, y: secondVel.y}, true);
+				playerFireRegular.play();
+				break;
+			case EntityType.PlayerLaser:
+				initializeShot(newShot, shotType, {x:this.position.x + 50, y:this.position.y + 13}, {x: 3 * NORMAL_SHOT_SPEED, y: 0}, false);
+				playerFireLaser.play();
+				break;
+			case EntityType.PlayerTriple:
+				initializeShot(newShot, EntityType.PlayerShot, {x:this.position.x + 50, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
+				initializeShot(secondShot, EntityType.PlayerDouble, {x:this.position.x + 40, y:this.position.y + 6}, {x: secondVel.x, y: secondVel.y}, true);
+				initializeShot(thirdShot, EntityType.PlayerTriple, {x:this.position.x, y:this.position.y + 6}, {x: thirdVel.x, y: thirdVel.y}, true);
+				playerFireRegular.play();
+				break;
+			default:
+				initializeNewShot(newShot, shotType, {x:this.position.x + 80, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0});
+				playerFireRegular.play();
+				break;
+		}
 		
-		//enough time has passed so we can shoot again
-			let newShot;
-			if(shots.length === maxShots) {
-				//basically a pool of shots, grab the oldest one
-				newShot = shots.splice(0, 1)[0];
+		if(hasMissiles) {
+			let newMissile
+			if(missiles.length >= maxShots) {
+				newMissile = missiles.splice(0, 1)[0];
+				newMissile.setPosition({x:this.position.x + this.size.width / 2, y:this.position.y + (2 * this.size.height / 3)});
+				newMissile.setVelocity(MISSILE_VELOCITY);
 			} else {
-				//not enough shots in the pool, so make a new one
-				newShot = new PlayerShot();
+				newMissile = new PlayerMissile({x:this.position.x + this.size.width / 2, y:this.position.y + (2 * this.size.height / 3)}, MISSILE_VELOCITY);
 			}
-			
-			let secondShot;
-			const secondVel = {x:0.707 * NORMAL_SHOT_SPEED, y:-0.707* NORMAL_SHOT_SPEED};
-			if(shots.length === maxShots) {
-				//basically a pool of shots, grab the oldest one
-				secondShot = shots.splice(0, 1)[0];
-			} else {
-				//not enough shots in the pool, so make a new one
-				secondShot = new PlayerShot();
-			}
-			
-			let thirdShot;
-			const thirdVel = {x:-NORMAL_SHOT_SPEED, y:0};
-			if(shots.length >= maxShots) {
-				//basically a pool of shots, grab the oldest one
-				thirdShot = shots.splice(0, 1)[0];
-			} else {
-				//not enough shots in the pool, so make a new one
-				thirdShot = new PlayerShot();
-			}
-						
-			switch(shotType) {
-				case EntityType.PlayerShot:
-					initializeShot(newShot, shotType, {x:this.position.x + 46, y:this.position.y + 5}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
-					playerFireRegular.play();//play the audio
-					break;
-				case EntityType.PlayerDouble:
-					initializeShot(newShot, shotType, {x:this.position.x + 46, y:this.position.y + 5}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
-					initializeShot(secondShot, shotType, {x:this.position.x + 46, y:this.position.y  - 2}, {x: secondVel.x, y: secondVel.y}, true);
-					playerFireRegular.play();
-					break;
-				case EntityType.PlayerLaser:
-					initializeShot(newShot, shotType, {x:this.position.x + 34, y:this.position.y + 14}, {x: 3 * NORMAL_SHOT_SPEED, y: 0}, false);
-					playerFireLaser.play();
-					break;
-				case EntityType.PlayerTriple:
-					initializeShot(newShot, shotType, {x:this.position.x + 46, y:this.position.y + 5}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
-					initializeShot(secondShot, shotType, {x:this.position.x + 46, y:this.position.y + 5}, {x: secondVel.x, y: secondVel.y}, true);
-					initializeShot(thirdShot, shotType, {x:this.position.x - thirdShot.size.width, y:this.position.y + 13}, {x: thirdVel.x, y: thirdVel.y}, true);
-					playerFireRegular.play();
-					break;
-				default:
-					initializeNewShot(newShot, shotType, {x:this.position.x + 46, y:this.position.y - 2}, {x: NORMAL_SHOT_SPEED, y: 0});
-					playerFireRegular.play();
-					break;
-			}
-			
-			if(hasMissiles) {
-				let newMissile
-				if(missiles.length >= maxShots) {
-					newMissile = missiles.splice(0, 1)[0];
-					newMissile.setPosition({x:this.position.x + this.size.width / 2, y:this.position.y + (2 * this.size.height / 3)});
-					newMissile.setVelocity({x:100, y:150});
-				} else {
-					newMissile = new PlayerMissile({x:this.position.x + this.size.width / 2, y:this.position.y + (2 * this.size.height / 3)}, {x:100, y:150});
-				}
-				
-				newMissile.reset();
-				missiles.push(newMissile);
-				scene.addEntity(newMissile, true);
-			}
+
+			newMissile.reset();
+			missiles.push(newMissile);
+			scene.addEntity(newMissile, true);
+		}
 	};
-	
+
 	const initializeShot = function(shot, shotType, shotPos, shotVel, isRotated) {
 		shot.resetWithType(shotType);
 		scene.addEntity(shot, true);
 		shot.setPosition({x:shotPos.x, y:shotPos.y});
 		shot.setVelocity({x: shotVel.x, y: shotVel.y});
-		if(isRotated) {shot.rotation = Math.atan2(-shotVel.y, shotVel.x);}
 		shots.push(shot);
 	};
 	
 	this.draw = function() {
 		if(!this.isActive) {return;}//don't draw inactive ghosts
 		
-		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
-		
-		//draw player shots
+		//draw ghost shots
 		for(let i = 0; i < shots.length; i++) {
 			shots[i].draw();
 		}
@@ -143,6 +138,8 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 		for(let i = 0; i < missiles.length; i++) {
 			missiles[i].draw();
 		}
+		
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);		
 	};
 	
 	this.clearBullets = function() {

@@ -181,6 +181,19 @@ function Player(position = {x:0, y:0}) {
 			thrusterSprite.drawAt(this.thrusterPosition.x, this.thrusterPosition.y, this.thrusterSize.width, this.thrusterSize.height);
 		}
 
+		//draw player shots
+		for(let i = 0; i < shots.length; i++) {
+			shots[i].draw();
+		}
+
+		for(let i = 0; i < missiles.length; i++) {
+			missiles[i].draw();
+		}
+		
+		for(let i = 0; i < ghosts.length; i++) {
+			ghosts[i].draw();
+		}
+
 		//draw the player
 		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 		if((sprite.isDying) && (!explosionSprite.getDidDie())) {
@@ -198,19 +211,6 @@ function Player(position = {x:0, y:0}) {
 		}
 
 		shield.draw();
-
-		for(let i = 0; i < ghosts.length; i++) {
-			ghosts[i].draw();
-		}
-
-		//draw player shots
-		for(let i = 0; i < shots.length; i++) {
-			shots[i].draw();
-		}
-
-		for(let i = 0; i < missiles.length; i++) {
-			missiles[i].draw();
-		}
 	};
 
 	this.clampPositionToScreen = function() {
@@ -273,12 +273,12 @@ function Player(position = {x:0, y:0}) {
 
 			switch(this.currentShotType) {
 				case EntityType.PlayerShot:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 70, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
+					initializeShot(newShot, EntityType.PlayerShot, {x:this.position.x + 70, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
 					playerFireRegular.play();//play the audio
 					break;
 				case EntityType.PlayerDouble:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 70, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
-					initializeShot(secondShot, this.currentShotType, {x:this.position.x + 60, y:this.position.y + 2}, {x: secondVel.x, y: secondVel.y}, true);
+					initializeShot(newShot, EntityType.PlayerShot, {x:this.position.x + 70, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
+					initializeShot(secondShot, EntityType.PlayerDouble, {x:this.position.x + 60, y:this.position.y + 2}, {x: secondVel.x, y: secondVel.y}, true);
 					playerFireRegular.play();
 					break;
 				case EntityType.PlayerLaser:
@@ -286,9 +286,9 @@ function Player(position = {x:0, y:0}) {
 					playerFireLaser.play();
 					break;
 				case EntityType.PlayerTriple:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 70, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
-					initializeShot(secondShot, this.currentShotType, {x:this.position.x + 80, y:this.position.y + 4}, {x: secondVel.x, y: secondVel.y}, true);
-					initializeShot(thirdShot, this.currentShotType, {x:this.position.x - thirdShot.size.width, y:this.position.y + 4}, {x: thirdVel.x, y: thirdVel.y}, true);
+					initializeShot(newShot, EntityType.PlayerShot, {x:this.position.x + 70, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
+					initializeShot(secondShot, EntityType.PlayerDouble, {x:this.position.x + 80, y:this.position.y + 4}, {x: secondVel.x, y: secondVel.y}, true);
+					initializeShot(thirdShot, EntityType.PlayerTriple, {x:this.position.x - thirdShot.size.width, y:this.position.y + 4}, {x: thirdVel.x, y: thirdVel.y}, true);
 					playerFireRegular.play();
 					break;
 				default:
@@ -323,7 +323,6 @@ function Player(position = {x:0, y:0}) {
 		scene.addEntity(shot, true);
 		shot.setPosition({x:shotPos.x, y:shotPos.y});
 		shot.setVelocity({x: shotVel.x, y: shotVel.y});
-		if(isRotated) {shot.rotation = Math.atan2(-shotVel.y, shotVel.x);}
 		shots.push(shot);
 	};
 
