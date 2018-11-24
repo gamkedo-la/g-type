@@ -8,7 +8,7 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 
     this.hitPoints = 2400;     // Every enemy type should have a hitPoints property
 	
-	const SPRITE_SCALE = 1; //TODO: would like to increase the size of the sprite and change this back to 1.
+	const SPRITE_SCALE = 1; 
 	this.position = position;
 	this.vel = {x: -50, y:speed};
 	let unusedTime = 0;
@@ -16,7 +16,7 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 	this.bulletsLeft = 0;
 	this.timeSinceLastFire = 0;
 	this.ticksInState = 0;
-	this.timeSinceLastDip = 0 * cos(timeSinceLastFire);
+	this.timeSinceLastDip = 0;
 	let sprite = new AnimatedSprite(alienBoss1Sheet, 
 		/*frameCount =*/ 12, 
 		/*frameWidth =*/ 211.7, 
@@ -355,5 +355,4 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 		}
 		// TODO else -- add SFX to show a non-lethal hit
 	};
-	window.alienBoss1 = this; //TODO: remove this deubgging line
 }
