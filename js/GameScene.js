@@ -13,8 +13,10 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
     this.didCompleteWarpChallenge = false;
     this.bgTime = bgTime;
     let starfield = new Starfield();
-    if((levelIndex === 0) || (levelIndex === WARP_INDEX)) {
+    if(levelIndex === WARP_INDEX) {
 	    starfield = new Starfield(240, 120, 80, -64, -128, -256);
+    } else if(levelIndex === 0) {
+	    starfield = new Starfield(120, 60, 40, -32, -64, -128);
     }
     let player;
     if((aPlayer === null) || (aPlayer === undefined)) {
