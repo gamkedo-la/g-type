@@ -59,9 +59,18 @@ function MenuScreen() {
                     keyStrokes.push(Number(key));
                 }
             }
-    	}
-
-        if (this.keysPressed(KEY_UP) || this.keysPressed(KEY_W)) {
+        }
+        
+        if ((this.keysPressed(KEY_CTRL, KEY_ALT, KEY_SHIFT, KEY_D))) {            
+            cheats.debugKeysEnabled = !cheats.debugKeysEnabled;
+            if (cheats.debugKeysEnabled) {
+                cheats.printCheatKeysInstructions();
+            } else {
+                console.log("Cheat keys are turned off!");
+            }
+            return true;
+        }
+        else if (this.keysPressed(KEY_UP) || this.keysPressed(KEY_W)) {
 	        menuMove.play();
             this.selectorPositionsIndex--;
             if (this.selectorPositionsIndex < 0) {
