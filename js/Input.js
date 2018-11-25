@@ -54,6 +54,8 @@ const KEY_PLUS = 187;
 const KEY_MINUS = 189;
 const KEY_TILDE = 192;
 const KEY_SHIFT = 16;
+const KEY_CTRL = 17;
+const KEY_ALT = 18;
 
 let holdKey = [];
 
