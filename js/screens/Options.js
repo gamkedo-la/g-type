@@ -71,6 +71,45 @@ function OptionsScreen() {
 		starfield.update(deltaTime);
 	};
 
+    this.modifySelectedOption = function (selectorPositionIndex, direction = 1) {
+        direction = direction == 1 ? 1 : -1;
+        menuMove.play();
+        // OPTION 0
+        if(selectorPositionIndex === 0) {
+            const currentVolume = MusicVolumeManager.getVolume();
+            MusicVolumeManager.setVolume(currentVolume + 0.1 * direction);
+        // OPTION 1
+        } else if(selectorPositionIndex === 1) {
+            const currentVolume = SFXVolumeManager.getVolume();
+            SFXVolumeManager.setVolume(currentVolume + 0.1 * direction);
+        // OPTION 2
+        } else if(selectorPositionIndex === 2) {
+            gameSpeed += direction;
+            if(direction == 1 && gameSpeed > MAX_SPEED) {
+                gameSpeed = 1;
+            }
+            else if(direction != 1 && gameSpeed < 1) {
+                gameSpeed = MAX_SPEED;
+            }
+            localStorageHelper.setInt("gameSpeed", gameSpeed);
+        // OPTION 3
+        } else if(selectorPositionIndex === 3) {
+            if(autoFiring === "Off") {
+                autoFiring = "On";
+                localStorageHelper.setObject("autoFiring", "On");
+            } else {
+                autoFiring = "Off";
+                localStorageHelper.setObject("autoFiring", "Off");
+            }
+            
+            holdKey[KEY_X] = false;
+        // OPTION 4
+        } else if (selectorPositionIndex === 4) {
+            menuSelect.play();
+            ScreenStates.setState(this.selections[0].screen);
+        }
+    };
+
     this.control = function gamePlayFinishedScreenControl(keydownMap, pressed){
         if (pressed) {//only act on key released events => prevent multiple changes on single press
             return false;
@@ -93,82 +132,21 @@ function OptionsScreen() {
             adjustSelectorPosition();
             return true;
         } else if (this.keysPressed(KEY_RIGHT) || this.keysPressed(KEY_D)) {
-	        menuMove.play();
-            if(selectorPositionIndex === 0) {
-                const currentVolume = MusicVolumeManager.getVolume();
-                MusicVolumeManager.setVolume(currentVolume + 0.1);
-            } else if(selectorPositionIndex === 1) {
-                const currentVolume = SFXVolumeManager.getVolume();
-                SFXVolumeManager.setVolume(currentVolume + 0.1);
-            } else if(selectorPositionIndex === 2) {
-	            gameSpeed++;
-	            if(gameSpeed > MAX_SPEED) {
-		            gameSpeed = 1;
-	            }
-	            localStorageHelper.setInt("gameSpeed", gameSpeed);
-            } else if(selectorPositionIndex === 3) {
-	            if(autoFiring === "Off") {
-		            autoFiring = "On";
-					localStorageHelper.setObject("autoFiring", "On");
-	            } else {
-					autoFiring = "Off";
-					localStorageHelper.setObject("autoFiring", "Off");
-	            }
-                
-                holdKey[KEY_X] = false;
-            }
+	        this.modifySelectedOption(selectorPositionIndex);
             return true;
         } else if (this.keysPressed(KEY_LEFT) || this.keysPressed(KEY_A)) {
-	        menuMove.play();
-            if(selectorPositionIndex === 0) {
-                const currentVolume = MusicVolumeManager.getVolume();
-                MusicVolumeManager.setVolume(currentVolume - 0.1);
-            } else if(selectorPositionIndex === 1) {
-                const currentVolume = SFXVolumeManager.getVolume();
-                SFXVolumeManager.setVolume(currentVolume - 0.1);
-            } else if(selectorPositionIndex === 2) {
-	            gameSpeed--;
-	            if(gameSpeed < 1) {
-		            gameSpeed = MAX_SPEED;
-	            }
-	            localStorageHelper.setInt("gameSpeed", gameSpeed);
-            } else if(selectorPositionIndex === 3) {
-	            if(autoFiring === "Off") {
-		            autoFiring = "On";
-					localStorageHelper.setObject("autoFiring", "On");
-	            } else {
-					autoFiring = "Off";
-					localStorageHelper.setObject("autoFiring", "Off");
-	            }
-                
-                holdKey[KEY_X] = false;
-            }
+	        this.modifySelectedOption(selectorPositionIndex, 0);
             return true;
         } else if (this.keysPressed(KEY_PLUS)) {
 	        menuMove.play();
-            if(selectorPositionIndex === 0) {
-                const currentVolume = MusicVolumeManager.getVolume();
-                MusicVolumeManager.setVolume(currentVolume + 0.1);
-            } else if(selectorPositionIndex === 1) {
-                const currentVolume = SFXVolumeManager.getVolume();
-                SFXVolumeManager.setVolume(currentVolume + 0.1);
-            }
+            this.modifySelectedOption(selectorPositionIndex);
             return true;
         } else if (this.keysPressed(KEY_MINUS)) {
 	        menuMove.play();
-            if(selectorPositionIndex === 0) {
-                const currentVolume = MusicVolumeManager.getVolume();
-                MusicVolumeManager.setVolume(currentVolume - 0.1);
-            } else if(selectorPositionIndex === 1) {
-                const currentVolume = SFXVolumeManager.getVolume();
-                SFXVolumeManager.setVolume(currentVolume - 0.1);
-            }
+            this.modifySelectedOption(selectorPositionIndex, 0);
             return true;
-        } else if (this.keysPressed(KEY_ENTER)) {
-            if (selectorPositionIndex === 4) {
-	            menuSelect.play();
-                ScreenStates.setState(this.selections[0].screen);
-            }
+        } else if (this.keysPressed(KEY_ENTER) || this.keysPressed(KEY_SPACE)) {
+            this.modifySelectedOption(selectorPositionIndex);            
             return true;
         } else if (this.keysPressed(KEY_M)) {
             toggleMute();
