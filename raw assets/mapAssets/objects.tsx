@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="582" tileheight="222" tilecount="41" columns="0">
+<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="582" tileheight="222" tilecount="43" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0" type="rock01">
   <properties>
@@ -283,5 +283,17 @@
    <property name="Group" type="int" value="0"/>
   </properties>
   <image width="582" height="128" source="objectSprites/FlatRockPile.png"/>
+ </tile>
+ <tile id="55" type="lvl1BotRock1">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="358" height="146" source="objectSprites/Lvl1CombinedBottomRocks.png"/>
+ </tile>
+ <tile id="56" type="lvl1TopRock1">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="323" height="160" source="objectSprites/Lvl1CombinedTopRocks.png"/>
  </tile>
 </tileset>
