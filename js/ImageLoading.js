@@ -63,6 +63,8 @@ const lvl1HorzRock1 = document.createElement("img");
 const lvl1PyramidRocks = document.createElement("img");
 const lvl1BotGate1Rocks = document.createElement("img");
 const lvl1TopGate1Rocks = document.createElement("img");
+const lvl1BotGate2Rocks = document.createElement("img");
+const lvl1TopGate3Rocks = document.createElement("img");
 const platform1 = document.createElement("img");
 const warpObstacle = document.createElement("img");
 const wormHole = document.createElement("img");
@@ -201,6 +203,8 @@ function loadImages() {
         { imgName: lvl1PyramidRocks, theFile: "Lvl1PyramidRocks.png" },
         { imgName: lvl1BotGate1Rocks, theFile: "Lvl1BotGate1Rocks.png" },
         { imgName: lvl1TopGate1Rocks, theFile: "Lvl1TopGate1Rocks.png" },
+        { imgName: lvl1BotGate2Rocks, theFile: "Lvl1BotGate2Rocks.png" },
+        { imgName: lvl1TopGate3Rocks, theFile: "Lvl1TopGate3Rocks.png" },
         { imgName: platform1, theFile: "Platform1-sheet.png" },
         { imgName: warpObstacle, theFile: "WarpZoneObstacleSpriteSheet.png" },
         { imgName: wormHole, theFile: "Level2WarpHole.png" },
