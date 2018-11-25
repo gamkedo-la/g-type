@@ -1858,42 +1858,6 @@
                 {
                  "gid":4,
                  "height":37,
-                 "id":1853,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rock03",
-                 "visible":true,
-                 "width":32,
-                 "x":16293.3,
-                 "y":480.667
-                }, 
-                {
-                 "gid":3,
-                 "height":40,
-                 "id":1854,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rock02",
-                 "visible":true,
-                 "width":40,
-                 "x":16313.3,
-                 "y":473.333
-                }, 
-                {
-                 "gid":4,
-                 "height":37,
                  "id":1867,
                  "name":"",
                  "properties":[
@@ -1908,24 +1872,6 @@
                  "width":32,
                  "x":16600,
                  "y":43.3333
-                }, 
-                {
-                 "gid":4,
-                 "height":37,
-                 "id":1868,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rock03",
-                 "visible":true,
-                 "width":32,
-                 "x":16346.7,
-                 "y":466
                 }, 
                 {
                  "gid":4,
@@ -1948,24 +1894,6 @@
                 {
                  "gid":4,
                  "height":37,
-                 "id":1870,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rock03",
-                 "visible":true,
-                 "width":32,
-                 "x":16297.3,
-                 "y":371.333
-                }, 
-                {
-                 "gid":4,
-                 "height":37,
                  "id":1874,
                  "name":"",
                  "properties":[
@@ -1980,168 +1908,6 @@
                  "width":32,
                  "x":16596,
                  "y":56.6667
-                }, 
-                {
-                 "gid":41,
-                 "height":68,
-                 "id":1876,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"brokenBoulder",
-                 "visible":true,
-                 "width":77,
-                 "x":16436.7,
-                 "y":390
-                }, 
-                {
-                 "gid":1,
-                 "height":73,
-                 "id":1879,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rock01",
-                 "visible":true,
-                 "width":74,
-                 "x":16329.7,
-                 "y":328
-                }, 
-                {
-                 "gid":1,
-                 "height":73,
-                 "id":1880,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rock01",
-                 "visible":true,
-                 "width":74,
-                 "x":16404.3,
-                 "y":420
-                }, 
-                {
-                 "gid":4,
-                 "height":37,
-                 "id":1881,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rock03",
-                 "visible":true,
-                 "width":32,
-                 "x":16346.7,
-                 "y":352.667
-                }, 
-                {
-                 "gid":7,
-                 "height":90,
-                 "id":1882,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rhombusBoulder",
-                 "visible":true,
-                 "width":90,
-                 "x":16363,
-                 "y":374.333
-                }, 
-                {
-                 "gid":7,
-                 "height":90,
-                 "id":1883,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rhombusBoulder",
-                 "visible":true,
-                 "width":90,
-                 "x":16332.3,
-                 "y":429
-                }, 
-                {
-                 "gid":7,
-                 "height":90,
-                 "id":1884,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rhombusBoulder",
-                 "visible":true,
-                 "width":90,
-                 "x":16683,
-                 "y":651.667
-                }, 
-                {
-                 "gid":7,
-                 "height":90,
-                 "id":1885,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rhombusBoulder",
-                 "visible":true,
-                 "width":90,
-                 "x":16747,
-                 "y":554.333
-                }, 
-                {
-                 "gid":7,
-                 "height":90,
-                 "id":1886,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rhombusBoulder",
-                 "visible":true,
-                 "width":90,
-                 "x":16757.7,
-                 "y":286.333
                 }, 
                 {
                  "gid":3,
@@ -2232,78 +1998,6 @@
                  "width":40,
                  "x":17010.7,
                  "y":446.667
-                }, 
-                {
-                 "gid":3,
-                 "height":40,
-                 "id":1892,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rock02",
-                 "visible":true,
-                 "width":40,
-                 "x":16776,
-                 "y":324
-                }, 
-                {
-                 "gid":3,
-                 "height":40,
-                 "id":1893,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rock02",
-                 "visible":true,
-                 "width":40,
-                 "x":16792,
-                 "y":354.667
-                }, 
-                {
-                 "gid":3,
-                 "height":40,
-                 "id":1894,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rock02",
-                 "visible":true,
-                 "width":40,
-                 "x":16780,
-                 "y":401.333
-                }, 
-                {
-                 "gid":3,
-                 "height":40,
-                 "id":1895,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rock02",
-                 "visible":true,
-                 "width":40,
-                 "x":16774.7,
-                 "y":449.333
                 }, 
                 {
                  "gid":3,
@@ -2466,24 +2160,6 @@
                  "width":40,
                  "x":17497.3,
                  "y":437.333
-                }, 
-                {
-                 "gid":3,
-                 "height":40,
-                 "id":1908,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rock02",
-                 "visible":true,
-                 "width":40,
-                 "x":16745.3,
-                 "y":580
                 }, 
                 {
                  "gid":3,
@@ -2936,24 +2612,6 @@
                  "y":399.333
                 }, 
                 {
-                 "gid":42,
-                 "height":68,
-                 "id":1934,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"brokenBoulderFlipped",
-                 "visible":true,
-                 "width":77,
-                 "x":16722,
-                 "y":503.333
-                }, 
-                {
                  "gid":41,
                  "height":68,
                  "id":1935,
@@ -3206,42 +2864,6 @@
                  "y":141.333
                 }, 
                 {
-                 "gid":1,
-                 "height":73,
-                 "id":1953,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rock01",
-                 "visible":true,
-                 "width":74,
-                 "x":16795,
-                 "y":326.667
-                }, 
-                {
-                 "gid":1,
-                 "height":73,
-                 "id":1954,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rock01",
-                 "visible":true,
-                 "width":74,
-                 "x":16743,
-                 "y":381.333
-                }, 
-                {
                  "gid":3,
                  "height":40,
                  "id":1955,
@@ -3330,42 +2952,6 @@
                  "width":32,
                  "x":17126.7,
                  "y":95.3333
-                }, 
-                {
-                 "gid":4,
-                 "height":37,
-                 "id":1963,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rock03",
-                 "visible":true,
-                 "width":32,
-                 "x":16397.3,
-                 "y":427.333
-                }, 
-                {
-                 "gid":4,
-                 "height":37,
-                 "id":1964,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"rock03",
-                 "visible":true,
-                 "width":32,
-                 "x":16766.7,
-                 "y":303.333
                 }, 
                 {
                  "gid":4,
@@ -3870,6 +3456,42 @@
                  "width":400,
                  "x":16171,
                  "y":240
+                }, 
+                {
+                 "gid":64,
+                 "height":226,
+                 "id":2106,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl1BotGate3Rocks",
+                 "visible":true,
+                 "width":219,
+                 "x":16290,
+                 "y":482.5
+                }, 
+                {
+                 "gid":65,
+                 "height":458,
+                 "id":2107,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl1BotGate4Rocks",
+                 "visible":true,
+                 "width":186,
+                 "x":16682.3333333333,
+                 "y":652.333333333333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -11061,7 +10683,7 @@
          "y":0
         }],
  "nextlayerid":14,
- "nextobjectid":2106,
+ "nextobjectid":2108,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.0",

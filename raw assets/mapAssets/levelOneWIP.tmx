@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="600" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="14" nextobjectid="2106">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="600" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="14" nextobjectid="2108">
  <tileset firstgid="1" source="objects.tsx"/>
  <objectgroup id="6" name="Background" locked="1">
   <properties>
@@ -121,31 +121,14 @@
   <object id="1846" gid="16" x="16285" y="520.333" width="30" height="30"/>
   <object id="1847" gid="7" x="16296.3" y="650.333" width="90" height="90"/>
   <object id="1852" gid="4" x="16284" y="604.667" width="32" height="37"/>
-  <object id="1853" gid="4" x="16293.3" y="480.667" width="32" height="37"/>
-  <object id="1854" gid="3" x="16313.3" y="473.333" width="40" height="40"/>
   <object id="1867" gid="4" x="16600" y="43.3333" width="32" height="37"/>
-  <object id="1868" gid="4" x="16346.7" y="466" width="32" height="37"/>
   <object id="1869" gid="4" x="16248" y="236.667" width="32" height="37"/>
-  <object id="1870" gid="4" x="16297.3" y="371.333" width="32" height="37"/>
   <object id="1874" gid="4" x="16596" y="56.6667" width="32" height="37"/>
-  <object id="1876" gid="41" x="16436.7" y="390" width="77" height="68"/>
-  <object id="1879" gid="1" x="16329.7" y="328" width="74" height="73"/>
-  <object id="1880" gid="1" x="16404.3" y="420" width="74" height="73"/>
-  <object id="1881" gid="4" x="16346.7" y="352.667" width="32" height="37"/>
-  <object id="1882" gid="7" x="16363" y="374.333" width="90" height="90"/>
-  <object id="1883" gid="7" x="16332.3" y="429" width="90" height="90"/>
-  <object id="1884" gid="7" x="16683" y="651.667" width="90" height="90"/>
-  <object id="1885" gid="7" x="16747" y="554.333" width="90" height="90"/>
-  <object id="1886" gid="7" x="16757.7" y="286.333" width="90" height="90"/>
   <object id="1887" gid="3" x="17010.7" y="236" width="40" height="40"/>
   <object id="1888" gid="3" x="17016" y="289.333" width="40" height="40"/>
   <object id="1889" gid="3" x="17013.3" y="353.333" width="40" height="40"/>
   <object id="1890" gid="3" x="17016" y="408" width="40" height="40"/>
   <object id="1891" gid="3" x="17010.7" y="446.667" width="40" height="40"/>
-  <object id="1892" gid="3" x="16776" y="324" width="40" height="40"/>
-  <object id="1893" gid="3" x="16792" y="354.667" width="40" height="40"/>
-  <object id="1894" gid="3" x="16780" y="401.333" width="40" height="40"/>
-  <object id="1895" gid="3" x="16774.7" y="449.333" width="40" height="40"/>
   <object id="1899" gid="3" x="17012" y="188" width="40" height="40"/>
   <object id="1900" gid="3" x="17026.7" y="445.333" width="40" height="40"/>
   <object id="1901" gid="3" x="17070.7" y="448" width="40" height="40"/>
@@ -155,7 +138,6 @@
   <object id="1905" gid="3" x="17381.3" y="444" width="40" height="40"/>
   <object id="1906" gid="3" x="17444" y="436" width="40" height="40"/>
   <object id="1907" gid="3" x="17497.3" y="437.333" width="40" height="40"/>
-  <object id="1908" gid="3" x="16745.3" y="580" width="40" height="40"/>
   <object id="1909" gid="3" x="17433.3" y="469.333" width="40" height="40"/>
   <object id="1910" gid="3" x="17434.7" y="518.667" width="40" height="40"/>
   <object id="1911" gid="3" x="17552" y="440" width="40" height="40"/>
@@ -181,7 +163,6 @@
   <object id="1931" gid="7" x="17413.7" y="430.333" width="90" height="90"/>
   <object id="1932" gid="5" x="17460.3" y="351.667" width="27" height="27"/>
   <object id="1933" gid="41" x="17466" y="399.333" width="77" height="68"/>
-  <object id="1934" gid="42" x="16722" y="503.333" width="77" height="68"/>
   <object id="1935" gid="41" x="17048.7" y="300.667" width="77" height="68"/>
   <object id="1936" gid="1" x="17503" y="485.333" width="74" height="73"/>
   <object id="1937" gid="1" x="17399" y="308" width="74" height="73"/>
@@ -196,15 +177,11 @@
   <object id="1948" gid="1" x="15463" y="82.6667" width="74" height="73"/>
   <object id="1949" gid="1" x="15083" y="112" width="74" height="73"/>
   <object id="1952" gid="1" x="14624.3" y="141.333" width="74" height="73"/>
-  <object id="1953" gid="1" x="16795" y="326.667" width="74" height="73"/>
-  <object id="1954" gid="1" x="16743" y="381.333" width="74" height="73"/>
   <object id="1955" gid="3" x="17110.7" y="64" width="40" height="40"/>
   <object id="1956" gid="3" x="17017.3" y="45.3333" width="40" height="40"/>
   <object id="1957" gid="1" x="17136.3" y="68" width="74" height="73"/>
   <object id="1958" gid="1" x="17067" y="136" width="74" height="73"/>
   <object id="1959" gid="4" x="17126.7" y="95.3333" width="32" height="37"/>
-  <object id="1963" gid="4" x="16397.3" y="427.333" width="32" height="37"/>
-  <object id="1964" gid="4" x="16766.7" y="303.333" width="32" height="37"/>
   <object id="1965" gid="4" x="17209.3" y="43.3333" width="32" height="37"/>
   <object id="1966" gid="31" x="11189" y="360.333" width="60" height="60"/>
   <object id="2013" gid="7" x="5781" y="650" width="90" height="90"/>
@@ -233,6 +210,8 @@
   <object id="2103" gid="61" x="15169" y="302" width="299" height="271"/>
   <object id="2104" gid="62" x="15674.7" y="673.667" width="248" height="466"/>
   <object id="2105" gid="63" x="16171" y="240" width="400" height="241"/>
+  <object id="2106" gid="64" x="16290" y="482.5" width="219" height="226"/>
+  <object id="2107" gid="65" x="16682.3" y="652.333" width="186" height="458"/>
  </objectgroup>
  <objectgroup id="5" name="Enemies">
   <object id="1408" gid="12" x="2074.42" y="450.788" width="30" height="21">
