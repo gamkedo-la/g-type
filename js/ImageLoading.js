@@ -59,6 +59,8 @@ const volcano = document.createElement("img");
 const flatRockPile = document.createElement("img");
 const lvl1BotRock1 = document.createElement("img");
 const lvl1TopRock1 = document.createElement("img");
+const lvl1HorzRock1 = document.createElement("img");
+const lvl1PyramidRocks = document.createElement("img");
 const platform1 = document.createElement("img");
 const warpObstacle = document.createElement("img");
 const wormHole = document.createElement("img");
@@ -193,6 +195,8 @@ function loadImages() {
         { imgName: flatRockPile, theFile: "FlatRockPile.png" },
         { imgName: lvl1BotRock1, theFile: "Lvl1CombinedBottomRocks.png" },
         { imgName: lvl1TopRock1, theFile: "Lvl1CombinedTopRocks.png" },
+        { imgName: lvl1HorzRock1, theFile: "Lvl1HorzRocks.png" },
+        { imgName: lvl1PyramidRocks, theFile: "Lvl1PyramidRocks.png" },
         { imgName: platform1, theFile: "Platform1-sheet.png" },
         { imgName: warpObstacle, theFile: "WarpZoneObstacleSpriteSheet.png" },
         { imgName: wormHole, theFile: "Level2WarpHole.png" },
