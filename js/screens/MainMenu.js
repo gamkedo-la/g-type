@@ -75,7 +75,7 @@ function MenuScreen() {
                 this.selectorPositionsIndex = 0;
             }
             return true;
-        } else if (this.keysPressed(KEY_ENTER)) {
+        } else if (this.keysPressed(KEY_ENTER) || this.keysPressed(KEY_SPACE)) {
 	        menuSelect.play();
             if(this.selectorPositionsIndex === 0) {
                 scene = null;
