@@ -63,7 +63,7 @@ function HelpScreen() {
                 this.selectorPositionsIndex = 0;
             }
             return true;
-        } else if (this.keysPressed(KEY_ENTER)) {
+        } else if (this.keysPressed(KEY_ENTER) || this.keysPressed(KEY_SPACE)) {
 	        menuSelect.play();
             ScreenStates.setState(this.selections[this.selectorPositionsIndex].screen);
             return true;
