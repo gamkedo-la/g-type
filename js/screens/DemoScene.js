@@ -71,7 +71,7 @@ function DemoSceneScreen() {
 	
 	const updateDemoControls = function(runtime) {
 		holdKey[KEY_SPACE] = true;
-//		console.log(runtime);
+	//	console.log(runtime);
 		if(runtime < 300) {
 			holdKey[KEY_X] = false;
 		} else if(runtime < 600) {// >300
@@ -80,50 +80,45 @@ function DemoSceneScreen() {
 		//	do nothing
 		} else if(runtime < 1500) {// >900
 			holdKey[KEY_RIGHT] = false;
-		} else if(runtime < 4000) {// >1500
+		} else if(runtime < 3000) {// >1500
 			holdKey[KEY_RIGHT] = true;
-		} else if(runtime < 5300) {// >1500
+		} else if(runtime < 3500) {// >3000
 			holdKey[KEY_RIGHT] = false;
-		} else if(runtime < 9400) {// >3000
+		} else if(runtime < 8500) {// >3500
 			holdKey[KEY_X] = true;
-		} else if(runtime < 10800) {// >7000
-			holdKey[KEY_RIGHT] = true;
+		} else if(runtime < 9000) {// >8500
 			holdKey[KEY_X] = false;
-		} else if(runtime < 11000) {// >10000
-			holdKey[KEY_RIGHT] = false;
+		} else if(runtime < 10500) {// >9000
 			holdKey[KEY_LEFT] = true;
-		} else if(runtime < 12350) {// >11000
 			holdKey[KEY_DOWN] = true;
-		} else if(runtime < 15000) {// >13250
+		} else if(runtime < 16500) {// >10500
 			holdKey[KEY_DOWN] = false;
 			holdKey[KEY_LEFT] = false;
-		} else if(runtime < 19500) {// >15000
 			holdKey[KEY_X] = true;
-		} else if(runtime < 20500) {// >16000
+		} else if(runtime < 17500) {// >16500
 			holdKey[KEY_RIGHT] = true;
 			holdKey[KEY_X] = false;
-		} else if(runtime < 23000) {// >20000
+		} else if(runtime < 23000) {// >17500
 			holdKey[KEY_RIGHT] = false;
-			holdKey[KEY_LEFT] = true;
+			holdKey[KEY_X] = true;
+		} else if(runtime < 24500) {// >23000
 			holdKey[KEY_UP] = true;
-		} else if(runtime < 23100) {// >22000
+		} else if(runtime < 29000) {// >24500
 			holdKey[KEY_UP] = false;
-			holdKey[KEY_LEFT] = false;
-		} else if(runtime < 29000) {// >27500
-			holdKey[KEY_X] = true;
-		} else if(runtime < 30000) {// >27500
-			holdKey[KEY_X] = false;
+		} else if(runtime < 30000) {// >29000
 			holdKey[KEY_RIGHT] = true;
-		} else if(runtime < 32000) {// >29500
+		} else if(runtime < 32000) {// >30000
 			holdKey[KEY_RIGHT] = false;
 			holdKey[KEY_DOWN] = true;
-		} else if(runtime < 32500) {// >30000
+		} else if(runtime < 32500) {// >32000
 			holdKey[KEY_DOWN] = false;
-		} else {// >34000
+		} else {// >32500
 			ScreenStates.setState(MENU_SCREEN);
 		}
 		
 		if(scene.capsuleCount === 2) {
+			scene.activatePowerUp();
+		} else if(scene.capsuleCount === 3) {
 			scene.activatePowerUp();
 		}
 	}
