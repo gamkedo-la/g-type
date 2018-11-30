@@ -1,9 +1,9 @@
 //FlyingEnemy2
 function MiniMiniBoss1(position = {x:0, y:0}, speed = -10, pattern = PathType.None, spawnPos = 0, difficulty = 0, path = null) {
-	this.type = EntityType.FlyingEnemy2;
+	this.type = EntityType.MiniMiniBoss1;
 	this.group = null;
 	this.worldPos = 0;
-	this.score = 100;
+	this.score = 200;
 	
     this.hitPoints = 58;     // Every enemy type should have a hitPoints property
 
@@ -12,7 +12,6 @@ function MiniMiniBoss1(position = {x:0, y:0}, speed = -10, pattern = PathType.No
 	let vel = {x:speed, y:speed};
 	let unusedTime = 0;
 	this.isVisible = true;
-	let rotation = 0;
 
     let sprite = new AnimatedSprite(miniminiBoss1Sheet, 3, 60, 29, false, true, {min:0, max:0}, 0, {min:0, max:3}, 256, {min:5, max:5}, 0);
 	
@@ -63,7 +62,6 @@ function MiniMiniBoss1(position = {x:0, y:0}, speed = -10, pattern = PathType.No
 		
 		this.worldPos = worldPos;
 		
-		rotation += (deltaTime / 250);
 		
 		let availableTime = unusedTime + deltaTime;
 		while(availableTime > SIM_STEP) {
@@ -134,7 +132,7 @@ function MiniMiniBoss1(position = {x:0, y:0}, speed = -10, pattern = PathType.No
 		if(!this.isVisible) {return;}
 		if(this.worldPos < spawnPos) {return;}
 		
-		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height, rotation);
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 		if(!sprite.isDying) {
 			this.collisionBody.draw();
 		}

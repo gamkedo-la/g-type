@@ -1,12 +1,12 @@
 //Cargo Ship Boss
 function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, timeOffset = 0, spawnPos = 0, difficulty = 0) {	
-	this.type = EntityType.FlyingEnemy1;
+	this.type = EntityType.AlienBoss1;
 	this.group = null;
 	this.worldPos = 0;
-	this.score = 100;
+	this.score = 7200;
 	let previousBackgroundMusic = null;
 
-    this.hitPoints = 2800;     // Every enemy type should have a hitPoints property
+    this.hitPoints = 4200;     // Every enemy type should have a hitPoints property
 	
 	const SPRITE_SCALE = 1; 
 	this.position = position;
@@ -53,7 +53,33 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 	let didCollide = false;
 	
 	this.path = new EnemyPath(PathType.Sine, this.position, speed, [], timeOffset);
+    this.updateBosses = function(deltaTime) {
+		spawnRate += deltaTime;
+    
+		if(bosses.length < BOSS_COUNT) {
 
+			if((100 * Math.random()) < 25) {//1 in 20 chance the next boss should spawn
+				if(spawnRate >= timeSinceSpawn) {
+      				newBoss = new EnemyBullet(EntityType.MiniMiniBoss1, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
+	  				scene.addEntity(newBoss, true);
+     			    spawnRate = 0;
+    }
+				const newBoss = new AnimatedSprite(MiniMiniBoss1Sheet, 11, 96, 96, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
+                newBoss.deltaXPos = (0.5 * this.size.width) - (this.size.width * Math.random());
+                newBoss.deltaYPos = (0.5 * this.size.height) - (this.size.height * Math.random());
+				
+				newBoss.isDying = true;
+				newBoss.wasBorn = true;
+				
+				bosses.push(newBoss);
+			}
+		}
+		
+		for(let i = 0; i < bosses.length; i++) {
+			bosses[i].update(deltaTime);
+		}
+	};
+	
 	this.update = function(deltaTime, worldPos, playerPos) {
 		if(sprite.getDidDie()) {
 			scene.removeEntity(this, false);
