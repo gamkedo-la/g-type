@@ -19,10 +19,14 @@ function EndgameScreen() {
     this.currentY = 0;
     this.scrollSpeed = 4 / 50;
     this.totalTime = 0;
-    this.endgameScript = textStrings.endgameScript;
+    
+    this.endgameScript = textStrings.endgameScriptBad;
     let EndgameText;
 
     this.transitionIn = function () {
+	    if(activatedAnyGhosts) {
+		    this.endgameScript = textStrings.endgameScriptGood;
+	    }
         scene = new EndgameScene();
 
         this.skipBump = 0;

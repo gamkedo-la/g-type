@@ -325,13 +325,13 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 	};
 
 	this.activatedGhost = function() {
+		activatedAnyGhosts = true;
 		player.activateGhostShip();
 		uiManager.powerUpWasActivated(PowerUpType.Ghost, (player.activeGhosts + 1));
 	};
 
 	this.activatedForce = function() {
 		player.activateTheForce();
-//		console.log("Tried to 'Use The Force!'");
 		uiManager.powerUpWasActivated(PowerUpType.Force, null);
 	};
 

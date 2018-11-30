@@ -38,6 +38,7 @@ const MAX_LIVES_TO_SHOW = 9;
 const WARP_INDEX = 3;//This should be 3, once we have all three levels implemented
 const SCORE_PER_EXTRA_LIFE = 30000;
 const MAX_GHOSTS = 3;
+let activatedAnyGhosts = false;
 
 const BG_PARALLAX_RATIO_1 = [0.3, 0.25, 0.3, 0.3]; // starfield
 const BG_PARALLAX_RATIO_2 = [0.2, 0.5, 0.2, 0.2]; // transparent planets
@@ -151,6 +152,24 @@ const textStrings = {
     LevelSelect: 'Select Level',
     GameOver: "Game Over",
     Endgame: "Congratulations!",
+    endgameScriptBad: [
+	    "The Krammix were",
+	    "defeated! The galaxy",
+	    "is at peace again.",
+	    "The lost USF crew",
+	    "will never be",
+	    "forgotten."
+    ],
+    endgameScriptGood: [
+	    "G-Type was",
+	    "victorious!",
+	    "The Krammix were",
+	    "defeated! The",
+	    "ghosts of the USF",
+	    "crew are free and",
+	    "the galaxy is",
+	    "at peace again."
+    ],
     endgameScript: [
         // max width -------------v
         "You completed the game!",
@@ -172,6 +191,9 @@ const textStrings = {
         "",
         "Copyright 2018"
     ],
+    GameOverScript1:"G-Type failed the mission!",
+    GameOverScript2:"The Krammix have consumed",
+    GameOverScript3:"the galaxy!",
     CutScene1_1:"-PHASE 1-", //aka level 1 intro title
     CutScene1_2:"Pilot the G-Type ship to the hostile",
     CutScene1_3:"homeworld of the KRAMMIX.",
@@ -207,23 +229,6 @@ const textStrings = {
     "rescue the lost USF crew and stop the",
     "evil plans of the Krammix!"
     ],
-/*    Story_1: "Year: 2276",
-    Story_2: "United Sol Force ships at the edge of",
-    Story_3: "the galaxy discovered an unknown ship in",
-    Story_4: "distress. USF crew landed on the ship to",
-    Story_5: "to scan for survivors. They found",
-    Story_6: "powerful technology and a message:",
-    Story_7: "THE KRAMMIX WILL DESTROY!",
-    Story_8: "The scans triggered an alarm and opened",
-    Story_9: "a wormhole to the Krammix home world.",
-    Story_10: "The ship disappeared into the wormhole",
-    Story_11: "taking some of the USF ships and helpless",
-    Story_12: "crew with it. The USF used the alien",
-    Story_13: "technology to build an experimental ship",
-    Story_14: "known as G-Type!",
-    Story_15: "Your Mission: Follow the alien ship,",
-    Story_16: "rescue the lost USF crew and stop the",
-    Story_17: "evil plans of the Krammix!",*/
     Contributors: [
 {name:"H Trayford",   works: ['project lead','core functionality','scoring and score pop ups','powerup objects','enemy, projectile, and collision code','screenshake','menu base code','checkpoint and continues','enemy pathing','cut scene animations','ground enemy integration','main UI integration','missile, ghost, and clear powerups','boss behavior improvements','boss explosions','several flying and ground enemies','volcano'] },
 {name:"Ryan Malm",   works: ['logo','tile editor integration','level 1 design','ground enemy rotation support','flickering after respawn','capsule pickup effects','test level','editor tutorial (internal use)','warp challenge functionality','main menu improvements','shot contrast tweaks','made parallax editable per stage'] },
