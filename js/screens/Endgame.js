@@ -6,14 +6,11 @@
 function EndgameScreen() {
 	const MENU_BG_COLOR = "#010119";
 
-	this.selectorPositionsIndex = 0;
-	let selectorPosition = {x:0, y:0};
 	let selectorSprite;
 	let starfield;
-	this.selections = [
-	    {screen: GAME_SCREEN, title: textStrings.Play},
-	    {screen: MENU_SCREEN, title: textStrings.Main},
-	   ];
+	let planetSprite;
+	let PLANET_SCALE = 3.0;
+	let planetPos = {x:GameField.x - 50, y:GameField.y - 100};
 
     this.scrollLimit = -1200;
     this.currentY = 0;
@@ -32,9 +29,9 @@ function EndgameScreen() {
         this.skipBump = 0;
         this.currentY = GameField.bottom - 300;
 
-        this.selectorPositionsIndex = 0;
         starfield = new Starfield(180, 120, 80, -16, -32, -64);
         selectorSprite = new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, 9999999, {min:5, max:7}, 128);
+        planetSprite = new AnimatedSprite(planetSheet, 3, 192, 192, false, true, {min:0, max:0}, 0, {min:0, max:2}, 512, {min:2, max:2}, 0);
 
         currentBackgroundMusic.setCurrentTrack(AudioTracks.Help);
         if(currentBackgroundMusic.getTime() > 0){
@@ -76,11 +73,14 @@ function EndgameScreen() {
         }
 
         canvasContext.drawImage(backgroundColorLookup, 150, 0, 16, 100, 0, 0, canvas.width, canvas.height);
-        starfield.draw();
 
         selectorSprite.update(deltaTime);
+        PLANET_SCALE *= 0.99;
+        planetSprite.update(deltaTime);
+		planetSprite.drawAt(--planetPos.x, planetPos.y, planetSprite.width * PLANET_SCALE, planetSprite.height * PLANET_SCALE);
 
 		starfield.update(deltaTime);
+		starfield.draw();
 
 		gameFont.printTextAt(textStrings.Endgame, {x:GameField.midX, y:20}, 32, textAlignment.Center);
 
