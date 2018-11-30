@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="582" tileheight="466" tilecount="51" columns="0">
+<tileset version="1.2" tiledversion="1.2.0" name="objects" tilewidth="582" tileheight="466" tilecount="56" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="0" type="rock01">
   <properties>
@@ -343,5 +343,35 @@
    <property name="Group" type="int" value="0"/>
   </properties>
   <image width="186" height="458" source="objectSprites/Lvl1BotGate4Rocks.png"/>
+ </tile>
+ <tile id="65" type="lvl3AncientBoard">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="150" height="150" source="objectSprites/ancientBoard.png"/>
+ </tile>
+ <tile id="66" type="lvl3Cast">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="38" height="45" source="objectSprites/cast.png"/>
+ </tile>
+ <tile id="67" type="lvl3Plus">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="38" height="37" source="objectSprites/plus.png"/>
+ </tile>
+ <tile id="68" type="lvl3Square">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="40" height="40" source="objectSprites/square.png"/>
+ </tile>
+ <tile id="69" type="lvl3Square2">
+  <properties>
+   <property name="Group" type="int" value="0"/>
+  </properties>
+  <image width="40" height="40" source="objectSprites/square2.png"/>
  </tile>
 </tileset>

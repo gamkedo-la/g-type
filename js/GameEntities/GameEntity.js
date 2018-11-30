@@ -19,6 +19,11 @@ const EntityType = {
 	Lvl1TopGate3Rocks:"lvl1TopGate3Rocks",
 	Lvl1BotGate3Rocks:"lvl1BotGate3Rocks",
 	Lvl1BotGate4Rocks:"lvl1BotGate4Rocks",
+	Lvl3AncientBoard:"lvl3AncientBoard",
+	Lvl3Square:"lvl3Square",
+	Lvl3Square2:"lvl3Square2",
+	Lvl3Cast:"lvl3Cast",
+	Lvl3Plus:"lvl3Plus",
 	BigDestRock:"bigDestRock",
 	SmDestRock1:"smDestRock1",
 	SmDestRock2:"smDestRock2",
@@ -131,6 +136,16 @@ const spriteForType = function(type) {
 			return (new AnimatedSprite(lvl1BotGate3Rocks, 1, 219, 226, false, true, {min:0, max:0}, 0, {min:0, max:0}, 512, {min:0, max:0}, 0));
 		case EntityType.Lvl1BotGate4Rocks:
 			return (new AnimatedSprite(lvl1BotGate4Rocks, 1, 186, 458, false, true, {min:0, max:0}, 0, {min:0, max:0}, 512, {min:0, max:0}, 0));
+		case EntityType.Lvl3AncientBoard:
+			return (new AnimatedSprite(lvl3AncientBoard, 11, 150, 150, false, true, {min:0, max:0}, 0, {min:0, max:10}, 512, {min:0, max:0}, 0));
+		case EntityType.Lvl3Square:
+			return (new AnimatedSprite(lvl3Square, 12, 38, 38, false, true, {min:0, max:0}, 0, {min:0, max:11}, 512, {min:0, max:0}, 0));
+		case EntityType.Lvl3Square2:
+			return (new AnimatedSprite(lvl3Square2, 12, 40, 37, false, true, {min:0, max:0}, 0, {min:0, max:11}, 512, {min:0, max:0}, 0));
+		case EntityType.Lvl3Cast:
+			return (new AnimatedSprite(lvl3Cast, 12, 38, 45, false, true, {min:0, max:0}, 0, {min:0, max:11}, 512, {min:0, max:0}, 0));
+		case EntityType.Lvl3Plus:
+			return (new AnimatedSprite(lvl3Plus, 5, 38, 37, false, true, {min:0, max:0}, 0, {min:0, max:4}, 512, {min:0, max:0}, 0));
         case EntityType.RhombusBoulder:
             return (new AnimatedSprite(largeRhombusBoulder, 2, 90, 90, false, true, {min:0, max:0}, 0, {min:0, max:1}, 512, {min:1, max:1}, 0));
         case EntityType.BrokenBoulder:
@@ -495,7 +510,46 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, spe
 				colliderPath.push({x: pos.x + scale * 43, 	y: pos.y + scale * sprite.height});
 				
 				return (new Collider(ColliderType.Polygon, {points:colliderPath, position:{x:pos.x, y:pos.y}}));
-            case EntityType.Platform1:
+			case EntityType.Lvl3AncientBoard:
+			case EntityType.Lvl3Square:
+			case EntityType.Lvl3Square2:
+				colliderPath.push({x: pos.x, 						y: pos.y});
+				colliderPath.push({x: pos.x + scale * sprite.width, y: pos.y});
+				colliderPath.push({x: pos.x + scale * sprite.width, y: pos.y + scale * sprite.height});
+				colliderPath.push({x: pos.x, 						y: pos.y + scale * sprite.height});
+				
+				return (new Collider(ColliderType.Polygon, {points:colliderPath, position:{x:pos.x, y:pos.y}}));
+		   case EntityType.Lvl3Cast:
+				colliderPath.push({x: pos.x, 						y: pos.y});
+				colliderPath.push({x: pos.x + scale * sprite.width, y: pos.y});
+				colliderPath.push({x: pos.x + scale * sprite.width, y: pos.y + scale * 6});
+				colliderPath.push({x: pos.x + scale * 25, 			y: pos.y + scale * 8});
+				colliderPath.push({x: pos.x + scale * 25, 			y: pos.y + scale * 37});
+				colliderPath.push({x: pos.x + scale * sprite.width, y: pos.y + scale * 37});
+				colliderPath.push({x: pos.x + scale * sprite.width, y: pos.y + scale * sprite.height});
+				colliderPath.push({x: pos.x,						y: pos.y + scale * sprite.height});
+				colliderPath.push({x: pos.x, 						y: pos.y + scale * 37});
+				colliderPath.push({x: pos.x + scale * 12, 			y: pos.y + scale * 37});
+				colliderPath.push({x: pos.x + scale * 12, 			y: pos.y + scale * 8});
+				colliderPath.push({x: pos.x, 						y: pos.y + scale * 8});
+				
+				return (new Collider(ColliderType.Polygon, {points:colliderPath, position:{x:pos.x, y:pos.y}})); 			
+		   case EntityType.Lvl3Plus:
+				colliderPath.push({x: pos.x, 						y: pos.y + scale * 12});
+				colliderPath.push({x: pos.x + scale * 12, 			y: pos.y + scale * 11});
+				colliderPath.push({x: pos.x + scale * 13, 			y: pos.y});
+				colliderPath.push({x: pos.x + scale * 25, 			y: pos.y});
+				colliderPath.push({x: pos.x + scale * 25, 			y: pos.y + scale * 11});
+				colliderPath.push({x: pos.x + scale * sprite.width, y: pos.y + scale * 11});
+				colliderPath.push({x: pos.x + scale * sprite.width, y: pos.y + scale * 22});
+				colliderPath.push({x: pos.x + scale * 26,			y: pos.y + scale * 22});
+				colliderPath.push({x: pos.x + scale * 26, 			y: pos.y + scale * sprite.height});
+				colliderPath.push({x: pos.x + scale * 12, 			y: pos.y + scale * sprite.height});
+				colliderPath.push({x: pos.x + scale * 12, 			y: pos.y + scale * 22});
+				colliderPath.push({x: pos.x, 						y: pos.y + scale * 22});
+				
+				return (new Collider(ColliderType.Polygon, {points:colliderPath, position:{x:pos.x, y:pos.y}})); 			
+           case EntityType.Platform1:
                 colliderPath.push({x: pos.x,                        y: pos.y});
                 colliderPath.push({x: pos.x + scale * sprite.width, y: pos.y});
                 colliderPath.push({x: pos.x + scale * sprite.width, y: pos.y + scale * sprite.height});

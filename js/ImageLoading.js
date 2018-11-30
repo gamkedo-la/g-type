@@ -70,6 +70,11 @@ const lvl1BotGate4Rocks = document.createElement("img");
 const platform1 = document.createElement("img");
 const warpObstacle = document.createElement("img");
 const wormHole = document.createElement("img");
+const lvl3AncientBoard = document.createElement("img");
+const lvl3Square = document.createElement("img");
+const lvl3Cast = document.createElement("img");
+const lvl3Plus = document.createElement("img");
+const lvl3Square2 = document.createElement("img");
 
 //Player Associated
 const player1Sheet = document.createElement("img");
@@ -212,6 +217,11 @@ function loadImages() {
         { imgName: platform1, theFile: "Platform1-sheet.png" },
         { imgName: warpObstacle, theFile: "WarpZoneObstacleSpriteSheet.png" },
         { imgName: wormHole, theFile: "Level2WarpHole.png" },
+        { imgName: lvl3AncientBoard, theFile: "Blocks/ancientBoard-sheet.png" },
+        { imgName: lvl3Square, theFile: "Blocks/square.png" },
+        { imgName: lvl3Square2, theFile: "Blocks/square2.png" },
+        { imgName: lvl3Cast, theFile: "Blocks/cast.png" },
+        { imgName: lvl3Plus, theFile: "Blocks/plus.png" },
 
         // player related
         { imgName: player1Sheet, theFile: "G-TypePlayer1-sm-v3.png" },

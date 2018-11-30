@@ -2678,6 +2678,96 @@
                  "width":60,
                  "x":476,
                  "y":384.5
+                }, 
+                {
+                 "gid":70,
+                 "height":40,
+                 "id":1250,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square2",
+                 "visible":true,
+                 "width":40,
+                 "x":116,
+                 "y":450.666666666667
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1251,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":550.333333333333,
+                 "y":559
+                }, 
+                {
+                 "gid":67,
+                 "height":45,
+                 "id":1252,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Cast",
+                 "visible":true,
+                 "width":38,
+                 "x":171.666666666667,
+                 "y":191.333333333333
+                }, 
+                {
+                 "gid":68,
+                 "height":37,
+                 "id":1253,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Plus",
+                 "visible":true,
+                 "width":38,
+                 "x":363.666666666667,
+                 "y":240.666666666667
+                }, 
+                {
+                 "gid":69,
+                 "height":40,
+                 "id":1254,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":40,
+                 "x":117.333333333333,
+                 "y":397.333333333333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -7260,7 +7350,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"miniminiBoss1",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12317.6,
@@ -7293,7 +7383,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"miniminiBoss1",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12180.4,
@@ -7326,7 +7416,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"miniminiBoss1",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12357.1,
@@ -7359,7 +7449,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"miniminiBoss1",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12371.6,
@@ -7392,7 +7482,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"miniminiBoss1",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12247.6,
@@ -7425,7 +7515,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"miniminiBoss1",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12124,
@@ -7458,7 +7548,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"miniminiBoss1",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12172,
@@ -7473,7 +7563,7 @@
                         {
                          "name":"Group",
                          "type":"string",
-                         "value":"250"
+                         "value":"30"
                         }, 
                         {
                          "name":"Speed",
@@ -7491,7 +7581,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"miniminiBoss1",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12524,
@@ -7506,7 +7596,7 @@
                         {
                          "name":"Group",
                          "type":"string",
-                         "value":"250"
+                         "value":"30"
                         }, 
                         {
                          "name":"Speed",
@@ -7524,7 +7614,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"miniminiBoss1",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12486,
@@ -7539,7 +7629,7 @@
                         {
                          "name":"Group",
                          "type":"string",
-                         "value":"250"
+                         "value":"30"
                         }, 
                         {
                          "name":"Speed",
@@ -7557,7 +7647,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"miniminiBoss1",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12600,
@@ -7572,7 +7662,7 @@
                         {
                          "name":"Group",
                          "type":"string",
-                         "value":"250"
+                         "value":"30"
                         }, 
                         {
                          "name":"Speed",
@@ -7590,7 +7680,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"miniminiBoss1",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12596,
@@ -7605,7 +7695,7 @@
                         {
                          "name":"Group",
                          "type":"string",
-                         "value":"250"
+                         "value":"30"
                         }, 
                         {
                          "name":"Speed",
@@ -7623,7 +7713,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"miniminiBoss1",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12716,
@@ -7638,7 +7728,7 @@
                         {
                          "name":"Group",
                          "type":"string",
-                         "value":"250"
+                         "value":"30"
                         }, 
                         {
                          "name":"Speed",
@@ -7656,7 +7746,7 @@
                          "value":"points"
                         }],
                  "rotation":0,
-                 "type":"miniminiBoss1",
+                 "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
                  "x":12716,
@@ -7669,16 +7759,16 @@
                  "name":"",
                  "properties":[
                         {
-                         "name":"Speed",
+                         "name":"Group",
                          "type":"int",
                          "value":0
                         }],
                  "rotation":0,
-                 "type":"alienBoss1",
+                 "type":"cargoBoss",
                  "visible":true,
                  "width":300,
-                 "x":12891.3,
-                 "y":228.606
+                 "x":12863.3,
+                 "y":428.606
                 }, 
                 {
                  "gid":9,
@@ -8095,7 +8185,7 @@
                         {
                          "name":"pattern",
                          "type":"string",
-                         "value":"none"
+                         "value":"loop"
                         }, 
                         {
                          "name":"speed",
@@ -8103,11 +8193,11 @@
                          "value":-200
                         }],
                  "rotation":0,
-                 "type":"eyeBoss1",
+                 "type":"miniBoss1",
                  "visible":true,
                  "width":60,
                  "x":8450,
-                 "y":264
+                 "y":303
                 }, 
                 {
                  "gid":12,
@@ -8451,7 +8541,7 @@
                          "value":47
                         }],
                  "rotation":0,
-                 "type":"launchBay",
+                 "type":"",
                  "visible":true,
                  "width":75,
                  "x":221,
@@ -8715,10 +8805,10 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":1250,
+ "nextobjectid":1255,
  "orientation":"orthogonal",
  "renderorder":"right-down",
- "tiledversion":"1.2.1",
+ "tiledversion":"1.2.0",
  "tileheight":32,
  "tilesets":[
         {
