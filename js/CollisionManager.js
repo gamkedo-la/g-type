@@ -37,18 +37,7 @@ function CollisionManager(player) {
 		   (newEntity.type === EntityType.EnemyBullet3) ||
 		   (newEntity.type === EntityType.EnemyBullet4)) {
 			addEnemyBullet(newEntity);
-		} else if((newEntity.type === EntityType.RhombusBoulder) ||
-				  (newEntity.type === EntityType.BigDestRock) ||
-				  (newEntity.type === EntityType.SmDestRock1) ||
-				  (newEntity.type === EntityType.SmDestRock2) ||
-				  (newEntity.type === EntityType.SmDestRock3) ||
-				  (newEntity.type === EntityType.Platform1) ||
-				  (newEntity.type === EntityType.WarpObstacle) ||
-				  (newEntity.type === EntityType.Bubble) ||
-				  (newEntity.type === EntityType.Rock01) ||
-				  (newEntity.type === EntityType.Rock02) ||
-				  (newEntity.type === EntityType.Rock03) ||
-				  (newEntity.type === EntityType.Rock04)) {//Need to check for all other terrain types here
+		} else if(isTerrain(newEntity)) {
 			addTerrain(newEntity);
 		} else if (newEntity.type === EntityType.PlayerForceUnit) {
 			this.addForceUnit(newEntity);
@@ -89,18 +78,7 @@ function CollisionManager(player) {
 		   (entityToRemove.type === EntityType.EnemyBullet3) ||
 		   (entityToRemove.type === EntityType.EnemyBullet4)) {
 			removeEnemyBullet(entityToRemove);
-		} else if((entityToRemove.type === EntityType.RhombusBoulder) ||
-				  (entityToRemove.type === EntityType.BigDestRock) ||
-				  (entityToRemove.type === EntityType.SmDestRock1) ||
-				  (entityToRemove.type === EntityType.SmDestRock2) ||
-				  (entityToRemove.type === EntityType.SmDestRock3) ||
-				  (entityToRemove.type === EntityType.Platform1) ||
-				  (entityToRemove.type === EntityType.WarpObstacle) ||
-				  (entityToRemove.type === EntityType.Bubble) ||
-				  (entityToRemove.type === EntityType.Rock01) ||
-				  (entityToRemove.type === EntityType.Rock02) ||
-				  (entityToRemove.type === EntityType.Rock03) ||
-				  (entityToRemove.type === EntityType.Rock04)) {//Need to check for all other terrain types here
+		} else if(isTerrain(entityToRemove)) {
 			removeTerrain(entityToRemove);
 		} else if(entityToRemove.type === EntityType.PlayerForceUnit) {
 			this.playerForceUnit = null;

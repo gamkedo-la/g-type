@@ -75,24 +75,25 @@ function ShieldEntity(position = {x:0, y:0}, playerSize = {width:0, height:0}) {
 		   (otherEntity.type === EntityType.PlayerTriple) ||
 		   (otherEntity.type === EntityType.PlayerForceUnit)) {
 			   return; //Player weapons don't interact with the shields
-		} else if((otherEntity.type === EntityType.RhombusBoulder) ||
-					   (otherEntity.type === EntityType.BrokenBoulder) || 
-					   (otherEntity.type === EntityType.BrokenBoulderFlipped) || 
-					   (otherEntity.type === EntityType.Rock01) || 
-					   (otherEntity.type === EntityType.Rock02) || 
-					   (otherEntity.type === EntityType.Rock03) || 
-					   (otherEntity.type === EntityType.Rock04) || 
-					   (otherEntity.type === EntityType.Platform1) || 
-					   (otherEntity.type === EntityType.WarpObstacle)) {//Shield isn't damaged by terrain
-						   return;
+		} else if(isTerrain(otherEntity)) {
+			if((otherEntity.type === EntityType.BigDestRock) || 
+			   (otherEntity.type === EntityType.SmDestRock1) || 
+			   (otherEntity.type === EntityType.SmDestRock2) || 
+			   (otherEntity.type === EntityType.SmDestRock3)) {
+				   this.wasHit();
+			   }
 		} else {
-			this.hitPoints--;
-			scene.shouldShake(MAX_SHAKE_MAGNITUDE / 2);
-			if(this.hitPoints <= 0) {
-				playerShieldFail.play();
-			} else {
-				playerShieldHit.play();
-			}
+			this.wasHit();
+		}
+	};
+	
+	this.wasHit = function() {
+		this.hitPoints--;
+		scene.shouldShake(MAX_SHAKE_MAGNITUDE / 2);
+		if(this.hitPoints <= 0) {
+			playerShieldFail.play();
+		} else {
+			playerShieldHit.play();
 		}
 	};
 	

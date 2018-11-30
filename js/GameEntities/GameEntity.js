@@ -102,6 +102,49 @@ const EntityType = {
     LaunchBay:"launchBay"
 };
 
+const isTerrain = function(entity) {
+	let aType = entity.type;
+	if(aType === undefined) {
+		aType = entity;
+	}
+
+	if((aType === EntityType.RhombusBoulder) ||
+	   (aType === EntityType.BrokenBoulder) ||
+	   (aType === EntityType.BrokenBoulderFlipped) ||
+	   (aType === EntityType.Rock01) ||
+	   (aType === EntityType.Rock02) ||
+	   (aType === EntityType.Rock03) ||
+	   (aType === EntityType.Rock04) ||
+	   (aType === EntityType.Volcano) ||
+	   (aType === EntityType.FlatRockPile) ||
+	   (aType === EntityType.Lvl1BotRock1) ||
+	   (aType === EntityType.Lvl1TopRock1) ||
+	   (aType === EntityType.Lvl1HorzRock1) ||
+	   (aType === EntityType.Lvl1PyramidRocks) ||
+	   (aType === EntityType.Lvl1BotGate1Rocks) ||
+	   (aType === EntityType.Lvl1TopGate1Rocks) ||
+	   (aType === EntityType.Lvl1BotGate2Rocks) ||
+	   (aType === EntityType.Lvl1TopGate3Rocks) ||
+	   (aType === EntityType.Lvl1BotGate3Rocks) ||
+	   (aType === EntityType.Lvl1BotGate4Rocks) ||
+	   (aType === EntityType.BigDestRock) ||
+	   (aType === EntityType.SmDestRock1) ||
+	   (aType === EntityType.SmDestRock2) ||
+	   (aType === EntityType.SmDestRock3) ||
+	   (aType === EntityType.WarpObstacle) ||
+	   (aType === EntityType.Bubble) ||
+	   (aType === EntityType.Lvl3AncientBoard) ||
+	   (aType === EntityType.Lvl3Square) ||
+	   (aType === EntityType.Lvl3Square2) ||
+	   (aType === EntityType.Lvl3Cast) ||
+	   (aType === EntityType.Lvl3Plus) ||
+	   (aType === EntityType.Platform1)) {
+		return true;
+	}
+	
+	return false;
+}
+
 const spriteForType = function(type) {
 	switch(type) {
 		case EntityType.Rock01:
