@@ -350,28 +350,28 @@
   </properties>
   <image width="150" height="150" source="objectSprites/ancientBoard.png"/>
  </tile>
- <tile id="66" type="lvl3Cast">
+ <tile id="70" type="lvl3Cast">
   <properties>
    <property name="Group" type="int" value="0"/>
   </properties>
-  <image width="38" height="45" source="objectSprites/cast.png"/>
+  <image width="76" height="90" source="objectSprites/cast.png"/>
  </tile>
- <tile id="67" type="lvl3Plus">
+ <tile id="71" type="lvl3Plus">
   <properties>
    <property name="Group" type="int" value="0"/>
   </properties>
-  <image width="38" height="37" source="objectSprites/plus.png"/>
+  <image width="76" height="74" source="objectSprites/plus.png"/>
  </tile>
- <tile id="68" type="lvl3Square">
+ <tile id="72" type="lvl3Square">
   <properties>
    <property name="Group" type="int" value="0"/>
   </properties>
-  <image width="40" height="40" source="objectSprites/square.png"/>
+  <image width="76" height="76" source="objectSprites/square.png"/>
  </tile>
- <tile id="69" type="lvl3Square2">
+ <tile id="73" type="lvl3Square2">
   <properties>
    <property name="Group" type="int" value="0"/>
   </properties>
-  <image width="40" height="40" source="objectSprites/square2.png"/>
+  <image width="80" height="74" source="objectSprites/square2.png"/>
  </tile>
 </tileset>

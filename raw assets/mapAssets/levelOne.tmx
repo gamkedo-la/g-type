@@ -166,11 +166,7 @@
   <object id="1231" gid="37" x="320.25" y="506.25" width="76" height="38"/>
   <object id="1232" gid="37" x="395.5" y="506.25" width="76" height="38"/>
   <object id="1248" gid="31" x="476" y="384.5" width="60" height="60"/>
-  <object id="1250" gid="70" x="116" y="450.667" width="40" height="40"/>
   <object id="1251" gid="66" x="550.333" y="559" width="150" height="150"/>
-  <object id="1252" gid="67" x="171.667" y="191.333" width="38" height="45"/>
-  <object id="1253" gid="68" x="363.667" y="240.667" width="38" height="37"/>
-  <object id="1254" gid="69" x="117.333" y="397.333" width="40" height="40"/>
  </objectgroup>
  <objectgroup id="5" name="Enemies">
   <object id="847" gid="12" x="5120" y="179.197" width="30" height="21">

@@ -2680,24 +2680,6 @@
                  "y":384.5
                 }, 
                 {
-                 "gid":70,
-                 "height":40,
-                 "id":1250,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"lvl3Square2",
-                 "visible":true,
-                 "width":40,
-                 "x":116,
-                 "y":450.666666666667
-                }, 
-                {
                  "gid":66,
                  "height":150,
                  "id":1251,
@@ -2714,60 +2696,6 @@
                  "width":150,
                  "x":550.333333333333,
                  "y":559
-                }, 
-                {
-                 "gid":67,
-                 "height":45,
-                 "id":1252,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"lvl3Cast",
-                 "visible":true,
-                 "width":38,
-                 "x":171.666666666667,
-                 "y":191.333333333333
-                }, 
-                {
-                 "gid":68,
-                 "height":37,
-                 "id":1253,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"lvl3Plus",
-                 "visible":true,
-                 "width":38,
-                 "x":363.666666666667,
-                 "y":240.666666666667
-                }, 
-                {
-                 "gid":69,
-                 "height":40,
-                 "id":1254,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"lvl3Square",
-                 "visible":true,
-                 "width":40,
-                 "x":117.333333333333,
-                 "y":397.333333333333
                 }],
          "opacity":1,
          "type":"objectgroup",
