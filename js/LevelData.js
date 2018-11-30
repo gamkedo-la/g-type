@@ -68,9 +68,9 @@ const LevelData = [
 	    getForegroundParallaxLayer: function() {return foregroundParallaxLayer3;},
 		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY};},
 
-	    initializeEnemies: function() {return initializeEnemies(TileMaps.levelOneH2.layers[2].objects);},
+	    initializeEnemies: function() {return initializeEnemies(TileMaps.levelThreeWIP.layers[2].objects);},
 
-	    initializeTerrain: function() {return initializeTerrain(TileMaps.levelOneH2.layers[1].objects);},
+	    initializeTerrain: function() {return initializeTerrain(TileMaps.levelThreeWIP.layers[1].objects);},
 
 	    initializeDebris: function() {return initializeDebris();},
 		checkpointPositions:[0, 600, 1200]

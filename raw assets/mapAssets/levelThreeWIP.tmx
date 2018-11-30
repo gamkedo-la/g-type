@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="700" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="1256">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="700" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="1372">
  <tileset firstgid="1" source="objects.tsx"/>
  <objectgroup id="6" name="Background">
   <properties>
@@ -10,6 +10,51 @@
   <object id="1254" x="-0.5" y="-0.166667" width="22560" height="64"/>
   <object id="1255" x="-0.5" y="575.833" width="22560" height="32"/>
  </objectgroup>
- <objectgroup id="2" name="Terrain"/>
+ <objectgroup id="2" name="Terrain">
+  <object id="1328" gid="66" x="-869.917" y="631.75" width="150" height="150"/>
+  <object id="1329" gid="66" x="-720.917" y="631.75" width="150" height="150"/>
+  <object id="1330" gid="66" x="-570.917" y="631.75" width="150" height="150"/>
+  <object id="1331" gid="66" x="-420.417" y="631.75" width="150" height="150"/>
+  <object id="1332" gid="66" x="-270.917" y="632.25" width="150" height="150"/>
+  <object id="1333" gid="66" x="-121.417" y="632.25" width="150" height="150"/>
+  <object id="1334" gid="66" x="28.5833" y="632.25" width="150" height="150"/>
+  <object id="1335" gid="66" x="178.583" y="632.25" width="150" height="150"/>
+  <object id="1336" gid="66" x="329.083" y="632.25" width="150" height="150"/>
+  <object id="1337" gid="66" x="-869.917" y="65.75" width="150" height="150"/>
+  <object id="1338" gid="66" x="-719.417" y="65.75" width="150" height="150"/>
+  <object id="1339" gid="66" x="-569.417" y="66.25" width="150" height="150"/>
+  <object id="1340" gid="66" x="-418.917" y="65.75" width="150" height="150"/>
+  <object id="1341" gid="66" x="-268.917" y="65.75" width="150" height="150"/>
+  <object id="1342" gid="66" x="-118.917" y="66.25" width="150" height="150"/>
+  <object id="1343" gid="66" x="31.5833" y="66.25" width="150" height="150"/>
+  <object id="1344" gid="66" x="181.083" y="65.75" width="150" height="150"/>
+  <object id="1345" gid="66" x="330.583" y="65.75" width="150" height="150"/>
+  <object id="1346" gid="70" x="328" y="485.333" width="40" height="40"/>
+  <object id="1347" gid="70" x="368" y="485.333" width="40" height="40"/>
+  <object id="1348" gid="70" x="406.667" y="485.333" width="40" height="40"/>
+  <object id="1349" gid="70" x="445.333" y="485.333" width="40" height="40"/>
+  <object id="1350" gid="66" x="481.082" y="65.4167" width="150" height="150"/>
+  <object id="1351" gid="66" x="631.585" y="65.4167" width="150" height="150"/>
+  <object id="1352" gid="66" x="781.585" y="65.9167" width="150" height="150"/>
+  <object id="1353" gid="66" x="932.085" y="65.4167" width="150" height="150"/>
+  <object id="1354" gid="66" x="1082.08" y="65.4167" width="150" height="150"/>
+  <object id="1355" gid="66" x="1232.08" y="65.9167" width="150" height="150"/>
+  <object id="1356" gid="66" x="1382.58" y="65.9167" width="150" height="150"/>
+  <object id="1357" gid="66" x="1532.09" y="65.4167" width="150" height="150"/>
+  <object id="1358" gid="66" x="1681.58" y="65.4167" width="150" height="150"/>
+  <object id="1359" gid="66" x="478.707" y="631.625" width="150" height="150"/>
+  <object id="1360" gid="66" x="627.71" y="631.625" width="150" height="150"/>
+  <object id="1361" gid="66" x="777.71" y="631.625" width="150" height="150"/>
+  <object id="1362" gid="66" x="928.21" y="631.625" width="150" height="150"/>
+  <object id="1363" gid="66" x="1077.71" y="632.125" width="150" height="150"/>
+  <object id="1364" gid="66" x="1227.21" y="632.125" width="150" height="150"/>
+  <object id="1365" gid="66" x="1377.21" y="632.125" width="150" height="150"/>
+  <object id="1366" gid="66" x="1527.21" y="632.125" width="150" height="150"/>
+  <object id="1367" gid="66" x="1677.71" y="632.125" width="150" height="150"/>
+  <object id="1368" gid="70" x="1676.63" y="485.208" width="40" height="40"/>
+  <object id="1369" gid="70" x="1716.63" y="485.208" width="40" height="40"/>
+  <object id="1370" gid="70" x="1755.29" y="485.208" width="40" height="40"/>
+  <object id="1371" gid="70" x="1793.96" y="485.208" width="40" height="40"/>
+ </objectgroup>
  <objectgroup id="5" name="Enemies"/>
 </map>
