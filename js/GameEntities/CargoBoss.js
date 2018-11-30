@@ -184,14 +184,20 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 				}
 			}
 
-			if(this.bulletsLeft > 0 && this.timeSinceLastFire > 10){
+			if(this.bulletsLeft > 0 && this.timeSinceLastFire > 10) {
 				//fireBullet
+				if(bossLaserShot.getTime() <= 0) {
+					bossLaserShot.play();
+				}
+				
 				xVel = -130;
 				yVel = (this.bulletsLeft -5) * 20;
 				newBullet = new EnemyBullet(EntityType.EnemyBullet3, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
 				scene.addEntity(newBullet, false);
 				this.bulletsLeft -= 1;
 				this.timeSinceLastFire = 0
+			} else if(this.bulletsLeft <= 0) {
+				bossLaserShot.stop();
 			}
 
 			if(this.bulletsLeft == 0 && firingChance < difficulty || this.timeSinceLastFire > 3000) {
@@ -221,8 +227,11 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 			this.vel.y = 0;
 		}
 
-		if(this.bulletsLeft > 0 && this.timeSinceLastFire > 25){
+		if(this.bulletsLeft > 0 && this.timeSinceLastFire > 25) {
 			//fireBullet
+			if(bossLaserShot.getTime() === 0) {
+				bossLaserShot.play();
+			}
 			xVel = -530;
 			yVel = 0
 			newBullet = new EnemyBullet(EntityType.EnemyBullet4, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
@@ -233,7 +242,6 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 
 		if(this.bulletsLeft == 0) {
 			this.changeState(state.phase1)
-			//this.changeState(state.dip)
 		}
 	}
 
@@ -326,10 +334,10 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 				(entityType === EntityType.PlayerTriple) ||
 				(entityType === EntityType.PlayerShield)) {
 				this.hitPoints -= otherEntity.damagePoints;
+				if(this.hitPoints > 0) {
+					shotDamaged.play();
+				}
 			}
-		} 
-		else {
-		    this.hitPoints = 0; // TODO remove this catch-all; we want all collisions with player weapons to inflict damage based on their damagePoints
 		}
 		
 		if (this.hitPoints <= 0) {

@@ -34,6 +34,12 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, spawnPos = 0
 				this.worldPos = worldPos;
 			}
 			
+			if((sprite === explosionSprite) && (sprite.getDidDie())) {
+	            scene.removeEntity(this, false);
+				sprite.isDying = false;
+				return;
+            }
+            
 			sprite.update(deltaTime);//update the image
 			
 			let availableTime = unusedTime + deltaTime;
@@ -106,7 +112,7 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, spawnPos = 0
 		if(this.worldPos < spawnPos) {return;}
 		
 		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height, this.rotation);
-		if(!sprite.isDying) {
+		if(sprite != explosionSprite) {
 			this.collisionBody.draw();
 		}
 	};
@@ -135,12 +141,9 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, spawnPos = 0
 				this.hitPoints -= otherEntity.damagePoints;
 			}
 		} 
-		else {
-			this.hitPoints = 0; // TODO remove this catch-all; we want all collisions with player weapons to inflict damage based on their damagePoints
-		}
 
 		if (this.hitPoints <= 0) {
-			if(sprite.isDying) {return;}//already dying, no reason to continue
+			if(sprite === explosionSprite) {return;}//already dying, no reason to continue
 			
 			scene.displayScore(this);
 			

@@ -52,7 +52,11 @@ enemyLargeExplosion.setVolume(0.6);
 const bubbleExplosion = new sfxClipOverlap("bubble", 3);
 bubbleExplosion.setVolume(0.35);
 const shotHitIndestructible = new sfxClipOverlap("PlayerShieldReflect", 3); //placeholder sound effect.  Need new made -LP
-shotHitIndestructible.setVolume(0.6);
+shotHitIndestructible.setVolume(0.7);
+const shotDamaged = new sfxClipOverlap("DAMAGED_ENEMY", 3);
+shotDamaged.setVolume(0.5);
+const bossLaserShot = new sfxClipOverlap("BOSS_LASER_SHOT", 2);
+bossLaserShot.setVolume(0.8);
 const clearScreen = new sfxClipSingle("ClearScreen");
 clearScreen.setVolume(0.8);
 const menuMove = new sfxClipOverlap("MenuMove", 2); //placeholder sound effect.  Need new made -LP
@@ -77,6 +81,7 @@ const allSFX = {
 			   enemyMediumExplosion,
 			   bubbleExplosion,
 			   shotHitIndestructible,
+			   shotDamaged,
 			   capsulePickup,
 			   clearScreen
 			   ],

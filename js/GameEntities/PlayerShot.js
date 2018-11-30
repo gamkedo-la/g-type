@@ -33,7 +33,7 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 	this.collisionBody = new Collider(ColliderType.Circle, 
 									{points:   [], 
 									 position: {x:pos.x, y:pos.y + 12}, 
-									 radius:   3, 
+									 radius:   6, 
 									 center:   {x:pos.x, y:pos.y + 12}});
 	
 	this.setPosition = function(newPos) {

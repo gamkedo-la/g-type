@@ -38,6 +38,11 @@ function GroundEnemy3(position = {x:0, y:0}, spawnPos = 0, difficulty = 0) {
                 this.worldPos = worldPos;
             }
             
+            if((sprite === explosionSprite) && (sprite.getDidDie())) {
+	            scene.removeEntity(this, false);
+				sprite.isDying = false;
+				return;
+            }
             sprite.update(deltaTime);//update the image
             
             let availableTime = unusedTime + deltaTime;
@@ -91,7 +96,7 @@ function GroundEnemy3(position = {x:0, y:0}, spawnPos = 0, difficulty = 0) {
         if(this.worldPos < spawnPos) {return;}
         
         sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height, this.rotation);
-        if(!sprite.isDying) {
+        if(sprite != explosionSprite) {
             this.collisionBody.draw();
         }
     };
@@ -118,11 +123,14 @@ function GroundEnemy3(position = {x:0, y:0}, spawnPos = 0, difficulty = 0) {
                 (entityType === EntityType.PlayerTriple) ||
                 (entityType === EntityType.PlayerShield)) {
                 this.hitPoints -= otherEntity.damagePoints;
+                if(this.hitPoints > 0) {
+					shotDamaged.play();
+				}
             }
         }
         
         if (this.hitPoints <= 0) {
-            if(sprite.isDying) {return;}//already dying, no reason to continue
+            if(sprite === explosionSprite) {return;}//already dying, no reason to continue
             
             scene.displayScore(this);
             

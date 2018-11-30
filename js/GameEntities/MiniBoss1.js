@@ -203,12 +203,13 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		   (otherEntity.type === EntityType.PlayerForceUnit)) {
 			   
 			   this.hitPoints -= otherEntity.damagePoints;
-			   enemyMediumExplosion.play();
+			   enemySmallExplosion.play();
 			   this.invincibilityTime = INVINCIBILITY_TIME;
 		}
 		   
 		if(this.hitPoints <= 0) {
 			if(sprite.isDying) {return;}//already dying, no reason to continue
+			enemyLargeExplosion.play();
 			
 			if((this.group != null) && (this.group !== undefined)) {
                 this.group.amDying(this, this.worldPos);

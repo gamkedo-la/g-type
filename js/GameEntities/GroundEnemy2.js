@@ -32,7 +32,13 @@ function GroundEnemy2(position = {x:0, y:0}, speed = 100, pattern = PathType.Loo
                 this.worldPos = worldPos;
             }
             
-            sprite.update(deltaTime);//update the image
+            if((sprite === explosionSprite) && (sprite.getDidDie())) {
+	            scene.removeEntity(this, false);
+				sprite.isDying = false;
+				return;
+            }
+			
+			sprite.update(deltaTime);//update the image
             
             let availableTime = unusedTime + deltaTime;
             while(availableTime > SIM_STEP) {
@@ -98,7 +104,7 @@ function GroundEnemy2(position = {x:0, y:0}, speed = 100, pattern = PathType.Loo
         if(this.worldPos < spawnPos) {return;}
 
         sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
-        if(!sprite.isDying) {
+        if(sprite != explosionSprite) {
             this.collisionBody.draw();
         }
     };
@@ -132,7 +138,7 @@ function GroundEnemy2(position = {x:0, y:0}, speed = 100, pattern = PathType.Loo
         }
         
         if (this.hitPoints <= 0) {
-            if(sprite.isDying) {return;}//already dying, no reason to continue
+            if(sprite === explosionSprite) {return;}//already dying, no reason to continue
             
             scene.displayScore(this);
             
