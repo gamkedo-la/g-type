@@ -8095,7 +8095,7 @@
                         {
                          "name":"pattern",
                          "type":"string",
-                         "value":"loop"
+                         "value":"none"
                         }, 
                         {
                          "name":"speed",
@@ -8107,7 +8107,7 @@
                  "visible":true,
                  "width":60,
                  "x":8450,
-                 "y":303
+                 "y":264
                 }, 
                 {
                  "gid":12,
