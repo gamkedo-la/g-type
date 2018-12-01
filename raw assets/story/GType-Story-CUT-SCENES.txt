@@ -1,0 +1,86 @@
+Back story
+Year: 2276
+Location: Edge of the solar system
+Humans have settled on The Moon, Mars and a few planetary moons. They are now reaching beyond the solar system.
+Good guys (light) = United Sol Force (USF)
+Bad guys (dark) = Krammix (play on cram or crunch)
+
+Story Option 2 (chosen by H)
+First USF ships to reach the edge of solar system discover massive alien ship that appears dead or adrift
+USF ships Land on alien ship and begin scanning it
+Find lots of alien data. including unknown powerful tech
+Ship wakes up and sends distress signal which opens a wormhole
+Alien ship disappears into the wormhole taking some of the USF ships and crew with it (this will create zombies later)
+USF uses alien tech data and builds G-Type ship to follow alien ship and rescue lost USF ships and crew
+
+
+-----------
+DEMO STORY (INTRO)
+-----------
+<-------------------------------------->
+Year: 2276
+United Sol Force ships at the edge of
+the galaxy discovered an unknown ship in
+distress. USF crew landed on the ship to
+to scan for survivors. They found 
+powerful technology and a message: 
+THE KRAMMIX WILL DESTROY!
+
+The scans triggered an alarm and opened 
+a wormhole to the Krammix home world. 
+The ship disappeared into the wormhole 
+taking some of the USF ships and helpless 
+crew with it. The USF used the alien 
+technology to build an experimental ship 
+known as G-Type! 
+
+Your Mission: Follow the alien ship, 
+rescue the lost USF crew and stop the 
+evil plans of the Krammix!
+
+-----------
+CUT SCENES
+-----------
+
+### CUT SCENE 1 ###
+
+Original Version
+    CutScene1_1:"-PHASE 1-",
+    CutScene1_2:"Phase 1 - Defeat Planetary Defenses",
+    CutScene1_3:"to enable follow on forces to approach safely",
+
+-PHASE 1-
+Pilot the experimental G-Type ship to the 
+hostile homeworld of the KRAMMIX. Defeat 
+the planetary defenses so USF forces can 
+safely search for the lost crew.
+
+Good luck G-Type!
+The USF is counting on you!
+
+### CUT SCENE 2 ###
+
+-PHASE 2-
+Krammix defenses are down! Destroy the 
+ground forces before reinforcements arrive.
+USF agents have discovered that the Krammix 
+are planning on taking over the universe!
+
+Good luck G-Type!
+The galaxy is counting on you!
+
+### CUT SCENE 3 ###
+
+-PHASE 3-
+The Krammix hidden base has been found. 
+Destroy the Krammix overlord and save the universe!
+
+Good luck G-Type!
+You're our only hope!
+
+-----------
+ENDING
+-----------
+Congratulations!
+
+G-Type has saved the universe from the evil clutches of the Krammix!

@@ -12,7 +12,7 @@ function UILives(position = {x:0, y:0}) {
 	this.draw = function() {
 		const livesToDraw = (remainingLives > MAX_LIVES_TO_SHOW ? MAX_LIVES_TO_SHOW : remainingLives);
 		for(let i = 0; i < livesToDraw; i++) {
-			sprite.drawAt({x:this.position.x + this.size.width * i, y:this.position.y}, this.size, 0);
+			sprite.drawAt((this.position.x + this.size.width * i), (this.position.y), this.size.width, this.size.height);
 		}
-	}
+	};
 }

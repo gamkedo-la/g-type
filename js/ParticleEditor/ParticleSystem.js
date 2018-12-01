@@ -506,7 +506,7 @@ function ParticleEmitterSequence (x,y, emitterConfigs, sequenceConfig) {
     let currentEmitterIndex = 0;
 
     if (!emitterConfigs) {
-        console.log("Error: Particle emitter sequence requires emitter configuration(s).");
+//        console.log("Error: Particle emitter sequence requires emitter configuration(s).");
         return;
     } else if (!sequenceConfig) {
         sequenceConfig = {};

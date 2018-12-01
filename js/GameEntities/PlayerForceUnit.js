@@ -3,8 +3,8 @@ function PlayerForceUnit(position = {x:0, y:0}) {
 	this.type = EntityType.PlayerForceUnit;
 
 	// TODO change the dimensions/parameters passed into the AnimatedSprite ctor once we have a sprite sheet
-	const sprite = new AnimatedSprite(forceUnitSheet, 1, 48, 48);
-	const SPRITE_SCALE = 1;
+    const sprite = new AnimatedSprite(forceUnitSheet, 4, 50, 45, false, true, {min:0, max:0}, 0, {min:0, max:3}, 256, {min:3, max:3}, 0);
+	const SPRITE_SCALE = 0.5;
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	this.position = {x: position.x, y: position.y};
     this.parentObj = null;
@@ -26,8 +26,8 @@ function PlayerForceUnit(position = {x:0, y:0}) {
 	this.collisionBody = new Collider(ColliderType.Circle,	{points:   [], 
 														//position: {x:centerX, y:centerY}, 
 														position: {x:this.position.x, y:this.position.y}, 
-														radius:   18, 
-														center:   {x:centerX, y:centerY}});
+														radius:   12,
+														center:   {x:this.position.x + this.size.width/2, y:this.position.y + this.size.height/2}});
 
 	let didCollide = false;
 	this.getIsDying = function() {
@@ -38,8 +38,8 @@ function PlayerForceUnit(position = {x:0, y:0}) {
 
 
 	this.update = function(deltaTime, worldPos) {
-		this.position.x = this.parentObj.position.x + 70;	// TODO don't hardcode position - force unit should be able to attach to the front or back of ship; and also float in front of, or behind, ship.. At some distance..
-		this.position.y = this.parentObj.position.y;
+		this.position.x = this.parentObj.position.x + 50;	// TODO don't hardcode position - force unit should be able to attach to the front or back of ship; and also float in front of, or behind, ship.. At some distance..
+		this.position.y = this.parentObj.position.y + 5;
 		sprite.update(deltaTime);   //update the image
 
 		//keep the collisionBody position in synch with the visual position
@@ -52,7 +52,7 @@ function PlayerForceUnit(position = {x:0, y:0}) {
 	};
 
 	this.draw = function() {
-		sprite.drawAt(this.position, this.size);
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 		//collision bodies know not to draw themselves if DRAW_COLLIDERS = false
 		this.collisionBody.draw();
 

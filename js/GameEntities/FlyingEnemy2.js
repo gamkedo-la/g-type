@@ -1,5 +1,5 @@
 //FlyingEnemy2
-function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.None, timeOffset = 0, spawnPos = 0, difficulty = 0, path = null) {
+function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.None, spawnPos = 0, difficulty = 0, path = null) {
 	this.type = EntityType.FlyingEnemy2;
 	this.group = null;
 	this.worldPos = 0;
@@ -14,9 +14,14 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	this.isVisible = true;
 	let rotation = 0;
 
+    let sprite;
 	
+    if(difficulty > 15) {
+        sprite = new AnimatedSprite(flyingEnemy2RedSheet, 6, 50, 50, false, true, {min:0, max:0}, 0, {min:0, max:5}, 256, {min:5, max:5}, 0);
+    } else {
+        sprite = new AnimatedSprite(flyingEnemy2Sheet, 6, 50, 50, false, true, {min:0, max:0}, 0, {min:0, max:5}, 256, {min:5, max:5}, 0);
+    }
 	
-	let sprite = new AnimatedSprite(flyingEnemy2Sheet, 6, 50, 50, false, true, {min:0, max:0}, 0, {min:0, max:5}, 256, {min:5, max:5}, 0);
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 
 	this.collisionBody = new Collider(ColliderType.Circle, {points:   [], 
@@ -36,18 +41,21 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	];
 
 	if(path){
-		pathPoints = path.polygon.slice(0);
+		if(path.polygon === undefined) {
+            pathPoints = path.polyline.slice(0);
+        } else {
+            pathPoints = path.polygon.slice(0);
+        }
+        
 		pathPoints.forEach((point)=>{
-			//point.x += this.position.x;
-			//point.y += this.position.y;
-			point.x += GameField.x+GameField.width-50;
+			point.x += GameField.x + GameField.width - 50;
 			point.y += GameField.y + path.y;
 			pathPoints.push(point);
-		})
+            });
 		
 	}
 	
-	this.path = new EnemyPath(PathType.Points, this.position, speed, pathPoints, timeOffset);
+	this.path = new EnemyPath(PathType.Points, this.position, speed, pathPoints, 0);
 	
 	this.update = function(deltaTime, worldPos, playerPos) {
 		if(!this.isVisible) {return;}
@@ -56,9 +64,6 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		if(sprite.getDidDie()) {
 			scene.removeEntity(this, false);
 			sprite.isDying = false;
-			if((this.group != null) && (this.group !== undefined)) {
-				this.group.remove(this, this.worldPos);
-			}
 			return;
 		}
 		
@@ -74,8 +79,6 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 				if(nextPos !== undefined) {
 					if(pattern === PathType.None) {
 						this.position.x += (vel.x * SIM_STEP / 1000);
-						//default should maybe be fly straight? removing y movement for level-load testing. -Rybar
-						//this.position.y += (vel.y * SIM_STEP / 1000);  
 					} else if(pattern === PathType.Sine) {
 						this.position.x += nextPos.x;
 						this.position.y += nextPos.y;
@@ -92,8 +95,10 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 			}
 		}
 		
+        //store unused time for future use
 		unusedTime = availableTime;
 		
+        //update the collision body position
 		if(!sprite.isDying) {
 			this.collisionBody.setPosition({x:(SPRITE_SCALE * 3) + this.position.x + this.size.height / 2, 
 											y:this.position.y + this.size.height / 2});
@@ -120,6 +125,11 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 					xVel = 0;
 				}
 				
+				if(difficulty > 10) {
+					xVel *= 2;
+					yVel *= 2;
+				}
+				
 				const newBullet = new EnemyBullet(EntityType.EnemyBullet2, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
 				scene.addEntity(newBullet, false);
 			}
@@ -130,7 +140,7 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		if(!this.isVisible) {return;}
 		if(this.worldPos < spawnPos) {return;}
 		
-		sprite.drawAt(this.position, this.size, rotation);
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height, rotation);
 		if(!sprite.isDying) {
 			this.collisionBody.draw();
 		}
@@ -139,8 +149,8 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 	this.respawn = function(worldPos) {
 		if(worldPos > spawnPos) {
 			this.worldPos = worldPos;
-			const totalTime = (worldPos *  SIM_STEP);
-			const nextPos = this.path.nextPoint(totalTime - timeOffset);
+			const totalTime = (worldPos * SIM_STEP);
+			const nextPos = this.path.nextPoint(totalTime);
 			this.position.x = nextPos.x;
 			this.position.y = nextPos.y;
 		}
@@ -150,6 +160,7 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		if (otherEntity.collisionBody) {
 			let entityType = otherEntity.type;
 			if ((entityType === EntityType.PlayerForceUnit) ||
+				(entityType === EntityType.RagnarokCapsule) || 
 				(entityType === EntityType.PlayerShot) || 
 				(entityType === EntityType.PlayerMissile) || 
 				(entityType === EntityType.PlayerDouble) || 
@@ -164,6 +175,8 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 		}
 		
 		if (this.hitPoints <= 0) {
+			if(sprite.isDying) {return;}//already dying, no reason to continue
+			
 			scene.displayScore(this);
 
 			sprite = new AnimatedSprite(enemyExplosionSheet2, 11, 96, 96, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
@@ -174,6 +187,11 @@ function FlyingEnemy2(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
 			this.position.y = this.collisionBody.center.y - this.size.height / 2;
 
 			sprite.isDying = true;
+
+			if((this.group != null) && (this.group !== undefined)) {
+				this.group.amDying(this, this.worldPos);
+			}
+
 			sprite.wasBorn = true;
 			scene.removeCollisions(this);
 

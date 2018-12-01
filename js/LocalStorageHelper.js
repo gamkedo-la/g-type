@@ -45,6 +45,7 @@ function LocalStorageHelper() {
    */
   this.getBoolean = function(keyName) {
     var storedValue = this.getItem(keyName);
+    if(storedValue === null) {return storedValue;}
     return storedValue === 'true';
   };
 
@@ -59,6 +60,7 @@ function LocalStorageHelper() {
    */
   this.getInt = function(keyName) {
     var storedValue = this.getItem(keyName);
+    if(storedValue === null) {return storedValue;}
     return parseInt(storedValue);
   };
 
@@ -73,6 +75,7 @@ function LocalStorageHelper() {
    */
   this.getFloat = function(keyName) {
     var storedValue = this.getItem(keyName);
+    if(storedValue === null) {return storedValue;}
     return parseFloat(storedValue);
   };
 

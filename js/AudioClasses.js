@@ -22,7 +22,11 @@ clicks, and chops, we get a clean loop with no gaps of silence.
 var isMuted = false;
 
 //SFX Classes
-var sfxVolume = 1;
+var sfxVolume = localStorageHelper.getFloat('sfxVolume');
+if((sfxVolume === null) || (sfxVolume === undefined)) {
+	localStorageHelper.setFloat('sfxVolume', 1);
+	sfxVolume = 1;
+}
 SFXVolumeManager = new sfxVolumeManager();
 function sfxVolumeManager() {
 	var clipList = [];
@@ -34,6 +38,7 @@ function sfxVolumeManager() {
 		for (var i in clipList) {
 			clipList[i].updateVolume();
 		}
+		localStorageHelper.setFloat('sfxVolume', sfxVolume);
 	};
 
 	this.getVolume = function() {
@@ -76,6 +81,7 @@ function sfxClipSingle(filename) {//A simple, single buffer sound clip
 
 
 	this.play = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		soundFile.currentTime = 0;
 		this.updateVolume();
 		soundFile.play();
@@ -87,6 +93,7 @@ function sfxClipSingle(filename) {//A simple, single buffer sound clip
 	};
 
 	this.resume = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		soundFile.play();
 	};
 
@@ -163,6 +170,7 @@ function sfxClipOverlap(filename, voices = 2) {//A sound clip with as many buffe
 	SFXVolumeManager.addToList(this);
 
 	this.play = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		currentClip++;
 		if (currentClip >= maxVoices) {currentClip = 0;}
 
@@ -179,6 +187,7 @@ function sfxClipOverlap(filename, voices = 2) {//A sound clip with as many buffe
 	};
 
 	this.resume = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		soundFile[currentClip].play();
 	};
 
@@ -257,6 +266,7 @@ function sfxClipLoop(filename, playLength) {//Double buffer sound file that loop
 	SFXVolumeManager.addToList(this);
 
 	this.play = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		soundFile[currentClip].currentTime = 0;
 		this.updateVolume();
 		soundFile[currentClip].play();
@@ -271,6 +281,7 @@ function sfxClipLoop(filename, playLength) {//Double buffer sound file that loop
 	};
 
 	this.resume = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		soundFile[currentClip].play();
 		AudioEventManager.addTimerEvent(this, (this.getDuration() - this.getTime()), "loop");
 	};
@@ -281,6 +292,7 @@ function sfxClipLoop(filename, playLength) {//Double buffer sound file that loop
 	};
 
 	this.playFrom = function(time) {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		soundFile[currentClip].currentTime = time;
 		this.updateVolume();
 		soundFile[currentClip].play();
@@ -288,6 +300,7 @@ function sfxClipLoop(filename, playLength) {//Double buffer sound file that loop
 	};
 
 	this.triggerTimerEnded = function(callSign) {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		currentClip++;
 		if (currentClip > 1) {currentClip = 0;}
 		this.play();
@@ -361,6 +374,7 @@ function sfxContainer(clipList) {//Basic Container
 	var clipVolume = 1;
 
 	this.play = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		soundFile[currentClip].play();
 	};
 
@@ -452,6 +466,7 @@ function sfxContainerRandom(clipList) {//Plays a random list-item on playback
 	var clipVolume = 1;
 
 	this.play = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		currentClip = Math.floor(Math.random() * soundFile.length);
 		soundFile[currentClip].play();
 	};
@@ -529,7 +544,11 @@ function sfxContainerRandom(clipList) {//Plays a random list-item on playback
 
 
 //Music Classes
-var musicVolume = 1;
+var musicVolume = localStorageHelper.getFloat('musicVolume');
+if((musicVolume === null) || (musicVolume === undefined)) {
+	localStorageHelper.setFloat('musicVolume', 1);
+	musicVolume = 1;
+}
 MusicVolumeManager = new musicVolumeManager();
 function musicVolumeManager() {
 	var trackList = [];
@@ -541,6 +560,7 @@ function musicVolumeManager() {
 		for (var i in trackList) {
 			trackList[i].updateVolume();
 		}
+		localStorageHelper.setFloat('musicVolume', musicVolume);
 	};
 
 	this.getVolume = function() {
@@ -575,6 +595,7 @@ function musicTrack(filename, playLength) {//Single buffer music file
 	MusicVolumeManager.addToList(this);
 
 	this.play = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		musicFile.currentTime = 0;
 		this.updateVolume();
 		musicFile.play();
@@ -586,6 +607,7 @@ function musicTrack(filename, playLength) {//Single buffer music file
 	};
 
 	this.resume = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		musicFile.play();
 	};
 
@@ -594,6 +616,7 @@ function musicTrack(filename, playLength) {//Single buffer music file
 	};
 
 	this.playFrom = function(time) {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		musicFile.currentTime = time;
 		musicFile.play();
 	};
@@ -668,6 +691,7 @@ function musicTrackLoop(filename, playLength, meta) {//Double buffer music file 
 	MusicVolumeManager.addToList(this);
 
 	this.play = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		musicFile[currentTrack].currentTime = 0;
 		this.updateVolume();
 		musicFile[currentTrack].play();
@@ -684,6 +708,7 @@ function musicTrackLoop(filename, playLength, meta) {//Double buffer music file 
 	};
 
 	this.resume = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		musicFile[currentTrack].play();
 		AudioEventManager.addTimerEvent(this, (this.getDuration() - this.getTime()), "loop");
 	};
@@ -694,12 +719,14 @@ function musicTrackLoop(filename, playLength, meta) {//Double buffer music file 
 	};
 
 	this.playFrom = function(time) {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		musicFile[currentTrack].currentTime = time;
 		musicFile[currentTrack].play();
 		AudioEventManager.addTimerEvent(this, (this.getDuration() - this.getTime()), "loop");
 	};
 
 	this.triggerTimerEnded = function(callSign) {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		currentTrack++;
 		if (currentTrack > 1) {currentTrack = 0;}
 		this.play();
@@ -775,6 +802,7 @@ function musicContainer(trackList) {//Basic containers
 	var trackVolume = 1;
 
 	this.play = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
         for (var i in trackList) {
             musicTrack[i] = trackList[i];
             musicTrack[i].pause();
@@ -789,12 +817,14 @@ function musicContainer(trackList) {//Basic containers
 	};
 
 	this.nextTrack = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		this.stop();
 		currentTrack = (currentTrack + 1) % trackList.length;
 		this.play();
 	};
 
 	this.prevTrack = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		this.stop();
 		currentTrack = (currentTrack - 1 + trackList.length) % trackList.length;
 		this.play();
@@ -811,10 +841,12 @@ function musicContainer(trackList) {//Basic containers
 	};
 
 	this.playFrom = function(time) {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		musicTrack[currentTrack].playFrom(time);
 	};
 
 	this.loadTrack = function(newTrack, slot) {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		var timeNow = musicTrack[currentTrack].getTime();
 		if(!musicTrack[slot].getPaused()) {
 			musicTrack[slot].pause();
@@ -906,6 +938,7 @@ function musicContainerRandom(trackList) {//Picks random list-item to play on pl
 	var trackVolume = 1;
 
 	this.play = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		currentTrack = Math.floor(Math.random() * musicTrack.length);
 		musicTrack[currentTrack].play();
 	};
@@ -927,10 +960,12 @@ function musicContainerRandom(trackList) {//Picks random list-item to play on pl
 	};
 
 	this.playFrom = function(time) {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		musicTrack[currentTrack].playFrom(time);
 	};
 
 	this.loadTrack = function(newTrack, slot) {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		var timeNow = musicTrack[currentTrack].getTime();
 		if(!musicTrack[slot].getPaused()) {
 			musicTrack[slot].pause();
@@ -1017,6 +1052,7 @@ function musicContainerPlaylistRandom(trackList, maxDurationInSeconds = 180, min
 	var currentTrack = Math.floor(Math.random() * musicTrack.length);
 
 	this.play = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		if (playTime > playMin){
 			if(Math.random() <= (playTime - playMin)/(playMax - playMin)) {
 				while(currentTrack === lastTrack) {
@@ -1051,25 +1087,30 @@ function musicContainerPlaylistRandom(trackList, maxDurationInSeconds = 180, min
 	};
 
 	this.jump = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		this.stop();
 		playTime = playMax;
 		this.play();
 	};
 
 	this.skip = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		this.stop();
 		this.play();
 	};
 
 	this.playFrom = function(time) {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		musicTrack[currentTrack].playFrom(time);
 	};
 
 	this.triggerTimerEnded = function(callSign) {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		this.play();
 	};
 
 	this.loadTrack = function(newTrack, slot) {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		var timeNow = musicTrack[currentTrack].getTime();
 		if(!musicTrack[slot].getPaused()) {
 			musicTrack[slot].pause();
@@ -1152,6 +1193,7 @@ function musicContainerSequence(trackList) {//Plays list-items in order
 	}
 
 	this.play = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		musicTrack[currentTrack].play();
 		AudioEventManager.addTimerEvent(this, (this.getDuration() - this.getTime()), "cue");
 		AudioEventManager.removeTimerEvent(musicTrack[currentTrack].getSourceTrack(), "loop");
@@ -1176,21 +1218,25 @@ function musicContainerSequence(trackList) {//Plays list-items in order
 	};
 
 	this.jump = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		this.stop();
 		playTime = playMax;
 		this.play();
 	};
 
 	this.skip = function() {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		this.stop();
 		this.play();
 	};
 
 	this.playFrom = function(time) {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		musicTrack[currentTrack].playFrom(time);
 	};
 
 	this.triggerTimerEnded = function(callSign) {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		currentTrack++;
 		if(currentTrack < musicTrack.length) {
 			this.play();
@@ -1200,6 +1246,7 @@ function musicContainerSequence(trackList) {//Plays list-items in order
 	};
 
 	this.loadTrack = function(newTrack, slot) {
+        if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
 		var timeNow = musicTrack[currentTrack].getTime();
 		if(!musicTrack[slot].getPaused()) {
 			musicTrack[slot].pause();

@@ -4,6 +4,8 @@ const KEY_TAB = 9;
 const KEY_ENTER = 13;
 const KEY_ESCAPE = 27;
 const KEY_SPACE = 32;
+const KEY_PGUP = 33;
+const KEY_PGDOWN = 34;
 
 const KEY_LEFT = 37;
 const KEY_UP = 38;
@@ -51,23 +53,40 @@ const KEY_Z = 90;
 const KEY_PLUS = 187;
 const KEY_MINUS = 189;
 const KEY_TILDE = 192;
+const KEY_SHIFT = 16;
+const KEY_CTRL = 17;
+const KEY_ALT = 18;
 
-let holdLeft, holdRight, holdUp, holdDown, holdSpace, holdTab, holdX = false;
+let holdKey = [];
+
+holdKey[KEY_UP] = false;
+holdKey[KEY_DOWN] = false;
+holdKey[KEY_LEFT] = false;
+holdKey[KEY_RIGHT] = false;
+holdKey[KEY_W] = false;
+holdKey[KEY_S] = false;
+holdKey[KEY_A] = false;
+holdKey[KEY_D] = false;
+holdKey[KEY_SPACE] = false;
+holdKey[KEY_TAB] = false;
+holdKey[KEY_X] = false;
+
+let keydownMap = {};
 
 function initializeInput() {
-	document.addEventListener("keydown", keyPress);
-	document.addEventListener("keyup", keyRelease);
+	document.addEventListener("keydown", keyDown);
+	document.addEventListener("keyup", keyDown);	
 }
+    
+function keyDown(evt) {
+	if (evt.type == "keydown") {
+		didInteract = true;		
+	}
+	
+	keydownMap[evt.keyCode] = evt.type == "keydown";
 
-function keyPress(evt) {
 	evt.preventDefault();
-	if(ScreenStates.control(evt.keyCode, true)) {
-        evt.preventDefault();
-	}
-}
-
-function keyRelease(evt) {
-    if (ScreenStates.control(evt.keyCode, false)) {
-        evt.preventDefault();
-	}
+	if (ScreenStates.control(keydownMap, false)) {
+		evt.preventDefault();
+	}		
 }

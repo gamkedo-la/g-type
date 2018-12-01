@@ -1,8 +1,11 @@
 //GameFont
 function GameFont(image, charSize, context) {
-	this.printTextAt = function(text, position, height, alignment) {
-		let actualXPos = position.x;
-		const actualYPos = position.y;
+    let yPos;
+	this.printTextAt = function(text, position, height, alignment, scrollProperty) {
+		let actualXPos = position.x;		
+        let actualYPos;
+		let yPosScrollOffset = 0;
+
 		const drawWidth = (height / charSize.height) * charSize.width;
 		
 		if(alignment === textAlignment.Center) {
@@ -13,7 +16,22 @@ function GameFont(image, charSize, context) {
 		
 		for(let i = 0; i < text.length; i++) {
 			const thisFrame = frameForCharacter(text.charAt(i));
-			context.drawImage(image, thisFrame.x, thisFrame.y, charSize.width, charSize.height, actualXPos + (i * drawWidth), actualYPos, drawWidth, height);
+            
+            if(!ScreenStates.isPaused) {
+                if(scrollProperty != undefined) {
+                    yPos -= (scrollProperty.deltaTime * scrollProperty.speed.y);
+                }
+            }
+            
+            if(scrollProperty === undefined) {
+                yPos = position.y;
+                yPosScrollOffset = 0;
+            } else {
+                yPosScrollOffset = (canvas.height - position.y) - canvas.height * 0.25;
+            }
+			
+			actualYPos = yPos - yPosScrollOffset;
+            context.drawImage(image, thisFrame.x, thisFrame.y, charSize.width, charSize.height, actualXPos + (i * drawWidth), actualYPos, drawWidth, height);
 		}
 	};
 	
@@ -96,7 +114,7 @@ function GameFont(image, charSize, context) {
 				return {x:24 * charSize.width, y:0};
 			case "z":
 			case "Z":
-				return {x:25 * charSize.width, y:charSize.height};
+				return {x:25 * charSize.width, y:0};
 			case "0":
 				return {x:0, y:charSize.height};
 			case "1":
@@ -121,9 +139,11 @@ function GameFont(image, charSize, context) {
 				return {x:10 * charSize.width, y:charSize.height};
 			case "@":
 				return {x:11 * charSize.width, y:charSize.height};
+			case "(":
 			case "[":
 				return {x:12 * charSize.width, y:charSize.height};
 			case "]":
+			case ")":
 				return {x:13 * charSize.width, y:charSize.height};
 			case ">":
 				return {x:14 * charSize.width, y:charSize.height};
@@ -135,8 +155,28 @@ function GameFont(image, charSize, context) {
 				return {x:17 * charSize.width, y:charSize.height};
 			case "-":
 				return {x:18 * charSize.width, y:charSize.height};
-			case " ":
+			case ".":
 				return {x:19 * charSize.width, y:charSize.height};
+			case ",":
+				return {x:20 * charSize.width, y:charSize.height};
+			case ";":
+				return {x:21 * charSize.width, y:charSize.height};
+			case ":":
+				return {x:22 * charSize.width, y:charSize.height};
+			case '"':
+				return {x:23 * charSize.width, y:charSize.height};
+			case '"':
+				return {x:24 * charSize.width, y:charSize.height};
+			case "?":
+				return {x:25 * charSize.width, y:charSize.height};
+			case "=":
+				return {x:0, y: 2 * charSize.height};
+			case "/":
+				return {x:charSize.width, y:2 * charSize.height};
+			case "+":
+				return {x:2 * charSize.width, y:2 * charSize.height};
+			case " ":
+				return {x:3 * charSize.width, y:2 * charSize.height};
 			default:
 				return {x:18.5 * charSize.width, y:charSize.height};//18.5 so it doesn't crash, but you can tell something's not right
 		}

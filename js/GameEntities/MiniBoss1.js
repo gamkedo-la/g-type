@@ -1,11 +1,14 @@
 //Planetary Approach Mini-Boss
-function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, timeOffset = 0, spawnPos = 0, difficulty = 0) {
+function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, timeOffset = 0, spawnPos = 0, difficulty = 0, path = null) {
 	this.position = {x:position.x, y:position.y};
 	this.type = EntityType.MiniBoss1;
 	this.worldPos = 0;
 	this.score = 5000;
+	let previousBackgroundMusic = null;
+	let didSpawn = true;
+	let shouldResumeGame = true;
 	
-    this.hitPoints = 40;     // Every enemy type should have a hitPoints property
+    this.hitPoints = 80;     // Every enemy type should have a hitPoints property
     const INVINCIBILITY_TIME = 128;
     this.invincibilityTime = 0;
 
@@ -26,7 +29,7 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 	
 	let didCollide = false;
 	
-	const pathPoints = [
+	let pathPoints = [
 		{x: GameField.right - this.size.width, y: GameField.midY},
 		{x: GameField.right - this.size.width, y: GameField.y},
 		{x: GameField.right - this.size.width, y: GameField.bottom - this.size.height},
@@ -35,7 +38,41 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 //		{x: GameField.right - this.size.width, y: GameField.y},
 	];//TODO: Give the mini boss a path to follow
 	
-	this.path = new EnemyPath(pattern, this.position, speed, pathPoints, timeOffset);
+	this.updatePathOffset = function(additionalOffset) {
+		didSpawn = false;
+		shouldResumeGame = false;
+		this.isVisible = false;
+		
+        pathPoints.forEach((point) => {
+            point.x -= additionalOffset;
+        });
+    
+	    this.path = new EnemyPath(pattern, this.position, speed, pathPoints);
+    };
+	
+	if(path) {
+        if(path.polygon === undefined) {
+            pathPoints = path.polyline.slice(0);
+        } else {
+            pathPoints = path.polygon.slice(0);
+        }
+        
+        pathPoints.forEach((point) => {
+            point.x += GameField.x + GameField.width - 50;
+            point.y += GameField.y + path.y;
+        });
+    }
+    
+    this.path = new EnemyPath(pattern, this.position, speed, pathPoints);
+    
+    this.spawn = function(deltaX) {
+        if(didSpawn) {return;}//only spawn once
+        const deltaPos = {x:deltaX, y:0};
+        this.path.updatePosition(deltaPos);
+        this.position = this.path.putAtFirstPoint();
+        this.isVisible = true;
+        didSpawn = true;
+    };
 	
 	this.update = function(deltaTime, worldPos, playerPos) {
 		if(!this.isVisible) {return;}
@@ -53,9 +90,24 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		
 		this.worldPos = worldPos;
 		if((this.worldPos > spawnPos + 50) && (!sprite.isDying)) {
-			scene.worldShouldPause(true);
-		} else if(sprite.isDying) {
+			if(previousBackgroundMusic === null) {
+				scene.worldShouldPause(true);
+				previousBackgroundMusic = currentBackgroundMusic.getCurrentTrack();
+				currentBackgroundMusic.setCurrentTrack(AudioTracks.Boss1);
+				
+				this.path.updatePosition({x: -100, y:0});//using -100 to get the sprite fully on screen
+				
+				if(currentBackgroundMusic.getTime() > 0) {
+		            currentBackgroundMusic.resume();    
+		        } else {
+		            currentBackgroundMusic.play();
+		        }				
+			}
+		} else if((sprite.isDying) && (previousBackgroundMusic != null) && (shouldResumeGame)) {
 			scene.worldShouldPause(false);
+			currentBackgroundMusic.setCurrentTrack(previousBackgroundMusic);
+            currentBackgroundMusic.play();
+			previousBackgroundMusic = null;			
 		}
 		
 		let availableTime = unusedTime + deltaTime;
@@ -105,7 +157,7 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 				
 				let xVel = vel.x;
 				if(this.position.x > (playerPos.x + 50)) {
-					xVel -= 10;
+					xVel -= 30;
 				} else if(this.position.x < (playerPos.x - 50)) {
 					xVel = -xVel;
 				} else {
@@ -122,7 +174,7 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		if(!this.isVisible) {return;}
 		if(this.worldPos < spawnPos) {return;}
 		
-		sprite.drawAt(this.position, this.size);
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 		if(!sprite.isDying) {//TODO: restore this once the miniboss has a collision body
 			this.collisionBody.draw();
 		}
@@ -142,6 +194,7 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		if(this.invincibilityTime > 0) {return;}
 		
 		if((otherEntity.type === EntityType.Player) ||
+		   (otherEntity.type === EntityType.RagnarokCapsule) || 
 		   (otherEntity.type === EntityType.PlayerShot) ||
 		   (otherEntity.type === EntityType.PlayerMissile) ||
 		   (otherEntity.type === EntityType.PlayerDouble) ||
@@ -150,11 +203,18 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		   (otherEntity.type === EntityType.PlayerForceUnit)) {
 			   
 			   this.hitPoints -= otherEntity.damagePoints;
-			   enemyMediumExplosion.play();
+			   enemySmallExplosion.play();
 			   this.invincibilityTime = INVINCIBILITY_TIME;
 		}
 		   
 		if(this.hitPoints <= 0) {
+			if(sprite.isDying) {return;}//already dying, no reason to continue
+			enemyLargeExplosion.play();
+			
+			if((this.group != null) && (this.group !== undefined)) {
+                this.group.amDying(this, this.worldPos);
+            }
+			
 			scene.displayScore(this);
 			sprite.isDying = true;
 			scene.removeCollisions(this);	

@@ -7,21 +7,34 @@ function EnemyBullet(type, position = {x:0, y:0}, velocity = {x:0, y:0}) {
 	let unusedTime = 0;
 	this.isVisible = true;
 	this.worldPos = null;
+    this.damagePoints = 5;
 	
 	let sprite;
 	if(this.type === EntityType.EnemyBullet1) {
 		sprite = new AnimatedSprite(enemyBulletSheet, 2, 21, 21, false, true, {min:0, max:0}, 0, {min:0, max:1}, 128, {min:1, max:1}, 0);
 	} else if(this.type === EntityType.EnemyBullet2) {
-		sprite = new AnimatedSprite(enemyBullet2Sheet, 11, 30, 30, true, true, {min:0, max:0}, 0, {min:0, max:10}, 128, {min:0, max:0}, 0);
+		sprite = new AnimatedSprite(enemyBullet2Sheet, 11, 30, 30, true, true, {min:0, max:0}, 0, {min:0, max:10}, 64, {min:0, max:0}, 0);
+	} else if(this.type === EntityType.EnemyBullet3) {
+		sprite = new AnimatedSprite(pewpew1Sheet, 4, 40, 40, false, true, {min:0, max:3}, 0, {min:0, max:3}, 68, {min:3, max:3}, 0);
+	} else if(this.type === EntityType.EnemyBullet4) {
+		sprite = new AnimatedSprite(pewpew2Sheet, 2, 32, 32, false, true, {min:0, max:1}, 0, {min:0, max:1}, 40, {min:1, max:1}, 0);
+	} else if(this.type === EntityType.EnemyBullet5) {
+		sprite = new AnimatedSprite(pewpew3Sheet, 1, 64, 32, false, true, {min:0, max:1}, 0, {min:0, max:3}, 68, {min:3, max:3}, 0);
+	} else if(this.type === EntityType.EnemyBullet6) {
+		sprite = new AnimatedSprite(pewpew4Sheet, 1, 64, 32, false, true, {min:0, max:1}, 0, {min:0, max:4}, 68, {min:3, max:3}, 0);
+	} else if(this.type === EntityType.EnemyBullet7) {
+		sprite = new AnimatedSprite(pewpew5Sheet, 2, 21, 21, false, true, {min:0, max:1}, 0, {min:0, max:2}, 68, {min:3, max:3}, 0);
+	} else if(this.type === EntityType.EnemyBullet8) {
+		sprite = new AnimatedSprite(miniminiBoss1Sheet, 3, 60, 29, false, true, {min:0, max:0}, 0, {min:0, max:3}, 256, {min:5, max:5}, 0);
 	}
-
 	this.size = {width:sprite.width, height:sprite.height};
 	
 	this.collisionBody = new Collider(ColliderType.Circle, {points:   [], 
-															position: {x:this.position.x + sprite.width / 2, y:this.position.y + sprite.height / 2}, 
-															radius:   7, 
-															center:   {x:this.position.x + sprite.width / 2, y:this.position.y + sprite.height / 2}}
-									  );
+		position: {x:this.position.x + sprite.width / 2, y:this.position.y + sprite.height / 2}, 
+		radius:   7, 
+		center:   {x:this.position.x + sprite.width / 2, y:this.position.y + sprite.height / 2}}
+  	);
+
 	let didCollide = false;
 	
 	this.setPosition = function(newPos) {
@@ -67,7 +80,7 @@ function EnemyBullet(type, position = {x:0, y:0}, velocity = {x:0, y:0}) {
 	this.draw = function() {
 		if(!this.isVisible) {return;}
 		
-		sprite.drawAt(this.position, this.size);
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 		this.collisionBody.draw();
 		
 		if(didCollide) {
@@ -79,6 +92,29 @@ function EnemyBullet(type, position = {x:0, y:0}, velocity = {x:0, y:0}) {
 	};
 	
 	this.didCollideWith = function(otherEntity) {
-		scene.removeEntity(this, false);
+        if(this.type === EntityType.EnemyBullet3) {
+            if((otherEntity.type === EntityType.PlayerLaser) ||
+               (otherEntity.type === EntityType.PlayerForceUnit)) {//Only the laser & the force destroy the shot
+                scene.removeEntity(this, false);
+            }
+        } else {
+            if(otherEntity.type === EntityType.PlayerForceUnit) {
+                if(otherEntity.position.x <= this.position.x) {
+                    vel.x = Math.abs(vel.x);
+                } else {
+                    vel.x = -Math.abs(vel.x);
+                }
+                
+                if(otherEntity.position.y <= this.position.y) {
+                    vel.y = Math.abs(vel.y);
+                } else {
+                    vel.y = -Math.abs(vel.y);
+                }
+                
+                this.type = EntityType.PlayerShot;
+            } else {
+                scene.removeEntity(this, false);
+            }
+        }
 	};
 }

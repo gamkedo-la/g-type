@@ -1,12 +1,21 @@
 let canvas;
 let canvasContext;
+let loadingComplete = false;
 let scene;
-let timer;
-let gameFont;
+let timer = null;
+let gameFont = null;
 let currentLevelIndex = 0;
 let worldSpeed = 1;
-let remainingLives = 3;
-	
+let gameSpeed = 1.5;
+let remainingLives = 2;
+let didInteract = false;
+
+let currentScore = 0;
+let scoreText = "00000000" + currentScore.toString();
+let highScore = 0;
+
+
+let allHighScores = [];
 const DRAW_COLLIDERS = false;
 const COLLIDER_COLOR = 'yellow';
 const CANVAS_WIDTH = 900;
@@ -22,15 +31,18 @@ const GameField = {
 	midY:450,
 	bgOffset:50
 }
-const FRAMES_PER_SECOND = 30;
+const FRAMES_PER_SECOND = 60;
 const SIM_STEP = 16;//milliseconds in each simulation step ~1/2 frame
 const MAX_SHAKE_MAGNITUDE = 10;
 const MAX_LIVES_TO_SHOW = 9;
+const WARP_INDEX = 3;//This should be 3, once we have all three levels implemented
 const SCORE_PER_EXTRA_LIFE = 30000;
+const MAX_GHOSTS = 3;
+let activatedAnyGhosts = false;
 
-const BG_PARALLAX_RATIO_1 = 0.3; // startfield
-const BG_PARALLAX_RATIO_2 = 0.2; // transparent planets
-const BG_PARALLAX_RATIO_3 = 2.0; // girders
+const BG_PARALLAX_RATIO_1 = [0.3, 0.25, 0.075, 0.3]; // starfield
+const BG_PARALLAX_RATIO_2 = [0.2, 0.5, 0.2, 0.2]; // transparent planets
+const BG_PARALLAX_RATIO_3 = [4.0, 8.0, 4.0, 4.0];//[2.0, 4.0, 2.0, 2.0]; // girders
 const BG_COLOR_CHANGE_SPEED = 0.005; // pixels per second for the bacgroundColorLookup table
 
 const gameTitle = {
@@ -62,15 +74,21 @@ const assetPath = {
 };
 
 const AudioTracks = {
-	MainMenu:0,
-	Level1:0, 		//TODO: change these to
+	MainMenu:0,		//
+	Level1:1, 		//
+	MiniBoss1:2,	//
+    EyeBoss1:2,		//
+    AlienBoss1:2,     //
+    MaskBoss1:2,     //
+    MiniMiniBoss1:2,     //
+	Boss1:3,		//TODO: change these to
 	Level2:0, 		//the correct indices from
-	Level3:0, 		//the "currentBackgroundMusic" 
+	Level3:4, 		//the "currentBackgroundMusic"
 	GameOver:0,		//array (AudioManager.js ~line 11) once
 	GameEnding:0,	//there is more than 1 element in that array
-	Help:0,
-	Options:0,
-	Credits:0
+	Help:0,			//
+	Options:0,		//
+	Credits:0		//
 };
 
 const loadingText = "LOADING...";
@@ -95,7 +113,10 @@ const OPTIONS_SCREEN = 'options';
 const LEVEL_SELECT_SCREEN = 'level';
 const CREDITS_SCREEN = 'credits';
 const HELP_SCREEN = 'help';
-const CUT_SCENE_SCREEN = 'cut_scene';
+const STORY_SCENE_SCREEN = "story_scene";
+const CUT_SCENE1_SCREEN = 'cut_scene1';
+const CUT_SCENE2_SCREEN = 'cut_scene2';
+const CUT_SCENE3_SCREEN = 'cut_scene3';
 const DEMO_SCENE_SCREEN = 'demo_scene';
 const GAME_SCREEN = 'game';
 const PAUSE_SCREEN = 'pause';
@@ -130,34 +151,123 @@ const textStrings = {
     Main: "Main Menu",
     LevelSelect: 'Select Level',
     GameOver: "Game Over",
-    CutScene1_1:"Operation SAVE THE UNIVERSE",
-    CutScene1_2:"Phase 1 - Defeat Planetary Defenses",
-    CutScene1_3:"to enable follow on forces to approach safely",
+    Endgame: "Congratulations!",
+    endgameScriptBad: [
+	    "The Krammix were",
+	    "defeated! The galaxy",
+	    "is at peace again.",
+	    "The lost USF crew",
+	    "will never be",
+	    "forgotten."
+    ],
+    endgameScriptGood: [
+	    "G-Type was",
+	    "victorious!",
+	    "The Krammix were",
+	    "defeated! The",
+	    "ghosts of the USF",
+	    "crew are free and",
+	    "the galaxy is",
+	    "at peace again."
+    ],
+    endgameScript: [
+        // max width -------------v
+        "You completed the game!",
+        "The universe has been",
+        "saved and peace has",
+        "returned to the galaxy!",
+        "",
+        "Thank you for playing",
+        "",
+        "G-Type",
+        "",
+        "a Gamkedo production",
+        "",
+        "Special thanks to",
+        "Kissa the cat",
+        "Fireball the fish",
+        "NASA",
+        "The Trayford Family",
+        "",
+        "Copyright 2018"
+    ],
+    GameOverScript1:"G-Type failed the mission!",
+    GameOverScript2:"The Krammix have consumed",
+    GameOverScript3:"the galaxy!",
+    CutScene1_1:"-PHASE 1-", //aka level 1 intro title
+    CutScene1_2:"Pilot the G-Type ship to the hostile",
+    CutScene1_3:"homeworld of the KRAMMIX.",
+    CutScene1_4:"", //empty line
+    CutScene1_5:"Good luck G-Type!",
+    CutScene2_1:"-PHASE 2-", //aka level 1 intro title
+    CutScene2_2:"Pilot the G-Type ship across the hostile",
+    CutScene2_3:"surface KRAMMIX to find the alien HQ.",
+    CutScene2_4:"", //empty line
+    CutScene2_5:"Good luck G-Type!",
+    CutScene3_1:"-PHASE 3-", //aka level 1 intro title
+    CutScene3_2:"Pilot the G-Type ship through the",
+    CutScene3_3:"alien HQ to end their evil forever.",
+    CutScene3_4:"", //empty line
+    CutScene3_5:"Good luck G-Type!",
     SkipCutScene:"Enter to skip",
+    Story:[
+	"Year: 2276",
+    "United Sol Force ships at the edge of",
+    "the galaxy discovered an unknown ship in",
+    "distress. USF crew landed on the ship to",
+    "to scan for survivors. They found",
+    "powerful technology and a message:",
+    "THE KRAMMIX WILL DESTROY!",
+    "The scans triggered an alarm and opened",
+    "a wormhole to the Krammix home world.",
+    "The ship disappeared into the wormhole",
+    "taking some of the USF ships and helpless",
+    "crew with it. The USF used the alien",
+    "technology to build an experimental ship",
+    "known as G-Type!",
+    "Your Mission: Follow the alien ship,",
+    "rescue the lost USF crew and stop the",
+    "evil plans of the Krammix!"
+    ],
     Contributors: [
-        {name:"H Trayford",   works: ['Game Lead', 'Core Gameplay', 'Level Editor', 'AI Drivers', 'Background Parallax', 'Nitro Boost', 'Time Limit', 'Street Light Art', 'Animated Radio Tower', 'Collision Detection', 'Art Integration', 'Billboards (Over 10 Designs)'] },
-/*        {name:"Terrence McDonnell", works: ['Signs (Over 28 Designs)', 'Checkpoint Code', 'Crashing Animation Code', 'Menu Improvements', 'Finish Line Animation', 'Stage Ground Colors', 'Track Design (Skyline, Mountain, Forest)','Main Menu Animation']},
-        {name:"Artem Smirnov", works: ['Screen State Machine','City Skyline','Data Storage','End of Round Report','Level Select','Game Over Screen','Font Improvements','Dashboard Radio', 'Automatic Transmission']},
-        {name:"Adam A. Lohnes", works: ['Truck Model and Sprites','Semi Model and Sprites','Bus Model and Sprites']},
-        {name:"Christer McFunkypants Kaitila", works: ['Particle Effects', 'Car Spritesheet Code', 'Dashboard HUD Code', 'Cloudy Sky Backgrounds', 'Sharp Pixel Scaling','Gamepad Support', 'Kangaroo Sign', 'Title Parallax', 'Random Track Generator (Unreleased WIP)']},
-        {name:"Michael Misha Fewkes", works: ['Custom Audio Engine Code','Sounds (Engine, Off Road, Brakes, Crash)', 'Sound Mixing', 'Starting Countdown']},
-        {name:"Vignesh Ramesh", works: ['Music (Snow Level, Night Theme)','Player Car Model','Sound (Cheering)','Billboard (Slick Punch)']},
-        {name:"Brandon Trumpold", works: ['Steering Feel Tweaks','Tuning (speeds, crash time)', 'RPM Needle Fix']},
-        {name:"Stebs",  works: ['Billboard (East Coast Throwback)', 'Billboard (Presidential)', 'Billboard (Attractions)', 'Additional Tree Art']},
-        {name:"Chris Markle", works: ['Music (Main Menu, Game Over)', 'Sound (Checkpoint)','Billboard (Globuton)']},
-        {name:"Tomanski", works: ['Snowy Mountain Background','Props (Tires)','Props (Trees)','Main Menu Sprites']},
-        {name:"Todd Enyeart", works: ['Billboard (Sandwich)','Billboard (Coffee)', 'Billboard (Fast Food)']},
-        {name:"Barıs Koklu", works: ['Gear Shifting', "Game Over Screen Improvement"]},
-        {name:"Joseph Spedale", works: ['Countdown Sounds', 'Music (Dr Juno)']},
-        {name:"Remy Lapointe", works: ['Billboard (Arcaninjadroid)','Billboard (Spell Spiel)']},
-        {name:"Mary Brady", works: ['Dashboard UI Art']},
-        {name:"Dynokhan", works: ['Rear Car Bump Collision']},
-        {name:"Dan Dela Rosa", works: ['Save State Improvements']},
-        {name:"Jeremy Kenyon", works: ['Billboard (We Must Prepare)']},
-        {name:"Trenton Pegeas", works: ['Billboard (Aether)']},
-        {name:"Brian Boucher", works: ['Playtesting', 'Music Bug Fix']},
-        {name:"Brian Dieffenderfer", works: ['Additional Road Tiles']},
-        {name:"Chris DeLeon", works: ['Particle Camera Drift','Perspective Sprite Tweaks','Credits Data Entry']}*/
+{name:"H Trayford",   works: ['project lead','core functionality','scoring and score pop ups','powerup objects','enemy, projectile, and collision code','screenshake','menu base code','checkpoint and continues','enemy pathing','cut scene animations','ground enemy integration','main UI integration','missile, ghost, and clear powerups','boss behavior improvements','boss explosions','several flying and ground enemies','volcano'] },
+{name:"Ryan Malm",   works: ['logo','tile editor integration','level 1 design','ground enemy rotation support','flickering after respawn','capsule pickup effects','test level','editor tutorial (internal use)','warp challenge functionality','main menu improvements','shot contrast tweaks','made parallax editable per stage'] },
+{name:"Vaan Hope Khani",   works: ['HQ boss and eye boss art','boss 2 and 3 integration','level 3 parallax art','high scores save, load, and display','mini-mini-bosses','turret platforms art (x5)','fire brick and fire stone art','ground enemy spritesheet','pause and options screen improvements','additional text cleanup'] },
+{name:"Christer \"McFunkypants\" Kaitila",   works: ['ship thruster particles', 'backgrounds (gradient, mountains, and greeble)','foreground parallax effect','parallax asteroids and truss','additional player collision tuning', 'capsule spawning', 'endgame functionality', 'caves test level','tilt sprite implemented', 'thruster animation hookup'] },
+{name:"Jeff \"Axphin\" Hanlon",   works: ['main story writing','player ship sprite including turns','game font','thruster sprites','original player art (became a boss)','main menu selector', 'planet sprite'] },
+{name:"Jaime Rivas",   works: ['explosion animation','shot flash effect','powerup refactoring','clear screen powerup'] },
+{name:"Chris Markle",   works: ['player fire sound','small and large explosion sounds','shield sound','mini boss music','item pickup sound','menu interaction sounds'] },
+{name:"Randy Tan Shaoxian",   works: ['text scroll support', 'cutscene code', 'level skip cheat','WASD input code','improved keyboard support'] },
+{name:"Michelly Oliveira",   works: ['credits pause/play with space','extra life sound integration','powerups cheat','ghost ship explosion hookups', 'music loop support','auto-fire on options screen'] },
+{name:"Marc Silva",   works: ['cargo boss art and behavior','cargo boss projectiles art and code'] },
+{name:"K. Anthony",   works: ['powerups spawn code','powerup increment feature', 'powerup buttons hookup'] },
+{name:"Ian Ross",   works: ['locking powerups once used','testing/debug cheats support'] },
+{name:"Andrew Mushel",   works: ['audio and code for laser sound','audio and code for powerup activation','extra life sound effect', 'music composition (warp speed)','audio for clear screen powerup'] },
+{name:"Mary Brady",   works: ['animated lives icons','UI design, border art, and UI sprites','force and speed powerup icons'] },
+{name:"Caspar \"SpadXIII\" Dunant",   works: ['starfield improvements','space debris'] },
+{name:"Stebs",   works: ['boss music compsition','organized user testing'] },
+{name:"T.",   works: ['options menu improvements','additional rock art'] },
+{name:"Zak Ali",   works: ['bubble explosion (art and code)','ghost ship art'] },
+{name:"Remy Lapointe",   works: ['particle editor'] },
+{name:"Kevin Pavlish",   works: ['shields cheat','pause screen improvements'] },
+{name:"Lou \"Mass KonFuzion\" Herard",   works: ['code for force shield'] },
+{name:"Vince McKeown",   works: ['ground enemy sprite'] },
+{name:"Loren Pierce",   works: ['code for damage sound'] },
+{name:"Joe C.S.",   works: ['song (prepare to strike)'] },
+{name:"Dan Dela Rosa",   works: ['data persistence support'] },
+{name:"pseudoLudo",   works: ['player explosion sound'] },
+{name:"Coy Compositions",   works: ['planetary descent music'] },
+{name:"Tomanski",   works: ['rock sprites'] },
+{name:"Vignesh Ramesh",   works: ['2 songs (Dil se, Energize)'] }
         // IF MAKING CHANGES that affect length update scrollLimit in credits.js
     ],
 };
+
+const PauseCause = {
+    NotPaused: 0,
+    PressedPause: 1,
+    LostFocus: 2,
+};
+
+const DARKEN_BACKGROUNDS = true; // if true, all backgrounds are darker, to increase contrast
+const DARKEN_BG_ALPHA = 0.25; // how much of the way to pure black? (0.0 to 1.0)

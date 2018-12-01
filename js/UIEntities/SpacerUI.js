@@ -38,7 +38,7 @@ function SpacerUI(position, highlighted = false) {
 	};
 	
 	this.draw = function() {
-		sprite.drawAt(this.position, this.size);
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 	};
 	
 	return this;

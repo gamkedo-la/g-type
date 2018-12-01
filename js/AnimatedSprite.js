@@ -144,11 +144,14 @@ function AnimatedSprite(sheet,
 		return answer;
 	};
 	
-	this.drawAt = function(position, size = {width:this.width, height:this.height}, rotation = 0) {
+	this.drawAt = function(x, y, width, height, rotation = 0) {
 		canvasContext.save();
-		canvasContext.translate(position.x + size.width / 2, position.y + size.height / 2);
-		canvasContext.rotate(-rotation);
-		canvasContext.drawImage(sheet, this.currentFramePos.x, this.currentFramePos.y, this.width, this.height, -size.width / 2, -size.height / 2, size.width, size.height);
+		canvasContext.translate((x + width / 2), (y + height / 2));
+		if(rotation != 0) {
+			canvasContext.rotate(-rotation);
+		}
+		
+		canvasContext.drawImage(sheet, this.currentFramePos.x, this.currentFramePos.y, this.width, this.height, (-width / 2), (-height / 2), width, height);
 		canvasContext.restore();
 	};
 	

@@ -44,7 +44,7 @@ function DebrisEntity(sprite, position = {x:0, y:0}, spawnPos = 0, speed = 4, sc
 		if((this.worldPos >= spawnPos) && 
 		   (this.position.x > GameField.x - this.size.width) &&
 		   (this.position.x <= GameField.right)) {
-			sprite.drawAt(this.position, this.size, this.angle);
+			sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height, this.angle);
 		}		
 	};
 

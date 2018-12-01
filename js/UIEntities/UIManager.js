@@ -18,12 +18,16 @@ function UIManager() {
 	pages.push(new UIPage([PowerUpType.Speed], false, false));
 	pages.push(new UIPage([PowerUpType.Missile, PowerUpType.Double, PowerUpType.Laser], false, false));
 	pages.push(new UIPage([PowerUpType.Triple, PowerUpType.Shield], true, false));
-	pages.push(new UIPage([PowerUpType.Ghost], false, true));
+	pages.push(new UIPage([PowerUpType.Ghost, PowerUpType.Force], false, true));
 	const PAGE_COUNT = pages.length;
 	
 	const score = new UIScore({x:GameField.midX, y:GameField.y - 20});
 	const lives = new UILives({x:GameField.midX - 150, y:GameField.y + 20});
-			
+	
+	this.reloadScores = function(){
+		score.loadHighScores();
+	}
+
 	this.update = function(deltaTime) {
 		pages[activePage].update(deltaTime);
 		
@@ -68,7 +72,7 @@ function UIManager() {
 		this.reset(false);
 	};
 	
-	this.powerUpWasActivated = function(activatedPowerUp) {
+	this.powerUpWasActivated = function(activatedPowerUp, powerUpCount) {
 		switch(activatedPowerUp) {//more concise than an if statement
 			case PowerUpType.Double:
 			case PowerUpType.Laser:
@@ -78,15 +82,16 @@ function UIManager() {
 		}
 		
 		//logic for power ups which allow >1 (Speed and Ghost) goes here, in the mean time assume only one of anything
-		
-		for(let i = 0; i < pages.length; i++) {
-			pages[i].lockPowerUp(activatedPowerUp);
-		}
+        if((powerUpCount === null) || (powerUpCount >= MAX_GHOSTS)) {
+            for(let i = 0; i < pages.length; i++) {
+                pages[i].lockPowerUp(activatedPowerUp);
+            }
+        }
 	};
 	
 	this.powerUpWasDeactivated = function(deactivatedPowerUp) {
 		for(let i = 0; i < pages.length; i++) {
-			pages[i].unLockPowerUp(powerUpToUnlock);
+			pages[i].unLockPowerUp(deactivatedPowerUp);
 		}
 	};
 	
@@ -149,6 +154,7 @@ function UIPage(powerUps = [], hasSpacers = false, hasGhost_Force = false) {
 	this.elements = [];
 	let activeIndex = -1;
 	let ghost = new GhostUI({x:GameField.x + 15, y:GameField.y - 75});
+    let force = new UIForce({x:GameField.right - 103, y:GameField.y - 75});
 	
 	if(hasGhost_Force) {
 		
@@ -158,30 +164,37 @@ function UIPage(powerUps = [], hasSpacers = false, hasGhost_Force = false) {
 		this.elements.push(new PowerUpUI({x: 400, y: 25}, false, PowerUpType.None));
 		this.elements.push(new SpacerUI({x: 509, y: 59}));
 		this.elements.push(new PowerUpUI({x: 550, y: 25}, false, PowerUpType.None));
+        this.elements.push(new PowerUpUI({x:GameField.right - 135, y:GameField.y - 115}, false, PowerUpType.Force, 1.5));//scale = 1.5
 	} else {
 		switch(this.powerUps.length) {
 			case 0: //this shouldn't happen
 				break;
 			case 1:
+                this.elements.push(new PowerUpUI({x:GameField.x - 15, y:GameField.y - 115}, false, PowerUpType.None, 1.5));//scale = 1.5
 				this.elements.push(new PowerUpUI({x: 250, y: 25}, false, PowerUpType.None));
 				this.elements.push(new SpacerUI({x: 359, y: 59}));
 				this.elements.push(new PowerUpUI({x: 400, y: 25}, false, this.powerUps[0]));
 				this.elements.push(new SpacerUI({x: 509, y: 59}));
 				this.elements.push(new PowerUpUI({x: 550, y: 25}, false, PowerUpType.None));
+                this.elements.push(new PowerUpUI({x:GameField.right - 135, y:GameField.y - 115}, false, PowerUpType.None, 1.5));//scale = 1.5
 				break;
 			case 2:
+                this.elements.push(new PowerUpUI({x:GameField.x - 15, y:GameField.y - 115}, false, PowerUpType.None, 1.5));//scale = 1.5
 				this.elements.push(new PowerUpUI({x: 250, y: 25}, false, this.powerUps[0]));
 				this.elements.push(new SpacerUI({x: 359, y: 59}));
 				this.elements.push(new PowerUpUI({x: 400, y: 25}, false, PowerUpType.None));
 				this.elements.push(new SpacerUI({x: 509, y: 59}));
 				this.elements.push(new PowerUpUI({x: 550, y: 25}, false, this.powerUps[1]));
+                this.elements.push(new PowerUpUI({x:GameField.right - 135, y:GameField.y - 115}, false, PowerUpType.None, 1.5));//scale = 1.5
 				break;
 			case 3:
+                this.elements.push(new PowerUpUI({x:GameField.x - 15, y:GameField.y - 115}, false, PowerUpType.None, 1.5));//scale = 1.5
 				this.elements.push(new PowerUpUI({x: 250, y: 25}, false, this.powerUps[0]));
 				this.elements.push(new SpacerUI({x: 359, y: 59}));
 				this.elements.push(new PowerUpUI({x: 400, y: 25}, false, this.powerUps[1]));
 				this.elements.push(new SpacerUI({x: 509, y: 59}));
 				this.elements.push(new PowerUpUI({x: 550, y: 25}, false, this.powerUps[2]));
+                this.elements.push(new PowerUpUI({x:GameField.right - 135, y:GameField.y - 115}, false, PowerUpType.None, 1.5));//scale = 1.5
 				break;
 			default:
 				break;//shouldn't ever get here
@@ -199,6 +212,7 @@ function UIPage(powerUps = [], hasSpacers = false, hasGhost_Force = false) {
 			this.elements[i].update(deltaTime);
 			
 			ghost.update(deltaTime);
+            force.update(deltaTime);
 		}
 	};
 	
@@ -208,6 +222,7 @@ function UIPage(powerUps = [], hasSpacers = false, hasGhost_Force = false) {
 		}
 		
 		ghost.draw();
+        force.draw();
 	};
 	
 	this.canActivatePowerUp = function() {
@@ -245,6 +260,13 @@ function UIPage(powerUps = [], hasSpacers = false, hasGhost_Force = false) {
 				} else {
 					ghost.isLit = false;
 				}
+                
+                if((this.elements[activeIndex].contentsType === PowerUpType.Force) &&
+                   (!this.elements[activeIndex].hasBeenLocked())) {
+                    force.isLit = true;
+                } else {
+                    force.isLit = false;
+                }
 			}
 		} while(this.elements[activeIndex].contentsType === PowerUpType.None);
 		
@@ -280,12 +302,14 @@ function UIPage(powerUps = [], hasSpacers = false, hasGhost_Force = false) {
 		
 		if(hasGhost_Force) {
 			ghost.isLit = false;
+            force.isLit = false;
 		}
 	};
 	
 	this.clearPowerUps = function() {
 		for(let i = 0; i < this.elements.length; i++) {
 			this.elements[i].unlockMe();
+            
 		}
 		
 		this.reset();

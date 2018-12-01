@@ -36,4 +36,6 @@ function Chronogram() {
 		
 		return (worldSpeed * (Date.now() - events[eventName].lastUpdate));
 	};
+	
+	return this;
 }

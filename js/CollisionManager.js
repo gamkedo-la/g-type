@@ -32,13 +32,12 @@ function CollisionManager(player) {
 
 
 	this.addEntity = function(newEntity) {
-		if((newEntity.type === EntityType.EnemyBullet1) || (newEntity.type === EntityType.EnemyBullet2)) {
+		if((newEntity.type === EntityType.EnemyBullet1) ||
+		   (newEntity.type === EntityType.EnemyBullet2) ||
+		   (newEntity.type === EntityType.EnemyBullet3) ||
+		   (newEntity.type === EntityType.EnemyBullet4)) {
 			addEnemyBullet(newEntity);
-		} else if((newEntity.type === EntityType.RhombusBoulder) ||
-				  (newEntity.type === EntityType.Rock01) ||
-				  (newEntity.type === EntityType.Rock02) ||
-				  (newEntity.type === EntityType.Rock03) ||
-				  (newEntity.type === EntityType.Rock04)) {//Need to check for all other terrain types here
+		} else if(isTerrain(newEntity)) {
 			addTerrain(newEntity);
 		} else if (newEntity.type === EntityType.PlayerForceUnit) {
 			this.addForceUnit(newEntity);
@@ -74,9 +73,12 @@ function CollisionManager(player) {
 	};
 
 	this.removeEntity = function(entityToRemove) {
-		if((entityToRemove.type === EntityType.EnemyBullet1) || (entityToRemove.type === EntityType.EnemyBullet2)) {
+		if((entityToRemove.type === EntityType.EnemyBullet1) ||
+		   (entityToRemove.type === EntityType.EnemyBullet2) ||
+		   (entityToRemove.type === EntityType.EnemyBullet3) ||
+		   (entityToRemove.type === EntityType.EnemyBullet4)) {
 			removeEnemyBullet(entityToRemove);
-		} else if(entityToRemove.type === EntityType.RhombusBoulder) {//Need to check for all other terrain types here
+		} else if(isTerrain(entityToRemove)) {
 			removeTerrain(entityToRemove);
 		} else if(entityToRemove.type === EntityType.PlayerForceUnit) {
 			this.playerForceUnit = null;
@@ -96,7 +98,6 @@ function CollisionManager(player) {
 	const removeEnemyBullet = function(enemyBulletToRemove) {
 		if(enemyBullets.has(enemyBulletToRemove)) {
 			enemyBullets.delete(enemyBulletToRemove);
-
 			return true;
 		}
 
@@ -128,6 +129,84 @@ function CollisionManager(player) {
 		enemyBullets.clear();
 		terrain.clear();
 	};
+    
+    this.actualCollisionCheck = function(entity1, entity2) {
+        if(withinSquareRadii(entity1.collisionBody, entity2.collisionBody)) {
+            //if both objects are circles, the above check is a valid collision
+            if((entity1.collisionBody.type === ColliderType.Circle) &&
+               (entity2.collisionBody.type === ColliderType.Circle)) {
+                entity1.didCollideWith(entity2);
+                entity2.didCollideWith(entity1);
+                return;
+            }
+            
+            if(checkCollisionBetween(entity1.collisionBody, entity2.collisionBody)) {
+                entity1.didCollideWith(entity2);
+                entity2.didCollideWith(entity1);
+            }
+        }
+    };
+    
+    this.doEntity_vs_PlayerBullet = function(entity, playerBullet) {
+        if((entity.type === EntityType.Capsule1) ||
+           (entity.type === EntityType.RagnarokCapsule) ||
+           (entity.type === EntityType.PlayerForceUnit) ||
+           (entity.type === EntityType.PlayerShield) ||
+           (entity.type === EntityType.GhostShip) ||
+           (!playerBullet.isActive)) {
+            return;//Player can't shoot these objects
+        }
+        
+        this.actualCollisionCheck(entity, playerBullet);
+    };
+    
+    this.doForceUnitCollision = function(entity, forceUnit) {
+        if((entity.type === EntityType.Capsule1) ||    //can't hit the capsules
+           (entity.type === EntityType.RagnarokCapsule) ||
+           (entity.type === EntityType.PlayerShot) ||
+           (entity.type === EntityType.PlayerDouble) ||
+           (entity.type === EntityType.PlayerLaser) ||
+           (entity.type === EntityType.PlayerTriple)) {
+            return;//ignore collisions with player shots
+        }
+        
+        this.actualCollisionCheck(entity, forceUnit);
+    };
+    
+    this.doPlayerCollision = function(entity, player) {
+        if((entity.type === EntityType.PlayerShot) ||
+           (entity.type === EntityType.PlayerMissile) ||
+           (entity.type === EntityType.PlayerDouble) ||
+           (entity.type === EntityType.PlayerLaser) ||
+           (entity.type === EntityType.PlayerTriple) ||
+           (entity.type === EntityType.PlayerShield) ||
+           (entity.type === EntityType.GhostShip) ||
+           (entity.type === EntityType.PlayerForceUnit)) {
+            return;//ignore collisions with player shots
+        }
+        
+        this.actualCollisionCheck(entity, player);
+    };
+    
+    this.doReflectedShot_vs_Enemy = function(entity) {
+        for(otherEntity of entities) {
+            if((otherEntity.type === EntityType.FlyingEnemy1) ||
+               (otherEntity.type === EntityType.FlyingEnemy2) ||
+               (otherEntity.type === EntityType.GroundEnemy1) ||
+               (otherEntity.type === EntityType.EnemyBullet1) ||
+               (otherEntity.type === EntityType.EnemyBullet2) ||
+               (otherEntity.type === EntityType.EnemyBullet3) ||
+               (otherEntity.type === EntityType.EnemyBullet4) ||
+               (otherEntity.type === EntityType.MiniBoss1) ||
+               (otherEntity.type === EntityType.EyeBoss1) ||
+               (otherEntity.type === EntityType.AlienBoss1) ||
+               (otherEntity.type === EntityType.MaskBoss1) ||
+               (otherEntity.type === EntityType.MiniMiniBoss1) ||
+               (otherEntity.type === EntityType.CargoBoss)) {
+               this.actualCollisionCheck(entity, otherEntity);
+            }
+        }
+    };
 
 	this.doCollisionChecks = function() {
 		const collisions = [];
@@ -138,107 +217,25 @@ function CollisionManager(player) {
 
 			//Do collision between player bullets and all other entites (except the player)
 			for(let i = 0; i < this.playerBullets.length; i++) {
-				if(entity.type === EntityType.Capsule1) {continue;}//can't shoot the power ups
-				if(entity.type === EntityType.PlayerForceUnit) {continue;}//can't shoot the force unit
-				if(!this.playerBullets[i].isActive) {continue;}//don't check collisions on inactive bullets
-
-				const aBulletBody = this.playerBullets[i].collisionBody;
-				if(withinSquareRadii(entity.collisionBody, aBulletBody)) {
-					//if both objects are circles, the above check is a valid collision
-					if((entity.collisionBody.type === ColliderType.Circle) &&
-					   (this.playerBullets[i].collisionBody.type === ColliderType.Circle)) {
-						entity.didCollideWith(this.playerBullets[i]);
-						this.playerBullets[i].didCollideWith(entity);
-						collisions.push({blue:this.playerBullets[i], red:entity});
-						continue;
-					}
-
-					if(checkCollisionBetween(entity.collisionBody, aBulletBody)) {
-						entity.didCollideWith(this.playerBullets[i]);
-						this.playerBullets[i].didCollideWith(entity);
-						collisions.push({blue:this.playerBullets[i], red:entity});
-					}
-				}
+                this.doEntity_vs_PlayerBullet(entity, this.playerBullets[i]);
 			}
 
 			// Do force unit collision check against other entities (but, of course, not the player)
 			if (this.playerForceUnit !== null) {
-				const forceUnitBody = this.playerForceUnit.collisionBody;
-				if(withinSquareRadii(entity.collisionBody, forceUnitBody)) {
-					//if both objects are circles, the above check is a valid collision
-					// TODO clean up this code (e.g., there are redundant checks to make sure the force unit doesn't collide with a powerup or player shot -- perhaps smarten up the conditional test?
-					if((entity.type === EntityType.Capsule1) ||	//can't hit the capsules
-					   (entity.type === EntityType.PlayerShot) ||
-					   (entity.type === EntityType.PlayerDouble) || 
-					   (entity.type === EntityType.PlayerLaser) || 
-					   (entity.yype === EntityType.PlayerTriple)) {
-						   continue;//ignore collisions with player shots
-					}	
-
-					if((entity.collisionBody.type === ColliderType.Circle) &&
-					   (this.playerForceUnit.collisionBody.type === ColliderType.Circle)) {
-						entity.didCollideWith(this.playerForceUnit);
-						this.playerForceUnit.didCollideWith(entity);
-						collisions.push({blue:this.playerForceUnit, red:entity});
-						continue;
-					}
-
-					if(checkCollisionBetween(entity.collisionBody, forceUnitBody)) {
-						if((entity.type === EntityType.Capsule1) ||	//can't hit the capsules
-					   (entity.type === EntityType.PlayerShot) ||
-					   (entity.type === EntityType.PlayerDouble) || 
-					   (entity.type === EntityType.PlayerLaser) || 
-					   (entity.yype === EntityType.PlayerTriple)) {
-						   continue;//ignore collisions with player shots
-					}
-					
-						entity.didCollideWith(this.playerForceUnit);
-						this.playerForceUnit.didCollideWith(entity);
-						collisions.push({blue:this.playerForceUnit, red:entity});
-					}
-				}
+                this.doForceUnitCollision(entity, this.playerForceUnit);
 			}
 
-			//Do collision between player and all other entities (except player bullets)
-			if(withinSquareRadii(entity.collisionBody, this.player.collisionBody)) {
-				//if both objects are circles, the above check is a valid collision
-				if((entity.collisionBody.type === ColliderType.Circle) &&
-				   (this.player.collisionBody.type === ColliderType.Circle)) {
-					entity.didCollideWith(this.player);
-					this.player.didCollideWith(entity);
-					collisions.push({blue:this.player, red:entity});
-					continue;
-				}
-
-				if(checkCollisionBetween(entity.collisionBody, this.player.collisionBody)) {
-					entity.didCollideWith(this.player);
-					this.player.didCollideWith(entity);
-					collisions.push({blue:this.player, red:entity});
-				}
-			}
+            this.doPlayerCollision(entity, this.player);
+            
+            if(entity.type === EntityType.PlayerShot) {//this is a reflected bullet
+                this.doReflectedShot_vs_Enemy(entity);
+            }
 		}
-
-		//Do collision between player and terrain
-
-		//Do collision between player and enemy bullets
 
 		//Do collision between enemy bullets and terrain
 		for(let terr of terrain) {
 			for(let bullet of enemyBullets) {
-				if(withinSquareRadii(terr.collisionBody, bullet.collisionBody)) {
-					if((terr.collisionBody.type === ColliderType.Circle) &&
-					   (bullet.collisionBody.type === ColliderType.Circle)) {
-					   //if both objects are circles, the above check is a valid collision
-					   terr.didCollideWith(bullet);
-					   bullet.didCollideWith(terr);
-					   continue;
-					}
-
-					if(checkCollisionBetween(terr.collisionBody, bullet.collisionBody)) {
-						terr.didCollideWith(bullet);
-						bullet.didCollideWith(terr);
-					}
-				}
+               this.actualCollisionCheck(terr, bullet);
 			}
 		}
 		

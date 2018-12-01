@@ -20,7 +20,8 @@ function DemoSceneScreen() {
     };
     
     this.transitionOut = function demoPlayScreenTransitionOut() {
-	    clearKeyboardInput();
+		clearKeyboardInput();
+		this.remainingShakes = 0;
 	    canvasContext.setTransform(1, 0, 0, 1, 0, 0);
         currentBackgroundMusic.pause();
         allSFX.stop();
@@ -28,15 +29,16 @@ function DemoSceneScreen() {
     };
     
     const clearKeyboardInput = function() {
-	    holdSpace = false;
-	    holdUp = false;
-	    holdW = false;
-	    holdDown = false;
-	    holdS = false;
-	    holdLeft = false;
-	    holdA = false;
-	    holdRight = false;
-	    holdD = false;
+	    holdKey[KEY_SPACE] = false;
+	    holdKey[KEY_UP] = false;
+	    holdKey[KEY_W] = false;
+	    holdKey[KEY_DOWN] = false;
+	    holdKey[KEY_S] = false;
+	    holdKey[KEY_LEFT] = false;
+	    holdKey[KEY_A] = false;
+	    holdKey[KEY_RIGHT] = false;
+		holdKey[KEY_D] = false;
+		holdKey[KEY_X] = false;
     };
    
 
@@ -55,66 +57,68 @@ function DemoSceneScreen() {
 	    }
 
         if(scene.gameIsOver){
-//	        currentBackgroundMusic.setCurrentTrack(6);
+			scene.remainingShakes = 0;
+			scene.screenShake();
             ScreenStates.setState(MENU_SCREEN);
         }
     };
     
-	this.control = function demoPlayScreenControl(keyCode, pressed) {
+	this.control = function demoPlayScreenControl() {
+        menuSelect.play();
 		ScreenStates.setState(MENU_SCREEN);
 	};
 
 	
 	const updateDemoControls = function(runtime) {
-		holdSpace = true;
-		
+		holdKey[KEY_SPACE] = true;
+	//	console.log(runtime);
 		if(runtime < 300) {
-			//do nothing
+			holdKey[KEY_X] = false;
 		} else if(runtime < 600) {// >300
-			holdRight = true;
+			holdKey[KEY_RIGHT] = true;
 		} else if(runtime < 900) {// >600
-			holdUp = true;
+		//	do nothing
 		} else if(runtime < 1500) {// >900
-			holdRight = false;
+			holdKey[KEY_RIGHT] = false;
 		} else if(runtime < 3000) {// >1500
-			holdRight = true;
-		} else if(runtime < 7000) {// >3000
-			holdUp = false;
-			holdRight = false;
-		} else if(runtime < 10000) {// >7000
-			holdRight = true;
-		} else if(runtime < 11000) {// >10000
-			holdRight = false;
-			holdLeft = true;
-		} else if(runtime < 13250) {// >11000
-			holdDown = true;
-		} else if(runtime < 15000) {// >13250
-			holdDown = false;
-			holdLeft = false;
-		} else if(runtime < 16000) {// >15000
-			holdRight = true;
-		} else if(runtime < 20000) {// >16000
-			holdRight = false;
-		} else if(runtime < 22000) {// >20000
-			holdUp = true;
-		} else if(runtime < 27500) {// >22000
-			holdUp = false;
-		} else if(runtime < 29500) {// >27500
-			holdRight = true;
-		} else if(runtime < 30000) {// >29500
-			holdRight = false;
-			holdUp = true;
-		} else if(runtime < 34000) {// >30000
-			holdUp = false;
-		} else {// >34000
+			holdKey[KEY_RIGHT] = true;
+		} else if(runtime < 3500) {// >3000
+			holdKey[KEY_RIGHT] = false;
+		} else if(runtime < 8500) {// >3500
+			holdKey[KEY_X] = true;
+		} else if(runtime < 9000) {// >8500
+			holdKey[KEY_X] = false;
+		} else if(runtime < 10500) {// >9000
+			holdKey[KEY_LEFT] = true;
+			holdKey[KEY_DOWN] = true;
+		} else if(runtime < 16500) {// >10500
+			holdKey[KEY_DOWN] = false;
+			holdKey[KEY_LEFT] = false;
+			holdKey[KEY_X] = true;
+		} else if(runtime < 17500) {// >16500
+			holdKey[KEY_RIGHT] = true;
+			holdKey[KEY_X] = false;
+		} else if(runtime < 23000) {// >17500
+			holdKey[KEY_RIGHT] = false;
+			holdKey[KEY_X] = true;
+		} else if(runtime < 24500) {// >23000
+			holdKey[KEY_UP] = true;
+		} else if(runtime < 29000) {// >24500
+			holdKey[KEY_UP] = false;
+		} else if(runtime < 30000) {// >29000
+			holdKey[KEY_RIGHT] = true;
+		} else if(runtime < 32000) {// >30000
+			holdKey[KEY_RIGHT] = false;
+			holdKey[KEY_DOWN] = true;
+		} else if(runtime < 32500) {// >32000
+			holdKey[KEY_DOWN] = false;
+		} else {// >32500
 			ScreenStates.setState(MENU_SCREEN);
 		}
 		
-		if(scene.capsuleCount === 1) {
+		if(scene.capsuleCount === 2) {
 			scene.activatePowerUp();
 		} else if(scene.capsuleCount === 3) {
-			scene.activatePowerUp();
-		} else if(scene.capsuleCount === 6) {
 			scene.activatePowerUp();
 		}
 	}
@@ -130,6 +134,7 @@ function DemoScene(levelIndex = 0) {
 	this.remainingShakes = 0;
 	this.shakeMagnitude = 0;
 	this.gameIsOver = false;
+	this.beatTheGame = false;
 	const starfield = new Starfield();
 	const player = new Player(data.getPlayerSpawn());
 	const collisionManager = new CollisionManager(player);
@@ -223,6 +228,7 @@ function DemoScene(levelIndex = 0) {
 		}
 		
 		this.gameIsOver = false;
+		this.beatTheGame = false;
         this.worldPos = newWorldPos;
         this.endShake();
         
@@ -242,7 +248,7 @@ function DemoScene(levelIndex = 0) {
 	
 	this.updateBackground = function(deltaTime) {
 
-		this.parallaxOffset1 = -1*(this.worldPos*BG_PARALLAX_RATIO_1%backgroundParallaxLayer1.width);
+		this.parallaxOffset1 = -1 * (this.worldPos * BG_PARALLAX_RATIO_1 % backgroundStars.width);
 
 		if (!this.bgTime) {
 			this.bgTime = deltaTime; 
@@ -286,8 +292,8 @@ function DemoScene(levelIndex = 0) {
 		}
 
 		// galaxy / starfield images, tiled, with parallax
-		canvasContext.drawImage(backgroundParallaxLayer1,this.parallaxOffset1,0);
-		canvasContext.drawImage(backgroundParallaxLayer1,this.parallaxOffset1+backgroundParallaxLayer1.width,0);
+		canvasContext.drawImage(backgroundStars, this.parallaxOffset1, 0);
+		canvasContext.drawImage(backgroundStars, this.parallaxOffset1 + backgroundStars.width, 0);
 
 		// twinkling stars
 		starfield.draw();
@@ -321,9 +327,10 @@ function DemoScene(levelIndex = 0) {
 	
 	this.removePlayer = function() {
 		this.gameIsOver = true;
+		this.beatTheGame = false;
 		canvasContext.setTransform(1, 0, 0, 1, 0, 0);
 		uiManager.reset(true);
-		ScreenStates.setState(MENU_SCREEN, 1);
+		//ScreenStates.setState(MENU_SCREEN, 1);
 //		if(remainingLives < 1) {
 			
 /*		} else {
@@ -462,13 +469,15 @@ function DemoScene(levelIndex = 0) {
 			this.shakeMagnitude = 0;
 			canvasContext.setTransform(1, 0, 0, 1, 0, 0);
 		}
+		else {
+			const horizontal = Math.floor((this.shakeMagnitude) * Math.random() - this.shakeMagnitude / 2);
+			const vertical = Math.floor((this.shakeMagnitude) * Math.random() - this.shakeMagnitude / 2);
+			
+			canvasContext.transform(1, 0, 0, 1, horizontal, vertical);
+			
+			this.shakeMagnitude *= 0.9;
+		}
 		
-		const horizontal = Math.floor((this.shakeMagnitude) * Math.random() - this.shakeMagnitude / 2);
-		const vertical = Math.floor((this.shakeMagnitude) * Math.random() - this.shakeMagnitude / 2);
-		
-		canvasContext.setTransform(1, 0, 0, 1, horizontal, vertical);
-		
-		this.shakeMagnitude *= 0.9;
 	};
 	
 	this.endShake = function() {

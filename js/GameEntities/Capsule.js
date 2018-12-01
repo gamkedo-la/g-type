@@ -2,11 +2,12 @@
 function Capsule(position = {x:0, y:0}, initialWorldPos) {
 	this.worldPos = initialWorldPos;
 	this.type = EntityType.Capsule1;
+	this.score = 50;
 	
-	this.position = position;
+	this.position = {x:position.x, y:position.y};
 	
 	const sprite = new AnimatedSprite(capsule1Sheet, 3, 33, 27, true, true, {min:0, max:0}, 0, {min:0, max:3}, 128, {min:3, max:3}, 0);
-	const SPRITE_SCALE = 1; //TODO: would like to increase the size of the sprite and change this back to 1.
+	const SPRITE_SCALE = 1;
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	
 	const colliderPath = [{x: this.position.x, y: this.position.y},
@@ -24,7 +25,7 @@ function Capsule(position = {x:0, y:0}, initialWorldPos) {
 		this.worldPos = worldPos;
 		
 		this.collisionBody.setPosition(this.position);
-		
+
 		sprite.update(deltaTime);
 	};
 	
@@ -36,7 +37,7 @@ function Capsule(position = {x:0, y:0}, initialWorldPos) {
 			return;
 		}
 		
-		sprite.drawAt(this.position, this.size);
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 		this.collisionBody.draw();
 	};
 	
@@ -49,8 +50,12 @@ function Capsule(position = {x:0, y:0}, initialWorldPos) {
 	
 	this.didCollideWith = function(otherEntity) {
 		didCollide = true;
+		if((this.group != null) && (typeof this.group !== "undefined")) {
+			this.group.collected(this, this.worldPos);
+		}
+		scene.displayScore(this);
 		scene.removeEntity(this, false);
-		pauseSound.play();
+		capsulePickup.play();
 		explosionEmitter = createParticleEmitter(this.position.x + this.size.width / 2,this.position.y + this.size.height / 2, getCapsule);
 	};
 }

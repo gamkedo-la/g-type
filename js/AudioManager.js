@@ -6,10 +6,14 @@ const DEFAULT_SFX_VOLUME = 0.6;
 //set sound clips and music tracks here
 
 //need to change file name to match
-const menuMusic = new musicTrackLoop("PrepareToStrike-v1", 208.976, {author: "JoeCS", album: "G-Type OST", year: "2018", title: "Prepare To Strike (Main Menu Theme)"});  //By Joe Spedale
+const menuMusic = new musicTrackLoop("Level1-CoyCompositions", 84, {author: "Coy Compositions", album: "G-Type OST", year: "2018", title: "Level 1 Coy Compositions"});  //By Coy Compositions
+const level1Music = new musicTrackLoop("PrepareToStrike-v1", 100, {author: "JoeCS", album: "G-Type OST", year: "2018", title: "Prepare To Strike (Main Menu Theme)"});  //By Joe Spedale
+const level3Music = new musicTrackLoop("Dilsehouse", 144.5, {author: "Vignesh", album: "G-Type OST", year: "2018", title: "Dilse House"}); //By Vignesh Ramesh
+const miniBoss1Music = new musicTrackLoop("MiniBoss", 40, {author: "Chris Markle", album: "G-Type OST", year: "2018", title: "Mini-Boss 1 Theme"});  //By Chris Markle
+const boss1Music = new musicTrackLoop("stebs_g-type_boss_music", 43, {author: "Stebs", album: "G-Type OST", year: "2018", title: "Stebs G-Type Boss Music"});  //By Stebs
 //menuMusic.setVolume(0.2);
 
-const currentBackgroundMusic = new musicContainer([menuMusic/*, retroDream, dreamPunk, nightMusic, forestRock, drjuno, gameOver*/]);
+const currentBackgroundMusic = new musicContainer([menuMusic, level1Music, miniBoss1Music, boss1Music, level3Music]);
 currentBackgroundMusic.setVolume(0.6);
 
 //menu sfx
@@ -20,9 +24,9 @@ resumeSound.setVolume(0.4);
 
 //player sfx
 const playerFireRegular = new sfxClipOverlap("PlayerFireRegular", 3);
-playerFireRegular.setVolume(0.6);
+playerFireRegular.setVolume(0.36);
 const playerFireLaser = new sfxClipOverlap("PlayerFireLaser", 3);
-playerFireLaser.setVolume(0.5);
+playerFireLaser.setVolume(0.46);
 const playerPowerUpActivate = new sfxClipSingle("PlayerPowerupActivate");
 playerPowerUpActivate.setVolume(0.65);
 const playerShieldActivate = new sfxClipSingle("PlayerShieldActivate");
@@ -30,19 +34,35 @@ playerShieldActivate.setVolume(0.7);
 const playerShieldHit = new sfxClipOverlap("PlayerShieldReflect", 3);
 playerShieldHit.setVolume(0.7);
 const playerExplosion = new sfxClipSingle("PlayerExplosion");
-playerExplosion.setVolume(0.6);
+playerExplosion.setVolume(0.7);
 const extraLife = new sfxClipSingle("extraLife");
 extraLife.setVolume(0.7);
+const capsulePickup = new sfxClipOverlap("CapsulePickup", 3);
+capsulePickup.setVolume(0.7);
+const playerShieldFail = new sfxClipSingle("PlayerShieldFail");
+playerShieldFail.setVolume(0.7);
 
 //enemy and environment sfx
 const enemySmallExplosion = new sfxClipOverlap("EnemySmallExplosion", 3);
 enemySmallExplosion.setVolume(0.6);
 const enemyMediumExplosion = new sfxClipOverlap("EnemyMediumExplosion", 3);
 enemyMediumExplosion.setVolume(0.6);
+const enemyLargeExplosion = new sfxClipOverlap("EnemyLargeExplosion", 3);
+enemyLargeExplosion.setVolume(0.6);
 const bubbleExplosion = new sfxClipOverlap("bubble", 3);
 bubbleExplosion.setVolume(0.35);
 const shotHitIndestructible = new sfxClipOverlap("PlayerShieldReflect", 3); //placeholder sound effect.  Need new made -LP
-shotHitIndestructible.setVolume(0.6);
+shotHitIndestructible.setVolume(0.7);
+const shotDamaged = new sfxClipOverlap("DAMAGED_ENEMY", 3);
+shotDamaged.setVolume(0.5);
+const bossLaserShot = new sfxClipOverlap("BOSS_LASER_SHOT", 2);
+bossLaserShot.setVolume(0.8);
+const clearScreen = new sfxClipSingle("ClearScreen");
+clearScreen.setVolume(0.8);
+const menuMove = new sfxClipOverlap("MenuMove", 2); //placeholder sound effect.  Need new made -LP
+menuMove.setVolume(0.6);
+const menuSelect = new sfxClipSingle("MenuSelect");
+menuSelect.setVolume(0.8);
 
 //const uiSelect = new sfxClipSingle("uiSelect");
 
@@ -53,13 +73,17 @@ const allSFX = {
 			   playerFireLaser, 
 			   playerPowerUpActivate, 
 			   playerShieldActivate, 
-			   playerShieldHit,  
+			   playerShieldHit,
+			   playerShieldFail,
 			   playerExplosion,
 			   extraLife,
 			   enemySmallExplosion,
 			   enemyMediumExplosion,
 			   bubbleExplosion,
-			   shotHitIndestructible
+			   shotHitIndestructible,
+			   shotDamaged,
+			   capsulePickup,
+			   clearScreen
 			   ],
 	stop: function(){
 		for(var i=0; i < this.sfxList.length; i++){

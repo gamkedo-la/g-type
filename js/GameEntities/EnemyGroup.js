@@ -1,12 +1,3 @@
-const EnemyType = {
-	Flying1:"flying1",
-};
-
-const MovementPattern = {
-	None:"none",
-	Sine:"sine",
-};
-
 //Enemy Grouping
 function EnemyGroup() {
 	this.enemies = [];
@@ -20,19 +11,22 @@ function EnemyGroup() {
 		return newEnemy;
 	};
 	
-	this.remove = function(enemyToRemove, worldPos) {
+	// called by enenies just as they start to explode (isDying=true but not getDidDie() yet)
+	this.amDying = function(enemyToRemove, worldPos) {
 		const indexToRemove = this.enemies.indexOf(enemyToRemove);
-		this.enemies.splice(indexToRemove, 1);
-		
+        if(indexToRemove >= 0) {
+            this.enemies.splice(indexToRemove, 1);
+        }
+
+		// this is the very last one in the group, maybe spawn a capsule		
 		if((this.enemies.length === 0) && (this.hasCapsule)) {
 			this.hasCapsule = false;
-			
 			const newCapsule = new Capsule({x:enemyToRemove.position.x, y:enemyToRemove.position.y}, worldPos);
 			newCapsule.position.x += ((enemyToRemove.size.width / 2) - (newCapsule.size.width / 2));
 			newCapsule.position.y += ((enemyToRemove.size.height / 2) - (newCapsule.size.height / 2));
 			scene.addEntity(newCapsule, false);
 		}
-	}	;
+    };
 }
 
 const PathType = {
@@ -43,6 +37,7 @@ const PathType = {
 };
 
 function EnemyPath(type = PathType.None, start = {x:0, y:0}, speed = 0, points = [], timeOffset = 0) {
+    this.pointCount = points.length;
 	let elapsedTime = 0;
 	let lastPointIndex = -1;
 	let lastPosition = {x:start.x, y:start.y};
@@ -50,6 +45,12 @@ function EnemyPath(type = PathType.None, start = {x:0, y:0}, speed = 0, points =
 	if((type === PathType.Points) || (type === PathType.Loop)) {
 		currentSpeed = Math.abs(speed / 1000);
 	}
+    
+    this.putAtFirstPoint = function() {
+        lastPointIndex = 0;
+        lastPosition = {x:points[0].x, y:points[0].y};
+        return lastPosition;
+    };
 	
 	this.nextPoint = function(deltaTime) {
 		if(lastPointIndex > 1) {//Keep array size down since it can grow quite large.
@@ -138,7 +139,14 @@ function EnemyPath(type = PathType.None, start = {x:0, y:0}, speed = 0, points =
 	
 	this.updateSpeed = function(newSpeed) {
 		currentSpeed = newSpeed / 1000;
-	}
+    };
+    
+    this.updatePosition = function(deltaPosition) {
+        for(let i = 0; i < points.length; i++) {
+            points[i].x += deltaPosition.x;
+            points[i].y += deltaPosition.y;
+        }
+    };
 	
 	return this;
 }

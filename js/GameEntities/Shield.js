@@ -5,7 +5,7 @@ function ShieldEntity(position = {x:0, y:0}, playerSize = {width:0, height:0}) {
 	this.hitPoints = MAX_HITPOINTS;
 	this.damagePoints = 1;
 	this.isActive = false;
-	const SPRITE_SCALE = 2;
+	const SPRITE_SCALE = 1;
 	let wasReset = false;
 	
 	sprite = new AnimatedSprite(shieldSheet, 3, 60, 45, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
@@ -26,16 +26,7 @@ function ShieldEntity(position = {x:0, y:0}, playerSize = {width:0, height:0}) {
 						  
 						  {x: this.position.x + SPRITE_SCALE, y: this.position.y + SPRITE_SCALE * (sprite.height / 2)}, //left point 
 						  {x: this.position.x + this.size.width / 4, y: this.position.y + SPRITE_SCALE * 6}]; //top, half way to left side
-	
-/*	console.log("ColliderPath: " + "(" + colliderPath[0].x + ", " + colliderPath[0].y + ")");					  
-	console.log("ColliderPath: " + "(" + colliderPath[1].x + ", " + colliderPath[1].y + ")");					  
-	console.log("ColliderPath: " + "(" + colliderPath[2].x + ", " + colliderPath[2].y + ")");					  
-	console.log("ColliderPath: " + "(" + colliderPath[3].x + ", " + colliderPath[3].y + ")");					  
-	console.log("ColliderPath: " + "(" + colliderPath[4].x + ", " + colliderPath[4].y + ")");					  
-	console.log("ColliderPath: " + "(" + colliderPath[5].x + ", " + colliderPath[5].y + ")");					  
-	console.log("ColliderPath: " + "(" + colliderPath[6].x + ", " + colliderPath[6].y + ")");					  
-	console.log("ColliderPath: " + "(" + colliderPath[7].x + ", " + colliderPath[7].y + ")");*/				  
-	
+		
 	this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:this.position.x, y:this.position.y}});
 	
 	this.update = function(deltaTime, playerPos) {
@@ -52,8 +43,7 @@ function ShieldEntity(position = {x:0, y:0}, playerSize = {width:0, height:0}) {
 				sprite.update(deltaTime);
 			}
 		} else if(this.hitPoints <= 0) {
-			this.isActive = false;
-			scene.removeCollisions(this);
+			this.deactivate();
 		}
 		
 		if(wasReset) {
@@ -71,7 +61,7 @@ function ShieldEntity(position = {x:0, y:0}, playerSize = {width:0, height:0}) {
 	this.draw = function() {
 		if(!this.isActive) {return;}// Don't need to draw if not active
 		
-		sprite.drawAt(this.position, this.size);
+		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 		
 		this.collisionBody.draw();
 	};
@@ -85,9 +75,24 @@ function ShieldEntity(position = {x:0, y:0}, playerSize = {width:0, height:0}) {
 		   (otherEntity.type === EntityType.PlayerTriple) ||
 		   (otherEntity.type === EntityType.PlayerForceUnit)) {
 			   return; //Player weapons don't interact with the shields
+		} else if(isTerrain(otherEntity)) {
+			if((otherEntity.type === EntityType.BigDestRock) || 
+			   (otherEntity.type === EntityType.SmDestRock1) || 
+			   (otherEntity.type === EntityType.SmDestRock2) || 
+			   (otherEntity.type === EntityType.SmDestRock3)) {
+				   this.wasHit();
+			   }
 		} else {
-			this.hitPoints--;
-			scene.shouldShake(MAX_SHAKE_MAGNITUDE / 2);
+			this.wasHit();
+		}
+	};
+	
+	this.wasHit = function() {
+		this.hitPoints--;
+		scene.shouldShake(MAX_SHAKE_MAGNITUDE / 2);
+		if(this.hitPoints <= 0) {
+			playerShieldFail.play();
+		} else {
 			playerShieldHit.play();
 		}
 	};
@@ -101,6 +106,7 @@ function ShieldEntity(position = {x:0, y:0}, playerSize = {width:0, height:0}) {
 	
 	this.deactivate = function() {
 		this.isActive = false;
+		scene.deactivatedShield();
 		scene.removeCollisions(this);
 	}
 }

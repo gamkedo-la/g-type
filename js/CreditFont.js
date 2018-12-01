@@ -47,7 +47,9 @@ function CreditFont(activeImage, inactiveImage, frameSize, context) {
 	
 	this.draw = function() {
 		for(let i = 0; i < characters.length; i++) {
-			characters[i].draw();
+			if((characters[i].position.y > (GameField.y - 90)) && (characters[i].position.y < (canvas.height - 55))) {
+				characters[i].draw();
+			}
 		}
 	};
 	
@@ -57,7 +59,7 @@ function CreditFont(activeImage, inactiveImage, frameSize, context) {
 function CollidableChar(activeImage, inactiveImage, character, frameSize, drawSize, position, context) {
 	this.isActive = true;
 	this.isCollidable = false;
-	this.type = EntityType.CollidableText;
+	this.type = EntityType.Text;
 	this.position = {x:position.x, y:position.y};
 	this.size = {width:drawSize.width, height:drawSize.height};
 	
@@ -71,11 +73,11 @@ function CollidableChar(activeImage, inactiveImage, character, frameSize, drawSi
 		if(this.isActive) {
 			if((this.position.y < GameField.bottom) && (this.position.y > GameField.y - drawSize.height)) {//active and onscreen
 				if(!this.isCollidable) {//no collision checks occurring => add it to the list
-					scene.addEntity(this);
+					scene.addEntity(this, false);
 					this.isCollidable = true;
 				}
 			} else if(this.isCollidable) {//Not onscreen but active and collidable => remove it from the list
-				scene.removeEntity(this);
+				scene.removeEntity(this, false);
 				this.isCollidable = false;
 			}
 		}
@@ -104,7 +106,7 @@ function CollidableChar(activeImage, inactiveImage, character, frameSize, drawSi
 	this.didCollideWith = function(otherEntity) {
 		this.isActive = false;
 		this.isCollidable = false;
-		scene.removeEntity(this);
+		scene.removeEntity(this, false);
 	};
 	
 	const frameForCharacter = function(character) {
@@ -186,7 +188,7 @@ function CollidableChar(activeImage, inactiveImage, character, frameSize, drawSi
 				return {x:24 * frameSize.width, y:0};
 			case "z":
 			case "Z":
-				return {x:25 * frameSize.width, y:frameSize.height};
+				return {x:25 * frameSize.width, y:0};
 			case "0":
 				return {x:0, y:frameSize.height};
 			case "1":
@@ -211,8 +213,10 @@ function CollidableChar(activeImage, inactiveImage, character, frameSize, drawSi
 				return {x:10 * frameSize.width, y:frameSize.height};
 			case "@":
 				return {x:11 * frameSize.width, y:frameSize.height};
+			case "(":
 			case "[":
 				return {x:12 * frameSize.width, y:frameSize.height};
+			case ")":
 			case "]":
 				return {x:13 * frameSize.width, y:frameSize.height};
 			case ">":
@@ -225,8 +229,28 @@ function CollidableChar(activeImage, inactiveImage, character, frameSize, drawSi
 				return {x:17 * frameSize.width, y:frameSize.height};
 			case "-":
 				return {x:18 * frameSize.width, y:frameSize.height};
-			case " ":
+			case ".":
 				return {x:19 * frameSize.width, y:frameSize.height};
+			case ",":
+				return {x:20 * frameSize.width, y:frameSize.height};
+			case ";":
+				return {x:21 * frameSize.width, y:frameSize.height};
+			case ":":
+				return {x:22 * frameSize.width, y:frameSize.height};
+			case '"':
+				return {x:23 * frameSize.width, y:frameSize.height};
+			case '"':
+				return {x:24 * frameSize.width, y:frameSize.height};
+			case "?":
+				return {x:25 * frameSize.width, y:frameSize.height};
+			case "=":
+				return {x:0, y:2 * frameSize.height};
+			case "/":
+				return {x:frameSize.width, y:2 * frameSize.height};
+			case "+":
+				return {x:2 * frameSize.width, y:2 * frameSize.height};
+			case " ":
+				return {x:3 * frameSize.width, y:2 * frameSize.height};
 			default:
 				return {x:18.5 * frameSize.width, y:frameSize.height};//18.5 so it doesn't crash, but you can tell something's not right
 		}
