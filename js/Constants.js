@@ -10,6 +10,8 @@ let gameSpeed = 1.5;
 let remainingLives = 2;
 let didInteract = false;
 
+const TUTORIAL_LENGTH = 320; // flash "[X] TO FIRE" for how long (distance travelled) at start
+
 let currentScore = 0;
 let scoreText = "00000000" + currentScore.toString();
 let highScore = 0;

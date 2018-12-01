@@ -224,7 +224,9 @@ function GamePlayScreen () {
             }
             return true;
         } else if (this.keysPressed(KEY_O)) {
+            if((!pressed) && cheats.debugKeysEnabled) {
             scene.beatTheGame = true; // final boss defeated!
+            }
             return true;        
         // CHEAT KEYS END
         
