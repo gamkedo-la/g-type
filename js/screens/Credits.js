@@ -10,7 +10,7 @@ function CreditsScreen() {
 	    {screen: MENU_SCREEN, title: textStrings.Main},
 	   ];
 
-    this.scrollLimit = -3100;
+    this.scrollLimit = -4400;
     this.currentY = 0;
     this.scrollSpeed = 5 / 50;
     this.totalTime = 0;
@@ -79,7 +79,21 @@ function CreditsScreen() {
 
         let buttonsX = GameField.midX - 72;
 
-        this.currentY -= Math.floor((deltaTime) * this.scrollSpeed);
+        let arrowAdjustedScrollSpeed;
+
+        if(holdKey[KEY_UP]) {
+            arrowAdjustedScrollSpeed = -this.scrollSpeed * 3.0;
+        } else if(holdKey[KEY_DOWN]) {
+            arrowAdjustedScrollSpeed = this.scrollSpeed * 6.0;
+        } else if(holdKey[KEY_RIGHT]) {
+            arrowAdjustedScrollSpeed = this.scrollSpeed * 0.3;
+        } else if(holdKey[KEY_LEFT]) {
+            arrowAdjustedScrollSpeed = 0.0;
+        } else {
+            arrowAdjustedScrollSpeed = this.scrollSpeed;
+        }
+
+        this.currentY -= deltaTime*arrowAdjustedScrollSpeed;
 
         // console.log(this.currentY);
         if (this.currentY < this.scrollLimit) {
@@ -91,11 +105,12 @@ function CreditsScreen() {
 
 		starfield.update(deltaTime);
 
-        creditsText.update(deltaTime, {x:0, y:this.scrollSpeed});
+        creditsText.update(deltaTime, {x:0, y:arrowAdjustedScrollSpeed});
 		creditsText.draw();
 
 		gameFont.printTextAt(textStrings.Credits, {x:GameField.midX, y:GameField.y - 135}, 30, textAlignment.Center);
 
+        gameFont.printTextAt("[X] to Pause/Unpause Scroll", {x:GameField.x + 30, y:GameField.bottom + 30}, 14, textAlignment.Left);
 		gameFont.printTextAt("[Backspace] to Main Menu", {x:GameField.x + 450, y:GameField.bottom + 30}, 14, textAlignment.Left);
 
 		scene.update(deltaTime);
@@ -103,15 +118,6 @@ function CreditsScreen() {
     };
 
     this.control = function creditsScreenControl() {
-        if (this.keysPressed(KEY_SPACE)) {
-            if(this.scrollSpeed !== 0) {
-                this.scrollSpeed = 0;
-            } else {
-                this.scrollSpeed = 4/50;
-            }
-            return true;
-        }
-
         // SHIP CONTROLS START
         holdKey[KEY_UP] = this.keysPressed(KEY_UP) || this.keysPressed(KEY_W);
         holdKey[KEY_DOWN] = this.keysPressed(KEY_DOWN) || this.keysPressed(KEY_S);
@@ -119,6 +125,15 @@ function CreditsScreen() {
         holdKey[KEY_RIGHT] = this.keysPressed(KEY_RIGHT) || this.keysPressed(KEY_D);
         holdKey[KEY_X] = this.keysPressed(KEY_X);
         // SHIP CONTROLS END
+
+        if (holdKey[KEY_X]) {
+            if(this.scrollSpeed !== 0) {
+                this.scrollSpeed = 0;
+            } else {
+                this.scrollSpeed = 4/50;
+            }
+            return true;
+        }
 
         let skipAmt = 150;
         if (this.keysPressed(KEY_MINUS)) {
