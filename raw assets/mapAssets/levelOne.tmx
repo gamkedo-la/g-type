@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="800" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="1258">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="800" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="1259">
  <tileset firstgid="1" source="objects.tsx"/>
  <objectgroup id="6" name="Background">
   <properties>
@@ -740,11 +740,6 @@
     <property name="Group" type="int" value="40"/>
    </properties>
   </object>
-  <object id="1257" gid="51" x="145.333" y="415" width="128" height="134">
-   <properties>
-    <property name="Group" value="0"/>
-    <property name="speed" type="int" value="200"/>
-   </properties>
-  </object>
+  <object id="1258" gid="52" x="209" y="374.333" width="382" height="155"/>
  </objectgroup>
 </map>
