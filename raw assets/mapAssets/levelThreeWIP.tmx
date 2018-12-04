@@ -297,6 +297,7 @@
   <object id="1452" gid="26" x="1351" y="183.667" width="50" height="50">
    <properties>
     <property name="Group" type="int" value="10"/>
+    <property name="Speed" type="int" value="-200"/>
     <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
@@ -304,27 +305,31 @@
    <properties>
     <property name="Group" type="int" value="10"/>
    </properties>
-   <polyline points="0,0 -352.667,-0.666667 -97.3333,287.333 -191.333,64.6667 -320,64 -132.667,286 12.6667,286.667 -93.3333,114 -134,114"/>
+   <polyline points="0,0 -640.667,241.333 -339.333,93.333 -647.333,46.6667 -296,22 -656.667,-14 -293.333,66.667 -475.333,110 -618,102"/>
   </object>
   <object id="1454" gid="26" x="1415.67" y="184.333" width="50" height="50">
    <properties>
     <property name="Group" type="int" value="10"/>
+    <property name="Speed" type="int" value="-200"/>
    </properties>
   </object>
   <object id="1455" gid="26" x="1478.33" y="183" width="50" height="50">
    <properties>
     <property name="Group" type="int" value="10"/>
+    <property name="Speed" type="int" value="-200"/>
     <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
   <object id="1456" gid="26" x="1543" y="185" width="50" height="50">
    <properties>
     <property name="Group" type="int" value="10"/>
+    <property name="Speed" type="int" value="-200"/>
    </properties>
   </object>
   <object id="1457" gid="26" x="1606.33" y="184.333" width="50" height="50">
    <properties>
     <property name="Group" type="int" value="10"/>
+    <property name="Speed" type="int" value="-200"/>
     <property name="difficulty" type="int" value="10"/>
    </properties>
   </object>
