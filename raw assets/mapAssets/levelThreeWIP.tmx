@@ -561,9 +561,21 @@
    </properties>
    <polyline points="0,0 -58,-92 -226.667,-91.3333 -477.333,115.333 -350,-39.3333 -180,-177.333 -21.3333,-176 56.6667,-108 -22.6667,-93.3333 -49.3333,-93.3333"/>
   </object>
-  <object id="1547" gid="51" x="9295.73" y="298.848" width="128" height="134"/>
-  <object id="1548" gid="51" x="5202.67" y="382.152" width="128" height="134"/>
-  <object id="1549" gid="51" x="9196.79" y="439.606" width="128" height="134"/>
+  <object id="1547" gid="51" x="9295.73" y="298.848" width="128" height="134">
+   <properties>
+    <property name="difficulty" type="int" value="80"/>
+   </properties>
+  </object>
+  <object id="1548" gid="51" x="5202.67" y="382.152" width="128" height="134">
+   <properties>
+    <property name="difficulty" type="int" value="80"/>
+   </properties>
+  </object>
+  <object id="1549" gid="51" x="9196.79" y="439.606" width="128" height="134">
+   <properties>
+    <property name="difficulty" type="int" value="80"/>
+   </properties>
+  </object>
   <object id="1567" gid="39" x="8103.64" y="517.545" width="120" height="126"/>
   <object id="1568" gid="23" x="7595" y="317" width="30" height="30">
    <properties>

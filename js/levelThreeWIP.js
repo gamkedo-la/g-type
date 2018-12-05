@@ -4947,7 +4947,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":20
+                         "value":80
                         }, 
                         {
                          "name":"pattern",
@@ -4980,7 +4980,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":20
+                         "value":80
                         }, 
                         {
                          "name":"pattern",
@@ -5013,7 +5013,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":20
+                         "value":80
                         }, 
                         {
                          "name":"pattern",

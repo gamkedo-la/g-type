@@ -5,7 +5,7 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 	this.score = 5000;
 	let previousBackgroundMusic = null;
 	
-	const MAX_HIT_POINTS = 150;
+	const MAX_HIT_POINTS = 500;
 	const PHASE_TWO_THRESHOLD = MAX_HIT_POINTS / 2;
 	const PHASE_THREE_THRESHOLD = MAX_HIT_POINTS / 4;
     this.hitPoints = MAX_HIT_POINTS;     // Every enemy type should have a hitPoints property
