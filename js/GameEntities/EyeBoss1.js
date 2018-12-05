@@ -302,7 +302,7 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 		
 		if (this.ticksInState == 250) {
 			this.burstShot(40);
-			console.log("hi");
+//			console.log("hi");
 			this.updateSpriteBasedOnHP();
 		}
 		
@@ -419,6 +419,7 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 			   }
 		}
 		   
+//		   console.log("Shot by: " + otherEntity.type + "Hit Points: " + this.hitPoints);
 		if(this.hitPoints <= 0) {
 			if(sprite.isDying) {return;}//already dying, no reason to continue
 			
