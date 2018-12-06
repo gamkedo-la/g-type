@@ -5,7 +5,7 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 	this.score = 5000;
 	let previousBackgroundMusic = null;
 	
-	const MAX_HIT_POINTS = 150;
+	const MAX_HIT_POINTS = 500;
 	const PHASE_TWO_THRESHOLD = MAX_HIT_POINTS / 2;
 	const PHASE_THREE_THRESHOLD = MAX_HIT_POINTS / 4;
     this.hitPoints = MAX_HIT_POINTS;     // Every enemy type should have a hitPoints property
@@ -302,7 +302,7 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 		
 		if (this.ticksInState == 250) {
 			this.burstShot(40);
-			console.log("hi");
+//			console.log("hi");
 			this.updateSpriteBasedOnHP();
 		}
 		
@@ -419,6 +419,7 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 			   }
 		}
 		   
+//		   console.log("Shot by: " + otherEntity.type + "Hit Points: " + this.hitPoints);
 		if(this.hitPoints <= 0) {
 			if(sprite.isDying) {return;}//already dying, no reason to continue
 			

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="800" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="1255">
+<map version="1.2" tiledversion="1.2.0" orientation="orthogonal" renderorder="right-down" width="800" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="1259">
  <tileset firstgid="1" source="objects.tsx"/>
  <objectgroup id="6" name="Background">
   <properties>
@@ -68,7 +68,6 @@
   <object id="977" gid="16" x="7234.74" y="541.5" width="30" height="30"/>
   <object id="978" gid="16" x="7383.74" y="540.5" width="30" height="30"/>
   <object id="979" gid="16" x="7420.74" y="541.5" width="30" height="30"/>
-  <object id="883" gid="15" x="92" y="311" width="33" height="27"/>
   <object id="1116" gid="1" x="10145" y="352" width="74" height="73"/>
   <object id="1117" gid="1" x="10401" y="128" width="74" height="73"/>
   <object id="1125" gid="7" x="10637" y="484" width="90" height="90"/>
@@ -161,12 +160,7 @@
     <property name="Group" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1229" gid="37" x="168.25" y="506.25" width="76" height="38"/>
-  <object id="1230" gid="37" x="244.25" y="506.25" width="76" height="38"/>
-  <object id="1231" gid="37" x="320.25" y="506.25" width="76" height="38"/>
-  <object id="1232" gid="37" x="395.5" y="506.25" width="76" height="38"/>
   <object id="1248" gid="31" x="476" y="384.5" width="60" height="60"/>
-  <object id="1251" gid="66" x="550.333" y="559" width="150" height="150"/>
  </objectgroup>
  <objectgroup id="5" name="Enemies">
   <object id="847" gid="12" x="5120" y="179.197" width="30" height="21">
@@ -746,50 +740,6 @@
     <property name="Group" type="int" value="40"/>
    </properties>
   </object>
-  <object id="1204" gid="33" x="221" y="310" width="75" height="45">
-   <properties>
-    <property name="Group" type="int" value="47"/>
-   </properties>
-  </object>
-  <object id="1210" gid="35" x="236" y="310" width="45" height="45">
-   <properties>
-    <property name="Group" type="int" value="47"/>
-   </properties>
-  </object>
-  <object id="1211" type="path" x="258" y="288">
-   <properties>
-    <property name="Group" type="int" value="47"/>
-   </properties>
-   <polyline points="0,0 0,-186 -254,-186"/>
-  </object>
-  <object id="1212" gid="35" x="234" y="310" width="45" height="45">
-   <properties>
-    <property name="Group" type="int" value="47"/>
-   </properties>
-  </object>
-  <object id="1213" gid="35" x="234" y="312" width="45" height="45">
-   <properties>
-    <property name="Group" type="int" value="47"/>
-   </properties>
-  </object>
-  <object id="1214" gid="35" x="236" y="310" width="45" height="45">
-   <properties>
-    <property name="Group" type="int" value="47"/>
-   </properties>
-  </object>
-  <object id="1215" gid="35" x="234" y="310" width="45" height="45">
-   <properties>
-    <property name="Group" type="int" value="47"/>
-   </properties>
-  </object>
-  <object id="1240" gid="38" x="300.5" y="467.5" width="40" height="28">
-   <properties>
-    <property name="Group" type="int" value="0"/>
-    <property name="Speed" type="int" value="0"/>
-    <property name="difficulty" type="int" value="20"/>
-    <property name="pattern" value="none"/>
-   </properties>
-  </object>
-  <object id="1249" gid="39" x="339" y="471" width="120" height="126"/>
+  <object id="1258" gid="52" x="209" y="374.333" width="382" height="155"/>
  </objectgroup>
 </map>
