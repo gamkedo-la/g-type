@@ -1,17 +1,5 @@
-//LevelData
 const LevelData = [
-	/*
-	// TEST MCFUNKY LEVEL! WORKS!
-    {
-		clearColor:"#010119",
-		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY}},
-        initializeEnemies: function() {return initializeEnemies(TileMaps.levelMcFunky.layers[2].objects);},
-        initializeTerrain: function() {return initializeTerrain(TileMaps.levelMcFunky.layers[1].objects);},
-        initializeDebris: function() {return initializeDebris();},
-		checkpointPositions:[0, 600, 1200]
-	},
-    */
-/*   {
+   {
     clearColor:"#010119",
     getBkgdColorLookup: function() {return backgroundColorLookup;},
     getBkgdStars: function() {return backgroundStars;},
@@ -26,71 +14,71 @@ const LevelData = [
 
     initializeDebris: function() {return initializeDebris();},
     checkpointPositions:[0, 600, 1200]
-},*/
-	{
-        clearColor:"#010119",
-        getBkgdColorLookup: function() {return backgroundColorLookup;},
-        getBkgdStars: function() {return backgroundStars;},
-        getBkgdParallaxLayer: function() {return backgroundParallaxLayer1;},
-        getBkgdOffset: function() {return 50;},//50 is magic number based on background image
-        getForegroundParallaxLayer: function() {return foregroundParallaxLayer1;},
-		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY};},
-
-        initializeEnemies: function() {return initializeEnemies(TileMaps.levelOneH2.layers[2].objects);},
-
-        initializeTerrain: function() {return initializeTerrain(TileMaps.levelOneH2.layers[1].objects);},
-
-        initializeDebris: function() {return initializeDebris();},
-		checkpointPositions:[0, 600, 1200]
-	},
- 	{
+  },
+  {
         clearColor:"#010119",
         getBkgdColorLookup: function() {return backgroundColorLookup2;},
         getBkgdStars: function() {return backgroundStars;},
         getBkgdParallaxLayer: function() {return backgroundParallaxLayer2;},
         getBkgdOffset: function() {return 238;},//238 is magic number based on background image
         getForegroundParallaxLayer: function() {return foregroundParallaxLayer2;},
-		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY};},
+    getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY};},
 
         initializeEnemies: function() {return initializeEnemies(TileMaps.levelTwoWIP.layers[2].objects);},
 
         initializeTerrain: function() {return initializeTerrain(TileMaps.levelTwoWIP.layers[1].objects);},
 
         initializeDebris: function() {return initializeDebris();},
-		checkpointPositions:[0, 600, 1200]
-	},
-	{
-	    clearColor:"#010119",
-	    getBkgdColorLookup: function() {return backgroundColorLookup3;},
-	    getBkgdStars: function() {return backgroundStars;},
-	    getBkgdParallaxLayer: function() {return backgroundParallaxLayer3;},
-	    getBkgdOffset: function() {return 240;},
-	    getForegroundParallaxLayer: function() {return foregroundParallaxLayer3;},
-		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY};},
+    checkpointPositions:[0, 600, 1200]
+  },
+  {
+      clearColor:"#010119",
+      getBkgdColorLookup: function() {return backgroundColorLookup3;},
+      getBkgdStars: function() {return backgroundStars;},
+      getBkgdParallaxLayer: function() {return backgroundParallaxLayer3;},
+      getBkgdOffset: function() {return 240;},
+      getForegroundParallaxLayer: function() {return foregroundParallaxLayer3;},
+    getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY};},
 
-	    initializeEnemies: function() {return initializeEnemies(TileMaps.levelThreeWIP.layers[2].objects);},
+      initializeEnemies: function() {return initializeEnemies(TileMaps.levelThreeWIP.layers[2].objects);},
 
-	    initializeTerrain: function() {return initializeTerrain(TileMaps.levelThreeWIP.layers[1].objects);},
+      initializeTerrain: function() {return initializeTerrain(TileMaps.levelThreeWIP.layers[1].objects);},
 
-	    initializeDebris: function() {return initializeDebris();},
-		checkpointPositions:[0, 600, 1200]
-	},
-	{
+      initializeDebris: function() {return initializeDebris();},
+    checkpointPositions:[0, 600, 1200]
+  },
+  {
         clearColor:"#010119",
         getBkgdColorLookup: function() {return backgroundColorLookup;},
         getBkgdStars: function() {return backgroundStars;},
         getBkgdParallaxLayer: function() {return backgroundParallaxLayer1;},
         getBkgdOffset: function() {return 50;},//50 is magic number based on background image
         getForegroundParallaxLayer: function() {return foregroundParallaxLayer1;},
-		getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY};},
+    getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY};},
 
         initializeEnemies: function() {return initializeEnemies(TileMaps.warpZoneWIP.layers[2].objects);},
 
         initializeTerrain: function() {return initializeTerrain(TileMaps.warpZoneWIP.layers[1].objects);},
 
         initializeDebris: function() {return initializeDebris();},
-		checkpointPositions:[0, 600, 1200]
-	}
+    checkpointPositions:[0, 600, 1200]
+  },
+  {
+        clearColor:"#010119",
+        getBkgdColorLookup: function() {return backgroundColorLookup;},
+        getBkgdStars: function() {return backgroundStars;},
+        getBkgdParallaxLayer: function() {return backgroundParallaxLayer1;},
+        getBkgdOffset: function() {return 50;},//50 is magic number based on background image
+        getForegroundParallaxLayer: function() {return foregroundParallaxLayer1;},
+    getPlayerSpawn: function() {return {x:GameField.x + 10, y:GameField.midY};},
+
+        initializeEnemies: function() {return initializeEnemies(TileMaps.levelOneH2.layers[2].objects);},
+
+        initializeTerrain: function() {return initializeTerrain(TileMaps.levelOneH2.layers[1].objects);},
+
+        initializeDebris: function() {return initializeDebris();},
+    checkpointPositions:[0, 600, 1200]
+  },
 ];
 
 function getPath(pathsObject, entity) {
