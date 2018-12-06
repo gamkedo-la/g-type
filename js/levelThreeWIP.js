@@ -92,7 +92,7 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":-869.916666666667,
+                 "x":-869.917,
                  "y":631.75
                 }, 
                 {
@@ -110,7 +110,7 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":-720.916666666667,
+                 "x":-720.917,
                  "y":631.75
                 }, 
                 {
@@ -128,7 +128,7 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":-570.916666666667,
+                 "x":-570.917,
                  "y":631.75
                 }, 
                 {
@@ -146,7 +146,7 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":-420.416666666667,
+                 "x":-420.417,
                  "y":631.75
                 }, 
                 {
@@ -164,7 +164,7 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":-270.916666666667,
+                 "x":-270.917,
                  "y":632.25
                 }, 
                 {
@@ -182,7 +182,7 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":-121.416666666667,
+                 "x":-121.417,
                  "y":632.25
                 }, 
                 {
@@ -200,7 +200,7 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":28.5833333333333,
+                 "x":28.5833,
                  "y":632.25
                 }, 
                 {
@@ -218,7 +218,7 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":178.583333333333,
+                 "x":178.583,
                  "y":632.25
                 }, 
                 {
@@ -236,7 +236,7 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":329.083333333333,
+                 "x":329.083,
                  "y":632.25
                 }, 
                 {
@@ -254,7 +254,7 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":-869.916666666667,
+                 "x":-869.917,
                  "y":65.75
                 }, 
                 {
@@ -272,7 +272,7 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":-719.416666666667,
+                 "x":-719.417,
                  "y":65.75
                 }, 
                 {
@@ -290,7 +290,7 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":-569.416666666667,
+                 "x":-569.417,
                  "y":66.25
                 }, 
                 {
@@ -308,7 +308,7 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":-418.916666666667,
+                 "x":-418.917,
                  "y":65.75
                 }, 
                 {
@@ -326,7 +326,7 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":-268.916666666667,
+                 "x":-268.917,
                  "y":65.75
                 }, 
                 {
@@ -344,7 +344,7 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":-118.916666666667,
+                 "x":-118.917,
                  "y":66.25
                 }, 
                 {
@@ -362,7 +362,7 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":31.5833333333333,
+                 "x":31.5833,
                  "y":66.25
                 }, 
                 {
@@ -380,7 +380,7 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":181.083333333333,
+                 "x":181.083,
                  "y":65.75
                 }, 
                 {
@@ -398,7 +398,7 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":330.583333333333,
+                 "x":330.583,
                  "y":65.75
                 }, 
                 {
@@ -416,8 +416,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":481.081833333333,
-                 "y":65.4166666666667
+                 "x":481.082,
+                 "y":65.4167
                 }, 
                 {
                  "gid":66,
@@ -434,8 +434,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":631.584833333333,
-                 "y":65.4166666666667
+                 "x":631.585,
+                 "y":65.4167
                 }, 
                 {
                  "gid":66,
@@ -452,8 +452,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":781.584833333333,
-                 "y":65.9166666666667
+                 "x":781.585,
+                 "y":65.9167
                 }, 
                 {
                  "gid":66,
@@ -470,8 +470,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":932.084833333333,
-                 "y":65.4166666666667
+                 "x":932.085,
+                 "y":65.4167
                 }, 
                 {
                  "gid":66,
@@ -488,8 +488,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":1082.08483333333,
-                 "y":65.4166666666667
+                 "x":1082.08,
+                 "y":65.4167
                 }, 
                 {
                  "gid":66,
@@ -506,8 +506,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":1232.08483333333,
-                 "y":65.9166666666667
+                 "x":1232.08,
+                 "y":65.9167
                 }, 
                 {
                  "gid":66,
@@ -524,8 +524,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":1382.58483333333,
-                 "y":65.9166666666667
+                 "x":1382.58,
+                 "y":65.9167
                 }, 
                 {
                  "gid":66,
@@ -542,8 +542,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":1532.08513333333,
-                 "y":65.4166666666667
+                 "x":1532.09,
+                 "y":65.4167
                 }, 
                 {
                  "gid":66,
@@ -560,8 +560,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":1681.58483333333,
-                 "y":65.4166666666667
+                 "x":1681.58,
+                 "y":65.4167
                 }, 
                 {
                  "gid":66,
@@ -578,8 +578,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":478.706833333333,
-                 "y":631.625166666667
+                 "x":478.707,
+                 "y":631.625
                 }, 
                 {
                  "gid":66,
@@ -596,8 +596,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":627.709833333333,
-                 "y":631.625166666667
+                 "x":627.71,
+                 "y":631.625
                 }, 
                 {
                  "gid":66,
@@ -614,8 +614,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":777.709833333333,
-                 "y":631.625166666667
+                 "x":777.71,
+                 "y":631.625
                 }, 
                 {
                  "gid":66,
@@ -632,8 +632,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":928.209833333333,
-                 "y":631.625166666667
+                 "x":928.21,
+                 "y":631.625
                 }, 
                 {
                  "gid":66,
@@ -650,8 +650,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":1077.70983333333,
-                 "y":632.125166666667
+                 "x":1077.71,
+                 "y":632.125
                 }, 
                 {
                  "gid":66,
@@ -668,8 +668,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":1227.20983333333,
-                 "y":632.125166666667
+                 "x":1227.21,
+                 "y":632.125
                 }, 
                 {
                  "gid":66,
@@ -686,8 +686,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":1377.20983333333,
-                 "y":632.125166666667
+                 "x":1377.21,
+                 "y":632.125
                 }, 
                 {
                  "gid":66,
@@ -704,8 +704,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":1527.21013333333,
-                 "y":632.125166666667
+                 "x":1527.21,
+                 "y":632.125
                 }, 
                 {
                  "gid":66,
@@ -722,8 +722,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":1677.70983333333,
-                 "y":632.125166666667
+                 "x":1677.71,
+                 "y":632.125
                 }, 
                 {
                  "gid":74,
@@ -740,8 +740,8 @@
                  "type":"lvl3Square2",
                  "visible":true,
                  "width":80,
-                 "x":1852.66666666667,
-                 "y":483.333333333333
+                 "x":1852.67,
+                 "y":483.333
                 }, 
                 {
                  "gid":74,
@@ -758,8 +758,8 @@
                  "type":"lvl3Square2",
                  "visible":true,
                  "width":80,
-                 "x":1977.33333333333,
-                 "y":483.333333333333
+                 "x":1977.33,
+                 "y":483.333
                 }, 
                 {
                  "gid":74,
@@ -776,8 +776,8 @@
                  "type":"lvl3Square2",
                  "visible":true,
                  "width":80,
-                 "x":1918.66666666667,
-                 "y":409.333333333333
+                 "x":1918.67,
+                 "y":409.333
                 }, 
                 {
                  "gid":71,
@@ -794,8 +794,8 @@
                  "type":"lvl3Cast",
                  "visible":true,
                  "width":76,
-                 "x":2087.33333333333,
-                 "y":481.333333333333
+                 "x":2087.33,
+                 "y":481.333
                 }, 
                 {
                  "gid":71,
@@ -812,8 +812,8 @@
                  "type":"lvl3Cast",
                  "visible":true,
                  "width":76,
-                 "x":2085.66666666667,
-                 "y":153.666666666667
+                 "x":2085.67,
+                 "y":153.667
                 }, 
                 {
                  "gid":72,
@@ -830,8 +830,8 @@
                  "type":"lvl3Plus",
                  "visible":true,
                  "width":76,
-                 "x":2422.66666666667,
-                 "y":481.333333333333
+                 "x":2422.67,
+                 "y":481.333
                 }, 
                 {
                  "gid":72,
@@ -849,7 +849,7 @@
                  "visible":true,
                  "width":76,
                  "x":2424,
-                 "y":407.333333333333
+                 "y":407.333
                 }, 
                 {
                  "gid":73,
@@ -866,8 +866,8 @@
                  "type":"lvl3Square",
                  "visible":true,
                  "width":76,
-                 "x":2613.33333333333,
-                 "y":482.333333333333
+                 "x":2613.33,
+                 "y":482.333
                 }, 
                 {
                  "gid":66,
@@ -884,8 +884,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":1827.58528787879,
-                 "y":632.674225757576
+                 "x":1827.59,
+                 "y":632.674
                 }, 
                 {
                  "gid":66,
@@ -902,8 +902,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":1976.58528787879,
-                 "y":632.674225757576
+                 "x":1976.59,
+                 "y":632.674
                 }, 
                 {
                  "gid":66,
@@ -920,8 +920,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":2126.58528787879,
-                 "y":632.674225757576
+                 "x":2126.59,
+                 "y":632.674
                 }, 
                 {
                  "gid":66,
@@ -938,8 +938,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":2277.08528787879,
-                 "y":632.674225757576
+                 "x":2277.09,
+                 "y":632.674
                 }, 
                 {
                  "gid":66,
@@ -956,8 +956,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":2426.58528787879,
-                 "y":633.174225757576
+                 "x":2426.59,
+                 "y":633.174
                 }, 
                 {
                  "gid":66,
@@ -974,8 +974,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":2576.08528787879,
-                 "y":633.174225757576
+                 "x":2576.09,
+                 "y":633.174
                 }, 
                 {
                  "gid":66,
@@ -992,8 +992,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":2726.08558787879,
-                 "y":633.174225757576
+                 "x":2726.09,
+                 "y":633.174
                 }, 
                 {
                  "gid":66,
@@ -1010,8 +1010,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":2876.08528787879,
-                 "y":633.174225757576
+                 "x":2876.09,
+                 "y":633.174
                 }, 
                 {
                  "gid":66,
@@ -1028,8 +1028,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":3026.58528787879,
-                 "y":633.174225757576
+                 "x":3026.59,
+                 "y":633.174
                 }, 
                 {
                  "gid":66,
@@ -1046,8 +1046,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":1831.58528787879,
-                 "y":65.6742257575758
+                 "x":1831.59,
+                 "y":65.6742
                 }, 
                 {
                  "gid":66,
@@ -1064,8 +1064,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":1981.08528787879,
-                 "y":65.6742257575758
+                 "x":1981.09,
+                 "y":65.6742
                 }, 
                 {
                  "gid":66,
@@ -1082,8 +1082,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":2131.08528787879,
-                 "y":66.1742257575758
+                 "x":2131.09,
+                 "y":66.1742
                 }, 
                 {
                  "gid":66,
@@ -1100,8 +1100,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":2281.58528787879,
-                 "y":65.6742257575758
+                 "x":2281.59,
+                 "y":65.6742
                 }, 
                 {
                  "gid":66,
@@ -1118,8 +1118,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":2431.58528787879,
-                 "y":65.6742257575758
+                 "x":2431.59,
+                 "y":65.6742
                 }, 
                 {
                  "gid":66,
@@ -1136,8 +1136,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":2581.58528787879,
-                 "y":66.1742257575758
+                 "x":2581.59,
+                 "y":66.1742
                 }, 
                 {
                  "gid":66,
@@ -1154,8 +1154,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":2732.08558787879,
-                 "y":66.1742257575758
+                 "x":2732.09,
+                 "y":66.1742
                 }, 
                 {
                  "gid":66,
@@ -1172,8 +1172,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":2881.58528787879,
-                 "y":65.6742257575758
+                 "x":2881.59,
+                 "y":65.6742
                 }, 
                 {
                  "gid":66,
@@ -1190,8 +1190,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":3031.08528787879,
-                 "y":65.6742257575758
+                 "x":3031.09,
+                 "y":65.6742
                 }, 
                 {
                  "gid":66,
@@ -1208,8 +1208,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":3181.58428787879,
-                 "y":65.3409257575757
+                 "x":3181.58,
+                 "y":65.3409
                 }, 
                 {
                  "gid":66,
@@ -1226,8 +1226,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":3332.08728787879,
-                 "y":65.3409257575757
+                 "x":3332.09,
+                 "y":65.3409
                 }, 
                 {
                  "gid":66,
@@ -1244,8 +1244,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":3482.08728787879,
-                 "y":65.8409257575757
+                 "x":3482.09,
+                 "y":65.8409
                 }, 
                 {
                  "gid":66,
@@ -1262,8 +1262,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":3632.58728787879,
-                 "y":65.3409257575757
+                 "x":3632.59,
+                 "y":65.3409
                 }, 
                 {
                  "gid":66,
@@ -1280,8 +1280,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":3782.58228787879,
-                 "y":65.3409257575757
+                 "x":3782.58,
+                 "y":65.3409
                 }, 
                 {
                  "gid":66,
@@ -1298,8 +1298,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":3932.58228787879,
-                 "y":65.8409257575757
+                 "x":3932.58,
+                 "y":65.8409
                 }, 
                 {
                  "gid":66,
@@ -1316,8 +1316,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":4083.08228787879,
-                 "y":65.8409257575757
+                 "x":4083.08,
+                 "y":65.8409
                 }, 
                 {
                  "gid":66,
@@ -1334,8 +1334,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":4232.59228787879,
-                 "y":65.3409257575757
+                 "x":4232.59,
+                 "y":65.3409
                 }, 
                 {
                  "gid":66,
@@ -1352,8 +1352,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":4382.08228787879,
-                 "y":65.3409257575757
+                 "x":4382.08,
+                 "y":65.3409
                 }, 
                 {
                  "gid":66,
@@ -1370,8 +1370,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":3176.20928787879,
-                 "y":632.549225757576
+                 "x":3176.21,
+                 "y":632.549
                 }, 
                 {
                  "gid":66,
@@ -1388,8 +1388,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":3325.21228787879,
-                 "y":632.549225757576
+                 "x":3325.21,
+                 "y":632.549
                 }, 
                 {
                  "gid":66,
@@ -1406,8 +1406,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":3475.21228787879,
-                 "y":632.549225757576
+                 "x":3475.21,
+                 "y":600.549
                 }, 
                 {
                  "gid":66,
@@ -1424,8 +1424,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":3625.71228787879,
-                 "y":632.549225757576
+                 "x":3625.71,
+                 "y":632.549
                 }, 
                 {
                  "gid":66,
@@ -1442,8 +1442,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":3775.21228787879,
-                 "y":633.049225757576
+                 "x":3775.21,
+                 "y":601.049
                 }, 
                 {
                  "gid":66,
@@ -1460,8 +1460,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":3924.71228787879,
-                 "y":633.049225757576
+                 "x":3924.71,
+                 "y":633.049
                 }, 
                 {
                  "gid":66,
@@ -1478,8 +1478,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":4074.71228787879,
-                 "y":633.049225757576
+                 "x":4074.71,
+                 "y":601.049
                 }, 
                 {
                  "gid":66,
@@ -1496,8 +1496,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":4224.71228787879,
-                 "y":633.049225757576
+                 "x":4224.71,
+                 "y":633.049
                 }, 
                 {
                  "gid":66,
@@ -1514,8 +1514,8 @@
                  "type":"lvl3AncientBoard",
                  "visible":true,
                  "width":150,
-                 "x":4375.21228787879,
-                 "y":633.049225757576
+                 "x":4375.21,
+                 "y":601.049
                 }, 
                 {
                  "gid":74,
@@ -1532,8 +1532,4004 @@
                  "type":"lvl3Square2",
                  "visible":true,
                  "width":80,
-                 "x":4558.17228787879,
-                 "y":486.257225757576
+                 "x":4558.17,
+                 "y":486.257
+                }, 
+                {
+                 "gid":31,
+                 "height":60,
+                 "id":1461,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"ragnarokCapsule",
+                 "visible":true,
+                 "width":60,
+                 "x":2434.67,
+                 "y":340.667
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1462,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":2848,
+                 "y":299.333
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1463,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":2924.25,
+                 "y":299.25
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1464,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":3000.5,
+                 "y":299.5
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1465,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":3076.75,
+                 "y":299.5
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1466,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":3153,
+                 "y":299.75
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1467,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":3229,
+                 "y":299.333
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1468,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":3305.25,
+                 "y":299.25
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1469,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":3381.5,
+                 "y":299.5
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1470,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":3457.75,
+                 "y":299.5
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1471,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":3534,
+                 "y":299.75
+                }, 
+                {
+                 "gid":72,
+                 "height":74,
+                 "id":1485,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Plus",
+                 "visible":true,
+                 "width":76,
+                 "x":3584.67,
+                 "y":251.667
+                }, 
+                {
+                 "gid":72,
+                 "height":74,
+                 "id":1486,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Plus",
+                 "visible":true,
+                 "width":76,
+                 "x":3583.33,
+                 "y":349.667
+                }, 
+                {
+                 "gid":71,
+                 "height":90,
+                 "id":1487,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Cast",
+                 "visible":true,
+                 "width":76,
+                 "x":3635.33,
+                 "y":275.667
+                }, 
+                {
+                 "gid":71,
+                 "height":90,
+                 "id":1489,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Cast",
+                 "visible":true,
+                 "width":76,
+                 "x":3635.33,
+                 "y":374.333
+                }, 
+                {
+                 "gid":37,
+                 "height":38,
+                 "id":1496,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"platform1",
+                 "visible":true,
+                 "width":76,
+                 "x":4047.33,
+                 "y":406.333
+                }, 
+                {
+                 "gid":37,
+                 "height":38,
+                 "id":1497,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"platform1",
+                 "visible":true,
+                 "width":76,
+                 "x":4123.33,
+                 "y":406.333
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1506,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":5523.67,
+                 "y":66.75
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1507,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":5673.17,
+                 "y":66.25
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1508,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":5822.67,
+                 "y":98.25
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1509,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":5973.16,
+                 "y":97.9167
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1510,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":6123.67,
+                 "y":129.917
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1511,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":6273.67,
+                 "y":130.417
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1512,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":6424.17,
+                 "y":161.917
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1513,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":6574.16,
+                 "y":161.917
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1514,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":6724.16,
+                 "y":194.417
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1515,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":6874.66,
+                 "y":194.417
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1516,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7024.17,
+                 "y":225.917
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1517,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7173.66,
+                 "y":225.917
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1518,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":5532,
+                 "y":635.083
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1519,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":5682,
+                 "y":603.083
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1520,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":5832.5,
+                 "y":635.083
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1521,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":5982,
+                 "y":603.583
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1522,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":6131.5,
+                 "y":635.583
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1523,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":6281.5,
+                 "y":603.583
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1524,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":6431.5,
+                 "y":635.583
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1525,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":6582,
+                 "y":603.583
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1526,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":6731.67,
+                 "y":601.417
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1527,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":6881.67,
+                 "y":569.417
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1528,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7032.17,
+                 "y":601.417
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1529,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7181.67,
+                 "y":601.917
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1530,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7331.17,
+                 "y":633.917
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1531,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7481.17,
+                 "y":633.917
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1532,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7631.17,
+                 "y":665.917
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1533,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7781.67,
+                 "y":665.917
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1534,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7323.34,
+                 "y":256
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1535,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7473.34,
+                 "y":288.5
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1536,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7623.84,
+                 "y":320
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1537,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7773.83,
+                 "y":352
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1542,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7931.06,
+                 "y":665.909
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1543,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":8082.58,
+                 "y":665.909
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1544,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":8231.06,
+                 "y":665.909
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1545,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":8231.06,
+                 "y":514.394
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1546,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":8234.09,
+                 "y":362.879
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1554,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":6717.89,
+                 "y":42.9737
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1555,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":6868.39,
+                 "y":42.9737
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1556,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7017.9,
+                 "y":74.4737
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1557,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7167.39,
+                 "y":74.4737
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1558,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7317.07,
+                 "y":104.557
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1559,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7467.07,
+                 "y":137.057
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1560,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7617.57,
+                 "y":168.557
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1561,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7767.56,
+                 "y":200.557
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1562,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7617.3,
+                 "y":17.1515
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1563,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7767.3,
+                 "y":49.6515
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1564,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":7917.8,
+                 "y":81.1515
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1565,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":8067.79,
+                 "y":113.152
+                }, 
+                {
+                 "gid":71,
+                 "height":90,
+                 "id":1585,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Cast",
+                 "visible":true,
+                 "width":76,
+                 "x":5571.33,
+                 "y":485
+                }, 
+                {
+                 "gid":71,
+                 "height":90,
+                 "id":1586,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Cast",
+                 "visible":true,
+                 "width":76,
+                 "x":6007.33,
+                 "y":186.333
+                }, 
+                {
+                 "gid":71,
+                 "height":90,
+                 "id":1587,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Cast",
+                 "visible":true,
+                 "width":76,
+                 "x":6508.67,
+                 "y":485
+                }, 
+                {
+                 "gid":71,
+                 "height":90,
+                 "id":1588,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Cast",
+                 "visible":true,
+                 "width":76,
+                 "x":6646,
+                 "y":250.333
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1589,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":8595.33,
+                 "y":183.333
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1590,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":8599.33,
+                 "y":462
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1591,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":9529.75,
+                 "y":640.601
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1592,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":9678.75,
+                 "y":640.601
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1593,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":9828.75,
+                 "y":640.601
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1594,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":9979.25,
+                 "y":640.601
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1595,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":10128.7,
+                 "y":641.101
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1596,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":10278.2,
+                 "y":641.101
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1597,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":10428.2,
+                 "y":641.101
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1598,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":10578.2,
+                 "y":641.101
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1599,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":10728.7,
+                 "y":641.101
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1600,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":10878.4,
+                 "y":640.476
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1601,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":11027.4,
+                 "y":640.476
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1602,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":11177.4,
+                 "y":640.476
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1603,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":11327.9,
+                 "y":640.476
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1604,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":11477.4,
+                 "y":640.976
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1605,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":11626.9,
+                 "y":640.976
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1606,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":11776.9,
+                 "y":640.976
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1607,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":11926.9,
+                 "y":640.976
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1608,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":12077.4,
+                 "y":640.976
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1609,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":12227.3,
+                 "y":641.524
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1610,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":12376.3,
+                 "y":641.524
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1611,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":12526.7,
+                 "y":640.601
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1612,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":12675.7,
+                 "y":640.601
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1613,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":12825.7,
+                 "y":640.601
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1614,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":12976.2,
+                 "y":640.601
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1615,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":13125.7,
+                 "y":641.101
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1616,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":13275.2,
+                 "y":641.101
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1617,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":13425.2,
+                 "y":641.101
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1618,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":13575.2,
+                 "y":641.101
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1619,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":13725.7,
+                 "y":641.101
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1620,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":13875.4,
+                 "y":640.476
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1621,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":14024.4,
+                 "y":640.476
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1622,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":14174.4,
+                 "y":640.476
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1623,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":14324.9,
+                 "y":640.476
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1624,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":14474.4,
+                 "y":640.976
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1625,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":14623.9,
+                 "y":640.976
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1626,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":14773.9,
+                 "y":640.976
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1627,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":14923.9,
+                 "y":640.976
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1628,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":15074.4,
+                 "y":640.976
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1629,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":15224.3,
+                 "y":641.524
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1630,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":15373.3,
+                 "y":641.524
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1631,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":9541.75,
+                 "y":68.6005
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1632,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":9690.75,
+                 "y":68.6005
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1633,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":9840.75,
+                 "y":68.6005
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1634,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":9991.25,
+                 "y":68.6005
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1635,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":10140.7,
+                 "y":69.1005
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1636,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":10290.2,
+                 "y":69.1005
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1637,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":10440.2,
+                 "y":69.1005
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1638,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":10590.2,
+                 "y":69.1005
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1639,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":10740.7,
+                 "y":69.1005
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1640,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":10890.4,
+                 "y":68.4755
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1641,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":11039.4,
+                 "y":68.4755
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1642,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":11189.4,
+                 "y":68.4755
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1643,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":11339.9,
+                 "y":68.4755
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1644,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":11489.4,
+                 "y":68.9755
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1645,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":11638.9,
+                 "y":68.9755
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1646,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":11788.9,
+                 "y":68.9755
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1647,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":11938.9,
+                 "y":68.9755
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1648,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":12089.4,
+                 "y":68.9755
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1649,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":12239.3,
+                 "y":69.5245
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1650,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":12388.3,
+                 "y":69.5245
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1651,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":12538.7,
+                 "y":68.6005
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1652,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":12687.7,
+                 "y":68.6005
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1653,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":12837.7,
+                 "y":68.6005
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1654,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":12988.2,
+                 "y":68.6005
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1655,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":13137.7,
+                 "y":69.1005
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1656,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":13287.2,
+                 "y":69.1005
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1657,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":13437.2,
+                 "y":69.1005
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1658,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":13587.2,
+                 "y":69.1005
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1659,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":13737.7,
+                 "y":69.1005
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1660,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":13887.4,
+                 "y":68.4755
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1661,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":14036.4,
+                 "y":68.4755
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1662,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":14186.4,
+                 "y":68.4755
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1663,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":14336.9,
+                 "y":68.4755
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1664,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":14486.4,
+                 "y":68.9755
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1665,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":14635.9,
+                 "y":68.9755
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1666,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":14785.9,
+                 "y":68.9755
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1667,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":14935.9,
+                 "y":68.9755
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1668,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":15086.4,
+                 "y":68.9755
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1669,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":15236.3,
+                 "y":69.5245
+                }, 
+                {
+                 "gid":66,
+                 "height":150,
+                 "id":1670,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3AncientBoard",
+                 "visible":true,
+                 "width":150,
+                 "x":15385.3,
+                 "y":69.5245
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1671,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":9614,
+                 "y":491
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1672,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":9825,
+                 "y":492
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1673,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":9698,
+                 "y":142
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1674,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":9927,
+                 "y":143
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1675,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":10075,
+                 "y":491
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1676,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":10063,
+                 "y":143
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1679,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":10431,
+                 "y":491
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1680,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":10345,
+                 "y":144
+                }, 
+                {
+                 "gid":74,
+                 "height":74,
+                 "id":1682,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square2",
+                 "visible":true,
+                 "width":80,
+                 "x":10421,
+                 "y":142
+                }, 
+                {
+                 "gid":74,
+                 "height":74,
+                 "id":1683,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square2",
+                 "visible":true,
+                 "width":80,
+                 "x":10353,
+                 "y":490
+                }, 
+                {
+                 "gid":74,
+                 "height":74,
+                 "id":1684,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square2",
+                 "visible":true,
+                 "width":80,
+                 "x":10720,
+                 "y":491
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1685,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":10800,
+                 "y":493
+                }, 
+                {
+                 "gid":74,
+                 "height":74,
+                 "id":1686,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square2",
+                 "visible":true,
+                 "width":80,
+                 "x":10877,
+                 "y":491
+                }, 
+                {
+                 "gid":74,
+                 "height":74,
+                 "id":1687,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square2",
+                 "visible":true,
+                 "width":80,
+                 "x":10801,
+                 "y":418
+                }, 
+                {
+                 "gid":74,
+                 "height":74,
+                 "id":1688,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square2",
+                 "visible":true,
+                 "width":80,
+                 "x":10720,
+                 "y":143
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1689,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":10800,
+                 "y":145
+                }, 
+                {
+                 "gid":74,
+                 "height":74,
+                 "id":1690,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square2",
+                 "visible":true,
+                 "width":80,
+                 "x":10877,
+                 "y":144
+                }, 
+                {
+                 "gid":74,
+                 "height":74,
+                 "id":1691,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square2",
+                 "visible":true,
+                 "width":80,
+                 "x":10798,
+                 "y":217
+                }, 
+                {
+                 "gid":37,
+                 "height":38,
+                 "id":1692,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"platform1",
+                 "visible":true,
+                 "width":76,
+                 "x":11173,
+                 "y":356
+                }, 
+                {
+                 "gid":37,
+                 "height":38,
+                 "id":1693,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"platform1",
+                 "visible":true,
+                 "width":76,
+                 "x":11250,
+                 "y":356
+                }, 
+                {
+                 "gid":31,
+                 "height":60,
+                 "id":1735,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"ragnarokCapsule",
+                 "visible":true,
+                 "width":60,
+                 "x":9834,
+                 "y":423
+                }, 
+                {
+                 "gid":31,
+                 "height":60,
+                 "id":1736,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"ragnarokCapsule",
+                 "visible":true,
+                 "width":60,
+                 "x":10405,
+                 "y":427
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1737,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":10451,
+                 "y":466
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1738,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":10378,
+                 "y":465
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1739,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":10097,
+                 "y":466
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1740,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":9846,
+                 "y":467
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1741,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":9635,
+                 "y":465
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1742,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":9720,
+                 "y":117
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1743,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":9950,
+                 "y":118
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1744,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":10085,
+                 "y":118
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1745,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":10367,
+                 "y":118
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1746,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":10445,
+                 "y":119
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1747,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":10742,
+                 "y":118
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1748,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":10823,
+                 "y":121
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1749,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":10901,
+                 "y":120
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1750,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":10822,
+                 "y":193
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1751,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":10745,
+                 "y":468
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1752,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":10822,
+                 "y":468
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1753,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":10825,
+                 "y":392
+                }, 
+                {
+                 "gid":15,
+                 "height":27,
+                 "id":1754,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"capsule1",
+                 "visible":true,
+                 "width":33,
+                 "x":10901,
+                 "y":468
+                }, 
+                {
+                 "gid":37,
+                 "height":38,
+                 "id":1755,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"platform1",
+                 "visible":true,
+                 "width":76,
+                 "x":11097,
+                 "y":356
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1756,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":11096,
+                 "y":319
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1760,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":11584,
+                 "y":493.333
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1761,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":11660,
+                 "y":493.333
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1762,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":11736,
+                 "y":493.333
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1765,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":11584,
+                 "y":143
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1766,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":11660,
+                 "y":143
+                }, 
+                {
+                 "gid":73,
+                 "height":76,
+                 "id":1767,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square",
+                 "visible":true,
+                 "width":76,
+                 "x":11736,
+                 "y":143
+                }, 
+                {
+                 "gid":74,
+                 "height":74,
+                 "id":1768,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square2",
+                 "visible":true,
+                 "width":80,
+                 "x":11658,
+                 "y":215
+                }, 
+                {
+                 "gid":74,
+                 "height":74,
+                 "id":1769,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square2",
+                 "visible":true,
+                 "width":80,
+                 "x":11660,
+                 "y":421.25
+                }, 
+                {
+                 "gid":16,
+                 "height":30,
+                 "id":1770,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"bubble",
+                 "visible":true,
+                 "width":30,
+                 "x":11685,
+                 "y":399
+                }, 
+                {
+                 "gid":16,
+                 "height":30,
+                 "id":1771,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"bubble",
+                 "visible":true,
+                 "width":30,
+                 "x":11606.3,
+                 "y":470.333
+                }, 
+                {
+                 "gid":16,
+                 "height":30,
+                 "id":1772,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"bubble",
+                 "visible":true,
+                 "width":30,
+                 "x":11683,
+                 "y":471.667
+                }, 
+                {
+                 "gid":16,
+                 "height":30,
+                 "id":1773,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"bubble",
+                 "visible":true,
+                 "width":30,
+                 "x":11761.7,
+                 "y":469.667
+                }, 
+                {
+                 "gid":16,
+                 "height":30,
+                 "id":1776,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"bubble",
+                 "visible":true,
+                 "width":30,
+                 "x":11681,
+                 "y":255
+                }, 
+                {
+                 "gid":16,
+                 "height":30,
+                 "id":1777,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"bubble",
+                 "visible":true,
+                 "width":30,
+                 "x":11682.3,
+                 "y":339
+                }, 
+                {
+                 "gid":16,
+                 "height":30,
+                 "id":1778,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"bubble",
+                 "visible":true,
+                 "width":30,
+                 "x":11681.7,
+                 "y":296.333
+                }, 
+                {
+                 "gid":16,
+                 "height":30,
+                 "id":1779,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"bubble",
+                 "visible":true,
+                 "width":30,
+                 "x":11682.3,
+                 "y":195
+                }, 
+                {
+                 "gid":16,
+                 "height":30,
+                 "id":1780,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"bubble",
+                 "visible":true,
+                 "width":30,
+                 "x":11607,
+                 "y":121
+                }, 
+                {
+                 "gid":16,
+                 "height":30,
+                 "id":1781,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"bubble",
+                 "visible":true,
+                 "width":30,
+                 "x":11683.7,
+                 "y":121
+                }, 
+                {
+                 "gid":16,
+                 "height":30,
+                 "id":1782,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"bubble",
+                 "visible":true,
+                 "width":30,
+                 "x":11758.3,
+                 "y":120.333
+                }, 
+                {
+                 "gid":71,
+                 "height":90,
+                 "id":1784,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Cast",
+                 "visible":true,
+                 "width":76,
+                 "x":11812,
+                 "y":491
+                }, 
+                {
+                 "gid":71,
+                 "height":90,
+                 "id":1786,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Cast",
+                 "visible":true,
+                 "width":76,
+                 "x":11915,
+                 "y":491
+                }, 
+                {
+                 "gid":74,
+                 "height":74,
+                 "id":1787,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square2",
+                 "visible":true,
+                 "width":80,
+                 "x":11911,
+                 "y":403
+                }, 
+                {
+                 "gid":16,
+                 "height":30,
+                 "id":1789,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"bubble",
+                 "visible":true,
+                 "width":30,
+                 "x":11936,
+                 "y":381
+                }, 
+                {
+                 "gid":74,
+                 "height":74,
+                 "id":1790,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"lvl3Square2",
+                 "visible":true,
+                 "width":80,
+                 "x":11862,
+                 "y":481
+                }, 
+                {
+                 "gid":16,
+                 "height":30,
+                 "id":1791,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"bubble",
+                 "visible":true,
+                 "width":30,
+                 "x":11887,
+                 "y":459
+                }, 
+                {
+                 "gid":16,
+                 "height":30,
+                 "id":1792,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"bubble",
+                 "visible":true,
+                 "width":30,
+                 "x":8621,
+                 "y":439
+                }, 
+                {
+                 "gid":16,
+                 "height":30,
+                 "id":1793,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"bubble",
+                 "visible":true,
+                 "width":30,
+                 "x":8617,
+                 "y":159
+                }, 
+                {
+                 "gid":16,
+                 "height":30,
+                 "id":1794,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"bubble",
+                 "visible":true,
+                 "width":30,
+                 "x":11117,
+                 "y":297
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1562,7 +5558,7 @@
                  "visible":true,
                  "width":150,
                  "x":2221,
-                 "y":481.333333333333
+                 "y":481.333
                 }, 
                 {
                  "gid":35,
@@ -1594,8 +5590,8 @@
                  "type":"flyingEnemy3",
                  "visible":true,
                  "width":45,
-                 "x":2273.33333333333,
-                 "y":481.666666666667
+                 "x":2273.33,
+                 "y":481.667
                 }, 
                 {
                  "height":0,
@@ -1607,35 +5603,35 @@
                          "y":0
                         }, 
                         {
-                         "x":-37.3333333333333,
+                         "x":-37.3333,
                          "y":-98
                         }, 
                         {
-                         "x":-156.666666666667,
-                         "y":-183.333333333333
+                         "x":-156.667,
+                         "y":-183.333
                         }, 
                         {
-                         "x":-317.333333333333,
-                         "y":-182.666666666667
+                         "x":-317.333,
+                         "y":-182.667
                         }, 
                         {
-                         "x":-316.666666666667,
+                         "x":-316.667,
                          "y":-294
                         }, 
                         {
-                         "x":-61.3333333333333,
-                         "y":-293.333333333333
+                         "x":-61.3333,
+                         "y":-293.333
                         }, 
                         {
-                         "x":-61.3333333333333,
+                         "x":-61.3333,
                          "y":-216
                         }, 
                         {
-                         "x":-92.6666666666667,
-                         "y":-183.333333333333
+                         "x":-92.6667,
+                         "y":-183.333
                         }, 
                         {
-                         "x":-136.666666666667,
+                         "x":-136.667,
                          "y":-184
                         }],
                  "properties":[
@@ -1648,8 +5644,8 @@
                  "type":"path",
                  "visible":true,
                  "width":0,
-                 "x":2297.33333333333,
-                 "y":406.333333333333
+                 "x":2297.33,
+                 "y":406.333
                 }, 
                 {
                  "gid":35,
@@ -1681,8 +5677,8 @@
                  "type":"flyingEnemy3",
                  "visible":true,
                  "width":45,
-                 "x":2274.66666666667,
-                 "y":482.333333333333
+                 "x":2274.67,
+                 "y":482.333
                 }, 
                 {
                  "gid":35,
@@ -1714,7 +5710,7 @@
                  "type":"flyingEnemy3",
                  "visible":true,
                  "width":45,
-                 "x":2274.66666666667,
+                 "x":2274.67,
                  "y":481
                 }, 
                 {
@@ -1748,7 +5744,7 @@
                  "visible":true,
                  "width":45,
                  "x":2274,
-                 "y":481.666666666667
+                 "y":481.667
                 }, 
                 {
                  "gid":24,
@@ -1764,7 +5760,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"rotation",
@@ -1775,7 +5771,7 @@
                  "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
-                 "x":1890.33333333333,
+                 "x":1890.33,
                  "y":386
                 }, 
                 {
@@ -1792,7 +5788,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"rotation",
@@ -1803,7 +5799,7 @@
                  "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
-                 "x":1943.66666666667,
+                 "x":1943.67,
                  "y":338
                 }, 
                 {
@@ -1820,7 +5816,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"rotation",
@@ -1831,7 +5827,7 @@
                  "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
-                 "x":1854.66666666667,
+                 "x":1854.67,
                  "y":93
                 }, 
                 {
@@ -1848,7 +5844,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"rotation",
@@ -1859,7 +5855,7 @@
                  "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
-                 "x":1953.33333333333,
+                 "x":1953.33,
                  "y":93
                 }, 
                 {
@@ -1876,7 +5872,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"rotation",
@@ -1887,8 +5883,8 @@
                  "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
-                 "x":2108.66666666667,
-                 "y":181.666666666667
+                 "x":2108.67,
+                 "y":181.667
                 }, 
                 {
                  "gid":18,
@@ -1915,8 +5911,8 @@
                  "type":"groundEnemy1",
                  "visible":true,
                  "width":30,
-                 "x":1996.33333333333,
-                 "y":385.333333333333
+                 "x":1996.33,
+                 "y":385.333
                 }, 
                 {
                  "gid":18,
@@ -1944,7 +5940,7 @@
                  "visible":true,
                  "width":30,
                  "x":2136,
-                 "y":119.666666666667
+                 "y":119.667
                 }, 
                 {
                  "gid":38,
@@ -1965,7 +5961,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":15
+                         "value":10
                         }, 
                         {
                          "name":"pattern",
@@ -2009,8 +6005,8 @@
                  "type":"groundEnemy2",
                  "visible":true,
                  "width":40,
-                 "x":2529.33333333333,
-                 "y":481.666666666667
+                 "x":2529.33,
+                 "y":481.667
                 }, 
                 {
                  "gid":39,
@@ -2033,7 +6029,7 @@
                  "visible":true,
                  "width":120,
                  "x":2556,
-                 "y":409.333333333333
+                 "y":409.333
                 }, 
                 {
                  "gid":12,
@@ -2065,8 +6061,8 @@
                  "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
-                 "x":16.3333333333333,
-                 "y":170.666666666667
+                 "x":16.3333,
+                 "y":170.667
                 }, 
                 {
                  "gid":12,
@@ -2098,8 +6094,8 @@
                  "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
-                 "x":81.6666666666667,
-                 "y":169.333333333333
+                 "x":81.6667,
+                 "y":169.333
                 }, 
                 {
                  "gid":12,
@@ -2164,7 +6160,7 @@
                  "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
-                 "x":210.333333333333,
+                 "x":210.333,
                  "y":170
                 }, 
                 {
@@ -2197,8 +6193,8 @@
                  "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
-                 "x":273.666666666667,
-                 "y":170.666666666667
+                 "x":273.667,
+                 "y":170.667
                 }, 
                 {
                  "gid":9,
@@ -2263,8 +6259,8 @@
                  "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
-                 "x":402.333333333333,
-                 "y":330.666666666667
+                 "x":402.333,
+                 "y":330.667
                 }, 
                 {
                  "gid":9,
@@ -2297,7 +6293,7 @@
                  "visible":true,
                  "width":30,
                  "x":435,
-                 "y":299.333333333333
+                 "y":299.333
                 }, 
                 {
                  "gid":9,
@@ -2329,8 +6325,8 @@
                  "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
-                 "x":497.666666666667,
-                 "y":233.333333333333
+                 "x":497.667,
+                 "y":233.333
                 }, 
                 {
                  "gid":9,
@@ -2363,7 +6359,7 @@
                  "visible":true,
                  "width":30,
                  "x":531,
-                 "y":266.666666666667
+                 "y":266.667
                 }, 
                 {
                  "gid":9,
@@ -2395,7 +6391,7 @@
                  "type":"flyingEnemy1",
                  "visible":true,
                  "width":30,
-                 "x":561.666666666667,
+                 "x":561.667,
                  "y":298
                 }, 
                 {
@@ -2429,7 +6425,7 @@
                  "visible":true,
                  "width":30,
                  "x":627,
-                 "y":425.333333333333
+                 "y":425.333
                 }, 
                 {
                  "gid":10,
@@ -2494,8 +6490,8 @@
                  "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
-                 "x":871.666666666667,
-                 "y":344.333333333333
+                 "x":871.667,
+                 "y":344.333
                 }, 
                 {
                  "gid":10,
@@ -2560,7 +6556,7 @@
                  "type":"flyingEnemy3",
                  "visible":true,
                  "width":45,
-                 "x":1097.33333333333,
+                 "x":1097.33,
                  "y":406
                 }, 
                 {
@@ -2593,7 +6589,7 @@
                  "type":"flyingEnemy3",
                  "visible":true,
                  "width":45,
-                 "x":1161.33333333333,
+                 "x":1161.33,
                  "y":470
                 }, 
                 {
@@ -2627,7 +6623,7 @@
                  "visible":true,
                  "width":45,
                  "x":1162,
-                 "y":342.666666666667
+                 "y":342.667
                 }, 
                 {
                  "gid":34,
@@ -2659,7 +6655,7 @@
                  "type":"flyingEnemy3",
                  "visible":true,
                  "width":45,
-                 "x":1225.33333333333,
+                 "x":1225.33,
                  "y":406
                 }, 
                 {
@@ -2676,7 +6672,7 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":-150
+                         "value":-200
                         }, 
                         {
                          "name":"difficulty",
@@ -2693,7 +6689,7 @@
                  "visible":true,
                  "width":50,
                  "x":1351,
-                 "y":183.666666666667
+                 "y":183.667
                 }, 
                 {
                  "height":0,
@@ -2705,36 +6701,36 @@
                          "y":0
                         }, 
                         {
-                         "x":-352.666666666667,
-                         "y":-0.666666666666657
+                         "x":-640.667,
+                         "y":241.333
                         }, 
                         {
-                         "x":-97.3333333333335,
-                         "y":287.333333333333
+                         "x":-339.333,
+                         "y":93.333
                         }, 
                         {
-                         "x":-191.333333333333,
-                         "y":64.6666666666667
+                         "x":-647.333,
+                         "y":46.6667
                         }, 
                         {
-                         "x":-320,
-                         "y":64
+                         "x":-296,
+                         "y":22
                         }, 
                         {
-                         "x":-132.666666666667,
-                         "y":286
+                         "x":-656.667,
+                         "y":-14
                         }, 
                         {
-                         "x":12.6666666666665,
-                         "y":286.666666666667
+                         "x":-293.333,
+                         "y":66.667
                         }, 
                         {
-                         "x":-93.3333333333335,
-                         "y":114
+                         "x":-475.333,
+                         "y":110
                         }, 
                         {
-                         "x":-134,
-                         "y":114
+                         "x":-618,
+                         "y":102
                         }],
                  "properties":[
                         {
@@ -2747,7 +6743,7 @@
                  "visible":true,
                  "width":0,
                  "x":1376,
-                 "y":159.333333333333
+                 "y":159.333
                 }, 
                 {
                  "gid":26,
@@ -2763,7 +6759,7 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":-150
+                         "value":-200
                         }, 
                         {
                          "name":"difficulty",
@@ -2779,8 +6775,8 @@
                  "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
-                 "x":1415.66666666667,
-                 "y":184.333333333333
+                 "x":1415.67,
+                 "y":184.333
                 }, 
                 {
                  "gid":26,
@@ -2796,7 +6792,7 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":-150
+                         "value":-200
                         }, 
                         {
                          "name":"difficulty",
@@ -2812,7 +6808,7 @@
                  "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
-                 "x":1478.33333333333,
+                 "x":1478.33,
                  "y":183
                 }, 
                 {
@@ -2829,7 +6825,7 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":-150
+                         "value":-200
                         }, 
                         {
                          "name":"difficulty",
@@ -2862,7 +6858,7 @@
                         {
                          "name":"Speed",
                          "type":"int",
-                         "value":-150
+                         "value":-200
                         }, 
                         {
                          "name":"difficulty",
@@ -2878,8 +6874,8 @@
                  "type":"flyingEnemy2",
                  "visible":true,
                  "width":50,
-                 "x":1606.33333333333,
-                 "y":184.333333333333
+                 "x":1606.33,
+                 "y":184.333
                 }, 
                 {
                  "gid":20,
@@ -2895,7 +6891,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":10
+                         "value":5
                         }, 
                         {
                          "name":"rotation",
@@ -2923,7 +6919,7 @@
                         {
                          "name":"difficulty",
                          "type":"int",
-                         "value":10
+                         "value":5
                         }, 
                         {
                          "name":"rotation",
@@ -2936,6 +6932,2765 @@
                  "width":30,
                  "x":1825,
                  "y":484
+                }, 
+                {
+                 "gid":12,
+                 "height":21,
+                 "id":1472,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-125
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":3264,
+                 "y":154
+                }, 
+                {
+                 "gid":12,
+                 "height":21,
+                 "id":1473,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-125
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":3331,
+                 "y":155
+                }, 
+                {
+                 "gid":12,
+                 "height":21,
+                 "id":1474,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-125
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":3393,
+                 "y":155
+                }, 
+                {
+                 "gid":12,
+                 "height":21,
+                 "id":1475,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-125
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":3460,
+                 "y":155
+                }, 
+                {
+                 "gid":12,
+                 "height":21,
+                 "id":1476,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-125
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":3522,
+                 "y":155
+                }, 
+                {
+                 "gid":12,
+                 "height":21,
+                 "id":1477,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":15
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-125
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":3586,
+                 "y":155
+                }, 
+                {
+                 "gid":9,
+                 "height":21,
+                 "id":1478,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":16
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-75
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":16
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":3426,
+                 "y":395
+                }, 
+                {
+                 "gid":9,
+                 "height":21,
+                 "id":1479,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":17
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-75
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":16
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":3602,
+                 "y":394
+                }, 
+                {
+                 "gid":20,
+                 "height":30,
+                 "id":1480,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":11
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0.785398163
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":2863,
+                 "y":485
+                }, 
+                {
+                 "gid":20,
+                 "height":30,
+                 "id":1481,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":12
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0.785398163
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":2958,
+                 "y":485
+                }, 
+                {
+                 "gid":20,
+                 "height":30,
+                 "id":1482,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":13
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0.785398163
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":3047,
+                 "y":486
+                }, 
+                {
+                 "gid":20,
+                 "height":30,
+                 "id":1483,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":14
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0.785398163
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":3132,
+                 "y":485
+                }, 
+                {
+                 "gid":39,
+                 "height":126,
+                 "id":1484,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":20
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy3",
+                 "visible":true,
+                 "width":120,
+                 "x":3154,
+                 "y":483
+                }, 
+                {
+                 "gid":18,
+                 "height":30,
+                 "id":1490,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":20
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":4.71238898
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":3686.33,
+                 "y":246.333
+                }, 
+                {
+                 "gid":18,
+                 "height":30,
+                 "id":1491,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":20
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":4.71238898
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":3685.67,
+                 "y":346.333
+                }, 
+                {
+                 "gid":23,
+                 "height":30,
+                 "id":1492,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":18
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":2.35619449
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":2906.33,
+                 "y":325
+                }, 
+                {
+                 "gid":23,
+                 "height":30,
+                 "id":1493,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":19
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":2.35619449
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":2984.33,
+                 "y":325
+                }, 
+                {
+                 "gid":23,
+                 "height":30,
+                 "id":1494,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":20
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":2.35619449
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":3060.33,
+                 "y":325.667
+                }, 
+                {
+                 "gid":23,
+                 "height":30,
+                 "id":1495,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":21
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":2.35619449
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":3136.33,
+                 "y":325.667
+                }, 
+                {
+                 "gid":40,
+                 "height":90,
+                 "id":1498,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":22
+                        }],
+                 "rotation":0,
+                 "type":"launchBay",
+                 "visible":true,
+                 "width":150,
+                 "x":4047.67,
+                 "y":369
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1499,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":22
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":4100,
+                 "y":370.667
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1500,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":22
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":4101.33,
+                 "y":370.667
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1501,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":22
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":16
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":4100.67,
+                 "y":370
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1502,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":22
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":4101.33,
+                 "y":370
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1503,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":22
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":4102,
+                 "y":370
+                }, 
+                {
+                 "height":0,
+                 "id":1504,
+                 "name":"",
+                 "polyline":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":-58,
+                         "y":-92
+                        }, 
+                        {
+                         "x":-364,
+                         "y":-91.3333
+                        }, 
+                        {
+                         "x":-644,
+                         "y":100.667
+                        }, 
+                        {
+                         "x":-456.667,
+                         "y":-139.333
+                        }, 
+                        {
+                         "x":-180,
+                         "y":-177.333
+                        }, 
+                        {
+                         "x":-21.3333,
+                         "y":-176
+                        }, 
+                        {
+                         "x":56.6667,
+                         "y":-108
+                        }, 
+                        {
+                         "x":-22.6667,
+                         "y":-93.3333
+                        }, 
+                        {
+                         "x":-49.3333,
+                         "y":-93.3333
+                        }],
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":22
+                        }],
+                 "rotation":0,
+                 "type":"path",
+                 "visible":true,
+                 "width":0,
+                 "x":4127.33,
+                 "y":287.333
+                }, 
+                {
+                 "gid":51,
+                 "height":134,
+                 "id":1547,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"string",
+                         "value":"0"
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":40
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":20
+                        }],
+                 "rotation":0,
+                 "type":"eyeBoss1",
+                 "visible":true,
+                 "width":128,
+                 "x":9295.73,
+                 "y":298.848
+                }, 
+                {
+                 "gid":51,
+                 "height":134,
+                 "id":1548,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"string",
+                         "value":"0"
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":40
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":20
+                        }],
+                 "rotation":0,
+                 "type":"eyeBoss1",
+                 "visible":true,
+                 "width":128,
+                 "x":5202.67,
+                 "y":382.152
+                }, 
+                {
+                 "gid":51,
+                 "height":134,
+                 "id":1549,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"string",
+                         "value":"0"
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":40
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":20
+                        }],
+                 "rotation":0,
+                 "type":"eyeBoss1",
+                 "visible":true,
+                 "width":128,
+                 "x":9196.79,
+                 "y":439.606
+                }, 
+                {
+                 "gid":39,
+                 "height":126,
+                 "id":1567,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":20
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy3",
+                 "visible":true,
+                 "width":120,
+                 "x":8103.64,
+                 "y":517.545
+                }, 
+                {
+                 "gid":23,
+                 "height":30,
+                 "id":1568,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":2.35619449
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":7595,
+                 "y":317
+                }, 
+                {
+                 "gid":23,
+                 "height":30,
+                 "id":1569,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":2.35619449
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":7745,
+                 "y":349
+                }, 
+                {
+                 "gid":23,
+                 "height":30,
+                 "id":1570,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":2.35619449
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":7445,
+                 "y":285
+                }, 
+                {
+                 "gid":23,
+                 "height":30,
+                 "id":1571,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":2.35619449
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":7295,
+                 "y":254
+                }, 
+                {
+                 "gid":19,
+                 "height":30,
+                 "id":1572,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":5.497787143
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":7330,
+                 "y":485
+                }, 
+                {
+                 "gid":19,
+                 "height":30,
+                 "id":1573,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":5.497787143
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":7629,
+                 "y":517
+                }, 
+                {
+                 "gid":19,
+                 "height":30,
+                 "id":1574,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":5.497787143
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":7030,
+                 "y":453
+                }, 
+                {
+                 "gid":10,
+                 "height":50,
+                 "id":1575,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":30
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":16
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2",
+                 "visible":true,
+                 "width":50,
+                 "x":5733,
+                 "y":185
+                }, 
+                {
+                 "gid":10,
+                 "height":50,
+                 "id":1576,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":31
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2",
+                 "visible":true,
+                 "width":50,
+                 "x":5735,
+                 "y":314
+                }, 
+                {
+                 "gid":10,
+                 "height":50,
+                 "id":1577,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":31
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2",
+                 "visible":true,
+                 "width":50,
+                 "x":5896,
+                 "y":313
+                }, 
+                {
+                 "gid":10,
+                 "height":50,
+                 "id":1578,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":31
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2",
+                 "visible":true,
+                 "width":50,
+                 "x":5814,
+                 "y":313
+                }, 
+                {
+                 "gid":10,
+                 "height":50,
+                 "id":1579,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":31
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2",
+                 "visible":true,
+                 "width":50,
+                 "x":5670,
+                 "y":314
+                }, 
+                {
+                 "gid":12,
+                 "height":21,
+                 "id":1580,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":32
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":6258,
+                 "y":313
+                }, 
+                {
+                 "gid":12,
+                 "height":21,
+                 "id":1581,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":32
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":6319,
+                 "y":314
+                }, 
+                {
+                 "gid":12,
+                 "height":21,
+                 "id":1582,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":32
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":16
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":6384,
+                 "y":314
+                }, 
+                {
+                 "gid":12,
+                 "height":21,
+                 "id":1583,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":32
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":6449,
+                 "y":315
+                }, 
+                {
+                 "gid":12,
+                 "height":21,
+                 "id":1584,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":32
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-100
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"sine"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":6514,
+                 "y":314
+                }, 
+                {
+                 "gid":40,
+                 "height":90,
+                 "id":1695,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":40
+                        }],
+                 "rotation":0,
+                 "type":"launchBay",
+                 "visible":true,
+                 "width":150,
+                 "x":11174,
+                 "y":318
+                }, 
+                {
+                 "height":0,
+                 "id":1696,
+                 "name":"",
+                 "polyline":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":-82,
+                         "y":-116
+                        }, 
+                        {
+                         "x":-228,
+                         "y":41
+                        }, 
+                        {
+                         "x":-350,
+                         "y":41
+                        }],
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":40
+                        }],
+                 "rotation":0,
+                 "type":"path",
+                 "visible":true,
+                 "width":0,
+                 "x":11249,
+                 "y":246
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1697,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":40
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-200
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":11226,
+                 "y":318
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1698,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":40
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-200
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":11226,
+                 "y":319
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1699,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":40
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-200
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":11228,
+                 "y":318
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1700,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":40
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-200
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":11227,
+                 "y":319
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1701,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":40
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-200
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":11229,
+                 "y":319
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1702,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":40
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-200
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":11229,
+                 "y":320
+                }, 
+                {
+                 "gid":25,
+                 "height":30,
+                 "id":1703,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":9743,
+                 "y":493
+                }, 
+                {
+                 "height":0,
+                 "id":1704,
+                 "name":"",
+                 "polygon":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":131,
+                         "y":0
+                        }, 
+                        {
+                         "x":131,
+                         "y":27
+                        }, 
+                        {
+                         "x":1,
+                         "y":26
+                        }],
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"score",
+                         "type":"int",
+                         "value":3000
+                        }],
+                 "rotation":0,
+                 "type":"freeCollider",
+                 "visible":true,
+                 "width":0,
+                 "x":9691,
+                 "y":427
+                }, 
+                {
+                 "gid":21,
+                 "height":30,
+                 "id":1705,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.141592653
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":9843,
+                 "y":97
+                }, 
+                {
+                 "height":0,
+                 "id":1706,
+                 "name":"",
+                 "polygon":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":145,
+                         "y":1
+                        }, 
+                        {
+                         "x":145,
+                         "y":-28
+                        }, 
+                        {
+                         "x":0,
+                         "y":-28
+                        }],
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"score",
+                         "type":"int",
+                         "value":3000
+                        }],
+                 "rotation":0,
+                 "type":"freeCollider",
+                 "visible":true,
+                 "width":0,
+                 "x":9776,
+                 "y":126
+                }, 
+                {
+                 "gid":21,
+                 "height":30,
+                 "id":1707,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.141592653
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":9948,
+                 "y":172
+                }, 
+                {
+                 "gid":21,
+                 "height":30,
+                 "id":1708,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.141592653
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":10019,
+                 "y":97
+                }, 
+                {
+                 "gid":21,
+                 "height":30,
+                 "id":1709,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.141592653
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":9719,
+                 "y":170
+                }, 
+                {
+                 "gid":21,
+                 "height":30,
+                 "id":1710,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":3.141592653
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":10087,
+                 "y":172
+                }, 
+                {
+                 "gid":25,
+                 "height":30,
+                 "id":1711,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":9638,
+                 "y":417
+                }, 
+                {
+                 "gid":25,
+                 "height":30,
+                 "id":1713,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"rotation",
+                         "type":"float",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy1",
+                 "visible":true,
+                 "width":30,
+                 "x":10099,
+                 "y":418
+                }, 
+                {
+                 "gid":40,
+                 "height":90,
+                 "id":1714,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":41
+                        }],
+                 "rotation":0,
+                 "type":"launchBay",
+                 "visible":true,
+                 "width":150,
+                 "x":9916,
+                 "y":490
+                }, 
+                {
+                 "height":0,
+                 "id":1715,
+                 "name":"",
+                 "polyline":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":-60,
+                         "y":-102
+                        }, 
+                        {
+                         "x":60,
+                         "y":-151
+                        }, 
+                        {
+                         "x":-82,
+                         "y":-221
+                        }, 
+                        {
+                         "x":-205,
+                         "y":-98
+                        }, 
+                        {
+                         "x":-253,
+                         "y":-227
+                        }, 
+                        {
+                         "x":-340,
+                         "y":-98
+                        }, 
+                        {
+                         "x":-233,
+                         "y":-99
+                        }],
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":41
+                        }],
+                 "rotation":0,
+                 "type":"path",
+                 "visible":true,
+                 "width":0,
+                 "x":9992,
+                 "y":421
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1716,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":41
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":9968,
+                 "y":490
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1717,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":41
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":9969,
+                 "y":490
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1718,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":41
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":9970,
+                 "y":489
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1719,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":41
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":9970,
+                 "y":490
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1720,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":41
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":9969,
+                 "y":491
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1721,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":41
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":9969,
+                 "y":490
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1722,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":41
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":9971,
+                 "y":491
+                }, 
+                {
+                 "gid":40,
+                 "height":90,
+                 "id":1723,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":42
+                        }],
+                 "rotation":0,
+                 "type":"launchBay",
+                 "visible":true,
+                 "width":150,
+                 "x":10178,
+                 "y":491
+                }, 
+                {
+                 "height":0,
+                 "id":1724,
+                 "name":"",
+                 "polyline":[
+                        {
+                         "x":0,
+                         "y":0
+                        }, 
+                        {
+                         "x":-61,
+                         "y":-80
+                        }, 
+                        {
+                         "x":-157,
+                         "y":-81
+                        }, 
+                        {
+                         "x":-160,
+                         "y":-211
+                        }, 
+                        {
+                         "x":164,
+                         "y":-211
+                        }, 
+                        {
+                         "x":106,
+                         "y":-46
+                        }, 
+                        {
+                         "x":19,
+                         "y":-198
+                        }, 
+                        {
+                         "x":-82,
+                         "y":-94
+                        }, 
+                        {
+                         "x":-122,
+                         "y":-180
+                        }, 
+                        {
+                         "x":-48,
+                         "y":-179
+                        }],
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":42
+                        }],
+                 "rotation":0,
+                 "type":"path",
+                 "visible":true,
+                 "width":0,
+                 "x":10252,
+                 "y":420
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1725,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":42
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":10230,
+                 "y":491
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1726,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":42
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":10231,
+                 "y":491
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1727,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":42
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":10230,
+                 "y":491
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1728,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":42
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":10232,
+                 "y":491
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1729,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":42
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":10231,
+                 "y":492
+                }, 
+                {
+                 "gid":35,
+                 "height":45,
+                 "id":1730,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":42
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":10
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"points"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":-150
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy3",
+                 "visible":true,
+                 "width":45,
+                 "x":10231,
+                 "y":492
+                }, 
+                {
+                 "gid":10,
+                 "height":50,
+                 "id":1731,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2",
+                 "visible":true,
+                 "width":50,
+                 "x":10824,
+                 "y":312
+                }, 
+                {
+                 "gid":10,
+                 "height":50,
+                 "id":1732,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2",
+                 "visible":true,
+                 "width":50,
+                 "x":10758,
+                 "y":314
+                }, 
+                {
+                 "gid":10,
+                 "height":50,
+                 "id":1733,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2",
+                 "visible":true,
+                 "width":50,
+                 "x":10887,
+                 "y":312
+                }, 
+                {
+                 "gid":10,
+                 "height":50,
+                 "id":1734,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"Speed",
+                         "type":"int",
+                         "value":-150
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":5
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
+                        }],
+                 "rotation":0,
+                 "type":"flyingEnemy2",
+                 "visible":true,
+                 "width":50,
+                 "x":10696,
+                 "y":313
+                }, 
+                {
+                 "gid":39,
+                 "height":126,
+                 "id":1785,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":20
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy3",
+                 "visible":true,
+                 "width":120,
+                 "x":11754,
+                 "y":401
+                }, 
+                {
+                 "gid":39,
+                 "height":126,
+                 "id":1788,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":20
+                        }],
+                 "rotation":0,
+                 "type":"groundEnemy3",
+                 "visible":true,
+                 "width":120,
+                 "x":11855,
+                 "y":331
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2944,7 +9699,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":1460,
+ "nextobjectid":1795,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.0",

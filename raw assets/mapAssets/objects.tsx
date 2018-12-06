@@ -254,6 +254,9 @@
  <tile id="50" type="eyeBoss1">
   <properties>
    <property name="Group" value="0"/>
+   <property name="difficulty" type="int" value="40"/>
+   <property name="pattern" value="none"/>
+   <property name="speed" type="int" value="20"/>
   </properties>
   <image width="128" height="134" source="objectSprites/_editorEyeBoss1.png"/>
  </tile>
