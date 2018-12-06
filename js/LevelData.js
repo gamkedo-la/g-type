@@ -11,7 +11,7 @@ const LevelData = [
 		checkpointPositions:[0, 600, 1200]
 	},
     */
-/*   {
+   {
     clearColor:"#010119",
     getBkgdColorLookup: function() {return backgroundColorLookup;},
     getBkgdStars: function() {return backgroundStars;},
@@ -26,8 +26,8 @@ const LevelData = [
 
     initializeDebris: function() {return initializeDebris();},
     checkpointPositions:[0, 600, 1200]
-},*/
-	{
+},
+	/*{
         clearColor:"#010119",
         getBkgdColorLookup: function() {return backgroundColorLookup;},
         getBkgdStars: function() {return backgroundStars;},
@@ -42,7 +42,7 @@ const LevelData = [
 
         initializeDebris: function() {return initializeDebris();},
 		checkpointPositions:[0, 600, 1200]
-	},
+	},*/
  	{
         clearColor:"#010119",
         getBkgdColorLookup: function() {return backgroundColorLookup2;},
@@ -171,8 +171,8 @@ function initializeEnemies(enemyData) {
           case EntityType.Level2Boss:
               enemies.push(currentGroup.add(new Level2Boss({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x)));
               break;
-          case EntityType.EyeBoss1:
-              enemies.push(currentGroup.add(new EyeBoss1({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[3].value, PathType.None, 0, obj.x, obj.properties[1].value, getPath(enemyPaths, obj))));
+              case EntityType.EyeBoss1:
+              enemies.push(currentGroup.add(new EyeBoss1({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value, getPath(enemyPaths, obj))));
               break;
           case "path":
               //do nothing
@@ -207,19 +207,19 @@ function initializeEnemies(enemyData) {
                 enemies.push(new GroundEnemy3({x:offRight, y:GameField.y + obj.y - obj.height}, obj.x, obj.properties[1].value));
                 break;
             case EntityType.MiniBoss1:
-                enemies.push(new MiniBoss1({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
+                        enemies.push(new MiniBoss1({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
                 break;
             case EntityType.EyeBoss1:
-                enemies.push(new EyeBoss1({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
+                        enemies.push(new EyeBoss1({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
                 break;
             case EntityType.AlienBoss1:
-                enemies.push(new AlienBoss1({x:offRight, y:GameField.y + obj.y - obj.height}, -20, PathType.None, 25, obj.x, 1));
+                        enemies.push(new AlienBoss1({x:offRight, y:GameField.y + obj.y - obj.height}, -20, PathType.None, 25, obj.x, 1));
                 break;
            case EntityType.MaskBoss1:
-                enemies.push(new MaskBoss1({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
+                        enemies.push(new MaskBoss1({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[3].value, obj.properties[2].value, 0, obj.x, obj.properties[1].value));
                 break;
            case EntityType.MiniMiniBoss1:
-                enemies.push(new MiniMiniBoss1({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[1].value, obj.properties[3].value, obj.x, obj.properties[2].value, getPath(enemyPaths, obj)));
+                        enemies.push(new MiniMiniBoss1({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[1].value, obj.properties[3].value, obj.x, obj.properties[2].value, getPath(enemyPaths, obj)));
                 break;
             case EntityType.CargoBoss:
                 enemies.push(new CargoBoss({x:offRight, y:GameField.y + obj.y - obj.height}, -20, PathType.None, 25, obj.x, 1));
@@ -227,9 +227,6 @@ function initializeEnemies(enemyData) {
             case EntityType.FreeCollider:
             	enemies.push(new FreeCollider(obj.properties[1].value, {x:offRight, y:GameField.y + obj.y - obj.height}, obj.x, JSON.parse(JSON.stringify(obj))));
             	break;
-            case EntityType.EyeBoss1:
-              enemies.push(new EyeBoss1({x:offRight, y:GameField.y + obj.y - obj.height}, obj.properties[3].value, PathType.None, 0, obj.x, obj.properties[1].value));
-              break;
             default:
                 console.error("can not find ungrouped enemy type: " + obj.type);
                 break;

@@ -1,4 +1,4 @@
-//Alien Ship Boss
+//Cargo Ship Boss
 function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, timeOffset = 0, spawnPos = 0, difficulty = 0) {	
 	this.type = EntityType.AlienBoss1;
 	this.group = null;
@@ -17,27 +17,22 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 	this.timeSinceLastFire = 0;
 	this.ticksInState = 0;
 	this.timeSinceLastDip = 0;
-	this.currentState = function(){}
-	var state = {}
-	this.rotation = 0;
-	this.targetPos = {x: 0, y: 0};
 	let sprite = new AnimatedSprite(alienBoss1Sheet, 
 		/*frameCount =*/ 12, 
 		/*frameWidth =*/ 211.7, 
 		/*frameHeight =*/ 210, 
-		/*reverses =*/ false, 
+		/*reverses =*/ true, 
 		/*autoLife =*/ true, 
 		/*birthRange =*/ {min:0, max:1}, 
 		/*birthRate =*/ 0, 
 		/*lifeRange =*/ {min:0, max:11}, 
 		/*lifeRate =*/ 328, 
-		/*deathRange =*/ {min:0, max:1}, 
-		/*deathRate =*/  512);
+		/*deathRange =*/ {min:1, max:1}, 
+		/*deathRate =*/  0);
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	const EXPLOSION_COUNT = 7;
 	const explosions = [];
-	const bosses = [];
-	setInterval(this.spawnBosses, 5000);
+
 	//all magic numbers in collider path are based on the sprite
 	const colliderPath = [{x: this.position.x + 23 * SPRITE_SCALE, y: this.position.y + 112 * SPRITE_SCALE},
 						  {x: this.position.x + 91 * SPRITE_SCALE, y: this.position.y + 46 * SPRITE_SCALE},
@@ -63,9 +58,9 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
     
 		if(bosses.length < BOSS_COUNT) {
 
-			if((100 * Math.random()) < 100) {//1 in 20 chance the next boss should spawn
+			if((100 * Math.random()) < 25) {//1 in 20 chance the next boss should spawn
 				if(spawnRate >= timeSinceSpawn) {
-      				newBoss = new EnemyBullet(EntityType.MiniMiniBoss1, {x: this.position.x , y: this.collisionBody.center.y - 10}, {x: xVel, y:yVel});
+      				newBoss = new EnemyBullet(EntityType.MiniMiniBoss1, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
 	  				scene.addEntity(newBoss, true);
      			    spawnRate = 0;
     }
@@ -73,7 +68,7 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
                 newBoss.deltaXPos = (0.5 * this.size.width) - (this.size.width * Math.random());
                 newBoss.deltaYPos = (0.5 * this.size.height) - (this.size.height * Math.random());
 				
-				newBoss.isDying = false;
+				newBoss.isDying = true;
 				newBoss.wasBorn = true;
 				
 				bosses.push(newBoss);
@@ -155,8 +150,8 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 		}
 		//run current state
 		this.currentState();
-		this.ticksInState += -1;
-		this.timeSinceLastDip += -1;
+		this.ticksInState += 1;
+		this.timeSinceLastDip += 1;
 	};
 
 	this.currentState = function(){}
@@ -164,10 +159,9 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 	state.entrance = function(){
 		if(this.ticksInState == 1){
 			
-			this.vel.x = -300
-			this.vel.y = 0;
+			this.vel.x = -100
+			
 		}
-		
 		if(this.position.x < 700){
 			this.bulletsLeft = 100;
 		}
@@ -187,7 +181,10 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 
 		}
 	}
-
+	this.targetPos = {
+		x: 0,
+		y: 378
+	}
 	this.changeState = function(newState){
 		this.ticksInState = 0
 		this.currentState = newState;
@@ -220,27 +217,27 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 				//fireBullet
 				xVel = -130;
 				yVel = (this.bulletsLeft -5) * 20;
-				newBullet = new EnemyBullet(EntityType.EnemyBullet6, {x: this.position.x + 10, y: this.collisionBody.center.y - 20}, {x: xVel, y:yVel});
+				newBullet = new EnemyBullet(EntityType.EnemyBullet6, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
 				scene.addEntity(newBullet, false);
 				this.bulletsLeft -= 1;
 				this.timeSinceLastFire = 0
 			}
 
 			if(this.bulletsLeft == 0 && firingChance < difficulty || this.timeSinceLastFire > 3000) {
-				let yVel = -130;
-
+				let yVel;
 				this.bulletsLeft = 10;
-	
+				yVel = -50;
 				
-				let xVel = 20*Math.cos(this.position.x * 0.2);
-				const newBullet = new EnemyBullet(EntityType.EnemyBullet7, {x: this.position.x + 10, y: this.collisionBody.center.y - 20}, {x: xVel, y:yVel});
+				let xVel = this.vel.x;
+				
+				const newBullet = new EnemyBullet(EntityType.EnemyBullet7, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
 				scene.addEntity(newBullet, false);
 			}
 			if(this.ticksInState > 600){
 				this.changeState(state.pewpew)
 				return;
 			}
-			if(this.timeSinceLastDip > 1000 && this.hitPoints < 1500){
+			if(this.timeSinceLastDip > 400 && this.hitPoints < 1500){
 				this.changeState(state.dip)
 			}
 		}
@@ -256,8 +253,8 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 		if(this.bulletsLeft > 0 && this.timeSinceLastFire > 25){
 			//fireBullet
 			xVel = -530;
-			yVel = 1
-			newBullet = new EnemyBullet(EntityType.EnemyBullet5, {x: this.position.x + 10, y: this.collisionBody.center.y - 20}, {x: xVel, y:yVel});
+			yVel = 0
+			newBullet = new EnemyBullet(EntityType.EnemyBullet6, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
 			scene.addEntity(newBullet, false);
 			this.bulletsLeft -= 1;
 			this.timeSinceLastFire = 0
@@ -306,7 +303,6 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 		if(!sprite.isDying) {
 			this.collisionBody.draw();
-	
 		} else {
 			this.drawExplosions();
 		}
@@ -337,12 +333,6 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 		}
 	};
 	
-	this.spawnBosses = function() {
-		for(let i = 0; i < bosses.length; i++) {
-            bosses[i].drawAt((this.position.x + bosses[i].deltaXPos), (this.position.y + bosses[i].deltaYPos), this.size.width * 2, this.size.height * 2);
-		}
-	};
-
 	this.respawn = function(worldPos) {
 		if(worldPos > spawnPos) {
 			this.worldPos = worldPos;
@@ -391,5 +381,4 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 		}
 		// TODO else -- add SFX to show a non-lethal hit
 	};
-	
 }
