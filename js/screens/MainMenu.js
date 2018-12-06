@@ -60,8 +60,8 @@ function MenuScreen() {
                 }
             }
         }
-        
-        if ((this.keysPressed(KEY_CTRL, KEY_ALT, KEY_SHIFT, KEY_D))) {            
+
+        if ((this.keysPressed(KEY_CTRL, KEY_ALT, KEY_SHIFT, KEY_D))) {
             cheats.debugKeysEnabled = !cheats.debugKeysEnabled;
             if (cheats.debugKeysEnabled) {
                 cheats.printCheatKeysInstructions();
@@ -153,13 +153,13 @@ function MenuScreen() {
 
 		if(timeSinceKey > 5000) {
 			timeSinceKey = 0;
-			
+
 			if(lastShowedDemo) {
 				ScreenStates.setState(STORY_SCENE_SCREEN, 1);
 			} else {
 				ScreenStates.setState(DEMO_SCENE_SCREEN, 1);
 			}
-			
+
 			lastShowedDemo = !lastShowedDemo;
 		}
 
@@ -180,14 +180,18 @@ function MenuScreen() {
 
         // render menu
         printMenu(selections, selectorPositionIndex);
-		
+
 		//draw the thruster
 		let thrusterMod = timer.getCurrentTime() % 16 < 8 ? 0 : 3;
 		thrusterPosition.x = selectorPosition.x - 28 + thrusterMod;
 		thrusterPosition.y = selectorPosition.y;
 		//this.thrusterSize.width = thrusterSprite.width * thrusterMod;
 		thrusterSprite.drawAt(thrusterPosition.x, thrusterPosition.y, thrusterSize.width, thrusterSize.height);
-		
+
+        // also emit some thruster particles
+        trailEmitter = createParticleEmitter(thrusterPosition.x+28, thrusterPosition.y+16, playerTrail);
+        ParticleRenderer.renderAll(canvasContext);
+
         //draw selector sprite
         selectorSprite.drawAt(selectorPosition.x, selectorPosition.y, 52, 32);
 	};
