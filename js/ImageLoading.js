@@ -265,7 +265,7 @@ function loadImages() {
         { imgName: pewpew2Sheet, theFile: "cargoBoss/pewpew2.png" },
         { imgName: pewpew3Sheet, theFile: "cargoBoss/pewpew3.png" },
         { imgName: pewpew4Sheet, theFile: "cargoBoss/pewpew4.png" },
-        { imgName: pewpew5Sheet, theFile: "cargoBoss/pewpew4.png" },
+        { imgName: pewpew5Sheet, theFile: "cargoBoss/pewpew5.png" },
         { imgName: launchBaySheet, theFile: "LaunchBay-sheet.png" },
         { imgName: level2BossSheet, theFile: "Level2Bosssheet.png" },
     ];

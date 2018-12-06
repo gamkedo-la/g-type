@@ -29,9 +29,9 @@ function OptionsScreen() {
 		    autoFiring = "off";
 		    localStorageHelper.setObject("autoFiring", "off");
 	    }
-	    let tmpSpeed = localStorageHelper.getFloat("gameSpeed");
+	    let tmpSpeed = localStorageHelper.getInt("gameSpeed");
 	    if(tmpSpeed === null) {
-		    localStorageHelper.setFloat("gameSpeed", gameSpeed);
+		    localStorageHelper.setInt("gameSpeed", gameSpeed);
 	    } else {
 		    gameSpeed = tmpSpeed;
 	    }
@@ -84,14 +84,14 @@ function OptionsScreen() {
             SFXVolumeManager.setVolume(currentVolume + 0.1 * direction);
         // OPTION 2
         } else if(selectorPositionIndex === 2) {
-            gameSpeed += (direction/2);
+            gameSpeed += direction;
             if(direction == 1 && gameSpeed > MAX_SPEED) {
                 gameSpeed = 1;
             }
             else if(direction != 1 && gameSpeed < 1) {
                 gameSpeed = MAX_SPEED;
             }
-            localStorageHelper.setFloat("gameSpeed", gameSpeed);
+            localStorageHelper.setInt("gameSpeed", gameSpeed);
         // OPTION 3
         } else if(selectorPositionIndex === 3) {
             if(autoFiring === "Off") {

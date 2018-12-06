@@ -3,7 +3,7 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 	this.type = EntityType.FlyingEnemy1;
 	this.group = null;
 	this.worldPos = 0;
-	this.score = 100;
+	this.score = 7500;
 	let previousBackgroundMusic = null;
 
     this.hitPoints = 2400;     // Every enemy type should have a hitPoints property

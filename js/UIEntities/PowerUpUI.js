@@ -63,6 +63,7 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None, s
 			case PowerUpType.Force:
 				helpText = PowerUpUIText.Force;
 				return null;
+				return (new AnimatedSprite(forceUnitSheet, 1, 48, 48));
 		}
 	};
 		
