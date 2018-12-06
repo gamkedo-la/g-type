@@ -59,10 +59,8 @@ function PowerUpUI(position, highlighted = false, contains = PowerUpType.None, s
 			case PowerUpType.Shield:
 				helpText = PowerUpUIText.Shield;
 				return (new AnimatedSprite(shieldSheet, 3, 60, 45, false, true, {min:0, max:0}, 0, {min:0, max:0}, 128, {min:2, max:2}, 0));
-				return null;
 			case PowerUpType.Force:
 				helpText = PowerUpUIText.Force;
-				return null;
 				return (new AnimatedSprite(forceUnitSheet, 1, 48, 48));
 		}
 	};
