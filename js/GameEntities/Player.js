@@ -57,7 +57,7 @@ function Player(position = {x:0, y:0}) {
     this.activeGhosts = 0;
 
 	const BASE_SPEED = 160;//essentially pixels per second
-	const MAX_SHOTS_ON_SCREEN = 10;//TODO: maybe this should be adjustable as a power up or part of the "speed up" power up?
+	const MAX_SHOTS_ON_SCREEN = 10;
 	const INVINCIBLE_TIME = 1500;//in milliseconds
 
 	const BASE_SHOT_DELAY = 96; //this should be faster for main gun, independent slower variable for missiles
@@ -231,7 +231,6 @@ function Player(position = {x:0, y:0}) {
 	};
 
 	this.doShooting = function() {
-		console.log("Player Shot Count: " + shots.length);
 		let timeSinceLastShot = timer.timeSinceUpdateForEvent(PlayerEvent.LastShot);
 		let timeSinceLastMissile = timer.timeSinceUpdateForEvent(PlayerEvent.LastMissile);
 		if((timeSinceLastShot == null) || (timeSinceLastShot === undefined)) {

@@ -404,11 +404,15 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 		   (otherEntity.type === EntityType.PlayerMissile) ||
 		   (otherEntity.type === EntityType.PlayerDouble) ||
 		   (otherEntity.type === EntityType.PlayerLaser) ||
+		   (otherEntity.type === EntityType.ReflectedShot) ||
 		   (otherEntity.type === EntityType.PlayerTriple) ||
 		   (otherEntity.type === EntityType.PlayerForceUnit)) {
 			   
 			   let prevHitPoints = this.hitPoints;
 			   this.hitPoints -= otherEntity.damagePoints;
+			   if(otherEntity.type === EntityType.ReflectedShot) {//EyeBoss suffers 3x damage from its own shots
+				   this.hitPoints -= (2 * otherEntity.damagePoints);
+			   }
 			   enemyMediumExplosion.play();
 			   this.invincibilityTime = INVINCIBILITY_TIME;
 			   

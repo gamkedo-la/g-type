@@ -403,7 +403,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 			if(entityToRemove.collisionBody != null) {
 				collisionManager.removeEntity(entityToRemove);
 			}
-			if(isEnemyBullet(entityToRemove)) {//reflected shots have type = PlayerShot*/
+			if((isEnemyBullet(entityToRemove)) || (entityToRemove.type === EntityType.ReflectedShot)) {//reflected shots have type = ReflectedShot*/
 				enemyBullets.delete(entityToRemove);
 			} else {
 				gameEntities.delete(entityToRemove);

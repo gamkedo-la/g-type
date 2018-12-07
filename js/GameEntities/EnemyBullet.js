@@ -100,7 +100,7 @@ function EnemyBullet(type, position = {x:0, y:0}, velocity = {x:0, y:0}) {
         } else {
             if(otherEntity.type === EntityType.PlayerForceUnit) {
                 if(otherEntity.position.x <= this.position.x) {
-                    vel.x = Math.abs(vel.x);
+                    vel.x = Math.abs(3 * vel.x);
                 } else {
                     vel.x = -Math.abs(vel.x);
                 }
@@ -111,7 +111,7 @@ function EnemyBullet(type, position = {x:0, y:0}, velocity = {x:0, y:0}) {
                     vel.y = -Math.abs(vel.y);
                 }
                 
-                this.type = EntityType.PlayerShot;
+                this.type = EntityType.ReflectedShot;
             } else {
                 scene.removeEntity(this, false);
             }

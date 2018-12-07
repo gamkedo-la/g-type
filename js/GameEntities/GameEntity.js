@@ -76,6 +76,7 @@ const EntityType = {
 	PlayerForceUnit:"playerForceUnit",
 	PlayerShield:"playerShield",
 	GhostShip:"ghostShip",
+	ReflectedShot:"reflectedShot",
 	
 	//capsules
 	Capsule1:"capsule1",

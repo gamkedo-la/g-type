@@ -188,7 +188,10 @@ function CollisionManager(player) {
         for(otherEntity of entities) {
             if((otherEntity.type === EntityType.FlyingEnemy1) ||
                (otherEntity.type === EntityType.FlyingEnemy2) ||
+               (otherEntity.type === EntityType.FlyingEnemy3) ||
                (otherEntity.type === EntityType.GroundEnemy1) ||
+               (otherEntity.type === EntityType.GroundEnemy2) ||
+               (otherEntity.type === EntityType.GroundEnemy3) ||
                (isEnemyBullet(entity)) ||
                (otherEntity.type === EntityType.MiniBoss1) ||
                (otherEntity.type === EntityType.EyeBoss1) ||
@@ -203,15 +206,6 @@ function CollisionManager(player) {
 
 	this.doCollisionChecks = function() {
 		const collisions = [];
-			let shotCount = 0;
-			let missileCount = 0;
-		for(let i = 0; i < this.playerBullets.length; i++) {
-			if(this.playerBullets[i].type === EntityType.PlayerTriple) {
-				shotCount++;
-			} else if(this.playerBullets[i].type === EntityType.PlayerMissile) {
-				missileCount++;
-			}
-		}
 
 		for(let entity of entities) {
 			if((entity.position.x > GameField.right) || 
@@ -229,7 +223,7 @@ function CollisionManager(player) {
 
             this.doPlayerCollision(entity, this.player);
             
-            if(entity.type === EntityType.PlayerShot) {//this is a reflected bullet
+            if(entity.type === EntityType.ReflectedShot) {//this is a reflected bullet
                 this.doReflectedShot_vs_Enemy(entity);
             }
 		}
@@ -276,9 +270,7 @@ function CollisionManager(player) {
 		} else if(body1.type === ColliderType.Circle) {
 			if(body2.type === ColliderType.Polygon) {
 				return polygonVCircle(body2, body1);//reverse the order so polygon passed as first parameter
-			}/* else if(body2.type == ColliderType.Circle) {
-				return circleVCircle(body1, body2);
-			}*/ //circle vs circle is handled by 'withinSquareRadii()'
+			}
 		}
 	};
 

@@ -187,6 +187,7 @@ function FlyingEnemy3(position = {x:0, y:0}, speed = -10, pattern = PathType.Non
                 (entityType === EntityType.PlayerDouble) ||
                 (entityType === EntityType.PlayerLaser) ||
                 (entityType === EntityType.PlayerTriple) ||
+				(entityType === EntityType.ReflectedShot) ||
                 (entityType === EntityType.PlayerShield)) {
                 this.hitPoints -= otherEntity.damagePoints;
             }
