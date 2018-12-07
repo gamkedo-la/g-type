@@ -8323,7 +8323,7 @@
                         {
                          "name":"speed",
                          "type":"int",
-                         "value":20
+                         "value":400
                         }],
                  "rotation":0,
                  "type":"eyeBoss1",
@@ -8356,7 +8356,7 @@
                         {
                          "name":"speed",
                          "type":"int",
-                         "value":20
+                         "value":200
                         }],
                  "rotation":0,
                  "type":"eyeBoss1",
@@ -8389,7 +8389,7 @@
                         {
                          "name":"speed",
                          "type":"int",
-                         "value":20
+                         "value":300
                         }],
                  "rotation":0,
                  "type":"eyeBoss1",
