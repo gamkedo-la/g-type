@@ -28,6 +28,8 @@ function EnemyBullet(type, position = {x:0, y:0}, velocity = {x:0, y:0}) {
 		sprite = new AnimatedSprite(miniminiBoss1Sheet, 3, 59, 38, false, true, {min:0, max:0}, 0, {min:0, max:2}, 256, {min:2, max:2}, 0);
 	} else if(this.type === EntityType.EnemyBullet9) {
 		sprite = new AnimatedSprite(rotatingEyeSheet, 4, 22, 22, false, true, {min:0, max:0}, 0, {min:0, max:3}, 128, {min:3, max:3}, 0);
+	} else if(this.type === EntityType.EnemyBullet10) {
+		sprite = new AnimatedSprite(eyeBulletSheet, 4, 25, 25, false, true, {min:0, max:0}, 0, {min:0, max:3}, 128, {min:3, max:3}, 0);
 	}
 	this.size = {width:sprite.width, height:sprite.height};
 	

@@ -305,7 +305,7 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 			let xVel = bulletSpeed * Math.cos(this.rotation + Math.PI);
 			let yVel = bulletSpeed * Math.sin(this.rotation);
 	
-			const newBullet = new EnemyBullet(EntityType.EnemyBullet9, {x: 0, y: 0}, {x: xVel, y:yVel});
+			const newBullet = new EnemyBullet(EntityType.EnemyBullet10, {x: 0, y: 0}, {x: xVel, y:yVel});
 	
 			// calculate bullet start position based on angle of target
 			let origin = {x: this.collisionBody.center.x, y: this.collisionBody.center.y};
