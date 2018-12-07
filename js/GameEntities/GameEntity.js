@@ -97,6 +97,7 @@ const EntityType = {
 	EnemyBullet6:"enemyBullet6",
 	EnemyBullet7:"enemyBullet7",
 	EnemyBullet8:"enemyBullet8",
+	EnemyBullet9:"enemyBullet9",
 	MiniBoss1:"miniBoss1", 
 	EyeBoss1:"eyeBoss1",
 	AlienBoss1:"alienBoss1",
@@ -163,7 +164,8 @@ const isEnemyBullet = function(entity) {
 	   (aType === EntityType.EnemyBullet5) ||
 	   (aType === EntityType.EnemyBullet6) ||
 	   (aType === EntityType.EnemyBullet7) ||
-	   (aType === EntityType.EnemyBullet8)) {
+	   (aType === EntityType.EnemyBullet8) ||
+	   (aType === EntityType.EnemyBullet9)) {
 		   return true;
 	   }
 	   

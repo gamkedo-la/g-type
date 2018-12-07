@@ -193,7 +193,7 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 
 		if(this.bulletsLeft > 0 && this.timeSinceLastFire > 1000){
 			this.bulletsLeft -= 1;
-			const thisEnemy = new MiniMiniBoss1({x:this.position.x + 78, y:this.position.y + 78});
+			const thisEnemy = new MiniMiniBoss1({x:this.position.x + 78, y:this.position.y + 78}, (11 - this.bulletsLeft));
 
 			thisEnemy.respawn(this.worldPos);
 

@@ -7,6 +7,8 @@ function ShieldEntity(position = {x:0, y:0}, playerSize = {width:0, height:0}) {
 	this.isActive = false;
 	const SPRITE_SCALE = 1;
 	let wasReset = false;
+	const INVINCIBILITY_TIME = 64;
+	let invincibilityTime = 0;
 	
 	sprite = new AnimatedSprite(shieldSheet, 3, 60, 45, true, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
 	
@@ -31,6 +33,8 @@ function ShieldEntity(position = {x:0, y:0}, playerSize = {width:0, height:0}) {
 	
 	this.update = function(deltaTime, playerPos) {
 		if(!this.isActive) {return;} //Don't need to update if not active
+		
+		if(invincibilityTime > 0) {invincibilityTime -= deltaTime;}
 		
 		if(this.hitPoints === 2) {
 			if(sprite.getCurrentFrame() != 1) {
@@ -89,6 +93,8 @@ function ShieldEntity(position = {x:0, y:0}, playerSize = {width:0, height:0}) {
 	};
 	
 	this.wasHit = function() {
+		if(invincibilityTime > 0) {return;}
+		invincibilityTime = INVINCIBILITY_TIME;
 		this.hitPoints--;
 		scene.shouldShake(MAX_SHAKE_MAGNITUDE / 2);
 		if(this.hitPoints <= 0) {

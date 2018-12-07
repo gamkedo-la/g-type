@@ -1,5 +1,5 @@
 //FlyingEnemy2
-function MiniMiniBoss1(position = {x:0, y:0}, speed = 80, pattern = PathType.None, spawnPos = 0, difficulty = 6, path = null) {
+function MiniMiniBoss1(position = {x:0, y:0}, difficulty = 6, speed = 80, pattern = PathType.None, spawnPos = 0, path = null) {
 	this.type = EntityType.MiniMiniBoss1;
 	this.group = null;
 	this.worldPos = 0;
@@ -93,21 +93,19 @@ function MiniMiniBoss1(position = {x:0, y:0}, speed = 80, pattern = PathType.Non
 			if(firingChance < difficulty) {
 				let yVel;
 				if(this.position.y < playerPos.y) {
-					yVel = 50;
+					yVel = 75;
 				} else {
-					yVel = -50;
+					yVel = -75;
 				}
 				
-				let xVel = vel.x;
+				let xVel = 75;
 				if(this.position.x > (playerPos.x + 50)) {
-					xVel -= 10;
-				} else if(this.position.x < (playerPos.x - 50)) {
 					xVel = -xVel;
 				} else {
 					xVel = 0;
 				}
 				
-				if(difficulty > 10) {
+				if(difficulty > 8) {
 					xVel *= 2;
 					yVel *= 2;
 				}

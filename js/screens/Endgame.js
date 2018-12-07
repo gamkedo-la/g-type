@@ -9,8 +9,8 @@ function EndgameScreen() {
 	let selectorSprite;
 	let starfield;
 	let planetSprite;
-	let PLANET_SCALE = 3.0;
-	let planetPos = {x:GameField.x - 50, y:GameField.y - 100};
+	let PLANET_SCALE = 7.0;
+	let planetPos = {x:GameField.x - 350, y:GameField.y - 350};
 
     this.scrollLimit = -1200;
     this.currentY = 0;
@@ -75,9 +75,11 @@ function EndgameScreen() {
         canvasContext.drawImage(backgroundColorLookup, 150, 0, 16, 100, 0, 0, canvas.width, canvas.height);
 
         selectorSprite.update(deltaTime);
-        PLANET_SCALE *= 0.99;
+        PLANET_SCALE *= 0.9975;
         planetSprite.update(deltaTime);
-		planetSprite.drawAt(--planetPos.x, planetPos.y, planetSprite.width * PLANET_SCALE, planetSprite.height * PLANET_SCALE);
+        planetPos.x -= 0.15625;
+        planetPos.y += 0.75;
+		planetSprite.drawAt(planetPos.x, planetPos.y, planetSprite.width * PLANET_SCALE, planetSprite.height * PLANET_SCALE);
 
 		starfield.update(deltaTime);
 		starfield.draw();

@@ -101,16 +101,10 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 						this.position.y = nextPos.y;
 					}
 				}
-			}
-						
-			if(this.position.x < -sprite.width) {
-				//scene.removeEntity(this, false);
-				//return;
-			}
+			}						
 		}
 		
 		unusedTime = availableTime;
-		
 		
 		if(!sprite.isDying) {
 			sprite.update(deltaTime);

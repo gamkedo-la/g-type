@@ -8350,22 +8350,37 @@
                  "y":394
                 }, 
                 {
-                 "gid":52,
-                 "height":155,
-                 "id":1258,
+                 "gid":51,
+                 "height":134,
+                 "id":1259,
                  "name":"",
                  "properties":[
                         {
                          "name":"Group",
                          "type":"string",
                          "value":"0"
+                        }, 
+                        {
+                         "name":"difficulty",
+                         "type":"int",
+                         "value":40
+                        }, 
+                        {
+                         "name":"pattern",
+                         "type":"string",
+                         "value":"none"
+                        }, 
+                        {
+                         "name":"speed",
+                         "type":"int",
+                         "value":300
                         }],
                  "rotation":0,
-                 "type":"alienBoss1",
+                 "type":"eyeBoss1",
                  "visible":true,
-                 "width":382,
-                 "x":209,
-                 "y":374.333333333333
+                 "width":128,
+                 "x":189.333333333333,
+                 "y":401.666666666667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -8374,7 +8389,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":1259,
+ "nextobjectid":1260,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.0",

@@ -25,8 +25,7 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 	this.aimAtTarget = false;
 	this.attackPathStep = 0
 	this.ticksInPathStep = 0;
-	//to do make_updates on numbers and dimensions for next line
-	//let sprite = new AnimatedSprite(eyeBoss1Sheet, 4, 199, 177, false, true, {min:0, max:1}, 0, {min:0, max:1}, 256, {min:2, max:3}, 256);
+
 	let sprite = new AnimatedSprite(eyeBoss1Sheet, 
 		/*frameCount =*/ 4, 
 		/*frameWidth =*/ 120, 
@@ -42,15 +41,16 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 
+	const EXPLOSION_COUNT = 7;
+	const explosions = [];
+
 	this.collisionBody = new Collider(ColliderType.Circle,
-									 {points: [], 										// these two are not used
-									  position:{x:this.position.x, y:this.position.y},  // but it crashes if left empty
+									 {points: [], 										
+									  position:{x:this.position.x, y:this.position.y},  
 									  radius: sprite.width/2,
 								      center: {x: this.position.x + sprite.width/2, y: this.position.y + sprite.height/2}});
 	
 	let didCollide = false;
-	
-	this.path = new EnemyPath(pattern, this.position, speed, [], timeOffset);
 	
 	this.update = function(deltaTime, worldPos, playerPos) {
 		if(!this.isVisible) {return;}
@@ -87,39 +87,26 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 			previousBackgroundMusic = null;			
 		}
 		
-		let availableTime = unusedTime + deltaTime;
-		while(availableTime > SIM_STEP) {
-			availableTime -= SIM_STEP;
-			if(!sprite.isDying) {
-				const nextPos = this.path.nextPoint(SIM_STEP);
-				if(nextPos !== undefined) {
-					if(pattern === PathType.None) {
-						this.position.x += (this.vel.x * SIM_STEP / 1000);
-						this.position.y += (this.vel.y * SIM_STEP / 1000);
-					} else if(pattern === PathType.Sine) {
-						this.position.x += nextPos.x;
-						this.position.y += nextPos.y;
-					} else if((pattern === PathType.Points) || (pattern === PathType.Loop)) {
-						this.position.x = nextPos.x;
-						this.position.y = nextPos.y;
-					}
-				}
-			}
+		this.position.x += (this.vel.x * SIM_STEP / 1000);
+		this.position.y += (this.vel.y * SIM_STEP / 1000);
 						
-			if(this.position.x < -sprite.width) {
-				scene.removeEntity(this, false);
-				return;
-			}
+		if(this.position.x < -sprite.width) {
+			scene.removeEntity(this, false);
+			return;
 		}
-		
-		unusedTime = availableTime;
 		
 		if(!sprite.isDying) {
 			this.collisionBody.setPosition({x:this.position.x, 
 											y:this.position.y});
-		}
+		} 
 		
-		sprite.update(deltaTime);
+		if(!sprite.isDying) {
+			sprite.update(deltaTime);
+			this.collisionBody.setPosition({x:this.position.x, y:this.position.y});
+		} else {
+			sprite.update(deltaTime);
+			this.updateExplosions(deltaTime);
+		}
 		
 		//run current state
 		this.currentState();
@@ -215,17 +202,17 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 			
 			let waitTime = 100;
 			let shouldFire = false;
-			if (this.attackPathStep == 0) {
+			if (this.attackPathStep === 0) {
 				this.vel.x = -speed / 2;
 				if(this.position.x < GameField.right * 0.6) {
 					this.moveToNextAttackPathStep();
 				}
 			}
-			else if (this.attackPathStep == 1) {
+			else if (this.attackPathStep === 1) {
 				this.waitInAttackPathStep(waitTime);
 				shouldFire = true;
 			}
-			else if (this.attackPathStep == 2) {
+			else if (this.attackPathStep === 2) {
 				this.vel.x = speed;
 				this.vel.y = -0.8 * speed;
 				if (this.position.x > (GameField.right - this.size.width) * 0.95) {
@@ -233,22 +220,22 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 				}	
 				shouldFire = true;	
 			}
-			else if (this.attackPathStep == 3) {
+			else if (this.attackPathStep === 3) {
 				this.waitInAttackPathStep(waitTime);
 				shouldFire = true;
 			}
-			else if (this.attackPathStep == 4) {
+			else if (this.attackPathStep === 4) {
 				this.vel.y = speed;
 				if (this.position.y > (GameField.bottom - this.size.height) * 0.95) {
 					this.moveToNextAttackPathStep();
 				}
 				shouldFire = true;
 			}
-			else if (this.attackPathStep == 5) {
+			else if (this.attackPathStep === 5) {
 				this.waitInAttackPathStep(waitTime);
 				shouldFire = true;
 			}
-			else if (this.attackPathStep == 6) {
+			else if (this.attackPathStep === 6) {
 				this.vel.x = -speed;
 				this.vel.y = -1.15 * speed;
 				let reachedPosX = false;
@@ -302,7 +289,6 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 		
 		if (this.ticksInState == 250) {
 			this.burstShot(40);
-//			console.log("hi");
 			this.updateSpriteBasedOnHP();
 		}
 		
@@ -319,7 +305,7 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 			let xVel = bulletSpeed * Math.cos(this.rotation + Math.PI);
 			let yVel = bulletSpeed * Math.sin(this.rotation);
 	
-			const newBullet = new EnemyBullet(EntityType.EnemyBullet4, {x: 0, y: 0}, {x: xVel, y:yVel});
+			const newBullet = new EnemyBullet(EntityType.EnemyBullet9, {x: 0, y: 0}, {x: xVel, y:yVel});
 	
 			// calculate bullet start position based on angle of target
 			let origin = {x: this.collisionBody.center.x, y: this.collisionBody.center.y};
@@ -382,6 +368,33 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height, this.rotation)
 		if(!sprite.isDying) {
 			this.collisionBody.draw();
+		} else {
+			this.drawExplosions();
+		}
+	};
+	
+	this.updateExplosions = function(deltaTime) {
+		if(explosions.length < EXPLOSION_COUNT) {
+			if((100 * Math.random()) < 25) {//1 in 20 chance the next explosion should spawn
+				const newExplosion = new AnimatedSprite(enemyExplosionSheet2, 11, 96, 96, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 128);
+                newExplosion.deltaXPos = (0.25 * this.size.width) - (this.size.width * Math.random());
+                newExplosion.deltaYPos = (0.25 * this.size.height) - (this.size.height * Math.random());
+				
+				newExplosion.isDying = true;
+				newExplosion.wasBorn = true;
+				
+				explosions.push(newExplosion);
+			}
+		}
+		
+		for(let i = 0; i < explosions.length; i++) {
+			explosions[i].update(deltaTime);
+		}
+	};
+	
+	this.drawExplosions = function() {
+		for(let i = 0; i < explosions.length; i++) {
+            explosions[i].drawAt((this.position.x + explosions[i].deltaXPos), (this.position.y + explosions[i].deltaYPos), this.size.width * 2, this.size.height * 2);
 		}
 	};
 	
@@ -389,9 +402,8 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 		if(worldPos > spawnPos) {
 			this.worldPos = worldPos;
 			const totalTime = (worldPos *  SIM_STEP);
-			const nextPos = this.path.nextPoint(totalTime - timeOffset);
-			this.position.x = nextPos.x;
-			this.position.y = nextPos.y;
+			this.position.x = position.x;
+			this.position.y = position.y;
 		}
 	};
 		
@@ -423,7 +435,6 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 			   }
 		}
 		   
-//		   console.log("Shot by: " + otherEntity.type + "Hit Points: " + this.hitPoints);
 		if(this.hitPoints <= 0) {
 			if(sprite.isDying) {return;}//already dying, no reason to continue
 			

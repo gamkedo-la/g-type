@@ -5,7 +5,7 @@ function EndgameScene() {
 	const MAX_SHAKES = 10;
 	this.remainingShakes = 0;
 	this.shakeMagnitude = 0;
-	const player = new Player({x:GameField.midX / 2, y:GameField.midY / 2});
+	const player = new Player({x:GameField.midX / 2, y:GameField.midY});
 	const collisionManager = new CollisionManager(player);
 	
 	this.update = function(deltaTime, scrollPos) {
