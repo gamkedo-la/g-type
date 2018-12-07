@@ -91,7 +91,7 @@ function GamePlayScreen () {
                 ScreenStates.setState(CUT_SCENE3_SCREEN, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject()});
                 break;
             case 3:
-                ScreenStates.setState(CUT_SCENE2_SCREEN, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject()});//TODO: Get right cut scene
+                ScreenStates.setState(ENDING_SCREEN, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject()});//TODO: Get right cut scene
                 break;
         }
     };

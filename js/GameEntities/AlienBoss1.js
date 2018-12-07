@@ -6,7 +6,7 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 	this.score = 7200;
 	let previousBackgroundMusic = null;
 
-	const MAX_HITPOINTS = 200;
+	const MAX_HITPOINTS = 500;
     this.hitPoints = MAX_HITPOINTS;     // Every enemy type should have a hitPoints property
     const MINI_MINI_BULLETS = 5;
 	

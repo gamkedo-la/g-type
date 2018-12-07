@@ -62,7 +62,7 @@ const LevelData = [
 
         initializeDebris: function() {return initializeDebris();},
     checkpointPositions:[0, 600, 1200]
-  },
+  }/*,
   {
         clearColor:"#010119",
         getBkgdColorLookup: function() {return backgroundColorLookup;},
@@ -78,7 +78,7 @@ const LevelData = [
 
         initializeDebris: function() {return initializeDebris();},
     checkpointPositions:[0, 600, 1200]
-  },
+  },*/
 ];
 
 function getPath(pathsObject, entity) {
