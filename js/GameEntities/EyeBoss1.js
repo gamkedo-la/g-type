@@ -5,11 +5,11 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 	this.score = 5000;
 	let previousBackgroundMusic = null;
 	
-	const MAX_HIT_POINTS = 500;
+	const MAX_HIT_POINTS = 300;
 	const PHASE_TWO_THRESHOLD = MAX_HIT_POINTS / 2;
 	const PHASE_THREE_THRESHOLD = MAX_HIT_POINTS / 4;
     this.hitPoints = MAX_HIT_POINTS;     // Every enemy type should have a hitPoints property
-    const INVINCIBILITY_TIME = 128;
+    const INVINCIBILITY_TIME = 64;
     this.invincibilityTime = 0;
 
 	const SPRITE_SCALE = 1.0;
@@ -143,7 +143,7 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 	
 	state.entrance = function() {
 		if(this.ticksInState == 1){
-			this.vel.x = -200;
+			this.vel.x = -speed;
 			this.vel.y = 0;
 			this.aimAtTarget = false;
 			this.attackPathStep = 0;
@@ -172,7 +172,7 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 			}
 			
 			if (this.position.x < (GameField.right - this.size.width) * 0.95) {
-				this.vel.x = 50;
+				this.vel.x = speed / 4;
 			}
 			else {
 				this.vel.x = 0
@@ -216,7 +216,7 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 			let waitTime = 100;
 			let shouldFire = false;
 			if (this.attackPathStep == 0) {
-				this.vel.x = -100;
+				this.vel.x = -speed / 2;
 				if(this.position.x < GameField.right * 0.6) {
 					this.moveToNextAttackPathStep();
 				}
@@ -226,8 +226,8 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 				shouldFire = true;
 			}
 			else if (this.attackPathStep == 2) {
-				this.vel.x = 200;
-				this.vel.y = -160;
+				this.vel.x = speed;
+				this.vel.y = -0.8 * speed;
 				if (this.position.x > (GameField.right - this.size.width) * 0.95) {
 					this.moveToNextAttackPathStep();
 				}	
@@ -238,7 +238,7 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 				shouldFire = true;
 			}
 			else if (this.attackPathStep == 4) {
-				this.vel.y = 200;
+				this.vel.y = speed;
 				if (this.position.y > (GameField.bottom - this.size.height) * 0.95) {
 					this.moveToNextAttackPathStep();
 				}
@@ -249,8 +249,8 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 				shouldFire = true;
 			}
 			else if (this.attackPathStep == 6) {
-				this.vel.x = -200;
-				this.vel.y = -230;
+				this.vel.x = -speed;
+				this.vel.y = -1.15 * speed;
 				let reachedPosX = false;
 				let reachedPosY = false;
 				if (this.position.x < GameField.right * 0.6) {
@@ -404,11 +404,15 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 		   (otherEntity.type === EntityType.PlayerMissile) ||
 		   (otherEntity.type === EntityType.PlayerDouble) ||
 		   (otherEntity.type === EntityType.PlayerLaser) ||
+		   (otherEntity.type === EntityType.ReflectedShot) ||
 		   (otherEntity.type === EntityType.PlayerTriple) ||
 		   (otherEntity.type === EntityType.PlayerForceUnit)) {
 			   
 			   let prevHitPoints = this.hitPoints;
 			   this.hitPoints -= otherEntity.damagePoints;
+			   if(otherEntity.type === EntityType.ReflectedShot) {//EyeBoss suffers 3x damage from its own shots
+				   this.hitPoints -= (2 * otherEntity.damagePoints);
+			   }
 			   enemyMediumExplosion.play();
 			   this.invincibilityTime = INVINCIBILITY_TIME;
 			   

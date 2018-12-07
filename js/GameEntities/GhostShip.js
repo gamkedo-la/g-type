@@ -14,6 +14,8 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 	let path = new GhostPath(distance);
 	this.isActive = false;
 	const NORMAL_SHOT_SPEED = 1200;
+	const secondVel = {x:NORMAL_SHOT_SPEED, y:-NORMAL_SHOT_SPEED};
+	const thirdVel = {x:-NORMAL_SHOT_SPEED, y:0};
 	const shots = [];
 	const missiles = [];
 	
@@ -50,56 +52,86 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 	
 	this.doShooting = function(maxShots = 10, shotType = EntityType.PlayerShot, hasMissiles = false) {
 		let newShot;
-		if(shots.length === maxShots) {
+		let secondShot;
+		let thirdShot;
+		
+		if(shots.length >= maxShots) {
 			//basically a pool of shots, grab the oldest one
 			newShot = shots.splice(0, 1)[0];
 		} else {
 			//not enough shots in the pool, so make a new one
 			newShot = new PlayerShot();
 		}
-
-		let secondShot;
-		const secondVel = {x:NORMAL_SHOT_SPEED, y:-NORMAL_SHOT_SPEED};
-		if(shots.length === maxShots) {
-			//basically a pool of shots, grab the oldest one
-			secondShot = shots.splice(0, 1)[0];
-		} else {
-			//not enough shots in the pool, so make a new one
-			secondShot = new PlayerShot();
-		}
-
-		let thirdShot;
-		const thirdVel = {x:-NORMAL_SHOT_SPEED, y:0};
-		if(shots.length >= maxShots) {
-			//basically a pool of shots, grab the oldest one
-			thirdShot = shots.splice(0, 1)[0];
-		} else {
-			//not enough shots in the pool, so make a new one
-			thirdShot = new PlayerShot();
-		}
-
+		
 		switch(shotType) {
 			case EntityType.PlayerShot:
-				initializeShot(newShot, EntityType.PlayerShot, {x:this.position.x + 50, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
+				initializeShot(newShot, EntityType.PlayerShot, 
+				               {x:this.position.x + 50, y:this.position.y + 4}, 
+				               {x: NORMAL_SHOT_SPEED, y: 0}, false);
+				               
 				playerFireRegular.play();//play the audio
 				break;
 			case EntityType.PlayerDouble:
-				initializeShot(newShot, EntityType.PlayerShot, {x:this.position.x + 50, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
-				initializeShot(secondShot, EntityType.PlayerDouble, {x:this.position.x + 40, y:this.position.y + 6}, {x: secondVel.x, y: secondVel.y}, true);
+				initializeShot(newShot, EntityType.PlayerShot, 
+				               {x:this.position.x + 50, y:this.position.y + 4}, 
+				               {x: NORMAL_SHOT_SPEED, y: 0}, false);
+				               
+				if(shots.length >= maxShots) {
+					//basically a pool of shots, grab the oldest one
+					secondShot = shots.splice(0, 1)[0];
+				} else {
+					//not enough shots in the pool, so make a new one
+					secondShot = new PlayerShot();
+				}
+				               
+				initializeShot(secondShot, EntityType.PlayerDouble, 
+				               {x:this.position.x + 40, y:this.position.y + 6}, 
+				               {x: secondVel.x, y: secondVel.y}, true);
+				               
 				playerFireRegular.play();
 				break;
 			case EntityType.PlayerLaser:
-				initializeShot(newShot, shotType, {x:this.position.x + 50, y:this.position.y + 13}, {x: 3 * NORMAL_SHOT_SPEED, y: 0}, false);
+				initializeShot(newShot, shotType, 
+				               {x:this.position.x + 50, y:this.position.y + 13}, 
+				               {x: 3 * NORMAL_SHOT_SPEED, y: 0}, false);
+				               
 				playerFireLaser.play();
 				break;
 			case EntityType.PlayerTriple:
-				initializeShot(newShot, EntityType.PlayerShot, {x:this.position.x + 50, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
-				initializeShot(secondShot, EntityType.PlayerDouble, {x:this.position.x + 40, y:this.position.y + 6}, {x: secondVel.x, y: secondVel.y}, true);
-				initializeShot(thirdShot, EntityType.PlayerTriple, {x:this.position.x, y:this.position.y + 6}, {x: thirdVel.x, y: thirdVel.y}, true);
+				initializeShot(newShot, EntityType.PlayerShot, 
+				               {x:this.position.x + 50, y:this.position.y + 4}, 
+				               {x: NORMAL_SHOT_SPEED, y: 0}, false);
+				
+				if(shots.length >= maxShots) {
+					//basically a pool of shots, grab the oldest one
+					secondShot = shots.splice(0, 1)[0];
+				} else {
+					//not enough shots in the pool, so make a new one
+					secondShot = new PlayerShot();
+				}
+				
+				initializeShot(secondShot, EntityType.PlayerDouble,
+				               {x:this.position.x + 40, y:this.position.y + 6}, 
+				               {x: secondVel.x, y: secondVel.y}, true);
+				
+				if(shots.length >= maxShots) {
+					//basically a pool of shots, grab the oldest one
+					thirdShot = shots.splice(0, 1)[0];
+				} else {
+					//not enough shots in the pool, so make a new one
+					thirdShot = new PlayerShot();
+				}
+				
+				initializeShot(thirdShot, EntityType.PlayerTriple, 
+				               {x:this.position.x, y:this.position.y + 6}, 
+				               {x: thirdVel.x, y: thirdVel.y}, true);
+				
 				playerFireRegular.play();
 				break;
 			default:
-				initializeNewShot(newShot, shotType, {x:this.position.x + 80, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0});
+				initializeNewShot(newShot, shotType, 
+				                  {x:this.position.x + 80, y:this.position.y + 4}, 
+				                  {x: NORMAL_SHOT_SPEED, y: 0});
 				playerFireRegular.play();
 				break;
 		}
@@ -148,14 +180,12 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 			shots[i].isVisible = false;
 			shots[i].isActive = false;
 			scene.removeCollisions(shots[i], true);
-//			console.log("clearing bullet: " + i);
 		}
 		
 		for(let i = 0; i < missiles.length; i++) {
 			missiles[i].isVisible = false;
 			missiles[i].isActive = false;
 			scene.removeCollisions(missiles[i], true);
-//			console.log("clearing missile: " + i);
 		}
 	};
 
@@ -191,6 +221,10 @@ function GhostPath(distance = 75) {
 	let desiredDistance = distance;
 	const points = [];
 	
+	this.getPointCount = function() {
+		return points.length;
+	};
+	
 	this.nextPoint = function(playerPos) {
 		addPoint(playerPos);
 		
@@ -217,9 +251,17 @@ function GhostPath(distance = 75) {
 	};
 	
 	const addPoint = function(newPoint) {
-		points.push({x:newPoint.x, y:newPoint.y});
-
-		if(points.length < 2) {return;}
+		if(points.length < 1) {
+			points.push(newPoint);
+			return;
+		}
+		
+		if((newPoint.x === points[points.length - 1].x) &&
+		   (newPoint.y === points[points.length - 1].y)) {
+			   return;
+		}
+		
+		points.push(newPoint);
 
 		const previousEndPoint = points[(points.length - 2)];
 		const deltaX = newPoint.x - previousEndPoint.x;

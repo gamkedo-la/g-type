@@ -137,6 +137,7 @@ function GroundEnemy1(position = {x:0, y:0}, rotation = -Math.PI/2, spawnPos = 0
 				(entityType === EntityType.PlayerDouble) || 
 				(entityType === EntityType.PlayerLaser) || 
 				(entityType === EntityType.PlayerTriple) ||
+				(entityType === EntityType.ReflectedShot) ||
 				(entityType === EntityType.PlayerShield)) {
 				this.hitPoints -= otherEntity.damagePoints;
 			}

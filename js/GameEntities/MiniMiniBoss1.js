@@ -1,5 +1,5 @@
 //FlyingEnemy2
-function MiniMiniBoss1(position = {x:0, y:0}, speed = -10, pattern = PathType.None, spawnPos = 0, difficulty = 0, path = null) {
+function MiniMiniBoss1(position = {x:0, y:0}, speed = -40, pattern = PathType.None, spawnPos = 0, difficulty = 12, path = null) {
 	this.type = EntityType.MiniMiniBoss1;
 	this.group = null;
 	this.worldPos = 0;
@@ -13,7 +13,7 @@ function MiniMiniBoss1(position = {x:0, y:0}, speed = -10, pattern = PathType.No
 	let unusedTime = 0;
 	this.isVisible = true;
 
-    let sprite = new AnimatedSprite(miniminiBoss1Sheet, 3, 60, 29, false, true, {min:0, max:0}, 0, {min:0, max:3}, 256, {min:5, max:5}, 0);
+    let sprite = new AnimatedSprite(miniminiBoss1Sheet, 3, 60, 29, false, true, {min:0, max:0}, 0, {min:0, max:2}, 256, {min:5, max:5}, 0);
 	
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 
@@ -71,6 +71,12 @@ function MiniMiniBoss1(position = {x:0, y:0}, speed = -10, pattern = PathType.No
 				if(nextPos !== undefined) {
 					if(pattern === PathType.None) {
 						this.position.x += (vel.x * SIM_STEP / 1000);
+						if(this.position.y < playerPos.y) {
+							vel.y = 20;
+						} else {
+							vel.y = -20;
+						}
+						this.position.y += (vel.y * SIM_STEP / 1000);
 					} else if(pattern === PathType.Sine) {
 						this.position.x += nextPos.x;
 						this.position.y += nextPos.y;

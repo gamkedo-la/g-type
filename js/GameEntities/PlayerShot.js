@@ -90,9 +90,14 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 					
 				availableTime -= SIM_STEP;
 				
-				if(pos.x > GameField.right) {
+				if((pos.x > GameField.right) ||
+				   (pos.x < -this.size.width) ||
+				   (pos.y < -this.size.height)) {
 					this.isVisible = false;
 					this.isActive = false;
+					
+					scene.removeEntity(this, true);
+					
 					return;//bullet ran off screen, bail out
 				}
 			}
