@@ -71,7 +71,6 @@ function DemoSceneScreen() {
 	
 	const updateDemoControls = function(runtime) {
 		holdKey[KEY_SPACE] = true;
-	//	console.log(runtime);
 		if(runtime < 300) {
 			holdKey[KEY_X] = false;
 		} else if(runtime < 600) {// >300

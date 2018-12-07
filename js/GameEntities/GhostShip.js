@@ -148,14 +148,12 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 			shots[i].isVisible = false;
 			shots[i].isActive = false;
 			scene.removeCollisions(shots[i], true);
-//			console.log("clearing bullet: " + i);
 		}
 		
 		for(let i = 0; i < missiles.length; i++) {
 			missiles[i].isVisible = false;
 			missiles[i].isActive = false;
 			scene.removeCollisions(missiles[i], true);
-//			console.log("clearing missile: " + i);
 		}
 	};
 
@@ -191,6 +189,10 @@ function GhostPath(distance = 75) {
 	let desiredDistance = distance;
 	const points = [];
 	
+	this.getPointCount = function() {
+		return points.length;
+	};
+	
 	this.nextPoint = function(playerPos) {
 		addPoint(playerPos);
 		
@@ -217,9 +219,17 @@ function GhostPath(distance = 75) {
 	};
 	
 	const addPoint = function(newPoint) {
-		points.push({x:newPoint.x, y:newPoint.y});
-
-		if(points.length < 2) {return;}
+		if(points.length < 1) {
+			points.push(newPoint);
+			return;
+		}
+		
+		if((newPoint.x === points[points.length - 1].x) &&
+		   (newPoint.y === points[points.length - 1].y)) {
+			   return;
+		}
+		
+		points.push(newPoint);
 
 		const previousEndPoint = points[(points.length - 2)];
 		const deltaX = newPoint.x - previousEndPoint.x;

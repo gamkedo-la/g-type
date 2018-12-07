@@ -169,6 +169,23 @@ const isEnemyBullet = function(entity) {
 	   return false;
 };
 
+const isPlayerBullet = function(entity) {
+	let aType = entity.type;
+	if(aType === undefined) {
+		aType = entity;
+	}
+		
+	if((aType === EntityType.PlayerShot) ||
+	   (aType === EntityType.PlayerMissile) ||
+	   (aType === EntityType.PlayerDouble) ||
+	   (aType === EntityType.PlayerLaser) ||
+	   (aType === EntityType.PlayerTriple)) {
+		   return true;
+	   }
+	   
+	   return false;
+};
+
 const spriteForType = function(type) {
 	switch(type) {
 		case EntityType.Rock01:

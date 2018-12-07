@@ -70,7 +70,9 @@ function CollisionManager(player) {
 	};
 
 	this.removeEntity = function(entityToRemove) {
-		if(isEnemyBullet(entityToRemove)) {
+		if(isPlayerBullet(entityToRemove)) {
+			this.removePlayerBullet(entityToRemove);
+		} else if(isEnemyBullet(entityToRemove)) {
 			removeEnemyBullet(entityToRemove);
 		} else if(isTerrain(entityToRemove)) {
 			removeTerrain(entityToRemove);

@@ -65,9 +65,13 @@ function PlayerMissile(position = {x:0, y:0}, speed = {x:0, y:0}) {
 		
 				availableTime -= SIM_STEP;
 				
-				if(this.position.x > GameField.right) {
+				if((this.position.x > GameField.right) ||
+				   (this.position.y > GameField.bottom)) {
 					this.isVisible = false;
 					this.isActive = false;
+					
+					scene.removeEntity(this, true);
+					
 					return;//bullet ran off screen, bail out
 				}
 			}

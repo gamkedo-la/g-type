@@ -93,6 +93,9 @@ function PlayerShot(position = {x:0, y:0}, velocity = {x:0, y:0}, collisionBody 
 				if(pos.x > GameField.right) {
 					this.isVisible = false;
 					this.isActive = false;
+					
+					scene.removeEntity(this, true);
+					
 					return;//bullet ran off screen, bail out
 				}
 			}
