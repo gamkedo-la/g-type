@@ -112,7 +112,7 @@ function MiniMiniBoss1(position = {x:0, y:0}, speed = 80, pattern = PathType.Non
 					yVel *= 2;
 				}
 				
-				const newBullet = new EnemyBullet(EntityType.EnemyBullet2, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
+				const newBullet = new EnemyBullet(EntityType.EnemyBullet7, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
 				scene.addEntity(newBullet, false);
 			}
 		}

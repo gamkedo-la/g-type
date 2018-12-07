@@ -3,7 +3,7 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 	this.type = EntityType.AlienBoss1;
 	this.group = null;
 	this.worldPos = 0;
-	this.score = 7200;
+	this.score = 9200;
 	let previousBackgroundMusic = null;
 
 	const MAX_HITPOINTS = 500;
@@ -29,7 +29,7 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 		/*birthRate =*/ 0, 
 		/*lifeRange =*/ {min:0, max:11}, 
 		/*lifeRate =*/ 328, 
-		/*deathRange =*/ {min:1, max:1}, 
+		/*deathRange =*/ {min:0, max:1}, 
 		/*deathRate =*/  0);
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 	const EXPLOSION_COUNT = 7;
@@ -154,8 +154,8 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 
 			if(this.bulletsLeft > 0 && this.timeSinceLastFire > 10){
 				//fireBullet
-				xVel = -130;
-				yVel = (this.bulletsLeft -5) * 20;
+				xVel =  -(Math.floor(Math.random() * 360)) + 1;
+				yVel = Math.cos(xVel * Math.PI/9 ) * Math.sin(xVel* Math.PI/9) * 100;
 				newBullet = new EnemyBullet(EntityType.EnemyBullet5, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
 				scene.addEntity(newBullet, false);
 				this.bulletsLeft -= 1;
