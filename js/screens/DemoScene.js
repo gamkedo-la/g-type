@@ -348,7 +348,7 @@ function DemoScene(levelIndex = 0) {
 			if(entityToRemove.collisionBody != null) {
 				collisionManager.removeEntity(entityToRemove);
 			}
-			if((entityToRemove.type === EntityType.EnemyBullet1) || (entityToRemove.type === EntityType.EnemyBullet2)) {
+			if(isEnemyBullet(entityToRemove)) {
 				enemyBullets.delete(entityToRemove);
 			} else {
 				gameEntities.delete(entityToRemove);
@@ -378,7 +378,7 @@ function DemoScene(levelIndex = 0) {
 				collisionManager.addEntity(entityToAdd);
 			}
 			
-			if((entityToAdd.type === EntityType.EnemyBullet1) || (entityToAdd.type === EntityType.EnemyBullet2)) {
+			if(isEnemyBullet(entityToAdd)) {
 				enemyBullets.add(entityToAdd);
 			} else {
 				gameEntities.add(entityToAdd);

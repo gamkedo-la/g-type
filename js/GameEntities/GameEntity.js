@@ -147,7 +147,27 @@ const isTerrain = function(entity) {
 	}
 	
 	return false;
-}
+};
+
+const isEnemyBullet = function(entity) {
+	let aType = entity.type;
+	if(aType === undefined) {
+		aType = entity;
+	}
+	
+	if((aType === EntityType.EnemyBullet1) ||
+	   (aType === EntityType.EnemyBullet2) ||
+	   (aType === EntityType.EnemyBullet3) ||
+	   (aType === EntityType.EnemyBullet4) ||
+	   (aType === EntityType.EnemyBullet5) ||
+	   (aType === EntityType.EnemyBullet6) ||
+	   (aType === EntityType.EnemyBullet7) ||
+	   (aType === EntityType.EnemyBullet8)) {
+		   return true;
+	   }
+	   
+	   return false;
+};
 
 const spriteForType = function(type) {
 	switch(type) {

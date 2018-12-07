@@ -32,10 +32,7 @@ function CollisionManager(player) {
 
 
 	this.addEntity = function(newEntity) {
-		if((newEntity.type === EntityType.EnemyBullet1) ||
-		   (newEntity.type === EntityType.EnemyBullet2) ||
-		   (newEntity.type === EntityType.EnemyBullet3) ||
-		   (newEntity.type === EntityType.EnemyBullet4)) {
+		if(isEnemyBullet(newEntity)) {
 			addEnemyBullet(newEntity);
 		} else if(isTerrain(newEntity)) {
 			addTerrain(newEntity);
@@ -73,10 +70,7 @@ function CollisionManager(player) {
 	};
 
 	this.removeEntity = function(entityToRemove) {
-		if((entityToRemove.type === EntityType.EnemyBullet1) ||
-		   (entityToRemove.type === EntityType.EnemyBullet2) ||
-		   (entityToRemove.type === EntityType.EnemyBullet3) ||
-		   (entityToRemove.type === EntityType.EnemyBullet4)) {
+		if(isEnemyBullet(entityToRemove)) {
 			removeEnemyBullet(entityToRemove);
 		} else if(isTerrain(entityToRemove)) {
 			removeTerrain(entityToRemove);
@@ -193,10 +187,7 @@ function CollisionManager(player) {
             if((otherEntity.type === EntityType.FlyingEnemy1) ||
                (otherEntity.type === EntityType.FlyingEnemy2) ||
                (otherEntity.type === EntityType.GroundEnemy1) ||
-               (otherEntity.type === EntityType.EnemyBullet1) ||
-               (otherEntity.type === EntityType.EnemyBullet2) ||
-               (otherEntity.type === EntityType.EnemyBullet3) ||
-               (otherEntity.type === EntityType.EnemyBullet4) ||
+               (isEnemyBullet(entity)) ||
                (otherEntity.type === EntityType.MiniBoss1) ||
                (otherEntity.type === EntityType.EyeBoss1) ||
                (otherEntity.type === EntityType.AlienBoss1) ||
