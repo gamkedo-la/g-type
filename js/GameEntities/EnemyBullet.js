@@ -37,6 +37,8 @@ function EnemyBullet(type, position = {x:0, y:0}, velocity = {x:0, y:0}) {
 	   (this.type === EntityType.EnemyBullet5) || 
 	   (this.type === EntityType.EnemyBullet6)) {
 		bodyRadius = sprite.height/3;
+	} else if(this.type === EntityType.EnemyBullet9) {
+		bodyRadius = sprite.height/2;
 	}
 	
 	this.collisionBody = new Collider(ColliderType.Circle, {points:   [], 

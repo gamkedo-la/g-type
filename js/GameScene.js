@@ -270,12 +270,12 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		// an experiment inspired by user feedback to increase foreground contrast
 		if (DARKEN_BACKGROUNDS) this.darkenBG();
 
-		for(let bullet of enemyBullets) {
-			bullet.draw();
-		}
-
 		for(let entity of gameEntities) {
 			entity.draw();
+		}
+
+		for(let bullet of enemyBullets) {
+			bullet.draw();
 		}
 
 		player.draw();

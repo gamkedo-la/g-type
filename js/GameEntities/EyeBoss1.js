@@ -309,11 +309,11 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 	
 			// calculate bullet start position based on angle of target
 			let origin = {x: this.collisionBody.center.x, y: this.collisionBody.center.y};
-			let radius = sprite.width/2 + 20; // as sprite is a square, either width or height will do
+			let radius = this.collisionBody.radius;
 	
 			let bulletStartPos = {x: 0, y: 0};
-			bulletStartPos.x = origin.x + radius * Math.cos(this.rotation + Math.PI);
-			bulletStartPos.y = origin.y + radius * Math.sin(this.rotation);
+			bulletStartPos.x = origin.x + 12 * Math.cos(this.rotation + Math.PI);//12 comes from the sprite
+			bulletStartPos.y = origin.y + 5 * Math.sin(this.rotation);//5 comes from the sprite
 	
 			bulletStartPos.x -= newBullet.size.width / 2;
 			bulletStartPos.y -= newBullet.size.height / 2;
