@@ -60,18 +60,24 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 
 			if((100 * Math.random()) < 25) {//1 in 20 chance the next boss should spawn
 				if(spawnRate >= timeSinceSpawn) {
-      				newBoss = new EnemyBullet(EntityType.MiniMiniBoss1, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
-	  				scene.addEntity(newBoss, true);
+     // 				newBoss = new EnemyBullet(EntityType.MiniMiniBoss1, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
+	  //				scene.addEntity(newBoss, true);
+	  /*					const thisEnemy = new MiniMiniBoss1({x:this.position.x, y:this.position.y});
+
+						thisEnemy.respawn(this.worldPos);
+
+						gameEntities.add(thisEnemy);
+			collisionManager.addEntity(thisEnemy, false);*/
      			    spawnRate = 0;
     }
-				const newBoss = new AnimatedSprite(MiniMiniBoss1Sheet, 11, 96, 96, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
+			/*	const newBoss = new AnimatedSprite(MiniMiniBoss1Sheet, 11, 96, 96, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
                 newBoss.deltaXPos = (0.5 * this.size.width) - (this.size.width * Math.random());
                 newBoss.deltaYPos = (0.5 * this.size.height) - (this.size.height * Math.random());
 				
 				newBoss.isDying = true;
 				newBoss.wasBorn = true;
 				
-				bosses.push(newBoss);
+				bosses.push(newBoss);*/
 			}
 		}
 		
@@ -217,7 +223,7 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 				//fireBullet
 				xVel = -130;
 				yVel = (this.bulletsLeft -5) * 20;
-				newBullet = new EnemyBullet(EntityType.EnemyBullet8, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
+				newBullet = new EnemyBullet(EntityType.EnemyBullet5, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
 				scene.addEntity(newBullet, false);
 				this.bulletsLeft -= 1;
 				this.timeSinceLastFire = 0
@@ -245,18 +251,24 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 	}
 	state.pewpew = function(){
 		if(this.ticksInState == 1){
-			this.bulletsLeft = 100;
+			this.bulletsLeft = 10;
 			this.vel.x = 0
 			this.vel.y = 0;
 		}
 
-		if(this.bulletsLeft > 0 && this.timeSinceLastFire > 25){
+		if(this.bulletsLeft > 0 && this.timeSinceLastFire > 1000){
 			//fireBullet
-			xVel = -530;
+	/*		xVel = -530;
 			yVel = 0
 			newBullet = new EnemyBullet(EntityType.EnemyBullet7, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
-			scene.addEntity(newBullet, false);
+			scene.addEntity(newBullet, false);*/
 			this.bulletsLeft -= 1;
+			const thisEnemy = new MiniMiniBoss1({x:this.position.x, y:this.position.y});
+
+			thisEnemy.respawn(this.worldPos);
+
+			scene.addEntity(thisEnemy, false);
+			scene.addCollisions(thisEnemy, false);
 			this.timeSinceLastFire = 0
 		}
 
