@@ -203,6 +203,15 @@ function CollisionManager(player) {
 
 	this.doCollisionChecks = function() {
 		const collisions = [];
+			let shotCount = 0;
+			let missileCount = 0;
+		for(let i = 0; i < this.playerBullets.length; i++) {
+			if(this.playerBullets[i].type === EntityType.PlayerTriple) {
+				shotCount++;
+			} else if(this.playerBullets[i].type === EntityType.PlayerMissile) {
+				missileCount++;
+			}
+		}
 
 		for(let entity of entities) {
 			if((entity.position.x > GameField.right) || 

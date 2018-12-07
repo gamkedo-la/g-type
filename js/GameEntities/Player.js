@@ -231,6 +231,7 @@ function Player(position = {x:0, y:0}) {
 	};
 
 	this.doShooting = function() {
+		console.log("Player Shot Count: " + shots.length);
 		let timeSinceLastShot = timer.timeSinceUpdateForEvent(PlayerEvent.LastShot);
 		let timeSinceLastMissile = timer.timeSinceUpdateForEvent(PlayerEvent.LastMissile);
 		if((timeSinceLastShot == null) || (timeSinceLastShot === undefined)) {
