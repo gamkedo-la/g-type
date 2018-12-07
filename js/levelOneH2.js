@@ -2588,6 +2588,34 @@
                  "width":60,
                  "x":476,
                  "y":384.5
+                }, 
+                {
+                 "gid":44,
+                 "height":40,
+                 "id":1260,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Group",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"childrenCount",
+                         "type":"int",
+                         "value":100
+                        }, 
+                        {
+                         "name":"timeDelay",
+                         "type":"int",
+                         "value":256
+                        }],
+                 "rotation":0,
+                 "type":"bigDestRock",
+                 "visible":true,
+                 "width":40,
+                 "x":196,
+                 "y":484
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -8348,39 +8376,6 @@
                  "width":30,
                  "x":9587,
                  "y":394
-                }, 
-                {
-                 "gid":51,
-                 "height":134,
-                 "id":1259,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"Group",
-                         "type":"string",
-                         "value":"0"
-                        }, 
-                        {
-                         "name":"difficulty",
-                         "type":"int",
-                         "value":40
-                        }, 
-                        {
-                         "name":"pattern",
-                         "type":"string",
-                         "value":"none"
-                        }, 
-                        {
-                         "name":"speed",
-                         "type":"int",
-                         "value":300
-                        }],
-                 "rotation":0,
-                 "type":"eyeBoss1",
-                 "visible":true,
-                 "width":128,
-                 "x":189.333333333333,
-                 "y":401.666666666667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -8389,7 +8384,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":1260,
+ "nextobjectid":1261,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.0",

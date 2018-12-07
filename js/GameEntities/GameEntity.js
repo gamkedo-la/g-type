@@ -734,6 +734,8 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, spe
 		if((this.collisionBody == null) || (otherEntity.collisionBody == null)) {return false;}
 		
 		if(this.type === EntityType.BigDestRock) {
+			if(this.childrenCount > 0) {return;}
+			
 			let entityType = otherEntity.type;
 			if ((entityType === EntityType.PlayerForceUnit) ||
 				(entityType === EntityType.RagnarokCapsule) || 
@@ -767,6 +769,7 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, spe
 					scene.displayScore(this);
 					
 					scene.removeEntity(this);
+					enemySmallExplosion.play();
 			}
 		} else if((this.type === EntityType.SmDestRock1) ||
 				  (this.type === EntityType.SmDestRock2) ||
@@ -776,6 +779,7 @@ function TerrainEntity(type, position = {x:0, y:0}, spawnPos = 0, scale = 1, spe
 					scene.displayScore(this);
 					  
 				  	scene.removeEntity(this);
+				  	enemySmallExplosion.play();
 		}
 	};
 	
