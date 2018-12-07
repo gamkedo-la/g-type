@@ -29,9 +29,17 @@ function EnemyBullet(type, position = {x:0, y:0}, velocity = {x:0, y:0}) {
 	}
 	this.size = {width:sprite.width, height:sprite.height};
 	
+	let bodyRadius = 7;
+	if((this.type === EntityType.EnemyBullet3) ||
+	   (this.type === EntityType.EnemyBullet4) ||
+	   (this.type === EntityType.EnemyBullet5) || 
+	   (this.type === EntityType.EnemyBullet6)) {
+		bodyRadius = sprite.height/3;
+	}
+	
 	this.collisionBody = new Collider(ColliderType.Circle, {points:   [], 
 		position: {x:this.position.x + sprite.width / 2, y:this.position.y + sprite.height / 2}, 
-		radius:   7, 
+		radius:   bodyRadius, 
 		center:   {x:this.position.x + sprite.width / 2, y:this.position.y + sprite.height / 2}}
   	);
 

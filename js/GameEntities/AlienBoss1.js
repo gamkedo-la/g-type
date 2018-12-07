@@ -6,7 +6,9 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 	this.score = 7200;
 	let previousBackgroundMusic = null;
 
-    this.hitPoints = 200;     // Every enemy type should have a hitPoints property
+	const MAX_HITPOINTS = 200;
+    this.hitPoints = MAX_HITPOINTS;     // Every enemy type should have a hitPoints property
+    const MINI_MINI_BULLETS = 5;
 	
 	const SPRITE_SCALE = 1; 
 	this.position = position;
@@ -51,24 +53,7 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 	
 	let didCollide = false;
 	
-	this.path = new EnemyPath(PathType.Sine, this.position, speed, [], timeOffset);
-    this.updateBosses = function(deltaTime) {
-		spawnRate += deltaTime;
-    
-		if(bosses.length < BOSS_COUNT) {
-			if((100 * Math.random()) < 25) {//1 in 20 chance the next boss should spawn
-				if(spawnRate >= timeSinceSpawn) {
-     			    spawnRate = 0;
-    			}
-			}
-		}
-		
-		for(let i = 0; i < bosses.length; i++) {
-			bosses[i].update(deltaTime);
-		}
-	};
-	
-	this.update = function(deltaTime, worldPos, playerPos) {
+ 	this.update = function(deltaTime, worldPos, playerPos) {
 		if(sprite.getDidDie()) {
 			scene.removeEntity(this, false);
 			sprite.isDying = false;
@@ -80,6 +65,8 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 		if(!this.isVisible) {return;}
 		if(worldPos < spawnPos) {return;}//don't update if the world hasn't scrolled far enough to spawn
 		
+		this.timeSinceLastFire += deltaTime;
+		
 		if((this.worldPos > spawnPos + 50) && (!sprite.isDying)) {
 			if(previousBackgroundMusic === null) {
 				scene.worldShouldPause(true);
@@ -87,7 +74,7 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 				currentBackgroundMusic.setCurrentTrack(AudioTracks.Boss1);
 				this.currentState = state.entrance; 
 
-		            currentBackgroundMusic.play();
+		        currentBackgroundMusic.play();
 			}
 		} else if((sprite.isDying) && (previousBackgroundMusic != null)) {
 			scene.worldShouldPause(false);
@@ -96,38 +83,8 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 			previousBackgroundMusic = null;			
 		}
 		
-		let availableTime = unusedTime + deltaTime;
-		this.timeSinceLastFire += deltaTime;
-		
-
-		
-
-		while(availableTime > SIM_STEP) {
-			availableTime -= SIM_STEP;
-			if(!sprite.isDying) {
-				const nextPos = this.path.nextPoint(SIM_STEP);
-				if(nextPos !== undefined) {
-					if(pattern === PathType.None) {
-						this.position.x += (this.vel.x * SIM_STEP / 1000);
-						this.position.y += (this.vel.y * SIM_STEP / 1000);
-					} else if(pattern === PathType.Sine) {
-						this.position.x += nextPos.x;
-						this.position.y += nextPos.y;
-					} else if(pattern === PathType.Points) {
-						this.position.x = nextPos.x;
-						this.position.y = nextPos.y;
-					}
-				}
-			}
-						
-			if(this.position.x < -sprite.width) {
-				//scene.removeEntity(this, false);
-				//return;
-			}
-		}
-		
-		unusedTime = availableTime;
-		
+		this.position.x += (this.vel.x * SIM_STEP / 1000);
+		this.position.y += (this.vel.y * SIM_STEP / 1000);		
 		
 		if(!sprite.isDying) {
 			sprite.update(deltaTime);
@@ -153,12 +110,7 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 		if(this.position.x < 700){
 			this.bulletsLeft = 100;
 		}
-		if(this.position.x < 650){
-			this.bulletsLeft = 100;
-		}
-		if(this.position.x < 640){
-			this.bulletsLeft = 100;
-		}
+		
 		if(this.position.x < 500){
 			this.vel.x = 0
 			this.vel.y = 0;
@@ -166,7 +118,6 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 			
 			//this.currentState = state.phase1;
 			this.changeState(state.pewpew);
-
 		}
 	}
 	this.targetPos = {
@@ -221,11 +172,13 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 				const newBullet = new EnemyBullet(EntityType.EnemyBullet6, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
 				scene.addEntity(newBullet, false);
 			}
-			if(this.ticksInState > 600){
+			
+			if(this.ticksInState > 600) {
 				this.changeState(state.pewpew)
 				return;
 			}
-			if(this.timeSinceLastDip > 400 && this.hitPoints < 1500){
+			
+			if((this.timeSinceLastDip > 400) && (this.hitPoints < MAX_HITPOINTS / 2)) {
 				this.changeState(state.dip)
 			}
 		}
@@ -233,24 +186,18 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 	}
 	state.pewpew = function(){
 		if(this.ticksInState == 1){
-			this.bulletsLeft = 10;
+			this.bulletsLeft = MINI_MINI_BULLETS;
 			this.vel.x = 0
 			this.vel.y = 0;
 		}
 
 		if(this.bulletsLeft > 0 && this.timeSinceLastFire > 1000){
-			//fireBullet
-	/*		xVel = -530;
-			yVel = 0
-			newBullet = new EnemyBullet(EntityType.EnemyBullet7, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
-			scene.addEntity(newBullet, false);*/
 			this.bulletsLeft -= 1;
-			const thisEnemy = new MiniMiniBoss1({x:this.position.x, y:this.position.y});
+			const thisEnemy = new MiniMiniBoss1({x:this.position.x + 78, y:this.position.y + 78});
 
 			thisEnemy.respawn(this.worldPos);
 
 			scene.addEntity(thisEnemy, false);
-			scene.addCollisions(thisEnemy, false);
 			this.timeSinceLastFire = 0
 		}
 
@@ -331,9 +278,8 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 		if(worldPos > spawnPos) {
 			this.worldPos = worldPos;
 			const totalTime = (worldPos *  SIM_STEP);
-			const nextPos = this.path.nextPoint(totalTime - timeOffset);
-			this.position.x = nextPos.x;
-			this.position.y = nextPos.y;
+			this.position.x = position.x;
+			this.position.y = position.y;
 		}
 	};
 	
@@ -351,9 +297,6 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 				this.hitPoints -= otherEntity.damagePoints;
 			}
 		} 
-		else {
-		    this.hitPoints = 0; // TODO remove this catch-all; we want all collisions with player weapons to inflict damage based on their damagePoints
-		}
 		
 		if (this.hitPoints <= 0) {
 			if(sprite.isDying) {return;}//already dying, no reason to continue
@@ -372,7 +315,8 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 			scene.removeCollisions(this);
 
 			enemyLargeExplosion.play();
+		} else {
+			shotDamaged.play();
 		}
-		// TODO else -- add SFX to show a non-lethal hit
 	};
 }

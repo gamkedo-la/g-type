@@ -1,54 +1,32 @@
 //FlyingEnemy2
-function MiniMiniBoss1(position = {x:0, y:0}, speed = -40, pattern = PathType.None, spawnPos = 0, difficulty = 12, path = null) {
+function MiniMiniBoss1(position = {x:0, y:0}, speed = 80, pattern = PathType.None, spawnPos = 0, difficulty = 6, path = null) {
 	this.type = EntityType.MiniMiniBoss1;
 	this.group = null;
 	this.worldPos = 0;
 	this.score = 200;
 	
-    this.hitPoints = 58;     // Every enemy type should have a hitPoints property
+    this.hitPoints = 10;     // Every enemy type should have a hitPoints property
 
 	const SPRITE_SCALE = 1;
 	this.position = position;
 	let vel = {x:speed, y:speed};
 	let unusedTime = 0;
 	this.isVisible = true;
+	let timeToCourseChange = -1;
+	let rndYVel;
 
     let sprite = new AnimatedSprite(miniminiBoss1Sheet, 3, 60, 29, false, true, {min:0, max:0}, 0, {min:0, max:2}, 256, {min:5, max:5}, 0);
 	
 	this.size = {width:SPRITE_SCALE * sprite.width, height:SPRITE_SCALE * sprite.height};
 
-	this.collisionBody = new Collider(ColliderType.Circle, {points:   [], 
-															position: {x:(SPRITE_SCALE * 0) + this.position.x + this.size.width / 2, y:this.position.y + this.size.height / 2}, 
-															radius:   this.size.height / 2, 
-															center:   {x:(SPRITE_SCALE * 0) + this.position.x + this.size.width / 2, y:this.position.y + this.size.height / 2}}
-									  );
+	this.collisionBody = new Collider(ColliderType.Circle, 
+									  {points:   [], 
+									   position: {x:(SPRITE_SCALE * 0) + this.position.x + this.size.width / 2, 
+										   		  y:this.position.y + this.size.height / 2}, 
+									   radius:   0.75 * this.size.width / 2, 
+									   center:   {x:(SPRITE_SCALE * 0) + this.position.x + this.size.width / 2, 
+										   		  y:this.position.y + this.size.height / 2}});
 	let didCollide = false;
-	
-	let pathPoints = [
-		{x: GameField.right, y: GameField.y + 60},
-		{x: GameField.x + GameField.width / 5, y: GameField.y + 60},
-		{x: GameField.x + GameField.width / 4, y: GameField.y + 450},
-		{x: GameField.x + GameField.width / 3, y: GameField.y + 450},
-		{x: GameField.x + GameField.width / 2, y: GameField.y + 60},
-		{x: GameField.x + GameField.width + 50, y: GameField.y + 60},
-	];
-
-	if(path){
-		if(path.polygon === undefined) {
-            pathPoints = path.polyline.slice(0);
-        } else {
-            pathPoints = path.polygon.slice(0);
-        }
-        
-		pathPoints.forEach((point)=>{
-			point.x += GameField.x + GameField.width - 50;
-			point.y += GameField.y + path.y;
-			pathPoints.push(point);
-            });
-		
-	}
-	
-	this.path = new EnemyPath(PathType.Points, this.position, speed, pathPoints, 0);
 	
 	this.update = function(deltaTime, worldPos, playerPos) {
 		if(!this.isVisible) {return;}
@@ -60,34 +38,40 @@ function MiniMiniBoss1(position = {x:0, y:0}, speed = -40, pattern = PathType.No
 			return;
 		}
 		
-		this.worldPos = worldPos;
-		
+		timeToCourseChange -= deltaTime;
+		this.worldPos = worldPos;		
 		
 		let availableTime = unusedTime + deltaTime;
 		while(availableTime > SIM_STEP) {
 			availableTime -= SIM_STEP;
 			if(!sprite.isDying) {
-				const nextPos = this.path.nextPoint(SIM_STEP);
-				if(nextPos !== undefined) {
-					if(pattern === PathType.None) {
-						this.position.x += (vel.x * SIM_STEP / 1000);
-						if(this.position.y < playerPos.y) {
-							vel.y = 20;
-						} else {
-							vel.y = -20;
-						}
-						this.position.y += (vel.y * SIM_STEP / 1000);
-					} else if(pattern === PathType.Sine) {
-						this.position.x += nextPos.x;
-						this.position.y += nextPos.y;
-					} else if(pattern === PathType.Points) {
-						this.position.x = nextPos.x;
-						this.position.y = nextPos.y;
+				
+				if(timeToCourseChange < 0) {
+					rndXVel = speed * Math.random();
+					rndYVel = speed * Math.random();
+					timeToCourseChange = 4096 * Math.random();
+					
+					if(this.position.x < playerPos.x) {
+						vel.x = rndXVel;
+					} else {
+						vel.x = -rndXVel;
+					}
+					
+					if(this.position.y < playerPos.y) {
+						vel.y = rndYVel;
+					} else {
+						vel.y = -rndYVel;
 					}
 				}
+				
+				this.position.x += (vel.x * SIM_STEP / 1000);
+				this.position.y += (vel.y * SIM_STEP / 1000);
 			}
 						
-			if(this.position.x < -sprite.width) {
+			if((this.position.x < -sprite.width) ||
+			   (this.position.x > GameField.right) ||
+			   (this.position.y < -sprite.height) ||
+			   (this.position.y > GameField.bottom)) {
 				scene.removeEntity(this, false);
 				return;
 			}
@@ -98,7 +82,7 @@ function MiniMiniBoss1(position = {x:0, y:0}, speed = -40, pattern = PathType.No
 		
         //update the collision body position
 		if(!sprite.isDying) {
-			this.collisionBody.setPosition({x:(SPRITE_SCALE * 3) + this.position.x + this.size.height / 2, 
+			this.collisionBody.setPosition({x:this.position.x + this.size.height, 
 											y:this.position.y + this.size.height / 2});
 		}
 		
@@ -148,9 +132,8 @@ function MiniMiniBoss1(position = {x:0, y:0}, speed = -40, pattern = PathType.No
 		if(worldPos > spawnPos) {
 			this.worldPos = worldPos;
 			const totalTime = (worldPos * SIM_STEP);
-			const nextPos = this.path.nextPoint(totalTime);
-			this.position.x = nextPos.x;
-			this.position.y = nextPos.y;
+			this.position.x = position.x;
+			this.position.y = position.y;
 		}
 	};
 	
@@ -168,9 +151,6 @@ function MiniMiniBoss1(position = {x:0, y:0}, speed = -40, pattern = PathType.No
 				this.hitPoints -= otherEntity.damagePoints;
 			}
 		} 
-		else {
-		    this.hitPoints = 0; // TODO remove this catch-all; we want all collisions with player weapons to inflict damage based on their damagePoints
-		}
 		
 		if (this.hitPoints <= 0) {
 			if(sprite.isDying) {return;}//already dying, no reason to continue
@@ -194,7 +174,8 @@ function MiniMiniBoss1(position = {x:0, y:0}, speed = -40, pattern = PathType.No
 			scene.removeCollisions(this);
 
 			enemySmallExplosion.play();
+		} else {
+			shotDamaged.play();
 		}
-		// TODO else -- add SFX to show a non-lethal hit
 	};
 }
