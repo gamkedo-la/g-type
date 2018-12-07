@@ -65,6 +65,8 @@ function Player(position = {x:0, y:0}) {
 	const DELAY_MULTIPLIER = 5;
 	const NORMAL_SHOT_SPEED = 1200;
 	const MISSILE_VELOCITY = {x:125, y:175};
+	const secondVel = {x:NORMAL_SHOT_SPEED, y:-NORMAL_SHOT_SPEED};
+	const thirdVel = {x:-NORMAL_SHOT_SPEED, y:0};
 	let currentShotDelay = DELAY_MULTIPLIER * BASE_SHOT_DELAY;
 	let currentMissileDelay = DELAY_MULTIPLIER * BASE_MISSILE_DELAY;
 	let isInvincible = false;
@@ -242,8 +244,12 @@ function Player(position = {x:0, y:0}) {
 			for(let i = 0; i < ghosts.length; i++) {
 				ghosts[i].doShooting(MAX_SHOTS_ON_SCREEN, this.currentShotType, hasMissiles);
 			}
+			
 			let newShot;
-			if(shots.length === MAX_SHOTS_ON_SCREEN) {
+			let secondShot;
+			let thirdShot;
+			
+			if(shots.length >= MAX_SHOTS_ON_SCREEN) {
 				//basically a pool of shots, grab the oldest one
 				newShot = shots.splice(0, 1)[0];
 			} else {
@@ -251,48 +257,75 @@ function Player(position = {x:0, y:0}) {
 				newShot = new PlayerShot();
 			}
 
-			let secondShot;
-			const secondVel = {x:NORMAL_SHOT_SPEED, y:-NORMAL_SHOT_SPEED};
-			if(shots.length === MAX_SHOTS_ON_SCREEN) {
-				//basically a pool of shots, grab the oldest one
-				secondShot = shots.splice(0, 1)[0];
-			} else {
-				//not enough shots in the pool, so make a new one
-				secondShot = new PlayerShot();
-			}
-
-			let thirdShot;
-			const thirdVel = {x:-NORMAL_SHOT_SPEED, y:0};
-			if(shots.length >= MAX_SHOTS_ON_SCREEN) {
-				//basically a pool of shots, grab the oldest one
-				thirdShot = shots.splice(0, 1)[0];
-			} else {
-				//not enough shots in the pool, so make a new one
-				thirdShot = new PlayerShot();
-			}
-
 			switch(this.currentShotType) {
 				case EntityType.PlayerShot:
-					initializeShot(newShot, EntityType.PlayerShot, {x:this.position.x + 70, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
+					initializeShot(newShot, EntityType.PlayerShot, 
+					               {x:this.position.x + 70, y:this.position.y + 4}, 
+					               {x: NORMAL_SHOT_SPEED, y: 0}, false);
+					               
 					playerFireRegular.play();//play the audio
 					break;
 				case EntityType.PlayerDouble:
-					initializeShot(newShot, EntityType.PlayerShot, {x:this.position.x + 70, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
-					initializeShot(secondShot, EntityType.PlayerDouble, {x:this.position.x + 60, y:this.position.y + 2}, {x: secondVel.x, y: secondVel.y}, true);
+					initializeShot(newShot, EntityType.PlayerShot, 
+					               {x:this.position.x + 70, y:this.position.y + 4}, 
+					               {x: NORMAL_SHOT_SPEED, y: 0}, false);
+					
+					if(shots.length >= MAX_SHOTS_ON_SCREEN) {
+						//basically a pool of shots, grab the oldest one
+						secondShot = shots.splice(0, 1)[0];
+					} else {
+						//not enough shots in the pool, so make a new one
+						secondShot = new PlayerShot();
+					}
+					
+					initializeShot(secondShot, EntityType.PlayerDouble, 
+					               {x:this.position.x + 60, y:this.position.y + 2}, 
+					               {x: secondVel.x, y: secondVel.y}, true);
+					
 					playerFireRegular.play();
 					break;
 				case EntityType.PlayerLaser:
-					initializeShot(newShot, this.currentShotType, {x:this.position.x + 70, y:this.position.y + 13}, {x: 3 * NORMAL_SHOT_SPEED, y: 0}, false);
+					initializeShot(newShot, this.currentShotType, 
+					               {x:this.position.x + 70, y:this.position.y + 13}, 
+					               {x: 3 * NORMAL_SHOT_SPEED, y: 0}, false);
+					               
 					playerFireLaser.play();
 					break;
 				case EntityType.PlayerTriple:
-					initializeShot(newShot, EntityType.PlayerShot, {x:this.position.x + 70, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0}, false);
-					initializeShot(secondShot, EntityType.PlayerDouble, {x:this.position.x + 80, y:this.position.y + 4}, {x: secondVel.x, y: secondVel.y}, true);
-					initializeShot(thirdShot, EntityType.PlayerTriple, {x:this.position.x - thirdShot.size.width, y:this.position.y + 4}, {x: thirdVel.x, y: thirdVel.y}, true);
+					initializeShot(newShot, EntityType.PlayerShot, 
+					               {x:this.position.x + 70, y:this.position.y + 4}, 
+					               {x: NORMAL_SHOT_SPEED, y: 0}, false);
+					
+					if(shots.length >= MAX_SHOTS_ON_SCREEN) {
+						//basically a pool of shots, grab the oldest one
+						secondShot = shots.splice(0, 1)[0];
+					} else {
+						//not enough shots in the pool, so make a new one
+						secondShot = new PlayerShot();
+					}
+		
+					initializeShot(secondShot, EntityType.PlayerDouble, 
+					               {x:this.position.x + 80, y:this.position.y + 4}, 
+					               {x: secondVel.x, y: secondVel.y}, true);
+					
+					if(shots.length >= MAX_SHOTS_ON_SCREEN) {
+						//basically a pool of shots, grab the oldest one
+						thirdShot = shots.splice(0, 1)[0];
+					} else {
+						//not enough shots in the pool, so make a new one
+						thirdShot = new PlayerShot();
+					}
+					
+					initializeShot(thirdShot, EntityType.PlayerTriple, 
+					               {x:this.position.x - thirdShot.size.width, y:this.position.y + 4}, 
+					               {x: thirdVel.x, y: thirdVel.y}, true);
+					
 					playerFireRegular.play();
 					break;
 				default:
-					initializeNewShot(newShot, this.currentShotType, {x:this.position.x + 80, y:this.position.y + 4}, {x: NORMAL_SHOT_SPEED, y: 0});
+					initializeNewShot(newShot, this.currentShotType, 
+					                  {x:this.position.x + 80, y:this.position.y + 4}, 
+					                  {x: NORMAL_SHOT_SPEED, y: 0});
 					playerFireRegular.play();
 					break;
 			}
