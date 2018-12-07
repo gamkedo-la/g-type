@@ -73,6 +73,7 @@ function ShieldEntity(position = {x:0, y:0}, playerSize = {width:0, height:0}) {
 		   (otherEntity.type === EntityType.PlayerDouble) ||
 		   (otherEntity.type === EntityType.PlayerLaser) ||
 		   (otherEntity.type === EntityType.PlayerTriple) ||
+		   (otherEntity.type === EntityType.FreeCollider) ||
 		   (otherEntity.type === EntityType.PlayerForceUnit)) {
 			   return; //Player weapons don't interact with the shields
 		} else if(isTerrain(otherEntity)) {

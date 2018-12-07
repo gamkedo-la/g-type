@@ -102,6 +102,8 @@ function PlayerMissile(position = {x:0, y:0}, speed = {x:0, y:0}) {
 	this.didCollideWith = function(otherEntity) {
 		if((this.collisionBody == null) || (otherEntity.collisionBody == null)) {return false;}
 		
+		if(otherEntity.type === EntityType.FreeCollider) {return false;}
+		
 		this.shotLife--;
 		if(this.shotLife === 0) {
 			sprite.isDying = true;
