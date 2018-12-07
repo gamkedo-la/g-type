@@ -6,7 +6,7 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 	this.score = 7200;
 	let previousBackgroundMusic = null;
 
-    this.hitPoints = 4200;     // Every enemy type should have a hitPoints property
+    this.hitPoints = 200;     // Every enemy type should have a hitPoints property
 	
 	const SPRITE_SCALE = 1; 
 	this.position = position;
@@ -34,19 +34,18 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 	const explosions = [];
 
 	//all magic numbers in collider path are based on the sprite
-	const colliderPath = [{x: this.position.x + 23 * SPRITE_SCALE, y: this.position.y + 112 * SPRITE_SCALE},
-						  {x: this.position.x + 91 * SPRITE_SCALE, y: this.position.y + 46 * SPRITE_SCALE},
-						  {x: this.position.x + 113 * SPRITE_SCALE, y: this.position.y + 46 * SPRITE_SCALE},
-						  {x: this.position.x + 113 * SPRITE_SCALE, y: this.position.y + 23 * SPRITE_SCALE},
-						  {x: this.position.x + 178 * SPRITE_SCALE, y: this.position.y + 23 * SPRITE_SCALE},
-						  {x: this.position.x + 178 * SPRITE_SCALE, y: this.position.y + 46 * SPRITE_SCALE},
-						  {x: this.position.x + 252 * SPRITE_SCALE, y: this.position.y + 46 * SPRITE_SCALE},
-						  {x: this.position.x + 255 * SPRITE_SCALE, y: this.position.y + 134 * SPRITE_SCALE},
-						  {x: this.position.x + 229 * SPRITE_SCALE, y: this.position.y + 184 * SPRITE_SCALE},
-						  {x: this.position.x + 151 * SPRITE_SCALE, y: this.position.y + 186 * SPRITE_SCALE},
-						  {x: this.position.x + 139 * SPRITE_SCALE, y: this.position.y + 169 * SPRITE_SCALE},
-						  {x: this.position.x + 84 * SPRITE_SCALE, y: this.position.y + 169 * SPRITE_SCALE},
-						  {x: this.position.x + 30 * SPRITE_SCALE, y: this.position.y + 151 * SPRITE_SCALE}];
+	const colliderPath = [{x: this.position.x,	 					y: this.position.y + 78 / 2},
+						  {x: this.position.x + this.size.width / 8,  y: this.position.y + 78 / 5},
+						  {x: this.position.x + this.size.width / 4,  y: this.position.y + 78 / 10},
+						  {x: this.position.x + this.size.width / 2, y: this.position.y},
+						  {x: this.position.x + 3 * this.size.width / 4, y: this.position.y + 78 / 10},
+						  {x: this.position.x + 7 * this.size.width / 8, y: this.position.y + 78 / 5},
+						  {x: this.position.x + this.size.width, y: this.position.y + 78 / 2},
+						  {x: this.position.x + 7 * this.size.width / 8, y: this.position.y + 4 * 78 / 5},
+						  {x: this.position.x + 3 * this.size.width / 4, y: this.position.y + 9 * 78 / 10},
+						  {x: this.position.x + this.size.width / 2, y: this.position.y + 78},
+						  {x: this.position.x + this.size.width / 4, y: this.position.y + 9 * 78 / 10},
+						  {x: this.position.x + this.size.width / 8, y: this.position.y + 4 * 78 / 5}];
 	
 	this.collisionBody = new Collider(ColliderType.Polygon, {points: colliderPath, position:{x:this.position.x, y:this.position.y}});
 	
@@ -57,27 +56,10 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 		spawnRate += deltaTime;
     
 		if(bosses.length < BOSS_COUNT) {
-
 			if((100 * Math.random()) < 25) {//1 in 20 chance the next boss should spawn
 				if(spawnRate >= timeSinceSpawn) {
-     // 				newBoss = new EnemyBullet(EntityType.MiniMiniBoss1, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
-	  //				scene.addEntity(newBoss, true);
-	  /*					const thisEnemy = new MiniMiniBoss1({x:this.position.x, y:this.position.y});
-
-						thisEnemy.respawn(this.worldPos);
-
-						gameEntities.add(thisEnemy);
-			collisionManager.addEntity(thisEnemy, false);*/
      			    spawnRate = 0;
-    }
-			/*	const newBoss = new AnimatedSprite(MiniMiniBoss1Sheet, 11, 96, 96, false, true, {min:0, max:0}, 0, {min:0, max:0}, 0, {min:0, max:18}, 64);
-                newBoss.deltaXPos = (0.5 * this.size.width) - (this.size.width * Math.random());
-                newBoss.deltaYPos = (0.5 * this.size.height) - (this.size.height * Math.random());
-				
-				newBoss.isDying = true;
-				newBoss.wasBorn = true;
-				
-				bosses.push(newBoss);*/
+    			}
 			}
 		}
 		
