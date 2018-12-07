@@ -25,7 +25,7 @@ function CreditsScreen() {
 
         starfield = new Starfield(180, 120, 80, -16, -32, -64);
 
-        currentBackgroundMusic.setCurrentTrack(AudioTracks.Help);
+        currentBackgroundMusic.setCurrentTrack(AudioTracks.Credits);
         if(currentBackgroundMusic.getTime() > 0){
             currentBackgroundMusic.resume();
         } else {

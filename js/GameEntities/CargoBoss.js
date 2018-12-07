@@ -224,7 +224,7 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 		if(this.bulletsLeft > 0 && this.timeSinceLastFire > 25) {
 			//fireBullet
 			if(bossLaserShot.getTime() === 0) {
-				bossLaserShot.play();
+				laserShot.play();
 			}
 			xVel = -530;
 			yVel = 0

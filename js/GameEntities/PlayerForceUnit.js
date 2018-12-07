@@ -37,6 +37,9 @@ function PlayerForceUnit(position = {x:0, y:0}) {
 
 
 	this.didCollideWith = function(otherEntity) {
+		if(otherEntity.type === EntityType.ReflectedShot) {
+			playerShieldHit.play();
+		}
 		//The Force doesn't respond to collisions
 	};
 

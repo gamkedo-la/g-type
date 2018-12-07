@@ -157,7 +157,8 @@ function CollisionManager(player) {
     };
     
     this.doForceUnitCollision = function(entity, forceUnit) {
-        if((entity.type === EntityType.Capsule1) ||    //can't hit the capsules
+        if((entity.type === EntityType.PlayerForceUnit) ||
+           (entity.type === EntityType.Capsule1) ||    //can't hit the capsules
            (entity.type === EntityType.RagnarokCapsule) ||
            (entity.type === EntityType.PlayerShot) ||
            (entity.type === EntityType.PlayerDouble) ||

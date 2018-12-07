@@ -79,18 +79,19 @@ const AudioTracks = {
 	MainMenu:0,		//
 	Level1:1, 		//
 	MiniBoss1:2,	//
-    EyeBoss1:2,		//
-    AlienBoss1:2,     //
-    MaskBoss1:2,     //
-    MiniMiniBoss1:2,     //
+    EyeBoss1:5,		//
+    AlienBoss1:6,   //
+    MaskBoss1:2,    //
+    MiniMiniBoss1:2,//
 	Boss1:3,		//TODO: change these to
 	Level2:0, 		//the correct indices from
 	Level3:4, 		//the "currentBackgroundMusic"
-	GameOver:0,		//array (AudioManager.js ~line 11) once
-	GameEnding:0,	//there is more than 1 element in that array
+	WarpLevel:8,	//array (AudioManager.js ~line 11) once
+	GameOver:0,		//there is more than 1 element in that array
+	GameEnding:7,	//
 	Help:0,			//
 	Options:0,		//
-	Credits:0		//
+	Credits:7		//
 };
 
 const loadingText = "LOADING...";

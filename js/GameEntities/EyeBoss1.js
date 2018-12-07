@@ -71,7 +71,7 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 			if(previousBackgroundMusic === null) {
 				scene.worldShouldPause(true);
 				previousBackgroundMusic = currentBackgroundMusic.getCurrentTrack();
-				currentBackgroundMusic.setCurrentTrack(AudioTracks.Boss1);
+				currentBackgroundMusic.setCurrentTrack(AudioTracks.EyeBoss1);
 				this.changeState(state.entrance);
 				
 				if(currentBackgroundMusic.getTime() > 0) {
@@ -327,6 +327,7 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 	}
 	
 	this.burstShot = function(numberOfShots) {
+		bossLaserShot.play();
 		let dAngle = (Math.PI * 2) / numberOfShots
 		let i;
 		for (i = 0; i < Math.PI * 2; i += dAngle) {

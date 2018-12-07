@@ -158,6 +158,7 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 				yVel = Math.cos(xVel * Math.PI/9 ) * Math.sin(xVel* Math.PI/9) * 100;
 				newBullet = new EnemyBullet(EntityType.EnemyBullet5, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
 				scene.addEntity(newBullet, false);
+				bossLaserShot.play();
 				this.bulletsLeft -= 1;
 				this.timeSinceLastFire = 0
 			}
@@ -170,6 +171,7 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 				let xVel = this.vel.x;
 				
 				const newBullet = new EnemyBullet(EntityType.EnemyBullet6, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
+				laserShot.play();
 				scene.addEntity(newBullet, false);
 			}
 			

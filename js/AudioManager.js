@@ -7,13 +7,17 @@ const DEFAULT_SFX_VOLUME = 0.6;
 
 //need to change file name to match
 const menuMusic = new musicTrackLoop("Level1-CoyCompositions", 84, {author: "Coy Compositions", album: "G-Type OST", year: "2018", title: "Level 1 Coy Compositions"});  //By Coy Compositions
+const level3BossMusic = new musicTrackLoop("BossMusicCoyCompositions", 31.5, {author: "Coy Compositions", album: "G-Type OST", year: "2018", title: "Boss Music - Coy Compositions"});  //By Coy Compositions
 const level1Music = new musicTrackLoop("PrepareToStrike-v1", 100, {author: "JoeCS", album: "G-Type OST", year: "2018", title: "Prepare To Strike (Main Menu Theme)"});  //By Joe Spedale
 const level3Music = new musicTrackLoop("Dilsehouse", 144.5, {author: "Vignesh", album: "G-Type OST", year: "2018", title: "Dilse House"}); //By Vignesh Ramesh
+const alienBossMusic = new musicTrackLoop("energize", 138.2, {author: "Vignesh", album: "G-Type OST", year: "2018", title: "Energize"}); //By Vignesh Ramesh
+const endOfTheGame = new musicTrackLoop("inTheEndBosca", 95.6, {author: "Vignesh", album: "G-Type OST", year: "2018", title: "In The End Bosca"}); //By Vignesh Ramesh
 const miniBoss1Music = new musicTrackLoop("MiniBoss", 40, {author: "Chris Markle", album: "G-Type OST", year: "2018", title: "Mini-Boss 1 Theme"});  //By Chris Markle
 const boss1Music = new musicTrackLoop("stebs_g-type_boss_music", 43, {author: "Stebs", album: "G-Type OST", year: "2018", title: "Stebs G-Type Boss Music"});  //By Stebs
+const warpLevelMusic = new musicTrackLoop("WarpSpeed", 104.1, {author: "Andrew Mushel", album: "G-Type OST", year: "2018", title: "Warp Speed"});  //By Andrew Mushel
 //menuMusic.setVolume(0.2);
 
-const currentBackgroundMusic = new musicContainer([menuMusic, level1Music, miniBoss1Music, boss1Music, level3Music]);
+const currentBackgroundMusic = new musicContainer([menuMusic, level1Music, miniBoss1Music, boss1Music, level3Music, level3BossMusic, alienBossMusic, endOfTheGame, warpLevelMusic]);
 currentBackgroundMusic.setVolume(0.6);
 
 //menu sfx
@@ -57,6 +61,8 @@ const shotDamaged = new sfxClipOverlap("DAMAGED_ENEMY", 3);
 shotDamaged.setVolume(0.5);
 const bossLaserShot = new sfxClipOverlap("BOSS_LASER_SHOT", 2);
 bossLaserShot.setVolume(0.8);
+const laserShot = new sfxClipOverlap("LASER_SHOT", 2);
+laserShot.setVolume(0.8);
 const clearScreen = new sfxClipSingle("ClearScreen");
 clearScreen.setVolume(0.8);
 const menuMove = new sfxClipOverlap("MenuMove", 2); //placeholder sound effect.  Need new made -LP
@@ -79,11 +85,16 @@ const allSFX = {
 			   extraLife,
 			   enemySmallExplosion,
 			   enemyMediumExplosion,
+			   enemyLargeExplosion,
 			   bubbleExplosion,
 			   shotHitIndestructible,
 			   shotDamaged,
 			   capsulePickup,
-			   clearScreen
+			   clearScreen,
+			   bossLaserShot,
+			   laserShot,
+			   menuMove,
+			   menuSelect
 			   ],
 	stop: function(){
 		for(var i=0; i < this.sfxList.length; i++){

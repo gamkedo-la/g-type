@@ -19,7 +19,7 @@ function GamePlayScreen () {
         } else if(index === 2) {
 	        backgroundMusicIndex = AudioTracks.Level3;
         } else if(index === 3) {
-	        backgroundMusicIndex = AudioTracks.Level3;
+	        backgroundMusicIndex = AudioTracks.WarpLevel;
         }
         
         currentBackgroundMusic.setCurrentTrack(backgroundMusicIndex);

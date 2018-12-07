@@ -33,7 +33,7 @@ function EndgameScreen() {
         selectorSprite = new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, 9999999, {min:5, max:7}, 128);
         planetSprite = new AnimatedSprite(planetSheet, 3, 192, 192, false, true, {min:0, max:0}, 0, {min:0, max:2}, 512, {min:2, max:2}, 0);
 
-        currentBackgroundMusic.setCurrentTrack(AudioTracks.Help);
+        currentBackgroundMusic.setCurrentTrack(AudioTracks.GameEnding);
         if(currentBackgroundMusic.getTime() > 0){
             currentBackgroundMusic.resume();
         } else {

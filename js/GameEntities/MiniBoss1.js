@@ -93,7 +93,7 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 			if(previousBackgroundMusic === null) {
 				scene.worldShouldPause(true);
 				previousBackgroundMusic = currentBackgroundMusic.getCurrentTrack();
-				currentBackgroundMusic.setCurrentTrack(AudioTracks.Boss1);
+				currentBackgroundMusic.setCurrentTrack(AudioTracks.MiniBoss1);
 				
 				this.path.updatePosition({x: -100, y:0});//using -100 to get the sprite fully on screen
 				
@@ -166,6 +166,7 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 				
 				const newBullet = new EnemyBullet(EntityType.EnemyBullet2, {x: this.position.x - 10, y: this.collisionBody.center.y}, {x: xVel, y:yVel});
 				scene.addEntity(newBullet, false);
+				laserShot.play();
 			}
 		}
 	};
