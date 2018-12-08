@@ -7,6 +7,7 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 	let sprite = normalSprite;
 	const SPRITE_SCALE = 0.6;
 	const MISSILE_VELOCITY = {x:100, y:150};
+	let firedMissileLastTime = false;
 	this.size = {width:sprite.width * SPRITE_SCALE, height:sprite.height * SPRITE_SCALE};
 
 	const pathPoints = [];
@@ -137,18 +138,24 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 		}
 		
 		if(hasMissiles) {
-			let newMissile
-			if(missiles.length >= maxShots) {
-				newMissile = missiles.splice(0, 1)[0];
-				newMissile.setPosition({x:this.position.x + this.size.width / 2, y:this.position.y + (2 * this.size.height / 3)});
-				newMissile.setVelocity(MISSILE_VELOCITY);
-			} else {
-				newMissile = new PlayerMissile({x:this.position.x + this.size.width / 2, y:this.position.y + (2 * this.size.height / 3)}, MISSILE_VELOCITY);
+			firedMissileLastTime = !firedMissileLastTime;
+			if(!firedMissileLastTime) {
+				let newMissile;
+				if(missiles.length >= maxShots) {
+					newMissile = missiles.splice(0, 1)[0];
+					newMissile.setPosition({x:this.position.x + this.size.width / 2, 
+											y:this.position.y + (2 * this.size.height / 3)});
+					newMissile.setVelocity(MISSILE_VELOCITY);
+				} else {
+					newMissile = new PlayerMissile({x:this.position.x + this.size.width / 2, 
+										 			y:this.position.y + (2 * this.size.height / 3)}, 
+										 			MISSILE_VELOCITY);
+				}
+	
+				newMissile.reset();
+				missiles.push(newMissile);
+				scene.addEntity(newMissile, true);
 			}
-
-			newMissile.reset();
-			missiles.push(newMissile);
-			scene.addEntity(newMissile, true);
 		}
 	};
 
