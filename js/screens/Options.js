@@ -145,6 +145,9 @@ function OptionsScreen() {
 	        menuMove.play();
             this.modifySelectedOption(selectorPositionIndex, 0);
             return true;
+        } else if (this.keysPressed(KEY_SHIFT, KEY_ENTER) || this.keysPressed(KEY_SHIFT, KEY_SPACE)) {
+            this.modifySelectedOption(selectorPositionIndex, 0);
+            return true;
         } else if (this.keysPressed(KEY_ENTER) || this.keysPressed(KEY_SPACE)) {
             this.modifySelectedOption(selectorPositionIndex);            
             return true;
