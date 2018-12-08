@@ -53,6 +53,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 
 	let nextLifeScore = SCORE_PER_EXTRA_LIFE;
 	let worldPaused = false;
+	let capsuleCount = 0;
 
 	const populateWorld = function(worldPos) {
 		const terrain = data.initializeTerrain();
@@ -298,10 +299,12 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 	};
 
 	this.collectedCapsule = function() {
+		capsuleCount++;
 		uiManager.incrementPowerUpToActivate();
 	};
 
 	this.activatedShield = function() {
+		capsuleCount -= 6;
 		player.activateShield();
 		uiManager.powerUpWasActivated(PowerUpType.Shield, null);
 	};
@@ -311,32 +314,38 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 	}
 
 	this.activatedMissile = function() {
+		capsuleCount -= 2;
 		player.setHasMissiles(true);
 		uiManager.powerUpWasActivated(PowerUpType.Missile, null);
 	};
 
 	this.activatedDouble = function() {
+		capsuleCount -= 3;
 		player.setShotTo(EntityType.PlayerDouble);
 		uiManager.powerUpWasActivated(PowerUpType.Double, null);
 	};
 
 	this.activatedLaser = function() {
+		capsuleCount -= 4;
 		player.setShotTo(EntityType.PlayerLaser);
 		uiManager.powerUpWasActivated(PowerUpType.Laser, null);
 	};
 
 	this.activatedTriple = function() {
+		capsuleCount -= 5;
 		player.setShotTo(EntityType.PlayerTriple);
 		uiManager.powerUpWasActivated(PowerUpType.Triple, null);
 	};
 
 	this.activatedGhost = function() {
+		capsuleCount -=7;
 		activatedAnyGhosts = true;
 		player.activateGhostShip();
 		uiManager.powerUpWasActivated(PowerUpType.Ghost, (player.activeGhosts + 1));
 	};
 
 	this.activatedForce = function() {
+		capsuleCount -= 8;
 		player.activateTheForce();
 		uiManager.powerUpWasActivated(PowerUpType.Force, null);
 	};
@@ -349,6 +358,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		this.activatedGhost();
 		this.activatedGhost();
 		remainingLives = 29;
+		capsuleCount = 0;
 	};
 
 	this.removePlayer = function() {
@@ -358,6 +368,25 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 			currentLevelIndex = 0;
 			player.restoreGhosts();
 			return;
+		}
+		
+		if(capsuleCount > 0) {
+			for(let i = 0; i < capsuleCount; i++) {
+				const rndXDrop = 10 + player.position.x + (50 * (i + capsuleCount) * Math.random());
+				
+				let deltaY = (10 * (i + capsuleCount) * Math.random()) - (5 * (i + capsuleCount));
+				if(deltaY < 0) {
+					deltaY -= (100 * Math.random() * Math.random());
+				} else {
+					deltaY += (100 * Math.random() * Math.random());
+				}
+				
+				const rndYDrop = player.position.y + deltaY;
+				const aCapsule = new Capsule({x:rndXDrop, y:rndYDrop}, this.worldPos);
+				this.addEntity(aCapsule, false);
+			}
+			
+			capsuleCount = 0;
 		}
 
 		uiManager.clearPowerUps();
@@ -456,7 +485,6 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 
 	this.activatePowerUp = function() {
 		if(!uiManager.getCanActivatePowerUp()) {
-			//play buzzer => can't activate a power up right now
 			return;
 		}
 
@@ -472,27 +500,35 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 			case PowerUpType.None:
 				return;//No power up so exit now and don't play the activation sound
 			case PowerUpType.Speed:
+				capsuleCount -= 1;
 				player.incrementSpeed();
 				break;
 			case PowerUpType.Missile:
+				capsuleCount -= 2;
 				player.setHasMissiles(true);
 				break;
 			case PowerUpType.Double:
+				capsuleCount -= 3;
 				player.setShotTo(EntityType.PlayerDouble);
 				break;
 			case PowerUpType.Laser:
+				capsuleCount -= 4;
 				player.setShotTo(EntityType.PlayerLaser);
 				break;
 			case PowerUpType.Triple:
+				capsuleCount -= 5;
 				player.setShotTo(EntityType.PlayerTriple);
 				break;
 			case PowerUpType.Ghost:
+				capsuleCount -= 7;
 				player.activateGhostShip();
 				break;
 			case PowerUpType.Shield:
+				capsuleCount -= 6;
 				player.activateShield();
 				break;
 			case PowerUpType.Force:
+				capsuleCount -= 8;
 				player.activateTheForce();
 				break;
 			default:
@@ -506,7 +542,6 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		}
 
 		uiManager.reset(false);
-		//powerUpActivated.play();//TODO: need this SFX track in the game, goes at the end so it isn't played if "None" is the power up
 	};
 
 	this.displayScore = function(entity, position) {
