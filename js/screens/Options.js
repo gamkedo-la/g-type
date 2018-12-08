@@ -160,12 +160,16 @@ function OptionsScreen() {
             }
             return true;
         } else if (this.keysPressed(KEY_PLUS)) {
-	        menuMove.play();
-            this.modifySelectedOption(selectorPositionIndex);
+            menuMove.play();
+            if (selectorPositionIndex < 4) {    // so that left/right, A/D keys don't affect "Reset to Defaults" and "Main Menu"
+                this.modifySelectedOption(selectorPositionIndex);
+            }
             return true;
         } else if (this.keysPressed(KEY_MINUS)) {
-	        menuMove.play();
-            this.modifySelectedOption(selectorPositionIndex, 0);
+            menuMove.play();
+            if (selectorPositionIndex < 4) {    // so that left/right, A/D keys don't affect "Reset to Defaults" and "Main Menu"
+                this.modifySelectedOption(selectorPositionIndex, 0);
+            }
             return true;
         } else if (this.keysPressed(KEY_SHIFT, KEY_ENTER) || this.keysPressed(KEY_SHIFT, KEY_SPACE)) {
             this.modifySelectedOption(selectorPositionIndex, 0);
