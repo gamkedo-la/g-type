@@ -10,7 +10,7 @@ function CreditsScreen() {
 	    {screen: MENU_SCREEN, title: textStrings.Main},
 	   ];
 
-    this.scrollLimit = -4400;
+    this.scrollLimit = -4600;
     this.currentY = 0;
     this.scrollSpeed = 5 / 50;
     this.totalTime = 0;
