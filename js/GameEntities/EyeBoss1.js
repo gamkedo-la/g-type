@@ -126,7 +126,7 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 	
 	state.entrance = function() {
 		if(this.ticksInState == 1){
-			this.vel.x = -speed;
+			this.vel.x = -speed/2;
 			this.vel.y = 0;
 			this.aimAtTarget = false;
 			this.attackPathStep = 0;
