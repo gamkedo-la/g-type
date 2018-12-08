@@ -51,6 +51,9 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
     }
 	uiManager.reloadScores();
 
+	let autoFiring = localStorageHelper.getObject("autoFiring");
+	let isAutoFiring = autoFiring === "On";
+
 	let nextLifeScore = SCORE_PER_EXTRA_LIFE;
 	let worldPaused = false;
 	let capsuleCount = 0;
@@ -291,7 +294,8 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 
 		uiManager.draw();
 
-		if (levelIndex === 0 && this.worldPos < TUTORIAL_LENGTH) {
+
+		if (levelIndex === 0 && this.worldPos < TUTORIAL_LENGTH && !isAutoFiring) {
 			if (this.worldPos % 20 > 9) { // flash every few units travelled
 				gameFont.printTextAt("[X] TO FIRE", {x:GameField.x + 10, y:Math.round(GameField.bottom/2) + 30}, 30, textAlignment.Left);
 			}
