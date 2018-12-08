@@ -3,12 +3,20 @@ function OptionsScreen() {
 	const MENU_BG_COLOR = "#010119";
 	const MAX_SPEED = 25;
 
+    const DEFAULT_OPTIONS = {
+        MUSIC: 0.5,
+        SFX: 0.5,
+        GAMESPEED: 5,
+        AUTOFIRING: "Off",
+    }
+
 	const selectionPosition = {
 		Music:{x:GameField.midX + 90, y:(GameField.y + 60 + GameField.height / 4)},
 		SFX:{x:GameField.midX + 90, y:(GameField.y + 120 + GameField.height / 4)},
 		Speed:{x:GameField.midX + 90, y:(GameField.y + 180 + GameField.height / 4)},
-		AutoFiring:{x:GameField.midX + 90, y:(GameField.y + 240 + GameField.height / 4)},
-		Menu:{x:GameField.midX + 90, y:(GameField.y + 300 + GameField.height / 4)}
+        AutoFiring:{x:GameField.midX + 90, y:(GameField.y + 240 + GameField.height / 4)},
+        ResetOptions:{x:GameField.midX + 90, y:(GameField.y + 300 + GameField.height / 4)},
+        Menu:{x:GameField.midX + 90, y:(GameField.y + 360 + GameField.height / 4)}
 	};
 
     let autoFiring;
@@ -74,15 +82,15 @@ function OptionsScreen() {
     this.modifySelectedOption = function (selectorPositionIndex, direction = 1) {
         direction = direction == 1 ? 1 : -1;
         menuMove.play();
-        // OPTION 0
+        // OPTION 0: Music Volume
         if(selectorPositionIndex === 0) {
             const currentVolume = MusicVolumeManager.getVolume();
             MusicVolumeManager.setVolume(currentVolume + 0.1 * direction);
-        // OPTION 1
+        // OPTION 1: Sfx Volume
         } else if(selectorPositionIndex === 1) {
             const currentVolume = SFXVolumeManager.getVolume();
             SFXVolumeManager.setVolume(currentVolume + 0.1 * direction);
-        // OPTION 2
+        // OPTION 2: Game Speed
         } else if(selectorPositionIndex === 2) {
             gameSpeed += (direction/2);
             if(direction == 1 && gameSpeed > MAX_SPEED) {
@@ -92,7 +100,7 @@ function OptionsScreen() {
                 gameSpeed = MAX_SPEED;
             }
             localStorageHelper.setFloat("gameSpeed", gameSpeed);
-        // OPTION 3
+        // OPTION 3: Auto-Firing
         } else if(selectorPositionIndex === 3) {
             if(autoFiring === "Off") {
                 autoFiring = "On";
@@ -103,8 +111,18 @@ function OptionsScreen() {
             }
             
             holdKey[KEY_X] = false;
-        // OPTION 4
+        // OPTION 4: Reset to Defaults
         } else if (selectorPositionIndex === 4) {
+            MusicVolumeManager.setVolume(DEFAULT_OPTIONS.MUSIC);
+            SFXVolumeManager.setVolume(DEFAULT_OPTIONS.SFX);
+
+            gameSpeed = DEFAULT_OPTIONS.GAMESPEED;
+            localStorageHelper.setFloat("gameSpeed", gameSpeed);
+            
+            autoFiring = DEFAULT_OPTIONS.AUTOFIRING;
+            localStorageHelper.setObject("autoFiring", DEFAULT_OPTIONS.AUTOFIRING);
+        // OPTION 5: Return to Main Menu
+        } else if (selectorPositionIndex === 5) {
             menuSelect.play();
             ScreenStates.setState(this.selections[0].screen);
         }
@@ -173,6 +191,9 @@ function OptionsScreen() {
 		    selectorPosition.x = selectionPosition.AutoFiring.x + 35;
 		    selectorPosition.y = selectionPosition.AutoFiring.y;
 		} else if(selectorPositionIndex === 4) {
+		    selectorPosition.x = selectionPosition.ResetOptions.x + 35;
+		    selectorPosition.y = selectionPosition.ResetOptions.y;
+		} else if(selectorPositionIndex === 5) {
 		    selectorPosition.x = selectionPosition.Menu.x + 35;
 		    selectorPosition.y = selectionPosition.Menu.y;
 		}
@@ -185,7 +206,7 @@ function OptionsScreen() {
         starfield.draw();
 
         // render the logo overlay
-//        drawLogo();
+        // drawLogo();
 
 		//draw the game title at the top of the screen
 		drawTitle();
@@ -219,7 +240,8 @@ function OptionsScreen() {
 	    gameFont.printTextAt("music volume - " + (Math.round(MusicVolumeManager.getVolume() * 10)).toString(), selectionPosition.Music, 25, textAlignment.Right);
 	    gameFont.printTextAt("SFX volume - " + (Math.round(SFXVolumeManager.getVolume() * 10)).toString(), selectionPosition.SFX, 25, textAlignment.Right);
 	    gameFont.printTextAt("Game Speed - " + (gameSpeed.toString()), selectionPosition.Speed, 25, textAlignment.Right);
-	    gameFont.printTextAt("Auto-firing - " + (autoFiring), selectionPosition.AutoFiring, 25, textAlignment.Right);
+        gameFont.printTextAt("Auto-firing - " + (autoFiring), selectionPosition.AutoFiring, 25, textAlignment.Right);
+        gameFont.printTextAt("Reset to Defaults", selectionPosition.ResetOptions, 25, textAlignment.Right);
 	    gameFont.printTextAt(textStrings.Main, selectionPosition.Menu, 25, textAlignment.Right);
     };
 
