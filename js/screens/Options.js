@@ -150,10 +150,14 @@ function OptionsScreen() {
             adjustSelectorPosition();
             return true;
         } else if (this.keysPressed(KEY_RIGHT) || this.keysPressed(KEY_D)) {
-	        this.modifySelectedOption(selectorPositionIndex);
+            if (selectorPositionIndex < 4) {    // so that left/right, A/D keys don't affect "Reset to Defaults" and "Main Menu"
+                this.modifySelectedOption(selectorPositionIndex);
+            }
             return true;
         } else if (this.keysPressed(KEY_LEFT) || this.keysPressed(KEY_A)) {
-	        this.modifySelectedOption(selectorPositionIndex, 0);
+            if (selectorPositionIndex < 4) {    // so that left/right, A/D keys don't affect "Reset to Defaults" and "Main Menu"
+                this.modifySelectedOption(selectorPositionIndex, 0);
+            }
             return true;
         } else if (this.keysPressed(KEY_PLUS)) {
 	        menuMove.play();
