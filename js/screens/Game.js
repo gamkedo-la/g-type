@@ -235,7 +235,7 @@ function GamePlayScreen () {
                 scene.activatePowerUp();
             }
             return true;
-        } else if (this.keysPressed(KEY_ESCAPE)) {
+        } else if (this.keysPressed(KEY_ESCAPE) || this.keysPressed(KEY_BACKSPACE)) {
             if(!pressed) {
                 setPaused(!ScreenStates.isPaused, PauseCause.PressedPause);
             }
@@ -260,11 +260,6 @@ function GamePlayScreen () {
                 setPaused(!ScreenStates.isPaused, PauseCause.PressedPause);
             }
             return true;
-        } else if (this.keysPressed(KEY_BACKSPACE)) {
-            if(!pressed) {
-                setPaused(!ScreenStates.isPaused, PauseCause.PressedPause);
-            }
-            return true;            
         } else {
             return false;
         }
