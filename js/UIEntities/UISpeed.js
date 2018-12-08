@@ -91,3 +91,83 @@ function SpeedUI(position = {x:0, y:0}) {
 		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
 	};
 }
+
+//UILives
+function UILives(position = {x:0, y:0}) {
+	this.position = {x:position.x, y:position.y};
+	const sprite = new AnimatedSprite(livesUI, 4, 33, 27, false, true, {min:0, max:0}, 0, {min:0, max:3}, 256, {min:3, max:3}, 0);
+	const SPRITE_SCALE = 1;
+	this.size = {width:sprite.width * SPRITE_SCALE, height:sprite.height * SPRITE_SCALE};
+	
+	this.update = function(deltaTime) {
+		sprite.update(deltaTime);
+	};
+	
+	this.draw = function() {
+		const livesToDraw = (remainingLives > MAX_LIVES_TO_SHOW ? MAX_LIVES_TO_SHOW : remainingLives);
+		for(let i = 0; i < livesToDraw; i++) {
+			sprite.drawAt((this.position.x + this.size.width * i), (this.position.y), this.size.width, this.size.height);
+		}
+	};
+}
+
+//UIScore
+function UIScore(position = {x:0, y:0}) {
+    
+	this.position = {x:position.x, y:position.y};
+	
+	const FONT = 30;
+	
+	this.getScore = function() {
+		return currentScore;
+	}
+
+	this.getHighScore = function() {
+		return highScore;
+	}
+	
+	this.addToScore = function(scoreToAdd) {
+		currentScore += scoreToAdd;
+		scoreText = currentScore.toString();
+		while(scoreText.length < 9) {
+			scoreText = "0" + scoreText;
+		}
+	};
+   
+    this.updateHighScore = function(){
+    	allHighScores.push(currentScore);
+    	allHighScores.sort((a, b) => b - a);
+    	if (allHighScores.length > 3){
+    		allHighScores.pop()
+//    		console.log("removed lowest score: " + allHighScores.pop());
+    	}
+//    	console.log(allHighScores);
+    };
+    
+    this.saveHighScores = function(){
+    	for(var i=0; i<allHighScores.length; i++){
+    		localStorageHelper.setFloat("highScore" + i, allHighScores[i]);
+    	}
+    }
+
+    this.loadHighScores = function(){
+    	for(var i=0; i<3 ; i++){
+    		allHighScores[i] = localStorageHelper.getFloat("highScore" + i);
+			if(allHighScores[i] == null || isNaN(allHighScores[i])) {
+				allHighScores[i] = 0;
+			}
+    	}
+//    	console.log(allHighScores);
+    }
+
+	this.draw = function() {
+		gameFont.printTextAt(scoreText, this.position, FONT, textAlignment.Center);
+	}
+	
+	this.reset = function() {
+         this.updateHighScore();
+         this.saveHighScores();
+		currentScore = 0;
+		this.addToScore(0);
+	}
+}

@@ -1,3 +1,52 @@
+//Graphics Common
+function drawRect(x,y,w,h,color) {
+	canvasContext.save();
+	canvasContext.fillStyle = color;
+	canvasContext.fillRect(x,y,w,h);
+	canvasContext.restore();
+}
+
+function colorText(showWords, textX, textY, fillColor, fontface, textAlign = 'left', opacity = 1) {
+  canvasContext.save();
+  canvasContext.textAlign = textAlign;
+  canvasContext.font = fontface;
+  canvasContext.globalAlpha = opacity;
+  canvasContext.fillStyle = fillColor;
+  canvasContext.fillText(showWords, textX, textY);
+  canvasContext.restore();
+}
+
+function getFontWeight(font) {
+  canvasContext.save();
+  canvasContext.font = this.buttonFont;
+  
+  var weight = parseInt(font.match(/\d+/)[0]); //regex match the first string of digits
+  
+  canvasContext.restore();
+  
+  return weight;
+}
+
+function getTextWidth(txt, font) {
+  canvasContext.save();
+  canvasContext.font = font;
+  
+  var width = canvasContext.measureText(txt).width;
+  
+  canvasContext.restore();
+  
+  return width;
+}
+
+function clamp(n, min, max) {
+  return Math.min(Math.max(n, min), max);
+}
+
+function wrapNumber(x, m) {
+	const r = x % m;
+	return (r < 0) ? r + m : r;
+}
+
 //Image Loading
 //Logo
 const titleLogo = document.createElement("img");
@@ -235,7 +284,6 @@ function loadImages() {
 		{ imgName: playerBoom2Sheet, theFile: "player_explosion_v2_sheet.png"},
 		{ imgName: playerLaserShot, theFile: "player_laser_shot_v5.png"},
 		{ imgName: forceUnitSheet, theFile: "TheForce.png"},
-//		{ imgName: missileSheet, theFile: "PlayerMissile.png"},
 		{ imgName: missileSheet, theFile: "PlayerMissile2.png"},
 		{ imgName: shieldSheet, theFile: "Shield.png"},
 		{ imgName: ghostSheet, theFile: "Ghost-ship.png"},
@@ -259,9 +307,8 @@ function loadImages() {
         { imgName: enemyBullet2Sheet, theFile: "EnemyShot2.png" },
         { imgName: miniBoss1Sheet, theFile: "MiniBoss1.png" },
         { imgName: eyeBoss1Sheet, theFile: "EyeBoss1.png" },
-         { imgName: alienBoss1Sheet, theFile: "AlienBoss1.png" },
-          { imgName: maskBoss1Sheet, theFile: "MaskBoss1.png" },
-           { imgName: miniminiBoss1Sheet, theFile: "MiniMiniBoss1.png" },
+        { imgName: alienBoss1Sheet, theFile: "AlienBoss1.png" },
+        { imgName: miniminiBoss1Sheet, theFile: "MiniMiniBoss1.png" },
         { imgName: cargoBossSheet, theFile: "cargoBoss/CargoBoss.png" },
         { imgName: pewpew1Sheet, theFile: "cargoBoss/pewpew1.png" },
         { imgName: pewpew2Sheet, theFile: "cargoBoss/pewpew2.png" },
