@@ -3436,8 +3436,8 @@
                  "type":"lvl1BotGate2Rocks",
                  "visible":true,
                  "width":248,
-                 "x":15674.6666666667,
-                 "y":673.666666666667
+                 "x":15674.7,
+                 "y":673.667
                 }, 
                 {
                  "gid":63,
@@ -3490,8 +3490,8 @@
                  "type":"lvl1BotGate4Rocks",
                  "visible":true,
                  "width":186,
-                 "x":16682.3333333333,
-                 "y":652.333333333333
+                 "x":16682.3,
+                 "y":652.333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -5386,6 +5386,11 @@
                          "name":"difficulty",
                          "type":"int",
                          "value":50
+                        }, 
+                        {
+                         "name":"pathOffset",
+                         "type":"int",
+                         "value":-50
                         }, 
                         {
                          "name":"pattern",

@@ -515,7 +515,11 @@
    </properties>
   </object>
   <object id="1477" gid="25" x="7500" y="560" width="30" height="30"/>
-  <object id="1484" gid="32" x="13476" y="352" width="60" height="34"/>
+  <object id="1484" gid="32" x="13476" y="352" width="60" height="34">
+   <properties>
+    <property name="pathOffset" type="int" value="-50"/>
+   </properties>
+  </object>
   <object id="1485" gid="22" x="7972" y="96" width="30" height="30"/>
   <object id="1486" gid="23" x="7820" y="280" width="30" height="30"/>
   <object id="1487" gid="19" x="7556" y="600" width="30" height="30"/>

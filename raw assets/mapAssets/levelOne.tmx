@@ -690,7 +690,11 @@
   <object id="1185" gid="10" x="4593" y="313" width="50" height="50"/>
   <object id="1186" gid="10" x="4653" y="311" width="50" height="50"/>
   <object id="1187" gid="10" x="4911" y="107" width="50" height="50"/>
-  <object id="1192" gid="32" x="8450" y="303" width="60" height="34"/>
+  <object id="1192" gid="32" x="8450" y="303" width="60" height="34">
+   <properties>
+    <property name="pathOffset" type="int" value="-50"/>
+   </properties>
+  </object>
   <object id="1193" gid="12" x="9013" y="202" width="30" height="21">
    <properties>
     <property name="Group" type="int" value="41"/>

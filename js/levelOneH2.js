@@ -8031,6 +8031,11 @@
                          "value":50
                         }, 
                         {
+                         "name":"pathOffset",
+                         "type":"int",
+                         "value":-50
+                        }, 
+                        {
                          "name":"pattern",
                          "type":"string",
                          "value":"loop"

@@ -1,5 +1,5 @@
 //Planetary Approach Mini-Boss
-function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, timeOffset = 0, spawnPos = 0, difficulty = 0, path = null) {
+function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, timeOffset = 0, spawnPos = 0, difficulty = 0, pathOffset = -50, path = null) {
 	this.position = {x:position.x, y:position.y};
 	this.type = EntityType.MiniBoss1;
 	this.worldPos = 0;
@@ -59,7 +59,7 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
         }
         
         pathPoints.forEach((point) => {
-            point.x += GameField.x + GameField.width - 50;
+            point.x += GameField.x + GameField.width + pathOffset;
             point.y += GameField.y + path.y;
         });
     }
