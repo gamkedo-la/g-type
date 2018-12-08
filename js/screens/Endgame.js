@@ -24,7 +24,7 @@ function EndgameScreen() {
 	    if(activatedAnyGhosts) {
 		    this.endgameScript = textStrings.endgameScriptGood;
 	    }
-        scene = new EndgameScene();
+        scene = new EndgameScene(this.properties.player);
 
         this.skipBump = 0;
         this.currentY = GameField.bottom - 300;

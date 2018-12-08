@@ -73,7 +73,7 @@ function GamePlayScreen () {
 	        }           
         } else if(scene.beatTheGame) {
             currentBackgroundMusic.setCurrentTrack(AudioTracks.GameEnding);
-            ScreenStates.setState(ENDING_SCREEN);
+            ScreenStates.setState(ENDING_SCREEN, {player: scene.getPlayerObject()});
         }
         
 		if(currentBackgroundMusic.getTime() > currentBackgroundMusic.getDuration()) {	
@@ -91,7 +91,7 @@ function GamePlayScreen () {
                 ScreenStates.setState(CUT_SCENE3_SCREEN, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject()});
                 break;
             case 3:
-                ScreenStates.setState(ENDING_SCREEN, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject()});//TODO: Get right cut scene
+                ScreenStates.setState(ENDING_SCREEN, {code: false, player: scene.getPlayerObject(), uiManager:scene.getUIManagerObject()});
                 break;
         }
     };
