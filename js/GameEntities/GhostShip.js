@@ -70,7 +70,6 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 				               {x:this.position.x + 50, y:this.position.y + 4}, 
 				               {x: NORMAL_SHOT_SPEED, y: 0}, false);
 				               
-				playerFireRegular.play();//play the audio
 				break;
 			case EntityType.PlayerDouble:
 				initializeShot(newShot, EntityType.PlayerShot, 
@@ -89,14 +88,12 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 				               {x:this.position.x + 40, y:this.position.y + 6}, 
 				               {x: secondVel.x, y: secondVel.y}, true);
 				               
-				playerFireRegular.play();
 				break;
 			case EntityType.PlayerLaser:
 				initializeShot(newShot, shotType, 
 				               {x:this.position.x + 50, y:this.position.y + 13}, 
 				               {x: 3 * NORMAL_SHOT_SPEED, y: 0}, false);
 				               
-				playerFireLaser.play();
 				break;
 			case EntityType.PlayerTriple:
 				initializeShot(newShot, EntityType.PlayerShot, 
@@ -126,14 +123,11 @@ function GhostShipEntity(position = {x:0, y:0}, distance = 75) {
 				initializeShot(thirdShot, EntityType.PlayerTriple, 
 				               {x:this.position.x, y:this.position.y + 6}, 
 				               {x: thirdVel.x, y: thirdVel.y}, true);
-				
-				playerFireRegular.play();
 				break;
 			default:
 				initializeNewShot(newShot, shotType, 
 				                  {x:this.position.x + 80, y:this.position.y + 4}, 
 				                  {x: NORMAL_SHOT_SPEED, y: 0});
-				playerFireRegular.play();
 				break;
 		}
 		
