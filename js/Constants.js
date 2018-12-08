@@ -212,7 +212,7 @@ const textStrings = {
     CutScene3_3:"alien HQ to end their evil forever.",
     CutScene3_4:"", //empty line
     CutScene3_5:"Good luck G-Type!",
-    SkipCutScene:"Enter to skip",
+    SkipCutScene:"[Space] or [Enter] to skip",
     Story:[
 	"Year: 2276",
     "United Sol Force ships at the edge of",
