@@ -30,6 +30,7 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 	let didCollide = false;
 	
 	let pathPoints = [
+		{x: GameField.right + 400, y: GameField.midY},
 		{x: GameField.right - this.size.width, y: GameField.midY},
 		{x: GameField.right - this.size.width, y: GameField.y},
 		{x: GameField.right - this.size.width, y: GameField.bottom - this.size.height},
