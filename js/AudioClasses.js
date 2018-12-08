@@ -32,8 +32,8 @@ function sfxVolumeManager() {
 	var clipList = [];
 
 	this.setVolume = function(amount) {
-		if (amount > 1) {sfxVolume = 1;}
-		else if (amount < 0) {sfxVolume = 0;}
+		if (amount > 1) {sfxVolume = 0;}
+		else if (amount < 0) {sfxVolume = 1;}
 		else {sfxVolume = amount;}
 		for (var i in clipList) {
 			clipList[i].updateVolume();
@@ -554,8 +554,8 @@ function musicVolumeManager() {
 	var trackList = [];
 
 	this.setVolume = function(amount) {
-		if (amount > 1) {musicVolume = 1;}
-		else if (amount < 0) {musicVolume = 0;}
+		if (amount > 1) {musicVolume = 0;}
+		else if (amount < 0) {musicVolume = 1;}
 		else {musicVolume = amount;}
 		for (var i in trackList) {
 			trackList[i].updateVolume();
