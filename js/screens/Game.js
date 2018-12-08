@@ -76,7 +76,7 @@ function GamePlayScreen () {
             ScreenStates.setState(ENDING_SCREEN, {player: scene.getPlayerObject()});
         }
         
-		if(currentBackgroundMusic.getTime() > currentBackgroundMusic.getDuration()) {	
+		if(currentBackgroundMusic.getTime() > currentBackgroundMusic.getDuration()) {
 			currentBackgroundMusic.play();
 		}
     };

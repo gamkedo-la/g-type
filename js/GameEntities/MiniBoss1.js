@@ -97,11 +97,7 @@ function MiniBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 				
 				this.path.updatePosition({x: -100, y:0});//using -100 to get the sprite fully on screen
 				
-				if(currentBackgroundMusic.getTime() > 0) {
-		            currentBackgroundMusic.resume();    
-		        } else {
-		            currentBackgroundMusic.play();
-		        }				
+	            currentBackgroundMusic.play();
 			}
 		} else if((sprite.isDying) && (previousBackgroundMusic != null) && (shouldResumeGame)) {
 			scene.worldShouldPause(false);

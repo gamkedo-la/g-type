@@ -74,11 +74,7 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 				currentBackgroundMusic.setCurrentTrack(AudioTracks.EyeBoss1);
 				this.changeState(state.entrance);
 				
-				if(currentBackgroundMusic.getTime() > 0) {
-		            currentBackgroundMusic.resume();    
-		        } else {
-		            currentBackgroundMusic.play();
-		        }				
+	            currentBackgroundMusic.play();
 			}
 		} else if((sprite.isDying) && (previousBackgroundMusic != null)) {
 			scene.worldShouldPause(false);

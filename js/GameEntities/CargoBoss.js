@@ -73,7 +73,7 @@ function CargoBoss(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 				currentBackgroundMusic.setCurrentTrack(AudioTracks.Boss1);
 				this.currentState = state.entrance; 
 
-		            currentBackgroundMusic.play();
+		        currentBackgroundMusic.play();
 			}
 		} else if((sprite.isDying) && (previousBackgroundMusic != null)) {
 			scene.worldShouldPause(false);

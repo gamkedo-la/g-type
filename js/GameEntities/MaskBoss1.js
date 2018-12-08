@@ -58,11 +58,7 @@ function MaskBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, t
 				previousBackgroundMusic = currentBackgroundMusic.getCurrentTrack();
 				currentBackgroundMusic.setCurrentTrack(AudioTracks.Boss1);
 				
-				if(currentBackgroundMusic.getTime() > 0) {
-		            currentBackgroundMusic.resume();    
-		        } else {
-		            currentBackgroundMusic.play();
-		        }				
+	            currentBackgroundMusic.play();
 			}
 		} else if((sprite.isDying) && (previousBackgroundMusic != null)) {
 			scene.worldShouldPause(false);
