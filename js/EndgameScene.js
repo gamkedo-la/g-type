@@ -14,6 +14,7 @@ function EndgameScene(player) {
 	
 	this.draw = function() {
 		player.draw();
+		ParticleRenderer.renderAll(canvasContext);
 	};
 	
 	this.addEntity = function(entityToAdd, isPlayerBullet) {
