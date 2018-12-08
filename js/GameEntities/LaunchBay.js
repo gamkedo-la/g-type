@@ -7,6 +7,8 @@ function LaunchBay(position = {x:0, y:0}, spawnPos) {
     this.worldPos = spawnPos;
     
     this.hitPoints = 40;
+    const INVINCIBILITY_TIME = 64;
+    this.invincibilityTime = 0;
     
     const SPRITE_SCALE = 2;
     this.position = {x:position.x, y:position.y};
@@ -46,6 +48,10 @@ function LaunchBay(position = {x:0, y:0}, spawnPos) {
             sprite.isDying = false;
             return;
         }
+        
+        if(this.invincibilityTime > 0) {
+			this.invincibilityTime -= deltaTime;
+		}
         
         this.position.x -= (worldPos - this.worldPos);
         
@@ -98,6 +104,8 @@ function LaunchBay(position = {x:0, y:0}, spawnPos) {
     };
     
     this.didCollideWith = function(otherEntity) {
+	    if(this.invincibilityTime > 0) {return;}
+	    
         if (otherEntity.collisionBody) {
             let entityType = otherEntity.type;
             if ((entityType === EntityType.PlayerForceUnit) ||
@@ -110,6 +118,10 @@ function LaunchBay(position = {x:0, y:0}, spawnPos) {
                 (entityType === EntityType.PlayerShield)) {
 	                if(this.isVisible) {//invisible launch bays should not be destructible
 						this.hitPoints -= otherEntity.damagePoints;
+						if(this.hitPoints > 0) {
+							shotDamaged.play();
+							this.invincibilityTime = INVINCIBILITY_TIME;
+						}
 	                }
             }
         }

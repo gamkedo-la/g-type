@@ -5,6 +5,8 @@ function GroundEnemy3(position = {x:0, y:0}, spawnPos = 0, difficulty = 0) {
     this.worldPos = 0;
     this.score = 100;
     this.hitPoints = 25;     // Every enemy type should have a hitPoints property
+    const INVINCIBILITY_TIME = 64;
+    this.invincibilityTime = 0;
     
     const SPRITE_SCALE = 1;
     this.position = {x: position.x + spawnPos, y:position.y};
@@ -37,6 +39,10 @@ function GroundEnemy3(position = {x:0, y:0}, spawnPos = 0, difficulty = 0) {
             if(this.worldPos == null) {
                 this.worldPos = worldPos;
             }
+            
+            if(this.invincibilityTime > 0) {
+				this.invincibilityTime -= deltaTime;
+			}
             
             if((sprite === explosionSprite) && (sprite.getDidDie())) {
 	            scene.removeEntity(this, false);
@@ -112,6 +118,8 @@ function GroundEnemy3(position = {x:0, y:0}, spawnPos = 0, difficulty = 0) {
     };
     
     this.didCollideWith = function(otherEntity) {
+	    if(this.invincibilityTime > 0) {return;}
+	    
         if (otherEntity) {
             let entityType = otherEntity.type;
             if ((entityType === EntityType.PlayerForceUnit) ||
@@ -126,6 +134,7 @@ function GroundEnemy3(position = {x:0, y:0}, spawnPos = 0, difficulty = 0) {
                 this.hitPoints -= otherEntity.damagePoints;
                 if(this.hitPoints > 0) {
 					shotDamaged.play();
+					this.invincibilityTime = INVINCIBILITY_TIME;
 				}
             }
         }
