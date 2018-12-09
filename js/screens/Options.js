@@ -6,7 +6,7 @@ function OptionsScreen() {
     const DEFAULT_OPTIONS = {
         MUSIC: 0.5,
         SFX: 0.5,
-        GAMESPEED: 5,
+        GAMESPEED: 1.5,
         AUTOFIRING: "Off",
     }
 
