@@ -12,12 +12,13 @@ function OptionsScreen() {
     }
 
 	const selectionPosition = {
-		Music:{x:GameField.midX + 90, y:(GameField.y + 60 + GameField.height / 4)},
-		SFX:{x:GameField.midX + 90, y:(GameField.y + 120 + GameField.height / 4)},
-		Speed:{x:GameField.midX + 90, y:(GameField.y + 180 + GameField.height / 4)},
-        AutoFiring:{x:GameField.midX + 90, y:(GameField.y + 240 + GameField.height / 4)},
-        ResetOptions:{x:GameField.midX + 90, y:(GameField.y + 300 + GameField.height / 4)},
-        Menu:{x:GameField.midX + 90, y:(GameField.y + 360 + GameField.height / 4)}
+		Music:{x:GameField.midX + 90, y:(GameField.y + 50 + GameField.height / 4)},
+		SFX:{x:GameField.midX + 90, y:(GameField.y + 110 + GameField.height / 4)},
+		Speed:{x:GameField.midX + 90, y:(GameField.y + 170 + GameField.height / 4)},
+        AutoFiring:{x:GameField.midX + 90, y:(GameField.y + 230 + GameField.height / 4)},
+        ResetOptions:{x:GameField.midX + 90, y:(GameField.y + 290 + GameField.height / 4)},
+        ResetHighScores:{x:GameField.midX + 90, y:(GameField.y + 350 + GameField.height / 4)},
+        Menu:{x:GameField.midX + 90, y:(GameField.y + 410 + GameField.height / 4)}
 	};
 
     let autoFiring;
@@ -131,8 +132,15 @@ function OptionsScreen() {
 
             autoFiring = DEFAULT_OPTIONS.AUTOFIRING;
             localStorageHelper.setObject("autoFiring", DEFAULT_OPTIONS.AUTOFIRING);
-        // OPTION 5: Return to Main Menu
+        // OPTION 5: Reset Highscores
         } else if (selectorPositionIndex === 5) {
+            menuSelect.play();
+            for(let i=0; i<allHighScores.length; i++){
+                allHighScores[i] = 0;
+                localStorageHelper.setFloat("highScore" + i, 0);
+            }
+        // OPTION 6: Return to Main Menu
+        } else if (selectorPositionIndex === 6) {
             menuSelect.play();
             ScreenStates.setState(this.selections[0].screen);
         }
@@ -212,6 +220,9 @@ function OptionsScreen() {
 		    selectorPosition.x = selectionPosition.ResetOptions.x + 35;
 		    selectorPosition.y = selectionPosition.ResetOptions.y;
 		} else if(selectorPositionIndex === 5) {
+		    selectorPosition.x = selectionPosition.ResetHighScores.x + 35;
+		    selectorPosition.y = selectionPosition.ResetHighScores.y;
+		} else if(selectorPositionIndex === 6) {
 		    selectorPosition.x = selectionPosition.Menu.x + 35;
 		    selectorPosition.y = selectionPosition.Menu.y;
 		}
@@ -260,6 +271,7 @@ function OptionsScreen() {
 	    gameFont.printTextAt("Game Speed - " + (gameSpeed.toString()), selectionPosition.Speed, 25, textAlignment.Right);
         gameFont.printTextAt("Auto-firing - " + (autoFiring), selectionPosition.AutoFiring, 25, textAlignment.Right);
         gameFont.printTextAt("Reset to Defaults", selectionPosition.ResetOptions, 25, textAlignment.Right);
+        gameFont.printTextAt("Reset Highscores", selectionPosition.ResetHighScores, 25, textAlignment.Right);
 	    gameFont.printTextAt(textStrings.Main, selectionPosition.Menu, 25, textAlignment.Right);
     };
 
