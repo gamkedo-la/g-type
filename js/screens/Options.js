@@ -106,9 +106,11 @@ function OptionsScreen() {
             if(autoFiring === "Off") {
                 autoFiring = "On";
                 localStorageHelper.setObject("autoFiring", "On");
+
+                showXtoFire = true;
             } else {
                 autoFiring = "Off";
-                localStorageHelper.setObject("autoFiring", "Off");
+                localStorageHelper.setObject("autoFiring", "Off");                
             }
             
             holdKey[KEY_X] = false;
@@ -123,6 +125,10 @@ function OptionsScreen() {
             gameSpeed = DEFAULT_OPTIONS.GAMESPEED;
             localStorageHelper.setFloat("gameSpeed", gameSpeed);
             
+            if (autoFiring === "On") {
+                showXtoFire = true;
+            }
+
             autoFiring = DEFAULT_OPTIONS.AUTOFIRING;
             localStorageHelper.setObject("autoFiring", DEFAULT_OPTIONS.AUTOFIRING);
         // OPTION 5: Return to Main Menu
