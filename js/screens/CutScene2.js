@@ -19,6 +19,8 @@ function CutScene2Screen() {
     let delayTime = 0;
 
     this.transitionIn = function() {
+        delayTime = 0;
+        
         starfield = new Starfield();
         playerSprite = new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, Number.MAX_VALUE, {min:5, max:7}, 128);
 		thrusterSprite = new AnimatedSprite(playerThruster, 3, 33, 32, false, true, {min:0, max:0}, 0, {min:0, max:2}, 128, {min:2, max:2}, 0);
