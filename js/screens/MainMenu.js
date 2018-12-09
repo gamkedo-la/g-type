@@ -31,6 +31,16 @@ function MenuScreen() {
         // reset remaining lives after going back to main menu from paused menu
         remainingLives = 2;
 
+        // load highscores
+        if (allHighScores.length <= 0) {
+            for(let i=0; i<3 ; i++){
+                allHighScores[i] = localStorageHelper.getFloat("highScore" + i);
+                if(allHighScores[i] == null || isNaN(allHighScores[i])) {
+                    allHighScores[i] = 0;
+                }
+            }
+        }
+
         this.selectorPositionsIndex = 0;
         starfield = new Starfield(240, 120, 80, -64, -128, -256);
         selectorSprite = new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, Math.MAX_VALUE, {min:5, max:7}, 128);
@@ -188,9 +198,10 @@ function MenuScreen() {
         // render the logo overlay
         drawLogo();
 
+        
         // render menu
         printMenu(selections, selectorPositionIndex);
-
+        
 		//draw the thruster
 		let thrusterMod = timer.getCurrentTime() % 16 < 8 ? 0 : 3;
 		thrusterPosition.x = selectorPosition.x - 28 + thrusterMod;
@@ -204,6 +215,8 @@ function MenuScreen() {
 
         //draw selector sprite
         selectorSprite.drawAt(selectorPosition.x, selectorPosition.y, 52, 32);
+        
+        drawHighScore();
 	};
 
 	const drawLogo = function() {
@@ -220,6 +233,17 @@ function MenuScreen() {
     const drawTitle = function() {
 	    gameFont.printTextAt(gameTitle.Main, {x:GameField.midX, y:(GameField.y - 10)}, 40, textAlignment.Center);
 		gameFont.printTextAt(gameTitle.Subtitle, {x:GameField.midX, y:(GameField.y + 75)}, 30, textAlignment.Center);
+    };
+
+    const drawHighScore = function() {
+        if (allHighScores.length > 0) {            
+            let highScoreText = allHighScores[0].toString();
+            while(highScoreText.length < 9) {
+                highScoreText = "0" + highScoreText;
+            }
+
+            gameFont.printTextAt(highScoreText, {x:GameField.midX, y:GameField.y - 20 }, 30, textAlignment.Center);
+        }
     };
 
     return this;
