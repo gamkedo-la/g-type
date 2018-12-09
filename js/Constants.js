@@ -256,12 +256,14 @@ const textStrings = {
 {name:"Lou \"Mass KonFuzion\" Herard",   works: ['code for force shield'] },
 {name:"Vince McKeown",   works: ['ground enemy sprite'] },
 {name:"Loren Pierce",   works: ['code for damage sound'] },
+{name:"Shaun Lindsley",   works: ['boss laser sfx', 'enemy damaged sfx'] },
 {name:"Vignesh Ramesh",   works: ['3 songs (Dil se, Energize,', '         In the End Bosca)'] },
 {name:"Coy Compositions",   works: ['planetary descent music and boss music'] },
 {name:"Joe C.S.",   works: ['song (prepare to strike)'] },
 {name:"Tomanski",   works: ['rock sprites'] },
 {name:"Dan Dela Rosa",   works: ['data persistence support'] },
 {name:"pseudoLudo",   works: ['player explosion sound'] },
+{name:"Chris DeLeon",   works: ['credits compilation', 'development support'] },
         // IF MAKING CHANGES that affect length update scrollLimit in credits.js
     ],
 };
