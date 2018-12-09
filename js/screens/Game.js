@@ -149,7 +149,7 @@ function GamePlayScreen () {
         // OPTION 1: Main Menu
         } else if(selectorPositionIndex === 1) {
             menuSelect.play();
-            ScreenStates.isPaused = false;
+            setPaused(false, PauseCause.PressedPause);
             ScreenStates.setState(this.selections[0].screen);
         }        
     }
