@@ -246,7 +246,7 @@ const textStrings = {
 {name:"K. Anthony",   works: ['powerups spawn code','powerup increment feature', 'powerup buttons hookup'] },
 {name:"Ian Ross",   works: ['locking powerups once used','testing/debug cheats support'] },
 {name:"Andrew Mushel",   works: ['audio and code for laser sound','audio and code for powerup activation','extra life sound effect', 'music composition (warp speed)','audio for clear screen powerup'] },
-{name:"Mary Brady",   works: ['animated lives icons','UI design, border art, and UI sprites','force and speed powerup icons'] },
+{name:"Kirvee",   works: ['animated lives icons','UI design, border art, and UI sprites','force, speed, ghost powerup icons','QA testing'] },
 {name:"Caspar \"SpadXIII\" Dunant",   works: ['starfield improvements','space debris'] },
 {name:"Stebs",   works: ['boss music compsition','organized user testing'] },
 {name:"T.",   works: ['options menu improvements','additional rock art'] },
@@ -290,7 +290,7 @@ function Cheats() {
     }
 
     this.playerInvincible = false;
-    this.debugKeysEnabled = false;
+    this.debugKeysEnabled = true;
 
     this.printCheatKeysInstructions = function () {
         console.log("Cheat keys are turned on!");

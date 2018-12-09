@@ -361,6 +361,17 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 	this.draw = function() {
 		if(!this.isVisible) {return;}
 		if(this.worldPos < spawnPos) {return;}
+
+		if(this.hitPoints < 75){
+			canvasContext.save();
+			let alpha = timer.getCurrentTime() % 20 < 10 ? 1 : 0.50;  //blinky blinky!
+			canvasContext.globalAlpha = alpha;
+			sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
+			canvasContext.restore();
+		} else {
+			sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height);
+		}
+
 		
 		sprite.drawAt(this.position.x, this.position.y, this.size.width, this.size.height, this.rotation)
 		if(!sprite.isDying) {
