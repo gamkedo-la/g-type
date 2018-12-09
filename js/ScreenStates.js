@@ -76,7 +76,11 @@ const ScreenStates = {
 		if(!this.isPaused) {
 		   this.screens[this.state].run(deltaTime);
 		}
- 	},
+
+		if (this.isPaused && this.state == GAME_SCREEN) {
+			this.screens[GAME_SCREEN].runPausedOptions(deltaTime);
+		}
+	},
 	control: function(keydownMap, pressed){
 		this.screens[this.state].keysPressed = function () {
 			let keysToPress = arguments;
