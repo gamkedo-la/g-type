@@ -143,6 +143,15 @@ function GamePlayScreen () {
             setPaused(false, ScreenStates.pauseCause);        
         // OPTION 1: Main Menu
         } else if(selectorPositionIndex === 1) {
+            allHighScores.push(currentScore);
+            allHighScores.sort((a, b) => b - a);
+            if (allHighScores.length > 3){
+                allHighScores.pop()
+            }
+            for(let i=0; i<allHighScores.length; i++){
+                localStorageHelper.setFloat("highScore" + i, allHighScores[i]);
+            }
+
             ScreenStates.setState(MENU_SCREEN);
             setPaused(false, ScreenStates.pauseCause);
             menuSelect.play();
