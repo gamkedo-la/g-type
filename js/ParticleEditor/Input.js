@@ -17,34 +17,34 @@ function Input() {
 
 //    console.log("Initializing Input module.");
 
-    var mouseX = 0;
-    var mouseY = 0;
+    let mouseX = 0;
+    let mouseY = 0;
     let mouseIsOverCanvas = false;
 
     let useScaled = false;
 
     //Related to double presses and press intervals
-    var doublePressAllowedInterval = 500;
-    var timeSinceLastPress = 0;
+    let doublePressAllowedInterval = 500;
+    let timeSinceLastPress = 0;
 
-    var lastKeyPressedCode = 0; //Stores the number value, not the # string.
-    var currentKeyPressedCode = 0;
+    let lastKeyPressedCode = 0; //Stores the number value, not the # string.
+    let currentKeyPressedCode = 0;
 
     let pressRecordedThisFrame = false;
     let pressRecordedLastFrame = false;
     let resetDoublePressNextFrame = false; //flag prevents "double press chaining", 3 presses 2 doubles, which is wrong 
     
     //Dict mapping keycodes with their "currently pressed" value
-    var codeValuePairs = [];
+    let codeValuePairs = [];
 
     //Dict mapping keys with their keycodes (generated using the keycodes.js file)
-    var nameCodePairs = keycodes;
+    let nameCodePairs = keycodes;
 
     // Initialization of the value dictionary. Encoding for key states: [0,0] = no press, [0,1] = pressed this frame, [1,1] = holding
     // The state [1,0] is transitional, it tells the resetGetKeyDown method to wait 1 frame before clearing inputs so we have time to read first
-    for (var name in nameCodePairs) {
+    for (let name in nameCodePairs) {
         if (nameCodePairs.hasOwnProperty(name)) {
-            var code = nameCodePairs[name];
+            let code = nameCodePairs[name];
             codeValuePairs["#" + code] = [0, 0];
         }
     }
@@ -79,9 +79,9 @@ function Input() {
     // Resets all the values for the getKeyDown function. If not called every frame, getKeyDown will be unusable
     Input.resetGetKeyDown = function () {
 
-        for (var code in codeValuePairs) {
+        for (let code in codeValuePairs) {
             if (codeValuePairs.hasOwnProperty(code)) {
-                var enc = codeValuePairs[code];
+                let enc = codeValuePairs[code];
 
                 if (enc[0] === 1 && enc[1] === 0) {
                     codeValuePairs[code] = [0, 1];
@@ -97,7 +97,7 @@ function Input() {
     // Call this when needing to reset all keys, like when minimizing the window
     Input.allKeysUp = function () {
 
-        for (var code in codeValuePairs) {
+        for (let code in codeValuePairs) {
             if (codeValuePairs.hasOwnProperty(code)) {
                 codeValuePairs[code] = [0,0];
             }
@@ -107,7 +107,7 @@ function Input() {
     //Returns true if the key called "name" is currently pressed
     Input.getKey = function (name) {
 
-        var toCheck = codeValuePairs["#" + nameCodePairs[name]];
+        let toCheck = codeValuePairs["#" + nameCodePairs[name]];
 
         return (toCheck[1] === 1);
     }
@@ -115,7 +115,7 @@ function Input() {
     // Returns true on the frame during which the key called "name" is pressed
     Input.getKeyDown = function (name, useBuffer = false) {
 
-        var toCheck = codeValuePairs["#" + nameCodePairs[name]];
+        let toCheck = codeValuePairs["#" + nameCodePairs[name]];
 
         if (useBuffer) {
             //todo
@@ -148,12 +148,12 @@ function Input() {
 
     // These are just helper functions, they are a common usage of the regular getKey functions
     Input.getLeftHold = function () {
-        var toCheck = codeValuePairs["#1"];
+        let toCheck = codeValuePairs["#1"];
         return (toCheck[1] === 1);
     }
 
     Input.getLeftClick = function () {
-        var toCheck = codeValuePairs["#1"];
+        let toCheck = codeValuePairs["#1"];
         return (toCheck[0] === 0 && toCheck[1] === 1);
     }
 
@@ -178,7 +178,7 @@ function Input() {
 
         pressRecordedThisFrame = true; //flag used in Update method
 
-        var toCheck = codeValuePairs["#" + evt.which];
+        let toCheck = codeValuePairs["#" + evt.which];
         if (toCheck[0] == 0 && toCheck[1] == 0) {
             codeValuePairs["#" + evt.which] = [1, 0];
         } else {
@@ -195,9 +195,9 @@ function Input() {
     Input.setMousePos = function (evt) {
 
         if (useScaled) {
-            var rect = scaledCanvas.getBoundingClientRect();
+            let rect = scaledCanvas.getBoundingClientRect();
         } else {
-            var rect = canvas.getBoundingClientRect();
+            let rect = canvas.getBoundingClientRect();
         }
 
         //let rect = canvasUsed.getBoundingClientRect();
@@ -207,8 +207,8 @@ function Input() {
         mouseY = evt.clientY - rect.top - root.scrollTop;
 
         if (useScaled) {
-            var scalingRatioX = canvas.width/scaledCanvas.width;
-            var scalingRatioY = canvas.height/scaledCanvas.height;
+            let scalingRatioX = canvas.width/scaledCanvas.width;
+            let scalingRatioY = canvas.height/scaledCanvas.height;
     
             mouseX = Math.round(mouseX * scalingRatioX);
             mouseY = Math.round(mouseY * scalingRatioY);
@@ -254,7 +254,7 @@ function Input() {
 
 // This was added for when certain HTML functionalities are needed, otherwise simply leave the content commented
 // Edit this at your leisure to allow only certain keys, comment out certain lines etc.
-var keycodesAllowedOutsideCanvas = [
+let keycodesAllowedOutsideCanvas = [
     1, 2, 3, //mouse clicks
     48,49,50,51,52,53,54,55,56,57, //number keys
     37,38,39,40, //arrow keys
@@ -266,7 +266,7 @@ var keycodesAllowedOutsideCanvas = [
 
 // Keycodes for the entire keyboard (probably). You can look up / change which string needs to be
 // passed to the "Get" methods here
-var keycodes = {
+let keycodes = {
     mouseleft: 1,
     mousemiddle: 2, //does this matter depending on the mouse model? :thinking-face:
     mouseright: 3,

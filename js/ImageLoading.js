@@ -20,7 +20,7 @@ function getFontWeight(font) {
   canvasContext.save();
   canvasContext.font = this.buttonFont;
   
-  var weight = parseInt(font.match(/\d+/)[0]); //regex match the first string of digits
+  let weight = parseInt(font.match(/\d+/)[0]); //regex match the first string of digits
   
   canvasContext.restore();
   
@@ -31,7 +31,7 @@ function getTextWidth(txt, font) {
   canvasContext.save();
   canvasContext.font = font;
   
-  var width = canvasContext.measureText(txt).width;
+  let width = canvasContext.measureText(txt).width;
   
   canvasContext.restore();
   

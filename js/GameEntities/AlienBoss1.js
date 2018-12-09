@@ -100,7 +100,7 @@ function AlienBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, 
 	};
 
 	this.currentState = function(){}
-	var state = {}
+	let state = {}
 	state.entrance = function(){
 		if(this.ticksInState == 1){
 			

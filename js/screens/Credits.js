@@ -67,7 +67,7 @@ function CreditsScreen() {
         let nameX = GameField.midX - 370;
         let textSkip = 20;
         let height = 24;
-        var textY = 150;
+        let textY = 150;
         for (let i = 0; i < this.contributors.length; i++) {
             let contributor = this.contributors[i];
             gameFont.printTextAt(contributor.name, {x: nameX, y: (this.currentY + textY)}, 20, textAlignment.Left);

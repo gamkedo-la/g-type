@@ -22,7 +22,7 @@
 const CANVAS_W = 1000;
 const CANVAS_H = 750;
 
-var editorRunning = true;
+let editorRunning = true;
 
 window.onload = function () {
 
@@ -133,15 +133,15 @@ function updateAll () {
 
 ////////////////////////            Editor logic and functions        ////////////////////////
 
-var allSliders = document.getElementsByClassName("slider");
-var allNumInputs = document.getElementsByClassName("numInput");
-var allCheckboxes = document.getElementsByClassName("check");
-var allColorPickers = document.getElementsByClassName("color");
+let allSliders = document.getElementsByClassName("slider");
+let allNumInputs = document.getElementsByClassName("numInput");
+let allCheckboxes = document.getElementsByClassName("check");
+let allColorPickers = document.getElementsByClassName("color");
 
 
-var currentConfig;
+let currentConfig;
 
-var defaultConfig = {
+let defaultConfig = {
     "speed":400,
     "size":10,
     "angle":0,
@@ -204,14 +204,14 @@ function applyDefaultConfig () {
 }
 
 
-// Works both if the "var = name" part is pasted or if it's not
+// Works both if the "let = name" part is pasted or if it's not
 function loadConfig () {
 
     let configString = prompt("Please paste the emitter configuration you wish to edit.");
     
     if (!configString || configString==="") { return; } //handle Cancel click
 
-    //Cut out the "var = " if the user pasted it
+    //Cut out the "let = " if the user pasted it
     if (configString.indexOf("= ") !== -1) {
         configString = configString.slice(configString.indexOf("= ") + 2);
     }
@@ -239,7 +239,7 @@ function exportConfig () {
 
     let nameFieldValue = document.getElementById("emitterName").value;
     let varName = nameFieldValue ? nameFieldValue : "config";
-    string = "var " + varName + " = " + string;
+    string = "let " + varName + " = " + string;
 
     prompt("Paste your configuration in code", string);
 }

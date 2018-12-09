@@ -97,14 +97,14 @@ const allSFX = {
 			   menuSelect
 			   ],
 	stop: function(){
-		for(var i=0; i < this.sfxList.length; i++){
+		for(let i=0; i < this.sfxList.length; i++){
 			this.sfxList[i].stop();
 		}
 	}
 };
 
 function setFormat() {
-	var audio = new Audio();
+	let audio = new Audio();
 	if (audio.canPlayType("audio/ogg")) {
 		audioFormatType = ".ogg";
 	} else {
@@ -117,7 +117,7 @@ function setAudioPath(path = "") {
 }
 
 function audioFormat(alt = false) {
-	var format = audioFormatType;
+	let format = audioFormatType;
 	if (alt !== false) {
 		format = ".mp3";
 	}
@@ -147,11 +147,11 @@ const FADE = 1; // Arrayformat [FADE, track, startTime, endTime, startVolume, en
 const TIMER = 2; // Arrayformat [TIMER, track, endTime, callSign]
 const STOP = 3; // Arrayformat [STOP, track, endTime]
 
-var AudioEventManager = new audioEventManager();
+let AudioEventManager = new audioEventManager();
 
 function audioEventManager() {
-	var eventList = [];
-	var now = Date.now();
+	let eventList = [];
+	let now = Date.now();
 
 	this.returnEventList = function() {
 		return eventList;
@@ -164,9 +164,9 @@ function audioEventManager() {
 	};
 
 	this.addFadeEvent = function(track, duration, endVol) {
-		var check = checkListFor(FADE, track);
-		var endTime = duration * 1000 + now;
-		var startVolume = track.getVolume();
+		let check = checkListFor(FADE, track);
+		let endTime = duration * 1000 + now;
+		let startVolume = track.getVolume();
 
 		if (check === "none") {
 			eventList.push([FADE, track, now, endTime, startVolume, endVol, false]);
@@ -176,9 +176,9 @@ function audioEventManager() {
 	}
 
 	this.addCrossfadeEvent = function(track, duration, endVol) {
-		var check = checkListFor(FADE, track);
-		var endTime = duration * 1000 + now;
-		var startVolume = track.getVolume();
+		let check = checkListFor(FADE, track);
+		let endTime = duration * 1000 + now;
+		let startVolume = track.getVolume();
 
 		if (check === "none") {
 			eventList.push([FADE, track, now, endTime, startVolume, endVol, true]);
@@ -188,9 +188,9 @@ function audioEventManager() {
 	};
 
 	this.addTimerEvent = function(track, duration, callSign = "none") {
-		var thisTrack = track;
-		var check = checkListFor(TIMER, thisTrack, callSign);
-		var endTime = (duration * 1000) + now;
+		let thisTrack = track;
+		let check = checkListFor(TIMER, thisTrack, callSign);
+		let endTime = (duration * 1000) + now;
 
 		if (check === "none") {
 			eventList.push([TIMER, track, endTime, callSign]);
@@ -200,9 +200,9 @@ function audioEventManager() {
 	};
 
 	this.addStopEvent = function(track, duration) {
-		var thisTrack = track;
-		var check = checkListFor(STOP, thisTrack);
-		var endTime = (duration * 1000) + now;
+		let thisTrack = track;
+		let check = checkListFor(STOP, thisTrack);
+		let endTime = (duration * 1000) + now;
 
 		if (check === "none") {
 			eventList.push([STOP, track, endTime]);
@@ -212,8 +212,8 @@ function audioEventManager() {
 	};
 
 	this.removeTimerEvent = function(track, callSign = "none") {
-		var thisTrack = track;
-		var check = checkListFor(TIMER, thisTrack, callSign);
+		let thisTrack = track;
+		let check = checkListFor(TIMER, thisTrack, callSign);
 
 		if (check === "none") {
 			return;
@@ -223,8 +223,8 @@ function audioEventManager() {
 	};
 
 	this.removeStopEvent = function(track) {
-		var thisTrack = track;
-		var check = checkListFor(STOP, thisTrack);
+		let thisTrack = track;
+		let check = checkListFor(STOP, thisTrack);
 
 		if (check === "none") {
 			return;
@@ -234,7 +234,7 @@ function audioEventManager() {
 	};
 
 	function runList(){
-		for (var i = 0; i < eventList.length; i++) {
+		for (let i = 0; i < eventList.length; i++) {
 			if (eventList[i][0] === FADE) {
 				// Arrayformat [FADE, track, startTime, endTime, startVolume, endVolume, crossfade]
 				thisTrack = eventList[i][1];
@@ -287,8 +287,8 @@ function audioEventManager() {
 	}
 
 	function checkListFor(eventType, track, callSign = "none"){
-		var foundItem = false;
-		for (var i = 0; i < eventList.length; i++) {
+		let foundItem = false;
+		for (let i = 0; i < eventList.length; i++) {
 			if (eventList[i][0] === eventType) {
 				if (eventList[i][1] === track) {
 					if(eventType === TIMER && eventList[i][3] === callSign) {
@@ -326,7 +326,7 @@ function interpolateFade(startTime, endTime, startVolume, endVolume, currentTime
 }
 
 function scaleRange(inputStart, inputEnd, outputStart, outputEnd, value) {
-	var scale = (outputEnd - outputStart) / (inputEnd - inputStart);
+	let scale = (outputEnd - outputStart) / (inputEnd - inputStart);
 	return outputStart + ((value - inputStart) * scale);
 }
 

@@ -17,7 +17,7 @@ function EyeBoss1(position = {x:0, y:0}, speed = 10, pattern = PathType.None, ti
 	let unusedTime = 0;
 	this.isVisible = true;
 	this.currentState = function(){}
-	var state = {}
+	let state = {}
 	this.ticksInState = 0;
 	this.timeSinceLastFire = 0;
 	this.rotation = 0;

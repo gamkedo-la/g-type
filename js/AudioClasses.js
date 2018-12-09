@@ -19,23 +19,23 @@ clicks, and chops, we get a clean loop with no gaps of silence.
 */
 
 //General
-var isMuted = false;
+let isMuted = false;
 
 //SFX Classes
-var sfxVolume = localStorageHelper.getFloat('sfxVolume');
+let sfxVolume = localStorageHelper.getFloat('sfxVolume');
 if((sfxVolume === null) || (sfxVolume === undefined)) {
 	localStorageHelper.setFloat('sfxVolume', 1);
 	sfxVolume = 1;
 }
 SFXVolumeManager = new sfxVolumeManager();
 function sfxVolumeManager() {
-	var clipList = [];
+	let clipList = [];
 
 	this.setVolume = function(amount) {
 		if (amount > 1) {sfxVolume = 0;}
 		else if (amount < 0) {sfxVolume = 1;}
 		else {sfxVolume = amount;}
-		for (var i in clipList) {
+		for (let i in clipList) {
 			clipList[i].updateVolume();
 		}
 		localStorageHelper.setFloat('sfxVolume', sfxVolume);
@@ -46,7 +46,7 @@ function sfxVolumeManager() {
 	};
 
 	this.updateVolume = function() {
-		for(var i in clipList) {
+		for(let i in clipList) {
 			clipList[i].updateVolume();
 		}
 	};
@@ -61,20 +61,20 @@ function sfxVolumeManager() {
 }
 
 function getRandomVolume(){
-	var min = 0.85;
-	var max = 1;
-	var randomVolume = Math.random() * (max - min) + min;
+	let min = 0.85;
+	let max = 1;
+	let randomVolume = Math.random() * (max - min) + min;
 	return randomVolume.toFixed(2);
 }
 
 function sfxClipSingle(filename) {//A simple, single buffer sound clip
-	var soundFile = new Audio(audioPath+filename+audioFormat());
+	let soundFile = new Audio(audioPath+filename+audioFormat());
 	soundFile.onerror = function(){soundFile = new Audio(audioPath+filename+audioFormat(true))};
-	var clipVolume = 1;
-	var randVolume = true;
-	var clipName = filename;
-	var duration = soundFile.duration;
-	var mixVolume = 1;
+	let clipVolume = 1;
+	let randVolume = true;
+	let clipName = filename;
+	let duration = soundFile.duration;
+	let mixVolume = 1;
 
 	soundFile.pause();
 	SFXVolumeManager.addToList(this);
@@ -150,8 +150,8 @@ function sfxClipSingle(filename) {//A simple, single buffer sound clip
 }
 
 function sfxClipOverlap(filename, voices = 2) {//A sound clip with as many buffers as specified
-	var soundFile = new Array(voices);
-	var maxVoices = soundFile.length;
+	let soundFile = new Array(voices);
+	let maxVoices = soundFile.length;
 
 	for (let i = 0; i < voices; i++) {
 		soundFile[i] = new Audio(audioPath+filename+audioFormat());
@@ -159,12 +159,12 @@ function sfxClipOverlap(filename, voices = 2) {//A sound clip with as many buffe
 		soundFile[i].pause();
 	}
 
-	var currentClip = 0;
-	var clipVolume = 1;
-	var randVolume = true;
-	var clipName = filename;
-	var duration = soundFile[0].duration;
-	var mixVolume = 1;
+	let currentClip = 0;
+	let clipVolume = 1;
+	let randVolume = true;
+	let clipName = filename;
+	let duration = soundFile[0].duration;
+	let mixVolume = 1;
 
 
 	SFXVolumeManager.addToList(this);
@@ -180,7 +180,7 @@ function sfxClipOverlap(filename, voices = 2) {//A sound clip with as many buffe
 	};
 
 	this.stop = function() {
-		for (var i in soundFile) {
+		for (let i in soundFile) {
 			soundFile[i].pause();
 			soundFile[i].currentTime = 0;
 		}
@@ -192,18 +192,18 @@ function sfxClipOverlap(filename, voices = 2) {//A sound clip with as many buffe
 	};
 
 	this.pause = function() {
-		for (var i in soundFile) {
+		for (let i in soundFile) {
 			soundFile[i].pause();
 		}
 	};
 
 	this.updateVolume = function() {
 		if (randVolume) {
-			for (var i in soundFile) {
+			for (let i in soundFile) {
 				soundFile[i].volume = Math.pow(mixVolume * sfxVolume * clipVolume * getRandomVolume() * !isMuted, 2);
 			}
 		} else {
-			for (var i in soundFile) {
+			for (let i in soundFile) {
 				soundFile[i].volume = Math.pow(mixVolume * sfxVolume * clipVolume * !isMuted, 2);
 			}
 		}
@@ -212,7 +212,7 @@ function sfxClipOverlap(filename, voices = 2) {//A sound clip with as many buffe
 	this.setVolume = function(newVolume) {
 		if(newVolume > 1) {newVolume = 1;}
 		if(newVolume < 0) {newVolume = 0;}
-		for (var i in soundFile) {
+		for (let i in soundFile) {
 			soundFile[i].volume = Math.pow(mixVolume * newVolume * sfxVolume * !isMuted, 2);
 		}
 		clipVolume = newVolume;
@@ -252,14 +252,14 @@ function sfxClipOverlap(filename, voices = 2) {//A sound clip with as many buffe
 }
 
 function sfxClipLoop(filename, playLength) {//Double buffer sound file that loops
-	var soundFile = new Array(new Audio(audioPath+filename+audioFormat()), new Audio(audioPath+filename+audioFormat()));
+	let soundFile = new Array(new Audio(audioPath+filename+audioFormat()), new Audio(audioPath+filename+audioFormat()));
 	soundFile[0].onerror = function(){soundFile[0] = new Audio(audioPath+filename+audioFormat(true))}
 	soundFile[1].onerror = function(){soundFile[1] = new Audio(audioPath+filename+audioFormat(true))}
-	var currentClip = 0;
-	var duration = playLength;
-	var trackName = filename;
-	var clipVolume = 1;
-	var mixVolume = 1;
+	let currentClip = 0;
+	let duration = playLength;
+	let trackName = filename;
+	let clipVolume = 1;
+	let mixVolume = 1;
 
 	soundFile[0].pause();
 	soundFile[1].pause();
@@ -330,7 +330,7 @@ function sfxClipLoop(filename, playLength) {//Double buffer sound file that loop
 	};
 
 	this.setTime = function(time) {
-		var newTime = time;
+		let newTime = time;
 		if(newTime < 0) {
 			newTime = 0;
 		}
@@ -363,15 +363,15 @@ function sfxClipLoop(filename, playLength) {//Double buffer sound file that loop
 }
 
 function sfxContainer(clipList) {//Basic Container
-	var soundFile = [];
-	var currentClip = 0;
+	let soundFile = [];
+	let currentClip = 0;
 
-	for (var i in clipList) {
+	for (let i in clipList) {
 		soundFile[i] = clipList[i];
 		soundFile[i].pause();
 	}
 
-	var clipVolume = 1;
+	let clipVolume = 1;
 
 	this.play = function() {
         if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
@@ -379,7 +379,7 @@ function sfxContainer(clipList) {//Basic Container
 	};
 
 	this.stop = function() {
-		for (var i in soundFile) {
+		for (let i in soundFile) {
 			soundFile[i].stop();
 		}
 	};
@@ -389,7 +389,7 @@ function sfxContainer(clipList) {//Basic Container
 	};
 
 	this.pause = function() {
-		for (var i in soundFile) {
+		for (let i in soundFile) {
 			soundFile[i].pause();
 		}
 	};
@@ -399,7 +399,7 @@ function sfxContainer(clipList) {//Basic Container
 	};
 
 	this.updateVolume = function() {
-		for (var i in soundFile) {
+		for (let i in soundFile) {
 			soundFile[i].updateVolume();
 		}
 	};
@@ -454,16 +454,16 @@ function sfxContainer(clipList) {//Basic Container
 }
 
 function sfxContainerRandom(clipList) {//Plays a random list-item on playback
-	var soundFile = [];
-	var trackList = clipList;
-	var currentClip = 0;
+	let soundFile = [];
+	let trackList = clipList;
+	let currentClip = 0;
 
-	for (var i in clipList) {
+	for (let i in clipList) {
 		soundFile[i] = clipList[i];
 		soundFile[i].pause();
 	}
 
-	var clipVolume = 1;
+	let clipVolume = 1;
 
 	this.play = function() {
         if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
@@ -472,7 +472,7 @@ function sfxContainerRandom(clipList) {//Plays a random list-item on playback
 	};
 
 	this.stop = function() {
-		for (var i in trackList) {
+		for (let i in trackList) {
 			soundFile[i].stop();
 		}
 	};
@@ -482,7 +482,7 @@ function sfxContainerRandom(clipList) {//Plays a random list-item on playback
 	};
 
 	this.pause = function() {
-		for (var i in trackList) {
+		for (let i in trackList) {
 			soundFile[i].pause();
 		}
 	};
@@ -492,7 +492,7 @@ function sfxContainerRandom(clipList) {//Plays a random list-item on playback
 	};
 
 	this.updateVolume = function() {
-		for (var i in trackList) {
+		for (let i in trackList) {
 			soundFile[i].updateVolume();
 		}
 	};
@@ -544,20 +544,20 @@ function sfxContainerRandom(clipList) {//Plays a random list-item on playback
 
 
 //Music Classes
-var musicVolume = localStorageHelper.getFloat('musicVolume');
+let musicVolume = localStorageHelper.getFloat('musicVolume');
 if((musicVolume === null) || (musicVolume === undefined)) {
 	localStorageHelper.setFloat('musicVolume', 1);
 	musicVolume = 1;
 }
 MusicVolumeManager = new musicVolumeManager();
 function musicVolumeManager() {
-	var trackList = [];
+	let trackList = [];
 
 	this.setVolume = function(amount) {
 		if (amount > 1) {musicVolume = 0;}
 		else if (amount < 0) {musicVolume = 1;}
 		else {musicVolume = amount;}
-		for (var i in trackList) {
+		for (let i in trackList) {
 			trackList[i].updateVolume();
 		}
 		localStorageHelper.setFloat('musicVolume', musicVolume);
@@ -568,7 +568,7 @@ function musicVolumeManager() {
 	};
 
 	this.updateVolume = function() {
-		for(var i in trackList) {
+		for(let i in trackList) {
 			trackList[i].updateVolume();
 		}
 	};
@@ -583,12 +583,12 @@ function musicVolumeManager() {
 }
 
 function musicTrack(filename, playLength) {//Single buffer music file
-	var musicFile = new Audio(audioPath+filename+audioFormat());
+	let musicFile = new Audio(audioPath+filename+audioFormat());
 	musicFile.onerror = function(){musicFile = new Audio(audioPath+filename+audioFormat(true))};
-	var trackName = filename;
-	var duration = playLength;
-	var trackVolume = 1;
-	var mixVolume = 1;
+	let trackName = filename;
+	let duration = playLength;
+	let trackVolume = 1;
+	let mixVolume = 1;
 
 	musicFile.pause();
 	musicFile.loop = false;
@@ -677,14 +677,14 @@ function musicTrack(filename, playLength) {//Single buffer music file
 }
 
 function musicTrackLoop(filename, playLength, meta) {//Double buffer music file that loops
-	var musicFile = new Array(new Audio(audioPath+filename+audioFormat()), new Audio(audioPath+filename+audioFormat()));
+	let musicFile = new Array(new Audio(audioPath+filename+audioFormat()), new Audio(audioPath+filename+audioFormat()));
 	musicFile[0].onerror = function(){musicFile[0] = new Audio(audioPath+filename+audioFormat(true))};
 	musicFile[1].onerror = function(){musicFile[1] = new Audio(audioPath+filename+audioFormat(true))};
-	var currentTrack = 0;
-	var duration = playLength;
-	var trackName = filename;
-	var trackVolume = 1;
-	var mixVolume = 1;
+	let currentTrack = 0;
+	let duration = playLength;
+	let trackName = filename;
+	let trackVolume = 1;
+	let mixVolume = 1;
 
 	musicFile[0].pause();
 	musicFile[1].pause();
@@ -758,7 +758,7 @@ function musicTrackLoop(filename, playLength, meta) {//Double buffer music file 
 	};
 
 	this.setTime = function(time) {
-		var newTime = time;
+		let newTime = time;
 		if(newTime < 0) {newTime = 0;}
 		while (newTime >= duration) {newTime -= duration;}
 		musicFile[currentTrack].currentTime = newTime;
@@ -791,19 +791,19 @@ function musicTrackLoop(filename, playLength, meta) {//Double buffer music file 
 }
 
 function musicContainer(trackList) {//Basic containers
-	var musicTrack = [];
-	var currentTrack = 0;
+	let musicTrack = [];
+	let currentTrack = 0;
 
-	for (var i in trackList) {
+	for (let i in trackList) {
 		musicTrack[i] = trackList[i];
 		musicTrack[i].pause();
 	}
 
-	var trackVolume = 1;
+	let trackVolume = 1;
 
 	this.play = function() {
         if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
-        for (var i in trackList) {
+        for (let i in trackList) {
             musicTrack[i] = trackList[i];
             musicTrack[i].pause();
         }
@@ -811,7 +811,7 @@ function musicContainer(trackList) {//Basic containers
 	};
 
 	this.stop = function() {
-		for (var i in trackList) {
+		for (let i in trackList) {
 			musicTrack[i].stop();
 		}
 	};
@@ -835,7 +835,7 @@ function musicContainer(trackList) {//Basic containers
 	};
 
 	this.pause = function() {
-		for (var i in trackList) {
+		for (let i in trackList) {
 			musicTrack[i].pause();
 		}
 	};
@@ -847,7 +847,7 @@ function musicContainer(trackList) {//Basic containers
 
 	this.loadTrack = function(newTrack, slot) {
         if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
-		var timeNow = musicTrack[currentTrack].getTime();
+		let timeNow = musicTrack[currentTrack].getTime();
 		if(!musicTrack[slot].getPaused()) {
 			musicTrack[slot].pause();
 			musicTrack[slot].setTime(0);
@@ -862,7 +862,7 @@ function musicContainer(trackList) {//Basic containers
 	};
 
 	this.updateVolume = function() {
-		for (var i in trackList) {
+		for (let i in trackList) {
 			musicTrack[i].updateVolume();
 		}
 	};
@@ -926,16 +926,16 @@ function musicContainer(trackList) {//Basic containers
 }
 
 function musicContainerRandom(trackList) {//Picks random list-item to play on play
-	var musicTrack = [];
-	var currentTrack = 0;
-	var lastTrack = 0;
+	let musicTrack = [];
+	let currentTrack = 0;
+	let lastTrack = 0;
 
-	for (var i in trackList) {
+	for (let i in trackList) {
 		musicTrack[i] = trackList[i];
 		musicTrack[i].pause();
 	}
 
-	var trackVolume = 1;
+	let trackVolume = 1;
 
 	this.play = function() {
         if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
@@ -944,7 +944,7 @@ function musicContainerRandom(trackList) {//Picks random list-item to play on pl
 	};
 
 	this.stop = function() {
-		for (var i in trackList) {
+		for (let i in trackList) {
 			musicTrack[i].stop();
 		}
 	};
@@ -954,7 +954,7 @@ function musicContainerRandom(trackList) {//Picks random list-item to play on pl
 	};
 
 	this.pause = function() {
-		for (var i in trackList) {
+		for (let i in trackList) {
 			musicTrack[i].pause();
 		}
 	};
@@ -966,7 +966,7 @@ function musicContainerRandom(trackList) {//Picks random list-item to play on pl
 
 	this.loadTrack = function(newTrack, slot) {
         if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
-		var timeNow = musicTrack[currentTrack].getTime();
+		let timeNow = musicTrack[currentTrack].getTime();
 		if(!musicTrack[slot].getPaused()) {
 			musicTrack[slot].pause();
 			musicTrack[slot].setTime(0);
@@ -981,7 +981,7 @@ function musicContainerRandom(trackList) {//Picks random list-item to play on pl
 	};
 
 	this.updateVolume = function() {
-		for (var i in trackList) {
+		for (let i in trackList) {
 			musicTrack[i].updateVolume();
 		}
 	};
@@ -1037,19 +1037,19 @@ function musicContainerRandom(trackList) {//Picks random list-item to play on pl
 }
 
 function musicContainerPlaylistRandom(trackList, maxDurationInSeconds = 180, minDurationInSeconds = 60) {//Picks new random list-item to play every loop
-	var musicTrack = [];
-	var lastTrack = 0;
-	var playTime = 0;
-	var playMax = maxDurationInSeconds;
-	var playMin = minDurationInSeconds;
+	let musicTrack = [];
+	let lastTrack = 0;
+	let playTime = 0;
+	let playMax = maxDurationInSeconds;
+	let playMin = minDurationInSeconds;
 
-	for (var i in trackList) {
+	for (let i in trackList) {
 		musicTrack[i] = trackList[i];
 		musicTrack[i].pause();
 	}
 
-	var trackVolume = 1;
-	var currentTrack = Math.floor(Math.random() * musicTrack.length);
+	let trackVolume = 1;
+	let currentTrack = Math.floor(Math.random() * musicTrack.length);
 
 	this.play = function() {
         if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
@@ -1069,7 +1069,7 @@ function musicContainerPlaylistRandom(trackList, maxDurationInSeconds = 180, min
 	};
 
 	this.stop = function() {
-		for (var i in trackList) {
+		for (let i in trackList) {
 			musicTrack[i].stop();
 		}
 	};
@@ -1081,7 +1081,7 @@ function musicContainerPlaylistRandom(trackList, maxDurationInSeconds = 180, min
 	};
 
 	this.pause = function() {
-		for (var i in trackList) {
+		for (let i in trackList) {
 			musicTrack[i].pause();
 		}
 	};
@@ -1111,7 +1111,7 @@ function musicContainerPlaylistRandom(trackList, maxDurationInSeconds = 180, min
 
 	this.loadTrack = function(newTrack, slot) {
         if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
-		var timeNow = musicTrack[currentTrack].getTime();
+		let timeNow = musicTrack[currentTrack].getTime();
 		if(!musicTrack[slot].getPaused()) {
 			musicTrack[slot].pause();
 			musicTrack[slot].setTime(0);
@@ -1126,7 +1126,7 @@ function musicContainerPlaylistRandom(trackList, maxDurationInSeconds = 180, min
 	};
 
 	this.updateVolume = function() {
-		for (var i in trackList) {
+		for (let i in trackList) {
 			musicTrack[i].updateVolume();
 		}
 	};
@@ -1182,12 +1182,12 @@ function musicContainerPlaylistRandom(trackList, maxDurationInSeconds = 180, min
 }
 
 function musicContainerSequence(trackList) {//Plays list-items in order
-	var musicTrack = [];
-	var lastTrack = 0;
-	var currentTrack = 0;
-	var trackVolume = 1;
+	let musicTrack = [];
+	let lastTrack = 0;
+	let currentTrack = 0;
+	let trackVolume = 1;
 
-	for (var i in trackList) {
+	for (let i in trackList) {
 		musicTrack[i] = trackList[i];
 		musicTrack[i].pause();
 	}
@@ -1200,7 +1200,7 @@ function musicContainerSequence(trackList) {//Plays list-items in order
 	};
 
 	this.stop = function() {
-		for (var i in trackList) {
+		for (let i in trackList) {
 			musicTrack[i].stop();
 		}
 	};
@@ -1212,7 +1212,7 @@ function musicContainerSequence(trackList) {//Plays list-items in order
 	};
 
 	this.pause = function() {
-		for (var i in trackList) {
+		for (let i in trackList) {
 			musicTrack[i].pause();
 		}
 	};
@@ -1247,7 +1247,7 @@ function musicContainerSequence(trackList) {//Plays list-items in order
 
 	this.loadTrack = function(newTrack, slot) {
         if(!didInteract) {return;}//if player hasn't interacted, play() will fail w/ error
-		var timeNow = musicTrack[currentTrack].getTime();
+		let timeNow = musicTrack[currentTrack].getTime();
 		if(!musicTrack[slot].getPaused()) {
 			musicTrack[slot].pause();
 			musicTrack[slot].setTime(0);
@@ -1262,7 +1262,7 @@ function musicContainerSequence(trackList) {//Plays list-items in order
 	};
 
 	this.updateVolume = function() {
-		for (var i in trackList) {
+		for (let i in trackList) {
 			musicTrack[i].updateVolume();
 		}
 	};

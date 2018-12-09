@@ -142,7 +142,7 @@ function GameOverScreen() {
 	};
 
     const drawHighScores = function() {
-        for(var i = 0; i < allHighScores.length; i++){
+        for(let i = 0; i < allHighScores.length; i++){
             gameFont.printTextAt((i + 1) + "." + allHighScores[i],  {x:GameField.midX - 120, y:GameField.y + 75 + (i * 50)}, 35, textAlignment.Left); 
         }        
     }

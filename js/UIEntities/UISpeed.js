@@ -145,13 +145,13 @@ function UIScore(position = {x:0, y:0}) {
     };
     
     this.saveHighScores = function(){
-    	for(var i=0; i<allHighScores.length; i++){
+    	for(let i=0; i<allHighScores.length; i++){
     		localStorageHelper.setFloat("highScore" + i, allHighScores[i]);
     	}
     }
 
     this.loadHighScores = function(){
-    	for(var i=0; i<3 ; i++){
+    	for(let i=0; i<3 ; i++){
     		allHighScores[i] = localStorageHelper.getFloat("highScore" + i);
 			if(allHighScores[i] == null || isNaN(allHighScores[i])) {
 				allHighScores[i] = 0;

@@ -52,7 +52,7 @@ function EndgameScreen() {
 	    let nameX = GameField.midX - 145;
         let textSkip = 20;
         let height = 24;
-        var textY = 150;
+        let textY = 150;
         for (let i = 0; i < this.endgameScript.length; i++) {
             EndgameText.addCreditsString(this.endgameScript[i], {x: nameX, y: (this.currentY + textY)}, textAlignment.Left, {width:26, height:26});
             textY += height * 1.4;

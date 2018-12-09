@@ -88,7 +88,7 @@ function ParticleEmitter () {
     
     
     
-        // Var is the degree at which the value varies randomly. The formula: value = base + var * (random (-1 to 1))
+        // Var is the degree at which the value varies randomly. The formula: value = base + let * (random (-1 to 1))
         this.xVar = config.xVar || 0;
         this.yVar = config.yVar || 0;
 
@@ -132,13 +132,13 @@ function ParticleEmitter () {
         }
 
         //Update all alive particles (moves, applies forces, but NO RENDERING here)
-        for (var i = 0, l = this.poolPointer; i < l; i++) {
+        for (let i = 0, l = this.poolPointer; i < l; i++) {
 
             this.updateParticle(this.pool[i], i, dt);
         }
         
         // Return all that died to pool
-        for (var i = 0, l = this.toSwap.length; i < l; i++){
+        for (let i = 0, l = this.toSwap.length; i < l; i++){
                     
             this.returnParticleToPool(this.toSwap[i]);
         }
@@ -161,7 +161,7 @@ function ParticleEmitter () {
             particle.color[3] += particle.deltaColor[3] * dt;
 
             //Update the fading over lifetime properties
-            var ageRatio = particle.lifeLeft / particle.lifetime;
+            let ageRatio = particle.lifeLeft / particle.lifetime;
             if (particle.fadeAlpha) {
                 particle.color[3] = ageRatio; //index 3 is alpha in rgba
             }
@@ -210,14 +210,14 @@ function ParticleEmitter () {
 
 
 
-        var startColor = [
+        let startColor = [
             this.startColor[0] + this.startColorVar[0] * randomMin1To1(),
     	    this.startColor[1] + this.startColorVar[1] * randomMin1To1(),
     	    this.startColor[2] + this.startColorVar[2] * randomMin1To1(),
     	    this.startColor[3] + this.startColorVar[3] * randomMin1To1()
         ];
 
-        var endColor = [
+        let endColor = [
             this.endColor[0] + this.endColorVar[0] * randomMin1To1(),
             this.endColor[1] + this.endColorVar[1] * randomMin1To1(),
             this.endColor[2] + this.endColorVar[2] * randomMin1To1(),
@@ -254,7 +254,7 @@ function ParticleEmitter () {
             this.pool.push(new Particle()); //note: creating a new particle intuitively implies that it is alive, but it is really dead because it's not actually in the game yet!
         }
 
-        var particle = this.pool[this.poolPointer]; //get the dead particle that is at the "barrier" between the alive and dead
+        let particle = this.pool[this.poolPointer]; //get the dead particle that is at the "barrier" between the alive and dead
 
         this.poolPointer++; //the barrier separating life and death is pushed forward, because we revived a particle
 
@@ -266,7 +266,7 @@ function ParticleEmitter () {
 
         this.poolPointer--; //one more dead -> move back by one, point to the current last alive
 
-        var aliveParticle = this.pool[this.poolPointer]; //gets the last alive particle at the barrier
+        let aliveParticle = this.pool[this.poolPointer]; //gets the last alive particle at the barrier
 
         this.pool[this.poolPointer] = this.pool[particleIndex]; //our dead particle takes its place...
         this.pool[particleIndex] = aliveParticle; //swap complete!
@@ -304,7 +304,7 @@ ParticleEmitterManager = {
         this.toSwap = []; //swap these indexes after we're done updating
 
         //Update all alive emitters
-        for (var i = 0, l = this.poolPointer; i < l; i++) {
+        for (let i = 0, l = this.poolPointer; i < l; i++) {
 
             let emitter = this.pool[i];
 
@@ -319,7 +319,7 @@ ParticleEmitterManager = {
         }
 
         // Return all that died to pool
-        for (var i = 0, l = this.toSwap.length; i < l; i++){           
+        for (let i = 0, l = this.toSwap.length; i < l; i++){           
             this.returnEmitterToPool(this.toSwap[i]);
         }
     
@@ -356,7 +356,7 @@ ParticleEmitterManager = {
     //Soft because the currently alive particles get to see their lifetime to completion
     killAllEmittersSoft : function () {
 
-        for (var i = 0, l = this.poolPointer; i < l; i++) {
+        for (let i = 0, l = this.poolPointer; i < l; i++) {
 
             this.pool[i].isActive = false;
 
@@ -366,7 +366,7 @@ ParticleEmitterManager = {
     //Also kills all the particles. Not optimal, remember to test this when we have multiple emitters in a game
     killAllEmittersHard : function () {
 
-        for (var i = 0, l = this.poolPointer; i < l; i++) {
+        for (let i = 0, l = this.poolPointer; i < l; i++) {
 
             this.pool[i].isActive = false;
             this.pool[i].killAllParticles();
@@ -386,8 +386,8 @@ ParticleRenderer = {
     renderAll : function (context){
 
         // Iterate over every alive particle of every active emitter, and draw
-        for (var i = 0, l = ParticleEmitterManager.poolPointer; i < l; i++) {
-            for (var j = 0, k = ParticleEmitterManager.pool[i].poolPointer; j < k; j++) {
+        for (let i = 0, l = ParticleEmitterManager.poolPointer; i < l; i++) {
+            for (let j = 0, k = ParticleEmitterManager.pool[i].poolPointer; j < k; j++) {
 
                 particle = ParticleEmitterManager.pool[i].pool[j];
                 this.renderParticle(particle, context);
@@ -435,7 +435,7 @@ ParticleRenderer = {
             context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2, true); //Début, fin, horaire ou anti horaire
 
             if (particle.useGradient) { // transparent edges, like a glow or spark
-                var gradient = context.createRadialGradient(particle.x, particle.y, 0, particle.x, particle.y, particle.size);
+                let gradient = context.createRadialGradient(particle.x, particle.y, 0, particle.x, particle.y, particle.size);
                 gradient.addColorStop(0, arrayToRGBA(particle.color));
                 gradient.addColorStop(1, "rgba(" + particle.color[0] + "," + particle.color[1] + "," + particle.color[2] + ",0)");
                 context.fillStyle = gradient; 

@@ -105,7 +105,7 @@ function Chronogram() {
 	return this;
 }
 
-var localStorageHelper = new LocalStorageHelper();
+let localStorageHelper = new LocalStorageHelper();
 
 /**
  * Safe wrappers for localStorage methods.
@@ -151,7 +151,7 @@ function LocalStorageHelper() {
    * @return {boolean}
    */
   this.getBoolean = function(keyName) {
-    var storedValue = this.getItem(keyName);
+    let storedValue = this.getItem(keyName);
     if(storedValue === null) {return storedValue;}
     return storedValue === 'true';
   };
@@ -166,7 +166,7 @@ function LocalStorageHelper() {
    * @return {int}
    */
   this.getInt = function(keyName) {
-    var storedValue = this.getItem(keyName);
+    let storedValue = this.getItem(keyName);
     if(storedValue === null) {return storedValue;}
     return parseInt(storedValue);
   };
@@ -181,7 +181,7 @@ function LocalStorageHelper() {
    * @return {number}
    */
   this.getFloat = function(keyName) {
-    var storedValue = this.getItem(keyName);
+    let storedValue = this.getItem(keyName);
     if(storedValue === null) {return storedValue;}
     return parseFloat(storedValue);
   };
@@ -196,7 +196,7 @@ function LocalStorageHelper() {
    * @return {Object}
    */
   this.getObject = function(keyName) {
-    var storedValue = this.getItem(keyName);
+    let storedValue = this.getItem(keyName);
     if (typeof storedValue !== "string") {
       return null;
     }
@@ -209,7 +209,7 @@ function LocalStorageHelper() {
    * @param {Object} keyValue A JavaScript object containing the value you want to give the key you are creating/updating.
    */
   this.setObject = function(keyName, keyValue) {
-    var valueToStore = JSON.stringify(keyValue);
+    let valueToStore = JSON.stringify(keyValue);
     this.setItem(keyName, valueToStore);
   };
 }

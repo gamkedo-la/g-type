@@ -11,8 +11,8 @@ function drawBitmapWithRotation(useBitmap, atX, atY, withAng) {
 
 // rotates and stretches a bitmap to go from point A to point B, used by Woosh Lines FX
 function drawBitmapLine(useBitmap, startX, startY, endX, endY) {
-    var lineLength = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2));
-    var lineAngle = Math.atan2(endY - startY, endX - startX);
+    let lineLength = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2));
+    let lineAngle = Math.atan2(endY - startY, endX - startX);
     // edge case: avoid floating point imprecision flickering of angle on small values
     if (lineLength < 1) {
         // we COULD just not render, but this leaves gaps in the effect

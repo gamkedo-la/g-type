@@ -395,7 +395,7 @@ function CollisionManager(player) {
 		let temp2;
 
 		// How many times the ray crosses a line-segment
-		var crossings = 0;
+		let crossings = 0;
 
 		// Iterate through each line
 		for (let i = 0; i < polygon.length; i++) {
@@ -409,12 +409,12 @@ function CollisionManager(player) {
 
 			//First check if the ray is possible to cross the line
 			if (target.x > temp1 && target.x <= temp2 && (target.y < polygon[i].y || target.y <= polygon[(i + 1) % polygon.length].y)) {
-				var eps = 0.000001;
+				let eps = 0.000001;
 
 				//Calculate the equation of the line
-				var dx = polygon[(i + 1) % polygon.length].x - polygon[i].x;
-				var dy = polygon[(i + 1) % polygon.length].y - polygon[i].y;
-				var k;
+				let dx = polygon[(i + 1) % polygon.length].x - polygon[i].x;
+				let dy = polygon[(i + 1) % polygon.length].y - polygon[i].y;
+				let k;
 
 				if (Math.abs(dx) < eps) {
 					k = Number.MAX_VALUE;
@@ -422,9 +422,9 @@ function CollisionManager(player) {
 					k = dy / dx;
 				}
 
-				var m = polygon[i].y - k * polygon[i].x;
+				let m = polygon[i].y - k * polygon[i].x;
 				//Find if the ray crosses the line
-				var y2 = k * target.x + m;
+				let y2 = k * target.x + m;
 				if (target.y <= y2) {
 					crossings++;
 				}

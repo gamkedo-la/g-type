@@ -10,8 +10,8 @@ function PlayerForceUnit(position = {x:0, y:0}) {
 
     this.damagePoints = 4;   // Damage points = how many hit points to remove on contact with an enemy (every weapon that can inflict damage on an enemy must have this property
 
-	var centerX = sprite.width / 2;
-	var centerY = sprite.height/ 2;
+	let centerX = sprite.width / 2;
+	let centerY = sprite.height/ 2;
 
 	this.collisionBody = new Collider(ColliderType.Circle,	{points:   [], 
 														//position: {x:centerX, y:centerY}, 
