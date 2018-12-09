@@ -4,6 +4,7 @@ function OptionsScreen() {
 	const MAX_SPEED = 25;
 
     const DEFAULT_OPTIONS = {
+        ISMUTED: false,
         MUSIC: 0.5,
         SFX: 0.5,
         GAMESPEED: 1.5,
@@ -113,6 +114,9 @@ function OptionsScreen() {
             holdKey[KEY_X] = false;
         // OPTION 4: Reset to Defaults
         } else if (selectorPositionIndex === 4) {
+            isMuted = DEFAULT_OPTIONS.ISMUTED;
+            localStorageHelper.setBoolean('isMuted', isMuted);
+
             MusicVolumeManager.setVolume(DEFAULT_OPTIONS.MUSIC);
             SFXVolumeManager.setVolume(DEFAULT_OPTIONS.SFX);
 
