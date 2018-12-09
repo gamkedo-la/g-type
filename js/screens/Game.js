@@ -118,10 +118,10 @@ function GamePlayScreen () {
 		let thrusterMod = timer.getCurrentTime() % 16 < 8 ? 0 : 3;
 		thrusterPosition.x = selectorPosition.x - 15 + thrusterMod;
 		thrusterPosition.y = selectorPosition.y;
-		thrusterSprite.drawAt(thrusterPosition.x, thrusterPosition.y, thrusterSize.width - 20, thrusterSize.height - 20);
+		thrusterSprite.drawAt(thrusterPosition.x, thrusterPosition.y, thrusterSize.width - 17, thrusterSize.height - 14);
 		
         //draw selector sprite
-        selectorSprite.drawAt(selectorPosition.x, selectorPosition.y, 32, 12);
+        selectorSprite.drawAt(selectorPosition.x, selectorPosition.y, 32, 20);
     };
     
     this.adjustSelectorPosition = function() {
