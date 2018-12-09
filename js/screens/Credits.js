@@ -102,6 +102,29 @@ function CreditsScreen() {
         gameFont.printTextAt("[Space]/[Shift+Space] Scroll", {x:GameField.x + 222, y:GameField.bottom + 30}, 14, textAlignment.Left);
         gameFont.printTextAt("[Esc] Main Menu", {x:GameField.x + 636, y:GameField.bottom + 30}, 14, textAlignment.Left);
         
+        let offsetX = -50;
+        let offsetX2 = 16;
+        let offsetY = 630;
+        let offsetY2 = 20;
+        
+        let offsetYFirstWord = 100;
+        let offsetYSecondWord = 300;
+
+        gameFont.printTextAt("[-]", {x:GameField.x + offsetX, y:GameField.bottom - offsetY}, 14, textAlignment.Left);
+        gameFont.printTextAt("S", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYFirstWord }, 14, textAlignment.Left);
+        gameFont.printTextAt("c", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYFirstWord + offsetY2 }, 14, textAlignment.Left);
+        gameFont.printTextAt("r", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYFirstWord + offsetY2 * 2 }, 14, textAlignment.Left);
+        gameFont.printTextAt("o", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYFirstWord + offsetY2 * 3 }, 14, textAlignment.Left);
+        gameFont.printTextAt("l", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYFirstWord + offsetY2 * 4 }, 14, textAlignment.Left);
+        gameFont.printTextAt("l", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYFirstWord + offsetY2 * 5 }, 14, textAlignment.Left);
+
+        gameFont.printTextAt("S", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYSecondWord }, 14, textAlignment.Left);
+        gameFont.printTextAt("p", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYSecondWord + offsetY2 }, 14, textAlignment.Left);
+        gameFont.printTextAt("e", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYSecondWord + offsetY2 * 2 }, 14, textAlignment.Left);
+        gameFont.printTextAt("e", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYSecondWord + offsetY2 * 3 }, 14, textAlignment.Left);
+        gameFont.printTextAt("d", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYSecondWord + offsetY2 * 4 }, 14, textAlignment.Left);
+        gameFont.printTextAt("[+]", {x:GameField.x + offsetX, y:GameField.bottom - offsetY + 500}, 14, textAlignment.Left);
+
         scene.update(deltaTime);
 		scene.draw();
     };
