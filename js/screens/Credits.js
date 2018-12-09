@@ -37,6 +37,8 @@ function CreditsScreen() {
 
         creditsText = new CreditFont(fontImage, darkFontImage, {width:16, height:16}, canvasContext);
         this.buildContributors();
+
+        this.scrollSpeed = SCROLL_START_Y_SPEED;
     };
 
     this.transitionOut = function() {
