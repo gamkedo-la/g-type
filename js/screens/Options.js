@@ -253,7 +253,9 @@ function OptionsScreen() {
         //draw selector sprite
         selectorSprite.drawAt(selectorPosition.x, selectorPosition.y, 52, 32);
 
-		canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
+        canvasContext.drawImage(gameFrame1, 0, 0, gameFrame1.width, gameFrame1.height, 0, 0, canvas.width, canvas.height);
+        
+        drawHighScore();
 	};
 
 	const drawBG = function menuScreenDrawBG() {
@@ -273,6 +275,17 @@ function OptionsScreen() {
         gameFont.printTextAt("Reset to Defaults", selectionPosition.ResetOptions, 25, textAlignment.Right);
         gameFont.printTextAt("Reset Highscores", selectionPosition.ResetHighScores, 25, textAlignment.Right);
 	    gameFont.printTextAt(textStrings.Main, selectionPosition.Menu, 25, textAlignment.Right);
+    };
+
+    const drawHighScore = function() {
+        if (allHighScores.length > 0) {            
+            let highScoreText = allHighScores[0].toString();
+            while(highScoreText.length < 9) {
+                highScoreText = "0" + highScoreText;
+            }
+
+            gameFont.printTextAt(highScoreText, {x:GameField.midX, y:GameField.y - 20 }, 30, textAlignment.Center);
+        }
     };
 
     return this;
