@@ -26,7 +26,10 @@ function MenuScreen() {
         scoreText = currentScore.toString();
         while(scoreText.length < 9) {
 			scoreText = "0" + scoreText;
-		}
+        }
+        
+        // reset remaining lives after going back to main menu from paused menu
+        remainingLives = 2;
 
         this.selectorPositionsIndex = 0;
         starfield = new Starfield(240, 120, 80, -64, -128, -256);
