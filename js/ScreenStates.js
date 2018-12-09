@@ -80,6 +80,10 @@ const ScreenStates = {
 		if (this.isPaused && this.state == GAME_SCREEN) {
 			this.screens[GAME_SCREEN].runPausedOptions(deltaTime);
 		}
+
+		if (isMuted) {
+			gameFont.printTextAt("SOUND OFF", {x:760, y: 10}, 14, textAlignment.Left);
+		}
 	},
 	control: function(keydownMap, pressed){
 		this.screens[this.state].keysPressed = function () {
