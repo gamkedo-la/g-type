@@ -290,7 +290,7 @@ function Cheats() {
     }
 
     this.playerInvincible = false;
-    this.debugKeysEnabled = false;
+    this.debugKeysEnabled = true;
 
     this.printCheatKeysInstructions = function () {
         console.log("Cheat keys are turned on!");
