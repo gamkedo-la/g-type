@@ -17,11 +17,6 @@ function GamePlayScreen () {
     let thrusterSize = {};
     let thrusterPosition = {x:0, y:0};
 
-    this.selections = [
-    //	    {screen: GAME_SCREEN, title: textStrings.Play},
-            {screen: MENU_SCREEN, title: textStrings.Main},
-        ];
-
     this.transitionIn = function gamePlayScreenTransitionIn(index = currentLevelIndex) {
         scene = new GameScene(index, this.properties.player, this.properties.uiManager, this.properties.bgTime);
         currentLevelComplete = false;
@@ -148,7 +143,7 @@ function GamePlayScreen () {
             setPaused(false, ScreenStates.pauseCause);        
         // OPTION 1: Main Menu
         } else if(selectorPositionIndex === 1) {
-            ScreenStates.setState(this.selections[0].screen);
+            ScreenStates.setState(MENU_SCREEN);
             setPaused(false, ScreenStates.pauseCause);
             menuSelect.play();
         }
