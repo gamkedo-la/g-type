@@ -21,6 +21,13 @@ function MenuScreen() {
         { screen: CREDITS_SCREEN, title: textStrings.Credits },
     ];
     this.transitionIn = function menuScreenTransitionIn() {
+        // reset current score after going back to main menu from paused menu
+        currentScore = 0;
+        scoreText = currentScore.toString();
+        while(scoreText.length < 9) {
+			scoreText = "0" + scoreText;
+		}
+
         this.selectorPositionsIndex = 0;
         starfield = new Starfield(240, 120, 80, -64, -128, -256);
         selectorSprite = new AnimatedSprite(player1Sheet, 8, 52, 32, false, true, {min:0, max:0}, 0, {min:0, max:0}, Math.MAX_VALUE, {min:5, max:7}, 128);
