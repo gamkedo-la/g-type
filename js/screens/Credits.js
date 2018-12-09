@@ -17,6 +17,8 @@ function CreditsScreen() {
     this.contributors = textStrings.Contributors;
     let creditsText;
 
+    let arrowAdjustedScrollSpeed = this.scrollSpeed;
+
     this.transitionIn = function () {
         scene = new CreditsScene();
 
@@ -77,21 +79,7 @@ function CreditsScreen() {
     this.run = function creditsScreenRun(deltaTime) {
 	    this.totalTime += deltaTime;
 
-        let buttonsX = GameField.midX - 72;
-
-        let arrowAdjustedScrollSpeed;
-
-        if(holdKey[KEY_UP]) {
-            arrowAdjustedScrollSpeed = -this.scrollSpeed * 3.0;
-        } else if(holdKey[KEY_DOWN]) {
-            arrowAdjustedScrollSpeed = this.scrollSpeed * 6.0;
-        } else if(holdKey[KEY_RIGHT]) {
-            arrowAdjustedScrollSpeed = this.scrollSpeed * 0.3;
-        } else if(holdKey[KEY_LEFT]) {
-            arrowAdjustedScrollSpeed = 0.0;
-        } else {
-            arrowAdjustedScrollSpeed = this.scrollSpeed;
-        }
+        let buttonsX = GameField.midX - 72;                
 
         this.currentY -= deltaTime*arrowAdjustedScrollSpeed;
 
@@ -110,10 +98,34 @@ function CreditsScreen() {
 
 		gameFont.printTextAt(textStrings.Credits, {x:GameField.midX, y:GameField.y - 135}, 30, textAlignment.Center);
 
-        gameFont.printTextAt("[X] to Pause/Unpause Scroll", {x:GameField.x + 30, y:GameField.bottom + 30}, 14, textAlignment.Left);
-		gameFont.printTextAt("[Backspace] to Main Menu", {x:GameField.x + 450, y:GameField.bottom + 30}, 14, textAlignment.Left);
+        gameFont.printTextAt("[P] Pause/Unpause", {x:GameField.x - 50, y:GameField.bottom + 30}, 14, textAlignment.Left);
+        gameFont.printTextAt("[Space]/[Shift+Space] Scroll", {x:GameField.x + 222, y:GameField.bottom + 30}, 14, textAlignment.Left);
+        gameFont.printTextAt("[Esc] Main Menu", {x:GameField.x + 636, y:GameField.bottom + 30}, 14, textAlignment.Left);
+        
+        let offsetX = -50;
+        let offsetX2 = 16;
+        let offsetY = 630;
+        let offsetY2 = 20;
+        
+        let offsetYFirstWord = 100;
+        let offsetYSecondWord = 300;
 
-		scene.update(deltaTime);
+        gameFont.printTextAt("[-]", {x:GameField.x + offsetX, y:GameField.bottom - offsetY}, 14, textAlignment.Left);
+        gameFont.printTextAt("S", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYFirstWord }, 14, textAlignment.Left);
+        gameFont.printTextAt("c", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYFirstWord + offsetY2 }, 14, textAlignment.Left);
+        gameFont.printTextAt("r", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYFirstWord + offsetY2 * 2 }, 14, textAlignment.Left);
+        gameFont.printTextAt("o", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYFirstWord + offsetY2 * 3 }, 14, textAlignment.Left);
+        gameFont.printTextAt("l", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYFirstWord + offsetY2 * 4 }, 14, textAlignment.Left);
+        gameFont.printTextAt("l", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYFirstWord + offsetY2 * 5 }, 14, textAlignment.Left);
+
+        gameFont.printTextAt("S", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYSecondWord }, 14, textAlignment.Left);
+        gameFont.printTextAt("p", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYSecondWord + offsetY2 }, 14, textAlignment.Left);
+        gameFont.printTextAt("e", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYSecondWord + offsetY2 * 2 }, 14, textAlignment.Left);
+        gameFont.printTextAt("e", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYSecondWord + offsetY2 * 3 }, 14, textAlignment.Left);
+        gameFont.printTextAt("d", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYSecondWord + offsetY2 * 4 }, 14, textAlignment.Left);
+        gameFont.printTextAt("[+]", {x:GameField.x + offsetX, y:GameField.bottom - offsetY + 500}, 14, textAlignment.Left);
+
+        scene.update(deltaTime);
 		scene.draw();
     };
 
@@ -126,28 +138,39 @@ function CreditsScreen() {
         holdKey[KEY_X] = this.keysPressed(KEY_X);
         // SHIP CONTROLS END
 
-        if (holdKey[KEY_X]) {
+        if(this.keysPressed(KEY_SHIFT, KEY_SPACE)) {
+            arrowAdjustedScrollSpeed = -this.scrollSpeed * 3.0;
+            if (this.scrollSpeed == 0) {
+                this.scrollSpeed = 4/50;
+            }
+            return true;
+        } else if(this.keysPressed(KEY_SPACE)) {
+            arrowAdjustedScrollSpeed = this.scrollSpeed * 6.0;
+            if (this.scrollSpeed == 0) {
+                this.scrollSpeed = 4/50;
+            }
+            return true;
+        } else if (this.keysPressed(KEY_P) || this.keysPressed(KEY_BACKSPACE)) {
             if(this.scrollSpeed !== 0) {
                 this.scrollSpeed = 0;
             } else {
                 this.scrollSpeed = 4/50;
             }
             return true;
-        }
-
-        let skipAmt = 150;
-        if (this.keysPressed(KEY_MINUS)) {
+        } else if (this.keysPressed(KEY_MINUS)) {
             this.scrollSpeed -= 2/50;
             return true;
         } else if (this.keysPressed(KEY_PLUS)) {
             this.scrollSpeed += 2/50;
             return true;
-        } else if (this.keysPressed(KEY_ENTER) || this.keysPressed(KEY_ESCAPE) || this.keysPressed(KEY_BACKSPACE)) {
+        } else if (this.keysPressed(KEY_ESCAPE)) {
             ScreenStates.setState(MENU_SCREEN);
             return true;
         } else if (this.keysPressed(KEY_M)) {
             toggleMute();
             return true;
+        } else {
+            arrowAdjustedScrollSpeed = this.scrollSpeed;
         }
 
         return true;
