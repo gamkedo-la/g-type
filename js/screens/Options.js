@@ -159,13 +159,13 @@ function OptionsScreen() {
                 this.modifySelectedOption(selectorPositionIndex, 0);
             }
             return true;
-        } else if (this.keysPressed(KEY_PLUS)) {
+        } else if (this.keysPressed(KEY_PLUS) || this.keysPressed(KEY_NUMPAD_ADD)) {
             menuMove.play();
             if (selectorPositionIndex < 4) {    // so that left/right, A/D keys don't affect "Reset to Defaults" and "Main Menu"
                 this.modifySelectedOption(selectorPositionIndex);
             }
             return true;
-        } else if (this.keysPressed(KEY_MINUS)) {
+        } else if (this.keysPressed(KEY_MINUS) || this.keysPressed(KEY_NUMPAD_SUBTRACT)) {
             menuMove.play();
             if (selectorPositionIndex < 4) {    // so that left/right, A/D keys don't affect "Reset to Defaults" and "Main Menu"
                 this.modifySelectedOption(selectorPositionIndex, 0);

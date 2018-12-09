@@ -245,12 +245,12 @@ function GamePlayScreen () {
                 toggleMute();	            	
             }
             return true;
-        } else if (this.keysPressed(KEY_PLUS)) {
+        } else if (this.keysPressed(KEY_PLUS) || this.keysPressed(KEY_NUMPAD_ADD)) {
             if(!pressed) {
                 turnVolumeUp();
             }
             return true;
-        } else if (this.keysPressed(KEY_MINUS)) {
+        } else if (this.keysPressed(KEY_MINUS) || this.keysPressed(KEY_NUMPAD_SUBTRACT)) {
             if(!pressed) {
                 turnVolumeDown();
             }

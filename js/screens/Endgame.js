@@ -117,10 +117,10 @@ function EndgameScreen() {
         // SHIP CONTROLS END
 
         let skipAmt = 150;
-        if (this.keysPressed(KEY_MINUS)) {
+        if (this.keysPressed(KEY_MINUS) || this.keysPressed(KEY_NUMPAD_SUBTRACT)) {
             this.scrollSpeed -= 2/50;
             return true;
-        } else if (this.keysPressed(KEY_PLUS)) {
+        } else if (this.keysPressed(KEY_PLUS) || this.keysPressed(KEY_NUMPAD_ADD)) {
             this.scrollSpeed += 2/50;
             return true;
         } else if (this.keysPressed(KEY_ENTER) || this.keysPressed(KEY_ESCAPE) || this.keysPressed(KEY_BACKSPACE)) {

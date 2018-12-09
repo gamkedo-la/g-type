@@ -265,7 +265,9 @@ const KEY_Y = 89;
 const KEY_Z = 90;
 
 const KEY_PLUS = 187;
+const KEY_NUMPAD_ADD = 107;
 const KEY_MINUS = 189;
+const KEY_NUMPAD_SUBTRACT = 109;
 const KEY_TILDE = 192;
 const KEY_SHIFT = 16;
 const KEY_CTRL = 17;
