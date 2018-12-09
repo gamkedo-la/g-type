@@ -145,13 +145,13 @@ function GamePlayScreen () {
         // OPTION 0: Resume
         if(selectorPositionIndex === 0) {
             menuSelect.play();            
-            setPaused(!ScreenStates.isPaused, PauseCause.PressedPause);        
+            setPaused(false, ScreenStates.pauseCause);        
         // OPTION 1: Main Menu
         } else if(selectorPositionIndex === 1) {
-            menuSelect.play();
-            setPaused(false, PauseCause.PressedPause);
             ScreenStates.setState(this.selections[0].screen);
-        }        
+            setPaused(false, ScreenStates.pauseCause);
+            menuSelect.play();
+        }
     }
 
     this.cutSceneFor = function(newCurrentLevel) {
@@ -353,7 +353,11 @@ function GamePlayScreen () {
             return true;
         } else if (this.keysPressed(KEY_P)) {
             if(!pressed) {
-                setPaused(!ScreenStates.isPaused, PauseCause.PressedPause);
+                if (ScreenStates.pauseCause === PauseCause.LostFocus) {
+                    setPaused(!ScreenStates.isPaused, PauseCause.LostFocus);
+                } else {
+                    setPaused(!ScreenStates.isPaused, PauseCause.PressedPause);
+                }
                 selectorPositionIndex = 0;
                 selectorPosition = {x:selectionPosition.Resume.x + selectorPositionOffset.x, y:selectionPosition.Resume.y + selectorPositionOffset.y};
             }

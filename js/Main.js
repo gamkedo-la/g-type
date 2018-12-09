@@ -32,7 +32,9 @@ function windowOnBlur() {
 function windowOnFocus() {
 //	playAndLoopMusic(backgroundMusic);
 	if(!loadingComplete) return;
-	setPaused(false, PauseCause.LostFocus);
+	if (ScreenStates.state !== GAME_SCREEN) {
+    setPaused(false, ScreenStates.pauseCause);
+  }
 }
 
 function loadingDoneSoStartGame() {
