@@ -19,13 +19,17 @@ clicks, and chops, we get a clean loop with no gaps of silence.
 */
 
 //General
-let isMuted = false;
+let isMuted = localStorageHelper.getBoolean('isMuted');
+if ((isMuted === null) || (isMuted === undefined)) {
+	isMuted = false;
+	localStorageHelper.setBoolean('isMuted', isMuted);
+}
 
 //SFX Classes
 let sfxVolume = localStorageHelper.getFloat('sfxVolume');
 if((sfxVolume === null) || (sfxVolume === undefined)) {
-	localStorageHelper.setFloat('sfxVolume', 1);
 	sfxVolume = 1;
+	localStorageHelper.setFloat('sfxVolume', sfxVolume);
 }
 SFXVolumeManager = new sfxVolumeManager();
 function sfxVolumeManager() {

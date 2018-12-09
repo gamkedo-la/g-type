@@ -126,12 +126,14 @@ function audioFormat(alt = false) {
 
 function toggleMute() {
 	isMuted = !isMuted;
+	localStorageHelper.setBoolean('isMuted', isMuted);
 	SFXVolumeManager.updateVolume();
 	MusicVolumeManager.updateVolume();
 }
 
 function setMute(TorF) {
 	isMuted = TorF;
+	localStorageHelper.setBoolean('isMuted', isMuted);
 	SFXVolumeManager.updateVolume();
 	MusicVolumeManager.updateVolume();
 }
