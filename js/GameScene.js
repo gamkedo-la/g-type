@@ -295,7 +295,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		uiManager.draw();
 
 
-		if (levelIndex === 0 && this.worldPos < TUTORIAL_LENGTH && !isAutoFiring) {
+		if (levelIndex === 0 && this.worldPos < TUTORIAL_LENGTH && !isAutoFiring && !ScreenStates.isPaused) {
 			if (this.worldPos % 20 > 9) { // flash every few units travelled
 				gameFont.printTextAt("[X] TO FIRE", {x:GameField.x + 10, y:Math.round(GameField.bottom/2) + 30}, 30, textAlignment.Left);
 			}
