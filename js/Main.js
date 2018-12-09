@@ -298,7 +298,13 @@ function initializeInput() {
     
 function keyDown(evt) {
 	if (evt.type == "keydown") {
-		didInteract = true;		
+    didInteract = true;
+    if(currentBackgroundMusic.getTime() > 0){
+        currentBackgroundMusic.resume();
+    }
+    else {
+        currentBackgroundMusic.play();
+    }	
 	}
 	
 	keydownMap[evt.keyCode] = evt.type == "keydown";
