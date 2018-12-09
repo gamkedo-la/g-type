@@ -21,7 +21,7 @@ function setPaused(shouldPause, pauseCause) {
 			pausedPosition.x = GameField.midX + 200;
 			pausedPosition.y = GameField.bottom - 40;
 		} else if(ScreenStates.state === CREDITS_SCREEN) {
-			pausedPosition.x = GameField.midX + 200;
+			pausedPosition.x = GameField.midX - 360;
 			pausedPosition.y = 10;
 		} else if(ScreenStates.state === MENU_SCREEN) {
 			pausedPosition.x = GameField.midX - 96;
