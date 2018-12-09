@@ -186,11 +186,18 @@ function GameFont(image, charSize, context) {
 //CreditFont
 function CreditFont(activeImage, inactiveImage, frameSize, context) {
 	const characters = [];
+	const charactersStartPos = [];
+	
+	let resetScrollOffsetY = 0;
+	let currentScrollPosY = resetScrollOffsetY;
+	let isResetScroll = false;
+
 	this.addCreditsString = function(text, position, alignment, drawSize) {
 		for(let i = 0; i < text.length; i++) {
 			const character = text.charAt(i);
 			const characterPos = getCharPos(i, position, alignment, text.length, drawSize);
-			characters.push(new CollidableChar(activeImage, inactiveImage, character, frameSize, drawSize, characterPos, context));
+			characters.push(new CollidableChar(activeImage, inactiveImage, character, frameSize, drawSize, {x:characterPos.x, y:characterPos.y + currentScrollPosY}, context));
+			charactersStartPos.push(characterPos);
 		}
 	};
 	
@@ -226,18 +233,35 @@ function CreditFont(activeImage, inactiveImage, frameSize, context) {
 	
 	this.update = function(deltaTime, speed) {
 		for(let i = 0; i < characters.length; i++) {
-			characters[i].update(deltaTime, speed);
+			if (!isResetScroll) {
+				characters[i].update(deltaTime, speed);
+			}
 		}
 	};
 	
 	this.draw = function() {
 		for(let i = 0; i < characters.length; i++) {
-			if((characters[i].position.y > (GameField.y - 90)) && (characters[i].position.y < (canvas.height - 55))) {
-				characters[i].draw();
+			if (isResetScroll) {
+				currentScrollPosY = charactersStartPos[i].y + resetScrollOffsetY;
+				characters[i].position.y = currentScrollPosY;
+			} else {
+				currentScrollPosY = characters[i].position.y;
 			}
+
+			if((characters[i].position.y > (GameField.y - 90)) && (characters[i].position.y < (canvas.height - 55))) {				
+				characters[i].draw(characters[i].position.x, currentScrollPosY);
+			}
+		}
+		if (isResetScroll) {
+			isResetScroll = false;
 		}
 	};
 	
+	this.resetScrollY = function(resetOffsetY = resetScrollOffsetY) {
+		isResetScroll = true;
+		resetScrollOffsetY = resetOffsetY;
+	}
+
 	return this;
 }
 
@@ -274,15 +298,17 @@ function CollidableChar(activeImage, inactiveImage, character, frameSize, drawSi
 		this.collisionBody.setPosition({x:this.position.x, y:this.position.y});
 	};
 	
-	this.draw = function() {
-		
+	this.draw = function(posX = this.position.x, posY = this.position.y) {
+		this.position.x = posX;
+		this.position.y = posY;
+
 		const thisFrame = frameForCharacter(character);
 		
 		let imageToUse = activeImage;
 		if(!this.isActive) {
 			imageToUse = inactiveImage;
 		}
-		context.drawImage(imageToUse, thisFrame.x, thisFrame.y, frameSize.width, frameSize.height, this.position.x, this.position.y, drawSize.width, drawSize.height);
+		context.drawImage(imageToUse, thisFrame.x, thisFrame.y, frameSize.width, frameSize.height, posX, posY, drawSize.width, drawSize.height);
 
 		//collision bodies know not to draw themselves if DRAW_COLLIDERS = false
 		this.collisionBody.draw();

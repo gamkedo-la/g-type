@@ -1,6 +1,7 @@
 //CreditsScreen
 function CreditsScreen() {
-	const MENU_BG_COLOR = "#010119";
+    const MENU_BG_COLOR = "#010119";
+    const SCROLL_START_Y_SPEED = 5 / 50;
 
 	this.selectorPositionsIndex = 0;
 	let selectorPosition = {x:0, y:0};
@@ -12,7 +13,7 @@ function CreditsScreen() {
 
     this.scrollLimit = -4600;
     this.currentY = 0;
-    this.scrollSpeed = 5 / 50;
+    this.scrollSpeed = SCROLL_START_Y_SPEED;
     this.totalTime = 0;
     this.contributors = textStrings.Contributors;
     let creditsText;
@@ -46,7 +47,8 @@ function CreditsScreen() {
 	    let nameX = GameField.midX * 0.2;
         let textSkip = 20;
         let height = 24;
-        var textY = 150;
+        let textY = 150;
+
         for (let i = 0; i < this.contributors.length; i++) {
             let contributor = this.contributors[i];
             creditsText.addCreditsString(contributor.name, {x: nameX, y: (this.currentY + textY)}, textAlignment.Left, {width:20, height:20});
@@ -84,9 +86,9 @@ function CreditsScreen() {
         this.currentY -= deltaTime*arrowAdjustedScrollSpeed;
 
         // console.log(this.currentY);
-        if (this.currentY < this.scrollLimit) {
-            ScreenStates.setState(MENU_SCREEN);
-        }
+        // if (this.currentY < this.scrollLimit) {
+        //     creditsText.resetScrollY(200);
+        // }
 
         canvasContext.drawImage(backgroundColorLookup, 150, 0, 16, 100, 0, 0, canvas.width, canvas.height);
         starfield.draw();
@@ -102,28 +104,48 @@ function CreditsScreen() {
         gameFont.printTextAt("[Space]/[Shift+Space] Scroll", {x:GameField.x + 222, y:GameField.bottom + 30}, 14, textAlignment.Left);
         gameFont.printTextAt("[Esc] Main Menu", {x:GameField.x + 636, y:GameField.bottom + 30}, 14, textAlignment.Left);
         
-        let offsetX = -50;
-        let offsetX2 = 16;
-        let offsetY = 630;
-        let offsetY2 = 20;
+        let offsetCharX = 16;
+        let offsetCharY = 20;
+        let offsetCharKeyY = 15;
         
-        let offsetYFirstWord = 100;
-        let offsetYSecondWord = 300;
+        let offsetXScrollSpeed = -50;        
+        let offsetYScrollSpeed1 = -20;
+        let offsetYScrollSpeed2 = 120;
+        let offsetCharScrollSpeedY = 650;
 
-        gameFont.printTextAt("[-]", {x:GameField.x + offsetX, y:GameField.bottom - offsetY}, 14, textAlignment.Left);
-        gameFont.printTextAt("S", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYFirstWord }, 14, textAlignment.Left);
-        gameFont.printTextAt("c", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYFirstWord + offsetY2 }, 14, textAlignment.Left);
-        gameFont.printTextAt("r", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYFirstWord + offsetY2 * 2 }, 14, textAlignment.Left);
-        gameFont.printTextAt("o", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYFirstWord + offsetY2 * 3 }, 14, textAlignment.Left);
-        gameFont.printTextAt("l", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYFirstWord + offsetY2 * 4 }, 14, textAlignment.Left);
-        gameFont.printTextAt("l", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYFirstWord + offsetY2 * 5 }, 14, textAlignment.Left);
+        gameFont.printTextAt("[-]", {x:GameField.x + offsetXScrollSpeed, y:GameField.bottom - offsetCharScrollSpeedY + offsetYScrollSpeed1 - offsetCharKeyY }, 14, textAlignment.Left);
+        gameFont.printTextAt("S", {x:GameField.x + offsetXScrollSpeed + offsetCharX, y:GameField.bottom - offsetCharScrollSpeedY + offsetYScrollSpeed1 + offsetCharY }, 14, textAlignment.Left);
+        gameFont.printTextAt("c", {x:GameField.x + offsetXScrollSpeed + offsetCharX, y:GameField.bottom - offsetCharScrollSpeedY + offsetYScrollSpeed1 + offsetCharY * 2 }, 14, textAlignment.Left);
+        gameFont.printTextAt("r", {x:GameField.x + offsetXScrollSpeed + offsetCharX, y:GameField.bottom - offsetCharScrollSpeedY + offsetYScrollSpeed1 + offsetCharY * 3 }, 14, textAlignment.Left);
+        gameFont.printTextAt("o", {x:GameField.x + offsetXScrollSpeed + offsetCharX, y:GameField.bottom - offsetCharScrollSpeedY + offsetYScrollSpeed1 + offsetCharY * 4 }, 14, textAlignment.Left);
+        gameFont.printTextAt("l", {x:GameField.x + offsetXScrollSpeed + offsetCharX, y:GameField.bottom - offsetCharScrollSpeedY + offsetYScrollSpeed1 + offsetCharY * 5 }, 14, textAlignment.Left);
+        gameFont.printTextAt("l", {x:GameField.x + offsetXScrollSpeed + offsetCharX, y:GameField.bottom - offsetCharScrollSpeedY + offsetYScrollSpeed1 + offsetCharY * 6 }, 14, textAlignment.Left);
 
-        gameFont.printTextAt("S", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYSecondWord }, 14, textAlignment.Left);
-        gameFont.printTextAt("p", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYSecondWord + offsetY2 }, 14, textAlignment.Left);
-        gameFont.printTextAt("e", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYSecondWord + offsetY2 * 2 }, 14, textAlignment.Left);
-        gameFont.printTextAt("e", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYSecondWord + offsetY2 * 3 }, 14, textAlignment.Left);
-        gameFont.printTextAt("d", {x:GameField.x + offsetX + offsetX2, y:GameField.bottom - offsetY + offsetYSecondWord + offsetY2 * 4 }, 14, textAlignment.Left);
-        gameFont.printTextAt("[+]", {x:GameField.x + offsetX, y:GameField.bottom - offsetY + 500}, 14, textAlignment.Left);
+        gameFont.printTextAt("S", {x:GameField.x + offsetXScrollSpeed + offsetCharX, y:GameField.bottom - offsetCharScrollSpeedY + offsetYScrollSpeed2 + offsetCharY }, 14, textAlignment.Left);
+        gameFont.printTextAt("p", {x:GameField.x + offsetXScrollSpeed + offsetCharX, y:GameField.bottom - offsetCharScrollSpeedY + offsetYScrollSpeed2 + offsetCharY * 2 }, 14, textAlignment.Left);
+        gameFont.printTextAt("e", {x:GameField.x + offsetXScrollSpeed + offsetCharX, y:GameField.bottom - offsetCharScrollSpeedY + offsetYScrollSpeed2 + offsetCharY * 3 }, 14, textAlignment.Left);
+        gameFont.printTextAt("e", {x:GameField.x + offsetXScrollSpeed + offsetCharX, y:GameField.bottom - offsetCharScrollSpeedY + offsetYScrollSpeed2 + offsetCharY * 4 }, 14, textAlignment.Left);
+        gameFont.printTextAt("d", {x:GameField.x + offsetXScrollSpeed + offsetCharX, y:GameField.bottom - offsetCharScrollSpeedY + offsetYScrollSpeed2 + offsetCharY * 5 }, 14, textAlignment.Left);
+        gameFont.printTextAt("[+]", {x:GameField.x + offsetXScrollSpeed, y:GameField.bottom - offsetCharScrollSpeedY + offsetYScrollSpeed2 + offsetCharY * 6 + offsetCharKeyY }, 14, textAlignment.Left);
+
+        let offsetXResetScroll = -50;
+        let offSetYResetScroll1 = 330;
+        let offSetYResetScroll2 = 470;
+        let offsetCharResetScrollY = 630;
+
+        gameFont.printTextAt("[R]", {x:GameField.x + offsetXResetScroll, y:GameField.bottom - offsetCharResetScrollY + offSetYResetScroll1 - offsetCharKeyY }, 14, textAlignment.Left);
+        gameFont.printTextAt("R", {x:GameField.x + offsetXResetScroll + offsetCharX, y:GameField.bottom - offsetCharResetScrollY + offSetYResetScroll1 + offsetCharY }, 14, textAlignment.Left);
+        gameFont.printTextAt("e", {x:GameField.x + offsetXResetScroll + offsetCharX, y:GameField.bottom - offsetCharResetScrollY + offSetYResetScroll1 + offsetCharY * 2 }, 14, textAlignment.Left);
+        gameFont.printTextAt("s", {x:GameField.x + offsetXResetScroll + offsetCharX, y:GameField.bottom - offsetCharResetScrollY + offSetYResetScroll1 + offsetCharY * 3 }, 14, textAlignment.Left);
+        gameFont.printTextAt("e", {x:GameField.x + offsetXResetScroll + offsetCharX, y:GameField.bottom - offsetCharResetScrollY + offSetYResetScroll1 + offsetCharY * 4 }, 14, textAlignment.Left);
+        gameFont.printTextAt("t", {x:GameField.x + offsetXResetScroll + offsetCharX, y:GameField.bottom - offsetCharResetScrollY + offSetYResetScroll1 + offsetCharY * 5 }, 14, textAlignment.Left);
+
+        gameFont.printTextAt("S", {x:GameField.x + offsetXResetScroll + offsetCharX, y:GameField.bottom - offsetCharResetScrollY + offSetYResetScroll2 }, 14, textAlignment.Left);
+        gameFont.printTextAt("c", {x:GameField.x + offsetXResetScroll + offsetCharX, y:GameField.bottom - offsetCharResetScrollY + offSetYResetScroll2 + offsetCharY }, 14, textAlignment.Left);
+        gameFont.printTextAt("r", {x:GameField.x + offsetXResetScroll + offsetCharX, y:GameField.bottom - offsetCharResetScrollY + offSetYResetScroll2 + offsetCharY * 2 }, 14, textAlignment.Left);
+        gameFont.printTextAt("o", {x:GameField.x + offsetXResetScroll + offsetCharX, y:GameField.bottom - offsetCharResetScrollY + offSetYResetScroll2 + offsetCharY * 3 }, 14, textAlignment.Left);
+        gameFont.printTextAt("l", {x:GameField.x + offsetXResetScroll + offsetCharX, y:GameField.bottom - offsetCharResetScrollY + offSetYResetScroll2 + offsetCharY * 4 }, 14, textAlignment.Left);
+        gameFont.printTextAt("l", {x:GameField.x + offsetXResetScroll + offsetCharX, y:GameField.bottom - offsetCharResetScrollY + offSetYResetScroll2 + offsetCharY * 5 }, 14, textAlignment.Left);
 
         scene.update(deltaTime);
 		scene.draw();
@@ -163,6 +185,9 @@ function CreditsScreen() {
         } else if (this.keysPressed(KEY_PLUS) || this.keysPressed(KEY_NUMPAD_ADD)) {
             this.scrollSpeed += 2/50;
             return true;
+        } else if (this.keysPressed(KEY_R)) {
+            creditsText.resetScrollY();     
+            this.scrollSpeed = SCROLL_START_Y_SPEED;   
         } else if (this.keysPressed(KEY_ESCAPE)) {
             ScreenStates.setState(MENU_SCREEN);
             return true;
