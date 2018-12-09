@@ -56,6 +56,8 @@ function GamePlayScreen () {
     };
     
     this.transitionOut = function gamePlayScreenTransitionOut() {
+        selectorPositionIndex = 0;
+        selectorPosition = {x:selectionPosition.Resume.x + selectorPositionOffset.x, y:selectionPosition.Resume.y + selectorPositionOffset.y};
 	    clearKeyboardInput();
 	    canvasContext.setTransform(1, 0, 0, 1, 0, 0);
         currentBackgroundMusic.pause();
@@ -149,7 +151,7 @@ function GamePlayScreen () {
             menuSelect.play();
             ScreenStates.isPaused = false;
             ScreenStates.setState(this.selections[0].screen);
-        }
+        }        
     }
 
     this.cutSceneFor = function(newCurrentLevel) {
@@ -196,9 +198,9 @@ function GamePlayScreen () {
                 this.adjustSelectorPosition();
                 return true;
             } else if (this.keysPressed(KEY_ENTER) || this.keysPressed(KEY_SPACE)) {
-                this.modifySelectedOption(selectorPositionIndex);            
+                this.modifySelectedOption(selectorPositionIndex);
                 return true;
-            } 
+            }
         }
 
         // CHEAT KEYS START
@@ -352,6 +354,8 @@ function GamePlayScreen () {
         } else if (this.keysPressed(KEY_P)) {
             if(!pressed) {
                 setPaused(!ScreenStates.isPaused, PauseCause.PressedPause);
+                selectorPositionIndex = 0;
+                selectorPosition = {x:selectionPosition.Resume.x + selectorPositionOffset.x, y:selectionPosition.Resume.y + selectorPositionOffset.y};
             }
             return true;
         } else {
