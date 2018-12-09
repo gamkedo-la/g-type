@@ -223,7 +223,7 @@ function GamePlayScreen () {
             if (!pressed && cheats.debugKeysEnabled) {
                 scene.collectedCapsule();
             }
-            return true;
+            return true;        
         } else if (this.keysPressed(KEY_L)) { //Adding lives
             if (!pressed && cheats.debugKeysEnabled) {
                 scene.life();
@@ -321,6 +321,9 @@ function GamePlayScreen () {
             return true;        
         // CHEAT KEYS END
         
+        } else if (this.keysPressed(KEY_X)) {
+            showXtoFire = false;
+            return true;
         } else if (this.keysPressed(KEY_SPACE)) {
             if(!pressed) {
                 scene.activatePowerUp();

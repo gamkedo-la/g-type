@@ -1,3 +1,5 @@
+let showXtoFire = false;
+
 //Game Scene
 function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null) {
 	const data = LevelData[levelIndex];
@@ -11,7 +13,8 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 	this.beatTheGame = false;
     this.levelIsComplete = false;
     this.didCompleteWarpChallenge = false;
-    this.bgTime = bgTime;
+	this.bgTime = bgTime;
+
     let starfield = new Starfield();
     if(levelIndex === WARP_INDEX) {
 	    starfield = new Starfield(240, 120, 80, -64, -128, -256);
@@ -295,7 +298,7 @@ function GameScene(levelIndex, aPlayer = null, aUIManager = null, bgTime = null)
 		uiManager.draw();
 
 
-		if (levelIndex === 0 && this.worldPos < TUTORIAL_LENGTH && !isAutoFiring && !ScreenStates.isPaused) {
+		if (levelIndex === 0 && this.worldPos < TUTORIAL_LENGTH && !isAutoFiring && !ScreenStates.isPaused && showXtoFire) {
 			if (this.worldPos % 20 > 9) { // flash every few units travelled
 				gameFont.printTextAt("[X] TO FIRE", {x:GameField.x + 10, y:Math.round(GameField.bottom/2) + 30}, 30, textAlignment.Left);
 			}

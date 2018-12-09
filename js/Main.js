@@ -17,9 +17,10 @@ window.onload = function() {
 //	loadAudio();
 
 	loadImages();
-	window.scene = null
+  window.scene = null;
+  showXtoFire = true;  
 	ScreenStates.setState(LOADING_SCREEN);
-//    gameUpdate = setInterval(update, 1000 / FRAMES_PER_SECOND);
+//    gameUpdate = setInterval(update, 1000 / FRAMES_PER_SECOND);  
 };
 
 window.focus();//necessary to ensure the game receives keyboard input once it is uploaded to itch.io
@@ -39,14 +40,14 @@ function windowOnFocus() {
 
 function loadingDoneSoStartGame() {
 	timer = new Chronogram();
-	gameFont = new GameFont(fontImage, {width:16, height:16}, canvasContext);
+	gameFont = new GameFont(fontImage, {width:16, height:16}, canvasContext);  
 
-    ScreenStates.setState(MENU_SCREEN);
-    loadingComplete = true;
+  ScreenStates.setState(MENU_SCREEN);
+  loadingComplete = true;
 
-    gameUpdate = setInterval(update, 1000 / FRAMES_PER_SECOND);
+  gameUpdate = setInterval(update, 1000 / FRAMES_PER_SECOND);
 
-	window.focus();
+  window.focus();
 }
 
 function update() {
@@ -293,7 +294,7 @@ let keydownMap = {};
 
 function initializeInput() {
 	document.addEventListener("keydown", keyDown);
-	document.addEventListener("keyup", keyDown);	
+  document.addEventListener("keyup", keyDown);	
 }
     
 function keyDown(evt) {
