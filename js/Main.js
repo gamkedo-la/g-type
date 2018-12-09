@@ -299,13 +299,15 @@ function initializeInput() {
     
 function keyDown(evt) {
 	if (evt.type == "keydown") {
-    didInteract = true;
-    if(currentBackgroundMusic.getTime() > 0){
-        currentBackgroundMusic.resume();
+    if (ScreenStates.state !== GAME_SCREEN) {
+      didInteract = true;
+      if(currentBackgroundMusic.getTime() > 0){
+          currentBackgroundMusic.resume();
+      }
+      else {
+          currentBackgroundMusic.play();
+      }
     }
-    else {
-        currentBackgroundMusic.play();
-    }	
 	}
 	
 	keydownMap[evt.keyCode] = evt.type == "keydown";
