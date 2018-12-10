@@ -261,7 +261,6 @@ const textStrings = {
 {name:"Vignesh Ramesh",   works: ['3 songs (Dil se, Energize,', '         In the End Bosca)'] },
 {name:"Coy Compositions",   works: ['planetary descent music and boss music'] },
 {name:"Joe C.S.",   works: ['song (prepare to strike)'] },
-{name:"Tomanski",   works: ['rock sprites'] },
 {name:"Loren Pierce",   works: ['code for damage sound'] },
 {name:"Dan Dela Rosa",   works: ['data persistence support'] },
 {name:"pseudoLudo",   works: ['player explosion sound'] },
