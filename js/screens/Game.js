@@ -330,13 +330,13 @@ function GamePlayScreen () {
             return true;        
         // CHEAT KEYS END
         
-        } else if (this.keysPressed(KEY_X)) {
-            showXtoFire = false;
-            return true;
         } else if (this.keysPressed(KEY_SPACE)) {
             if(!pressed) {
                 scene.activatePowerUp();
             }
+            return true;        
+        } else if (this.keysPressed(KEY_X)) {
+            showXtoFire = false;
             return true;
         } else if (this.keysPressed(KEY_ESCAPE) || this.keysPressed(KEY_BACKSPACE)) {
             if(!pressed) {
